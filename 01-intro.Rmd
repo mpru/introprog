@@ -226,7 +226,7 @@ Mencionamos anteriormente que la *programación* consistía en instruir a una co
 
 Entonces, podemos decir que la resolución computacional de un problema consiste de dos etapas básicas:
 
-1. *Diseño algorítmico*: desarrollar un algoritmo, o elección de uno existente, que resuelva el problema.
+1. *Diseño algorítmico*: desarrollar un algoritmo, o elegir uno existente, que resuelva el problema.
 2. *Codificación*: expresar un algoritmo en un lenguaje de programación para que la computadora lo pueda interpretar y ejecutar.
 
 Al aprender sobre programación, comenzamos enfrentándonos a problemas simples para los cuales la primera etapa parece sencilla, mientras que la codificación se torna dificultosa ya que hay que aprender las reglas del lenguaje de programación. Sin embargo, mientras que con práctica rápidamente podemos ganar facilidad para la escritura de código, el diseño algorítmico se torna cada vez más desafiante al encarar problemas más complejos. Es por eso que haremos hincapié en el planteo y desarrollo de algoritmos como una etapa fundamental en la programación.
