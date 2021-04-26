@@ -1,0 +1,32 @@
+# Bibliografía {-}
+
+**Bibliografía de la asignatura**
+
+-	Casale, Juan Carlos (2012). *Introducción a la Programación*. Buenos Aires: Editorial Fox Andina.
+-	Cerrada Somolinos, José y Collado Machuca, Manuel (2015). *Fundamentos De Programación*. Madrid: Editorial Universitaria Ramón Areces.
+-	Martínez López, Pablo (2013). *Las bases conceptuales de la Programación: una nueva forma de aprender a programar*. La Plata: Editorial de la Universidad Nacional de Quilmes.
+-	Quetglás, Gregorio; Toledo Lobo, Francisco; Cerverón Lleó, Vicente (1995). *Fundamentos de informática y programación*. Valencia: Editorial V.J.
+-	Wicham, Hadley (2019). *Advanced R*. Florida: Editorial Chapman and Hall/CRC.
+
+
+**Textos consultados para la reseña histórica de la programación**:
+
+- [*Ada Lovelace - Wikipedia*](https://es.wikipedia.org/wiki/Ada_Lovelace). Consultado el 21/04/21.
+- [*Difference engine - Wikipedia*](https://en.wikipedia.org/wiki/Difference_engine). Consultado el 21/04/21.
+- [*Generaciones de las computadoras*](https://www.nextu.com/blog/generaciones-de-las-computadoras/). Consultado el 21/04/21.
+- [*Generaciones de ordenadores*](https://www.profesionalreview.com/2018/10/13/generaciones-de-ordenadores/). Consultado el 21/04/21.
+- [*Historia de la programación - Wikipedia*](https://es.wikipedia.org/wiki/Anexo:Historia_de_la_computaci%C3%B3n). Consultado el 21/04/21.
+- [*Konrad Zuse - people.idsia.ch*](https://people.idsia.ch/~juergen/zuse.html). Consultado el 21/04/21.
+- [*Los huesos de Napier, la multiplicación árabe y tú*](https://culturacientifica.com/2016/10/05/los-huesos-napier-la-multiplicacion-arabe/#:~:text=Los%20huesos%20de%20Napier%2C%20tambi%C3%A9n,de%20las%20tablas%20de%20multiplicar). Consultado el 21/04/21.
+- [*Significado de computación*](https://www.significados.com/computacion/). Consultado el 21/04/21.
+
+**Otros artículos consultados**
+
+- [*Aprender programación - Curso de Java*](https://www.aprenderprogramacion.com.ar/2020/03/1-breve-historia-de-la-programacion.html). Consultado el 25/04/21.
+- [*Fundamentos de programación*](http://www.utn.edu.ec/reduca/programacion/fundamentos/fundamentos_de_programacin.html). Consultado el 25/04/21.
+- [*Hardware y software: definiciones y conceptos*](https://www.profesionalreview.com/2019/11/10/hardware-software-definiciones/). Consultado el 25/04/21.
+- [*Introduction to programming*](https://www.bbc.co.uk/bitesize/guides/zts8d2p/revision/1). Consultado el 25/04/21.
+- [*Programación estructurada*](http://www1.frm.utn.edu.ar/informatica1/VIANI/PROGRAMACION%20ESTRUCTURADA/PROGRAMACION%20ESTRUCTURADA.PDF). Consultado el 25/04/21.
+- [*The 7 Most Common Types of Errors in Programming and How to Avoid Them*](https://textexpander.com/blog/the-7-most-common-types-of-errors-in-programming-and-how-to-avoid-them
+). Consultado el 25/04/21.
+- [*What is abstraction in programming?*](https://levelup.gitconnected.com/what-is-abstraction-in-programming-2f35c8c72e15). Consultado el 25/04/21.

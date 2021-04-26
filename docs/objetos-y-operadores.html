@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>2 Objetos y operadores | Introducción a la Programación</title>
+<meta name="author" content="Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.)">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.7/header-attrs.js"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.4.9003/tabs.js"></script><script src="libs/bs3compat-0.2.4.9003/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="Guía de estudio - Lic. en Estadística - FCEyE - UNR">Introducción a la Programación</a>:
+        <small class="text-muted">Guía de estudio - Lic. en Estadística - FCEyE - UNR</small>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Tabla de contenidos"><h2>Tabla de contenidos</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Bienvenida</a></li>
+<li><a class="" href="introducci%C3%B3n-a-la-programaci%C3%B3n.html"><span class="header-section-number">1</span> Introducción a la Programación</a></li>
+<li><a class="active" href="objetos-y-operadores.html"><span class="header-section-number">2</span> Objetos y operadores</a></li>
+<li><a class="" href="estructuras-de-control.html"><span class="header-section-number">3</span> Estructuras de control</a></li>
+<li><a class="" href="descomposici%C3%B3n-algor%C3%ADtmica.html"><span class="header-section-number">4</span> Descomposición algorítmica</a></li>
+<li><a class="" href="estructuras-de-datos.html"><span class="header-section-number">5</span> Estructuras de datos</a></li>
+<li><a class="" href="uso-de-archivos-de-datos.html"><span class="header-section-number">6</span> Uso de archivos de datos</a></li>
+<li><a class="" href="otros-t%C3%B3picos.html"><span class="header-section-number">7</span> Otros tópicos</a></li>
+<li><a class="" href="bibliograf%C3%ADa.html">Bibliografía</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="objetos-y-operadores" class="section level1" number="2">
+<h1>
+<span class="header-section-number">2</span> Objetos y operadores<a class="anchor" aria-label="anchor" href="#objetos-y-operadores"><i class="fas fa-link"></i></a>
+</h1>
+<p>Hemos mencionado que para resolver un problema computacional se necesita de un <em>procesador</em>, capaz de entender y ejecutar ciertas <em>acciones</em> a partir de ciertos elementos disponibles en el <em>ambiente</em> o <em>entorno</em>. Cuando trabajamos con Karel, dijimos que ella era la procesadora, que era capaz de realizar cuatro acciones básicas (aunque pudimos crear acciones nuevas para ella) y que su ambiente eran sus mundos con paredes y <em>cosos</em>. Si bien le damos gracias a Karel por ayudarnos a incorporar algunos conceptos, ahora nos despedimos de ella y vamos a presentar otras nociones para que podamos avanzar en nuestro aprendizaje sobre programación en términos más generales.</p>
+<div id="objetos" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> Objetos<a class="anchor" aria-label="anchor" href="#objetos"><i class="fas fa-link"></i></a>
+</h2>
+<p>Los <strong>objetos</strong> son las distintas piezas de información, o más sencillamente, <em>datos</em>, que componen al <em>entorno</em> y que el procesador debe manipular para resolver una tarea. Las distintas acciones del algoritmo van creando o modificando a los objetos del entorno. A medida que avancemos, veremos que hay distintas clases de objetos, algunos con estructuras más simples y otros más complejos. Es más, cada lenguaje de programación propone su propio catálogo de clases de objetos y cada programador puede crear otras nuevas. Sin embargo, en general todos los lenguajes tienen en común el hecho de que sus objetos pueden almacenar los siguientes tres tipos de datos básicos, conocidos como <strong>tipos de datos primitivos</strong>:</p>
+<ul>
+<li>
+<strong>Datos de tipo numérico</strong>: representan valores escalares de forma numérica y permiten realizar operaciones aritméticas comunes. Ejemplo: 230, 2.</li>
+<li>
+<strong>Datos de tipo caracter</strong>: representan texto y no es posible hacer operaciones matemáticas con ellos. Representamos estos valores entre comillas. Ejemplo: “hola”, “chau123”</li>
+<li>
+<strong>Datos de tipo lógico</strong>: pueden tomar dos valores (<em>VERDADERO</em> o <em>FALSO</em>), ya que representan el resultado de alguna comparación entre otros objetos. En R, estos valores son <code>TRUE</code> y <code>FALSE</code>, escritos sin comillas.</li>
+</ul>
+<p>De manera general, al nombre de un objeto se le dice <strong>identificador</strong>, el cual es una secuencia de caracteres alfanuméricos que sirve para identificarlo a lo largo del algoritmo. Nombrar los objetos hace posible referirse a los mismos. La elección de los identificadores es una tarea del programador, pero cada lenguaje tiene sus propias reglas. Por ejemplo, en R los nombres de los objetos:</p>
+<ul>
+<li>Deben empezar con una letra o un punto (no pueden empezar con un número).</li>
+<li>Sólo pueden contener letras, números, guiones bajos y puntos (se puede forzar a R para que acepte nombres con otros caracteres, pero no es aconsejable).</li>
+<li>No se pueden usar las siguientes palabras como nombres, ya que son palabras claves reservadas para R: <code>break</code>, <code>else</code>, <code>FALSE</code>, <code>for</code>, <code>function</code>, <code>if</code>, <code>Inf</code>, <code>NA</code>, <code>NaN</code>, <code>next</code>, <code>repeat</code>, <code>return</code>, <code>TRUE</code>, <code>while</code>.</li>
+</ul>
+<p>Es aconsejable elegir un nombre que sea representativo de la información que va a guardar el objeto, ya que esto facilita la lectura y la comprensión tanto del algoritmo como del programa. Por ejemplo, si se necesita un objeto para guardar el valor numérico del precio de algún producto, el identificador <code>p</code> sería una mala elección, mientras que <code>precio</code> sería mejor. Si se necesitan varios identificadores para distinguir los precios de diversos productos, podríamos usar algo como <code>precio_manzana</code>, <code>precio_banana</code>, etc. Otra opción podría ser <code>preciomanzana</code> o <code>precioManzana</code>, pero en este curso seguiremos la convención de usar guiones bajos para facilitar la lectura de los nombres elegidos. No sería posible usar como identificador a <code>precio manazana</code>, puesto que un nombre no puede tener espacios.</p>
+<p>Ciertos objetos almacenan temporalmente un valor durante la ejecución de un proceso y su contenido puede cambiar mientras corre el programa. Este tipo de objetos reciben el nombre de <strong>variables</strong>. Por ejemplo, en un programa creado para un comercio puede existir un objeto llamado <code>stock</code> (identificador) de tipo numérico que representa la cantidad de artículos disponibles y cuyo valor se modifica cada vez que se registra una nueva venta. Podemos pensar a una variable como una caja etiquetada con un nombre (su identificador) y que guarda un valor (numérico, lógico o de caracter).</p>
+<div class="figure" style="text-align: center">
+<span id="fig:cajas"></span>
+<img src="images/02_obj/09_cajas2.png" alt="La variable A contiene al valor 5." width="50%"><p class="caption">
+Figura 2.1: La variable A contiene al valor 5.
+</p>
+</div>
+<p>Si un objeto tiene siempre necesariamente un valor fijo, se dice que es una <strong>constante</strong>. El valor es siempre el mismo para cualquier ejecución del programa, es decir, no puede cambiar de una ejecución a otra. Son ejemplos de constantes el número de meses del año, las constantes matemáticas tales como el número <span class="math inline">\(\pi\)</span>, los factores de conversión de unidades de medida, etc. Las constantes pueden usarse literalmente, es decir, usando explícitamente el valor, o también a través de un objeto que asocie un identificador al valor constante (por ejemplo, asociar el nombre <code>pi</code> a la constante 3.14159265).</p>
+<div id="declaración-de-variables-y-constantes" class="section level3" number="2.1.1">
+<h3>
+<span class="header-section-number">2.1.1</span> Declaración de variables y constantes<a class="anchor" aria-label="anchor" href="#declaraci%C3%B3n-de-variables-y-constantes"><i class="fas fa-link"></i></a>
+</h3>
+<p>Al expresar nuestros algoritmos en pseudocódigo tomaremos la costumbre de declarar al inicio del mismo las variables y constantes necesarias para resolver el problema, explicitando su identificador y determinando el tipo de valor que guarda. Muchos lenguajes de programación utilizan esta declaración para reservar en la memoria de la computadora un espacio para almacenar la información correspondiente de manera adecuada.</p>
+<p>Veamos un ejemplo:</p>
+<pre class="text"><code>ALGORITMO: "Calcular área de un círculo"
+COMENZAR
+    CONSTANTE numérica pi
+    VARIABLE numérica radio, area
+        ...restantes acciones del algoritmo...
+FIN</code></pre>
+<p>Una vez que una variable o constante ha sido definida con un tipo particular, es incorrecto intentar asignarle un valor de otro tipo, por ejemplo, asignarle a la variable <code>radio</code> del ejemplo anterior un valor de tipo caracter. Esto generaría ambigüedad, además de que en ciertos lenguajes de programación produciría un error.</p>
+<p>R es un lenguaje dinámico que no requiere la declaración previa de las variables que serán utilizadas, sino que estas pueden definirse dinámicamente a lo largo del programa. Por eso, incluiremos declaración de variables y constantes sólo en los algoritmos y no cuando estos sean traducidos a R. Al no necesitar una declaración previa, en R es posible asignar, por ejemplo, un valor de tipo caracter a un identificador que anteriormente contenía un valor de tipo numérico, pero trataremos de evitar esto.</p>
+</div>
+<div id="acción-de-asignación" class="section level3" number="2.1.2">
+<h3>
+<span class="header-section-number">2.1.2</span> Acción de asignación<a class="anchor" aria-label="anchor" href="#acci%C3%B3n-de-asignaci%C3%B3n"><i class="fas fa-link"></i></a>
+</h3>
+<p>Para hacer que una variable guarde un determinado valor se recurre a una <strong>acción de asignación</strong>. Mediante asignaciones podemos dar valores iniciales a las variables, modificar el valor que tenían hasta el momento o guardar en ellas resultados intermedios o finales del algoritmo.</p>
+<p>En pseudocódigo expresaremos a la asignación como se muestra en estos ejemplos:</p>
+<pre class="text"><code>ALGORITMO: "Calcular área de un círculo"
+COMENZAR
+    CONSTANTE numérica pi
+    VARIABLE numérica radio, area
+    pi &lt;- 3.14159265358979
+    radio &lt;- 3
+    ...restantes acciones del algoritmo...
+FIN</code></pre>
+<p>Si intervienen variables o constantes en la expresión a la derecha de una acción de asignación, se usará el valor que tengan las mismas en ese momento. Por ejemplo, la siguiente secuencia de acciones en un algoritmo:</p>
+<pre class="text"><code>var1 &lt;- 2
+var2 &lt;- var1
+var1 &lt;- 7
+var3 &lt;- var1</code></pre>
+<p>resultará en que las variables <code>var1</code>, <code>var2</code> y <code>var3</code> tengan almacenados los valores 7, 2 y 7 respectivamente. Un caso particular se da cuando a una variable se le asigna el valor de una operación de la que forma parte la misma variable. Por ejemplo:</p>
+<pre class="text"><code>stock &lt;- 43
+ventas &lt;- 29
+compras &lt;- 12
+stock &lt;- stock - ventas + compras</code></pre>
+</div>
+<div id="creación-y-manejo-de-objetos-en-r" class="section level3" number="2.1.3">
+<h3>
+<span class="header-section-number">2.1.3</span> Creación y manejo de objetos en R<a class="anchor" aria-label="anchor" href="#creaci%C3%B3n-y-manejo-de-objetos-en-r"><i class="fas fa-link"></i></a>
+</h3>
+<p>En R también se usa el operador “flechita” para asignar valores a variables. Como lo vamos a usar muchísimas veces, es conveniente recordar su <em>shortcut</em>: <code>Alt + -</code> (teclas <em>Alt</em> y guión medio). Como ya mencionamos antes, R es un lenguaje dinámico, lo cual significa que no tenemos que declarar las variables antes de asignarles un valor. Por ejemplo, si necesitamos registrar el peso y lugar de nacimiento de una persona, solamente tenemos que hacer:</p>
+<pre class="text"><code>lugar_nacimiento &lt;- "Bombal"
+peso_nacimiento &lt;- 3.423</code></pre>
+<p>En este caso, <code>lugar_nacimiento</code> es un objeto de tipo carácter, ya que la información que contiene es <code>"Bombal"</code>, y <code>peso_nacimiento</code> es un objeto numérico. Vale aclarar que en R el punto decimal se representa con el punto <code>.</code> y no con la coma <code>,</code> como solemos escribir habitualmente, por lo que el número indicado se lee “tres coma cuatrocientos veintitrés” y no “tres mil cuatrocientos veintitrés”. Asimismo, no se usan separadores de miles al escribir los números.</p>
+<p>Por otro lado, R provee algunas funciones para poder averiguar en cualquier momento qué tipo de dato está almacenado en alguna variable. Todavía no hemos definido formalmente a las <em>funciones</em>, pero por ahora nos alcanza con saber que son otro tipo de objetos que cuando las usamos se encargan de cumplir con alguna tarea específica. Las funciones también tienen un nombre (<em>identificador</em>) y están seguidas por un par de paréntesis, dentro de los cuales se escriben opciones para que ellas operen. La función <code><a href="https://rdrr.io/r/base/class.html">class()</a></code> es la que nos dice qué tipo de dato hay en una variable:</p>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">var1</span> <span class="op">&lt;-</span> <span class="fl">2</span>
+<span class="va">var2</span> <span class="op">&lt;-</span> <span class="st">"Hola Mundo"</span>
+<span class="va">var3</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">var1</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] "numeric"</code></pre>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">var2</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] "character"</code></pre>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">var3</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] "logical"</code></pre>
+<p>También hay algunas funciones que devuelven <code>TRUE</code> o <code>FALSE</code> a modo de respuesta cuando le preguntamos a R si una variable tiene un dato de tipo numérico, caracter o lógico:</p>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">var1</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">var2</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/character.html">is.character</a></span><span class="op">(</span><span class="va">var3</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/logical.html">is.logical</a></span><span class="op">(</span><span class="va">var3</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<p>Todos los objetos que vamos definiendo en nuestro algoritmo y, posteriormente, en nuestro programa, forman parte del <em>ambiente</em>. En Rstudio podemos ver listados todos los objetos presentes en el ambiente en la pestaña <em>Environment</em> del panel superior derecho. También podemos ver en la consola un listado de todos los nombres de los objetos que existen en el ambiente con la función <code><a href="https://rdrr.io/r/base/ls.html">ls()</a></code>, por ejemplo:</p>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] "var1" "var2" "var3"</code></pre>
+<p>Es probable que mientras estamos escribiendo el código, necesitemos probar si algunas partes funcionan y para eso corremos algunas líneas de código, creando objetos en el ambiente. Entre intento e intento, probablemnte necesitemos borrar alguno o todos esos objetos que se crearon, para poder comenzar con un ambiente libre. Si deseamos borrar todos los objetos del ambiente podemos correr la sentencia <code><a href="https://rdrr.io/r/base/rm.html">rm(list = ls())</a></code> o hacer clic en el ícono de la escoba en el panel <em>Environment</em>. Si queremos eliminar sólo un objeto debemos ejecutar la función <code><a href="https://rdrr.io/r/base/rm.html">rm()</a></code>, indicando entre paréntesis el identificador del objeto que deseamos borrar, por ejemplo:</p>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">var1</span><span class="op">)</span></code></pre></div>
+<p>Todos los objetos generados viven temporalmente en la memoria de la computadora mientras dure la sesión de R en la que estamos trabajando. Si cerramos R, toda esa información desaparecerá. Muchas veces eso es algo deseable: una vez finalizado el programa, guardamos algún resultado que nos interese (por ejemplo, un conjunto de datos en un archivo de Excel) y todos los objetos del ambiente que fuimos necesitando en el camino son descartados. Sin embargo, en otras oportunidades nos interesa guardar de forma permanente en la computadora una copia de todo lo que se encuentra en el ambiente en un archivo dentro de alguna carpeta. Los archivos que contienen los objetos creados en R tienen extensión <code>.RData</code>. Estos archivos se generan con el ícono de guardar en la pestaña <em>Environment</em> o usando la función <code><a href="https://rdrr.io/r/base/save.html">save.image()</a></code>, que necesita que escribamos entre los paréntesis la carpeta donde guardaremos el archivo y el nombre elegido para el mismo, por ejemplo:</p>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/save.html">save.image</a></span><span class="op">(</span><span class="st">"C:/Users/Ana/Documentos/Facultad/objetos.RData"</span><span class="op">)</span></code></pre></div>
+<p>Si por el contrario necesitamos <em>importar</em> al ambiente objetos que estén guardados en algún lugar de nuestra compu en un archivo <code>.RData</code>, podemos usar el ícono de abrir en la pestaña <em>Environment</em> o la función <code><a href="https://rdrr.io/r/base/load.html">load()</a></code>, por ejemplo:</p>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"C:/Users/Ana/Documentos/Facultad/objetos.RData"</span><span class="op">)</span></code></pre></div>
+</div>
+</div>
+<div id="operadores" class="section level2" number="2.2">
+<h2>
+<span class="header-section-number">2.2</span> Operadores<a class="anchor" aria-label="anchor" href="#operadores"><i class="fas fa-link"></i></a>
+</h2>
+<p>El desarrollo de un algoritmo involucra la necesidad de efectuar operaciones de distinto tipo entre los valores guardados en los objetos: suma, resta, concatenación de caracteres, comparaciones, etc. Los elementos que describen el tipo de operación a realizar entre dos objetos se denominan <strong>operadores</strong>.</p>
+<div id="operadores-aritméticos" class="section level3" number="2.2.1">
+<h3>
+<span class="header-section-number">2.2.1</span> Operadores aritméticos<a class="anchor" aria-label="anchor" href="#operadores-aritm%C3%A9ticos"><i class="fas fa-link"></i></a>
+</h3>
+<p>Los operadores aritméticos permiten realizar operaciones matemáticas con datos de tipo numérico. A continuación presentamos su simbología más comúnmente empleada a la hora de expresarlos en pseudocódigo, junto con sus equivalentes en el lenguaje R:</p>
+<div class="inline-table"><table style="width:100%;" class="table table-sm">
+<caption>
+<span id="tab:op-mat">Tabla 2.1: </span> Operadores aritméticos.</caption>
+<colgroup>
+<col width="35%">
+<col width="22%">
+<col width="12%">
+<col width="7%">
+<col width="22%">
+</colgroup>
+<thead><tr class="header">
+<th align="center">Operación</th>
+<th align="center">Operador en pseudocódigo</th>
+<th align="center">Operador en R</th>
+<th align="center">Ejemplo</th>
+<th align="center">Rtdo para x &lt;- 7, y &lt;- 3</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">Suma</td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">x + y</td>
+<td align="center">10</td>
+</tr>
+<tr class="even">
+<td align="center">Resta</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">x - y</td>
+<td align="center">4</td>
+</tr>
+<tr class="odd">
+<td align="center">Multiplicación</td>
+<td align="center">*</td>
+<td align="center">*</td>
+<td align="center">x * y</td>
+<td align="center">21</td>
+</tr>
+<tr class="even">
+<td align="center">División</td>
+<td align="center">/</td>
+<td align="center">/</td>
+<td align="center">x / y</td>
+<td align="center">2.33</td>
+</tr>
+<tr class="odd">
+<td align="center">Potenciación</td>
+<td align="center">^</td>
+<td align="center">^</td>
+<td align="center">x ^ y</td>
+<td align="center">343</td>
+</tr>
+<tr class="even">
+<td align="center">División entera</td>
+<td align="center">DIV</td>
+<td align="center">%/%</td>
+<td align="center">x %/% y</td>
+<td align="center">2</td>
+</tr>
+<tr class="odd">
+<td align="center">División módular (resto de la división)</td>
+<td align="center">MOD</td>
+<td align="center">%%</td>
+<td align="center">x %% y</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table></div>
+<p>Los operadores aritméticos actúan con un orden de prioridad establecido, también conocido como <em>orden de evaluación</em> u <em>orden de precedencia</em>, tal como estamos acostumbrados en matemática. Las expresiones entre paréntesis se evalúan primero. Si hay paréntesis anidados se evalúan desde adentro hacia afuera. Dentro de una misma expresión, <strong>en R</strong> los operadores se evalúan en este orden:</p>
+<ol style="list-style-type: decimal">
+<li>Potenciación (<code><a href="https://rdrr.io/r/base/Arithmetic.html">^</a></code>)</li>
+<li>División entera y módulo (<code><a href="https://rdrr.io/r/base/Arithmetic.html">%/%</a></code>, <code><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></code>, y cualquier otro operador especial del tipo <code>%...%</code>)</li>
+<li>Multiplicación y división (<code><a href="https://rdrr.io/r/base/Arithmetic.html">*</a></code>, <code><a href="https://rdrr.io/r/base/Arithmetic.html">/</a></code>)</li>
+<li>Suma y resta (<code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>, <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code>)</li>
+</ol>
+<p>Si la expresión presenta operadores con igual nivel de prioridad, se evalúan de izquierda a derecha. Veamos algunos ejemplos:</p>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:ej-op-mat">Tabla 2.2: </span> Ejemplos de operaciones aritméticas según el orden de precedencia de R.</caption>
+<thead><tr class="header">
+<th align="center">Operación</th>
+<th align="center">Resultado</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">4 + 2 * 4</td>
+<td align="center">12</td>
+</tr>
+<tr class="even">
+<td align="center">23 * 2 / 5</td>
+<td align="center">9.2</td>
+</tr>
+<tr class="odd">
+<td align="center">3 + 5 * (10 - (2 + 4))</td>
+<td align="center">23</td>
+</tr>
+<tr class="even">
+<td align="center">2.1 * 1.5 + 12.3</td>
+<td align="center">15.45</td>
+</tr>
+<tr class="odd">
+<td align="center">2.1 * (1.5 + 12.3)</td>
+<td align="center">28.98</td>
+</tr>
+<tr class="even">
+<td align="center">1 %% 4</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center">8 * (7 - 6 + 5) %% (1 + 8 / 2) - 1</td>
+<td align="center">7</td>
+</tr>
+</tbody>
+</table></div>
+<!-- Rpta CUANDO USABA IML QUE MODULO ERA IGUAL QUE MULTIPLICACION Y DIVISION: 
+8 * 6 MOD 5 - 1
+48 MOD 5 -1
+3 - 1
+2
+
+EN R
+8 * 6 %% 5 - 1
+8 * 1 - 1
+7
+-->
+</div>
+<div id="operadores-relacionales-o-de-comparación" class="section level3" number="2.2.2">
+<h3>
+<span class="header-section-number">2.2.2</span> Operadores relacionales o de comparación<a class="anchor" aria-label="anchor" href="#operadores-relacionales-o-de-comparaci%C3%B3n"><i class="fas fa-link"></i></a>
+</h3>
+<p>Los operadores relacionales sirven para comparar dos valores de cualquier tipo y dan como resultado un valor lógico: <em>VERDADERO</em> (<code>T</code> o <code>TRUE</code> en R) o <em>FALSO</em> (<code>F</code> o <code>FALSE</code> en R).</p>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:op-rel">Tabla 2.3: </span> Operadores relacionales o de comparación.</caption>
+<colgroup>
+<col width="20%">
+<col width="27%">
+<col width="15%">
+<col width="9%">
+<col width="27%">
+</colgroup>
+<thead><tr class="header">
+<th align="center">Comparación</th>
+<th align="center">Operador en pseudocódigo</th>
+<th align="center">Operador en R</th>
+<th align="center">Ejemplo</th>
+<th align="center">Rtdo para x &lt;- 7, y &lt;- 3</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">Mayor que</td>
+<td align="center">&gt;</td>
+<td align="center">&gt;</td>
+<td align="center">x &gt; y</td>
+<td align="center">TRUE</td>
+</tr>
+<tr class="even">
+<td align="center">Menor que</td>
+<td align="center">&lt;</td>
+<td align="center">&lt;</td>
+<td align="center">x &lt; y</td>
+<td align="center">FALSE</td>
+</tr>
+<tr class="odd">
+<td align="center">Mayor o igual que</td>
+<td align="center">&gt;=</td>
+<td align="center">&gt;=</td>
+<td align="center">x &gt;= y</td>
+<td align="center">TRUE</td>
+</tr>
+<tr class="even">
+<td align="center">Menor o igual que</td>
+<td align="center">&lt;=</td>
+<td align="center">&lt;=</td>
+<td align="center">x &lt;= y</td>
+<td align="center">FALSE</td>
+</tr>
+<tr class="odd">
+<td align="center">Igual a</td>
+<td align="center">= o ==</td>
+<td align="center">==</td>
+<td align="center">x == y</td>
+<td align="center">FALSE</td>
+</tr>
+<tr class="even">
+<td align="center">Distinto a</td>
+<td align="center">¬= o !=</td>
+<td align="center">!=</td>
+<td align="center">x != y</td>
+<td align="center">TRUE</td>
+</tr>
+</tbody>
+</table></div>
+<p>Otros ejemplos:</p>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">3</span>
+<span class="va">b</span> <span class="op">&lt;-</span> <span class="fl">4</span>
+<span class="va">c</span> <span class="op">&lt;-</span> <span class="fl">2</span>
+<span class="va">d</span> <span class="op">&lt;-</span> <span class="fl">10</span>
+<span class="va">e</span> <span class="op">&lt;-</span> <span class="fl">15</span>
+<span class="op">(</span><span class="va">a</span> <span class="op">*</span> <span class="va">b</span><span class="op">)</span> <span class="op">==</span> <span class="op">(</span><span class="va">c</span> <span class="op">+</span> <span class="va">d</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="op">(</span><span class="va">a</span> <span class="op">*</span> <span class="va">b</span><span class="op">)</span> <span class="op">!=</span> <span class="op">(</span><span class="va">e</span> <span class="op">-</span> <span class="va">b</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<p>Es interesante notar que primero se evalúan las operaciones a cada lado de los operadores relacionales y luego se hace la comparación. Es decir, <strong>los operadores aritméticos preceden a los relacionales en el orden de prioridad</strong>. Por eso, en los ejemplos anteriores no eran necesarios los paréntesis y podríamos poner directamente:</p>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">a</span> <span class="op">*</span> <span class="va">b</span> <span class="op">==</span> <span class="va">c</span> <span class="op">+</span> <span class="va">d</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">a</span> <span class="op">*</span> <span class="va">b</span> <span class="op">!=</span> <span class="va">e</span> <span class="op">-</span> <span class="va">b</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<p>Si bien en pseudocódigo podemos usar tanto <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code> o <code><a href="https://rdrr.io/r/base/Comparison.html">==</a></code> para probar la igualdad entre dos elementos, <strong>en R no debemos usar</strong> <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code> para este fin, puesto que <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code> no es un operador de comparación sino de asignación, parecido al <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code>.</p>
+</div>
+<div id="operadores-lógicos" class="section level3" number="2.2.3">
+<h3>
+<span class="header-section-number">2.2.3</span> Operadores lógicos<a class="anchor" aria-label="anchor" href="#operadores-l%C3%B3gicos"><i class="fas fa-link"></i></a>
+</h3>
+<p>Mientras que los operadores relacionales comparan cualquier tipo de valores, los operadores lógicos sólo toman operandos de tipo lógico y producen también un resultado lógico. Los operadores lógicos que utilizaremos son:</p>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:op-log">Tabla 2.4: </span> Operadores lógicos.</caption>
+<colgroup>
+<col width="13%">
+<col width="29%">
+<col width="17%">
+<col width="10%">
+<col width="29%">
+</colgroup>
+<thead><tr class="header">
+<th align="center">Operación</th>
+<th align="center">Operador en pseudocódigo</th>
+<th align="center">Operador en R</th>
+<th align="center">Ejemplo</th>
+<th align="center">Rtdo para x &lt;- T, y &lt;- F</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">Conjunción</td>
+<td align="center">Y</td>
+<td align="center">&amp;&amp;</td>
+<td align="center">x &amp;&amp; y</td>
+<td align="center">FALSE</td>
+</tr>
+<tr class="even">
+<td align="center">Disyunción</td>
+<td align="center">O</td>
+<td align="center">||</td>
+<td align="center">x || y</td>
+<td align="center">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="center">Negación</td>
+<td align="center">NO o ¬</td>
+<td align="center">!</td>
+<td align="center">!x</td>
+<td align="center">FALSE</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>La operación de conjunción (Y) devuelve un valor <strong>VERDADERO</strong> sólo si son verdaderas <strong>ambas</strong> expresiones que vincula. Ejemplo: <code>(3 &gt; 2) Y (3 &gt; 5)</code> resulta en <code>VERDADERO Y FALSO</code> y esto es <code>FALSO</code>.</li>
+<li>La operación de disyunción (O) devuelve un valor <strong>VERDADERO</strong> si <strong>al menos una</strong> de las dos expresiones que vincula es verdadera. Ejemplo: <code>(3 &gt; 2) O (3 &gt; 5)</code> resulta en <code>VERDADERO O FALSO</code> y esto es <code>VERDADERO</code>.</li>
+<li>La operación de negación (NO) niega un valor lógico, es decir, devuelve el opuesto. Ejemplo: <code>NO (3 &gt; 2)</code> resulta en <code>NO VERDADERO</code> y esto es <code>FALSO</code>.</li>
+</ul>
+<p>Tanto para la conjunción como para la disyunción, R provee dos operadores, repitiendo o no el símbolo correspondiente: <code><a href="https://rdrr.io/r/base/Logic.html">&amp;&amp;</a></code> vs <code><a href="https://rdrr.io/r/base/Logic.html">&amp;</a></code>; <code><a href="https://rdrr.io/r/base/Logic.html">||</a></code> vs <code><a href="https://rdrr.io/r/base/Logic.html">|</a></code>. Hay una diferencia entre ellos que por ahora no viene al caso, pero vamos a señalar que por ahora estaremos usando las versiones presentadas anteriormente: <code><a href="https://rdrr.io/r/base/Logic.html">&amp;&amp;</a></code> y <code><a href="https://rdrr.io/r/base/Logic.html">||</a></code>.</p>
+<p>La <strong>tablas de verdad</strong> o <strong>tabla de valores de verdad</strong> se utiliza para mostrar los resultados de estas operaciones lógicas:</p>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:verdad">Tabla 2.5: </span> Operadores relacionales o de comparación.</caption>
+<thead><tr class="header">
+<th align="center">Valor 1</th>
+<th align="center">Operador</th>
+<th align="center">Valor 2</th>
+<th align="center">Resultado</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">F</td>
+<td align="center">Y</td>
+<td align="center">F</td>
+<td align="center">F</td>
+</tr>
+<tr class="even">
+<td align="center">F</td>
+<td align="center">Y</td>
+<td align="center">V</td>
+<td align="center">F</td>
+</tr>
+<tr class="odd">
+<td align="center">V</td>
+<td align="center">Y</td>
+<td align="center">F</td>
+<td align="center">F</td>
+</tr>
+<tr class="even">
+<td align="center">V</td>
+<td align="center">Y</td>
+<td align="center">V</td>
+<td align="center">V</td>
+</tr>
+<tr class="odd">
+<td align="center">F</td>
+<td align="center">O</td>
+<td align="center">F</td>
+<td align="center">F</td>
+</tr>
+<tr class="even">
+<td align="center">F</td>
+<td align="center">O</td>
+<td align="center">V</td>
+<td align="center">V</td>
+</tr>
+<tr class="odd">
+<td align="center">V</td>
+<td align="center">O</td>
+<td align="center">F</td>
+<td align="center">V</td>
+</tr>
+<tr class="even">
+<td align="center">V</td>
+<td align="center">O</td>
+<td align="center">V</td>
+<td align="center">V</td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="center">NO</td>
+<td align="center">F</td>
+<td align="center">V</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center">NO</td>
+<td align="center">V</td>
+<td align="center">F</td>
+</tr>
+</tbody>
+</table></div>
+<p>Con estos operadores es posible construir evaluaciones lógicas más elaboradas como los siguientes ejemplos:</p>
+<ol style="list-style-type: decimal">
+<li>
+<p>Evaluar si el valor de <code>ancho</code> está entre 5 y 7: <code>(ancho &gt; 5) Y (ancho &lt; 7)</code>.</p>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ancho</span> <span class="op">&lt;-</span> <span class="fl">6.4</span>
+<span class="op">(</span><span class="va">ancho</span> <span class="op">&gt;</span> <span class="fl">5</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">ancho</span> <span class="op">&lt;</span> <span class="fl">7</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+</li>
+<li>
+<p>Establecer si una persona estudia Estadística o Economía: <code>(carrera == "Estadística") O (carrera == "Economía")</code>.</p>
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">carrera</span> <span class="op">&lt;-</span> <span class="st">"Administración"</span>
+<span class="op">(</span><span class="va">carrera</span> <span class="op">==</span> <span class="st">"Estadística"</span><span class="op">)</span> <span class="op">||</span> <span class="op">(</span><span class="va">carrera</span> <span class="op">==</span> <span class="st">"Economía"</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+</li>
+<li>
+<p>Determinar si una persona no estudia Estadística: <code>NO (carrera == "Estadística")</code>.</p>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">carrera</span> <span class="op">&lt;-</span> <span class="st">"Administración"</span>
+<span class="op">!</span><span class="op">(</span><span class="va">carrera</span> <span class="op">==</span> <span class="st">"Estadística"</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+</li>
+<li>
+<p>Verificar que el valor guardado en <code>x</code> no sea igual a 2 ni a 3:</p>
+<ul>
+<li>Opción correcta 1: <code>(x != 2) Y (x != 3)</code>
+</li>
+</ul>
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Da verdadero porque x no es ni 2 ni 3</span>
+<span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">10</span>
+<span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Da falso porque x es igual a 3</span>
+<span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">3</span>
+<span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<ul>
+<li>Opción correcta 2: <code>NO ((x == 2) O (x == 3))</code>
+</li>
+</ul>
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Da verdadero porque x no es ni 2 ni 3</span>
+<span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">10</span>
+<span class="op">!</span><span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="fl">2</span> <span class="op">||</span> <span class="va">x</span> <span class="op">==</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Da falso porque x es igual a 3</span>
+<span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">3</span>
+<span class="op">!</span><span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="fl">2</span> <span class="op">||</span> <span class="va">x</span> <span class="op">==</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<ul>
+<li>Opción incorrecta: <code>(x != 2) O (x != 3)</code>
+</li>
+</ul>
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Da verdadero, porque al ser x igual a 3, es distinto de 2,</span>
+<span class="co"># haciendo que la primera parte sea verdadera </span>
+<span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">3</span>
+<span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">||</span> <span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+</li>
+</ol>
+<p>Este último ejemplo se relaciona con las <strong>Leyes de Morgan</strong>: siendo <code>b</code> y <code>c</code> valores lógicos, se tiene:</p>
+<ul>
+<li>
+<code>NO (b O c)</code> es equivalente a <code>NO b Y NO c</code>.</li>
+<li>
+<code>NO (b Y c)</code> es equivalente a <code>NO b O NO c</code>.</li>
+</ul>
+<p>Es importante notar que todos los paréntesis usados en el código de R del ejemplo 4 son innecesarios, puesto que <strong>los operadores relacionales preceden a los lógicos en el orden de prioridad</strong>. Sin embargo, a veces preferimos usar paréntesis para que la lectura sea más sencilla. En el siguiente ejemplo, ambas expresiones son equivalentes:</p>
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ancho</span> <span class="op">&lt;-</span> <span class="fl">6.4</span>
+<span class="op">(</span><span class="va">ancho</span> <span class="op">&gt;</span> <span class="fl">5</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">ancho</span> <span class="op">&lt;</span> <span class="fl">7</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ancho</span> <span class="op">&gt;</span> <span class="fl">5</span> <span class="op">&amp;&amp;</span> <span class="va">ancho</span> <span class="op">&lt;</span> <span class="fl">7</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<p>Para pensar: predecir el resultado de las siguientes operaciones y luego verificar:</p>
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">2</span>
+<span class="va">y</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="fl">2</span>
+<span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0</span> <span class="op">&amp;&amp;</span> <span class="va">y</span> <span class="op">&lt;</span> <span class="fl">0</span>
+<span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0</span> <span class="op">||</span> <span class="va">y</span> <span class="op">&lt;</span> <span class="fl">0</span>
+<span class="op">!</span><span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0</span> <span class="op">&amp;&amp;</span> <span class="va">y</span> <span class="op">&lt;</span> <span class="fl">0</span><span class="op">)</span></code></pre></div>
+<div id="evaluación-en-cortocircuito" class="section level4" number="2.2.3.1">
+<h4>
+<span class="header-section-number">2.2.3.1</span> Evaluación en cortocircuito<a class="anchor" aria-label="anchor" href="#evaluaci%C3%B3n-en-cortocircuito"><i class="fas fa-link"></i></a>
+</h4>
+<p>Para evaluar la operación de conjunción <code>x &amp;&amp; y</code>, en R se comienza por evaluar la expresión del primer operando <code>x</code> y si su resultado es <code>FALSE</code> ya no se evalúa la expresión <code>y</code> del segundo operando. Esto es porque si <code>x</code> es <code>FALSE</code>, el resultado de <code>x &amp;&amp; y</code> ya no depende de <code>y</code>, será siempre <code>FALSE</code>. Por este motivo se dice que el operador <code><a href="https://rdrr.io/r/base/Logic.html">&amp;&amp;</a></code> se evalúa en <em>cortocircuito</em>. La evaluación en cortocircuito evita realizar operaciones innecesarias<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;El otro operador de conjunción, &amp;amp;, no evalúa en cortocircuito, además de poseer otras diferencias.&lt;/p&gt;"><sup>6</sup></a></p>
+<p>Por ejemplo:</p>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span>
+<span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">2</span>
+
+<span class="co"># La primera parte da TRUE, se continúa con la segunda, pero da error porque no</span>
+<span class="co"># existe un objeto llamado z</span>
+<span class="op">(</span><span class="va">y</span> <span class="op">&gt;</span> <span class="va">x</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">z</span><span class="op">)</span></code></pre></div>
+<pre><code>Error in eval(expr, envir, enclos): object 'z' not found</code></pre>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># La primera parte da FALSE, entonces toda la operación será FALSE, no se</span>
+<span class="co"># continúa con la segunda parte, con lo cual no se intenta usar el objeto</span>
+<span class="co"># inexistente z y no hay error</span>
+<span class="op">(</span><span class="va">y</span> <span class="op">&lt;</span> <span class="va">x</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">z</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<p>La operación de disyunción también se evalúa en cortocircuito, es decir, si se encuentra que uno de los operandos es <code>TRUE</code>, no hace falta evaluar los restantes, puesto que el resultado general será <code>TRUE</code>:</p>
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Es TRUE porque la primera parte es TRUE, sin evaluar la segunda, que daría</span>
+<span class="co"># error</span>
+<span class="op">(</span><span class="va">y</span> <span class="op">&gt;</span> <span class="va">x</span><span class="op">)</span> <span class="op">||</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">z</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Como la primera parte es FALSE, debe evaluar la segunda, no encuentra a z y da</span>
+<span class="co"># error</span>
+<span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">y</span><span class="op">)</span> <span class="op">||</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">z</span><span class="op">)</span></code></pre></div>
+<pre><code>Error in eval(expr, envir, enclos): object 'z' not found</code></pre>
+</div>
+<div id="orden-de-precedencia-completo-en-r" class="section level4" number="2.2.3.2">
+<h4>
+<span class="header-section-number">2.2.3.2</span> Orden de precedencia completo en R<a class="anchor" aria-label="anchor" href="#orden-de-precedencia-completo-en-r"><i class="fas fa-link"></i></a>
+</h4>
+<p>Resumiendo la información anterior, a continuación se presenta el orden completo de precedencia de los operadores en R que utilizaremos (hay algunos más que pueden ver en <code><a href="https://rdrr.io/r/base/Syntax.html">?Syntax</a></code>):</p>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:orden">Tabla 2.6: </span> Orden de precedencia de los operadores en R.</caption>
+<thead><tr class="header">
+<th align="center">Orden</th>
+<th align="center">Operaciones</th>
+<th align="center">Operadores</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">Potenciación</td>
+<td align="center">^</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">Signo de un número (ej: -3)</td>
+<td align="center">+ -</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">División entera y resto</td>
+<td align="center">%/% %%</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">Multiplicación y división</td>
+<td align="center">* /</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">Suma y resta</td>
+<td align="center">+ -</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">Operaciones relaciones o comparaciones</td>
+<td align="center">&lt; &gt; &lt;= &gt;= == !=</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">Negación</td>
+<td align="center">!</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="center">Conjunción</td>
+<td align="center">&amp;&amp; &amp;</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="center">Disyunción</td>
+<td align="center">|| |</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">Asignación (izquierda a derecha)</td>
+<td align="center">&lt;-</td>
+</tr>
+</tbody>
+</table></div>
+<p>Dentro de una misma expresión, operadores con igual prioridad se evalúan de izquierda a derecha.</p>
+</div>
+</div>
+</div>
+<div id="entrada-y-salida-de-información" class="section level2" number="2.3">
+<h2>
+<span class="header-section-number">2.3</span> Entrada y salida de información<a class="anchor" aria-label="anchor" href="#entrada-y-salida-de-informaci%C3%B3n"><i class="fas fa-link"></i></a>
+</h2>
+<p>En la resolución de problemas puede ser necesario que alguna fuente externa (como un usuario del programa) provea información. En estos casos se debe registrar dicha información como un valor que debe ser asignado a una variable. Cuando escribamos nuestros algoritmos en pseudocódigo, para esto utilizaremos la acción <code>LEER</code>. Cuando deseamos mostrar un resultado en un mensaje empleamos la acción <code>ESCRIBIR</code>. Las palabras o frases literales que se desean mostrar en el mensaje deben estar encerradas entre comillas porque son cadenas de texto, mientras que si se desea mostrar el valor de una variable se debe escribir su identificador sin comillas.</p>
+<p>Por ahora, en R ejecutaremos a la acción <code>LEER</code> mediante la asignación directa de un valor a una variable a través del operador <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code>. La acción <code>ESCRIBIR</code> puede ser ejecutada a través de la función <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> si se quiere mostrar una frase compuesta. En los casos en los que sólo interesa mostrar un valor (sin escribir una frase) no será necesario usar <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code>, ya que sencillamente al correr el nombre de un objeto, su valor es mostrado en la consola. En otros casos usaremos la función <code><a href="https://rdrr.io/r/base/print.html">print()</a></code>. Ya iremos viendo la utilidad de cada una de estas opciones.</p>
+<p>Vamos a completar el ejemplo del algoritmo para el cálculo del área de un círculo, integrando todo lo mencionado anteriormente:</p>
+<p><strong>Pseudocódigo</strong>:</p>
+<pre class="text"><code>ALGORITMO: "Calcular área de un círculo"
+COMENZAR
+    CONSTANTE numérica pi
+    VARIABLE numérica radio, area
+    pi &lt;- 3.14159265358979
+    LEER radio
+    area &lt;- pi * radio^2
+    ESCRIBIR "El área del círculo es " area
+FIN</code></pre>
+<p><strong>En R</strong>:</p>
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># PROGRAMA: "Calcular área de un círculo" ---------------------------</span>
+
+<span class="va">pi</span> <span class="op">&lt;-</span>  <span class="fl">3.14159265358979</span>
+<span class="va">radio</span> <span class="op">&lt;-</span> <span class="fl">5</span>
+<span class="va">area</span> <span class="op">&lt;-</span> <span class="va">pi</span> <span class="op">*</span> <span class="va">radio</span><span class="op">^</span><span class="fl">2</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El área del círculo es"</span>, <span class="va">area</span><span class="op">)</span></code></pre></div>
+<pre><code>El área del círculo es 78.53982</code></pre>
+<p><em>Nota</em>: <code>pi</code> ya es una constante incorporada en R Base, en realidad no es necesario crear esta constante y asignarle valor.</p>
+
+</div>
+</div>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="introducci%C3%B3n-a-la-programaci%C3%B3n.html"><span class="header-section-number">1</span> Introducción a la Programación</a></div>
+<div class="next"><a href="estructuras-de-control.html"><span class="header-section-number">3</span> Estructuras de control</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="En esta página"><h2>En esta página</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#objetos-y-operadores"><span class="header-section-number">2</span> Objetos y operadores</a></li>
+<li>
+<a class="nav-link" href="#objetos"><span class="header-section-number">2.1</span> Objetos</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#declaraci%C3%B3n-de-variables-y-constantes"><span class="header-section-number">2.1.1</span> Declaración de variables y constantes</a></li>
+<li><a class="nav-link" href="#acci%C3%B3n-de-asignaci%C3%B3n"><span class="header-section-number">2.1.2</span> Acción de asignación</a></li>
+<li><a class="nav-link" href="#creaci%C3%B3n-y-manejo-de-objetos-en-r"><span class="header-section-number">2.1.3</span> Creación y manejo de objetos en R</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#operadores"><span class="header-section-number">2.2</span> Operadores</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#operadores-aritm%C3%A9ticos"><span class="header-section-number">2.2.1</span> Operadores aritméticos</a></li>
+<li><a class="nav-link" href="#operadores-relacionales-o-de-comparaci%C3%B3n"><span class="header-section-number">2.2.2</span> Operadores relacionales o de comparación</a></li>
+<li><a class="nav-link" href="#operadores-l%C3%B3gicos"><span class="header-section-number">2.2.3</span> Operadores lógicos</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#entrada-y-salida-de-informaci%C3%B3n"><span class="header-section-number">2.3</span> Entrada y salida de información</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-04-25.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+</html>

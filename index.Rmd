@@ -1,0 +1,37 @@
+--- 
+title: "Introducción a la Programación"
+subtitle: "Guía de estudio - Lic. en Estadística - FCEyE - UNR"
+author: Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.)
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+link-citations: yes
+# github-repo: mpru/introprog
+# url: https://mpru.github.io/introprog/
+description: "Esta guía resume los conceptos más importantes desarrollados en la asignatura Introducción a la Programación de la Licenciatura en Estadística (Facultad de Ciencias Económicas y Estadstica, Universidad Nacional de Rosario)."
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA, warning = FALSE, message = FALSE, 
+                      fig.align = "center")
+```
+
+<!-- 
+Inicialmetne no me andaba este estilo para el bookdown, dps de correr esto anduvo:
+remotes::install_github("rstudio/bslib")
+install.packages("downlit")
+remotes::install_github("rstudio/bookdown")
+Change the _output.yaml to the following:
+-->
+
+`r if (knitr::is_latex_output()) '<!--'` 
+
+# Bienvenida {-}
+
+¡Les damos la bienvenida a la asignatura Introducción a la Programación en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario! La presente guía resume los conceptos más importantes que vamos a desarrollar. La misma irá siendo revisada, completada y actualizada a lo largo del cuatrimestre y no está exenta de presentar errores o expresar ideas que puedan ser mejoradas. Avisanos si encontrás algo que deba ser cambiado. ¡Esperamos que juntos podamos pasarla bien al dar nuestros primeros pasos en la programación!
+
+Este material fue escrito por el Mgs. Lic. Marcos Prunello (profesor titular) y revisado por los integrantes de la cátedra, Tec. César Mignoni y Lic. Maite San Martín.
+
+`r if (knitr::is_latex_output()) '-->'`

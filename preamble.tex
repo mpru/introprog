@@ -1,0 +1,120 @@
+% \usepackage{booktabs}
+% \usepackage{amsthm}
+% \usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\spanishdecimal{.}
+%\renewcommand{\contentsname}{Contenido}
+
+
+% Encabezado
+\usepackage[margin=2cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\fancyhead[L]{IALP - Guía de Estudio}
+\fancyhead[R] {\leftmark}
+
+% Formato para el capítulo
+% Para que diga Unidad en lugar de Capítulo
+\makeatletter
+\renewcommand{\@chapapp}{Unidad}
+\makeatother
+% Para que diga "Unidad" antes del nro y nombre de la unidad
+%\usepackage{titlesec}
+%\titleformat{\chapter}{
+%	\normalfont\LARGE\bfseries
+%}{Unidad \thechapter.  }{0em}{}
+
+% Para que haya encabezado en la primera hoja de cada cap tmb
+\usepackage{etoolbox}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+% Pero lo anterior agrega encabezad en la tabla de contenidos, esto lo evita
+\AtBeginDocument{%
+	\addtocontents{toc}{\protect\thispagestyle{empty}}
+}
+
+% Agregar puntos en el TOC en el nivel de capitulo
+\usepackage{tocloft}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
+
+% Info para la portada
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
+\title{
+	%\vspace{-1in} 	
+	\usefont{OT1}{bch}{b}{n}
+	\normalfont \normalsize
+	\textsc{
+		Universidad Nacional de Rosario \\
+		Facultad de Ciencias Económicas y Estadística \\
+		Licenciatura en Estadística
+	} \\ [25pt]
+	\horrule{2pt} \\[0.4cm]
+	\huge \textbf{Introducción a la Programación} \\
+	\bigbreak
+	Guía de Estudio - Año 2021\\
+	\horrule{2pt} \\[0.5cm]}
+
+\author{
+	\normalfont Mgs. Lic. Marcos Prunello (Prof. Tit. Ordenado)
+}
+
+% Esto es para que el cuadro sombreado donde sale el codigo sea mas chico y para que el espacio entre el codigo y el output sea menor
+\usepackage{etoolbox,framed} 
+\setlength{\parskip}{2pt}
+\setlength{\OuterFrameSep}{2pt}
+\makeatletter
+\preto{\@verbatim}{\topsep=2pt \partopsep=2pt }
+\makeatother
+
+% Otros paquetes
+\usepackage{xcolor}
+
+% cosas para modificar espacios entre ecuaciones y otros
+% Que haya menos espacio antes y dps de ecuaciones
+% \usepackage{setspace}\onehalfspacing
+% \AtBeginDocument{%
+%   % estas dos 
+%   %\addtolength\abovedisplayskip{-0.5\baselineskip}%
+%   %\addtolength\belowdisplayskip{-0.5\baselineskip}
+%   % o estas dos, probar cual me gusta mas
+%   \setlength{\belowdisplayskip}{0pt} \setlength{\belowdisplayshortskip}{0pt}
+%   \setlength{\abovedisplayskip}{0pt} \setlength{\abovedisplayshortskip}{0pt}
+% }
+% 
+% \setlength{\intextsep}{0pt}
+% 
+% \makeatletter
+% \def\thm@space@setup{%
+%   \thm@preskip=8pt plus 2pt minus 4pt
+%   \thm@postskip=\thm@preskip
+% }
+% \makeatother
+
+% Columnas
+\newenvironment{columns}[1][]{}{}
+
+\newenvironment{column}[1]{\begin{minipage}{#1}\ignorespaces}{%
+\end{minipage}
+\ifhmode\unskip\fi
+\aftergroup\useignorespacesandallpars}
+
+\def\useignorespacesandallpars#1\ignorespaces\fi{%
+#1\fi\ignorespacesandallpars}
+
+\makeatletter
+\def\ignorespacesandallpars{%
+  \@ifnextchar\par
+    {\expandafter\ignorespacesandallpars\@gobble}%
+    {}%
+}
+\makeatother
+
+% Para que en Latex las tables queden donde quiero
+\usepackage{float}
+% \floatplacement{table}{H}
