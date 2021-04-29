@@ -35,3 +35,24 @@ Change the _output.yaml to the following:
 Este material fue escrito por el Mgs. Lic. Marcos Prunello (profesor titular) y revisado por los integrantes de la cátedra, Tec. César Mignoni y Lic. Maite San Martín.
 
 `r if (knitr::is_latex_output()) '-->'`
+
+
+`r if (knitr::is_html_output()) '<!--'` 
+
+\newpage
+
+**BIENVENIDA** 
+
+\vspace{\baselineskip} 
+
+¡Les damos la bienvenida a la asignatura Introducción a la Programación en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario! La presente guía resume los conceptos más importantes que vamos a desarrollar. La misma irá siendo revisada, completada y actualizada a lo largo del cuatrimestre y no está exenta de presentar errores o expresar ideas que puedan ser mejoradas. Avisanos si encontrás algo que deba ser cambiado. ¡Esperamos que juntos podamos pasarla bien al dar nuestros primeros pasos en la programación!
+
+\vspace{\baselineskip} 
+
+Este material fue escrito por el Mgs. Lic. Marcos Prunello (profesor titular) y revisado por los integrantes de la cátedra, Tec. César Mignoni y Lic. Maite San Martín.
+
+\vspace{\baselineskip} 
+
+**NOTA: La versión en PDF no es revisada en cuanto a su configuración, por lo tanto es probable que se encuentren páginas con espacios en blanco, tablas con filas cortadas, figuras muy grandes, etc. El archivo PDF es generado sin revisar su estado final, pero el texto es el mismo que la versión online (https://mpru.github.io/introprog)**
+
+`r if (knitr::is_html_output()) '-->'`
