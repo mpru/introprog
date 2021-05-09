@@ -244,7 +244,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2021-04-29}
+\date{2021-05-09}
 
 \begin{document}
 \maketitle
@@ -884,7 +884,7 @@ Recordemos siempre que seguir un buen estilo para programar es como hacer uso de
 \hypertarget{objetos-y-operadores}{%
 \chapter{Objetos y operadores}\label{objetos-y-operadores}}
 
-Hemos mencionado que para resolver un problema computacional se necesita de un \emph{procesador}, capaz de entender y ejecutar ciertas \emph{acciones} a partir de ciertos elementos disponibles en el \emph{ambiente} o \emph{entorno}. Cuando trabajamos con Karel, dijimos que ella era la procesadora, que era capaz de realizar cuatro acciones básicas (aunque pudimos crear acciones nuevas para ella) y que su ambiente eran sus mundos con paredes y \emph{cosos}. Si bien le damos gracias a Karel por ayudarnos a incorporar algunos conceptos, ahora nos despedimos de ella y vamos a presentar otras nociones para que podamos avanzar en nuestro aprendizaje sobre programación en términos más generales.
+Hemos mencionado que para resolver un problema computacional se necesita de un \emph{procesador}, capaz de entender y ejecutar ciertas \emph{acciones} a partir de ciertos elementos disponibles en el \emph{ambiente} o \emph{entorno}. En este capítulo vamos aprender acerca de dichos elementos, a los que llamamos \emph{objetos}.
 
 \hypertarget{objetos}{%
 \section{Objetos}\label{objetos}}
@@ -1376,10 +1376,10 @@ Otros ejemplos:
 \begin{Highlighting}[]
 \NormalTok{a }\OtherTok{\textless{}{-}} \DecValTok{3}
 \NormalTok{b }\OtherTok{\textless{}{-}} \DecValTok{4}
-\NormalTok{c }\OtherTok{\textless{}{-}} \DecValTok{2}
-\NormalTok{d }\OtherTok{\textless{}{-}} \DecValTok{10}
-\NormalTok{e }\OtherTok{\textless{}{-}} \DecValTok{15}
-\NormalTok{(a }\SpecialCharTok{*}\NormalTok{ b) }\SpecialCharTok{==}\NormalTok{ (c }\SpecialCharTok{+}\NormalTok{ d)}
+\NormalTok{d }\OtherTok{\textless{}{-}} \DecValTok{2}
+\NormalTok{e }\OtherTok{\textless{}{-}} \DecValTok{10}
+\NormalTok{f }\OtherTok{\textless{}{-}} \DecValTok{15}
+\NormalTok{(a }\SpecialCharTok{*}\NormalTok{ b) }\SpecialCharTok{==}\NormalTok{ (d }\SpecialCharTok{+}\NormalTok{ e)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1389,7 +1389,7 @@ Otros ejemplos:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{(a }\SpecialCharTok{*}\NormalTok{ b) }\SpecialCharTok{!=}\NormalTok{ (e }\SpecialCharTok{{-}}\NormalTok{ b)}
+\NormalTok{(a }\SpecialCharTok{*}\NormalTok{ b) }\SpecialCharTok{!=}\NormalTok{ (f }\SpecialCharTok{{-}}\NormalTok{ b)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1401,7 +1401,7 @@ Es interesante notar que primero se evalúan las operaciones a cada lado de los 
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{a }\SpecialCharTok{*}\NormalTok{ b }\SpecialCharTok{==}\NormalTok{ c }\SpecialCharTok{+}\NormalTok{ d}
+\NormalTok{a }\SpecialCharTok{*}\NormalTok{ b }\SpecialCharTok{==}\NormalTok{ d }\SpecialCharTok{+}\NormalTok{ e}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1411,7 +1411,7 @@ Es interesante notar que primero se evalúan las operaciones a cada lado de los 
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{a }\SpecialCharTok{*}\NormalTok{ b }\SpecialCharTok{!=}\NormalTok{ e }\SpecialCharTok{{-}}\NormalTok{ b}
+\NormalTok{a }\SpecialCharTok{*}\NormalTok{ b }\SpecialCharTok{!=}\NormalTok{ f }\SpecialCharTok{{-}}\NormalTok{ b}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1504,7 +1504,7 @@ FALSE\strut
 
 Tanto para la conjunción como para la disyunción, R provee dos operadores, repitiendo o no el símbolo correspondiente: \texttt{\&\&} vs \texttt{\&}; \texttt{\textbar{}\textbar{}} vs \texttt{\textbar{}}. Hay una diferencia entre ellos que por ahora no viene al caso, pero vamos a señalar que por ahora estaremos usando las versiones presentadas anteriormente: \texttt{\&\&} y \texttt{\textbar{}\textbar{}}.
 
-La \textbf{tablas de verdad} o \textbf{tabla de valores de verdad} se utiliza para mostrar los resultados de estas operaciones lógicas:
+La \textbf{tabla de verdad} o \textbf{tabla de valores de verdad} se utiliza para mostrar los resultados de estas operaciones lógicas:
 
 \begin{longtable}[]{@{}cccc@{}}
 \caption{\label{tab:verdad} Operadores relacionales o de comparación.}\tabularnewline

@@ -52,7 +52,7 @@
 <h1>
 <span class="header-section-number">2</span> Objetos y operadores<a class="anchor" aria-label="anchor" href="#objetos-y-operadores"><i class="fas fa-link"></i></a>
 </h1>
-<p>Hemos mencionado que para resolver un problema computacional se necesita de un <em>procesador</em>, capaz de entender y ejecutar ciertas <em>acciones</em> a partir de ciertos elementos disponibles en el <em>ambiente</em> o <em>entorno</em>. Cuando trabajamos con Karel, dijimos que ella era la procesadora, que era capaz de realizar cuatro acciones básicas (aunque pudimos crear acciones nuevas para ella) y que su ambiente eran sus mundos con paredes y <em>cosos</em>. Si bien le damos gracias a Karel por ayudarnos a incorporar algunos conceptos, ahora nos despedimos de ella y vamos a presentar otras nociones para que podamos avanzar en nuestro aprendizaje sobre programación en términos más generales.</p>
+<p>Hemos mencionado que para resolver un problema computacional se necesita de un <em>procesador</em>, capaz de entender y ejecutar ciertas <em>acciones</em> a partir de ciertos elementos disponibles en el <em>ambiente</em> o <em>entorno</em>. En este capítulo vamos aprender acerca de dichos elementos, a los que llamamos <em>objetos</em>.</p>
 <div id="objetos" class="section level2" number="2.1">
 <h2>
 <span class="header-section-number">2.1</span> Objetos<a class="anchor" aria-label="anchor" href="#objetos"><i class="fas fa-link"></i></a>
@@ -378,20 +378,20 @@ EN R
 <div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">3</span>
 <span class="va">b</span> <span class="op">&lt;-</span> <span class="fl">4</span>
-<span class="va">c</span> <span class="op">&lt;-</span> <span class="fl">2</span>
-<span class="va">d</span> <span class="op">&lt;-</span> <span class="fl">10</span>
-<span class="va">e</span> <span class="op">&lt;-</span> <span class="fl">15</span>
-<span class="op">(</span><span class="va">a</span> <span class="op">*</span> <span class="va">b</span><span class="op">)</span> <span class="op">==</span> <span class="op">(</span><span class="va">c</span> <span class="op">+</span> <span class="va">d</span><span class="op">)</span></code></pre></div>
+<span class="va">d</span> <span class="op">&lt;-</span> <span class="fl">2</span>
+<span class="va">e</span> <span class="op">&lt;-</span> <span class="fl">10</span>
+<span class="va">f</span> <span class="op">&lt;-</span> <span class="fl">15</span>
+<span class="op">(</span><span class="va">a</span> <span class="op">*</span> <span class="va">b</span><span class="op">)</span> <span class="op">==</span> <span class="op">(</span><span class="va">d</span> <span class="op">+</span> <span class="va">e</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="op">(</span><span class="va">a</span> <span class="op">*</span> <span class="va">b</span><span class="op">)</span> <span class="op">!=</span> <span class="op">(</span><span class="va">e</span> <span class="op">-</span> <span class="va">b</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="op">(</span><span class="va">a</span> <span class="op">*</span> <span class="va">b</span><span class="op">)</span> <span class="op">!=</span> <span class="op">(</span><span class="va">f</span> <span class="op">-</span> <span class="va">b</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <p>Es interesante notar que primero se evalúan las operaciones a cada lado de los operadores relacionales y luego se hace la comparación. Es decir, <strong>los operadores aritméticos preceden a los relacionales en el orden de prioridad</strong>. Por eso, en los ejemplos anteriores no eran necesarios los paréntesis y podríamos poner directamente:</p>
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">*</span> <span class="va">b</span> <span class="op">==</span> <span class="va">c</span> <span class="op">+</span> <span class="va">d</span></code></pre></div>
+<code class="sourceCode R"><span class="va">a</span> <span class="op">*</span> <span class="va">b</span> <span class="op">==</span> <span class="va">d</span> <span class="op">+</span> <span class="va">e</span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">*</span> <span class="va">b</span> <span class="op">!=</span> <span class="va">e</span> <span class="op">-</span> <span class="va">b</span></code></pre></div>
+<code class="sourceCode R"><span class="va">a</span> <span class="op">*</span> <span class="va">b</span> <span class="op">!=</span> <span class="va">f</span> <span class="op">-</span> <span class="va">b</span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <p>Si bien en pseudocódigo podemos usar tanto <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code> o <code><a href="https://rdrr.io/r/base/Comparison.html">==</a></code> para probar la igualdad entre dos elementos, <strong>en R no debemos usar</strong> <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code> para este fin, puesto que <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code> no es un operador de comparación sino de asignación, parecido al <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code>.</p>
 </div>
@@ -447,7 +447,7 @@ EN R
 <li>La operación de negación (NO) niega un valor lógico, es decir, devuelve el opuesto. Ejemplo: <code>NO (3 &gt; 2)</code> resulta en <code>NO VERDADERO</code> y esto es <code>FALSO</code>.</li>
 </ul>
 <p>Tanto para la conjunción como para la disyunción, R provee dos operadores, repitiendo o no el símbolo correspondiente: <code><a href="https://rdrr.io/r/base/Logic.html">&amp;&amp;</a></code> vs <code><a href="https://rdrr.io/r/base/Logic.html">&amp;</a></code>; <code><a href="https://rdrr.io/r/base/Logic.html">||</a></code> vs <code><a href="https://rdrr.io/r/base/Logic.html">|</a></code>. Hay una diferencia entre ellos que por ahora no viene al caso, pero vamos a señalar que por ahora estaremos usando las versiones presentadas anteriormente: <code><a href="https://rdrr.io/r/base/Logic.html">&amp;&amp;</a></code> y <code><a href="https://rdrr.io/r/base/Logic.html">||</a></code>.</p>
-<p>La <strong>tablas de verdad</strong> o <strong>tabla de valores de verdad</strong> se utiliza para mostrar los resultados de estas operaciones lógicas:</p>
+<p>La <strong>tabla de verdad</strong> o <strong>tabla de valores de verdad</strong> se utiliza para mostrar los resultados de estas operaciones lógicas:</p>
 <div class="inline-table"><table class="table table-sm">
 <caption>
 <span id="tab:verdad">Tabla 2.5: </span> Operadores relacionales o de comparación.</caption>
@@ -778,7 +778,7 @@ FIN</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-04-29.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-05-09.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -1,6 +1,6 @@
 # Objetos y operadores
 
-Hemos mencionado que para resolver un problema computacional se necesita de un *procesador*, capaz de entender y ejecutar ciertas *acciones* a partir de ciertos elementos disponibles en el *ambiente* o *entorno*. Cuando trabajamos con Karel, dijimos que ella era la procesadora, que era capaz de realizar cuatro acciones básicas (aunque pudimos crear acciones nuevas para ella) y que su ambiente eran sus mundos con paredes y *cosos*. Si bien le damos gracias a Karel por ayudarnos a incorporar algunos conceptos, ahora nos despedimos de ella y vamos a presentar otras nociones para que podamos avanzar en nuestro aprendizaje sobre programación en términos más generales.
+Hemos mencionado que para resolver un problema computacional se necesita de un *procesador*, capaz de entender y ejecutar ciertas *acciones* a partir de ciertos elementos disponibles en el *ambiente* o *entorno*. En este capítulo vamos aprender acerca de dichos elementos, a los que llamamos *objetos*.
 
 ## Objetos
 
@@ -237,18 +237,18 @@ Otros ejemplos:
 ```{r}
 a <- 3
 b <- 4
-c <- 2
-d <- 10
-e <- 15
-(a * b) == (c + d)
-(a * b) != (e - b)
+d <- 2
+e <- 10
+f <- 15
+(a * b) == (d + e)
+(a * b) != (f - b)
 ```
 
 Es interesante notar que primero se evalúan las operaciones a cada lado de los operadores relacionales y luego se hace la comparación. Es decir, **los operadores aritméticos preceden a los relacionales en el orden de prioridad**. Por eso, en los ejemplos anteriores no eran necesarios los paréntesis y podríamos poner directamente:
 
 ```{r}
-a * b == c + d
-a * b != e - b
+a * b == d + e
+a * b != f - b
 ```
 
 Si bien en pseudocódigo podemos usar tanto `=` o `==` para probar la igualdad entre dos elementos, **en R no debemos usar** `=` para este fin, puesto que `=` no es un operador de comparación sino de asignación, parecido al `<-`.
@@ -271,7 +271,7 @@ Table: (\#tab:op-log) Operadores lógicos.
 
 Tanto para la conjunción como para la disyunción, R provee dos operadores, repitiendo o no el símbolo correspondiente: `&&` vs `&`; `||` vs `|`. Hay una diferencia entre ellos que por ahora no viene al caso, pero vamos a señalar que por ahora estaremos usando las versiones presentadas anteriormente: `&&` y `||`.
 
-La **tablas de verdad** o **tabla de valores de verdad** se utiliza para mostrar los resultados de estas operaciones lógicas:
+La **tabla de verdad** o **tabla de valores de verdad** se utiliza para mostrar los resultados de estas operaciones lógicas:
 
 Table: (\#tab:verdad) Operadores relacionales o de comparación.
 
