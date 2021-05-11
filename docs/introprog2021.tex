@@ -244,7 +244,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2021-05-09}
+\date{2021-05-10}
 
 \begin{document}
 \maketitle
@@ -1835,6 +1835,625 @@ El área del círculo es 78.53982
 
 \hypertarget{estructuras-de-control}{%
 \chapter{Estructuras de control}\label{estructuras-de-control}}
+
+Como mencionamos anteriormente, un algoritmo está compuesto por una sucesión ordenada de comandos que se ejecutan uno detrás de otro. Sin embargo, con frecuencia es necesario recurrir a comandos especiales que alteran o controlan el orden en el que se ejecutan las acciones. Llamamos \textbf{estructuras de control del flujo de las acciones} al conjunto de reglas que permiten controlar el flujo de las acciones de un algoritmo o programa. Las mismas pueden clasificarse en \textbf{secuenciales}, \textbf{condicionales} e \textbf{iterativas}.
+
+\hypertarget{estructuras-de-control-secuenciales}{%
+\section{Estructuras de control secuenciales}\label{estructuras-de-control-secuenciales}}
+
+Las \textbf{estructuras secuenciales} están compuestas por un número definido de acciones que se ubican en un orden específico y se suceden una tras otra. Los ejemplos que hemos discutido anteriormente están conformados por este tipo de estructura.
+
+\hypertarget{estructuras-de-control-condicionales}{%
+\section{Estructuras de control condicionales}\label{estructuras-de-control-condicionales}}
+
+En algunas partes de un algoritmo puede ser útil detenerse a hacer una pregunta porque se llegó a una situación en la que puede haber una o más opciones disponibles para continuar. Dependiendo de la respuesta a la pregunta, que siempre deberá ser \texttt{VERDADERO} (\texttt{TRUE}) o \texttt{FALSO} (\texttt{FALSE}), el algoritmo seguirá ciertas acciones e ignorará otras. Estas preguntas y respuestas representan procesos de toma de decisión que conducen a diferentes caminos dentro del algoritmo, permitiéndonos que la solución para el problema en cuestión sea flexible y se adapte a distintas situaciones. Este tipo de estructuras de control de las acciones reciben el nombre de \textbf{condicionales} (o \emph{estructuras de selección}) y pueden ser \textbf{simples}, \textbf{dobles} y \textbf{múltiples}.
+
+\hypertarget{estructuras-condicionales-simples}{%
+\subsection{Estructuras condicionales simples}\label{estructuras-condicionales-simples}}
+
+Postulan una evaluación lógica y, si su resultado es \texttt{VERDADERO}, se procede a ejecutar las acciones encerradas por esta estructura. Se describen en pseudocódigo con la siguiente sintaxis:
+
+\begin{verbatim}
+SI <condición> ENTONCES
+    Acción/es
+FIN SI
+\end{verbatim}
+
+La palabra \texttt{SI} indica el comando de evaluación lógica, \texttt{\textless{}condición\textgreater{}} indica la condición a evaluar y \texttt{Acción/es} son las instrucciones que se realizarán sólo si se cumple la condición, es decir, si la evalución resulta en \texttt{VERDADERO}. Si la condición no se verifica, no se ejecuta ninguna acción y el algoritmo sigue su estructura secuencial a continuación del \texttt{FIN\ SI}.
+
+En R, la estructura que nos permite realizar esto es:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (condición) \{}
+\NormalTok{    ...código para ejecutar acciones...}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Por ejemplo, el siguiente algoritmo registra la edad de una persona y, en el caso de que sea mayor de edad, avisa que puede votar en las elecciones provinciales de Santa Fe:
+
+\begin{verbatim}
+ALGORITMO: "Analizar edad para votar"
+COMENZAR
+    VARIABLE numérica edad
+    LEER edad
+    SI edad >= 18 ENTONCES
+        ESCRIBIR "Edad = " edad " años: puede votar"
+    FIN SI
+FIN
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Programa: "Analizar edad para votar" {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{edad }\OtherTok{\textless{}{-}} \DecValTok{21}
+\ControlFlowTok{if}\NormalTok{ (edad }\SpecialCharTok{\textgreater{}=} \DecValTok{18}\NormalTok{) \{}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"Edad ="}\NormalTok{, edad, }\StringTok{"años: puede votar"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Edad = 21 años: puede votar
+\end{verbatim}
+
+Notar que si bien el uso de sangrías en el código es opcional, decidimos emplearlo para facilitar su lectura. Mantener la prolijidad en nuestros programas es esencial.
+
+\hypertarget{estructuras-condicionales-dobles}{%
+\subsection{Estructuras condicionales dobles}\label{estructuras-condicionales-dobles}}
+
+Este tipo de estructura añade una acción a ejecutarse en el caso de que la condición evaluada no se verifique (es decir, devuelve el valor \texttt{FALSO}). La sintaxis es:
+
+\begin{verbatim}
+SI <condición> ENTONCES
+  Acción/es
+SI NO
+  Acción/es
+FIN SI
+\end{verbatim}
+
+La palabra \texttt{ENTONCES} antecede a las acciones que se realizan si se cumple la condición y la expresión \texttt{SI\ NO} a las que se realizan si no se verifica la misma.
+
+En R se utiliza el comando \texttt{else}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (condición) \{}
+\NormalTok{    ...código para ejecutar acciones...}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{    ...código para ejecutar acciones...}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Retomando el ejemplo anterior:
+
+\begin{verbatim}
+ALGORITMO: "Analizar edad para votar"
+COMENZAR
+    VARIABLE numérica edad
+    LEER edad
+    SI edad >= 18 ENTONCES
+        ESCRIBIR "Edad = " edad " años: puede votar"
+    SI NO
+        ESCRIBIR "Edad = " edad " años: no puede votar"
+    FIN SI
+FIN
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Programa: "Analizar edad para votar" {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{edad }\OtherTok{\textless{}{-}} \DecValTok{21}
+\ControlFlowTok{if}\NormalTok{ (edad }\SpecialCharTok{\textgreater{}=} \DecValTok{18}\NormalTok{) \{}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"Edad ="}\NormalTok{, edad, }\StringTok{"años: puede votar"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"Edad ="}\NormalTok{, edad, }\StringTok{"años: no puede votar"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Edad = 21 años: puede votar
+\end{verbatim}
+
+\hypertarget{estructuras-condicionales-muxfaltiples-o-anidadas}{%
+\subsection{Estructuras condicionales múltiples o anidadas}\label{estructuras-condicionales-muxfaltiples-o-anidadas}}
+
+Permiten combinar varias estructuras condicionales para establecer controles más complejos sobre el flujo de las acciones, representando una toma de decisión múltiple. Podemos ejemplificar la sintaxis de la siguiente forma:
+
+\begin{verbatim}
+SI <condición 1> ENTONCES
+  Acción 1
+SI NO
+  SI <condición 2> ENTONCES
+    Acción 2
+  SI NO
+    Acción 3
+  FIN SI
+FIN SI
+\end{verbatim}
+
+En la estructura anterior, hay una primera evaluación lógica en la cual si el resultado es \texttt{VERDADERO}, se ejecuta la Acción 1 y nada más. En cambio, si su resultado es \texttt{FALSO}, se procede a realizar una segunda evaluación lógica, que da lugar a la ejecución de la Acción 2 o de la Acción 3 si su resultado es \texttt{VERDADERO} o \texttt{FALSO}, respectivamente.
+
+Se debe notar que luego del primer \texttt{SI\ NO} comienza una nueva estructura completa de \texttt{SI/ENTONCES/SI\ NO/FIN\ SI}. Cada \texttt{SI} termina con su propio \texttt{FIN\ SI}. Al traducir esto a R, se vuelve algo más sencillo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (condición }\DecValTok{1}\NormalTok{) \{}
+\NormalTok{    ...Acción }\DecValTok{1}\NormalTok{...}
+\NormalTok{\} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (condición }\DecValTok{2}\NormalTok{) \{}
+\NormalTok{    ...Acción }\DecValTok{2}\NormalTok{...}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{    ...Acción }\DecValTok{3}\NormalTok{...}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+El último bloque de acciones (\texttt{...Acción\ 3...}) se evaluará si ninguna de las condiciones lógicas anteriores fue \texttt{VERDADERO}.
+
+En el ejemplo de la edad:
+
+\begin{verbatim}
+ALGORITMO: "Analizar edad para votar"
+COMENZAR
+    VARIABLE numérica edad
+    LEER edad
+    SI edad < 18 ENTONCES
+        ESCRIBIR "Edad = " edad " años: no puede votar"
+    SI NO
+        SI edad >= 70 ENTONCES
+            ESCRIBIR "Edad = " edad " años: puede votar opcionalmente"
+        SI NO
+            ESCRIBIR "Edad = " edad " años: debe votar obligatoriamente"
+        FIN SI
+    FIN SI
+FIN
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Programa: "Analizar edad para votar" {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{edad }\OtherTok{\textless{}{-}} \DecValTok{21}
+\ControlFlowTok{if}\NormalTok{ (edad }\SpecialCharTok{\textless{}} \DecValTok{18}\NormalTok{) \{}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"Edad ="}\NormalTok{, edad, }\StringTok{"años: no puede votar"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (edad }\SpecialCharTok{\textgreater{}=} \DecValTok{70}\NormalTok{) \{}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"Edad ="}\NormalTok{, edad, }\StringTok{"años: puede votar opcionalmente"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"Edad ="}\NormalTok{, edad, }\StringTok{"años: debe votar obligatoriamente"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Edad = 21 años: debe votar obligatoriamente
+\end{verbatim}
+
+\hypertarget{estructuras-de-control-iterativas}{%
+\section{Estructuras de control iterativas}\label{estructuras-de-control-iterativas}}
+
+Las estructuras de control iterativas son útiles cuando la solución de un problema requiere que se ejecute repetidamente un determinado conjunto de acciones. El número de veces que se debe repetir dicha secuencia de acciones puede ser fijo o puede variar dependiendo de algún dato o condición a evaluar en el algoritmo.
+
+\hypertarget{estructuras-de-control-iterativas-con-un-nuxfamero-fijo-de-iteraciones}{%
+\subsection{Estructuras de control iterativas con un número fijo de iteraciones}\label{estructuras-de-control-iterativas-con-un-nuxfamero-fijo-de-iteraciones}}
+
+Count-controlled loops
+Sometimes it is necessary for steps to iterate a specific number of times.
+
+Se aplican cuando se conoce de antemano el número exacto de veces que se debe repetir una secuencia de acciones. También se conocen como \emph{bucles (loops) controlados por un conteo}, ya que el algoritmo va contando la cantidad de repeticiones haciendo uso de una variable que recibe el nombre de \textbf{variable de interación}, \textbf{índice} o \textbf{conteo}.
+
+Por ejemplo, imaginemos que queremos escribir un algoritmo que permita calcular la quinta potencia de cualquier número. Para esto, se debe tomar dicho número y multiplicarlo por sí mismo 5 veces. Por lo tanto, una posible solución es:
+
+\begin{verbatim}
+ALGORITMO: "Calcular la quinta potencia"
+COMENZAR
+    VARIABLE numérica x, resultado
+    LEER x
+    resultado <- 1
+    resultado <- resultado * x
+    resultado <- resultado * x
+    resultado <- resultado * x
+    resultado <- resultado * x
+    resultado <- resultado * x
+    ESCRIBIR x "elevado a la quinta es igual a" resultado
+FIN
+\end{verbatim}
+
+Ya que sabemos que la multiplicación se debe repetir 5 veces, podemos resumir lo anterior con la siguiente estructura:
+
+\begin{verbatim}
+ALGORITMO: "Calcular la quinta potencia"
+COMENZAR
+    VARIABLE numérica x, resultado
+    LEER x
+    resultado <- 1
+    PARA i DESDE 1 HASTA 5 HACER
+        resultado <- resultado * x
+    FIN PARA
+    ESCRIBIR x "elevado a la quinta es igual a" resultado
+FIN
+\end{verbatim}
+
+La letra \texttt{i} es la variable de iteración. Podríamos haber elegido otra letra u otra palabra en su lugar, pero emplear \texttt{i} es una elección bastante común. En este ejemplo, su única función es ir contando la cantidad de veces que se repiten las acciones encerradas dentro de la estructura \texttt{PARA/FIN\ PARA}. El bloque de instrucciones se repite tantas veces como \texttt{i} tarde en llegar a 5 partiendo desde 1. Por convención, a la variable de iteración no la declaramos junto con las otras variables numéricas (como \texttt{x} y \texttt{resultado}).
+
+En R, el ejemplo anterior se implementa así:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Programa: "Calcular la quinta potencia" {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{4}
+\NormalTok{resultado }\OtherTok{\textless{}{-}} \DecValTok{1}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{) \{}
+\NormalTok{    resultado }\OtherTok{\textless{}{-}}\NormalTok{ resultado }\SpecialCharTok{*}\NormalTok{ x}
+\NormalTok{\}}
+\FunctionTok{cat}\NormalTok{(x, }\StringTok{"elevado a la quinta es igual a"}\NormalTok{, resultado)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+4 elevado a la quinta es igual a 1024
+\end{verbatim}
+
+Dado que la variable de iteración toma un valor numérico que va cambiando en cada repetición del bloque, se puede aprovechar para hacer cuentas con el mismo. Por ejemplo, el siguiente algoritmo muestra la tabla del ocho:
+
+\begin{verbatim}
+ALGORITMO: "Mostrar tabla del 8"
+COMENZAR
+    VARIABLE numérica resultado
+    PARA i DESDE 0 HASTA 10 HACER
+        resultado <- 8 * i
+        ESCRIBIR "8 x" i "=" resultado
+    FIN PARA
+FIN
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Programa: "Mostrar tabla del 8" {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{resultado }\OtherTok{\textless{}{-}} \DecValTok{1}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{0}\SpecialCharTok{:}\DecValTok{10}\NormalTok{) \{}
+\NormalTok{    resultado }\OtherTok{\textless{}{-}} \DecValTok{8} \SpecialCharTok{*}\NormalTok{ i}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"8 x"}\NormalTok{, i, }\StringTok{"="}\NormalTok{, resultado, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+8 x 0 = 0 
+8 x 1 = 8 
+8 x 2 = 16 
+8 x 3 = 24 
+8 x 4 = 32 
+8 x 5 = 40 
+8 x 6 = 48 
+8 x 7 = 56 
+8 x 8 = 64 
+8 x 9 = 72 
+8 x 10 = 80 
+\end{verbatim}
+
+En lo anterior, \texttt{\textbackslash{}n} es un caracter especial que indica ``salto de línea''. Si no lo agregamos, los mensajes se imprimirían uno al lado del otro en el mismo renglón:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Programa: "Mostrar tabla del 8" {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{resultado }\OtherTok{\textless{}{-}} \DecValTok{1}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{0}\SpecialCharTok{:}\DecValTok{10}\NormalTok{) \{}
+\NormalTok{    resultado }\OtherTok{\textless{}{-}} \DecValTok{8} \SpecialCharTok{*}\NormalTok{ i}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"8 x"}\NormalTok{, i, }\StringTok{"="}\NormalTok{, resultado)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+8 x 0 = 08 x 1 = 88 x 2 = 168 x 3 = 248 x 4 = 328 x 5 = 408 x 6 = 488 x 7 = 568 x 8 = 648 x 9 = 728 x 10 = 80
+\end{verbatim}
+
+De manera general, la sintaxis para este tipo de estructuras es:
+
+\begin{verbatim}
+PARA <variable> DESDE <valor1> HASTA <valor2> CON PASO <valor3> HACER
+    Acción/es
+FIN PARA
+\end{verbatim}
+
+Dado un valor inicial \texttt{\textless{}valor1\textgreater{}} asignado a la \texttt{\textless{}variable\textgreater{}}, esta se irá aumentando o disminuyendo según el paso \texttt{\textless{}valor3\textgreater{}} hasta llegar a tomar el valor \texttt{\textless{}valor2\textgreater{}}. Si no se indica el paso se asume que la variable de iteración aumenta de uno en uno. En R:
+
+\begin{verbatim}
+for (<variable> in seq(<valor1>, <valor2>, <valor3>)) {
+    ...Acción/es...
+}
+\end{verbatim}
+
+Notar en el ejemplo de la quinta potencia que \texttt{1:5} es lo mismo que \texttt{seq(1,\ 5,\ 1)}, pero podemos usar la función \texttt{seq()} en otros contextos más complejos, donde la variable de iteración puede pegar otros saltos en lugar de uno en uno.
+
+\hypertarget{estructuras-de-control-iterativas-con-un-nuxfamero-indeterminado-de-iteraciones}{%
+\subsection{Estructuras de control iterativas con un número indeterminado de iteraciones}\label{estructuras-de-control-iterativas-con-un-nuxfamero-indeterminado-de-iteraciones}}
+
+En otras circunstancias se puede necesitar repetir un bloque de acciones sin conocer con exactitud cuántas veces, si no que esto depende de algún otro aspecto del algoritmo. Las iteraciones pueden continuar \emph{mientras que} o \emph{hasta que} se verifique alguna condición, dando lugar a dos tipos de estructuras. Estos casos también se conocen como \emph{bucles (loops) controlados por una condición}.
+
+\hypertarget{mientras-que}{%
+\subsubsection{Mientras que}\label{mientras-que}}
+
+El conjunto de sentencias se repite mientras que se siga evaluando como \texttt{VERDADERO} una condición declarada al inicio del bloque. Cuando la condición ya no se cumple, el proceso deja de ejecutarse. La sintaxis es:
+
+\begin{verbatim}
+MIENTRAS QUE <condición> HACER
+   Acción/es a repetir
+FIN MIENTRAS
+\end{verbatim}
+
+En R:
+
+\begin{verbatim}
+while(<condición>) {
+    ...Acción/es a repetir...
+}
+\end{verbatim}
+
+Observaciones:
+
+\begin{itemize}
+\tightlist
+\item
+  La evaluación de la condición se lleva a cabo antes de cada iteración, incluso antes de ejecutar el código dentro del bloque por primera vez. Si la condición es \texttt{FALSO} inicialmente, entonces las acciones en el cuerpo de la estructura no se ejecutan nunca.
+\item
+  La evaluación de la condición \textbf{sólo} se lleva a cabo al inicio de cada iteración. Si la condición se vuelve \texttt{FALSO} en algún punto durante la ejecución de un bloque, el programa no lo nota hasta que se termine de ejecutar el bloque y la condición sea evaluada antes de comenzar la próxima iteración.
+\end{itemize}
+
+\begin{verbatim}
+ALGORITMO: "Dividir un número por 2 hasta encontrar un valor menor que 0.01"
+COMENZAR
+    VARIABLE numérica x
+    LEER x
+    MIENTRAS QUE x >= 0.01 HACER
+        x <- x / 2
+        ESCRIBIR x
+    FIN MIENTRAS
+FIN
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{100}
+\ControlFlowTok{while}\NormalTok{ (x }\SpecialCharTok{\textgreater{}=} \FloatTok{0.01}\NormalTok{) \{}
+\NormalTok{    x }\OtherTok{\textless{}{-}}\NormalTok{ x }\SpecialCharTok{/} \DecValTok{2}
+    \FunctionTok{cat}\NormalTok{(x, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+50 
+25 
+12.5 
+6.25 
+3.125 
+1.5625 
+0.78125 
+0.390625 
+0.1953125 
+0.09765625 
+0.04882812 
+0.02441406 
+0.01220703 
+0.006103516 
+\end{verbatim}
+
+\hypertarget{hasta-que}{%
+\subsubsection{Hasta que}\label{hasta-que}}
+
+A diferencia de la estructura \emph{MIENTRAS QUE}, la estructura \emph{HASTA QUE} repite el bloque de acciones hasta que se cumpla una condición, es decir, se ejecuta mientras que dicha condición sea evaluada como \texttt{FALSA}. La sintaxis es:
+
+\begin{verbatim}
+REPETIR
+   Acción/es
+HASTA QUE <condición>
+\end{verbatim}
+
+Observación: con la estructura \emph{MIENTRAS QUE} podría ser que el conjunto de sentencias nunca llegue a ejecutarse si desde partida la condición evaluada ya es falsa. Por el contrario, en la estructura \emph{HASTA QUE} el proceso se realiza al menos una vez, dado que la condición se evalúa al final.
+
+El ejemplo anterior empleando este tipo de estructura:
+
+\begin{verbatim}
+ALGORITMO: "Dividir un número por 2 hasta encontrar un valor menor que 0.01"
+COMENZAR
+    VARIABLE numérica x
+    LEER x
+    REPETIR
+        x <- x / 2
+        ESCRIBIR x
+    HASTA QUE x < 0.01
+FIN
+\end{verbatim}
+
+En R este tipo de estructura se implementa con la sentencia \texttt{repeat\ \{\}}. Si bien a continuación se muestra el correspondiente ejemplo, no vamos a utilizar esta estructura, debido a que su escritura es más compleja y a que generalmente es posible obtener el mismo resultado con un \texttt{while\ ()\ \{\}}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{100}
+\ControlFlowTok{repeat}\NormalTok{ \{}
+\NormalTok{    x }\OtherTok{\textless{}{-}}\NormalTok{ x }\SpecialCharTok{/} \DecValTok{2}
+    \FunctionTok{cat}\NormalTok{(x, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+    \ControlFlowTok{if}\NormalTok{ (x }\SpecialCharTok{\textless{}} \FloatTok{0.01}\NormalTok{) }\ControlFlowTok{break}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+50 
+25 
+12.5 
+6.25 
+3.125 
+1.5625 
+0.78125 
+0.390625 
+0.1953125 
+0.09765625 
+0.04882812 
+0.02441406 
+0.01220703 
+0.006103516 
+\end{verbatim}
+
+\hypertarget{loops-infinitos}{%
+\subsubsection{Loops infinitos}\label{loops-infinitos}}
+
+Con las sentencias de tipo \texttt{MIENTRAS\ QUE} se debe tener mucha precaución, puesto que si la evaluación lógica no está bien especificada o nunca deja de ser evaluada como \texttt{TRUE}, se incurre en un \emph{loop} infinito: el programa nunca deja de repetir el bloque (al menos hasta que la máquina se tilde o se produzca un error por desbordamiento de memoria, por ejemplo).
+
+La siguiente situación ilustra esto:
+
+\begin{verbatim}
+var <- 9
+while (var < 10) {
+    var <- var - 1
+    cat("var =", var, "No puedo parar!!!\n")
+}
+
+var = 8 No puedo parar!!!
+var = 7 No puedo parar!!!
+var = 6 No puedo parar!!!
+var = 5 No puedo parar!!!
+var = 4 No puedo parar!!!
+var = 3 No puedo parar!!!
+var = 2 No puedo parar!!!
+var = 1 No puedo parar!!!
+var = 0 No puedo parar!!!
+var = -1 No puedo parar!!!
+...
+\end{verbatim}
+
+\hypertarget{ejemplos}{%
+\section{Ejemplos}\label{ejemplos}}
+
+A continuación se presentan algunos otros ejemplos
+
+\begin{itemize}
+\item
+  No necesariamente tiene que ser \texttt{i} la variable iteradora, podemos darle cualquier nombre:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{ (guau }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{) \{}
+    \FunctionTok{print}\NormalTok{(guau)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5
+\end{verbatim}
+
+  La sentencia \texttt{print()} también sirve para mostrar resultados. La ventaja con respecto a \texttt{cat()} es que no necesitamos agregar \texttt{\textbackslash{}n} para que el siguiente mensaje se escriba en un nuevo renglón, ya que lo agrega por sí sola sin que lo pidamos. La desventaja es que no nos permite crear un mensaje combinando elementos separados entre comas, tal como se puede hacer con \texttt{cat()} (por ejemplo, \texttt{cat("El\ valor\ de\ x\ es\ igual\ a",\ x)}).
+\item
+  Acá tenemos un ejemplo de dos estructuras \texttt{for} anidadas. En primer lugar, \texttt{i} toma el valor 1, y entonces \texttt{j} varía de 1 a 2, generando las combinaciones \texttt{i\ =\ 1,\ j\ =\ 1;\ i\ =\ 1,\ j\ =\ 2}. Luego que \texttt{j} recorrió todo su campo de variación, se actualiza \texttt{i} y pasa a valer 2, generando las combinaciones \texttt{i\ =\ 2,\ j\ =\ 1;\ i\ =\ 2,\ j\ =\ 2}. Finalmente, se actualiza \texttt{i} y pasa a valer 3, generando las combinaciones \texttt{i\ =\ 3,\ j\ =\ 1;\ i\ =\ 3,\ j\ =\ 2}. Para cada combinación, se muestra el valor de la suma:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{) \{}
+    \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{) \{}
+\NormalTok{        suma }\OtherTok{\textless{}{-}}\NormalTok{ i }\SpecialCharTok{+}\NormalTok{ j}
+        \FunctionTok{cat}\NormalTok{(}\StringTok{"i vale"}\NormalTok{, i, }\StringTok{"y j vale"}\NormalTok{, j, }\StringTok{". La suma es igual a"}\NormalTok{, suma, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{) }
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+i vale 1 y j vale 1 . La suma es igual a 2 
+i vale 1 y j vale 2 . La suma es igual a 3 
+i vale 2 y j vale 1 . La suma es igual a 3 
+i vale 2 y j vale 2 . La suma es igual a 4 
+i vale 3 y j vale 1 . La suma es igual a 4 
+i vale 3 y j vale 2 . La suma es igual a 5 
+\end{verbatim}
+\item
+  Sumar los números naturales del 1 al 5:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{suma }\OtherTok{\textless{}{-}} \DecValTok{0}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{) \{}
+\NormalTok{    suma }\OtherTok{\textless{}{-}}\NormalTok{ suma }\SpecialCharTok{+}\NormalTok{ i}
+\NormalTok{\}}
+\NormalTok{suma}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 15
+\end{verbatim}
+\item
+  Sumar números naturales hasta que la suma pase el valor 100 y detenerse:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{suma }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{i }\OtherTok{\textless{}{-}} \DecValTok{1}
+\ControlFlowTok{while}\NormalTok{ (suma }\SpecialCharTok{\textless{}} \DecValTok{100}\NormalTok{) \{}
+\NormalTok{    suma }\OtherTok{\textless{}{-}}\NormalTok{  suma }\SpecialCharTok{+}\NormalTok{ i}
+\NormalTok{    i }\OtherTok{\textless{}{-}}\NormalTok{ i }\SpecialCharTok{+} \DecValTok{1}
+\NormalTok{\}}
+\NormalTok{suma}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 105
+\end{verbatim}
+\item
+  Escribir todos los múltiplos de 8 menores que 150:
+
+\begin{verbatim}
+ALGORITMO: "Múltiplos de 8 menores a 150"
+COMENZAR
+    VARIABLE numérica multiplo
+    multiplo <- 8
+    MIENTRAS QUE multiplo < 150 HACER
+        ESCRIBIR multiplo
+        multiplo <- multiplo + 8
+    FIN MIENTRAS
+FIN
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Programa: "Múltiplos de 8 menores a 150" {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{multiplo }\OtherTok{\textless{}{-}} \DecValTok{8}
+\ControlFlowTok{while}\NormalTok{ (multiplo }\SpecialCharTok{\textless{}} \DecValTok{150}\NormalTok{) \{}
+    \FunctionTok{print}\NormalTok{(multiplo)}
+\NormalTok{    multiplo }\OtherTok{\textless{}{-}}\NormalTok{ multiplo }\SpecialCharTok{+} \DecValTok{8}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 8
+[1] 16
+[1] 24
+[1] 32
+[1] 40
+[1] 48
+[1] 56
+[1] 64
+[1] 72
+[1] 80
+[1] 88
+[1] 96
+[1] 104
+[1] 112
+[1] 120
+[1] 128
+[1] 136
+[1] 144
+\end{verbatim}
+\end{itemize}
 
 \hypertarget{descomposiciuxf3n-algoruxedtmica}{%
 \chapter{Descomposición algorítmica}\label{descomposiciuxf3n-algoruxedtmica}}

@@ -30,7 +30,7 @@
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
 </form>
 
-      <nav aria-label="Tabla de contenidos"><h2>Tabla de contenidos</h2>
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Bienvenida</a></li>
 <li><a class="" href="introducci%C3%B3n-a-la-programaci%C3%B3n.html"><span class="header-section-number">1</span> Introducción a la Programación</a></li>
@@ -52,14 +52,472 @@
 <h1>
 <span class="header-section-number">3</span> Estructuras de control<a class="anchor" aria-label="anchor" href="#estructuras-de-control"><i class="fas fa-link"></i></a>
 </h1>
+<p>Como mencionamos anteriormente, un algoritmo está compuesto por una sucesión ordenada de comandos que se ejecutan uno detrás de otro. Sin embargo, con frecuencia es necesario recurrir a comandos especiales que alteran o controlan el orden en el que se ejecutan las acciones. Llamamos <strong>estructuras de control del flujo de las acciones</strong> al conjunto de reglas que permiten controlar el flujo de las acciones de un algoritmo o programa. Las mismas pueden clasificarse en <strong>secuenciales</strong>, <strong>condicionales</strong> e <strong>iterativas</strong>.</p>
+<div id="estructuras-de-control-secuenciales" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> Estructuras de control secuenciales<a class="anchor" aria-label="anchor" href="#estructuras-de-control-secuenciales"><i class="fas fa-link"></i></a>
+</h2>
+<p>Las <strong>estructuras secuenciales</strong> están compuestas por un número definido de acciones que se ubican en un orden específico y se suceden una tras otra. Los ejemplos que hemos discutido anteriormente están conformados por este tipo de estructura.</p>
+</div>
+<div id="estructuras-de-control-condicionales" class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">3.2</span> Estructuras de control condicionales<a class="anchor" aria-label="anchor" href="#estructuras-de-control-condicionales"><i class="fas fa-link"></i></a>
+</h2>
+<p>En algunas partes de un algoritmo puede ser útil detenerse a hacer una pregunta porque se llegó a una situación en la que puede haber una o más opciones disponibles para continuar. Dependiendo de la respuesta a la pregunta, que siempre deberá ser <code>VERDADERO</code> (<code>TRUE</code>) o <code>FALSO</code> (<code>FALSE</code>), el algoritmo seguirá ciertas acciones e ignorará otras. Estas preguntas y respuestas representan procesos de toma de decisión que conducen a diferentes caminos dentro del algoritmo, permitiéndonos que la solución para el problema en cuestión sea flexible y se adapte a distintas situaciones. Este tipo de estructuras de control de las acciones reciben el nombre de <strong>condicionales</strong> (o <em>estructuras de selección</em>) y pueden ser <strong>simples</strong>, <strong>dobles</strong> y <strong>múltiples</strong>.</p>
+<div id="estructuras-condicionales-simples" class="section level3" number="3.2.1">
+<h3>
+<span class="header-section-number">3.2.1</span> Estructuras condicionales simples<a class="anchor" aria-label="anchor" href="#estructuras-condicionales-simples"><i class="fas fa-link"></i></a>
+</h3>
+<p>Postulan una evaluación lógica y, si su resultado es <code>VERDADERO</code>, se procede a ejecutar las acciones encerradas por esta estructura. Se describen en pseudocódigo con la siguiente sintaxis:</p>
+<pre class="text"><code>SI &lt;condición&gt; ENTONCES
+    Acción/es
+FIN SI</code></pre>
+<p>La palabra <code>SI</code> indica el comando de evaluación lógica, <code>&lt;condición&gt;</code> indica la condición a evaluar y <code>Acción/es</code> son las instrucciones que se realizarán sólo si se cumple la condición, es decir, si la evalución resulta en <code>VERDADERO</code>. Si la condición no se verifica, no se ejecuta ninguna acción y el algoritmo sigue su estructura secuencial a continuación del <code>FIN SI</code>.</p>
+<p>En R, la estructura que nos permite realizar esto es:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="estructuras-de-control.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condición) {</span>
+<span id="cb90-2"><a href="estructuras-de-control.html#cb90-2" aria-hidden="true" tabindex="-1"></a>    ...código para ejecutar acciones...</span>
+<span id="cb90-3"><a href="estructuras-de-control.html#cb90-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Por ejemplo, el siguiente algoritmo registra la edad de una persona y, en el caso de que sea mayor de edad, avisa que puede votar en las elecciones provinciales de Santa Fe:</p>
+<pre><code>ALGORITMO: "Analizar edad para votar"
+COMENZAR
+    VARIABLE numérica edad
+    LEER edad
+    SI edad &gt;= 18 ENTONCES
+        ESCRIBIR "Edad = " edad " años: puede votar"
+    FIN SI
+FIN</code></pre>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Programa: "Analizar edad para votar" -------------------------------</span>
+<span class="va">edad</span> <span class="op">&lt;-</span> <span class="fl">21</span>
+<span class="kw">if</span> <span class="op">(</span><span class="va">edad</span> <span class="op">&gt;=</span> <span class="fl">18</span><span class="op">)</span> <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Edad ="</span>, <span class="va">edad</span>, <span class="st">"años: puede votar"</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<pre><code>Edad = 21 años: puede votar</code></pre>
+<p>Notar que si bien el uso de sangrías en el código es opcional, decidimos emplearlo para facilitar su lectura. Mantener la prolijidad en nuestros programas es esencial.</p>
+</div>
+<div id="estructuras-condicionales-dobles" class="section level3" number="3.2.2">
+<h3>
+<span class="header-section-number">3.2.2</span> Estructuras condicionales dobles<a class="anchor" aria-label="anchor" href="#estructuras-condicionales-dobles"><i class="fas fa-link"></i></a>
+</h3>
+<p>Este tipo de estructura añade una acción a ejecutarse en el caso de que la condición evaluada no se verifique (es decir, devuelve el valor <code>FALSO</code>). La sintaxis es:</p>
+<pre class="text"><code>SI &lt;condición&gt; ENTONCES
+  Acción/es
+SI NO
+  Acción/es
+FIN SI</code></pre>
+<p>La palabra <code>ENTONCES</code> antecede a las acciones que se realizan si se cumple la condición y la expresión <code>SI NO</code> a las que se realizan si no se verifica la misma.</p>
+<p>En R se utiliza el comando <code>else</code>:</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="estructuras-de-control.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condición) {</span>
+<span id="cb95-2"><a href="estructuras-de-control.html#cb95-2" aria-hidden="true" tabindex="-1"></a>    ...código para ejecutar acciones...</span>
+<span id="cb95-3"><a href="estructuras-de-control.html#cb95-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb95-4"><a href="estructuras-de-control.html#cb95-4" aria-hidden="true" tabindex="-1"></a>    ...código para ejecutar acciones...</span>
+<span id="cb95-5"><a href="estructuras-de-control.html#cb95-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Retomando el ejemplo anterior:</p>
+<pre><code>ALGORITMO: "Analizar edad para votar"
+COMENZAR
+    VARIABLE numérica edad
+    LEER edad
+    SI edad &gt;= 18 ENTONCES
+        ESCRIBIR "Edad = " edad " años: puede votar"
+    SI NO
+        ESCRIBIR "Edad = " edad " años: no puede votar"
+    FIN SI
+FIN</code></pre>
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Programa: "Analizar edad para votar" -------------------------------</span>
+<span class="va">edad</span> <span class="op">&lt;-</span> <span class="fl">21</span>
+<span class="kw">if</span> <span class="op">(</span><span class="va">edad</span> <span class="op">&gt;=</span> <span class="fl">18</span><span class="op">)</span> <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Edad ="</span>, <span class="va">edad</span>, <span class="st">"años: puede votar"</span><span class="op">)</span>
+<span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Edad ="</span>, <span class="va">edad</span>, <span class="st">"años: no puede votar"</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<pre><code>Edad = 21 años: puede votar</code></pre>
+</div>
+<div id="estructuras-condicionales-múltiples-o-anidadas" class="section level3" number="3.2.3">
+<h3>
+<span class="header-section-number">3.2.3</span> Estructuras condicionales múltiples o anidadas<a class="anchor" aria-label="anchor" href="#estructuras-condicionales-m%C3%BAltiples-o-anidadas"><i class="fas fa-link"></i></a>
+</h3>
+<p>Permiten combinar varias estructuras condicionales para establecer controles más complejos sobre el flujo de las acciones, representando una toma de decisión múltiple. Podemos ejemplificar la sintaxis de la siguiente forma:</p>
+<pre><code>SI &lt;condición 1&gt; ENTONCES
+  Acción 1
+SI NO
+  SI &lt;condición 2&gt; ENTONCES
+    Acción 2
+  SI NO
+    Acción 3
+  FIN SI
+FIN SI</code></pre>
+<p>En la estructura anterior, hay una primera evaluación lógica en la cual si el resultado es <code>VERDADERO</code>, se ejecuta la Acción 1 y nada más. En cambio, si su resultado es <code>FALSO</code>, se procede a realizar una segunda evaluación lógica, que da lugar a la ejecución de la Acción 2 o de la Acción 3 si su resultado es <code>VERDADERO</code> o <code>FALSO</code>, respectivamente.</p>
+<p>Se debe notar que luego del primer <code>SI NO</code> comienza una nueva estructura completa de <code>SI/ENTONCES/SI NO/FIN SI</code>. Cada <code>SI</code> termina con su propio <code>FIN SI</code>. Al traducir esto a R, se vuelve algo más sencillo:</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="estructuras-de-control.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condición <span class="dv">1</span>) {</span>
+<span id="cb100-2"><a href="estructuras-de-control.html#cb100-2" aria-hidden="true" tabindex="-1"></a>    ...Acción <span class="dv">1</span>...</span>
+<span id="cb100-3"><a href="estructuras-de-control.html#cb100-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (condición <span class="dv">2</span>) {</span>
+<span id="cb100-4"><a href="estructuras-de-control.html#cb100-4" aria-hidden="true" tabindex="-1"></a>    ...Acción <span class="dv">2</span>...</span>
+<span id="cb100-5"><a href="estructuras-de-control.html#cb100-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb100-6"><a href="estructuras-de-control.html#cb100-6" aria-hidden="true" tabindex="-1"></a>    ...Acción <span class="dv">3</span>...</span>
+<span id="cb100-7"><a href="estructuras-de-control.html#cb100-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>El último bloque de acciones (<code>...Acción 3...</code>) se evaluará si ninguna de las condiciones lógicas anteriores fue <code>VERDADERO</code>.</p>
+<p>En el ejemplo de la edad:</p>
+<pre><code>ALGORITMO: "Analizar edad para votar"
+COMENZAR
+    VARIABLE numérica edad
+    LEER edad
+    SI edad &lt; 18 ENTONCES
+        ESCRIBIR "Edad = " edad " años: no puede votar"
+    SI NO
+        SI edad &gt;= 70 ENTONCES
+            ESCRIBIR "Edad = " edad " años: puede votar opcionalmente"
+        SI NO
+            ESCRIBIR "Edad = " edad " años: debe votar obligatoriamente"
+        FIN SI
+    FIN SI
+FIN</code></pre>
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Programa: "Analizar edad para votar" -------------------------------</span>
+<span class="va">edad</span> <span class="op">&lt;-</span> <span class="fl">21</span>
+<span class="kw">if</span> <span class="op">(</span><span class="va">edad</span> <span class="op">&lt;</span> <span class="fl">18</span><span class="op">)</span> <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Edad ="</span>, <span class="va">edad</span>, <span class="st">"años: no puede votar"</span><span class="op">)</span>
+<span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">edad</span> <span class="op">&gt;=</span> <span class="fl">70</span><span class="op">)</span> <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Edad ="</span>, <span class="va">edad</span>, <span class="st">"años: puede votar opcionalmente"</span><span class="op">)</span>
+<span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Edad ="</span>, <span class="va">edad</span>, <span class="st">"años: debe votar obligatoriamente"</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<pre><code>Edad = 21 años: debe votar obligatoriamente</code></pre>
+</div>
+</div>
+<div id="estructuras-de-control-iterativas" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> Estructuras de control iterativas<a class="anchor" aria-label="anchor" href="#estructuras-de-control-iterativas"><i class="fas fa-link"></i></a>
+</h2>
+<p>Las estructuras de control iterativas son útiles cuando la solución de un problema requiere que se ejecute repetidamente un determinado conjunto de acciones. El número de veces que se debe repetir dicha secuencia de acciones puede ser fijo o puede variar dependiendo de algún dato o condición a evaluar en el algoritmo.</p>
+<div id="estructuras-de-control-iterativas-con-un-número-fijo-de-iteraciones" class="section level3" number="3.3.1">
+<h3>
+<span class="header-section-number">3.3.1</span> Estructuras de control iterativas con un número fijo de iteraciones<a class="anchor" aria-label="anchor" href="#estructuras-de-control-iterativas-con-un-n%C3%BAmero-fijo-de-iteraciones"><i class="fas fa-link"></i></a>
+</h3>
+<p>Count-controlled loops
+Sometimes it is necessary for steps to iterate a specific number of times.</p>
+<p>Se aplican cuando se conoce de antemano el número exacto de veces que se debe repetir una secuencia de acciones. También se conocen como <em>bucles (loops) controlados por un conteo</em>, ya que el algoritmo va contando la cantidad de repeticiones haciendo uso de una variable que recibe el nombre de <strong>variable de interación</strong>, <strong>índice</strong> o <strong>conteo</strong>.</p>
+<p>Por ejemplo, imaginemos que queremos escribir un algoritmo que permita calcular la quinta potencia de cualquier número. Para esto, se debe tomar dicho número y multiplicarlo por sí mismo 5 veces. Por lo tanto, una posible solución es:</p>
+<pre><code>ALGORITMO: "Calcular la quinta potencia"
+COMENZAR
+    VARIABLE numérica x, resultado
+    LEER x
+    resultado &lt;- 1
+    resultado &lt;- resultado * x
+    resultado &lt;- resultado * x
+    resultado &lt;- resultado * x
+    resultado &lt;- resultado * x
+    resultado &lt;- resultado * x
+    ESCRIBIR x "elevado a la quinta es igual a" resultado
+FIN</code></pre>
+<p>Ya que sabemos que la multiplicación se debe repetir 5 veces, podemos resumir lo anterior con la siguiente estructura:</p>
+<pre><code>ALGORITMO: "Calcular la quinta potencia"
+COMENZAR
+    VARIABLE numérica x, resultado
+    LEER x
+    resultado &lt;- 1
+    PARA i DESDE 1 HASTA 5 HACER
+        resultado &lt;- resultado * x
+    FIN PARA
+    ESCRIBIR x "elevado a la quinta es igual a" resultado
+FIN</code></pre>
+<p>La letra <code>i</code> es la variable de iteración. Podríamos haber elegido otra letra u otra palabra en su lugar, pero emplear <code>i</code> es una elección bastante común. En este ejemplo, su única función es ir contando la cantidad de veces que se repiten las acciones encerradas dentro de la estructura <code>PARA/FIN PARA</code>. El bloque de instrucciones se repite tantas veces como <code>i</code> tarde en llegar a 5 partiendo desde 1. Por convención, a la variable de iteración no la declaramos junto con las otras variables numéricas (como <code>x</code> y <code>resultado</code>).</p>
+<p>En R, el ejemplo anterior se implementa así:</p>
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Programa: "Calcular la quinta potencia" ------------------------</span>
+<span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">4</span>
+<span class="va">resultado</span> <span class="op">&lt;-</span> <span class="fl">1</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">resultado</span> <span class="op">&lt;-</span> <span class="va">resultado</span> <span class="op">*</span> <span class="va">x</span>
+<span class="op">}</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"elevado a la quinta es igual a"</span>, <span class="va">resultado</span><span class="op">)</span></code></pre></div>
+<pre><code>4 elevado a la quinta es igual a 1024</code></pre>
+<p>Dado que la variable de iteración toma un valor numérico que va cambiando en cada repetición del bloque, se puede aprovechar para hacer cuentas con el mismo. Por ejemplo, el siguiente algoritmo muestra la tabla del ocho:</p>
+<pre><code>ALGORITMO: "Mostrar tabla del 8"
+COMENZAR
+    VARIABLE numérica resultado
+    PARA i DESDE 0 HASTA 10 HACER
+        resultado &lt;- 8 * i
+        ESCRIBIR "8 x" i "=" resultado
+    FIN PARA
+FIN</code></pre>
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Programa: "Mostrar tabla del 8" -------------------------------</span>
+<span class="va">resultado</span> <span class="op">&lt;-</span> <span class="fl">1</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">resultado</span> <span class="op">&lt;-</span> <span class="fl">8</span> <span class="op">*</span> <span class="va">i</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"8 x"</span>, <span class="va">i</span>, <span class="st">"="</span>, <span class="va">resultado</span>, <span class="st">"\n"</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<pre><code>8 x 0 = 0 
+8 x 1 = 8 
+8 x 2 = 16 
+8 x 3 = 24 
+8 x 4 = 32 
+8 x 5 = 40 
+8 x 6 = 48 
+8 x 7 = 56 
+8 x 8 = 64 
+8 x 9 = 72 
+8 x 10 = 80 </code></pre>
+<p>En lo anterior, <code>\n</code> es un caracter especial que indica “salto de línea”. Si no lo agregamos, los mensajes se imprimirían uno al lado del otro en el mismo renglón:</p>
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Programa: "Mostrar tabla del 8" -------------------------------</span>
+<span class="va">resultado</span> <span class="op">&lt;-</span> <span class="fl">1</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">resultado</span> <span class="op">&lt;-</span> <span class="fl">8</span> <span class="op">*</span> <span class="va">i</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"8 x"</span>, <span class="va">i</span>, <span class="st">"="</span>, <span class="va">resultado</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<pre><code>8 x 0 = 08 x 1 = 88 x 2 = 168 x 3 = 248 x 4 = 328 x 5 = 408 x 6 = 488 x 7 = 568 x 8 = 648 x 9 = 728 x 10 = 80</code></pre>
+<p>De manera general, la sintaxis para este tipo de estructuras es:</p>
+<pre class="text"><code>PARA &lt;variable&gt; DESDE &lt;valor1&gt; HASTA &lt;valor2&gt; CON PASO &lt;valor3&gt; HACER
+    Acción/es
+FIN PARA</code></pre>
+<p>Dado un valor inicial <code>&lt;valor1&gt;</code> asignado a la <code>&lt;variable&gt;</code>, esta se irá aumentando o disminuyendo según el paso <code>&lt;valor3&gt;</code> hasta llegar a tomar el valor <code>&lt;valor2&gt;</code>. Si no se indica el paso se asume que la variable de iteración aumenta de uno en uno. En R:</p>
+<pre><code>for (&lt;variable&gt; in seq(&lt;valor1&gt;, &lt;valor2&gt;, &lt;valor3&gt;)) {
+    ...Acción/es...
+}</code></pre>
+<p>Notar en el ejemplo de la quinta potencia que <code>1:5</code> es lo mismo que <code><a href="https://rdrr.io/r/base/seq.html">seq(1, 5, 1)</a></code>, pero podemos usar la función <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> en otros contextos más complejos, donde la variable de iteración puede pegar otros saltos en lugar de uno en uno.</p>
+</div>
+<div id="estructuras-de-control-iterativas-con-un-número-indeterminado-de-iteraciones" class="section level3" number="3.3.2">
+<h3>
+<span class="header-section-number">3.3.2</span> Estructuras de control iterativas con un número indeterminado de iteraciones<a class="anchor" aria-label="anchor" href="#estructuras-de-control-iterativas-con-un-n%C3%BAmero-indeterminado-de-iteraciones"><i class="fas fa-link"></i></a>
+</h3>
+<p>En otras circunstancias se puede necesitar repetir un bloque de acciones sin conocer con exactitud cuántas veces, si no que esto depende de algún otro aspecto del algoritmo. Las iteraciones pueden continuar <em>mientras que</em> o <em>hasta que</em> se verifique alguna condición, dando lugar a dos tipos de estructuras. Estos casos también se conocen como <em>bucles (loops) controlados por una condición</em>.</p>
+<div id="mientras-que" class="section level4" number="3.3.2.1">
+<h4>
+<span class="header-section-number">3.3.2.1</span> Mientras que<a class="anchor" aria-label="anchor" href="#mientras-que"><i class="fas fa-link"></i></a>
+</h4>
+<p>El conjunto de sentencias se repite mientras que se siga evaluando como <code>VERDADERO</code> una condición declarada al inicio del bloque. Cuando la condición ya no se cumple, el proceso deja de ejecutarse. La sintaxis es:</p>
+<pre><code>MIENTRAS QUE &lt;condición&gt; HACER
+   Acción/es a repetir
+FIN MIENTRAS</code></pre>
+<p>En R:</p>
+<pre><code>while(&lt;condición&gt;) {
+    ...Acción/es a repetir...
+}</code></pre>
+<p>Observaciones:</p>
+<ul>
+<li>La evaluación de la condición se lleva a cabo antes de cada iteración, incluso antes de ejecutar el código dentro del bloque por primera vez. Si la condición es <code>FALSO</code> inicialmente, entonces las acciones en el cuerpo de la estructura no se ejecutan nunca.</li>
+<li>La evaluación de la condición <strong>sólo</strong> se lleva a cabo al inicio de cada iteración. Si la condición se vuelve <code>FALSO</code> en algún punto durante la ejecución de un bloque, el programa no lo nota hasta que se termine de ejecutar el bloque y la condición sea evaluada antes de comenzar la próxima iteración.</li>
+</ul>
+<pre><code>ALGORITMO: "Dividir un número por 2 hasta encontrar un valor menor que 0.01"
+COMENZAR
+    VARIABLE numérica x
+    LEER x
+    MIENTRAS QUE x &gt;= 0.01 HACER
+        x &lt;- x / 2
+        ESCRIBIR x
+    FIN MIENTRAS
+FIN</code></pre>
+<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">100</span>
+<span class="kw">while</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;=</span> <span class="fl">0.01</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">x</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">/</span> <span class="fl">2</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"\n"</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<pre><code>50 
+25 
+12.5 
+6.25 
+3.125 
+1.5625 
+0.78125 
+0.390625 
+0.1953125 
+0.09765625 
+0.04882812 
+0.02441406 
+0.01220703 
+0.006103516 </code></pre>
+</div>
+<div id="hasta-que" class="section level4" number="3.3.2.2">
+<h4>
+<span class="header-section-number">3.3.2.2</span> Hasta que<a class="anchor" aria-label="anchor" href="#hasta-que"><i class="fas fa-link"></i></a>
+</h4>
+<p>A diferencia de la estructura <em>MIENTRAS QUE</em>, la estructura <em>HASTA QUE</em> repite el bloque de acciones hasta que se cumpla una condición, es decir, se ejecuta mientras que dicha condición sea evaluada como <code>FALSA</code>. La sintaxis es:</p>
+<pre class="text"><code>REPETIR
+   Acción/es
+HASTA QUE &lt;condición&gt;</code></pre>
+<p>Observación: con la estructura <em>MIENTRAS QUE</em> podría ser que el conjunto de sentencias nunca llegue a ejecutarse si desde partida la condición evaluada ya es falsa. Por el contrario, en la estructura <em>HASTA QUE</em> el proceso se realiza al menos una vez, dado que la condición se evalúa al final.</p>
+<p>El ejemplo anterior empleando este tipo de estructura:</p>
+<pre><code>ALGORITMO: "Dividir un número por 2 hasta encontrar un valor menor que 0.01"
+COMENZAR
+    VARIABLE numérica x
+    LEER x
+    REPETIR
+        x &lt;- x / 2
+        ESCRIBIR x
+    HASTA QUE x &lt; 0.01
+FIN</code></pre>
+<p>En R este tipo de estructura se implementa con la sentencia <code>repeat {}</code>. Si bien a continuación se muestra el correspondiente ejemplo, no vamos a utilizar esta estructura, debido a que su escritura es más compleja y a que generalmente es posible obtener el mismo resultado con un <code>while () {}</code>.</p>
+<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">100</span>
+<span class="kw">repeat</span> <span class="op">{</span>
+    <span class="va">x</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">/</span> <span class="fl">2</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"\n"</span><span class="op">)</span>
+    <span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">&lt;</span> <span class="fl">0.01</span><span class="op">)</span> <span class="kw">break</span>
+<span class="op">}</span></code></pre></div>
+<pre><code>50 
+25 
+12.5 
+6.25 
+3.125 
+1.5625 
+0.78125 
+0.390625 
+0.1953125 
+0.09765625 
+0.04882812 
+0.02441406 
+0.01220703 
+0.006103516 </code></pre>
+</div>
+<div id="loops-infinitos" class="section level4" number="3.3.2.3">
+<h4>
+<span class="header-section-number">3.3.2.3</span> Loops infinitos<a class="anchor" aria-label="anchor" href="#loops-infinitos"><i class="fas fa-link"></i></a>
+</h4>
+<p>Con las sentencias de tipo <code>MIENTRAS QUE</code> se debe tener mucha precaución, puesto que si la evaluación lógica no está bien especificada o nunca deja de ser evaluada como <code>TRUE</code>, se incurre en un <em>loop</em> infinito: el programa nunca deja de repetir el bloque (al menos hasta que la máquina se tilde o se produzca un error por desbordamiento de memoria, por ejemplo).</p>
+<p>La siguiente situación ilustra esto:</p>
+<pre><code>var &lt;- 9
+while (var &lt; 10) {
+    var &lt;- var - 1
+    cat("var =", var, "No puedo parar!!!\n")
+}
 
+var = 8 No puedo parar!!!
+var = 7 No puedo parar!!!
+var = 6 No puedo parar!!!
+var = 5 No puedo parar!!!
+var = 4 No puedo parar!!!
+var = 3 No puedo parar!!!
+var = 2 No puedo parar!!!
+var = 1 No puedo parar!!!
+var = 0 No puedo parar!!!
+var = -1 No puedo parar!!!
+...</code></pre>
+</div>
+</div>
+</div>
+<div id="ejemplos" class="section level2" number="3.4">
+<h2>
+<span class="header-section-number">3.4</span> Ejemplos<a class="anchor" aria-label="anchor" href="#ejemplos"><i class="fas fa-link"></i></a>
+</h2>
+<p>A continuación se presentan algunos otros ejemplos</p>
+<ul>
+<li>
+<p>No necesariamente tiene que ser <code>i</code> la variable iteradora, podemos darle cualquier nombre:</p>
+<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw">for</span> <span class="op">(</span><span class="va">guau</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">guau</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<pre><code>[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5</code></pre>
+<p>La sentencia <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> también sirve para mostrar resultados. La ventaja con respecto a <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> es que no necesitamos agregar <code>\n</code> para que el siguiente mensaje se escriba en un nuevo renglón, ya que lo agrega por sí sola sin que lo pidamos. La desventaja es que no nos permite crear un mensaje combinando elementos separados entre comas, tal como se puede hacer con <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> (por ejemplo, <code><a href="https://rdrr.io/r/base/cat.html">cat("El valor de x es igual a", x)</a></code>).</p>
+</li>
+<li>
+<p>Acá tenemos un ejemplo de dos estructuras <code>for</code> anidadas. En primer lugar, <code>i</code> toma el valor 1, y entonces <code>j</code> varía de 1 a 2, generando las combinaciones <code>i = 1, j = 1; i = 1, j = 2</code>. Luego que <code>j</code> recorrió todo su campo de variación, se actualiza <code>i</code> y pasa a valer 2, generando las combinaciones <code>i = 2, j = 1; i = 2, j = 2</code>. Finalmente, se actualiza <code>i</code> y pasa a valer 3, generando las combinaciones <code>i = 3, j = 1; i = 3, j = 2</code>. Para cada combinación, se muestra el valor de la suma:</p>
+<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span> <span class="op">{</span>
+    <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span> <span class="op">{</span>
+        <span class="va">suma</span> <span class="op">&lt;-</span> <span class="va">i</span> <span class="op">+</span> <span class="va">j</span>
+        <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"i vale"</span>, <span class="va">i</span>, <span class="st">"y j vale"</span>, <span class="va">j</span>, <span class="st">". La suma es igual a"</span>, <span class="va">suma</span>, <span class="st">"\n"</span><span class="op">)</span> 
+    <span class="op">}</span>
+<span class="op">}</span></code></pre></div>
+<pre><code>i vale 1 y j vale 1 . La suma es igual a 2 
+i vale 1 y j vale 2 . La suma es igual a 3 
+i vale 2 y j vale 1 . La suma es igual a 3 
+i vale 2 y j vale 2 . La suma es igual a 4 
+i vale 3 y j vale 1 . La suma es igual a 4 
+i vale 3 y j vale 2 . La suma es igual a 5 </code></pre>
+</li>
+<li>
+<p>Sumar los números naturales del 1 al 5:</p>
+<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">suma</span> <span class="op">&lt;-</span> <span class="fl">0</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">suma</span> <span class="op">&lt;-</span> <span class="va">suma</span> <span class="op">+</span> <span class="va">i</span>
+<span class="op">}</span>
+<span class="va">suma</span></code></pre></div>
+<pre><code>[1] 15</code></pre>
+</li>
+<li>
+<p>Sumar números naturales hasta que la suma pase el valor 100 y detenerse:</p>
+<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">suma</span> <span class="op">&lt;-</span> <span class="fl">0</span>
+<span class="va">i</span> <span class="op">&lt;-</span> <span class="fl">1</span>
+<span class="kw">while</span> <span class="op">(</span><span class="va">suma</span> <span class="op">&lt;</span> <span class="fl">100</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">suma</span> <span class="op">&lt;-</span>  <span class="va">suma</span> <span class="op">+</span> <span class="va">i</span>
+    <span class="va">i</span> <span class="op">&lt;-</span> <span class="va">i</span> <span class="op">+</span> <span class="fl">1</span>
+<span class="op">}</span>
+<span class="va">suma</span></code></pre></div>
+<pre><code>[1] 105</code></pre>
+</li>
+<li>
+<p>Escribir todos los múltiplos de 8 menores que 150:</p>
+<pre><code>ALGORITMO: "Múltiplos de 8 menores a 150"
+COMENZAR
+    VARIABLE numérica multiplo
+    multiplo &lt;- 8
+    MIENTRAS QUE multiplo &lt; 150 HACER
+        ESCRIBIR multiplo
+        multiplo &lt;- multiplo + 8
+    FIN MIENTRAS
+FIN</code></pre>
+<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Programa: "Múltiplos de 8 menores a 150" ------------------------</span>
+<span class="va">multiplo</span> <span class="op">&lt;-</span> <span class="fl">8</span>
+<span class="kw">while</span> <span class="op">(</span><span class="va">multiplo</span> <span class="op">&lt;</span> <span class="fl">150</span><span class="op">)</span> <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">multiplo</span><span class="op">)</span>
+    <span class="va">multiplo</span> <span class="op">&lt;-</span> <span class="va">multiplo</span> <span class="op">+</span> <span class="fl">8</span>
+<span class="op">}</span></code></pre></div>
+<pre><code>[1] 8
+[1] 16
+[1] 24
+[1] 32
+[1] 40
+[1] 48
+[1] 56
+[1] 64
+[1] 72
+[1] 80
+[1] 88
+[1] 96
+[1] 104
+[1] 112
+[1] 120
+[1] 128
+[1] 136
+[1] 144</code></pre>
+</li>
+</ul>
+</div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="objetos-y-operadores.html"><span class="header-section-number">2</span> Objetos y operadores</a></div>
 <div class="next"><a href="descomposici%C3%B3n-algor%C3%ADtmica.html"><span class="header-section-number">4</span> Descomposición algorítmica</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="En esta página"><h2>En esta página</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#estructuras-de-control"><span class="header-section-number">3</span> Estructuras de control</a></li></ul>
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#estructuras-de-control"><span class="header-section-number">3</span> Estructuras de control</a></li>
+<li><a class="nav-link" href="#estructuras-de-control-secuenciales"><span class="header-section-number">3.1</span> Estructuras de control secuenciales</a></li>
+<li>
+<a class="nav-link" href="#estructuras-de-control-condicionales"><span class="header-section-number">3.2</span> Estructuras de control condicionales</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#estructuras-condicionales-simples"><span class="header-section-number">3.2.1</span> Estructuras condicionales simples</a></li>
+<li><a class="nav-link" href="#estructuras-condicionales-dobles"><span class="header-section-number">3.2.2</span> Estructuras condicionales dobles</a></li>
+<li><a class="nav-link" href="#estructuras-condicionales-m%C3%BAltiples-o-anidadas"><span class="header-section-number">3.2.3</span> Estructuras condicionales múltiples o anidadas</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#estructuras-de-control-iterativas"><span class="header-section-number">3.3</span> Estructuras de control iterativas</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#estructuras-de-control-iterativas-con-un-n%C3%BAmero-fijo-de-iteraciones"><span class="header-section-number">3.3.1</span> Estructuras de control iterativas con un número fijo de iteraciones</a></li>
+<li><a class="nav-link" href="#estructuras-de-control-iterativas-con-un-n%C3%BAmero-indeterminado-de-iteraciones"><span class="header-section-number">3.3.2</span> Estructuras de control iterativas con un número indeterminado de iteraciones</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#ejemplos"><span class="header-section-number">3.4</span> Ejemplos</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -75,7 +533,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-05-09.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-05-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
