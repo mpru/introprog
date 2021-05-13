@@ -244,7 +244,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2021-05-10}
+\date{2021-05-13}
 
 \begin{document}
 \maketitle
@@ -2038,9 +2038,6 @@ Las estructuras de control iterativas son útiles cuando la solución de un prob
 \hypertarget{estructuras-de-control-iterativas-con-un-nuxfamero-fijo-de-iteraciones}{%
 \subsection{Estructuras de control iterativas con un número fijo de iteraciones}\label{estructuras-de-control-iterativas-con-un-nuxfamero-fijo-de-iteraciones}}
 
-Count-controlled loops
-Sometimes it is necessary for steps to iterate a specific number of times.
-
 Se aplican cuando se conoce de antemano el número exacto de veces que se debe repetir una secuencia de acciones. También se conocen como \emph{bucles (loops) controlados por un conteo}, ya que el algoritmo va contando la cantidad de repeticiones haciendo uso de una variable que recibe el nombre de \textbf{variable de interación}, \textbf{índice} o \textbf{conteo}.
 
 Por ejemplo, imaginemos que queremos escribir un algoritmo que permita calcular la quinta potencia de cualquier número. Para esto, se debe tomar dicho número y multiplicarlo por sí mismo 5 veces. Por lo tanto, una posible solución es:
@@ -2138,7 +2135,6 @@ En lo anterior, \texttt{\textbackslash{}n} es un caracter especial que indica ``
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Programa: "Mostrar tabla del 8" {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
-\NormalTok{resultado }\OtherTok{\textless{}{-}} \DecValTok{1}
 \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{0}\SpecialCharTok{:}\DecValTok{10}\NormalTok{) \{}
 \NormalTok{    resultado }\OtherTok{\textless{}{-}} \DecValTok{8} \SpecialCharTok{*}\NormalTok{ i}
     \FunctionTok{cat}\NormalTok{(}\StringTok{"8 x"}\NormalTok{, i, }\StringTok{"="}\NormalTok{, resultado)}
