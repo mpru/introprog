@@ -4,13 +4,14 @@
 %
 \documentclass[
 ]{book}
-\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
+\usepackage{amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
+  \usepackage{amssymb}
 \else % if luatex or xetex
   \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
@@ -81,7 +82,7 @@
 \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
 \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\usepackage{longtable,booktabs,array}
+\usepackage{longtable,booktabs}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -1118,28 +1119,113 @@ El desarrollo de un algoritmo involucra la necesidad de efectuar operaciones de 
 
 Los operadores aritméticos permiten realizar operaciones matemáticas con datos de tipo numérico. A continuación presentamos su simbología más comúnmente empleada a la hora de expresarlos en pseudocódigo, junto con sus equivalentes en el lenguaje R:
 
-\begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.35}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.22}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.13}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.08}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.22}}@{}}
+\begin{longtable}[]{@{}ccccc@{}}
 \caption{\label{tab:op-mat} Operadores aritméticos.}\tabularnewline
 \toprule
-Operación & Operador en pseudocódigo & Operador en R & Ejemplo & Rtdo para x \textless- 7, y \textless- 3 \\
+\begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.35}}\centering
+Operación\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.22}}\centering
+Operador en pseudocódigo\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.13}}\centering
+Operador en R\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.08}}\centering
+Ejemplo\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.22}}\centering
+Rtdo para x \textless- 7, y \textless- 3\strut
+\end{minipage}\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-Operación & Operador en pseudocódigo & Operador en R & Ejemplo & Rtdo para x \textless- 7, y \textless- 3 \\
+\begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.35}}\centering
+Operación\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.22}}\centering
+Operador en pseudocódigo\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.13}}\centering
+Operador en R\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.08}}\centering
+Ejemplo\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.22}}\centering
+Rtdo para x \textless- 7, y \textless- 3\strut
+\end{minipage}\tabularnewline
 \midrule
 \endhead
-Suma & + & + & x + y & 10 \\
-Resta & - & - & x - y & 4 \\
-Multiplicación & * & * & x * y & 21 \\
-División & / & / & x / y & 2.33 \\
-Potenciación & \^{} & \^{} & x \^{} y & 343 \\
-División entera & DIV & \%/\% & x \%/\% y & 2 \\
-División módular (resto de la división) & MOD & \%\% & x \%\% y & 1 \\
+\begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.35}}\centering
+Suma\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.22}}\centering
++\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.13}}\centering
++\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.08}}\centering
+x + y\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.22}}\centering
+10\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.35}}\centering
+Resta\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.22}}\centering
+-\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.13}}\centering
+-\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.08}}\centering
+x - y\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.22}}\centering
+4\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.35}}\centering
+Multiplicación\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.22}}\centering
+*\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.13}}\centering
+*\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.08}}\centering
+x * y\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.22}}\centering
+21\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.35}}\centering
+División\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.22}}\centering
+/\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.13}}\centering
+/\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.08}}\centering
+x / y\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.22}}\centering
+2.33\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.35}}\centering
+Potenciación\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.22}}\centering
+\^{}\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.13}}\centering
+\^{}\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.08}}\centering
+x \^{} y\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.22}}\centering
+343\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.35}}\centering
+División entera\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.22}}\centering
+DIV\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.13}}\centering
+\%/\%\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.08}}\centering
+x \%/\% y\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.22}}\centering
+2\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.35}}\centering
+División módular (resto de la división)\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.22}}\centering
+MOD\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.13}}\centering
+\%\%\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.08}}\centering
+x \%\% y\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.22}}\centering
+1\strut
+\end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -1163,20 +1249,20 @@ Si la expresión presenta operadores con igual nivel de prioridad, se evalúan d
 \begin{longtable}[]{@{}cc@{}}
 \caption{\label{tab:ej-op-mat} Ejemplos de operaciones aritméticas según el orden de precedencia de R.}\tabularnewline
 \toprule
-Operación & Resultado \\
+Operación & Resultado\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-Operación & Resultado \\
+Operación & Resultado\tabularnewline
 \midrule
 \endhead
-4 + 2 * 4 & 12 \\
-23 * 2 / 5 & 9.2 \\
-3 + 5 * (10 - (2 + 4)) & 23 \\
-2.1 * 1.5 + 12.3 & 15.45 \\
-2.1 * (1.5 + 12.3) & 28.98 \\
-1 \%\% 4 & 1 \\
-8 * (7 - 6 + 5) \%\% (1 + 8 / 2) - 1 & 7 \\
+4 + 2 * 4 & 12\tabularnewline
+23 * 2 / 5 & 9.2\tabularnewline
+3 + 5 * (10 - (2 + 4)) & 23\tabularnewline
+2.1 * 1.5 + 12.3 & 15.45\tabularnewline
+2.1 * (1.5 + 12.3) & 28.98\tabularnewline
+1 \%\% 4 & 1\tabularnewline
+8 * (7 - 6 + 5) \%\% (1 + 8 / 2) - 1 & 7\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -1185,27 +1271,102 @@ Operación & Resultado \\
 
 Los operadores relacionales sirven para comparar dos valores de cualquier tipo y dan como resultado un valor lógico: \emph{VERDADERO} (\texttt{T} o \texttt{TRUE} en R) o \emph{FALSO} (\texttt{F} o \texttt{FALSE} en R).
 
-\begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.20}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.27}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.16}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.09}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.27}}@{}}
+\begin{longtable}[]{@{}ccccc@{}}
 \caption{\label{tab:op-rel} Operadores relacionales o de comparación.}\tabularnewline
 \toprule
-Comparación & Operador en pseudocódigo & Operador en R & Ejemplo & Rtdo para x \textless- 7, y \textless- 3 \\
+\begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.20}}\centering
+Comparación\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.27}}\centering
+Operador en pseudocódigo\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.16}}\centering
+Operador en R\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.09}}\centering
+Ejemplo\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.27}}\centering
+Rtdo para x \textless- 7, y \textless- 3\strut
+\end{minipage}\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-Comparación & Operador en pseudocódigo & Operador en R & Ejemplo & Rtdo para x \textless- 7, y \textless- 3 \\
+\begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.20}}\centering
+Comparación\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.27}}\centering
+Operador en pseudocódigo\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.16}}\centering
+Operador en R\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.09}}\centering
+Ejemplo\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.27}}\centering
+Rtdo para x \textless- 7, y \textless- 3\strut
+\end{minipage}\tabularnewline
 \midrule
 \endhead
-Mayor que & \textgreater{} & \textgreater{} & x \textgreater{} y & TRUE \\
-Menor que & \textless{} & \textless{} & x \textless{} y & FALSE \\
-Mayor o igual que & \textgreater= & \textgreater= & x \textgreater= y & TRUE \\
-Menor o igual que & \textless= & \textless= & x \textless= y & FALSE \\
-Igual a & = o == & == & x == y & FALSE \\
-Distinto a & ¬= o != & != & x != y & TRUE \\
+\begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.20}}\centering
+Mayor que\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.27}}\centering
+\textgreater{}\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.16}}\centering
+\textgreater{}\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.09}}\centering
+x \textgreater{} y\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.27}}\centering
+TRUE\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.20}}\centering
+Menor que\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.27}}\centering
+\textless{}\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.16}}\centering
+\textless{}\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.09}}\centering
+x \textless{} y\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.27}}\centering
+FALSE\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.20}}\centering
+Mayor o igual que\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.27}}\centering
+\textgreater=\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.16}}\centering
+\textgreater=\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.09}}\centering
+x \textgreater= y\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.27}}\centering
+TRUE\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.20}}\centering
+Menor o igual que\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.27}}\centering
+\textless=\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.16}}\centering
+\textless=\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.09}}\centering
+x \textless= y\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.27}}\centering
+FALSE\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.20}}\centering
+Igual a\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.27}}\centering
+= o ==\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.16}}\centering
+==\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.09}}\centering
+x == y\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.27}}\centering
+FALSE\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.20}}\centering
+Distinto a\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.27}}\centering
+¬= o !=\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.16}}\centering
+!=\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.09}}\centering
+x != y\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.27}}\centering
+TRUE\strut
+\end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -1265,24 +1426,69 @@ Si bien en pseudocódigo podemos usar tanto \texttt{=} o \texttt{==} para probar
 
 Mientras que los operadores relacionales comparan cualquier tipo de valores, los operadores lógicos sólo toman operandos de tipo lógico y producen también un resultado lógico. Los operadores lógicos que utilizaremos son:
 
-\begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.30}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.17}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.10}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.30}}@{}}
+\begin{longtable}[]{@{}ccccc@{}}
 \caption{\label{tab:op-log} Operadores lógicos.}\tabularnewline
 \toprule
-Operación & Operador en pseudocódigo & Operador en R & Ejemplo & Rtdo para x \textless- T, y \textless- F \\
+\begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.14}}\centering
+Operación\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.30}}\centering
+Operador en pseudocódigo\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.17}}\centering
+Operador en R\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.10}}\centering
+Ejemplo\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.30}}\centering
+Rtdo para x \textless- T, y \textless- F\strut
+\end{minipage}\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-Operación & Operador en pseudocódigo & Operador en R & Ejemplo & Rtdo para x \textless- T, y \textless- F \\
+\begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.14}}\centering
+Operación\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.30}}\centering
+Operador en pseudocódigo\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.17}}\centering
+Operador en R\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.10}}\centering
+Ejemplo\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 4\tabcolsep) * \real{0.30}}\centering
+Rtdo para x \textless- T, y \textless- F\strut
+\end{minipage}\tabularnewline
 \midrule
 \endhead
-Conjunción & Y & \&\& & x \&\& y & FALSE \\
-Disyunción & O & \textbar\textbar{} & x \textbar\textbar{} y & TRUE \\
-Negación & NO o ¬ & ! & !x & FALSE \\
+\begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.14}}\centering
+Conjunción\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.30}}\centering
+Y\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.17}}\centering
+\&\&\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.10}}\centering
+x \&\& y\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.30}}\centering
+FALSE\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.14}}\centering
+Disyunción\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.30}}\centering
+O\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.17}}\centering
+\textbar\textbar{}\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.10}}\centering
+x \textbar\textbar{} y\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.30}}\centering
+TRUE\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.14}}\centering
+Negación\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.30}}\centering
+NO o ¬\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.17}}\centering
+!\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.10}}\centering
+!x\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 4\tabcolsep) * \real{0.30}}\centering
+FALSE\strut
+\end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -1303,23 +1509,23 @@ La \textbf{tabla de verdad} o \textbf{tabla de valores de verdad} se utiliza par
 \begin{longtable}[]{@{}cccc@{}}
 \caption{\label{tab:verdad} Operadores relacionales o de comparación.}\tabularnewline
 \toprule
-Valor 1 & Operador & Valor 2 & Resultado \\
+Valor 1 & Operador & Valor 2 & Resultado\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-Valor 1 & Operador & Valor 2 & Resultado \\
+Valor 1 & Operador & Valor 2 & Resultado\tabularnewline
 \midrule
 \endhead
-F & Y & F & F \\
-F & Y & V & F \\
-V & Y & F & F \\
-V & Y & V & V \\
-F & O & F & F \\
-F & O & V & V \\
-V & O & F & V \\
-V & O & V & V \\
-& NO & F & V \\
-& NO & V & F \\
+F & Y & F & F\tabularnewline
+F & Y & V & F\tabularnewline
+V & Y & F & F\tabularnewline
+V & Y & V & V\tabularnewline
+F & O & F & F\tabularnewline
+F & O & V & V\tabularnewline
+V & O & F & V\tabularnewline
+V & O & V & V\tabularnewline
+& NO & F & V\tabularnewline
+& NO & V & F\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -1513,7 +1719,7 @@ Por ejemplo:
 \end{Shaded}
 
 \begin{verbatim}
-Error in eval(expr, envir, enclos): objeto 'z' no encontrado
+Error in eval(expr, envir, enclos): object 'z' not found
 \end{verbatim}
 
 \begin{Shaded}
@@ -1552,7 +1758,7 @@ La operación de disyunción también se evalúa en cortocircuito, es decir, si 
 \end{Shaded}
 
 \begin{verbatim}
-Error in eval(expr, envir, enclos): objeto 'z' no encontrado
+Error in eval(expr, envir, enclos): object 'z' not found
 \end{verbatim}
 
 \hypertarget{orden-de-precedencia-completo-en-r}{%
@@ -1563,23 +1769,23 @@ Resumiendo la información anterior, a continuación se presenta el orden comple
 \begin{longtable}[]{@{}ccc@{}}
 \caption{\label{tab:orden} Orden de precedencia de los operadores en R.}\tabularnewline
 \toprule
-Orden & Operaciones & Operadores \\
+Orden & Operaciones & Operadores\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-Orden & Operaciones & Operadores \\
+Orden & Operaciones & Operadores\tabularnewline
 \midrule
 \endhead
-1 & Potenciación & \^{} \\
-2 & Signo de un número (ej: -3) & + - \\
-3 & División entera y resto & \%/\% \%\% \\
-4 & Multiplicación y división & * / \\
-5 & Suma y resta & + - \\
-6 & Operaciones relaciones o comparaciones & \textless{} \textgreater{} \textless= \textgreater= == != \\
-7 & Negación & ! \\
-8 & Conjunción & \&\& \& \\
-9 & Disyunción & \textbar\textbar{} \textbar{} \\
-10 & Asignación (izquierda a derecha) & \textless- \\
+1 & Potenciación & \^{}\tabularnewline
+2 & Signo de un número (ej: -3) & + -\tabularnewline
+3 & División entera y resto & \%/\% \%\%\tabularnewline
+4 & Multiplicación y división & * /\tabularnewline
+5 & Suma y resta & + -\tabularnewline
+6 & Operaciones relaciones o comparaciones & \textless{} \textgreater{} \textless= \textgreater= == !=\tabularnewline
+7 & Negación & !\tabularnewline
+8 & Conjunción & \&\& \&\tabularnewline
+9 & Disyunción & \textbar\textbar{} \textbar{}\tabularnewline
+10 & Asignación (izquierda a derecha) & \textless-\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -2729,7 +2935,7 @@ A continuación, podemos ver casos que generan error por hacer un uso incorrecto
 \end{Shaded}
 
 \begin{verbatim}
-Error in f(4): el argumento "y" está ausente, sin valor por omisión
+Error in f(4): argument "y" is missing, with no default
 \end{verbatim}
 
 \begin{Shaded}
@@ -3135,7 +3341,7 @@ FIN
 \end{Shaded}
 
 \begin{verbatim}
-Error in eval(expr, envir, enclos): objeto 'a' no encontrado
+Error in eval(expr, envir, enclos): object 'a' not found
 \end{verbatim}
 
 El error se genera porque el algoritmo principal quiere usar a la variable \texttt{a}, la cual es local a la función \texttt{f1()} y sólo existe dentro de la misma.
@@ -3446,7 +3652,7 @@ Como \texttt{x} no tiene valor asignado por default en la función \texttt{nueva
 \end{Shaded}
 
 \begin{verbatim}
-Error in nueva_f(): el argumento "x" está ausente, sin valor por omisión
+Error in nueva_f(): argument "x" is missing, with no default
 \end{verbatim}
 
 \begin{Shaded}
@@ -3456,7 +3662,7 @@ Error in nueva_f(): el argumento "x" está ausente, sin valor por omisión
 \end{Shaded}
 
 \begin{verbatim}
-Error in nueva_f(y = 5): el argumento "x" está ausente, sin valor por omisión
+Error in nueva_f(y = 5): argument "x" is missing, with no default
 \end{verbatim}
 
 \hypertarget{modificar-una-variable-global-desde-el-cuerpo-de-una-funciuxf3n-en-r}{%
@@ -3644,6 +3850,8 @@ Página en construcción.
 
 \hypertarget{uso-de-archivos-de-datos}{%
 \chapter{Uso de archivos de datos}\label{uso-de-archivos-de-datos}}
+
+Página en construcción.
 
 \hypertarget{otros-tuxf3picos}{%
 \chapter{Otros tópicos}\label{otros-tuxf3picos}}
