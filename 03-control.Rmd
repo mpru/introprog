@@ -172,7 +172,7 @@ Las estructuras de control iterativas son útiles cuando la solución de un prob
 
 ### Estructuras de control iterativas con un número fijo de iteraciones
 
-Se aplican cuando se conoce de antemano el número exacto de veces que se debe repetir una secuencia de acciones. También se conocen como *bucles (loops) controlados por un conteo*, ya que el algoritmo va contando la cantidad de repeticiones haciendo uso de una variable que recibe el nombre de **variable de interación**, **índice** o **conteo**.
+Se aplican cuando se conoce de antemano el número exacto de veces que se debe repetir una secuencia de acciones. También se conocen como *bucles (loops) controlados por un conteo*, ya que el algoritmo va contando la cantidad de repeticiones haciendo uso de una variable que recibe el nombre de **variable de iteración**, **índice** o **conteo**.
 
 Por ejemplo, imaginemos que queremos escribir un algoritmo que permita calcular la quinta potencia de cualquier número. Para esto, se debe tomar dicho número y multiplicarlo por sí mismo 5 veces. Por lo tanto, una posible solución es:
 

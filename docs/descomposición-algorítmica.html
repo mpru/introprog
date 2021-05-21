@@ -52,14 +52,1015 @@
 <h1>
 <span class="header-section-number">4</span> Descomposición algorítmica<a class="anchor" aria-label="anchor" href="#descomposici%C3%B3n-algor%C3%ADtmica"><i class="fas fa-link"></i></a>
 </h1>
+<p>Un principio fundamental en la resolución de un problema es intentar descomponerlo en partes más pequeñas, que puedan ser más fáciles de afrontar. Este concepto también se aplica en la programación. Nuestros algoritmos pueden descomponerse en <strong>subalgoritmos</strong> que den solución a un aspecto del problema, de menor extensión. Este proceso se conoce como <strong>descomposición algorítmica</strong> o <strong>descomposición modular</strong>. Cada subalgoritmo debe ser independiente de los demás y a su vez podría seguir descomponiéndose en partes más sencillas en lo que se conoce como <strong>refinamiento sucesivo</strong>. Si un programa es muy largo se corre el riesgo de que sea muy difícil de entender como un todo, pero siempre se lo puede dividir en secciones más simples y manejables. Un subalgoritmo se escribe una vez y luego es utilizado por todos aquellos algoritmos que lo necesiten.</p>
+<p>Cada vez que, como parte de la resolución de un problema, desde un algoritmo se solicita que se realicen las acciones establecidas por un subalgoritmo, se dice que se lo está <strong>invocando</strong> o <strong>llamando</strong>. Al algoritmo que invoca a los subalgoritmos a veces le decimos <em>algoritmo principal</em> para darle un mayor énfasis a la idea que, desde el curso de acción principal, cada tanto se delega la ejecución de algunas al subalgoritmo.</p>
+<p>El empleo de subalgoritmos, desarrollando por separado ciertas partes del problema, resulta especialmente ventajoso en los casos siguientes:</p>
+<ul>
+<li>
+<strong>En algoritmos complejos</strong>: si el algoritmo, y luego el programa, se escribe todo seguido y en un único archivo de código, resulta muy complicado de entender, porque se pierde la visión de su estructura global dada la gran cantidad de operaciones que lo conforman. Aislando ciertas partes como subalgoritmos separados se reduce la complejidad.</li>
+<li>
+<strong>Cuando se repiten operaciones análogas</strong>: si la resolución de un problema requiere realizar una tarea que se repite varias veces en el algoritmo, podemos definir dicha tarea como un subalgoritmo por separado. De esta manera, su código se escribirá sólo una vez aunque se use en muchos puntos del programa.</li>
+</ul>
+<p>En este capítulo hay algunas secciones indicadas como “opcionales” y algunos comentarios agregados como notas al pie. Estas partes añaden información para quienes estén interesados en saber un poco más, pero su contenido no será requerido en la práctica ni en las evaluaciones.</p>
+<div id="tipos-de-subalgoritmos" class="section level2" number="4.1">
+<h2>
+<span class="header-section-number">4.1</span> Tipos de subalgoritmos<a class="anchor" aria-label="anchor" href="#tipos-de-subalgoritmos"><i class="fas fa-link"></i></a>
+</h2>
+<p>En el mundo de la programación existen muchos términos para definir distintos tipos de subalgoritmos: subrutinas, funciones, procedimientos, métodos, subprogramas, etc. No es posible obtener una definición que capture todas las variantes que existen en el uso de estos términos debido a que el signficado de cada uno de ellos varía según el paradigma
+<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Se usa el término paradigma de programación para clasificar a los lenguajes según sus características. En &lt;a href="https://hackr.io/blog/programming-paradigms"&gt;este link&lt;/a&gt; se puede encontrar una breve descripción de los principales paradigmas de programación&lt;/p&gt;'><sup>7</sup></a>
+y el lenguaje de programación escogidos. Qué se entiende por cada uno de ellos depende muchas veces del paradigma de programación empleado y del lenguaje escogido, por lo cual no existe una definición lo suficientemente general para cada uno.</p>
+<p>Sin embargo, suele haber bastante consenso en distinguir, dentro de los subalgoritmos, a las <strong>funciones</strong> y a los <strong>procedimientos</strong> de esta forma:</p>
+<ul>
+<li>Una <strong>función</strong> es un subalgoritmo que al ser evaluado devuelve un único resultado (por ejemplo, un valor numérico) que es utilizado en el algoritmo principal que lo invoca.</li>
+<li>Un <strong>procedimiento</strong> es un subalgoritmo que al ser evaluado no devuelve un valor, sino que produce <em>efectos secundarios</em> en el ambiente del algoritmo principal que lo invoca. Persigue el objetivo de ayudar en la modularidad del programa.</li>
+</ul>
+</div>
+<div id="funciones" class="section level2" number="4.2">
+<h2>
+<span class="header-section-number">4.2</span> Funciones<a class="anchor" aria-label="anchor" href="#funciones"><i class="fas fa-link"></i></a>
+</h2>
+<p>Una <strong>función</strong> es un subalgoritmo que devuelve un único resultado a partir de otros valores provistos. El valor que la función devuelve define su <strong>tipo</strong>, de modo que una función puede ser de tipo <strong>numérica</strong>, <strong>caracter</strong> o <strong>lógica</strong> <a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;No siempre se pueden clasificar de esta forma a las funciones, ya que hay algunas que pueden devolver distinto tipos de valores según el caso o que devuelven otras clases de objetos.&lt;/p&gt;"><sup>8</sup></a>.</p>
+<p>Para ejemplificar, podemos decir que la noción de <em>función</em> en programación se asemeja a la idea matemática de <em>función de una o más variables</em>. Por ejemplo, podemos pensar en la función <span class="math inline">\(f(x, y) = x^2 + 3y\)</span> (ejemplo 1). Si queremos saber cuál es el valor numérico de la función <span class="math inline">\(f\)</span> cuando <span class="math inline">\(x\)</span> toma el valor <span class="math inline">\(4\)</span> e <span class="math inline">\(y\)</span> toma el valor <span class="math inline">\(5\)</span>, reemplazamos en la expresión anterior las variables por los valores mencionados y obtenemos: <span class="math inline">\(f(4, 5) = 4^2 + 3 \times 5 = 31\)</span>.</p>
+<p>Podemos definir dicha función en pseudocódigo de la siguiente manera:</p>
+<pre><code>FUNCIÓN f(x: numérico, y: numérico): numérico
+COMENZAR
+    DEVOLVER x^2 + 3 * y
+FIN FUNCIÓN</code></pre>
+<p>El primer renglón de la definición comienza con la palabra clave <code>FUNCIÓN</code> y termina, luego de los dos puntos, con la palabra <code>numérico</code> para indicar que esta función devuelve como resultado un valor numérico.</p>
+<p>En el medio se encuentra el nombre elegido para la función (<code>f</code>), seguido por la declaración entre paréntesis de los <em>parámetros</em> o <em>argumentos</em> que la función necesita para operar, es decir, el <em>input</em> o información de entrada con la cual se realizarán las operaciones. Se dice que <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> son los <strong>parámetros formales</strong> o <strong>ficticios</strong>, ya que no tienen un valor asignado en sí mismos sino que permiten expresar de manera general las acciones que la función ejecuta. Describen lo que uno diría en palabras: “hay que tomar a <span class="math inline">\(x\)</span>, elevarlo al cuadrado y sumarle la <span class="math inline">\(y\)</span> multiplicada por 3”. Entre los paréntesis también se aclara que estos parámetros formales son de tipo numérico.</p>
+<p>Los valores en los cuales se quiere evaluar la función se llaman <strong>parámetros actuales</strong> o <strong>reales</strong>. Por ejemplo, si nos interesa calcular <span class="math inline">\(f(4, 5)\)</span>, los valores <span class="math inline">\(4\)</span> y <span class="math inline">\(5\)</span> son los parámetros actuales y se establece una correspondencia entre el parámetro formal <span class="math inline">\(x\)</span> y el actual <span class="math inline">\(4\)</span>, así como entre la <span class="math inline">\(y\)</span> y el <span class="math inline">\(5\)</span>. El resultado que se obtiene, como observamos antes, es <span class="math inline">\(31\)</span> y este es el valor que la función <em>devuelve</em>.</p>
+<p>La definición anterior también puede ser expresada como:</p>
+<pre><code>FUNCIÓN f(x: numérico, y: numérico): numérico
+COMENZAR
+    VARIABLE numérica resultado
+    resultado &lt;- x^2 + 3 * y
+    DEVOLVER resultado
+FIN FUNCIÓN</code></pre>
+<p>Aquí notamos que no debemos declarar a <code>x</code> e <code>y</code> puesto que son los parámetros de la función (quedan declarados entre los paréntesis en la primera línea). Sin embargo, sí declaramos cualquier otra nueva variable que sea creada dentro de la función, por ejemplo, la variable <code>resultado</code>.</p>
+<p>De manera general, la definición de una función es:</p>
+<pre><code>FUNCIÓN nombre(lista de parámetros formales): tipo de resultado
+COMENZAR
+    Declaración de variables
+    Acciones
+    DEVOLVER valor
+FIN FUNCIÓN</code></pre>
+<p>La palabra clave <code>DEVOLVER</code> provoca la inmediata finalización de la ejecución de la función e indica cuál es el resultado de la misma, cuyo tipo debe coincidir con el tipo de función declarado en el encabezado. La acción <code>DEVOLVER</code> se puede insertar en cualquier punto del cuerpo de la función y, además, es posible utilizar más de una sentencia <code>DEVOLVER</code> en una misma función, aunque sólo una llegue a ejecutarse. Esto puede verse en el siguiente ejemplo (ejemplo 2):</p>
+<pre><code>FUNCIÓN maximo(num1: numérico, num2: numérico): numérico
+COMENZAR
+    SI num1 &gt;= num2 ENTONCES
+        DEVOLVER num1
+    SI NO
+        DEVOLVER num2
+    FIN SI
+FIN FUNCIÓN</code></pre>
+<p>Para usar una función en un algoritmo, se la invoca escribiendo su nombre seguido por los valores actuales entre paréntesis, separados por coma. Esta invocación representa un valor que puede ser usado como operando en otra expresión. Por ejemplo:</p>
+<pre><code>ALGORITMO: "Hallar el máximo entre dos valores y restarle 100"
+COMENZAR
+    VARIABLE numérica x, y, rtdo
+    LEER x, y
+    rtdo &lt;- maximo(x, y) - 100
+    ESCRIBIR "El resultado es " rtdo
+FIN</code></pre>
+<p>Al invocar una función es obligatorio que los valores suministrados para los argumentos actuales entre los paréntesis correspondan en cantidad, tipo y orden con los argumentos formales de la definición de la función. Es por esto que los siguientes casos son ejemplos de un <strong>uso incorrecto</strong> de funciones en el algoritmo principal:</p>
+<pre><code>ALGORITMO: "Incorrecto por proveer pocos argumentos para la función"
+COMENZAR
+    VARIABLE numérica x, y, rtdo
+    LEER x, y
+    rtdo &lt;- maximo(x) - 100
+    ESCRIBIR "El resultado es " rtdo
+FIN
+
+ALGORITMO: "Incorrecto por proveer valores de tipo caracter para la función"
+COMENZAR
+    VARIABLE numérica rtdo
+    VARIABLE caracter x, y
+    x &lt;- "chau"
+    y &lt;- "hola"
+    rtdo &lt;- maximo(x, y) - 100
+    ESCRIBIR "El resultado es " rtdo
+FIN
+
+ALGORITMO: "Incorrecto por no proveer argumentos para la función"
+COMENZAR
+    VARIABLE numérica x, y, rtdo
+    LEER x, y
+    rtdo &lt;- maximo - 100
+    ESCRIBIR "El resultado es " rtdo
+FIN</code></pre>
+<p>Para motivar el uso de una buena práctica que ayude a distinguir entre las acciones de los subalgoritmos y del algoritmo, vamos a escribir los subalgoritmos <strong>antes</strong> y <strong>por fuera</strong> del algoritmo principal<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Es más, podríamos escribirlos y guardarlos en archivos distintos.&lt;/p&gt;"><sup>9</sup></a>. Consideremos el ejemplo 3 mostrado a continuación. Primero definimos los subalgoritmos que necesitaremos (son los de los ejemplos 1 y 2) y luego escribiremos un algoritmo principal que hace uso de ellos para resolver un problema en particular:</p>
+<pre><code>---------------------------------------------------------------
+SUBALGORITMOS
+---------------------------------------------------------------
+
+FUNCIÓN f(x: numérico, y: numérico): numérico
+COMENZAR
+    DEVOLVER x^2 + 3 * y
+FIN FUNCIÓN
+
+FUNCIÓN maximo(num1: numérico, num2: numérico): numérico
+COMENZAR
+    SI num1 &gt;= num2 ENTONCES
+        DEVOLVER num1
+    SI NO
+        DEVOLVER num2
+    FIN SI
+FIN FUNCIÓN
+
+--------------------------------------------------------------
+ALGORITMO PRINCIPAL
+--------------------------------------------------------------
+
+ALGORITMO: "Realizar  operaciones matemáticas muy importantes"
+COMENZAR
+    VARIABLE numérica rtdo1, rtdo2, rtdo3
+    rtdo1 &lt;- f(2, 5)
+    rtdo2 &lt;- f(3, 10)
+    rtdo3 &lt;- maximo(rtdo1, rtdo2) + 20
+    ESCRIBIR "El resultado es " rtdo3
+FIN</code></pre>
+<p>¿Qué mensaje escribe el algoritmo anterior?</p>
+</div>
+<div id="funciones-en-r" class="section level2" number="4.3">
+<h2>
+<span class="header-section-number">4.3</span> Funciones en R<a class="anchor" aria-label="anchor" href="#funciones-en-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>En la sección anterior vimos cómo definir funciones en pseudocódigo. Antes de pasar a ver cómo programar nuestras funciones en R, vamos a comentar algunas cuestiones acerca de las funciones que R ya trae disponibles como parte de su funcionalidad básica.</p>
+<div id="funciones-predefinidas-de-r" class="section level3" number="4.3.1">
+<h3>
+<span class="header-section-number">4.3.1</span> Funciones predefinidas de R<a class="anchor" aria-label="anchor" href="#funciones-predefinidas-de-r"><i class="fas fa-link"></i></a>
+</h3>
+<p>R, como todo lenguaje de programación, tiene <strong>funciones predefinidas</strong>, es decir, sentencias que se encargan de realizar alguna actividad. Ya estuvimos usando algunas de ellas, por ejemplo, cuando hemos necesitado mostrar algún mensaje usamos las funciones <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> o <code><a href="https://rdrr.io/r/base/print.html">print()</a></code><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Sentencias como &lt;code&gt;for&lt;/code&gt;, &lt;code&gt;while&lt;/code&gt; o &lt;code&gt;if&lt;/code&gt; también son funciones, aunque con una estructura muy particular.&lt;/p&gt;"><sup>10</sup></a>. Además, existen muchas otras funciones predefinidas, como todas aquellas que se necesitan para realizar ciertas operaciones matemáticas:</p>
+<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Raiz cuadrada</span>
+<span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 10</code></pre>
+<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Valor absoluto</span>
+<span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 100</code></pre>
+<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Función exponencial</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 2.688117e+43</code></pre>
+<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Logaritmo natural</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 4.60517</code></pre>
+<p>En los ejemplos anteriores, <code>100</code> representa un valor numérico que se pasa como argumento a la función para que la misma opere. Algunas funciones predefinidas en R pueden trabajar con más de un argumento, en cuyo caso hay que enumerarlos dentro de los paréntesis, separados con comas. Por ejemplo, si en lugar de calcular el logaritmo natural (cuya base es la constante matemática <span class="math inline">\(e\)</span>), queremos calcular un logaritmo en base 10, podemos hacer lo siguiente:</p>
+<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Logaritmo de 100 en base 10</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 2</code></pre>
+<p>¿Cómo sabemos que la función <code><a href="https://rdrr.io/r/base/Log.html">log()</a></code> se puede usar de esa forma, cambiando el valor de la base con respecto a la cual toma el logaritmo? Lo aprendemos al leer el manual de ayuda de R. Toda función predefinida de R viene con un instructivo que detalla cómo se usa, qué argumentos incluye y otras aclaraciones. Lo encontramos en la pestaña de Ayuda (<em>Help</em>) en el panel de abajo a la derecha en RStudio. Otras formas de abrir la página de ayuda sobre una función es correr en la consola alguna de estas sentencias:</p>
+<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/help.html">help</a></span><span class="op">(</span><span class="va">log</span><span class="op">)</span>
+<span class="op">?</span><span class="va">log</span></code></pre></div>
+<p>Esa página de ayuda tiene bastante información, porque reúne información sobre muchas funciones relacionadas con logaritmos y exponenciales, pero podemos detenernos en la parte resaltada que se muestra a continuación:</p>
+<div class="figure" style="text-align: center">
+<span id="fig:unnamed-chunk-64"></span>
+<img src="images/03_funciones/ayuda.png" alt="Captura de pantalla de la ayuda sobre la función log()" width="70%"><p class="caption">
+Figura 4.1: Captura de pantalla de la ayuda sobre la función log()
+</p>
+</div>
+<p>En la sección <em>Usage</em> (“uso”) descubrimos que la función <code><a href="https://rdrr.io/r/base/Log.html">log()</a></code> puede usarse con dos argumentos: <code>x</code> y <code>base</code>. En la sección <em>Arguments</em> entendemos que <code>x</code> es el número al cual le vamos a sacar el logaritmo y <code>base</code> es la base con respecto a la cual se toma el logaritmo. Por eso, al correr <code><a href="https://rdrr.io/r/base/Log.html">log(100, 10)</a></code>, estamos calculando el logaritmo de <code>x = 100</code> con <code>base = 10</code>.</p>
+<p>Vemos, además, una diferencia en la forma en que <code>x</code> y <code>base</code> aparecen en la descripción: <code><a href="https://rdrr.io/r/base/Log.html">log(x, base = exp(1))</a></code>. Cuando un argumento tiene un signo <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code> significa que tiene asignado un <strong>valor por default</strong> y que no es necesario usarlo. Por eso, cuando corremos <code><a href="https://rdrr.io/r/base/Log.html">log(100)</a></code> estamos calculando el logaritmo de <code>x = 100</code> con la base elegida por R por defecto: <code>base = exp(1)</code>, que es la forma que tiene R de nombrar a la constante <span class="math inline">\(e = 2.718282...\)</span> (es el logaritmo natural). Si quiero cambiar la base, debo proveer un valor, por ejemplo, <code><a href="https://rdrr.io/r/base/Log.html">log(100, 10)</a></code>. Por el contrario, el argumento <code>x</code> no tiene asignado un valor por default. Eso significa que obligatoriamente tenemos que proveer un valor para el mismo.</p>
+<p>R también permite usar una función escribiendo los nombres de los argumentos (es decir, detallando tanto los parámetros formales como los actuales), lo cual muchas veces es muy esclarecedor:</p>
+<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">100</span>, base <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 2</code></pre>
+<p>Es más, si escribimos los nombres de los parámetros explícitamente, podemos cambiar su orden, sin alterar el resultado:</p>
+<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span>base <span class="op">=</span> <span class="fl">10</span>, x <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 2</code></pre>
+<p>Si no escribimos los nombres, el orden importa:</p>
+<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 2</code></pre>
+<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">100</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 0.5</code></pre>
+<p>Al no tener los nombres indicados explícitamente, R hace corresponder los parámetros formales <code>x</code> y <code>base</code> con los valores provistos en ese orden: en el primer caso <code>x</code> recibe el valor <code>100</code> y <code>base</code>, el valor <code>10</code>, mientras que en el segundo caso es al revés.</p>
+<p>Finalmente, se debe observar que no es necesario invocar a la función escribiendo de forma directa los valores entre los paréntesis, sino que en su lugar pueden ir variables:</p>
+<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">100</span>
+<span class="va">y</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">/</span> <span class="fl">2</span>
+<span class="va">z</span> <span class="op">&lt;-</span> <span class="fl">4</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">x</span> <span class="op">-</span> <span class="va">y</span>, <span class="fl">4</span><span class="op">)</span>       <span class="co"># Log en base 4 de x - y</span></code></pre></div>
+<pre><code>[1] 2.821928</code></pre>
+</div>
+<div id="definición-de-nuevas-funciones-en-r" class="section level3" number="4.3.2">
+<h3>
+<span class="header-section-number">4.3.2</span> Definición de nuevas funciones en R<a class="anchor" aria-label="anchor" href="#definici%C3%B3n-de-nuevas-funciones-en-r"><i class="fas fa-link"></i></a>
+</h3>
+<p>Ahora que ya hemos visto cómo se trabaja con funciones en R de manera general, vamos a aprender a definir nuestras propias funciones. Recordemos el subalgoritmo del ejemplo 1:</p>
+<pre><code>FUNCIÓN f(x: numérico, y: numérico): numérico
+COMENZAR
+    VARIABLE numérica resultado
+    resultado &lt;- x^2 + 3 * y
+    DEVOLVER resultado
+FIN FUNCIÓN</code></pre>
+<p>En R, definimos esta función así:</p>
+<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">resultado</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">3</span> <span class="op">*</span> <span class="va">y</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">resultado</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span id="fig:unnamed-chunk-70"></span>
+<img src="images/03_funciones/31.png" alt="Estructura de una función en R" width="80%"><p class="caption">
+Figura 4.2: Estructura de una función en R
+</p>
+</div>
+<p>La estructura general es:</p>
+<pre><code>nombre &lt;- function(argumentos) {
+  ... sentencias de R ...
+}</code></pre>
+<p>Debemos:</p>
+<ol style="list-style-type: decimal">
+<li>Elegir un nombre</li>
+<li>Al lado del nombre, colocar el operador de asignación (<code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code>) para asociar a ese nombre la definición de una función.</li>
+<li>Escribir la sentencia <code>function(...) {...}</code>, donde entre paréntesis se definen todos los parámetros formales separados con coma y entre llaves el conjunto de acciones a englobar.</li>
+<li>El valor que la función debe arrojar como resultado se encierra dentro de la sentencia <code><a href="https://rdrr.io/r/base/function.html">return()</a></code>, que indica el fin de la ejecución.</li>
+</ol>
+<p>Una vez que la definición de la función es ejecutada, pasa a formar parte de los elementos que conforman al ambiente, como se puede apreciar al verla listada como un objeto más en el panel <em>Environment</em> de RStudio <a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Sí, las funciones que creamos también son &lt;em&gt;objetos&lt;/em&gt; para R, ya que son una pieza que guarda algún tipo de información. Las funciones en R son objetos de clase “function”. Ver, por ejemplo, &lt;code&gt;class(f)&lt;/code&gt;&lt;/p&gt;"><sup>11</sup></a>. A partir de este momento, podemos utilizarla, como parte de otro programa. Para invocarla, escribimos el nombre de la función y entre paréntesis los valores que nos interesan para el cálculo (parámetros actuales). Por ejemplo:</p>
+<div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Ejemplos de uso de la función f</span>
+<span class="fu">f</span><span class="op">(</span><span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 31</code></pre>
+<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">f</span><span class="op">(</span><span class="fl">6</span>, <span class="op">-</span><span class="fl">5</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 21</code></pre>
+<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">f</span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 0</code></pre>
+<p>Recordando lo discutido en la sección anterior, podemos apreciar que los siguientes usos de la función <code>f()</code> son equivalentes:</p>
+<div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">f</span><span class="op">(</span><span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 31</code></pre>
+<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">f</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">4</span>, y <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 31</code></pre>
+<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">f</span><span class="op">(</span>y <span class="op">=</span> <span class="fl">5</span>, x <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 31</code></pre>
+<p>Sin embargo, no son equivalentes los siguientes:</p>
+<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Siguiendo el orden de definición, x recibe el valor 4, y recibe el 5:</span>
+<span class="fu">f</span><span class="op">(</span><span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 31</code></pre>
+<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Siguiendo el orden de definición, x recibe el valor 5, y recibe el 4:</span>
+<span class="fu">f</span><span class="op">(</span><span class="fl">5</span>, <span class="fl">4</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 37</code></pre>
+<p>A continuación, podemos ver casos que generan error por hacer un uso incorrecto de la función (¿por qué?):</p>
+<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Error por omitir un argumento de uso obligatorio (x recibe 4, falta y)</span>
+<span class="fu">f</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></code></pre></div>
+<pre><code>Error in f(4): argument "y" is missing, with no default</code></pre>
+<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Error por proveer más argumentos de los declarados en la definición</span>
+<span class="fu">f</span><span class="op">(</span><span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span></code></pre></div>
+<pre><code>Error in f(4, 5, 6): unused argument (6)</code></pre>
+<p>Retomemos ahora el ejemplo 3. Mencionamos que es importante distinguir entre la definición de los subalgoritmos y la de un algoritmo principal que los invoca:</p>
+<pre><code>---------------------------------------------------------------
+SUBALGORITMOS
+---------------------------------------------------------------
+
+FUNCIÓN f(x: numérico, y: numérico): numérico
+COMENZAR
+    DEVOLVER x^2 + 3 * y
+FIN FUNCIÓN
+
+FUNCIÓN maximo(num1: numérico, num2: numérico): numérico
+COMENZAR
+    SI num1 &gt;= num2 ENTONCES
+        DEVOLVER num1
+    SI NO
+        DEVOLVER num2
+    FIN SI
+FIN FUNCIÓN
+
+--------------------------------------------------------------
+ALGORITMO PRINCIPAL
+--------------------------------------------------------------
+
+ALGORITMO: "Realizar  operaciones matemáticas muy importantes"
+COMENZAR
+    VARIABLE numérica rtdo1, rtdo2, rtdo3
+    rtdo1 &lt;- f(2, 5)
+    rtdo2 &lt;- f(3, 10)
+    rtdo3 &lt;- maximo(rtdo1, rtdo2) + 20
+    ESCRIBIR "El resultado es " rtdo3
+FIN</code></pre>
+<p>Esta distinción también es importante en R: la definición de las funciones debe ejecutarse antes de que las mismas sean llamadas desde el programa principal. Así, para traducir el pseudocódigo anterior a R, podríamos crear un archivo de código (llamado, por ejemplo, <code>ejemplo3.R</code>) con el siguiente contenido:</p>
+<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># ---------------------------------------------------------------</span>
+<span class="co"># DEFINICIÓN DE FUNCIONES</span>
+<span class="co"># ---------------------------------------------------------------</span>
+
+<span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">resultado</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">3</span> <span class="op">*</span> <span class="va">y</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">resultado</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="va">maximo</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">num1</span>, <span class="va">num2</span><span class="op">)</span> <span class="op">{</span>
+    <span class="kw">if</span> <span class="op">(</span><span class="va">num1</span> <span class="op">&gt;</span> <span class="va">num2</span><span class="op">)</span> <span class="op">{</span>
+        <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">num1</span><span class="op">)</span>
+    <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
+        <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">num2</span><span class="op">)</span>
+    <span class="op">}</span>
+<span class="op">}</span>
+
+<span class="co"># ---------------------------------------------------------------</span>
+<span class="co"># PROGRAMA PRINCIPAL</span>
+<span class="co"># ---------------------------------------------------------------</span>
+
+<span class="va">rtdo1</span> <span class="op">&lt;-</span> <span class="fu">f</span><span class="op">(</span><span class="fl">2</span>, <span class="fl">5</span><span class="op">)</span>
+<span class="va">rtdo2</span> <span class="op">&lt;-</span> <span class="fu">f</span><span class="op">(</span><span class="fl">3</span>, <span class="fl">10</span><span class="op">)</span>
+<span class="va">rtdo3</span> <span class="op">&lt;-</span> <span class="fu">maximo</span><span class="op">(</span><span class="va">rtdo1</span>, <span class="va">rtdo2</span><span class="op">)</span> <span class="op">+</span> <span class="fl">20</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El resultado es"</span>, <span class="va">rtdo3</span><span class="op">)</span></code></pre></div>
+<pre><code>El resultado es 59</code></pre>
+</div>
+</div>
+<div id="documentación-de-los-subalgoritmos" class="section level2" number="4.4">
+<h2>
+<span class="header-section-number">4.4</span> Documentación de los subalgoritmos<a class="anchor" aria-label="anchor" href="#documentaci%C3%B3n-de-los-subalgoritmos"><i class="fas fa-link"></i></a>
+</h2>
+<p>En el contexto de la programación, documentar significa escribir indicaciones para que otras personas puedan entender lo que queremos hacer en nuestro código o para que sepan cómo usar nuestras funciones. Por ejemplo, como vimos antes todas funciones predefinidas de R están documentadas para que podamos buscar ayuda si la necesitamos. Cuando estamos creando nuestras propios subalgoritmos, es importante que también incluyamos comentarios para guiar a otras personas (y a nosotros mismos en el futuro si nos olvidamos) para qué y cómo se usa lo que estamos desarrollando.</p>
+<p>Para ilustrar esto, vamos a recordar que en la práctica 2 escribimos un algoritmo para el cálculo de factoriales. Dado que los mismos son muy útiles en variadas aplicaciones, podemos escribir un subalgortimo que se encargue de obtenerlos. Luego, escribiremos un algoritmo para mostrar todos los factoriales de los números 1 a 10.</p>
+<pre><code>---------------------------------------------------------------
+SUBALGORITMOS
+---------------------------------------------------------------
+
+|-------------------------------------------------------
+| Función factorial
+| Calcula el factorial de números enteros no negativos
+| Entrada:
+|   - n, entero no negativo
+| Salida:
+|   - el factorial de n
+|-------------------------------------------------------
+FUNCIÓN factorial(n: numérico): numérico
+    VARIABLE numérica resultado
+    resultado &lt;- 1
+    SI n &gt; 0 ENTONCES
+        PARA i DESDE 1 HASTA n HACER
+            resultado &lt;- resultado * i
+        FIN PARA
+    FIN SI
+    DEVOLVER resultado
+FIN FUNCIÓN
+
+---------------------------------------------------------------
+ALGORITMO PRINCIPAL
+---------------------------------------------------------------
+
+ALGORITMO: "Mostrar los factoriales de los 10 primeros naturales"
+COMENZAR
+    PARA j DESDE 1 HASTA 10 HACER
+        ESCRIBIR "El factorial de " j " es igual a " factorial(j)
+    FIN PARA
+FIN</code></pre>
+<p>En R:</p>
+<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># ---------------------------------------------------------------</span>
+<span class="co"># DEFINICIÓN DE FUNCIONES</span>
+<span class="co"># ---------------------------------------------------------------</span>
+
+<span class="co">#-----------------------------------------------------</span>
+<span class="co"># Función factorial</span>
+<span class="co"># Calcula el factorial de números enteros no negativos</span>
+<span class="co"># Entrada:</span>
+<span class="co">#       - n, entero no negativo</span>
+<span class="co"># Salida:</span>
+<span class="co">#       - el factorial de n</span>
+<span class="co">#-----------------------------------------------------</span>
+<span class="va">factorial</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">resultado</span> <span class="op">&lt;-</span> <span class="fl">1</span>
+    <span class="kw">if</span> <span class="op">(</span><span class="va">n</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span>
+        <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">n</span><span class="op">)</span> <span class="op">{</span>
+            <span class="va">resultado</span> <span class="op">&lt;-</span> <span class="va">resultado</span> <span class="op">*</span> <span class="va">i</span>
+        <span class="op">}</span>
+    <span class="op">}</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">resultado</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="co"># ---------------------------------------------------------------</span>
+<span class="co"># PROGRAMA PRINCIPAL: Mostrar los factoriales de los 10 primeros naturales</span>
+<span class="co"># ---------------------------------------------------------------</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El factorial de"</span>, <span class="va">j</span>, <span class="st">"es igual a"</span>, <span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="va">j</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<pre><code>El factorial de 1 es igual a 1 
+El factorial de 2 es igual a 2 
+El factorial de 3 es igual a 6 
+El factorial de 4 es igual a 24 
+El factorial de 5 es igual a 120 
+El factorial de 6 es igual a 720 
+El factorial de 7 es igual a 5040 
+El factorial de 8 es igual a 40320 
+El factorial de 9 es igual a 362880 
+El factorial de 10 es igual a 3628800 </code></pre>
+</div>
+<div id="pasaje-de-parámetros" class="section level2" number="4.5">
+<h2>
+<span class="header-section-number">4.5</span> Pasaje de parámetros<a class="anchor" aria-label="anchor" href="#pasaje-de-par%C3%A1metros"><i class="fas fa-link"></i></a>
+</h2>
+<p>Los algoritmos y subalgoritmos comunican información entre sí a través de los parámetros o argumentos. Esta comunicación recibe el nombre de <strong>pasaje de argumentos</strong> y se puede realizar de dos formas: <em>por valor</em> o <em>por referencia</em>. Algunos lenguajes de programación trabajan con uno u otro sistema, mientras que otros lenguajes permiten el uso de ambos.</p>
+<!-- Las funciones, además, cuentan con un valor de retorno, que es el valor que se transmite desde el subalgoritmo hacia el algorimo que lo llamó. -->
+<div id="pasaje-por-valor" class="section level3" number="4.5.1">
+<h3>
+<span class="header-section-number">4.5.1</span> Pasaje por valor<a class="anchor" aria-label="anchor" href="#pasaje-por-valor"><i class="fas fa-link"></i></a>
+</h3>
+<p>En este caso, los argumentos representan valores que se transmiten <strong>desde</strong> el algoritmo <strong>hacia</strong> el subalgoritmo. El <strong>pasaje por valor</strong> implica que los objetos del algoritmo provistos como argumentos en la llamada al subalgoritmo no serán modificados por la ejecución del mismo. Este sistema funciona de la siguiente forma:</p>
+<ol style="list-style-type: decimal">
+<li>Se evalúan los argumentos actuales usados en la invocación al subalgoritmo.</li>
+<li>Los valores obtenidos se <em>copian</em> en los argumentos formales dentro del subalgoritmo.</li>
+<li>Los argumentos formales se usan como variables dentro del subalgoritmo. Aunque los mismos sean modificados (por ejemplo, se les asignen nuevos valores), no se modifican los argumentos actuales en el algoritmo, sólo sus copias dentro del subalgoritmo.</li>
+</ol>
+<p>Veamos un ejemplo:</p>
+<pre><code>---------------------------------------------------------------
+SUBALGORITMOS
+---------------------------------------------------------------
+
+FUNCIÓN fun(x: numérico, y: numérico): numérico
+    x &lt;- x + 1
+    DEVOLVER x + y
+FIN FUNCIÓN
+
+---------------------------------------------------------------
+ALGORITMO PRINCIPAL
+---------------------------------------------------------------
+
+ALGORITMO: "Ejemplo de pasaje de argumentos"
+COMENZAR
+    VARIABLE numérica a, b, c
+    a &lt;- 3
+    b &lt;- 5
+    c &lt;- fun(a, b - a)
+    ESCRIBIR a b c
+FIN</code></pre>
+<p>Si el pasaje de argumentos se hace por valor, los cambios producidos en el cuerpo de la función sobre los parámetros formales no son transmitidos a los parámetros actuales en el algoritmo principal. Esto significa que los formales son una “copia” de los actuales. Los pasos que sigue el algoritmo son:</p>
+<ol style="list-style-type: decimal">
+<li>En el algoritmo principal, se asignan los valores: <code>a = 3</code>, <code>b = 5</code>.</li>
+<li>Al invocar la función, se establece la correspondencia: <code>x = 3, y = 5 - 3 = 2</code>.</li>
+<li>Primera línea de la función: <code>x = 3 + 1 = 4</code>.</li>
+<li>La función devuelve el valor <code>x + y = 4 + 2 = 6</code>.</li>
+<li>De regreso en el algoritmo principal: <code>c</code> recibe el valor <code>6</code>.</li>
+<li>El algoritmo escribe: <code>3 5 6</code>.</li>
+</ol>
+<p>En R, el pasaje de argumentos es <strong>por valor</strong>. Por lo tanto, este tipo de comportamiento es lo que vemos cuando implementamos el ejemplo discutido<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;: En general, se desalienta la reasignación de valor a los parámetros de la función por resultar confuso. Esto quiere decir que en el ejemplo anterior, para evitar ambigüedades, sería recomendable reemplazar &lt;code&gt;x &amp;lt;- x + 1&lt;/code&gt; y &lt;code&gt;DEVOLVER x + y&lt;/code&gt; por algo como &lt;code&gt;z &amp;lt;- x + 1&lt;/code&gt; y &lt;code&gt;DEVOLVER z + y&lt;/code&gt;, de modo que no se sobreescriba el valor del parámetro &lt;code&gt;x&lt;/code&gt; y se use otra variable &lt;code&gt;z&lt;/code&gt;.&lt;/p&gt;"><sup>12</sup></a>:</p>
+<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># ---------------------------------------------------------------</span>
+<span class="co"># DEFINICIÓN DE FUNCIONES</span>
+<span class="co"># ---------------------------------------------------------------</span>
+
+<span class="va">fun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">x</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">1</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span> <span class="op">+</span> <span class="va">y</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="co"># ---------------------------------------------------------------</span>
+<span class="co"># PROGRAMA PRINCIPAL</span>
+<span class="co"># ---------------------------------------------------------------</span>
+
+<span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">3</span>
+<span class="va">b</span> <span class="op">&lt;-</span> <span class="fl">5</span>
+<span class="va">c</span> <span class="op">&lt;-</span> <span class="fu">fun</span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span> <span class="op">-</span> <span class="va">a</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span>, <span class="va">c</span><span class="op">)</span></code></pre></div>
+<pre><code>3 5 6</code></pre>
+</div>
+<div id="pasaje-por-referencia" class="section level3" number="4.5.2">
+<h3>
+<span class="header-section-number">4.5.2</span> Pasaje por referencia<a class="anchor" aria-label="anchor" href="#pasaje-por-referencia"><i class="fas fa-link"></i></a>
+</h3>
+<p>En este caso, los argumentos no sólo representan valores que se transmiten desde el algoritmo hacia el subalgoritmo, sino también desde el subalgoritmo al algoritmo. Esto sirve en las situaciones en las que se quiere que el subalgoritmo pueda modificar las variables del algoritmo principal que se pasaron como argumentos. De esta manera, un subalgoritmo puede producir uno o varios efectos secundarios en el ambiente del algoritmo.</p>
+<p>Si un parámetro se pasa por referencia, todos los cambios que experimente dentro del subalgoritmo se producirán también en la variable externa pasada como argumento. Esto se debe a que la información que es pasada desde el algoritmo al subalgoritmo es la dirección en la memoria de la computadora donde se halla almacenado el parámetro actual, es decir, se pasa una referencia a la variable, no el valor que contiene.</p>
+<p>Este sistema funciona de la siguiente forma:</p>
+<ol style="list-style-type: decimal">
+<li>Se seleccionan las variables usadas como argumentos actuales.</li>
+<li>Se asocia cada variable con el argumento formal correspondiente.</li>
+<li>Los cambios que experimenten los argumentos formales se reflejan también en los argumentos actuales de origen.</li>
+</ol>
+<p>Retomemos el ejemplo anterior:</p>
+<pre><code>---------------------------------------------------------------
+SUBALGORITMOS
+---------------------------------------------------------------
+
+FUNCIÓN fun(x: numérico, y: numérico): numérico
+    x &lt;- x + 1
+    DEVOLVER x + y
+FIN FUNCIÓN
+
+---------------------------------------------------------------
+ALGORITMO PRINCIPAL
+---------------------------------------------------------------
+
+ALGORITMO: "Ejemplo de pasaje de argumentos"
+COMENZAR
+    VARIABLE numérica a, b, c
+    a &lt;- 3
+    b &lt;- 5
+    c &lt;- fun(a, b - a)
+    ESCRIBIR a b c
+FIN</code></pre>
+<p>Si el pasaje de argumentos se hace por referencia, los pasos que sigue el algoritmo son:</p>
+<ol style="list-style-type: decimal">
+<li>En el algoritmo principal, se asignan los valores: <code>a = 3</code>, <code>b = 5</code>.</li>
+<li>Al invocar la función, se establece la correspondencia: <code>x = 3, y = 5 - 3 = 2</code>.</li>
+<li>Primera línea de la función: <code>x = 3 + 1 = 4</code>. El parámetro actual asociado con <code>x</code>, <code>a</code>, sufre el mismo cambio y recibe el valor <code>4</code> (<code>a = 4</code>).</li>
+<li>La función devuelve el valor <code>x + y = 4 + 2 = 6</code>.</li>
+<li>De regreso en el algoritmo principal: <code>c</code> recibe el valor <code>6</code>.</li>
+<li>El algoritmo escribe: <code>4 5 6</code>.</li>
+</ol>
+<p>Debe notarse que los resultados difieren dependiendo del tipo de pasaje de argumentos empleado
+<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Para diferenciar subalgoritmos con pasaje por referencia, algunos autores sugieren distinguir la declaración de los parámetros formales con algún símbolo, por ejemplo &lt;code&gt;&amp;amp;&lt;/code&gt;.&lt;/p&gt;"><sup>13</sup></a> R no trabaja con pasaje por referencia (aunque es posible forzar a que haga algo similar, si así se lo desea).</p>
+</div>
+</div>
+<div id="ámbito-de-las-variables" class="section level2" number="4.6">
+<h2>
+<span class="header-section-number">4.6</span> Ámbito de las variables<a class="anchor" aria-label="anchor" href="#%C3%A1mbito-de-las-variables"><i class="fas fa-link"></i></a>
+</h2>
+<p>En todo lenguaje de programación se le dice <strong>ámbito</strong> o <strong>scope</strong> a la región del programa donde una variable definida existe y es visible, tal que fuera de dicha región no se puede acceder a la misma
+<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;No sólo las variables pertenecen a un ámbito, sino todos los objetos que se puedan crear, sean estos variables, constantes o subalgoritmos.&lt;/p&gt;"><sup>14</sup></a>. Según el ámbito en el que existen, las variables pueden considerarse <em>locales</em> o <em>globales</em>.</p>
+<div id="variables-locales" class="section level3" number="4.6.1">
+<h3>
+<span class="header-section-number">4.6.1</span> Variables locales<a class="anchor" aria-label="anchor" href="#variables-locales"><i class="fas fa-link"></i></a>
+</h3>
+<p>Las variables declaradas dentro de un subalgoritmo (por ejemplo, dentro de una función) se llaman <strong>variables locales</strong>. Sólo pueden ser usadas por las sentencias que están dentro de esa función, mientras que el programa principal u otros subalgoritmos desconocen su existencia y no las pueden usar. Las <em>variables locales</em> residen en el <em>ambiente local</em> de un subalgortimo y no tienen nada que ver con las variables que puedan ser declaradas con el mismo nombre en otros lugares<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Cuando otro subalgoritmo utiliza el mismo nombre se refiere a una posición diferente en memoria.&lt;/p&gt;"><sup>15</sup></a>. En el siguiente ejemplo, las variables <code>a</code> y <code>b</code> son locales a la función <code>f1</code> y no se pueden usar desde el programa principal, porque dejan de existir una vez que termina la ejecución de <code>f1</code>:</p>
+<pre><code>---------------------------------------------------------------
+SUBALGORITMOS
+---------------------------------------------------------------
+
+FUNCIÓN f1(x: numérico): numérico
+    VARIABLE numérica a, b
+    a &lt;- x - 10
+    b &lt;- x + 10
+    DEVOLVER a + b
+FIN FUNCIÓN
+
+---------------------------------------------------------------
+ALGORITMO PRINCIPAL
+---------------------------------------------------------------
+
+ALGORITMO: "Ejemplo"
+COMENZAR
+    VARIABLE numérica z
+    z &lt;- f1(50)
+    ESCRIBIR z
+    ESCRIBIR z + a   ---LÍNEA CON ERROR---
+FIN</code></pre>
+<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># ---------------------------------------------------------------</span>
+<span class="co"># DEFINICIÓN DE FUNCIONES</span>
+<span class="co"># ---------------------------------------------------------------</span>
+
+<span class="va">f1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">a</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">-</span> <span class="fl">10</span>
+    <span class="va">b</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">10</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">a</span> <span class="op">+</span> <span class="va">b</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="co"># ---------------------------------------------------------------</span>
+<span class="co"># PROGRAMA PRINCIPAL</span>
+<span class="co"># ---------------------------------------------------------------</span>
+
+<span class="va">z</span> <span class="op">&lt;-</span> <span class="fu">f1</span><span class="op">(</span><span class="fl">50</span><span class="op">)</span>
+<span class="va">z</span></code></pre></div>
+<pre><code>[1] 100</code></pre>
+<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">z</span> <span class="op">+</span> <span class="va">a</span></code></pre></div>
+<pre><code>Error in eval(expr, envir, enclos): object 'a' not found</code></pre>
+<p>El error se genera porque el algoritmo principal quiere usar a la variable <code>a</code>, la cual es local a la función <code>f1()</code> y sólo existe dentro de la misma.</p>
+<p>El uso de <em>variables locales</em> tiene muchas ventajas. Permiten independizar al subalgoritmo del algoritmo principal, ya que las variables definidas localmente en un subalgoritmo no son reconocidas fuera de él. La comunicación entre el subalgoritmo y el algoritmo principal se da exclusivamente a través de la lista de parámetros. Esta característica hace posible dividir grandes proyectos en piezas más pequeñas y que, por ejemplo, diferentes programadores puedan trabajar independientemente en un mismo proyecto.</p>
+</div>
+<div id="variables-globales" class="section level3" number="4.6.2">
+<h3>
+<span class="header-section-number">4.6.2</span> Variables globales<a class="anchor" aria-label="anchor" href="#variables-globales"><i class="fas fa-link"></i></a>
+</h3>
+<p>Las variables globales son las que se definen fuera de una función, mantienen su valor a lo largo de todo el programa y pueden ser usadas dentro de las funciones, aún cuando no se la pasemos como argumento. En el ejemplo anterior <code>z</code> es una variable global<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;code&gt;f1&lt;/code&gt; también es global: todo tipo de objeto, incluso las funciones, pertenecen a un determinado ambiente&lt;/p&gt;"><sup>16</sup></a>. Las <em>variables globales</em> residen en el <em>ambiente global</em> del algoritmo.</p>
+<p>El siguiente ejemplo muestra cómo la función <code>f2</code> puede hacer uso de una variable global <code>y</code> que fue definida fuera de ella, en el programa principal
+<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Algunos autores sugieren agregar la palabra &lt;em&gt;GLOBAL&lt;/em&gt; o &lt;em&gt;LOCAL&lt;/em&gt; en la declaración de las variables para distinguir su ambiente, por ejemplo, poner dentro de &lt;code&gt;f2&lt;/code&gt; &lt;code&gt;VARIABLE LOCAL numérica a&lt;/code&gt; y en el algoritmo &lt;code&gt;VARIABLE GLOBAL y&lt;/code&gt;, pero no seguiremos esta práctica para ganar en sencillez de escritura. También algunos lenguajes de programación requieren señalar de alguna manera especial a las variables globales.&lt;/p&gt;"><sup>17</sup></a>:</p>
+<pre><code>---------------------------------------------------------------
+SUBALGORITMOS
+---------------------------------------------------------------
+
+FUNCIÓN f2(x: numérico): numérico
+    VARIABLE numérica a
+    a &lt;- x * y
+    DEVOLVER a
+FIN FUNCIÓN
+
+---------------------------------------------------------------
+ALGORITMO PRINCIPAL
+---------------------------------------------------------------
+
+ALGORITMO: "Ejemplo"
+COMENZAR
+    VARIABLE numérica y
+    y &lt;- 20
+    ESCRIBIR f2(2)
+    y &lt;- 18
+    ESCRIBIR f2(2)
+FIN</code></pre>
+<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># ---------------------------------------------------------------</span>
+<span class="co"># DEFINICIÓN DE FUNCIONES</span>
+<span class="co"># ---------------------------------------------------------------</span>
+
+<span class="va">f2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">a</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">*</span> <span class="va">y</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="co"># ---------------------------------------------------------------</span>
+<span class="co"># PROGRAMA PRINCIPAL</span>
+<span class="co"># ---------------------------------------------------------------</span>
+
+<span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">20</span>
+<span class="fu">f2</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 40</code></pre>
+<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">18</span>
+<span class="fu">f2</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 36</code></pre>
+<p>La función pudo hacer uso de la variable global <code>y</code> sin haberse comunicado con el programa principal a través de los argumentos. Esta práctica no es recomendable: si bien evaluemos <code>f2(2)</code> dos veces, el resultado no fue el mismo, porque depende de cuánto vale <code>y</code> en el ambiente global en el momento que <code>f2</code> es invocada. Además de ser confuso, esto es una violación al principio de <em>transparencia referencial</em>: un subalgoritmo sólo debe utilizar elementos mencionados en la lista de argumentos o definidos localmente, sin emplear variables globales. En particular, si hablamos de una función donde el pasaje de parámetros es por valor, esta práctica garantiza que la misma siempre devuelva el mismo resultado cada vez que sea invocada con los mismos valores en los argumentos de entrada, sin producir ningún efecto secundario en el algoritmo principal. El uso de variables globales permite escribir subalgoritmos que carecen de transparencia referencial.</p>
+<p>Un algoritmo puede usar el mismo nombre para variables locales y globales, pero dentro de una función toma precedencia la variable local. En el siguiente ejemplo, hay una variable global <code>a</code> en el programa principal que recibe el valor <code>70</code>. Y hay otra variable <code>a</code> que es local a la función <code>f3</code>. Cuando <code>f3</code> calcula <code>a + b</code>, lo hace con el valor de su variable local (<code>x - 10</code>) y no con el valor de la variable global (<code>70</code>):</p>
+<pre><code>---------------------------------------------------------------
+SUBALGORITMOS
+---------------------------------------------------------------
+
+FUNCIÓN f3(x: numérico): numérico
+    VARIABLE numérica a, b
+    a &lt;- x - 10
+    b &lt;- x + 10
+    ESCRIBIR "Acá, dentro de la f3, el valor de a es", a
+    DEVOLVER a + b
+FIN FUNCIÓN
+
+---------------------------------------------------------------
+ALGORITMO PRINCIPAL
+---------------------------------------------------------------
+
+ALGORITMO: "Ejemplo"
+COMENZAR
+    VARIABLE numérica a, z
+    a &lt;- 70
+    z &lt;- f3(50)
+    ESCRIBIR z
+    ESCRIBIR "Acá, en el programa principal, el valor de a es", a
+    ESCRIBIR a + z
+FIN</code></pre>
+<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># ---------------------------------------------------------------</span>
+<span class="co"># DEFINICIÓN DE FUNCIONES</span>
+<span class="co"># ---------------------------------------------------------------</span>
+
+<span class="va">f3</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">a</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">-</span> <span class="fl">10</span>
+    <span class="va">b</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">10</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Acá, dentro de la f3, el valor de a es"</span>, <span class="va">a</span><span class="op">)</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">a</span> <span class="op">+</span> <span class="va">b</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="co"># ---------------------------------------------------------------</span>
+<span class="co"># PROGRAMA PRINCIPAL</span>
+<span class="co"># ---------------------------------------------------------------</span>
+
+<span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">70</span>
+<span class="va">z</span> <span class="op">&lt;-</span> <span class="fu">f3</span><span class="op">(</span><span class="fl">50</span><span class="op">)</span></code></pre></div>
+<pre><code>Acá, dentro de la f3, el valor de a es 40</code></pre>
+<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">z</span></code></pre></div>
+<pre><code>[1] 100</code></pre>
+<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Acá, en el programa principal, el valor de a es"</span>, <span class="va">a</span><span class="op">)</span></code></pre></div>
+<pre><code>Acá, en el programa principal, el valor de a es 70</code></pre>
+<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">a</span> <span class="op">+</span> <span class="va">z</span></code></pre></div>
+<pre><code>[1] 170</code></pre>
+<p>Se debe prestar atención que con la sentencia <code>ESCRIBIR</code> o la función <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> en R se muestra en pantalla un mensaje en el momento en el que se ejecuta esa acción. Si el mensaje incluye mostrar valores guardados en objetos, se mostrarán los valores que los mismos tienen en ese momento. Por otro lado, lo devuelto por la sentencia <code>DEVOLVER</code> o la función <code><a href="https://rdrr.io/r/base/function.html">return()</a></code> es el resultado de la ejecución de la función: el valor que la función entrega puede ser asignado a otro objeto en el algoritmo principal, como ocurre en la lína de <code>z &lt;- f3(50)</code>.</p>
+</div>
+</div>
+<div id="otros-tópicos-de-lectura-opcional" class="section level2" number="4.7">
+<h2>
+<span class="header-section-number">4.7</span> Otros tópicos de lectura opcional<a class="anchor" aria-label="anchor" href="#otros-t%C3%B3picos-de-lectura-opcional"><i class="fas fa-link"></i></a>
+</h2>
+<div id="la-función-source" class="section level3" number="4.7.1">
+<h3>
+<span class="header-section-number">4.7.1</span> La función source()<a class="anchor" aria-label="anchor" href="#la-funci%C3%B3n-source"><i class="fas fa-link"></i></a>
+</h3>
+<p>Cuanto más grande o complejo es el problema a resolver, más funciones deben ser programadas y no es necesario escribirlas a todas en el mismo archivo de código del programa principal. Para ser más ordenados, podemos escribir nuestras funciones en uno o más archivos separados. Si hacemos esto, en el comienzo del script del programa principal debemos incluir una sentencia para que en primer lugar se ejecute el código guardado en esos otros archivos, de modo que las funciones sean definidas y formen parte del ambiente global.</p>
+<p>Consideremos otra vez el ejemplo de la función para el cálculo de factoriales. Podemos guardar el código de esta función (y otras si hubiese) en un archivo llamado <code>funciones.R</code>, con el siguiente contenido:</p>
+<pre><code>#-----------------------------------------------------
+# Función factorial
+# Calcula el factorial de números enteros no negativos
+# Entrada:
+#       - n, entero no negativo
+# Salida:
+#       - el factorial de n
+#-----------------------------------------------------
+factorial &lt;- function(n) {
+    resultado &lt;- 1
+    if (n &gt; 0) {
+        for (i in 1:n) {
+            resultado &lt;- resultado * i
+        }
+    }
+    return(resultado)
+}</code></pre>
+<p>Luego, en cualquier problema que requiera el cálculo de factoriales, vamos a pedirle a R que ejecute el código guardado en el archivo <code>funciones.R</code> con la sentencia <code><a href="https://rdrr.io/r/base/source.html">source()</a></code>, como paso inicial en el archivo donde estemos escribiendo el programa principal. Por ejemplo:</p>
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># ---------------------------------------------------------------</span>
+<span class="co"># PROGRAMA PRINCIPAL: Mostrar los factoriales de los 10 primeros naturales</span>
+<span class="co"># ---------------------------------------------------------------</span>
+
+<span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"C:/Documentos/Facultad/IALP/funciones.R"</span><span class="op">)</span>
+
+<span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El factorial de"</span>, <span class="va">j</span>, <span class="st">"es igual a"</span>, <span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="va">j</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<p>Gracias a <code><a href="https://rdrr.io/r/base/source.html">source()</a></code> todas las funciones definidas en el archivo <code>funciones.R</code> aparecerán en el entorno y no hay necesidad ni siquiera de abrirlo. Notar que <code>C:/Documentos/Facultad/IALP/</code> es la dirección o <em>path</em> de la carpeta en la computadora donde hayas guardado el archivo <code>funciones.R</code>.</p>
+</div>
+<div id="sentencia-return" class="section level3" number="4.7.2">
+<h3>
+<span class="header-section-number">4.7.2</span> Sentencia return<a class="anchor" aria-label="anchor" href="#sentencia-return"><i class="fas fa-link"></i></a>
+</h3>
+<p>La sentencia <code><a href="https://rdrr.io/r/base/function.html">return()</a></code> puede omitirse. R devuelve el resultado de la última expresión analizada. Por eso, las siguientes funciones son equivalentes:</p>
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">g1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">resultado</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">3</span> <span class="op">*</span> <span class="va">y</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">resultado</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="fu">g1</span><span class="op">(</span><span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 31</code></pre>
+<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">g2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">x</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">3</span> <span class="op">*</span> <span class="va">y</span>
+<span class="op">}</span>
+<span class="fu">g2</span><span class="op">(</span><span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 31</code></pre>
+<p>De todos modos, es aconsejable usar <code><a href="https://rdrr.io/r/base/function.html">return()</a></code> para ganar en claridad. Además, en funciones más complejas, su uso puede ser indispensable para indicar el término de la evaluación de la función.</p>
+</div>
+<div id="argumentos-con-valores-asignados-por-defecto" class="section level3" number="4.7.3">
+<h3>
+<span class="header-section-number">4.7.3</span> Argumentos con valores asignados por defecto<a class="anchor" aria-label="anchor" href="#argumentos-con-valores-asignados-por-defecto"><i class="fas fa-link"></i></a>
+</h3>
+<p>Hemos visto que algunos argumentos de las funciones predefinidas de R tienen valores asignados por defecto, como es el caso de la función <code><a href="https://rdrr.io/r/base/Log.html">log()</a></code>, que a menos que indiquemos otra cosa opera con la base natural. Cuando definimos nuestras propias funciones, también es posible asignarle un valor por defecto a uno o más de sus argumentos.
+Tomemos el primer ejemplo de este capítulo:</p>
+<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">resultado</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">3</span> <span class="op">*</span> <span class="va">y</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">resultado</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="fu">f</span><span class="op">(</span><span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 31</code></pre>
+<p>Esta función también podría ser definida así:</p>
+<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">nueva_f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span> <span class="op">=</span> <span class="fl">100</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">resultado</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">3</span> <span class="op">*</span> <span class="va">y</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">resultado</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<p>Esto significa que si no proveemos un valor para el argumento <code>y</code>, a este se le asignará por default el valor 100. Luego:</p>
+<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">nueva_f</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 316</code></pre>
+<p>En el caso anterior, se hace corresponder el 4 al primer argumento de la función, <code>x</code>, y como no hay ningún otro parámetro actual que le estemos pasando a la función, la misma le asigna a <code>y</code> el valor 100 y calcula: <code>x^2 + 3 * y = 16 + 300 = 316</code>. Sin embargo, podemos, como antes, proveer cualquier otro valor para <code>y</code>, de modo que no se use el valor por default:</p>
+<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">nueva_f</span><span class="op">(</span><span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 31</code></pre>
+<p>Como <code>x</code> no tiene valor asignado por default en la función <code>nueva_f()</code>, siempre debemos pasarle un valor. En caso contrario, recibiremos un error:</p>
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">nueva_f</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>Error in nueva_f(): argument "x" is missing, with no default</code></pre>
+<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">nueva_f</span><span class="op">(</span>y <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<pre><code>Error in nueva_f(y = 5): argument "x" is missing, with no default</code></pre>
+</div>
+<div id="modificar-una-variable-global-desde-el-cuerpo-de-una-función-en-r" class="section level3" number="4.7.4">
+<h3>
+<span class="header-section-number">4.7.4</span> Modificar una variable global desde el cuerpo de una función en R<a class="anchor" aria-label="anchor" href="#modificar-una-variable-global-desde-el-cuerpo-de-una-funci%C3%B3n-en-r"><i class="fas fa-link"></i></a>
+</h3>
+<p>Hemos dicho que una función recibe información desde el programa principal a través de sus parámetros, y envía información al mismo mediante el valor que devuelve. Sin embargo, es posible alterar el comportamiento para que sea capaz de producir efectos secundarios, por ejemplo, modificando el valor de una variable global, violando así el principio de transparencia referencial. Esto se logra</p>
+<p>Los siguientes ejemplos definen dos funciones con un único argumento, <code>x</code>, pero que en su cuerpo hacen uso de una variable global, <code>y</code>, definida el algoritmo principal (estos casos violan el principio de transparencia referencial, su práctica no es recomendable). La diferencia entre ellas es que <code>g1()</code> modifica el valor de <code>y</code> dentro de la función, pero el valor de <code>y</code> en el ambiente global no es alterado; mientras que <code>g2()</code> cambia el valor de <code>y</code> no sólo localmente, sino también en el ambiente global. Esto se logra mediante el uso del operador <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;&lt;-</a></code><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En realidad, el operador &lt;code&gt;&amp;lt;&amp;lt;-&lt;/code&gt; trabaja de forma más compleja que lo mencionado en esta guía. En programas más elaborados de R, pueden haber ambientes anidados y este operador iniciará una búsqueda desde el ambiente actual hacia los superiores hasta encontrar una variable que se llame &lt;code&gt;y&lt;/code&gt; para asignarle un valor. En este caso sencillo, sólo hay dos ambientes, el de la función &lt;code&gt;g2&lt;/code&gt; y el global. Por lo tanto el operador &lt;code&gt;&amp;lt;&amp;lt;-&lt;/code&gt; hace que se le asigne un valor a la variable &lt;code&gt;y&lt;/code&gt; en el global.&lt;/p&gt;"><sup>18</sup></a>.</p>
+<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># ---------------------------------------------------------------</span>
+<span class="co"># DEFINICIÓN DE FUNCIONES</span>
+<span class="co"># ---------------------------------------------------------------</span>
+
+<span class="va">g1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">y</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">+</span> <span class="fl">100</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span> <span class="op">/</span> <span class="va">y</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="va">g2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">y</span> <span class="op">&lt;&lt;-</span> <span class="va">y</span> <span class="op">+</span> <span class="fl">100</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span> <span class="op">/</span> <span class="va">y</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="co"># ---------------------------------------------------------------</span>
+<span class="co"># PROGRAMA PRINCIPAL</span>
+<span class="co"># ---------------------------------------------------------------</span>
+
+<span class="co"># Caso 1: el valor de y en el ambiente global no es modificado por g1</span>
+<span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">500</span>
+<span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">50</span>
+<span class="va">z</span> <span class="op">&lt;-</span> <span class="fu">g1</span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">z</span><span class="op">)</span></code></pre></div>
+<pre><code>500 50 3.333333</code></pre>
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Caso 2: el valor de y en el ambiente global es modificado por g2</span>
+<span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">500</span>
+<span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">50</span>
+<span class="va">z</span> <span class="op">&lt;-</span> <span class="fu">g2</span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">z</span><span class="op">)</span></code></pre></div>
+<pre><code>500 150 3.333333</code></pre>
+<p>Nuevamente, esta forma de trabajo no es aconsejable porque estamos produciendo <em>efectos secundarios</em> desde la función en el ambiente global que pueden pasar desapercibidos si no estamos muy atentos. Así como la mejor práctica es pasar toda la información desde el programa principal hacia la función a través de sus parámetros, también es recomendable que toda comunicación desde la función hacia el programa principal se realice a través del valor (u objeto) que la función devuelve, sin producir efectos secundarios (transparencia referencial).</p>
+<!-- 
+Ejemplo que tenía en la guía del 2020. En pseudocódigo no tendría forma de distinguir entre la situación de la función modifica o no modifica el valor de la global, eso estaría relacionado con un pasaje por referencia, no hago lío con esto, lo dejo acá.
+``` 
+FUNCIÓN f4(x: numérico): numérico
+    VARIABLE numérica a
+    a <- x * y
+    y <- y^2
+    DEVOLVER a
+FIN FUNCIÓN
+
+ALGORITMO: "Ejemplo"
+COMENZAR
+    VARIABLE numérica y
+    y <- 20
+    ESCRIBIR f4(2)
+    y <- 18
+    ESCRIBIR f4(2)
+FIN
+```
+
+
+```r
+# Función f2 donde el operador <<- modifica el valor de una variable global
+f4 <- function(x) {
+    a <- x * y
+    y <<- y^2
+    return(a)
+}
+
+# Variable global y recibe el valor 20
+y <- 20
+# Se ejecuta la función y devuelve el valor 60
+f4(3)
+```
+
+```
+[1] 60
+```
+
+```r
+# La variable global y fue modificada desde dentro de la función y cambió su valor
+y
+```
+
+```
+[1] 400
+```
+
+En el pseudocódigo notamos que estamos asignándole un valor a la variable global `y` porque la misma no fue declarada como variable local dentro de la función. En R lo notamos porque se usa otro operador para la asignación: `<<-`.
+-->
+</div>
+<div id="procedimientos" class="section level3" number="4.7.5">
+<h3>
+<span class="header-section-number">4.7.5</span> Procedimientos<a class="anchor" aria-label="anchor" href="#procedimientos"><i class="fas fa-link"></i></a>
+</h3>
+<p>Un <strong>procedimiento</strong> es un subalgoritmo que agrupa una acción o conjunto de acciones, dándoles un nombre por el que se las puede identificar posteriormente. Se diferencia de la función en que no tiene como objetivo, en general, devolver un valor, sino sólo contribuir a la descomposición o modularidad del programa. R no trabaja con el concepto de <em>procedimiento</em>, sino que todo tipo de subalgoritmo se genera con la misma estructura de <code>function(...){...}</code><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En la jerga de R, se habla de &lt;em&gt;funciones puras&lt;/em&gt; o &lt;em&gt;no puras&lt;/em&gt;. Las primeras no producen ningún efecto secundario en el ambiente global, las segundas sí. Hay muy pocas funciones no puras en R&lt;/p&gt;"><sup>19</sup></a>.</p>
+<p>Como en las funciones, desde el algoritmo principal se pasan valores al procedimiento utilizando <strong>parámetros</strong> o <strong>argumentos</strong>, aunque también puede haber procedimientos que carezcan de los mismos. Para usar un procedimiento hay que invocarlo, escribiendo su nombre y a continuación, si los hay, los valores de los argumentos actuales para esa llamada, separados por comas. Aquí también los argumentos actuales deben ser compatibles en cuanto a la cantidad, tipo y orden que los argumentos formales declarados en la definición del procedimiento.</p>
+<p>En el siguiente ejemplo podemos identificar los argumentos actuales <code>a</code> (con el valor 5), <code>b</code> (con el valor 2), <code>c</code> y <code>d</code> (sin valores asignados inicialmente). Cuando el procedimiento <code>proced1</code> es invocado, se establece una correspondencia con los argumentos formales <code>n1</code>, <code>n2</code>, <code>n3</code> y <code>n4</code>, respectivamente. <code>n1</code> toma el valor 5, <code>n2</code> toma el valor 2 y el procedimiento le asigna los valores 7 a <code>n3</code> y 1 a <code>n4</code>. Al finalizar, este procedimiento habrá dejado sin cambios a las variables <code>a</code> y <code>b</code>, mientras que le habrá asignado los valores 7 a <code>c</code> y 1 a <code>d</code>. Como resultado, el algoritmo escribe “5 2 7 1”.</p>
+<pre><code>---------------------------------------------------------------
+SUBALGORITMOS
+---------------------------------------------------------------
+
+PROCEDIMIENTO proced1(n1: numérico, n2: numérico, n3: numérico, n4: numérico)
+    n3 &lt;- n1 + n2
+    n4 &lt;- n2 - 1
+FIN PROCEDIMIENTO
+
+---------------------------------------------------------------
+ALGORITMO PRINCIPAL
+---------------------------------------------------------------
+
+ALGORITMO: Primer ejemplo de procedimiento
+COMENZAR
+    VARIABLE numérica a, b, c, d
+    a &lt;- 5
+    b &lt;- 2
+    proced1(a, b, c, d)
+    ESCRIBIR a b c d
+FIN</code></pre>
+<p>En el siguiente ejemplo, el procedimiento <code>proced2</code> modifica las variables que actúan como argumentos actuales. Al ser invocado, se establece una correspondencia entre los argumentos actuales <code>a</code> (con el valor 5) y <code>b</code> (con el valor 2), y los argumentos formales <code>n1</code> y <code>n2</code>, respectivamente. De esta forma, la primera acción del procedimiento le asigna el valor 7 a <code>n1</code> y 1 a <code>n2</code>. De esta manera, al finalizar <code>a</code> vale 7 y <code>b</code> vale 1 y el algoritmo escribe “7 1”.</p>
+<pre><code>---------------------------------------------------------------
+SUBALGORITMOS
+---------------------------------------------------------------
+
+PROCEDIMIENTO proced2(n1: numérico, n2: numérico)
+    n1 &lt;- n1 + n2
+    n2 &lt;- n2 - 1
+FIN PROCEDIMIENTO
+
+---------------------------------------------------------------
+ALGORITMO PRINCIPAL
+---------------------------------------------------------------
+
+ALGORITMO: Segundo ejemplo de procedimiento
+COMENZAR
+    VARIABLE numérica a, b
+    a &lt;- 5
+    b &lt;- 2
+    proced2(a, b)
+    ESCRIBIR a b
+FIN</code></pre>
+<p>Analicemos ahora el tipo de pasaje de argumentos en el contexto de un procedimiento:</p>
+<pre><code>---------------------------------------------------------------
+SUBALGORITMOS
+---------------------------------------------------------------
+
+PROCEDIMIENTO miProc(x: numérico, y: numérico)
+    x &lt;- x * 2
+    y &lt;- x - y
+FIN PROCEDIMIENTO
+
+---------------------------------------------------------------
+ALGORITMO PRINCIPAL
+---------------------------------------------------------------
+
+ALGORITMO: Tercer ejemplo de procedimiento
+COMENZAR
+    VARIABLE numérica a, b
+    a &lt;- 8
+    b &lt;- 4
+    miProc(a, b)
+    ESCRIBIR a b
+FIN</code></pre>
+<p>Si el pasaje es por referencia, los pasos que sigue el algoritmo serían:</p>
+<ol style="list-style-type: decimal">
+<li>En el algortimo se asignan los valores: <code>a = 8, b = 4</code>.</li>
+<li>Al invocar la función: <code>x = 8, y = 4</code>.</li>
+<li>Primera línea de la función: <code>x = 8 * 2 = 16</code>. Lo mismo sucede con el parámetro actual <code>a</code>: <code>a = 16</code>.</li>
+<li>Segunda línea de la función: <code>y = 16 - 4 = 12</code>. Lo mismo sucede con el parámetro actual <code>b</code>: <code>b = 12</code>.</li>
+<li>Al regresar al algoritmo principal, la sentencia <code>ESCRIBIR</code> produce: <code>16 12</code>.</li>
+</ol>
+<p>Si el pasaje hubiese sido por valor, <code>a</code> y <code>b</code> no hubiesen cambiado y la sentencia <code>ESCRIBIR</code> mostraría <code>8, 4</code>. Como en un procedimiento los resultados regresan en los mismos parámetros, no pueden ser todos pasados por valor, porque en ese caso el procedimiento nunca realizaría ninguna acción.</p>
+<p>Si el parámetro <code>x</code> se pasa por valor mientras que <code>y</code> se pasa por referencia, los pasos serían:</p>
+<ol style="list-style-type: decimal">
+<li>
+<code>a = 8, b = 4</code>.</li>
+<li>Al invocar la función: <code>x = 8, y = 4</code>.</li>
+<li>Primera línea de la función: <code>x = 8 * 2 = 16</code>.</li>
+<li>Segunda línea de la función: <code>y = 16 - 4 = 12</code>. Lo mismo sucede con el parámetro actual <code>b</code>: <code>b = 12</code>.</li>
+<li>Al regresar al algoritmo principal, la sentencia <code>ESCRIBIR</code> produce: <code>8 12</code>.</li>
+</ol>
+<p>Dado que en R el pasaje de argumentos es <strong>siempre</strong> por valor y no por referencia, no existen los procedimientos. Por esta razón, esta sección no se ejemplifica con código de R.</p>
 
 </div>
+</div>
+</div>
+
   <div class="chapter-nav">
 <div class="prev"><a href="estructuras-de-control.html"><span class="header-section-number">3</span> Estructuras de control</a></div>
 <div class="next"><a href="estructuras-de-datos.html"><span class="header-section-number">5</span> Estructuras de datos</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="En esta página"><h2>En esta página</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#descomposici%C3%B3n-algor%C3%ADtmica"><span class="header-section-number">4</span> Descomposición algorítmica</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#descomposici%C3%B3n-algor%C3%ADtmica"><span class="header-section-number">4</span> Descomposición algorítmica</a></li>
+<li><a class="nav-link" href="#tipos-de-subalgoritmos"><span class="header-section-number">4.1</span> Tipos de subalgoritmos</a></li>
+<li><a class="nav-link" href="#funciones"><span class="header-section-number">4.2</span> Funciones</a></li>
+<li>
+<a class="nav-link" href="#funciones-en-r"><span class="header-section-number">4.3</span> Funciones en R</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#funciones-predefinidas-de-r"><span class="header-section-number">4.3.1</span> Funciones predefinidas de R</a></li>
+<li><a class="nav-link" href="#definici%C3%B3n-de-nuevas-funciones-en-r"><span class="header-section-number">4.3.2</span> Definición de nuevas funciones en R</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#documentaci%C3%B3n-de-los-subalgoritmos"><span class="header-section-number">4.4</span> Documentación de los subalgoritmos</a></li>
+<li>
+<a class="nav-link" href="#pasaje-de-par%C3%A1metros"><span class="header-section-number">4.5</span> Pasaje de parámetros</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pasaje-por-valor"><span class="header-section-number">4.5.1</span> Pasaje por valor</a></li>
+<li><a class="nav-link" href="#pasaje-por-referencia"><span class="header-section-number">4.5.2</span> Pasaje por referencia</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#%C3%A1mbito-de-las-variables"><span class="header-section-number">4.6</span> Ámbito de las variables</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#variables-locales"><span class="header-section-number">4.6.1</span> Variables locales</a></li>
+<li><a class="nav-link" href="#variables-globales"><span class="header-section-number">4.6.2</span> Variables globales</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#otros-t%C3%B3picos-de-lectura-opcional"><span class="header-section-number">4.7</span> Otros tópicos de lectura opcional</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#la-funci%C3%B3n-source"><span class="header-section-number">4.7.1</span> La función source()</a></li>
+<li><a class="nav-link" href="#sentencia-return"><span class="header-section-number">4.7.2</span> Sentencia return</a></li>
+<li><a class="nav-link" href="#argumentos-con-valores-asignados-por-defecto"><span class="header-section-number">4.7.3</span> Argumentos con valores asignados por defecto</a></li>
+<li><a class="nav-link" href="#modificar-una-variable-global-desde-el-cuerpo-de-una-funci%C3%B3n-en-r"><span class="header-section-number">4.7.4</span> Modificar una variable global desde el cuerpo de una función en R</a></li>
+<li><a class="nav-link" href="#procedimientos"><span class="header-section-number">4.7.5</span> Procedimientos</a></li>
+</ul>
+</li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -75,7 +1076,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-05-13.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-05-21.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

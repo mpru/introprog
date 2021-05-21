@@ -1,11 +1,11 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.4.29)  13 MAY 2021 15:34
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.5.18)  21 MAY 2021 03:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **introprog2021.tex
 (./introprog2021.tex
 LaTeX2e <2020-10-01> patch level 4
-L3 programming layer <2021-02-18> (/home/marcos/.TinyTeX/texmf-dist/tex/latex/b
+L3 programming layer <2021-05-11> (/home/marcos/.TinyTeX/texmf-dist/tex/latex/b
 ase/book.cls
 Document Class: book 2020/04/10 v1.4m Standard LaTeX document class
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/base/bk10.clo
@@ -118,9 +118,9 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (/h
 ome/marcos/.TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2021-02-18 L3 programming layer (loader) 
+Package: expl3 2021-05-11 L3 programming layer (loader) 
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
-File: l3backend-xetex.def 2021-03-18 L3 backend support: XeTeX
+File: l3backend-xetex.def 2021-05-07 L3 backend support: XeTeX
 (|extractbb --version)
 \c__kernel_sys_dvipdfmx_version_int=\count196
 \l__color_backend_stack_int=\count197
@@ -142,7 +142,7 @@ TeX
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse-generic.te
 x))) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.s
 ty
-Package: l3keys2e 2021-03-12 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2021-05-07 LaTeX2e option processing using LaTeX3 keys
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty
 Package: fontspec 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
@@ -417,9 +417,9 @@ Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@dima=\skip62
 \bigstrutjot=\dimen179
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2021/04/26 3.58 The Babel package
+Package: babel 2021/05/16 3.59 The Babel package
 (/home/marcos/.TinyTeX/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2021/04/26 3.58 Babel common definitions
+File: babel.def 2021/05/16 3.59 Babel common definitions
 \babel@savecnt=\count314
 \U@D=\dimen180
 \l@unhyphenated=\language4
@@ -1380,8 +1380,8 @@ LaTeX Info: Redefining \. on input line 2455.
 LaTeX Info: Redefining \% on input line 2455.
 [42]
 Unidad 4.
-LaTeX Info: Redefining \. on input line 2458.
-LaTeX Info: Redefining \% on input line 2458.
+LaTeX Info: Redefining \. on input line 2488.
+LaTeX Info: Redefining \% on input line 2488.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1393,8 +1393,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [43
 
 ]
-LaTeX Info: Redefining \. on input line 2458.
-LaTeX Info: Redefining \% on input line 2458.
+LaTeX Info: Redefining \. on input line 2538.
+LaTeX Info: Redefining \% on input line 2538.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1403,30 +1403,57 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
-[44
+[44]
+LaTeX Info: Redefining \. on input line 2624.
+LaTeX Info: Redefining \% on input line 2624.
 
-]
-Unidad 5.
-LaTeX Info: Redefining \. on input line 2461.
-LaTeX Info: Redefining \% on input line 2461.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
 [45]
-LaTeX Info: Redefining \. on input line 2461.
-LaTeX Info: Redefining \% on input line 2461.
-[46
+LaTeX Info: Redefining \. on input line 2665.
+LaTeX Info: Redefining \% on input line 2665.
 
-]
-Unidad 6.
-LaTeX Info: Redefining \. on input line 2464.
-LaTeX Info: Redefining \% on input line 2464.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[46]
+File: images/03_funciones/ayuda.png Graphic file (type bmp)
+<images/03_funciones/ayuda.png>
+LaTeX Info: Redefining \. on input line 2718.
+LaTeX Info: Redefining \% on input line 2718.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
 [47]
-LaTeX Info: Redefining \. on input line 2464.
-LaTeX Info: Redefining \% on input line 2464.
-[48
+File: images/03_funciones/31.png Graphic file (type bmp)
+<images/03_funciones/31.png>
+LaTeX Info: Redefining \. on input line 2830.
+LaTeX Info: Redefining \% on input line 2830.
 
-]
-Unidad 7.
-LaTeX Info: Redefining \. on input line 2467.
-LaTeX Info: Redefining \% on input line 2467.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[48]
+LaTeX Info: Redefining \. on input line 2906.
+LaTeX Info: Redefining \% on input line 2906.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1436,8 +1463,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [49]
-LaTeX Info: Redefining \. on input line 2467.
-LaTeX Info: Redefining \% on input line 2467.
+LaTeX Info: Redefining \. on input line 2989.
+LaTeX Info: Redefining \% on input line 2989.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1446,11 +1473,192 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
-[50
+[50]
+LaTeX Info: Redefining \. on input line 3064.
+LaTeX Info: Redefining \% on input line 3064.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[51]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 3112.
+LaTeX Info: Redefining \% on input line 3112.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[52]
+LaTeX Info: Redefining \. on input line 3182.
+LaTeX Info: Redefining \% on input line 3182.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[53]
+LaTeX Info: Redefining \. on input line 3252.
+LaTeX Info: Redefining \% on input line 3252.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[54]
+LaTeX Info: Redefining \. on input line 3312.
+LaTeX Info: Redefining \% on input line 3312.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[55]
+LaTeX Info: Redefining \. on input line 3382.
+LaTeX Info: Redefining \% on input line 3382.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[56]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 3449.
+LaTeX Info: Redefining \% on input line 3449.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[57]
+LaTeX Info: Redefining \. on input line 3516.
+LaTeX Info: Redefining \% on input line 3516.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[58]
+Underfull \vbox (badness 2573) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 3587.
+LaTeX Info: Redefining \% on input line 3587.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[59]
+LaTeX Info: Redefining \. on input line 3674.
+LaTeX Info: Redefining \% on input line 3674.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[60]
+LaTeX Info: Redefining \. on input line 3730.
+LaTeX Info: Redefining \% on input line 3730.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[61]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 3806.
+LaTeX Info: Redefining \% on input line 3806.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[62]
+LaTeX Info: Redefining \. on input line 3847.
+LaTeX Info: Redefining \% on input line 3847.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[63]
+LaTeX Info: Redefining \. on input line 3847.
+LaTeX Info: Redefining \% on input line 3847.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[64
 
 ]
-LaTeX Info: Redefining \. on input line 2528.
-LaTeX Info: Redefining \% on input line 2528.
+Unidad 5.
+LaTeX Info: Redefining \. on input line 3850.
+LaTeX Info: Redefining \% on input line 3850.
+[65]
+LaTeX Info: Redefining \. on input line 3850.
+LaTeX Info: Redefining \% on input line 3850.
+[66
+
+]
+Unidad 6.
+LaTeX Info: Redefining \. on input line 3853.
+LaTeX Info: Redefining \% on input line 3853.
+[67]
+LaTeX Info: Redefining \. on input line 3853.
+LaTeX Info: Redefining \% on input line 3853.
+[68
+
+]
+Unidad 7.
+LaTeX Info: Redefining \. on input line 3856.
+LaTeX Info: Redefining \% on input line 3856.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1459,20 +1667,44 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
-[51] (./introprog2021.aux
+[69]
+LaTeX Info: Redefining \. on input line 3856.
+LaTeX Info: Redefining \% on input line 3856.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[70
+
+]
+LaTeX Info: Redefining \. on input line 3917.
+LaTeX Info: Redefining \% on input line 3917.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[71] (./introprog2021.aux
 LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
 )
 Package rerunfilecheck Info: File `introprog2021.out' has not changed.
-(rerunfilecheck)             Checksum: 2D94E59DB203DE0905F9BA627BEEB347;4093.
+(rerunfilecheck)             Checksum: 3C9E05D3F2F53DCC01965D994FDAB332;5313.
  ) 
 Here is how much of TeX's memory you used:
- 20052 strings out of 478904
- 351707 string characters out of 5866034
- 880169 words of memory out of 5000000
- 39595 multiletter control sequences out of 15000+600000
- 407473 words of font info for 77 fonts, out of 8000000 for 9000
+ 20330 strings out of 478750
+ 360440 string characters out of 5863502
+ 886411 words of memory out of 5000000
+ 40023 multiletter control sequences out of 15000+600000
+ 407481 words of font info for 78 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 98i,11n,122p,1547b,680s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 85i,12n,121p,1547b,680s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on introprog2021.pdf (51 pages).
+Output written on introprog2021.pdf (71 pages).

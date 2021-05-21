@@ -194,7 +194,7 @@ FIN</code></pre>
 <h3>
 <span class="header-section-number">3.3.1</span> Estructuras de control iterativas con un número fijo de iteraciones<a class="anchor" aria-label="anchor" href="#estructuras-de-control-iterativas-con-un-n%C3%BAmero-fijo-de-iteraciones"><i class="fas fa-link"></i></a>
 </h3>
-<p>Se aplican cuando se conoce de antemano el número exacto de veces que se debe repetir una secuencia de acciones. También se conocen como <em>bucles (loops) controlados por un conteo</em>, ya que el algoritmo va contando la cantidad de repeticiones haciendo uso de una variable que recibe el nombre de <strong>variable de interación</strong>, <strong>índice</strong> o <strong>conteo</strong>.</p>
+<p>Se aplican cuando se conoce de antemano el número exacto de veces que se debe repetir una secuencia de acciones. También se conocen como <em>bucles (loops) controlados por un conteo</em>, ya que el algoritmo va contando la cantidad de repeticiones haciendo uso de una variable que recibe el nombre de <strong>variable de iteración</strong>, <strong>índice</strong> o <strong>conteo</strong>.</p>
 <p>Por ejemplo, imaginemos que queremos escribir un algoritmo que permita calcular la quinta potencia de cualquier número. Para esto, se debe tomar dicho número y multiplicarlo por sí mismo 5 veces. Por lo tanto, una posible solución es:</p>
 <pre><code>ALGORITMO: "Calcular la quinta potencia"
 COMENZAR
@@ -490,6 +490,62 @@ FIN</code></pre>
 [1] 144</code></pre>
 </li>
 </ul>
+<!-- 
+RECURSOS CONSULTADOS PARA LA ESCRITURA DE ESTE CAPITULO
+
+# Paradigmas de programacion
+https://hackr.io/blog/programming-paradigms
+
+# Distintos tipos de subalgoritmos:
+https://softwareengineering.stackexchange.com/questions/20909/method-vs-function-vs-procedure
+https://softwareengineering.stackexchange.com/questions/123159/what-are-the-specific-meanings-of-the-terms-functions-methods-procedures-and?rq=1
+A function is something that takes a bunch of inputs and returns one or more values. If the returned values are entirely determined by the inputs, and the function doesn't have any side effects (logging, perhaps, or causing state changes outside itself), then it's called a pure function.
+A procedure is a function that doesn't return a value. In particular, this means that a procedure can only cause side effects. (That might include mutating an input parameter!)
+
+# Ámbito de variables:
+https://www.tutorialspoint.com/cprogramming/c_scope_rules.htm
+https://www.r-bloggers.com/dont-run-afoul-of-scoping-rules-in-r/
+Pag. 116 de Cerveron
+Cap 7 de Cerradas Sommolinos
+Scope refers to the visibility of variables. In other words, which parts of your program can see or use it. 
+
+# Paradigma de programacion de R
+https://stackoverflow.com/questions/6098810/what-is-the-programming-paradigm-of-r
+https://www.researchgate.net/publication/262057846_The_Functional_Programming_Language_R_and_the_Paradigm_of_Dynamic_Scientific_Programming
+https://cs.stackexchange.com/questions/8948/what-would-be-the-classification-of-r-according-to-paradigms
+https://study.com/academy/lesson/programming-paradigm-of-r-definition-type.html
+
+# Más cosas interesantes sobre funciones en R: 
+http://adv-r.had.co.nz/Functions.html
+
+# Pasaje de parámetros en R
+https://www.r-bloggers.com/call-by-reference-in-r/
+https://stackoverflow.com/questions/2603184/can-you-pass-by-reference-in-r
+https://www.stat.berkeley.edu/~paciorek/computingTips/Pointers_passing_reference_.html
+http://homepage.divms.uiowa.edu/~luke/R/references.html
+
+# Variables locales y globales en R
+https://www.datamentor.io/r-programming/environment-scope/
+https://stackoverflow.com/questions/1236620/global-variables-in-r
+https://stackoverflow.com/questions/10904124/global-and-local-variables-in-r/10904810
+
+
+# Dejo esto para hacer algun ejercicio
+Ejercicio
+
+Can you tell which one of the following statements is false about the following piece of code?
+
+increment <- function(x, inc = 1) {
+  x <- x + inc
+  x
+}
+count <- 5
+a <- increment(count, 2)
+b <- increment(count)
+count <- increment(count, 2)
+
+Well done! Given that R passes arguments by value and not by reference, the value of count is not changed after the first two calls of increment(). Only in the final expression, where count is re-assigned explicitly, does the value of count change.
+-->
 </div>
 </div>
   <div class="chapter-nav">
@@ -530,7 +586,7 @@ FIN</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-05-13.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-05-21.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
