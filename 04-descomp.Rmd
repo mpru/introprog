@@ -36,23 +36,6 @@ http://homepage.divms.uiowa.edu/~luke/R/references.html
 https://www.datamentor.io/r-programming/environment-scope/
 https://stackoverflow.com/questions/1236620/global-variables-in-r
 https://stackoverflow.com/questions/10904124/global-and-local-variables-in-r/10904810
-
-
-# Dejo esto para hacer algun ejercicio
-Ejercicio
-
-Can you tell which one of the following statements is false about the following piece of code?
-
-increment <- function(x, inc = 1) {
-  x <- x + inc
-  x
-}
-count <- 5
-a <- increment(count, 2)
-b <- increment(count)
-count <- increment(count, 2)
-
-Well done! Given that R passes arguments by value and not by reference, the value of count is not changed after the first two calls of increment(). Only in the final expression, where count is re-assigned explicitly, does the value of count change.
 -->
 
 # Descomposición algorítmica
@@ -440,14 +423,14 @@ Para ilustrar esto, vamos a recordar que en la práctica 2 escribimos un algorit
 SUBALGORITMOS
 ---------------------------------------------------------------
 
-|-------------------------------------------------------
-| Función factorial
-| Calcula el factorial de números enteros no negativos
-| Entrada:
-| 	- n, entero no negativo
-| Salida:
-| 	- el factorial de n
-|-------------------------------------------------------
+#-------------------------------------------------------
+# Función factorial
+# Calcula el factorial de números enteros no negativos
+# Entrada:
+# 	- n, entero no negativo
+# Salida:
+# 	- el factorial de n
+#-------------------------------------------------------
 FUNCIÓN factorial(n: numérico): numérico
 	VARIABLE numérica resultado
 	resultado <- 1
