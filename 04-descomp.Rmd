@@ -432,6 +432,7 @@ SUBALGORITMOS
 # 	- el factorial de n
 #-------------------------------------------------------
 FUNCIÓN factorial(n: numérico): numérico
+COMENZAR
 	VARIABLE numérica resultado
 	resultado <- 1
 	SI n > 0 ENTONCES
@@ -509,6 +510,7 @@ SUBALGORITMOS
 ---------------------------------------------------------------
 
 FUNCIÓN fun(x: numérico, y: numérico): numérico
+COMENZAR
 	x <- x + 1
 	DEVOLVER x + y
 FIN FUNCIÓN
@@ -579,6 +581,7 @@ SUBALGORITMOS
 ---------------------------------------------------------------
 
 FUNCIÓN fun(x: numérico, y: numérico): numérico
+COMENZAR
 	x <- x + 1
 	DEVOLVER x + y
 FIN FUNCIÓN
@@ -629,6 +632,7 @@ SUBALGORITMOS
 ---------------------------------------------------------------
 
 FUNCIÓN f1(x: numérico): numérico
+COMENZAR
 	VARIABLE numérica a, b
 	a <- x - 10
 	b <- x + 10
@@ -686,6 +690,7 @@ SUBALGORITMOS
 ---------------------------------------------------------------
 
 FUNCIÓN f2(x: numérico): numérico
+COMENZAR
 	VARIABLE numérica a
 	a <- x * y
 	DEVOLVER a
@@ -735,6 +740,7 @@ SUBALGORITMOS
 ---------------------------------------------------------------
 
 FUNCIÓN f3(x: numérico): numérico
+COMENZAR
 	VARIABLE numérica a, b
 	a <- x - 10
 	b <- x + 10
@@ -933,6 +939,7 @@ Nuevamente, esta forma de trabajo no es aconsejable porque estamos produciendo *
 Ejemplo que tenía en la guía del 2020. En pseudocódigo no tendría forma de distinguir entre la situación de la función modifica o no modifica el valor de la global, eso estaría relacionado con un pasaje por referencia, no hago lío con esto, lo dejo acá.
 ``` 
 FUNCIÓN f4(x: numérico): numérico
+COMENZAR
 	VARIABLE numérica a
 	a <- x * y
 	y <- y^2
