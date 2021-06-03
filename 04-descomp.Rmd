@@ -424,14 +424,14 @@ SUBALGORITMOS
 ---------------------------------------------------------------
 
 #-------------------------------------------------------
-# Función factorial
+# Función fact
 # Calcula el factorial de números enteros no negativos
 # Entrada:
 # 	- n, entero no negativo
 # Salida:
 # 	- el factorial de n
 #-------------------------------------------------------
-FUNCIÓN factorial(n: numérico): numérico
+FUNCIÓN fact(n: numérico): numérico
 COMENZAR
 	VARIABLE numérica resultado
 	resultado <- 1
@@ -450,7 +450,7 @@ ALGORITMO PRINCIPAL
 ALGORITMO: "Mostrar los factoriales de los 10 primeros naturales"
 COMENZAR
 	PARA j DESDE 1 HASTA 10 HACER
-		ESCRIBIR "El factorial de " j " es igual a " factorial(j)
+		ESCRIBIR "El factorial de " j " es igual a " fact(j)
 	FIN PARA
 FIN
 ```
@@ -463,14 +463,14 @@ En R:
 # ---------------------------------------------------------------
 
 #-----------------------------------------------------
-# Función factorial
+# Función fact
 # Calcula el factorial de números enteros no negativos
 # Entrada:
 #		- n, entero no negativo
 # Salida:
 #		- el factorial de n
 #-----------------------------------------------------
-factorial <- function(n) {
+fact <- function(n) {
 	resultado <- 1
 	if (n > 0) {
 		for (i in 1:n) {
@@ -484,7 +484,7 @@ factorial <- function(n) {
 # PROGRAMA PRINCIPAL: Mostrar los factoriales de los 10 primeros naturales
 # ---------------------------------------------------------------
 for (j in 1:10) {
-	cat("El factorial de", j, "es igual a", factorial(j), "\n")
+	cat("El factorial de", j, "es igual a", fact(j), "\n")
 }
 ```
 
@@ -798,14 +798,14 @@ Consideremos otra vez el ejemplo de la función para el cálculo de factoriales.
 
 ```
 #-----------------------------------------------------
-# Función factorial
+# Función fact
 # Calcula el factorial de números enteros no negativos
 # Entrada:
 #		- n, entero no negativo
 # Salida:
 #		- el factorial de n
 #-----------------------------------------------------
-factorial <- function(n) {
+fact <- function(n) {
 	resultado <- 1
 	if (n > 0) {
 		for (i in 1:n) {
@@ -826,7 +826,7 @@ Luego, en cualquier problema que requiera el cálculo de factoriales, vamos a pe
 source("C:/Documentos/Facultad/IALP/funciones.R")
 
 for (j in 1:10) {
-	cat("El factorial de", j, "es igual a", factorial(j), "\n")
+	cat("El factorial de", j, "es igual a", fact(j), "\n")
 }
 ```
 

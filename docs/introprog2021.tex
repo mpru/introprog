@@ -243,7 +243,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2021-05-31}
+\date{2021-06-03}
 
 \begin{document}
 \maketitle
@@ -2827,14 +2827,14 @@ SUBALGORITMOS
 ---------------------------------------------------------------
 
 #-------------------------------------------------------
-# Función factorial
+# Función fact
 # Calcula el factorial de números enteros no negativos
 # Entrada:
 #   - n, entero no negativo
 # Salida:
 #   - el factorial de n
 #-------------------------------------------------------
-FUNCIÓN factorial(n: numérico): numérico
+FUNCIÓN fact(n: numérico): numérico
 COMENZAR
     VARIABLE numérica resultado
     resultado <- 1
@@ -2853,7 +2853,7 @@ ALGORITMO PRINCIPAL
 ALGORITMO: "Mostrar los factoriales de los 10 primeros naturales"
 COMENZAR
     PARA j DESDE 1 HASTA 10 HACER
-        ESCRIBIR "El factorial de " j " es igual a " factorial(j)
+        ESCRIBIR "El factorial de " j " es igual a " fact(j)
     FIN PARA
 FIN
 \end{verbatim}
@@ -2867,14 +2867,14 @@ En R:
 \CommentTok{\# {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
 
 \CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
-\CommentTok{\# Función factorial}
+\CommentTok{\# Función fact}
 \CommentTok{\# Calcula el factorial de números enteros no negativos}
 \CommentTok{\# Entrada:}
 \CommentTok{\#       {-} n, entero no negativo}
 \CommentTok{\# Salida:}
 \CommentTok{\#       {-} el factorial de n}
 \CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
-\NormalTok{factorial }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(n) \{}
+\NormalTok{fact }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(n) \{}
 \NormalTok{    resultado }\OtherTok{\textless{}{-}} \DecValTok{1}
     \ControlFlowTok{if}\NormalTok{ (n }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{) \{}
         \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{n) \{}
@@ -2888,7 +2888,7 @@ En R:
 \CommentTok{\# PROGRAMA PRINCIPAL: Mostrar los factoriales de los 10 primeros naturales}
 \CommentTok{\# {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
 \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{) \{}
-    \FunctionTok{cat}\NormalTok{(}\StringTok{"El factorial de"}\NormalTok{, j, }\StringTok{"es igual a"}\NormalTok{, }\FunctionTok{factorial}\NormalTok{(j), }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"El factorial de"}\NormalTok{, j, }\StringTok{"es igual a"}\NormalTok{, }\FunctionTok{fact}\NormalTok{(j), }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -3318,14 +3318,14 @@ Consideremos otra vez el ejemplo de la función para el cálculo de factoriales.
 
 \begin{verbatim}
 #-----------------------------------------------------
-# Función factorial
+# Función fact
 # Calcula el factorial de números enteros no negativos
 # Entrada:
 #       - n, entero no negativo
 # Salida:
 #       - el factorial de n
 #-----------------------------------------------------
-factorial <- function(n) {
+fact <- function(n) {
     resultado <- 1
     if (n > 0) {
         for (i in 1:n) {
@@ -3347,7 +3347,7 @@ Luego, en cualquier problema que requiera el cálculo de factoriales, vamos a pe
 \FunctionTok{source}\NormalTok{(}\StringTok{"C:/Documentos/Facultad/IALP/funciones.R"}\NormalTok{)}
 
 \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{) \{}
-    \FunctionTok{cat}\NormalTok{(}\StringTok{"El factorial de"}\NormalTok{, j, }\StringTok{"es igual a"}\NormalTok{, }\FunctionTok{factorial}\NormalTok{(j), }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"El factorial de"}\NormalTok{, j, }\StringTok{"es igual a"}\NormalTok{, }\FunctionTok{fact}\NormalTok{(j), }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}

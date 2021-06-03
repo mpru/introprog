@@ -393,14 +393,14 @@ SUBALGORITMOS
 ---------------------------------------------------------------
 
 #-------------------------------------------------------
-# Función factorial
+# Función fact
 # Calcula el factorial de números enteros no negativos
 # Entrada:
 #   - n, entero no negativo
 # Salida:
 #   - el factorial de n
 #-------------------------------------------------------
-FUNCIÓN factorial(n: numérico): numérico
+FUNCIÓN fact(n: numérico): numérico
 COMENZAR
     VARIABLE numérica resultado
     resultado &lt;- 1
@@ -419,7 +419,7 @@ ALGORITMO PRINCIPAL
 ALGORITMO: "Mostrar los factoriales de los 10 primeros naturales"
 COMENZAR
     PARA j DESDE 1 HASTA 10 HACER
-        ESCRIBIR "El factorial de " j " es igual a " factorial(j)
+        ESCRIBIR "El factorial de " j " es igual a " fact(j)
     FIN PARA
 FIN</code></pre>
 <p>En R:</p>
@@ -429,14 +429,14 @@ FIN</code></pre>
 <span class="co"># ---------------------------------------------------------------</span>
 
 <span class="co">#-----------------------------------------------------</span>
-<span class="co"># Función factorial</span>
+<span class="co"># Función fact</span>
 <span class="co"># Calcula el factorial de números enteros no negativos</span>
 <span class="co"># Entrada:</span>
 <span class="co">#       - n, entero no negativo</span>
 <span class="co"># Salida:</span>
 <span class="co">#       - el factorial de n</span>
 <span class="co">#-----------------------------------------------------</span>
-<span class="va">factorial</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="op">{</span>
+<span class="va">fact</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="op">{</span>
     <span class="va">resultado</span> <span class="op">&lt;-</span> <span class="fl">1</span>
     <span class="kw">if</span> <span class="op">(</span><span class="va">n</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span>
         <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">n</span><span class="op">)</span> <span class="op">{</span>
@@ -450,7 +450,7 @@ FIN</code></pre>
 <span class="co"># PROGRAMA PRINCIPAL: Mostrar los factoriales de los 10 primeros naturales</span>
 <span class="co"># ---------------------------------------------------------------</span>
 <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El factorial de"</span>, <span class="va">j</span>, <span class="st">"es igual a"</span>, <span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="va">j</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El factorial de"</span>, <span class="va">j</span>, <span class="st">"es igual a"</span>, <span class="fu">fact</span><span class="op">(</span><span class="va">j</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <pre><code>El factorial de 1 es igual a 1 
 El factorial de 2 es igual a 2 
@@ -759,14 +759,14 @@ FIN</code></pre>
 <p>Cuanto más grande o complejo es el problema a resolver, más funciones deben ser programadas y no es necesario escribirlas a todas en el mismo archivo de código del programa principal. Para ser más ordenados, podemos escribir nuestras funciones en uno o más archivos separados. Si hacemos esto, en el comienzo del script del programa principal debemos incluir una sentencia para que en primer lugar se ejecute el código guardado en esos otros archivos, de modo que las funciones sean definidas y formen parte del ambiente global.</p>
 <p>Consideremos otra vez el ejemplo de la función para el cálculo de factoriales. Podemos guardar el código de esta función (y otras si hubiese) en un archivo llamado <code>funciones.R</code>, con el siguiente contenido:</p>
 <pre><code>#-----------------------------------------------------
-# Función factorial
+# Función fact
 # Calcula el factorial de números enteros no negativos
 # Entrada:
 #       - n, entero no negativo
 # Salida:
 #       - el factorial de n
 #-----------------------------------------------------
-factorial &lt;- function(n) {
+fact &lt;- function(n) {
     resultado &lt;- 1
     if (n &gt; 0) {
         for (i in 1:n) {
@@ -784,7 +784,7 @@ factorial &lt;- function(n) {
 <span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"C:/Documentos/Facultad/IALP/funciones.R"</span><span class="op">)</span>
 
 <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El factorial de"</span>, <span class="va">j</span>, <span class="st">"es igual a"</span>, <span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="va">j</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El factorial de"</span>, <span class="va">j</span>, <span class="st">"es igual a"</span>, <span class="fu">fact</span><span class="op">(</span><span class="va">j</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <p>Gracias a <code><a href="https://rdrr.io/r/base/source.html">source()</a></code> todas las funciones definidas en el archivo <code>funciones.R</code> aparecerán en el entorno y no hay necesidad ni siquiera de abrirlo. Notar que <code>C:/Documentos/Facultad/IALP/</code> es la dirección o <em>path</em> de la carpeta en la computadora donde hayas guardado el archivo <code>funciones.R</code>.</p>
 </div>
@@ -1083,7 +1083,7 @@ FIN</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-05-31.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-06-03.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
