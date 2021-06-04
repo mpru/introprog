@@ -610,7 +610,7 @@ Si el pasaje de argumentos se hace por referencia, los pasos que sigue el algori
 6. El algoritmo escribe: `4 5 6`.
 
 Debe notarse que los resultados difieren dependiendo del tipo de pasaje de argumentos empleado
-^[Para diferenciar subalgoritmos con pasaje por referencia, algunos autores sugieren distinguir la declaración de los parámetros formales con algún símbolo, por ejemplo `&`.] R no trabaja con pasaje por referencia (aunque es posible forzar a que haga algo similar, si así se lo desea).
+^[Para diferenciar subalgoritmos con pasaje por referencia, algunos autores sugieren distinguir la declaración de los parámetros formales con algún símbolo, por ejemplo `&`.]. R no trabaja con pasaje por referencia (aunque es posible forzar a que haga algo similar, si así se lo desea).
 
 ## Ámbito de las variables
 

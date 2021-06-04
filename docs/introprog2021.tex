@@ -243,7 +243,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2021-06-03}
+\date{2021-06-04}
 
 \begin{document}
 \maketitle
@@ -3068,7 +3068,7 @@ Si el pasaje de argumentos se hace por referencia, los pasos que sigue el algori
 \end{enumerate}
 
 Debe notarse que los resultados difieren dependiendo del tipo de pasaje de argumentos empleado
-\footnote{Para diferenciar subalgoritmos con pasaje por referencia, algunos autores sugieren distinguir la declaración de los parámetros formales con algún símbolo, por ejemplo \texttt{\&}.} R no trabaja con pasaje por referencia (aunque es posible forzar a que haga algo similar, si así se lo desea).
+\footnote{Para diferenciar subalgoritmos con pasaje por referencia, algunos autores sugieren distinguir la declaración de los parámetros formales con algún símbolo, por ejemplo \texttt{\&}.}. R no trabaja con pasaje por referencia (aunque es posible forzar a que haga algo similar, si así se lo desea).
 
 \hypertarget{uxe1mbito-de-las-variables}{%
 \section{Ámbito de las variables}\label{uxe1mbito-de-las-variables}}
@@ -3644,9 +3644,1417 @@ Si el parámetro \texttt{x} se pasa por valor mientras que \texttt{y} se pasa po
 Dado que en R el pasaje de argumentos es \textbf{siempre} por valor y no por referencia, no existen los procedimientos. Por esta razón, esta sección no se ejemplifica con código de R.
 
 \hypertarget{estructuras-de-datos}{%
-\chapter{Estructuras de datos}\label{estructuras-de-datos}}
+\chapter{Estructuras de Datos}\label{estructuras-de-datos}}
 
-Página en construcción.
+Hasta ahora todos los algoritmos que hemos desarrollado hacen uso de objetos que guardan datos individuales, los cuales representaban un número, una cadena de texto o un valor lógico. Sin embargo, la verdadera utilidad de la computación radica en poder trabajar con conjuntos de datos, organizados de acuerdo a ciertas reglas que permitan su manipulación y acceso. Definimos entonces como \textbf{estructura de datos} a un conjunto de datos que cuentan con un sistema de organización.
+
+Veremos dos tipos de estructuras de datos: los \textbf{arreglos} y las \textbf{listas}.
+
+\hypertarget{arreglos}{%
+\section{Arreglos}\label{arreglos}}
+
+Un \textbf{arreglo} (o \emph{array}) se define como una colección de valores individuales con dos características fundamentales:
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Ordenamiento}: los valores individuales pueden ser enumerados en orden, es decir, debe ser posible identificar en qué posición del arreglo se encuentra cada valor.
+\item
+  \emph{Homogeneidad}: los valores individuales almacenados en un arreglo son todos del mismo tipo (numérico, caracter, lógico).
+\end{itemize}
+
+Los arreglos son muy útiles para almacenar información en la memoria de la computadora, organizando valores que estén relacionados entre sí de alguna manera, por ejemplo, una conjunto de precios, los meses del año, el listado de calificaciones de estudiantes en distintos parciales, etc.
+
+Los componentes individuales del conjunto se llaman \textbf{elementos}. Para indicar qué posición ocupa cada elemento en el arreglo se emplean uno o más \textbf{índices}. Dependiendo de cuántos índices se deban utilizar para acceder a cada elemento dentro de los arreglos, estos se clasifican en \textbf{unidmensionales} (\emph{vectores}), \textbf{bidimensionales} (\emph{matrices}) o multidimensionales.
+
+\hypertarget{arreglos-unidimensionales-o-vectores}{%
+\subsection{Arreglos unidimensionales o vectores}\label{arreglos-unidimensionales-o-vectores}}
+
+Un \textbf{arreglo unidimensional} o \textbf{vector} tiene \emph{n} elementos todos del mismo tipo. Por ejemplo, el siguiente es un vector de tipo numérico llamado \texttt{x} con 5 elementos:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\linewidth]{images/05_estructuras/estr01} 
+
+}
+
+\caption{Ejemplo de un vector numérico}\label{fig:unnamed-chunk-92}
+\end{figure}
+
+Cada uno de los elementos ocupa una posición determinada en el vector. Por ejemplo, el elemento 3 del vector \texttt{x} es el numéro 2.71. Se puede \emph{acceder} o hacer referencia a cada elemento mediante el uso de \emph{índices}, expresados entre corchetes al lado del nombre del vector. De esta forma, si escribimos \texttt{x{[}3{]}} hacemos referencia a la tercera posición del vector, que actualmente guarda al valor 2.71. Como podemos ver, sólo hace falta un índice para hacer referencia a cada elemento de un vector.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\linewidth]{images/05_estructuras/estr02} 
+
+}
+
+\caption{Ejemplo de un vector numérico: índices para señalar cada posición.}\label{fig:unnamed-chunk-93}
+\end{figure}
+
+Los siguientes son ejemplos de vectores de tipo caracter y lógico, con distintas cantidades de elementos:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\linewidth]{images/05_estructuras/estr03} 
+
+}
+
+\caption{Ejemplo de un vector caracter y un vector lógico}\label{fig:unnamed-chunk-94}
+\end{figure}
+
+Al igual que todas las variables que empleamos en nuestros algoritmos, los vectores que serán utilizados deben ser declarados en el pseudocódigo, eligiendo un \emph{identificador} (nombre) e indicando su tipo y su tamaño, es decir, la cantidad de posiciones que contienen. Esto último se señala entre paréntesis al lado del nombre elegido. Por ejemplo, el vector \texttt{x} visto anteriomente puede ser creado de la siguiente forma:
+
+\begin{verbatim}
+VARIABLE numérica x(5)
+x[1] <- -4.5
+x[2] <- 12
+x[3] <- 2.71
+x[4] <- -6
+x[5] <- 25
+\end{verbatim}
+
+Si bien la declaración de un vector sólo tiene como objetivo permitirle a la computadora que reserve internamente el espacio necesario en memoria para el mismo, para escribir pseudocódigo de una manera sencilla estableceremos la siguiente \textbf{convención}. Cuando declaramos un vector de tipo numérico con la expresión \texttt{VARIABLE\ numérica\ x(5)} asumiremos que, además de reservar espacio en memoria para el vector, se le asigna un 0 (cero) en cada posición. Es decir, el vector \texttt{x} es iniciado con ceros, que más tarde pueden ser reemplazados por otros valores. Del mismo modo, asumiremos que cuando declaramos vectores de tipo caracter, todos sus elementos son iniciados con valores \texttt{""} (una cadena de texto vacía) y cuando declaramos vectores de tipo lógico, con el valor \texttt{FALSO}.
+
+En R, los vectores se construyen de forma dinámica por lo cual no es necesario declararlos antes de comenzar a utilizarlos. La función \texttt{c()} (de \emph{combinar}) permite crear vectores, por ejemplo, los mencionados anteriormente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\FloatTok{4.5}\NormalTok{, }\DecValTok{12}\NormalTok{, }\FloatTok{2.71}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{6}\NormalTok{, }\DecValTok{25}\NormalTok{)}
+\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"ARG"}\NormalTok{, }\StringTok{"correo@gmail.com"}\NormalTok{, }\StringTok{"Ok"}\NormalTok{, }\StringTok{"chau"}\NormalTok{)}
+\NormalTok{z }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/05_estructuras/estr04} 
+
+}
+
+\caption{Creación de vectores en R}\label{fig:unnamed-chunk-96}
+\end{figure}
+
+Cuando ejecutamos dichas líneas, se crean en el ambiente global los objetos \texttt{x}, \texttt{y} y \texttt{z}, como podemos notar en la pestaña \texttt{Environment} de RStudio. Es decir, los vectores, así como cualquier otro tipo de arreglo, son \textbf{objetos} que constituyen entidades en sí mismas y que pueden ser manipulados al hacer referencia a sus indicadores. Además, RStudio nos muestra en la pestaña mencionada qué tipo de vector es cada uno (\texttt{num}, \texttt{chr}, \texttt{logi}), cuántos elementos tiene (\texttt{{[}1:5{]}}, \texttt{{[}1:4{]}}, \texttt{{[}1:3{]}}) y una previsualización de sus primeros elementos.
+
+Dado que la función \texttt{c()} resulta, en consecuencia, muy importante al programar en R, es recomendable que evitemos usar la letra \texttt{c} como nombre para otros objetos\footnote{Aunque a veces me olvido de esta recomendación y por eso en algunos ejemplos de la asignatura hay variables llamadas \texttt{c}}.
+
+Podemos emplear estructuras iterativas para recorrer todas las posiciones de un vector y realizar operaciones con ellas, por ejemplo:
+
+\begin{verbatim}
+PARA i DESDE 1 HASTA 5 HACER
+    ESCRIBIR "La posición " i "de x está ocupada por el valor " x[i]
+FIN PARA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{) \{}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"La posición"}\NormalTok{, i, }\StringTok{"de x está ocupada por el valor"}\NormalTok{, x[i], }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+La posición 1 de x está ocupada por el valor -4.5 
+La posición 2 de x está ocupada por el valor 12 
+La posición 3 de x está ocupada por el valor 2.71 
+La posición 4 de x está ocupada por el valor -6 
+La posición 5 de x está ocupada por el valor 25 
+\end{verbatim}
+
+Todos los lenguajes de programación incluyen, además, alguna función para determinar cuántos elementos tiene un vector que ya fue creado. Para esto emplearemos la expresión \texttt{LARGO()} en el pseudocódigo y la función \texttt{length} de R:
+
+\begin{verbatim}
+ESCRIBIR "El vector x tiene " LARGO(x) " elementos."
+ESCRIBIR "El vector y tiene " LARGO(y) " elementos."
+ESCRIBIR "El vector z tiene " LARGO(z) " elementos."
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"El vector x tiene"}\NormalTok{, }\FunctionTok{length}\NormalTok{(x), }\StringTok{"elementos."}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+El vector x tiene 5 elementos.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"El vector y tiene"}\NormalTok{, }\FunctionTok{length}\NormalTok{(y), }\StringTok{"elementos."}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+El vector y tiene 4 elementos.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"El vector z tiene"}\NormalTok{, }\FunctionTok{length}\NormalTok{(z), }\StringTok{"elementos."}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+El vector z tiene 3 elementos.
+\end{verbatim}
+
+Entonces, para recorrer todos los elementos del vector podemos hacer también:
+
+\begin{verbatim}
+PARA i DESDE 1 HASTA LARGO(x) HACER
+    ESCRIBIR "La posición " i "de x está ocupada por el valor " x[i]
+FIN PARA
+\end{verbatim}
+
+O bien:
+
+\begin{verbatim}
+tam <- LARGO(x)
+PARA i DESDE 1 HASTA tam HACER
+    ESCRIBIR "La posición " i "de x está ocupada por el valor " x[i]
+FIN PARA
+\end{verbatim}
+
+Antes comentamos que en R los vectores se crean con expresiones como \texttt{x\ \textless{}-\ c(-4.5,\ 12,\ 2.71,\ -6,\ 25)}, donde sus elementos están listados de forma literal. También podemos crear vectores de un largo determinado dejando que cada posición quede ocupada por un valor por default. Por ejemplo, el siguiente código crea un vector tipo numérico con 10 posiciones, uno caracter con 7 y otro lógico con 2. En cada caso, R rellena por defecto todas las posiciones con el mismo valor: un 0 para todas las posiciones del vector numérico, un caracter vacío \texttt{""} para las del vector caracter y el valor \texttt{FALSE} para el vector lógico:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{character}\NormalTok{(}\DecValTok{7}\NormalTok{)}
+\NormalTok{d }\OtherTok{\textless{}{-}} \FunctionTok{logical}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+
+\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ [1] 0 0 0 0 0 0 0 0 0 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{b}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "" "" "" "" "" "" ""
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] FALSE FALSE
+\end{verbatim}
+
+Se pueden asignar valores a una, varias o todas las posiciones de un vector en cualquier parte del algoritmo. Además, en pseudocódigo emplearemos la palabra clave \texttt{MOSTRAR} cuando deseamos que se escriba en pantalla todo el contenido de un vector. Por ejemplo:
+
+\begin{verbatim}
+VARIABLE numérica a(10)
+...algunas acciones...
+PARA i DESDE 1 HASTA LARGO(a) HACER
+  SI i %% 3 == 0 ENTONCES  
+        a[i] <- i * 100
+    FIN SI
+FIN PARA
+MOSTRAR a
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(a)) \{}
+    \ControlFlowTok{if}\NormalTok{ (i }\SpecialCharTok{\%\%} \DecValTok{3} \SpecialCharTok{==} \DecValTok{0}\NormalTok{) \{}
+\NormalTok{        a[i] }\OtherTok{\textless{}{-}}\NormalTok{ i }\SpecialCharTok{*} \DecValTok{100}
+\NormalTok{    \}}
+\NormalTok{\}}
+\NormalTok{a       }\CommentTok{\# También: cat(a) o print(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ [1]   0   0 300   0   0 600   0   0 900   0
+\end{verbatim}
+
+En los ejemplos anteriores, declaramos los vectores explicitando su tamaño con un número: \texttt{VARIABLE\ numérica\ x(5)} o \texttt{VARIABLE\ numérica\ a(10)}. Sin embargo, el tamaño del vector podría estar guardado en otra variable, cuyo valor se determina en cada ejecución del programa mediante información externa o como resultado de algún cálculo anterior. En el siguiente ejemplo se deja que el usuario determine la dimensión del vector y que provea cada uno de los valores para el mismo. Antes de poder declarar la existencia del nuevo vector llamado \texttt{mi\_vector}, se ``lee'' su tamaño:
+
+\begin{verbatim}
+VARIABLE numérica tam
+LEER tam
+VARIABLE numérica mi_vector(tam)
+PARA i DESDE 1 HASTA tam HACER
+    LEER mi_vector[i]
+FIN PARA
+\end{verbatim}
+
+Por ahora, toda instrucción de \emph{leer} en el pseudocódigo será traducida en R mediante la asignación directa de valores. Por ejemplo, \texttt{LEER\ tam} se reemplaza por \texttt{tam\ \textless{}-\ 5} (o el número que necesitemos).
+
+\textbf{Ejemplo: invertir los elementos de un vector}
+
+Nos planteamos el problema de dar vuelta los elementos pertenecientes a un vector, de manera que el primer elemento pase a ser el último, el segundo pase al penúltimo lugar, etcétera. Por ejemplo, dado el vector de tipo caracter \texttt{v}:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/05_estructuras/estr11} 
+
+}
+
+\caption{Vector v original}\label{fig:inv1}
+\end{figure}
+
+queremos modificarlo para obtener:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/05_estructuras/estr12} 
+
+}
+
+\caption{Vector v reordenado}\label{fig:inv2}
+\end{figure}
+
+Si bien podemos pensar en distintas formas para resolver este problema, probablemente la más sencilla requiere que intercambiemos de a dos los valores en ciertas posiciones del vector, por ejemplo, empezando por intercambiar el primero con el último. Para esto podemos emplear una variable auxiliar que guarde el valor de alguna de las celdas temporariamente (por eso lo vamos a llamar \texttt{tmp}):
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/05_estructuras/estr13} 
+
+}
+
+\caption{Pasos para intercambiar valores}\label{fig:inv3}
+\end{figure}
+
+Ahora sólo resta realizar el mismo procedimiento para los valores de las posiciones 2 y 4. Como el número de elementos en el vector es impar, el valor en la posición central queda en su lugar. Podemos definir el siguiente algorimo para resolver este problema de manera general. En el siguiente pseudocódigo, primero declaramos una variable numérica \texttt{n} que puede tomar cualquier valor y que servirá para declarar cuántos espacios necesita el vector. Luego, se itera para leer cada elemento del vector. Finalmente, se implementa la estrategia de reordenamiento:
+
+\begin{verbatim}
+ALGORITMO: "Invertir (dar vuelta) los elementos de un vector"
+COMENZAR
+    
+  # Declarar variables
+  VARIABLE numérica n
+  VARIABLE caracter tmp
+  LEER n
+  VARIABLE caracter v(n)
+  
+  # Asignar valores al vector
+  PARA i DESDE 1 HASTA n HACER
+      LEER v[i]
+  FIN PARA
+  
+  # Reordenar
+  PARA i DESDE 1 HASTA ENTERO(n / 2) HACER
+      tmp <- v[i]                 # Paso 1
+      v[i] <- v[n - i + 1]        # Paso 2
+      v[n - i + 1] <- tmp         # Paso 3
+  FIN PARA
+  
+  # Mostrar el vector reodenado
+  MOSTRAR v
+    
+FIN
+\end{verbatim}
+
+En el ejemplo anterior hemos incorporado el uso de comentarios en el pseudocódigo para describir el objetivo de cada parte. Imitando lo que hacemos en R, señalamos la presencia de comentarios con el caracter \texttt{\#} (podríamos usar otra cosa, pero adheriremos a esta convención). Se usó la expresión \texttt{ENTERO()} para hacer referencia a la parte entera del número indicado entre paréntesis, lo cual se puede indicar en R con la función \texttt{floor()}. Además, en R reemplazamos todas las instrucciones \texttt{LEER} por una asignación directa de valores:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{v }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Estadística"}\NormalTok{, }\StringTok{"en"}\NormalTok{, }\StringTok{"Licenciatura"}\NormalTok{, }\StringTok{"la"}\NormalTok{, }\StringTok{"Aguante"}\NormalTok{)}
+\NormalTok{n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(v)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{floor}\NormalTok{(n }\SpecialCharTok{/} \DecValTok{2}\NormalTok{)) \{}
+\NormalTok{    tmp }\OtherTok{\textless{}{-}}\NormalTok{ v[i]}
+\NormalTok{    v[i] }\OtherTok{\textless{}{-}}\NormalTok{ v[n }\SpecialCharTok{{-}}\NormalTok{ i }\SpecialCharTok{+} \DecValTok{1}\NormalTok{]}
+\NormalTok{    v[n }\SpecialCharTok{{-}}\NormalTok{ i }\SpecialCharTok{+} \DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ tmp}
+\NormalTok{\}}
+\NormalTok{v}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "Aguante"      "la"           "Licenciatura" "en"           "Estadística" 
+\end{verbatim}
+
+\hypertarget{arreglos-bidimensionales-o-matrices}{%
+\subsection{Arreglos bidimensionales o matrices}\label{arreglos-bidimensionales-o-matrices}}
+
+Un \textbf{arreglo bidimensional} representa lo que habitualmente conocemos en matemática como \textbf{matriz} y por eso también lo llamamos de esa forma. Podemos \emph{imaginar} que en una matriz los elementos están organizados en \emph{filas} y \emph{columnas} formando una tabla. Por ejemplo, la siguiente es una matriz llamada \texttt{x}:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\linewidth]{images/05_estructuras/estr05} 
+
+}
+
+\caption{Ejemplo de una matriz numérica}\label{fig:unnamed-chunk-102}
+\end{figure}
+
+A diferencia de los vectores, las matrices requieren dos índices para señalar la posición de cada elemento, el primero para indicar la fila y el segundo para indicar la columna. Los mismos se colocan entre corchetes, separados por una coma, al lado del identificador de la matriz. De esta forma, si hablamos de \texttt{x{[}1,\ 3{]}} hacemos referencia a la posición ocupada por el valor 18, mientras que si mencionamos \texttt{x{[}3,\ 1{]}} nos referimos al valor 14.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/05_estructuras/estr06} 
+
+}
+
+\caption{Ejemplo de una matriz numérica: índices para señalar cada posición}\label{fig:unnamed-chunk-103}
+\end{figure}
+
+Al \emph{tamaño} de una matriz, es decir, cuántas filas y columnas tiene, se le dice \textbf{dimensión}. La matriz anterior es de dimension \(3 \times 4\).
+
+Como hicimos con los vectores, debemos declarar las matrices que vamos a usar en el pseudocódigo, indicando su identificador, tipo y dimensión: \texttt{VARIABLE\ numérica\ x(3,\ 4)}. También vamos a asumir que todas las posiciones de una matriz son iniciadas con el valor 0, \texttt{""} o \texttt{FALSO} si la misma es numérica, caracter o lógica, respectivamente. La matriz \texttt{x} puede ser generada en pseudocódigo de esta forma:
+
+\begin{verbatim}
+VARIABLE numérica x(3, 4)
+x[1, 1] <- 8
+x[1, 2] <- 13
+x[1, 3] <- 18
+x[1, 4] <- 23
+x[2, 1] <- 11
+x[2, 2] <- 16
+x[2, 3] <- 21
+x[2, 4] <- 26
+x[3, 1] <- 14
+x[3, 2] <- 19
+x[3, 3] <- 24
+x[3, 4] <- 29
+\end{verbatim}
+
+En R, no es necesario declarar las matrices con anterioridad y las mismas pueden ser creadas de manera literal con la función \texttt{matrix()}. Su primer argumento, \texttt{data}, es un vector con todos los elementos que queremos guardar en la matriz. Luego, se indica la cantidad de filas para la misma con \texttt{nrow} y la cantidad de columnas con \texttt{ncol}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\AttributeTok{data =} \FunctionTok{c}\NormalTok{(}\DecValTok{8}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{26}\NormalTok{, }\DecValTok{29}\NormalTok{), }
+                        \AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{4}\NormalTok{)}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2] [,3] [,4]
+[1,]    8   13   18   23
+[2,]   11   16   21   26
+[3,]   14   19   24   29
+\end{verbatim}
+
+Notar que R ubicó a los valores provistos llenando primero la columna 1, luego la 2, etc. Ese comportamiento puede ser modificado con el argumento \texttt{byrow}, que por default es \texttt{FALSE}. Si lo cambiamos a \texttt{TRUE} los elementos son ubicados por fila. Además, podemos usar saltos de líneas (\emph{enter}) para visualizar las diferentes filas de la matriz. Esto no tiene ningún impacto en R, sólo sirve para que el código sea más fácil de leer. Dado que hemos provisto 12 valores e indicamos que queremos 3 filas, el argumento \texttt{ncol} no es necesario (es obvio que quedarán 4 columnas). Por eso, las siguientes sentencias son equivalentes a la anterior:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{( }\DecValTok{8}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{23}\NormalTok{, }
+              \DecValTok{11}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{26}\NormalTok{, }
+              \DecValTok{14}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{29}\NormalTok{), }
+                        \AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{( }\DecValTok{8}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{23}\NormalTok{, }
+              \DecValTok{11}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{26}\NormalTok{, }
+              \DecValTok{14}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{29}\NormalTok{), }
+                        \AttributeTok{ncol =} \DecValTok{4}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Si colocamos un único valor como primer argumento en la función \texttt{matrix()}, el mismo se repetirá en todas las posiciones. En este caso sí o sí tenemos que indicar cuántas filas y columnas deseamos:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{, }\AttributeTok{nrow =} \DecValTok{2}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{5}\NormalTok{)}
+\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2] [,3] [,4] [,5]
+[1,]    0    0    0    0    0
+[2,]    0    0    0    0    0
+\end{verbatim}
+
+Una vez que la matriz ya existe, en el pseudocódigo haremos referencia al número de filas y columnas de la misma con las expresiones \texttt{NFILA(x)} y \texttt{NCOL(x)}. En R tenemos las siguientes funciones para analizar el tamaño de las matrices:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dim}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 3 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{nrow}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ncol}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dim}\NormalTok{(y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{nrow}\NormalTok{(y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ncol}\NormalTok{(y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 5
+\end{verbatim}
+
+Podemos recorrer todas las posiciones de una matriz con una estructura iterativa doble: nos situamos en la primera fila y recorremos cada columna, luego en la segunda fila y recorremos todas las columnas y así sucesivamente:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/05_estructuras/estr07} 
+
+}
+
+\caption{Recorrer una matriz por fila}\label{fig:unnamed-chunk-108}
+\end{figure}
+
+También se puede recorrer la matriz por columna, si modificamos ligeramente las estructuras iterativas:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/05_estructuras/estr08} 
+
+}
+
+\caption{Recorrer una matriz por columna}\label{fig:unnamed-chunk-110}
+\end{figure}
+
+Se puede usar cualquier letra o palabra como variables iteradoras, pero el uso de \texttt{i} para las filas y de \texttt{j} para las columnas es bastante común.
+
+También podemos asignar valores en cada celda mientras recorremos la matriz. De hecho, la matriz \texttt{x} del ejemplo puede ser generada así, donde los índices \texttt{i} y \texttt{j} no sólo señalan una posición en particular dentro de la matriz, sino que además se usan para hacer el cálculo del valor a asignar:
+
+\begin{verbatim}
+VARIABLE numérica x(3, 4)
+PARA i DESDE 1 HASTA NFILA(x) HACER
+    PARA j DESDE 1 HASTA NCOL(x) HACER
+        x[i, j] <- 3 * i + 5 * j
+    FIN PARA
+FIN PARA
+MOSTRAR x
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{, }\AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{4}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(x)) \{}
+    \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(x)) \{}
+\NormalTok{        x[i, j] }\OtherTok{\textless{}{-}} \DecValTok{3} \SpecialCharTok{*}\NormalTok{ i }\SpecialCharTok{+} \DecValTok{5} \SpecialCharTok{*}\NormalTok{ j}
+\NormalTok{    \}}
+\NormalTok{\}}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2] [,3] [,4]
+[1,]    8   13   18   23
+[2,]   11   16   21   26
+[3,]   14   19   24   29
+\end{verbatim}
+
+Si queremos dejar que el valor en cada posición sea determinado por una fuente de información externa a la hora de correr el programa, empleamos la sentencia \texttt{LEER} en el pseudocódigo:
+
+\begin{verbatim}
+VARIABLE numérica x(3, 4)
+PARA i DESDE 1 HASTA NFILA(x) HACER
+  PARA j DESDE 1 HASTA NCOL(x) HACER
+    LEER x[i, j]
+  FIN PARA
+FIN PARA
+\end{verbatim}
+
+\hypertarget{ejemplo-trasponer-una-matriz}{%
+\subsubsection{Ejemplo: trasponer una matriz}\label{ejemplo-trasponer-una-matriz}}
+
+En Álgebra, trasponer una matriz de dimensión \(m \times n\) significa generar una nueva matriz de dimensión \(n \times m\), donde los elementos se intercambian de este modo:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/05_estructuras/estr14} 
+
+}
+
+\caption{Matriz traspuesta}\label{fig:unnamed-chunk-112}
+\end{figure}
+
+Podemos formalizar el algoritmo que permite generar la matriz traspuesta, teniendo en cuenta que cada elemento que originalmente ocupa la posición \texttt{{[}i,\ j{]}} en la matriz original, debe pasar a ocupar la posición \texttt{{[}j,\ i{]}} en la matriz traspuesta:
+
+\begin{verbatim}
+ALGORITMO: Trasponer matriz
+COMENZAR
+    
+    # Declarar objetos
+    VARIABLE numérica nf, nc
+    LEER nf, nc
+    VARIABLE numérica x(nf, nc), traspuesta(nc, nf)
+    
+    # Leer los valores de la matriz
+    PARA i DESDE 1 HASTA nf HACER
+        PARA j DESDE 1 HASTA nc HACER
+            LEER x[i, j]
+        FIN PARA
+    FIN PARA
+    
+    # Trasponer
+    PARA i DESDE 1 HASTA nf HACER
+        PARA j DESDE 1 HASTA nc HACER
+            traspuesta[j, i] <- x[i, j]
+        FIN PARA
+    FIN PARA
+    
+    # Mostrar ambas matrices
+    ESCRIBIR "Matriz original"
+    MOSTRAR x
+    ESCRIBIR "Matriz traspuesta"
+    MOSTRAR traspuesta
+    
+FIN
+\end{verbatim}
+
+Dado que en R vamos a asignar valores en la matriz de manera literal, primero la creamos y luego usamos \texttt{nrow()} y \texttt{ncol()} para obtener los correspondientes valores de \texttt{nf} y \texttt{nc}. En el siguiente ejemplo, además, todas las posiciones de la matriz traspuesta son iniciadas con el valor \texttt{NA} (valor lógico que significa \emph{Not Available} o ``no disponible'').
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{( }\DecValTok{8}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{23}\NormalTok{, }
+              \DecValTok{11}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{26}\NormalTok{, }
+              \DecValTok{14}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{29}\NormalTok{), }
+                        \AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{nf }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(x)}
+\NormalTok{nc }\OtherTok{\textless{}{-}} \FunctionTok{ncol}\NormalTok{(x)}
+\NormalTok{traspuesta }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\ConstantTok{NA}\NormalTok{, nc, nf)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{nf) \{}
+    \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{nc) \{}
+\NormalTok{        traspuesta[j, i] }\OtherTok{\textless{}{-}}\NormalTok{ x[i, j]}
+\NormalTok{    \}}
+\NormalTok{\}}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Matriz original"}\NormalTok{)}
+\NormalTok{x}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Matriz traspuesta"}\NormalTok{)}
+\NormalTok{traspuesta}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Matriz original     [,1] [,2] [,3] [,4]
+[1,]    8   13   18   23
+[2,]   11   16   21   26
+[3,]   14   19   24   29
+Matriz traspuesta     [,1] [,2] [,3]
+[1,]    8   11   14
+[2,]   13   16   19
+[3,]   18   21   24
+[4,]   23   26   29
+\end{verbatim}
+
+\hypertarget{arreglos-multidimensionales}{%
+\subsection{Arreglos multidimensionales}\label{arreglos-multidimensionales}}
+
+Un \textbf{arreglo multidimensional} contiene más de dos dimensiones, es decir, requiere más de dos índices para identificar a cada uno de sus elementos. La representación matemática o visual ya no es tan sencilla. Para interpretarlos o saber cuándo usarlos, pensamos que cada una de las dimensiones representa una característica de los elementos.
+
+Por ejemplo, imaginemos que en un local comercial se quiere registrar cuántos clientes se atendieron en cada una de las tres cajas disponibles (primer dimensión del arreglo: caja 1, caja 2 o caja 3), ya sea en el turno mañana o tarde (segunda dimensión: 1 para la mañana o 2 para la tarde) en cada día hábil de una semana (tercera dimensión: 1 lunes, 2 martes, 3 miércoles, 4 jueves o 5 viernes). Si queremos registrar, por ejemplo, que la caja 1 en el turno tarde del día jueves atendió 12 clientes, tenemos que guardar el valor 12 en la posición {[}1, 2, 4{]} del arreglo.
+
+Para situaciones como la anterior, resulta más útil guardar los valores en otros tipos de estructuras especializadas en conjuntos de datos, como veremos más adelante. Por esta razón, en esta asignatura no profundizaremos en el estudio de arreglos multidimensionales y nos bastaremos con vectores y matrices. Sin embargo, debemos saber de su existencia porque son estructuras útiles para ciertas tareas de programación.
+
+Por lo tanto, lo siguiente es de \textbf{lectura opcional}. El arreglo de 3 dimensiones que permite acomodar toda la información del ejemplo en una sola estructura puede definirse en pseudocódigo así:
+
+\begin{verbatim}
+VARIABLE numérica clientes(3, 2, 5)
+\end{verbatim}
+
+Y en R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{clientes }\OtherTok{\textless{}{-}} \FunctionTok{array}\NormalTok{(}\DecValTok{0}\NormalTok{, }\AttributeTok{dim =} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\NormalTok{clientes}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+, , 1
+
+     [,1] [,2]
+[1,]    0    0
+[2,]    0    0
+[3,]    0    0
+
+, , 2
+
+     [,1] [,2]
+[1,]    0    0
+[2,]    0    0
+[3,]    0    0
+
+, , 3
+
+     [,1] [,2]
+[1,]    0    0
+[2,]    0    0
+[3,]    0    0
+
+, , 4
+
+     [,1] [,2]
+[1,]    0    0
+[2,]    0    0
+[3,]    0    0
+
+, , 5
+
+     [,1] [,2]
+[1,]    0    0
+[2,]    0    0
+[3,]    0    0
+\end{verbatim}
+
+Luego, si queremos registrar que la caja 1 en el turno tarde del día jueves atendió 12 clientes, hacemos, tanto en R como en pseudocódigo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{clientes[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{12}
+\NormalTok{clientes}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+, , 1
+
+     [,1] [,2]
+[1,]    0    0
+[2,]    0    0
+[3,]    0    0
+
+, , 2
+
+     [,1] [,2]
+[1,]    0    0
+[2,]    0    0
+[3,]    0    0
+
+, , 3
+
+     [,1] [,2]
+[1,]    0    0
+[2,]    0    0
+[3,]    0    0
+
+, , 4
+
+     [,1] [,2]
+[1,]    0   12
+[2,]    0    0
+[3,]    0    0
+
+, , 5
+
+     [,1] [,2]
+[1,]    0    0
+[2,]    0    0
+[3,]    0    0
+\end{verbatim}
+
+En R, podemos ponerle un nombre a cada una de las dimensiones del arreglo (``caja'', ``turno'', ``dia''), para poder identificar mejor a qué aspecto hace referencia y, a su vez, un nombre a cada una de sus modalidades (por ejemplo, ``caja 1'', ``caja 2'' o ``caja 3''). Esto se logra de la siguiente forma:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dimnames}\NormalTok{(clientes) }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\AttributeTok{caja =} \FunctionTok{c}\NormalTok{(}\StringTok{"caja 1"}\NormalTok{, }\StringTok{"caja 2"}\NormalTok{, }\StringTok{"caja 3"}\NormalTok{),}
+                           \AttributeTok{turno =} \FunctionTok{c}\NormalTok{(}\StringTok{"mañana"}\NormalTok{, }\StringTok{"tarde"}\NormalTok{),}
+                           \AttributeTok{dia =} \FunctionTok{c}\NormalTok{(}\StringTok{"lun"}\NormalTok{, }\StringTok{"mar"}\NormalTok{, }\StringTok{"mie"}\NormalTok{, }\StringTok{"jue"}\NormalTok{, }\StringTok{"vie"}\NormalTok{))}
+\NormalTok{clientes}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+, , dia = lun
+
+        turno
+caja     mañana tarde
+  caja 1      0     0
+  caja 2      0     0
+  caja 3      0     0
+
+, , dia = mar
+
+        turno
+caja     mañana tarde
+  caja 1      0     0
+  caja 2      0     0
+  caja 3      0     0
+
+, , dia = mie
+
+        turno
+caja     mañana tarde
+  caja 1      0     0
+  caja 2      0     0
+  caja 3      0     0
+
+, , dia = jue
+
+        turno
+caja     mañana tarde
+  caja 1      0    12
+  caja 2      0     0
+  caja 3      0     0
+
+, , dia = vie
+
+        turno
+caja     mañana tarde
+  caja 1      0     0
+  caja 2      0     0
+  caja 3      0     0
+\end{verbatim}
+
+En lo anterior hemos utilizado una \textbf{lista}, que se trata de otro tipo de estructura de datos definida a continuación.
+
+\hypertarget{listas}{%
+\section{Listas}\label{listas}}
+
+Una de las principales características de los \textbf{arreglos} es la \textbf{homegeneidad}: todos los elementos que contienen deben ser del mismo tipo. No se puede, por ejemplo, mezclar en una matriz valores numéricos y lógicos. Sin embargo, en muchos problemas resulta útil contar con alguna estructura de datos que permita agrupar objetos de diversos tipos. Esa es, justamente, la definición de una \textbf{lista}. Podemos imaginarla como una bolsa en la cual podemos meter todo tipo de objetos, incluyendo vectores, matrices y, por qué no, otras bolsas (es decir, bolsas dentro de una bolsa o listas dentro de una lista). Todos los lenguajes de programación proveen algún tipo de estructura con estas características, aunque no todos las llaman igual. Otros posibles nombres con los que se conocen pueden ser \emph{tupla} o \emph{agregado}. En R se llaman \textbf{listas} o \textbf{vectores recursivos}. El siguiente diagrama presenta una lista (recuadro con puntas redondeadas) que contiene:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Un vector numérico de largo 3.
+\item
+  Un vector caracter de largo 2.
+\item
+  Una matriz numérica de dimensión 2x2.
+\item
+  Un valor lógico.
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{images/05_estructuras/estr09} 
+
+}
+
+\caption{Ejemplo de una lista}\label{fig:unnamed-chunk-117}
+\end{figure}
+
+En R la creación de esta lista se realiza mediante la función \texttt{list()}, cuyos argumentos son los elementos que queremos guardar en la lista, separados por comas:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mi\_lista }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}
+    \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\FloatTok{4.5}\NormalTok{, }\DecValTok{12}\NormalTok{, }\FloatTok{2.71}\NormalTok{),}
+    \FunctionTok{c}\NormalTok{(}\StringTok{"hola"}\NormalTok{, }\StringTok{"chau"}\NormalTok{),}
+    \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{8}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{16}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{2}\NormalTok{),}
+    \ConstantTok{TRUE}
+\NormalTok{)}
+\NormalTok{mi\_lista}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[[1]]
+[1] -4.50 12.00  2.71
+
+[[2]]
+[1] "hola" "chau"
+
+[[3]]
+     [,1] [,2]
+[1,]    8   13
+[2,]   11   16
+
+[[4]]
+[1] TRUE
+\end{verbatim}
+
+Luego de correr la sentencia anterior, podemos ver que \texttt{mi\_lista} es un nuevo objeto disponible en el ambiente global y como tal está listado en el panel \emph{Environment}. Allí se nos indica que se trata de una lista y, además, podemos previsualizar su contenido al hacer clic en el círculo celeste que antecede a su nombre:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{images/05_estructuras/estr09} 
+
+}
+
+\caption{La lista en la pestaña Environment de RStudio}\label{fig:unnamed-chunk-119}
+\end{figure}
+
+Usamos dobles corchetes \texttt{{[}{[}\ {]}{]}} para referenciar a cada objeto que forma parte de la lista. Además, si queremos indicar un elemento dentro de un objeto que forma parte de la lista, agregamos otro conjunto de corchetes como hacemos con vectores y matrices. Por ejemplo:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{images/05_estructuras/estr10} 
+
+}
+
+\caption{Ejemplo de una lista}\label{fig:unnamed-chunk-120}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mi\_lista[[}\DecValTok{1}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] -4.50 12.00  2.71
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mi\_lista[[}\DecValTok{1}\NormalTok{]][}\DecValTok{3}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2.71
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mi\_lista[[}\DecValTok{2}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "hola" "chau"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mi\_lista[[}\DecValTok{2}\NormalTok{]][}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "chau"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mi\_lista[[}\DecValTok{3}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]    8   13
+[2,]   11   16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mi\_lista[[}\DecValTok{3}\NormalTok{]][}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 11
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mi\_lista[[}\DecValTok{4}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mi\_lista[[}\DecValTok{4}\NormalTok{]][}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] TRUE
+\end{verbatim}
+
+Podemos asignar valor a algún elemento usando los índices de esa misma forma:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mi\_lista[[}\DecValTok{1}\NormalTok{]][}\DecValTok{3}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{mi\_lista}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[[1]]
+[1] -4.5 12.0  0.0
+
+[[2]]
+[1] "hola" "chau"
+
+[[3]]
+     [,1] [,2]
+[1,]    8   13
+[2,]   11   16
+
+[[4]]
+[1] TRUE
+\end{verbatim}
+
+A medida que las estructuras de datos se hacen más complejas, existen menos convenciones para su representación en pseudocódigo, siendo admisible cualquier expresión que logre comunicar sin ambigüedad las acciones que se deben realizar, incluso la descripción en palabras. La creación de la lista anterior podría ser expresada como:
+
+\begin{verbatim}
+VARIABLE numérica w(3), y(2, 2)
+VARIABLE caracter x(2)
+VARIABLE lógica z
+VARIABLE LISTA mi_lista
+mi_lista <- LISTA(x, w, y, z)
+\end{verbatim}
+
+Para asignar valores, podemos usar en pseudocódigo el mismo tipo de notación que en R:
+
+\begin{verbatim}
+mi_lista[[1]][1] <- -4.5
+mi_lista[[1]][2] <- 12
+mi_lista[[1]][3] <- 2.71
+mi_lista[[2]][1] <- "hola"
+...
+mi_lista[[4]] <- VERDADERO
+\end{verbatim}
+
+\textbf{Ejemplo: función que devuelve una lista}
+
+En el capítulo anterior, dijimos que las funciones son subalgoritmos que podían devolver exactamente un objeto como resultado. Esto puede ser una limitación, ya que en algunos casos tal vez necesitemos devolver varios elementos de distinto tipo
+\footnote{Si fuesen elementos del mismo tipo, los podríamos devolver dentro de un vector, por ejemplo, las dos soluciones reales distintas de una ecuación cuadrática.}
+.
+La solución consiste en devolver una lista que englobe a todos los objetos que nos interese que la función le entregue como resultado al algoritmo principal que la invocó. Como una lista es un único objeto, ¡la función puede devolverla sin ningún problema!
+
+Para ejemplificar, recordemos el siguiente ejercicio de la práctica 3: escribir el algoritmo y el programa en R para la creación de la función \texttt{triangulos(a,\ b,\ c)} que a partir de la longitud de los tres lados de un triángulo \texttt{a}, \texttt{b} y \texttt{c} (valores positivos) lo clasifica con los siguientes resultados posibles: no forman un triángulo (un lado mayor que la suma de los otros dos), triángulo equilátero, isósceles o escaleno. Vamos a modificar la función para que tenga el siguiente comportamiento: la función debe devolver el tipo de triángulo como cadena de texto y el valor numérico del perímetro del mismo (o un 0 si no es triángulo). Es decir, la función debe devolver tanto un objeto de tipo caracter y otro de tipo numérico. Para lograrlo los encerraremos en una lista:
+
+Algoritmo:
+
+\begin{verbatim}
+#-----------------------------------------------------
+# Función triangulos
+# Clasifica un triángulo según la longitud de sus lados
+# Entrada:
+#       - a, b, c, números reales positivos
+# Salida:
+#       - una lista cuyo primer elemento es un caracter que indica el tipo de
+#       triángulo y el segundo elemento es el perímetro del triángulo o el valor 0 si
+#       no los lados provistos no corresponden a un triángulo
+#-----------------------------------------------------
+FUNCIÓN triangulos(a: numérico, b: numérico, c: numérico): lista
+COMENZAR
+    VARIABLE caracter tipo
+    VARIABLE numérica perimetro
+    SI a > b + c O b > a + c O c > a + b ENTONCES
+        tipo <- "no es triángulo"
+        perimetro <- 0
+    SI NO
+        perimetro <- a + b + c
+        SI a == b Y a == c ENTONCES
+            tipo <- "equilátero"
+        SI NO
+            SI a == b O a == c O b == c ENTONCES
+                tipo <- "isósceles"
+            SI NO
+                tipo <- "escaleno"
+            FIN SI
+        FIN SI
+    FIN SI
+    DEVOLVER LISTA(tipo, perimetro)
+FIN FUNCIÓN
+\end{verbatim}
+
+Código en R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# Función triangulos}
+\CommentTok{\# Clasifica un triángulo según la longitud de sus lados}
+\CommentTok{\# Entrada:}
+\CommentTok{\#       {-} a, b, c, números reales positivos}
+\CommentTok{\# Salida:}
+\CommentTok{\#       {-} una lista cuyo primer elemento es un caracter que indica el tipo de}
+\CommentTok{\#       triángulo y el segundo elemento es el perímetro del triángulo o el valor 0 si}
+\CommentTok{\#       no los lados provistos no corresponden a un triángulo}
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{triangulos }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(a, b, c) \{}
+\NormalTok{    perimetro }\OtherTok{\textless{}{-}}\NormalTok{ a }\SpecialCharTok{+}\NormalTok{ b }\SpecialCharTok{+}\NormalTok{ c}
+    \ControlFlowTok{if}\NormalTok{ (a }\SpecialCharTok{\textgreater{}}\NormalTok{ b }\SpecialCharTok{+}\NormalTok{ c }\SpecialCharTok{||}\NormalTok{ b }\SpecialCharTok{\textgreater{}}\NormalTok{ a }\SpecialCharTok{+}\NormalTok{ c }\SpecialCharTok{||}\NormalTok{ c }\SpecialCharTok{\textgreater{}}\NormalTok{ a }\SpecialCharTok{+}\NormalTok{ b) \{}
+\NormalTok{        tipo }\OtherTok{\textless{}{-}} \StringTok{"no es triángulo"}
+\NormalTok{        perimetro }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{    \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (a }\SpecialCharTok{==}\NormalTok{ b }\SpecialCharTok{\&}\NormalTok{ a }\SpecialCharTok{==}\NormalTok{ c) \{}
+\NormalTok{        tipo }\OtherTok{\textless{}{-}} \StringTok{"equilátero"}
+\NormalTok{    \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (a }\SpecialCharTok{==}\NormalTok{ b }\SpecialCharTok{||}\NormalTok{ a }\SpecialCharTok{==}\NormalTok{ c }\SpecialCharTok{||}\NormalTok{ b }\SpecialCharTok{==}\NormalTok{ c) \{}
+\NormalTok{        tipo }\OtherTok{\textless{}{-}} \StringTok{"isósceles"}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{        tipo }\OtherTok{\textless{}{-}} \StringTok{"escaleno"}
+\NormalTok{    \}}
+    \FunctionTok{return}\NormalTok{(}\FunctionTok{list}\NormalTok{(tipo, perimetro))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Ejemplos del uso de esta función:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Guardamos el resultado devuelto (una lista) en el objeto resultado}
+\NormalTok{resultado }\OtherTok{\textless{}{-}} \FunctionTok{triangulos}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+\CommentTok{\# Miramos el primer elemento de la lista (caracter que indica el tipo)}
+\NormalTok{resultado[[}\DecValTok{1}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "escaleno"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Miramos el primer elemento de la lista (perímetro)}
+\NormalTok{resultado[[}\DecValTok{2}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Miramos todo junto}
+\NormalTok{resultado}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[[1]]
+[1] "escaleno"
+
+[[2]]
+[1] 9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Otro ejemplo:}
+\NormalTok{resultado2 }\OtherTok{\textless{}{-}} \FunctionTok{triangulos}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{10}\NormalTok{)}
+\NormalTok{resultado2[[}\DecValTok{1}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "no es triángulo"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{resultado2[[}\DecValTok{2}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0
+\end{verbatim}
+
+\hypertarget{elementos-con-nombre-lectura-opcional}{%
+\section{Elementos con nombre (lectura opcional)}\label{elementos-con-nombre-lectura-opcional}}
+
+La presente sección es de lectura opcional, lo cual significa que no será necesaria para la resolución de la práctica ni será tenida en cuenta en las evaluaciones.
+
+Además de guardar información, los objetos de R pueden poseer ciertos \textbf{atributos}, que consisten en información adicional sobre el objeto. Uno de ellos es el atributo \texttt{names}, que permite que cada elemento dentro de un vector o una lista pueda tener su propio nombre, así como también que cada fila o columna de una matriz tenga su propio nombre, independientemente del nombre general del objeto.
+
+\hypertarget{vectores}{%
+\subsection{Vectores}\label{vectores}}
+
+A cada elemento de un vector se le puede, opcionalmente, asignar un nombre. Esto se realiza de alguna de estas formas:
+
+\begin{itemize}
+\item
+  Opción 1: después de crear el vector
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# El vector se llama "frutas" y tiene 4 elementos}
+\NormalTok{frutas }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{frutas}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 3 7 2 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Cada uno de estos elementos no tienen nombres}
+\FunctionTok{names}\NormalTok{(frutas)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+NULL
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Le doy un nombre a cada elemento}
+\FunctionTok{names}\NormalTok{(frutas) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"manzanas"}\NormalTok{, }\StringTok{"naranjas"}\NormalTok{, }\StringTok{"bananas"}\NormalTok{, }\StringTok{"peras"}\NormalTok{)}
+\NormalTok{frutas}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+manzanas naranjas  bananas    peras 
+       3        7        2        1 
+\end{verbatim}
+\item
+  Opción 2: en el momento de crear el vector
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{frutas }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\AttributeTok{manzanas =} \DecValTok{3}\NormalTok{, }\AttributeTok{naranjas =} \DecValTok{7}\NormalTok{, }\AttributeTok{bananas =} \DecValTok{2}\NormalTok{, }\AttributeTok{peras =} \DecValTok{1}\NormalTok{)}
+\NormalTok{frutas}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+manzanas naranjas  bananas    peras 
+       3        7        2        1 
+\end{verbatim}
+\end{itemize}
+
+Los nombres son útiles porque permiten indexar al vector, sin necesidad de usar como índice la posición del elemento:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{frutas[}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+naranjas 
+       7 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{frutas[}\StringTok{"naranjas"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+naranjas 
+       7 
+\end{verbatim}
+
+No todos los elementos de un vector tienen que tener nombre:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{frutas }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\AttributeTok{manzanas =} \DecValTok{3}\NormalTok{, }\DecValTok{7}\NormalTok{, }\AttributeTok{bananas =} \DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{frutas}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+manzanas           bananas          
+       3        7        2        1 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{names}\NormalTok{(frutas)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "manzanas" ""         "bananas"  ""        
+\end{verbatim}
+
+\hypertarget{matrices}{%
+\subsection{Matrices}\label{matrices}}
+
+En el caso de las matrices, se le puede asignar nombres a sus filas y columnas:
+
+\begin{itemize}
+\item
+  Opción 1: después de crear la matriz
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{( }\DecValTok{8}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{23}\NormalTok{, }
+              \DecValTok{11}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{26}\NormalTok{, }
+              \DecValTok{14}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{29}\NormalTok{), }
+                        \AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{rownames}\NormalTok{(x) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"C"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(x) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"col1"}\NormalTok{, }\StringTok{"grupo2"}\NormalTok{, }\StringTok{"grupo3"}\NormalTok{, }\StringTok{"grupo4"}\NormalTok{)}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  col1 grupo2 grupo3 grupo4
+A    8     13     18     23
+B   11     16     21     26
+C   14     19     24     29
+\end{verbatim}
+\item
+  Opción 2: al crear la matriz
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{( }\DecValTok{8}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{23}\NormalTok{, }
+              \DecValTok{11}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{26}\NormalTok{, }
+              \DecValTok{14}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{29}\NormalTok{), }
+                        \AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{,}
+                        \AttributeTok{dimnames =} \FunctionTok{list}\NormalTok{(}\AttributeTok{Categorias =} \FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"C"}\NormalTok{), }
+                                                        \AttributeTok{Grupos =} \FunctionTok{c}\NormalTok{(}\StringTok{"grupo1"}\NormalTok{, }\StringTok{"grupo2"}\NormalTok{, }\StringTok{"grupo3"}\NormalTok{, }\StringTok{"grupo4"}\NormalTok{)))}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+          Grupos
+Categorias grupo1 grupo2 grupo3 grupo4
+         A      8     13     18     23
+         B     11     16     21     26
+         C     14     19     24     29
+\end{verbatim}
+
+\begin{verbatim}
+En este último ejemplo, se han elegido arbitrariamente los nombres `Categorias` y `Grupos` para llamar al conjunto completo de las filas y de las columnas, respectivamente. Esos nombres pueden ser cambiados por otros.
+\end{verbatim}
+
+Al igual que con los vectores, podemos usar los nombres de filas y columnas para indexar:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x[}\StringTok{"B"}\NormalTok{, }\StringTok{"grupo2"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 16
+\end{verbatim}
+
+En el caso de los arreglos multidimensionales, ya se indicó en el ejemplo del local comercial el uso de nombres para las distintas dimensiones.
+
+\hypertarget{listas-1}{%
+\subsection{Listas}\label{listas-1}}
+
+Podemos asignarle un nombre a uno, algunos o todos los integrantes en una lista:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mi\_lista }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}
+    \AttributeTok{w =} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\FloatTok{4.5}\NormalTok{, }\DecValTok{12}\NormalTok{, }\FloatTok{2.71}\NormalTok{),}
+    \AttributeTok{x =} \FunctionTok{c}\NormalTok{(}\StringTok{"hola"}\NormalTok{, }\StringTok{"chau"}\NormalTok{),}
+    \AttributeTok{y =} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{8}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{16}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{2}\NormalTok{),}
+    \AttributeTok{z =} \ConstantTok{TRUE}
+\NormalTok{)}
+\NormalTok{mi\_lista}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+$w
+[1] -4.50 12.00  2.71
+
+$x
+[1] "hola" "chau"
+
+$y
+     [,1] [,2]
+[1,]    8   13
+[2,]   11   16
+
+$z
+[1] TRUE
+\end{verbatim}
+
+Esto amplía las opciones para hacer referencia a cada objeto y elemento allí contenido. Las siguientes sentencias son todas equivalentes y sirven para acceder al tercer elemento de la lista, cuyo nombre es \texttt{y}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mi\_lista[[}\DecValTok{3}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]    8   13
+[2,]   11   16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mi\_lista[[}\StringTok{"y"}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]    8   13
+[2,]   11   16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mi\_lista}\SpecialCharTok{$}\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]    8   13
+[2,]   11   16
+\end{verbatim}
+
+\hypertarget{otras-consideraciones-lectura-opcional}{%
+\section{Otras consideraciones (lectura opcional)}\label{otras-consideraciones-lectura-opcional}}
+
+Dependiendo de cómo se almacenan los datos que componen a una estructura en el hardware de la computadora, las mismas se pueden clasificar en \textbf{contiguas} o \textbf{enlazadas}. En las estructuras contiguas, los datos se sitúan en áreas adyacentes de memoria y cada uno de ellos se puede localizar partiendo de la posición en memoria del primer elemento de la estructura. En las estructuras enlazadas, los datos no se sitúan necesariamente de forma continua en la memoria sino que existen \emph{punteros} (otro tipo de dato que \emph{apunta} hacia determinada posición de memoria) que permite identificar cuál es el orden de los elementos dentro de la estructura.
+
+Por otro lado, las estructuras también se pueden clasificar en \textbf{dinámicas} o \textbf{estáticas}, según si su tamaño puede cambiar o no durante la ejecución de un programa, respectivamente. Cuando se emplea una estructura estática, se declara con anterioridad el tamaño que ocupará en memoria y su dimensión no podrá variar, aún cuando no se ocupen todas las posiciones reservadas. En contraposición, una estructura dinámica puede cambiar en tamaño.
+
+Antes se mencionó que las listas de R pueden contener objetos de distintos tipos. Para ser más rigurosos, una lista es un tipo especial de vector que agrupa punteros hacia distintos objetos. Técnicamente, todos los elementos de una lista son del mismo tipo (punteros), pero hacen referencia a distintos objetos, dándonos la impresión de que en una lista de R, sencillamente, podemos meter cualquier tipo de objeto.
 
 \hypertarget{uso-de-archivos-de-datos}{%
 \chapter{Uso de archivos de datos}\label{uso-de-archivos-de-datos}}

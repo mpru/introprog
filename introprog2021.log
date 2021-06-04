@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.5.18)  3 JUN 2021 11:56
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.5.18)  4 JUN 2021 16:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1646,26 +1646,143 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 Unidad 5.
-LaTeX Info: Redefining \. on input line 3652.
-LaTeX Info: Redefining \% on input line 3652.
+File: images/05_estructuras/estr01.png Graphic file (type bmp)
+<images/05_estructuras/estr01.png>
+File: images/05_estructuras/estr02.png Graphic file (type bmp)
+<images/05_estructuras/estr02.png>
+File: images/05_estructuras/estr03.png Graphic file (type bmp)
+<images/05_estructuras/estr03.png>
+LaTeX Info: Redefining \. on input line 3707.
+LaTeX Info: Redefining \% on input line 3707.
 [65]
-LaTeX Info: Redefining \. on input line 3652.
-LaTeX Info: Redefining \% on input line 3652.
-[66
+File: images/05_estructuras/estr04.png Graphic file (type bmp)
+<images/05_estructuras/estr04.png>
+LaTeX Info: Redefining \. on input line 3750.
+LaTeX Info: Redefining \% on input line 3750.
+[66]
+Underfull \vbox (badness 3724) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 3810.
+LaTeX Info: Redefining \% on input line 3810.
+[67]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 3895.
+LaTeX Info: Redefining \% on input line 3895.
+[68]
+File: images/05_estructuras/estr11.png Graphic file (type bmp)
+<images/05_estructuras/estr11.png>
+File: images/05_estructuras/estr12.png Graphic file (type bmp)
+<images/05_estructuras/estr12.png>
+File: images/05_estructuras/estr13.png Graphic file (type bmp)
+<images/05_estructuras/estr13.png>
+LaTeX Info: Redefining \. on input line 3962.
+LaTeX Info: Redefining \% on input line 3962.
+[69]
+File: images/05_estructuras/estr05.png Graphic file (type bmp)
+<images/05_estructuras/estr05.png>
+LaTeX Info: Redefining \. on input line 3998.
+LaTeX Info: Redefining \% on input line 3998.
+[70]
+File: images/05_estructuras/estr06.png Graphic file (type bmp)
+<images/05_estructuras/estr06.png>
+LaTeX Info: Redefining \. on input line 4043.
+LaTeX Info: Redefining \% on input line 4043.
+[71]
+File: images/05_estructuras/estr07.png Graphic file (type bmp)
+<images/05_estructuras/estr07.png>
+File: images/05_estructuras/estr08.png Graphic file (type bmp)
+<images/05_estructuras/estr08.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 4161.
+LaTeX Info: Redefining \% on input line 4161.
+[72]
+LaTeX Info: Redefining \. on input line 4161.
+LaTeX Info: Redefining \% on input line 4161.
+[73]
+File: images/05_estructuras/estr14.png Graphic file (type bmp)
+<images/05_estructuras/estr14.png>
+LaTeX Info: Redefining \. on input line 4250.
+LaTeX Info: Redefining \% on input line 4250.
+[74]
+Underfull \vbox (badness 10000) detected at line 4273
+ []
+
+LaTeX Info: Redefining \. on input line 4273.
+LaTeX Info: Redefining \% on input line 4273.
+[75]
+LaTeX Info: Redefining \. on input line 4346.
+LaTeX Info: Redefining \% on input line 4346.
+[76]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 4395.
+LaTeX Info: Redefining \% on input line 4395.
+[77]
+LaTeX Info: Redefining \. on input line 4453.
+LaTeX Info: Redefining \% on input line 4453.
+[78]
+File: images/05_estructuras/estr09.png Graphic file (type bmp)
+<images/05_estructuras/estr09.png>
+File: images/05_estructuras/estr09.png Graphic file (type bmp)
+<images/05_estructuras/estr09.png>
+LaTeX Info: Redefining \. on input line 4515.
+LaTeX Info: Redefining \% on input line 4515.
+[79]
+File: images/05_estructuras/estr10.png Graphic file (type bmp)
+<images/05_estructuras/estr10.png>
+
+Underfull \vbox (badness 1867) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 4548.
+LaTeX Info: Redefining \% on input line 4548.
+[80]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 4654.
+LaTeX Info: Redefining \% on input line 4654.
+[81]
+Overfull \vbox (1.81529pt too high) detected at line 4730
+ []
+
+LaTeX Info: Redefining \. on input line 4730.
+LaTeX Info: Redefining \% on input line 4730.
+[82]
+LaTeX Info: Redefining \. on input line 4801.
+LaTeX Info: Redefining \% on input line 4801.
+[83]
+LaTeX Info: Redefining \. on input line 4919.
+LaTeX Info: Redefining \% on input line 4919.
+[84]
+Overfull \hbox (638.766pt too wide) in paragraph at lines 4963--4963
+[]\TU/lmtt/m/n/10 En este último ejemplo, se han elegido arbitrariamente los no
+mbres `Categorias` y `Grupos` para llamar al conjunto completo de las filas y d
+e las columnas, respectivamente. Esos nombres pueden ser cambiados por otros.[]
+ 
+ []
+
+LaTeX Info: Redefining \. on input line 5010.
+LaTeX Info: Redefining \% on input line 5010.
+[85]
+LaTeX Info: Redefining \. on input line 5060.
+LaTeX Info: Redefining \% on input line 5060.
+[86]
+Unidad 6.
+LaTeX Info: Redefining \. on input line 5065.
+LaTeX Info: Redefining \% on input line 5065.
+[87
 
 ]
-Unidad 6.
-LaTeX Info: Redefining \. on input line 3657.
-LaTeX Info: Redefining \% on input line 3657.
-[67]
-LaTeX Info: Redefining \. on input line 3657.
-LaTeX Info: Redefining \% on input line 3657.
-[68
+LaTeX Info: Redefining \. on input line 5065.
+LaTeX Info: Redefining \% on input line 5065.
+[88
 
 ]
 Unidad 7.
-LaTeX Info: Redefining \. on input line 3660.
-LaTeX Info: Redefining \% on input line 3660.
+LaTeX Info: Redefining \. on input line 5068.
+LaTeX Info: Redefining \% on input line 5068.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1674,9 +1791,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
-[69]
-LaTeX Info: Redefining \. on input line 3660.
-LaTeX Info: Redefining \% on input line 3660.
+[89]
+LaTeX Info: Redefining \. on input line 5068.
+LaTeX Info: Redefining \% on input line 5068.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1685,11 +1802,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
-[70
+[90
 
 ]
-LaTeX Info: Redefining \. on input line 3721.
-LaTeX Info: Redefining \% on input line 3721.
+LaTeX Info: Redefining \. on input line 5129.
+LaTeX Info: Redefining \% on input line 5129.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1698,20 +1815,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
-[71] (./introprog2021.aux
+[91] (./introprog2021.aux
 LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
 )
 Package rerunfilecheck Info: File `introprog2021.out' has not changed.
-(rerunfilecheck)             Checksum: 3C9E05D3F2F53DCC01965D994FDAB332;5313.
+(rerunfilecheck)             Checksum: 4E67F2D2B98E3918195A7A954993C935;6031.
  ) 
 Here is how much of TeX's memory you used:
- 20746 strings out of 478750
- 365713 string characters out of 5863502
- 887660 words of memory out of 5000000
- 40412 multiletter control sequences out of 15000+600000
+ 21026 strings out of 478750
+ 375227 string characters out of 5863502
+ 889939 words of memory out of 5000000
+ 40677 multiletter control sequences out of 15000+600000
  409961 words of font info for 90 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  85i,12n,121p,1547b,680s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on introprog2021.pdf (71 pages).
+Output written on introprog2021.pdf (91 pages).
