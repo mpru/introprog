@@ -1,37 +1,37 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.5.18)  4 JUN 2021 16:23
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.6.4)  4 JUN 2021 21:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **introprog2021.tex
 (./introprog2021.tex
-LaTeX2e <2020-10-01> patch level 4
-L3 programming layer <2021-05-11> (/home/marcos/.TinyTeX/texmf-dist/tex/latex/b
+LaTeX2e <2021-06-01>
+L3 programming layer <2021-06-01> (/home/marcos/.TinyTeX/texmf-dist/tex/latex/b
 ase/book.cls
-Document Class: book 2020/04/10 v1.4m Standard LaTeX document class
+Document Class: book 2021/02/12 v1.4n Standard LaTeX document class
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/base/bk10.clo
-File: bk10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
+File: bk10.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count175
-\c@chapter=\count176
-\c@section=\count177
-\c@subsection=\count178
-\c@subsubsection=\count179
-\c@paragraph=\count180
-\c@subparagraph=\count181
-\c@figure=\count182
-\c@table=\count183
+\c@part=\count178
+\c@chapter=\count179
+\c@section=\count180
+\c@subsection=\count181
+\c@subsubsection=\count182
+\c@paragraph=\count183
+\c@subparagraph=\count184
+\c@figure=\count185
+\c@table=\count186
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2020/09/23 v2.17i AMS math features
+Package: amsmath 2021/04/20 v2.17j AMS math features
 \@mathmargin=\skip49
 For additional information on amsmath, use the `?' option.
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks15
+\@emptytoks=\toks16
 \ex@=\dimen139
 )) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
@@ -39,41 +39,41 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count184
+\inf@bad=\count187
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count185
-\leftroot@=\count186
+\uproot@=\count188
+\leftroot@=\count189
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count187
-\DOTSCASE@=\count188
+\classnum@=\count190
+\DOTSCASE@=\count191
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box47
-\strutbox@=\box48
+\Mathstrutbox@=\box50
+\strutbox@=\box51
 \big@size=\dimen141
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count189
-\c@MaxMatrixCols=\count190
+\macc@depth=\count192
+\c@MaxMatrixCols=\count193
 \dotsspace@=\muskip16
-\c@parentequation=\count191
-\dspbrk@lvl=\count192
-\tag@help=\toks16
-\row@=\count193
-\column@=\count194
-\maxfields@=\count195
-\andhelp@=\toks17
+\c@parentequation=\count194
+\dspbrk@lvl=\count195
+\tag@help=\toks17
+\row@=\count196
+\column@=\count197
+\maxfields@=\count198
+\andhelp@=\toks18
 \eqnshift@=\dimen142
 \alignsep@=\dimen143
 \tagshift@=\dimen144
 \tagwidth@=\dimen145
 \totwidth@=\dimen146
 \lineht@=\dimen147
-\@envbody=\toks18
+\@envbody=\toks19
 \multlinegap=\skip50
 \multlinetaggap=\skip51
-\mathdisplay@stack=\toks19
+\mathdisplay@stack=\toks20
 LaTeX Info: Redefining \[ on input line 2923.
 LaTeX Info: Redefining \] on input line 2924.
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
@@ -127,18 +127,18 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (/h
 ome/marcos/.TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2021-05-11 L3 programming layer (loader) 
+Package: expl3 2021-06-01 L3 programming layer (loader) 
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2021-05-07 L3 backend support: XeTeX
 (|extractbb --version)
-\c__kernel_sys_dvipdfmx_version_int=\count196
-\l__color_backend_stack_int=\count197
-\g__color_backend_stack_int=\count198
-\g__graphics_track_int=\count199
-\l__pdf_internal_box=\box49
-\g__pdf_backend_object_int=\count266
-\g__pdf_backend_annotation_int=\count267
-\g__pdf_backend_link_int=\count268
+\c__kernel_sys_dvipdfmx_version_int=\count199
+\l__color_backend_stack_int=\count266
+\g__color_backend_stack_int=\count267
+\g__graphics_track_int=\count268
+\l__pdf_internal_box=\box52
+\g__pdf_backend_object_int=\count269
+\g__pdf_backend_annotation_int=\count270
+\g__pdf_backend_link_int=\count271
 ))
 Package: unicode-math 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
 
@@ -146,43 +146,40 @@ Package: unicode-math 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
 Package: unicode-math-xetex 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLa
 TeX
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-(/home/marcos/.TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse-2020-10-01
-.sty
-(/home/marcos/.TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse-generic.te
-x))) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.s
-ty
-Package: l3keys2e 2021-05-07 LaTeX2e option processing using LaTeX3 keys
+Package: xparse 2021-06-01 L3 Experimental document command parser
+) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2021-06-01 LaTeX2e option processing using LaTeX3 keys
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty
 Package: fontspec 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
 Package: fontspec-xetex 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTe
 X
-\l__fontspec_script_int=\count269
-\l__fontspec_language_int=\count270
-\l__fontspec_strnum_int=\count271
-\l__fontspec_tmp_int=\count272
-\l__fontspec_tmpa_int=\count273
-\l__fontspec_tmpb_int=\count274
-\l__fontspec_tmpc_int=\count275
-\l__fontspec_em_int=\count276
-\l__fontspec_emdef_int=\count277
-\l__fontspec_strong_int=\count278
-\l__fontspec_strongdef_int=\count279
+\l__fontspec_script_int=\count272
+\l__fontspec_language_int=\count273
+\l__fontspec_strnum_int=\count274
+\l__fontspec_tmp_int=\count275
+\l__fontspec_tmpa_int=\count276
+\l__fontspec_tmpb_int=\count277
+\l__fontspec_tmpc_int=\count278
+\l__fontspec_em_int=\count279
+\l__fontspec_emdef_int=\count280
+\l__fontspec_strong_int=\count281
+\l__fontspec_strongdef_int=\count282
 \l__fontspec_tmpa_dim=\dimen148
 \l__fontspec_tmpb_dim=\dimen149
 \l__fontspec_tmpc_dim=\dimen150
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/home/m
 arcos/.TinyTeX/texmf-dist/tex/latex/base/fix-cm.sty
-Package: fix-cm 2015/01/14 v1.1t fixes to LaTeX
+Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 ))
-\g__um_fam_int=\count280
-\g__um_fonts_used_int=\count281
-\l__um_primecount_int=\count282
+\g__um_fam_int=\count283
+\g__um_fonts_used_int=\count284
+\l__um_primecount_int=\count285
 \g__um_primekern_muskip=\muskip17
 
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex
@@ -190,14 +187,14 @@ LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 Package: microtype 2021/03/14 v2.8c Micro-typographical refinements (RS)
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks20
+\KV@toks@=\toks21
 )
-\MT@toks=\toks21
-\MT@count=\count283
+\MT@toks=\toks22
+\MT@count=\count286
 LaTeX Info: Redefining \textls on input line 790.
 \MT@outer@kern=\dimen151
 LaTeX Info: Redefining \textmicrotypecontext on input line 1374.
-\MT@listname@count=\count284
+\MT@listname@count=\count287
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/microtype/microtype-xetex.def
 File: microtype-xetex.def 2021/03/14 v2.8c Definitions specific to xetex (RS)
 LaTeX Info: Redefining \lsstyle on input line 254.
@@ -215,7 +212,7 @@ Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 )) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count285
+\etb@tempcnta=\count288
 )) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
@@ -256,8 +253,8 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
 \@linkdim=\dimen152
-\Hy@linkcounter=\count286
-\Hy@pagecounter=\count287
+\Hy@linkcounter=\count289
+\Hy@pagecounter=\count290
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2021-02-27 v7.00k Hyperref: PDFDocEncoding definition (HO)
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
@@ -268,7 +265,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count288
+\Hy@SavedSpaceFactor=\count291
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2021-02-27 v7.00k Hyperref: PDF Unicode definition (HO)
 )
@@ -280,7 +277,7 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count289
+\c@Hy@tempcnt=\count292
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -293,7 +290,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count290
+\Fld@menulength=\count293
 \Field@Width=\dimen154
 \Fld@charsize=\dimen155
 Package hyperref Info: Hyper figures OFF on input line 6075.
@@ -306,13 +303,12 @@ Package hyperref Info: PDF/A mode OFF on input line 6105.
 LaTeX Info: Redefining \ref on input line 6145.
 LaTeX Info: Redefining \pageref on input line 6149.
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
-Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
-ge
-with kernel methods
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
 )
-\Hy@abspage=\count291
-\c@Item=\count292
-\c@Hfootnote=\count293
+\Hy@abspage=\count294
+\c@Item=\count295
+\c@Hfootnote=\count296
 )
 Package hyperref Info: Driver (autodetected): hxetex.
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.def
@@ -321,11 +317,11 @@ File: hxetex.def 2021-02-27 v7.00k Hyperref driver for XeTeX
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\pdfm@box=\box50
-\c@Hy@AnnotLevel=\count294
-\HyField@AnnotCount=\count295
-\Fld@listcount=\count296
-\c@bookmark@seq@number=\count297
+\pdfm@box=\box53
+\c@Hy@AnnotLevel=\count297
+\HyField@AnnotCount=\count298
+\Fld@listcount=\count299
+\c@bookmark@seq@number=\count300
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
@@ -341,11 +337,11 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \Hy@SectionHShift=\skip52
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2021/01/20 v3.7 verbatim text (tvz,hv)
-\FV@CodeLineNo=\count298
+\FV@CodeLineNo=\count301
 \FV@InFile=\read2
-\FV@TabBox=\box51
-\c@FancyVerbLine=\count299
-\FV@StepNumber=\count300
+\FV@TabBox=\box54
+\c@FancyVerbLine=\count302
+\FV@StepNumber=\count303
 \FV@OutFile=\write3
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
@@ -355,22 +351,23 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \FrameRule=\dimen158
 \FrameSep=\dimen159
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
+Package: longtable 2021-05-07 v4.16 Multi-page Table package (DPC)
 \LTleft=\skip54
 \LTright=\skip55
 \LTpre=\skip56
 \LTpost=\skip57
-\LTchunksize=\count301
+\LTchunksize=\count304
 \LTcapwidth=\dimen160
-\LT@head=\box52
-\LT@firsthead=\box53
-\LT@foot=\box54
-\LT@lastfoot=\box55
-\LT@cols=\count302
-\LT@rows=\count303
-\c@LT@tables=\count304
-\c@LT@chunks=\count305
-\LT@p@ftn=\toks22
+\LT@head=\box55
+\LT@firsthead=\box56
+\LT@foot=\box57
+\LT@lastfoot=\box58
+\LT@gbox=\box59
+\LT@cols=\count305
+\LT@rows=\count306
+\c@LT@tables=\count307
+\c@LT@chunks=\count308
+\LT@p@ftn=\toks23
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen161
@@ -383,81 +380,81 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen168
 \cmidrulekern=\dimen169
 \defaultaddspace=\dimen170
-\@cmidla=\count306
-\@cmidlb=\count307
+\@cmidla=\count309
+\@cmidlb=\count310
 \@aboverulesep=\dimen171
 \@belowrulesep=\dimen172
-\@thisruleclass=\count308
-\@lastruleclass=\count309
+\@thisruleclass=\count311
+\@lastruleclass=\count312
 \@thisrulewidth=\dimen173
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/tools/array.sty
-Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
+Package: array 2021/04/20 v2.5e Tabular extension package (FMi)
 \col@sep=\dimen174
-\ar@mcellbox=\box56
+\ar@mcellbox=\box60
 \extrarowheight=\dimen175
-\NC@list=\toks23
+\NC@list=\toks24
 \extratabsurround=\skip58
 \backup@length=\skip59
-\ar@cellbox=\box57
+\ar@cellbox=\box61
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count310
-\calc@Bcount=\count311
+\calc@Acount=\count313
+\calc@Bcount=\count314
 \calc@Adimen=\dimen176
 \calc@Bdimen=\dimen177
 \calc@Askip=\skip60
 \calc@Bskip=\skip61
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count312
+\calc@Ccount=\count315
 \calc@Cskip=\skip62
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
-\fn@notes=\box58
+\fn@notes=\box62
 \fn@width=\dimen178
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: xetex.def on input line 105.
+Package graphics Info: Driver file: xetex.def on input line 107.
 )
 \Gin@req@height=\dimen179
 \Gin@req@width=\dimen180
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip63
-\multirow@cntb=\count313
+\multirow@cntb=\count316
 \multirow@dima=\skip64
 \bigstrutjot=\dimen181
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2021/05/16 3.59 The Babel package
+Package: babel 2021/06/02 3.60 The Babel package
 (/home/marcos/.TinyTeX/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2021/05/16 3.59 Babel common definitions
-\babel@savecnt=\count314
+File: babel.def 2021/06/02 3.60 Babel common definitions
+\babel@savecnt=\count317
 \U@D=\dimen182
 \l@unhyphenated=\language4
 (/home/marcos/.TinyTeX/texmf-dist/tex/generic/babel/xebabel.def (/home/marcos/.
 TinyTeX/texmf-dist/tex/generic/babel/txtbabel.def))
 \bbl@readstream=\read3
 )
-\bbl@dirlevel=\count315
+\bbl@dirlevel=\count318
 (/home/marcos/.TinyTeX/texmf-dist/tex/generic/babel-spanish/spanish.ldf
-Language: spanish.ldf 2016/03/03 v5.0p Spanish support from the babel system
-\es@quottoks=\toks24
-\es@quotdepth=\count316
-Package babel Info: Making " an active character on input line 561.
-Package babel Info: Making . an active character on input line 662.
-Package babel Info: Making < an active character on input line 707.
-Package babel Info: Making > an active character on input line 707.
+Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
+\es@quottoks=\toks25
+\es@quotdepth=\count319
+Package babel Info: Making " an active character on input line 570.
+Package babel Info: Making . an active character on input line 675.
+Package babel Info: Making < an active character on input line 722.
+Package babel Info: Making > an active character on input line 722.
 )) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2020/08/01 v1.3d Input encoding file
-\inpenc@prehook=\toks25
-\inpenc@posthook=\toks26
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks26
+\inpenc@posthook=\toks27
 
 Package inputenc Warning: inputenc package ignored with utf8 based engines.
 
@@ -466,9 +463,9 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 (/home/marcos/.TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count317
-\Gm@cntv=\count318
-\c@Gm@tempcnt=\count319
+\Gm@cnth=\count320
+\Gm@cntv=\count321
+\c@Gm@tempcnt=\count322
 \Gm@bindingoffset=\dimen183
 \Gm@wd@mp=\dimen184
 \Gm@odd@mp=\dimen185
@@ -477,7 +474,7 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutheight=\dimen188
 \Gm@layouthoffset=\dimen189
 \Gm@layoutvoffset=\dimen190
-\Gm@dimlist=\toks27
+\Gm@dimlist=\toks28
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and foote
 rs
@@ -522,8 +519,8 @@ Package tocloft Info: The document has chapter divisions on input line 51.
 \cftbeforefigskip=\skip100
 \cftfigindent=\skip101
 \cftfignumwidth=\skip102
-\c@lofdepth=\count320
-\c@lotdepth=\count321
+\c@lofdepth=\count323
+\c@lotdepth=\count324
 \cftbeforelottitleskip=\skip103
 \cftafterlottitleskip=\skip104
 \cftbeforetabskip=\skip105
@@ -535,17 +532,17 @@ Package tocloft Warning: \@starttoc has already been redefined; tocloft bailing
 
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count322
-\float@exts=\toks28
-\float@box=\box59
-\@float@everytoks=\toks29
-\@floatcapt=\box60
+\c@float@type=\count325
+\float@exts=\toks29
+\float@box=\box63
+\@float@everytoks=\toks30
+\@floatcapt=\box64
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip108
 \bibsep=\skip109
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count323
+\c@NAT@ctr=\count326
 ) (./introprog2021.aux
 LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
@@ -858,7 +855,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/home/marcos/.TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count324
+\c@section@level=\count327
 )
 LaTeX Info: Redefining \ref on input line 248.
 LaTeX Info: Redefining \pageref on input line 248.
@@ -1676,113 +1673,112 @@ File: images/05_estructuras/estr12.png Graphic file (type bmp)
 <images/05_estructuras/estr12.png>
 File: images/05_estructuras/estr13.png Graphic file (type bmp)
 <images/05_estructuras/estr13.png>
-LaTeX Info: Redefining \. on input line 3962.
-LaTeX Info: Redefining \% on input line 3962.
+LaTeX Info: Redefining \. on input line 3985.
+LaTeX Info: Redefining \% on input line 3985.
 [69]
+Underfull \vbox (badness 10000) detected at line 4000
+ []
+
+LaTeX Info: Redefining \. on input line 4000.
+LaTeX Info: Redefining \% on input line 4000.
+[70]
 File: images/05_estructuras/estr05.png Graphic file (type bmp)
 <images/05_estructuras/estr05.png>
-LaTeX Info: Redefining \. on input line 3998.
-LaTeX Info: Redefining \% on input line 3998.
-[70]
 File: images/05_estructuras/estr06.png Graphic file (type bmp)
 <images/05_estructuras/estr06.png>
-LaTeX Info: Redefining \. on input line 4043.
-LaTeX Info: Redefining \% on input line 4043.
+LaTeX Info: Redefining \. on input line 4049.
+LaTeX Info: Redefining \% on input line 4049.
 [71]
+LaTeX Info: Redefining \. on input line 4141.
+LaTeX Info: Redefining \% on input line 4141.
+[72]
 File: images/05_estructuras/estr07.png Graphic file (type bmp)
 <images/05_estructuras/estr07.png>
 File: images/05_estructuras/estr08.png Graphic file (type bmp)
 <images/05_estructuras/estr08.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 4161.
-LaTeX Info: Redefining \% on input line 4161.
-[72]
-LaTeX Info: Redefining \. on input line 4161.
-LaTeX Info: Redefining \% on input line 4161.
+LaTeX Info: Redefining \. on input line 4195.
+LaTeX Info: Redefining \% on input line 4195.
 [73]
 File: images/05_estructuras/estr14.png Graphic file (type bmp)
 <images/05_estructuras/estr14.png>
-LaTeX Info: Redefining \. on input line 4250.
-LaTeX Info: Redefining \% on input line 4250.
-[74]
-Underfull \vbox (badness 10000) detected at line 4273
- []
-
 LaTeX Info: Redefining \. on input line 4273.
 LaTeX Info: Redefining \% on input line 4273.
+[74]
+Underfull \vbox (badness 2680) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 4308.
+LaTeX Info: Redefining \% on input line 4308.
 [75]
-LaTeX Info: Redefining \. on input line 4346.
-LaTeX Info: Redefining \% on input line 4346.
+LaTeX Info: Redefining \. on input line 4369.
+LaTeX Info: Redefining \% on input line 4369.
 [76]
+Underfull \vbox (badness 10000) detected at line 4426
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 4395.
-LaTeX Info: Redefining \% on input line 4395.
+LaTeX Info: Redefining \. on input line 4426.
+LaTeX Info: Redefining \% on input line 4426.
 [77]
-LaTeX Info: Redefining \. on input line 4453.
-LaTeX Info: Redefining \% on input line 4453.
+LaTeX Info: Redefining \. on input line 4485.
+LaTeX Info: Redefining \% on input line 4485.
 [78]
 File: images/05_estructuras/estr09.png Graphic file (type bmp)
 <images/05_estructuras/estr09.png>
 File: images/05_estructuras/estr09.png Graphic file (type bmp)
 <images/05_estructuras/estr09.png>
-LaTeX Info: Redefining \. on input line 4515.
-LaTeX Info: Redefining \% on input line 4515.
-[79]
 File: images/05_estructuras/estr10.png Graphic file (type bmp)
 <images/05_estructuras/estr10.png>
-
-Underfull \vbox (badness 1867) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 4548.
-LaTeX Info: Redefining \% on input line 4548.
+LaTeX Info: Redefining \. on input line 4551.
+LaTeX Info: Redefining \% on input line 4551.
+[79]
+LaTeX Info: Redefining \. on input line 4551.
+LaTeX Info: Redefining \% on input line 4551.
 [80]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 4654.
-LaTeX Info: Redefining \% on input line 4654.
+LaTeX Info: Redefining \. on input line 4666.
+LaTeX Info: Redefining \% on input line 4666.
 [81]
-Overfull \vbox (1.81529pt too high) detected at line 4730
- []
-
-LaTeX Info: Redefining \. on input line 4730.
-LaTeX Info: Redefining \% on input line 4730.
+LaTeX Info: Redefining \. on input line 4722.
+LaTeX Info: Redefining \% on input line 4722.
 [82]
-LaTeX Info: Redefining \. on input line 4801.
-LaTeX Info: Redefining \% on input line 4801.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 4823.
+LaTeX Info: Redefining \% on input line 4823.
 [83]
-LaTeX Info: Redefining \. on input line 4919.
-LaTeX Info: Redefining \% on input line 4919.
+LaTeX Info: Redefining \. on input line 4931.
+LaTeX Info: Redefining \% on input line 4931.
 [84]
-Overfull \hbox (638.766pt too wide) in paragraph at lines 4963--4963
+Overfull \hbox (638.766pt too wide) in paragraph at lines 4986--4986
 []\TU/lmtt/m/n/10 En este último ejemplo, se han elegido arbitrariamente los no
 mbres `Categorias` y `Grupos` para llamar al conjunto completo de las filas y d
 e las columnas, respectivamente. Esos nombres pueden ser cambiados por otros.[]
  
  []
 
-LaTeX Info: Redefining \. on input line 5010.
-LaTeX Info: Redefining \% on input line 5010.
+LaTeX Info: Redefining \. on input line 5033.
+LaTeX Info: Redefining \% on input line 5033.
 [85]
-LaTeX Info: Redefining \. on input line 5060.
-LaTeX Info: Redefining \% on input line 5060.
+LaTeX Info: Redefining \. on input line 5083.
+LaTeX Info: Redefining \% on input line 5083.
 [86]
 Unidad 6.
-LaTeX Info: Redefining \. on input line 5065.
-LaTeX Info: Redefining \% on input line 5065.
+LaTeX Info: Redefining \. on input line 5088.
+LaTeX Info: Redefining \% on input line 5088.
 [87
 
 ]
-LaTeX Info: Redefining \. on input line 5065.
-LaTeX Info: Redefining \% on input line 5065.
+LaTeX Info: Redefining \. on input line 5088.
+LaTeX Info: Redefining \% on input line 5088.
 [88
 
 ]
 Unidad 7.
-LaTeX Info: Redefining \. on input line 5068.
-LaTeX Info: Redefining \% on input line 5068.
+LaTeX Info: Redefining \. on input line 5091.
+LaTeX Info: Redefining \% on input line 5091.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1792,8 +1788,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [89]
-LaTeX Info: Redefining \. on input line 5068.
-LaTeX Info: Redefining \% on input line 5068.
+LaTeX Info: Redefining \. on input line 5091.
+LaTeX Info: Redefining \% on input line 5091.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1805,8 +1801,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [90
 
 ]
-LaTeX Info: Redefining \. on input line 5129.
-LaTeX Info: Redefining \% on input line 5129.
+LaTeX Info: Redefining \. on input line 5152.
+LaTeX Info: Redefining \% on input line 5152.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1823,12 +1819,12 @@ Package rerunfilecheck Info: File `introprog2021.out' has not changed.
 (rerunfilecheck)             Checksum: 4E67F2D2B98E3918195A7A954993C935;6031.
  ) 
 Here is how much of TeX's memory you used:
- 21026 strings out of 478750
- 375227 string characters out of 5863502
- 889939 words of memory out of 5000000
- 40677 multiletter control sequences out of 15000+600000
+ 21092 strings out of 478475
+ 376255 string characters out of 5858957
+ 897789 words of memory out of 5000000
+ 41028 multiletter control sequences out of 15000+600000
  409961 words of font info for 90 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 85i,12n,121p,1547b,680s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 87i,12n,120p,1547b,690s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on introprog2021.pdf (91 pages).

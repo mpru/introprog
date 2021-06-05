@@ -3860,7 +3860,7 @@ Se pueden asignar valores a una, varias o todas las posiciones de un vector en c
 VARIABLE numérica a(10)
 ...algunas acciones...
 PARA i DESDE 1 HASTA LARGO(a) HACER
-  SI i %% 3 == 0 ENTONCES  
+    SI i %% 3 == 0 ENTONCES  
         a[i] <- i * 100
     FIN SI
 FIN PARA
@@ -3895,6 +3895,29 @@ FIN PARA
 \end{verbatim}
 
 Por ahora, toda instrucción de \emph{leer} en el pseudocódigo será traducida en R mediante la asignación directa de valores. Por ejemplo, \texttt{LEER\ tam} se reemplaza por \texttt{tam\ \textless{}-\ 5} (o el número que necesitemos).
+
+Antes de terminar esta sección haremos una última observación. En R todos los objetos que hemos considerado como ``variable'' y que guardan un único valor (como \texttt{tam} en el ejemplo anterior), son también considerados como vectores, cuyo largo es 1, como podemos verificar en el siguiente ejemplo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{25}
+\FunctionTok{length}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{is.vector}\NormalTok{(x) }\CommentTok{\# Esta función lógica le pregunta a R si el objeto x es un vector}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] TRUE
+\end{verbatim}
 
 \textbf{Ejemplo: invertir los elementos de un vector}
 
@@ -3991,7 +4014,7 @@ Un \textbf{arreglo bidimensional} representa lo que habitualmente conocemos en m
 
 }
 
-\caption{Ejemplo de una matriz numérica}\label{fig:unnamed-chunk-102}
+\caption{Ejemplo de una matriz numérica}\label{fig:unnamed-chunk-103}
 \end{figure}
 
 A diferencia de los vectores, las matrices requieren dos índices para señalar la posición de cada elemento, el primero para indicar la fila y el segundo para indicar la columna. Los mismos se colocan entre corchetes, separados por una coma, al lado del identificador de la matriz. De esta forma, si hablamos de \texttt{x{[}1,\ 3{]}} hacemos referencia a la posición ocupada por el valor 18, mientras que si mencionamos \texttt{x{[}3,\ 1{]}} nos referimos al valor 14.
@@ -4002,7 +4025,7 @@ A diferencia de los vectores, las matrices requieren dos índices para señalar 
 
 }
 
-\caption{Ejemplo de una matriz numérica: índices para señalar cada posición}\label{fig:unnamed-chunk-103}
+\caption{Ejemplo de una matriz numérica: índices para señalar cada posición}\label{fig:unnamed-chunk-104}
 \end{figure}
 
 Al \emph{tamaño} de una matriz, es decir, cuántas filas y columnas tiene, se le dice \textbf{dimensión}. La matriz anterior es de dimension \(3 \times 4\).
@@ -4143,7 +4166,7 @@ Podemos recorrer todas las posiciones de una matriz con una estructura iterativa
 
 }
 
-\caption{Recorrer una matriz por fila}\label{fig:unnamed-chunk-108}
+\caption{Recorrer una matriz por fila}\label{fig:unnamed-chunk-109}
 \end{figure}
 
 También se puede recorrer la matriz por columna, si modificamos ligeramente las estructuras iterativas:
@@ -4154,7 +4177,7 @@ También se puede recorrer la matriz por columna, si modificamos ligeramente las
 
 }
 
-\caption{Recorrer una matriz por columna}\label{fig:unnamed-chunk-110}
+\caption{Recorrer una matriz por columna}\label{fig:unnamed-chunk-111}
 \end{figure}
 
 Se puede usar cualquier letra o palabra como variables iteradoras, pero el uso de \texttt{i} para las filas y de \texttt{j} para las columnas es bastante común.
@@ -4212,7 +4235,7 @@ En Álgebra, trasponer una matriz de dimensión \(m \times n\) significa generar
 
 }
 
-\caption{Matriz traspuesta}\label{fig:unnamed-chunk-112}
+\caption{Matriz traspuesta}\label{fig:unnamed-chunk-113}
 \end{figure}
 
 Podemos formalizar el algoritmo que permite generar la matriz traspuesta, teniendo en cuenta que cada elemento que originalmente ocupa la posición \texttt{{[}i,\ j{]}} en la matriz original, debe pasar a ocupar la posición \texttt{{[}j,\ i{]}} en la matriz traspuesta:
@@ -4470,7 +4493,7 @@ Una de las principales características de los \textbf{arreglos} es la \textbf{h
 
 }
 
-\caption{Ejemplo de una lista}\label{fig:unnamed-chunk-117}
+\caption{Ejemplo de una lista}\label{fig:unnamed-chunk-118}
 \end{figure}
 
 En R la creación de esta lista se realiza mediante la función \texttt{list()}, cuyos argumentos son los elementos que queremos guardar en la lista, separados por comas:
@@ -4511,7 +4534,7 @@ Luego de correr la sentencia anterior, podemos ver que \texttt{mi\_lista} es un 
 
 }
 
-\caption{La lista en la pestaña Environment de RStudio}\label{fig:unnamed-chunk-119}
+\caption{La lista en la pestaña Environment de RStudio}\label{fig:unnamed-chunk-120}
 \end{figure}
 
 Usamos dobles corchetes \texttt{{[}{[}\ {]}{]}} para referenciar a cada objeto que forma parte de la lista. Además, si queremos indicar un elemento dentro de un objeto que forma parte de la lista, agregamos otro conjunto de corchetes como hacemos con vectores y matrices. Por ejemplo:
@@ -4522,7 +4545,7 @@ Usamos dobles corchetes \texttt{{[}{[}\ {]}{]}} para referenciar a cada objeto q
 
 }
 
-\caption{Ejemplo de una lista}\label{fig:unnamed-chunk-120}
+\caption{Ejemplo de una lista}\label{fig:unnamed-chunk-121}
 \end{figure}
 
 \begin{Shaded}

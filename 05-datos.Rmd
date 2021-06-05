@@ -127,7 +127,7 @@ Se pueden asignar valores a una, varias o todas las posiciones de un vector en c
 VARIABLE numérica a(10)
 ...algunas acciones...
 PARA i DESDE 1 HASTA LARGO(a) HACER
-  SI i %% 3 == 0 ENTONCES  
+	SI i %% 3 == 0 ENTONCES  
 		a[i] <- i * 100
 	FIN SI
 FIN PARA
@@ -156,6 +156,14 @@ FIN PARA
 ```
 
 Por ahora, toda instrucción de *leer* en el pseudocódigo será traducida en R mediante la asignación directa de valores. Por ejemplo, `LEER tam` se reemplaza por `tam <- 5` (o el número que necesitemos).
+
+Antes de terminar esta sección haremos una última observación. En R todos los objetos que hemos considerado como "variable" y que guardan un único valor (como `tam` en el ejemplo anterior), son también considerados como vectores, cuyo largo es 1, como podemos verificar en el siguiente ejemplo:
+
+```{r}
+x <- 25
+length(x)
+is.vector(x) # Esta función lógica le pregunta a R si el objeto x es un vector
+```
 
 **Ejemplo: invertir los elementos de un vector**
 
