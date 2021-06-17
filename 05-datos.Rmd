@@ -265,8 +265,8 @@ x[3, 4] <- 29
 En R, no es necesario declarar las matrices con anterioridad y las mismas pueden ser creadas de manera literal con la función `matrix()`. Su primer argumento, `data`, es un vector con todos los elementos que queremos guardar en la matriz. Luego, se indica la cantidad de filas para la misma con `nrow` y la cantidad de columnas con `ncol`:
 
 ```{r}
-x <- matrix(data = c(8, 11, 14, 13, 16, 19, 18, 21, 24, 23, 26, 29), 
-						nrow = 3, ncol = 4)
+x <- matrix(data = c(8, 11, 14, 13, 16, 19, 18, 21, 24, 23, 26, 29),
+            nrow = 3, ncol = 4)
 x
 ```
 
@@ -276,12 +276,12 @@ Notar que R ubicó a los valores provistos llenando primero la columna 1, luego 
 x <- matrix(c( 8, 13, 18, 23, 
               11, 16, 21, 26, 
               14, 19, 24, 29), 
-						nrow = 3, byrow = TRUE)
+            nrow = 3, byrow = TRUE)
 
 x <- matrix(c( 8, 13, 18, 23, 
               11, 16, 21, 26, 
               14, 19, 24, 29), 
-						ncol = 4, byrow = TRUE)
+            ncol = 4, byrow = TRUE)
 ```
 
 Si colocamos un único valor como primer argumento en la función `matrix()`, el mismo se repetirá en todas las posiciones. En este caso sí o sí tenemos que indicar cuántas filas y columnas deseamos:
@@ -414,7 +414,7 @@ Dado que en R vamos a asignar valores en la matriz de manera literal, primero la
 x <- matrix(c( 8, 13, 18, 23, 
               11, 16, 21, 26, 
               14, 19, 24, 29), 
-						nrow = 3, byrow = TRUE)
+            nrow = 3, byrow = TRUE)
 nf <- nrow(x)
 nc <- ncol(x)
 traspuesta <- matrix(NA, nc, nf)
@@ -423,9 +423,9 @@ for (i in 1:nf) {
 		traspuesta[j, i] <- x[i, j]
 	}
 }
-cat("Matriz original")
+cat("Matriz original\n")
 x
-cat("Matriz traspuesta")
+cat("Matriz traspuesta\n")
 traspuesta
 ```
 
@@ -498,7 +498,7 @@ mi_lista
 Luego de correr la sentencia anterior, podemos ver que `mi_lista` es un nuevo objeto disponible en el  ambiente global y como tal está listado en el panel *Environment*. Allí se nos indica que se trata de una lista y, además, podemos previsualizar su contenido al hacer clic en el círculo celeste que antecede a su nombre:
 
 ```{r, out.width='50%', fig.show='hold', fig.cap='La lista en la pestaña Environment de RStudio', echo=FALSE, fig.align="center"}
-knitr::include_graphics('images/05_estructuras/estr09.png')
+knitr::include_graphics('images/05_estructuras/lista_rstudio.png')
 ```
 
 Usamos dobles corchetes `[[ ]]` para referenciar a cada objeto que forma parte de la lista. Además, si queremos indicar un elemento dentro de un objeto que forma parte de la lista, agregamos otro conjunto de corchetes como hacemos con vectores y matrices. Por ejemplo:
@@ -692,7 +692,7 @@ En el caso de las matrices, se le puede asignar nombres a sus filas y columnas:
 	x <- matrix(c( 8, 13, 18, 23, 
 	              11, 16, 21, 26, 
 	              14, 19, 24, 29), 
-							nrow = 3, byrow = TRUE)
+              nrow = 3, byrow = TRUE)
 	rownames(x) <- c("A", "B", "C")
 	colnames(x) <- c("col1", "grupo2", "grupo3", "grupo4")
 	x
@@ -704,9 +704,9 @@ En el caso de las matrices, se le puede asignar nombres a sus filas y columnas:
 x <- matrix(c( 8, 13, 18, 23, 
               11, 16, 21, 26, 
               14, 19, 24, 29), 
-						nrow = 3, byrow = TRUE,
-						dimnames = list(Categorias = c("A", "B", "C"), 
-														Grupos = c("grupo1", "grupo2", "grupo3", "grupo4")))
+            nrow = 3, byrow = TRUE,
+            dimnames = list(Categorias = c("A", "B", "C"), 
+                            Grupos = c("grupo1", "grupo2", "grupo3", "grupo4")))
 x
 ```
 	
