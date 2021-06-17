@@ -243,7 +243,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2021-06-04}
+\date{2021-06-17}
 
 \begin{document}
 \maketitle
@@ -3468,7 +3468,7 @@ Error in nueva_f(y = 5): argument "x" is missing, with no default
 \hypertarget{modificar-una-variable-global-desde-el-cuerpo-de-una-funciuxf3n-en-r}{%
 \subsection{Modificar una variable global desde el cuerpo de una función en R}\label{modificar-una-variable-global-desde-el-cuerpo-de-una-funciuxf3n-en-r}}
 
-Hemos dicho que una función recibe información desde el programa principal a través de sus parámetros, y envía información al mismo mediante el valor que devuelve. Sin embargo, es posible alterar el comportamiento para que sea capaz de producir efectos secundarios, por ejemplo, modificando el valor de una variable global, violando así el principio de transparencia referencial. Esto se logra
+Hemos dicho que una función recibe información desde el programa principal a través de sus parámetros, y envía información al mismo mediante el valor que devuelve. Sin embargo, es posible alterar el comportamiento para que sea capaz de producir efectos secundarios, por ejemplo, modificando el valor de una variable global, violando así el principio de transparencia referencial.
 
 Los siguientes ejemplos definen dos funciones con un único argumento, \texttt{x}, pero que en su cuerpo hacen uso de una variable global, \texttt{y}, definida el algoritmo principal (estos casos violan el principio de transparencia referencial, su práctica no es recomendable). La diferencia entre ellas es que \texttt{g1()} modifica el valor de \texttt{y} dentro de la función, pero el valor de \texttt{y} en el ambiente global no es alterado; mientras que \texttt{g2()} cambia el valor de \texttt{y} no sólo localmente, sino también en el ambiente global. Esto se logra mediante el uso del operador \texttt{\textless{}\textless{}-}\footnote{En realidad, el operador \texttt{\textless{}\textless{}-} trabaja de forma más compleja que lo mencionado en esta guía. En programas más elaborados de R, pueden haber ambientes anidados y este operador iniciará una búsqueda desde el ambiente actual hacia los superiores hasta encontrar una variable que se llame \texttt{y} para asignarle un valor. En este caso sencillo, sólo hay dos ambientes, el de la función \texttt{g2} y el global. Por lo tanto el operador \texttt{\textless{}\textless{}-} hace que se le asigne un valor a la variable \texttt{y} en el global.}.
 
@@ -4052,8 +4052,8 @@ En R, no es necesario declarar las matrices con anterioridad y las mismas pueden
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\AttributeTok{data =} \FunctionTok{c}\NormalTok{(}\DecValTok{8}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{26}\NormalTok{, }\DecValTok{29}\NormalTok{), }
-                        \AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{4}\NormalTok{)}
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\AttributeTok{data =} \FunctionTok{c}\NormalTok{(}\DecValTok{8}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{26}\NormalTok{, }\DecValTok{29}\NormalTok{),}
+            \AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{4}\NormalTok{)}
 \NormalTok{x}
 \end{Highlighting}
 \end{Shaded}
@@ -4072,12 +4072,12 @@ Notar que R ubicó a los valores provistos llenando primero la columna 1, luego 
 \NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{( }\DecValTok{8}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{23}\NormalTok{, }
               \DecValTok{11}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{26}\NormalTok{, }
               \DecValTok{14}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{29}\NormalTok{), }
-                        \AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+            \AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
 
 \NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{( }\DecValTok{8}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{23}\NormalTok{, }
               \DecValTok{11}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{26}\NormalTok{, }
               \DecValTok{14}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{29}\NormalTok{), }
-                        \AttributeTok{ncol =} \DecValTok{4}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+            \AttributeTok{ncol =} \DecValTok{4}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4279,7 +4279,7 @@ Dado que en R vamos a asignar valores en la matriz de manera literal, primero la
 \NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{( }\DecValTok{8}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{23}\NormalTok{, }
               \DecValTok{11}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{26}\NormalTok{, }
               \DecValTok{14}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{29}\NormalTok{), }
-                        \AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+            \AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
 \NormalTok{nf }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(x)}
 \NormalTok{nc }\OtherTok{\textless{}{-}} \FunctionTok{ncol}\NormalTok{(x)}
 \NormalTok{traspuesta }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\ConstantTok{NA}\NormalTok{, nc, nf)}
@@ -4288,19 +4288,21 @@ Dado que en R vamos a asignar valores en la matriz de manera literal, primero la
 \NormalTok{        traspuesta[j, i] }\OtherTok{\textless{}{-}}\NormalTok{ x[i, j]}
 \NormalTok{    \}}
 \NormalTok{\}}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"Matriz original"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Matriz original}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
 \NormalTok{x}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"Matriz traspuesta"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Matriz traspuesta}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
 \NormalTok{traspuesta}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-Matriz original     [,1] [,2] [,3] [,4]
+Matriz original
+     [,1] [,2] [,3] [,4]
 [1,]    8   13   18   23
 [2,]   11   16   21   26
 [3,]   14   19   24   29
-Matriz traspuesta     [,1] [,2] [,3]
+Matriz traspuesta
+     [,1] [,2] [,3]
 [1,]    8   11   14
 [2,]   13   16   19
 [3,]   18   21   24
@@ -4530,7 +4532,7 @@ Luego de correr la sentencia anterior, podemos ver que \texttt{mi\_lista} es un 
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.5\linewidth]{images/05_estructuras/estr09} 
+{\centering \includegraphics[width=0.5\linewidth]{images/05_estructuras/lista_rstudio} 
 
 }
 
@@ -4944,7 +4946,7 @@ En el caso de las matrices, se le puede asignar nombres a sus filas y columnas:
 \NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{( }\DecValTok{8}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{23}\NormalTok{, }
               \DecValTok{11}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{26}\NormalTok{, }
               \DecValTok{14}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{29}\NormalTok{), }
-                        \AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+              \AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
 \FunctionTok{rownames}\NormalTok{(x) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"C"}\NormalTok{)}
 \FunctionTok{colnames}\NormalTok{(x) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"col1"}\NormalTok{, }\StringTok{"grupo2"}\NormalTok{, }\StringTok{"grupo3"}\NormalTok{, }\StringTok{"grupo4"}\NormalTok{)}
 \NormalTok{x}
@@ -4966,9 +4968,9 @@ C   14     19     24     29
 \NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{( }\DecValTok{8}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{23}\NormalTok{, }
               \DecValTok{11}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{26}\NormalTok{, }
               \DecValTok{14}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{29}\NormalTok{), }
-                        \AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{,}
-                        \AttributeTok{dimnames =} \FunctionTok{list}\NormalTok{(}\AttributeTok{Categorias =} \FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"C"}\NormalTok{), }
-                                                        \AttributeTok{Grupos =} \FunctionTok{c}\NormalTok{(}\StringTok{"grupo1"}\NormalTok{, }\StringTok{"grupo2"}\NormalTok{, }\StringTok{"grupo3"}\NormalTok{, }\StringTok{"grupo4"}\NormalTok{)))}
+            \AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{,}
+            \AttributeTok{dimnames =} \FunctionTok{list}\NormalTok{(}\AttributeTok{Categorias =} \FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"C"}\NormalTok{), }
+                            \AttributeTok{Grupos =} \FunctionTok{c}\NormalTok{(}\StringTok{"grupo1"}\NormalTok{, }\StringTok{"grupo2"}\NormalTok{, }\StringTok{"grupo3"}\NormalTok{, }\StringTok{"grupo4"}\NormalTok{)))}
 \NormalTok{x}
 \end{Highlighting}
 \end{Shaded}
@@ -5086,6 +5088,203 @@ Página en construcción.
 
 \hypertarget{otros-tuxf3picos}{%
 \chapter{Otros tópicos}\label{otros-tuxf3picos}}
+
+Las reglas que aprendimos para escribir el pseudocódigo nos permiten traducir nuestros algoritmos a cualquier lenguaje de computación de manera muy general y sencilla. Sin embargo, cada lenguaje de programación tiene diseñado su propio conjunto de funciones y estructuras de datos que facilitan algunas tareas. Una vez que hemos incorporado los conceptos básicos de la programación, podemos dedicarnos a aprender las profundidades de un lenguaje en particular.
+
+En este capítulo vamos mencionar algunas cosas útiles sobre R.
+
+\hypertarget{la-consola}{%
+\section{La consola}\label{la-consola}}
+
+Cuando prendemos nuestra computadora nos encontramos con una interfaz gráfica implementada por el sistema operativo para que podamos hacer lo que necesitemos de manera sencilla usando ventanas y menúes, interactuando con el sistema a través del mouse, teclado, micrófono o pantalla táctil. Sin embargo, es posible usar la compu de otra forma, escribiendo comandos especiales en una ventanita, llamada \textbf{consola} que es capaz de interpretarlos para hacer cualquier tipo de actividad, sin utilizar la interfaz gráfica. Años atrás, esta era la única manera disponible de usar la computadora (por ejemplo, con sistema operativo MS-DOS de Windows).
+
+Saber usar la consola es muy útil para automatizar actividades, realizar tareas administrativas, manipular varios archivos u objetos en simultáneo, lanzar a correr proyectos grandes, conectarse de manera remota a un servidor, etc. La primera vez que uno se mete en esto puede ser intimidante, pero no hay que olvidar que ya estamos acostumbrados a usar la consola de R, con lo cual esto de escribir comandos e interpretar respuestas es algo familiar.
+
+Los términos \emph{terminal}, \emph{consola}, \emph{shell} y \emph{línea de comandos} son términos que a veces se usan como sinónimos sin demasiada preocupación, como si fuesen distintas formas de llamar a lo mismo: una ventanita donde puedo escribir comandos y hacer que sucedan cosas en la computadora. Sin embargo, hay pequeñas diferencias entre estos conceptos, que acá tratamos de resumir (aunque ni siquiera entre informáticos hay mucho acuerdo en las definiciones):
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Shell} (intérprete de línea de comandos): es software, es un programa que corre otros programas, procesa los comandos que recibe y devuelve resultados Ejemplo: Bash (la más común en sistemas Linux), sh, PowerShell, etc.
+\item
+  \textbf{Terminal}: un programa que propicia la transferencia de input/output entre el usuario y la shell. No ejecuta comandos, pero recibe los comandos que el shell va a procesar. Ejemplos: Command prompt, guake, gnome-terminal, etc. Antiguamente, se trataba de las múltiples estaciones con un monitor y un teclado que una gran computadora tenía para ser usada por varias personas.
+\item
+  \textbf{Consola}: un tipo particular de terminal, con una ventana escribir inputs y leer outputs. Históricamente, se trataba de un panel físico (consola) con controles. Siri o Cortana podrían considerarse terminales, pero no son consolas, ya que no hay que escribir para mandar comandos. Terminal y consola se usan prácticamente como sinónimos.
+\end{itemize}
+
+Para abrir una terminal en Linux se puede usar el atajo \texttt{ctrl\ +\ alt\ +\ t} y en Windows se puede escribir \texttt{cmd} en Inicio. Si bien hay muchísimos comandos para utilizar, acá vamos a mencionar algunos como ejemplo:
+
+\begin{itemize}
+\tightlist
+\item
+  Mostrar en qué carpeta (directorio) de la compu estamos situados: \emph{pwd} en Linux o \emph{cd} en Windows
+\item
+  Listar todos los archivos y carpetas que tenemos en el directorio actual: \emph{ls}
+\item
+  Entrar a una subcarpeta desde el directorio en el que estamos: \emph{cd nombresubcarpeta}
+\item
+  Ver la ayuda de los comandos: \emph{help}
+\item
+  Limpiar la consola: \emph{cls} en Windows o \emph{clear} en Linux
+\item
+  Cerrar la consola: \emph{exit}
+\end{itemize}
+
+Desde la consola podemos correr nuestros programas de R. Hacer esto es necesario cuando tenemos que programar alguna tarea de gran escala que se ejecutará de manera remota en algún servidor o cuando necesitamos encapsular nuestro programa para que otros lo puedan correr sin siquiera saber nada de R.
+
+Veamos un ejemplo. En mi carpeta \emph{Documents} tengo guardado el siguiente script, en un archivo llamado \emph{mi\_programa.R} que tiene este contenido:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{, }\AttributeTok{nrow =} \DecValTok{3}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \DecValTok{3}
+\NormalTok{d }\OtherTok{\textless{}{-}} \DecValTok{5}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"                  RESULTADOS              }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"El valor de b es "}\NormalTok{, b, }\StringTok{", mientras que d vale "}\NormalTok{, d, }\StringTok{"}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{, }\AttributeTok{sep =} \StringTok{""}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Esta es la matriz a:}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+Para ejecutar este programa desde la terminal, sin abrir RStudio o R, primero me dirijo hasta dicha carpeta con el comando \emph{cd} y luego ejecuto el programa con el comando \emph{Rscript}, que le indica a la computadora que el contenido del archivo \emph{mi\_programa.R} debe ser evaluado por R. Esto es lo que se observa en la consola
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/07_otros/consola} 
+
+}
+
+\caption{Correr el programa de R desde la consola en Linux}\label{fig:unnamed-chunk-136}
+\end{figure}
+
+Todo lo que en el programa estaba encerrado en una llamada a la función \texttt{cat()} es lo que se mostrará como mensajes en la consola.
+
+Para que lo anterior funcione en Windows, hay que indicarle al sistema operativo que \texttt{Rscript} es un comando que se instaló con R y que lo puede encontrar en la carpeta de los archivos del programa R. Esto hay que hacerlo una sola vez editando las \textbf{variables de entorno} de Windows, que son cadenas de texto que contienen información acerca del entorno para determinar, por ejemplo, dónde buscar algunos archivos. Para hacerlo hay que seguir estos pasos:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Fijarse en qué carpeta de la compu está instaldo R. Abriendo el explorador de archivos, seguramente lo encontrás si hacés clic en ``Este equipo \textgreater{} Windows (C:) \textgreater{} Archivos de programa \textgreater{} R \textgreater{} R-version \textgreater{} bin''. En esta carpeta tiene que haber dos archivos, llamados ``R'' y ``Rscript''. Si es así, hacé clic en la barra de navegación y copia todo ese camino. Por ejemplo, deberías copiar algo como ``C:\textbackslash Program Files\textbackslash R\textbackslash R-3.6.0\textbackslash bin''.
+\item
+  En Inicio, escribir ``Entorno'' y hacer clic en la opción ``Editar las variables de entorno del sistema (panel de control)''.
+\item
+  Hacer clic en el botón ``Variables de entorno''.
+\item
+  En el cuadro ``Variables del sistema'', hacer clic en la variable ``Path'' y luego en ``Editar''.
+\item
+  Hacer clic en ``Nuevo'', pegar la dirección ``C:\textbackslash Program Files\textbackslash R\textbackslash R-3.6.0\textbackslash bin'' y dar Enter. Luego, hacer clic en ``Aceptar'' tres veces para cerrar todo.
+\item
+  ¡Listo! Ya podés correr tus programas desde la consola con el comando \emph{Rscript}.
+\end{enumerate}
+
+Lo bueno de esto es que si corremos nuestros programas desde la consola, podemos hacer cosas más interactivas. Por ejemplo, para todo lo que pusimos \texttt{LEER} en nuestros pseudocódigo, ahora podemos hacer verdaderamente que la persona usuaria del programa provea los valores correspondientes.
+
+Veamos algunos ejemplos.
+
+\textbf{Práctica 2, Ejercicio 1: paridad de un número}
+
+La función \texttt{scan()} es la que permite \emph{escanear} o \emph{leer} valores que los usuarios ingresen por la consola. Entre sus argumentos tenemos a uno llamado \texttt{file}, que si lo seteamos como \texttt{file\ =\ "stdin"} indica que vamos a leer información desde la consola. Otros argumentos que podemos elegir son \texttt{n\ =\ 1}, que indica que sólo leeremos un valor y \texttt{quite\ =\ TRUE} que le pide a esta función que no emita ningún mensaje. Por ejemplo, si el siguiente código se guarda en el archivo ´paridad.R´ y es ejecutado desde la consola, le va a pedir a la persona que lo esté usando que indique cualquier número y luego le va a comunicar si es par o impar:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"           PARIDAD DE UN NÚMERO           }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Ingrese un número entero y presione enter:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{n }\OtherTok{\textless{}{-}} \FunctionTok{scan}\NormalTok{(}\AttributeTok{file =} \StringTok{"stdin"}\NormalTok{, }\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
+\ControlFlowTok{if}\NormalTok{ (n }\SpecialCharTok{\%\%} \DecValTok{2} \SpecialCharTok{==} \DecValTok{0}\NormalTok{) \{}
+    \FunctionTok{cat}\NormalTok{(n, }\StringTok{"es par}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+    \FunctionTok{cat}\NormalTok{(n, }\StringTok{"es impar}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Esto es lo que ocurre en la terminal:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/07_otros/consola2} 
+
+}
+
+\caption{Programa paridad.R}\label{fig:unnamed-chunk-138}
+\end{figure}
+
+\textbf{Práctica 2, Ejercicio 3: salario}
+
+En este ejemplo, tenemos que leer tres valores, dos de lo cuales son de tipo caracter. Para poder leer desde la consola un valor de tipo caracter tenemos que indicárselo a la función \texttt{scan()} con el argumento \texttt{what\ =\ ""}. Si no agregamos este argumento, sólo se aceptan números. Si el siguiente código se guarda en el archivo ´salario.R´ y se lo ejecuta desde la consola, produce el resultado que se muestra en la imagen.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"           CÁLCULO DEL SALARIO            }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Ingrese la cantidad de horas trabajadas:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{horas }\OtherTok{\textless{}{-}} \FunctionTok{scan}\NormalTok{(}\StringTok{"stdin"}\NormalTok{, }\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Ingrese el día de la semana (DOM LUN MAR MIE JUE VIE SAB):}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{dia }\OtherTok{\textless{}{-}} \FunctionTok{scan}\NormalTok{(}\StringTok{"stdin"}\NormalTok{, }\AttributeTok{what =} \StringTok{""}\NormalTok{, }\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Ingrese el turno (M T N):}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{turno }\OtherTok{\textless{}{-}} \FunctionTok{scan}\NormalTok{(}\StringTok{"stdin"}\NormalTok{, }\AttributeTok{what =} \StringTok{""}\NormalTok{, }\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
+
+\NormalTok{salario }\OtherTok{\textless{}{-}}\NormalTok{ horas }\SpecialCharTok{*} \DecValTok{400}
+\ControlFlowTok{if}\NormalTok{ (turno }\SpecialCharTok{==} \StringTok{"N"}\NormalTok{) \{}
+\NormalTok{    salario }\OtherTok{\textless{}{-}}\NormalTok{ salario }\SpecialCharTok{+}\NormalTok{ horas }\SpecialCharTok{*} \DecValTok{200}
+\NormalTok{\}}
+\ControlFlowTok{if}\NormalTok{ (turno }\SpecialCharTok{==} \StringTok{"DOM"}\NormalTok{) \{}
+\NormalTok{    salario }\OtherTok{\textless{}{-}}\NormalTok{ salario }\SpecialCharTok{+}\NormalTok{ horas }\SpecialCharTok{*} \DecValTok{100}
+\NormalTok{\}}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{El salario que se debe abonar es $"}\NormalTok{, salario, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\AttributeTok{sep =} \StringTok{""}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/07_otros/consola3} 
+
+}
+
+\caption{Programa salario.R}\label{fig:unnamed-chunk-140}
+\end{figure}
+
+\textbf{Práctica 4, Ejercicio 1: suma de elementos de un vector}
+
+En este ejercicio escribimos una función para sumar los elementos de un vector.
+Vamos a ver cómo hacer para que un usuario nos diga cuáles son los valores que quiere sumar desde la consola. Primero preguntamos cuántos números se desean sumar y luego los recibimos en el vector \texttt{v}. Si el siguiente código queda guardado en el archivo ´suma.R´ y se lo corre desde la consola, produce el resultado que se muestra en la imagen.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"              SUMA DE NÚMEROS             }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"¿Cuántos números va a ingresar?}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{n }\OtherTok{\textless{}{-}} \FunctionTok{scan}\NormalTok{(}\StringTok{"stdin"}\NormalTok{, }\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Ingrese los números, presionando Enter luego de cada uno:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{v }\OtherTok{\textless{}{-}} \FunctionTok{scan}\NormalTok{(}\StringTok{"stdin"}\NormalTok{, }\AttributeTok{n =}\NormalTok{ n, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{suma }\OtherTok{\textless{}{-}} \DecValTok{0}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(v)) \{}
+\NormalTok{    suma }\OtherTok{\textless{}{-}}\NormalTok{ suma }\SpecialCharTok{+}\NormalTok{ v[i]}
+\NormalTok{\}}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{La suma de los números es:"}\NormalTok{, suma, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/07_otros/consola4} 
+
+}
+
+\caption{Programa suma.R}\label{fig:unnamed-chunk-143}
+\end{figure}
+
+\hypertarget{otros}{%
+\section{Otros}\label{otros}}
+
+Otros tópicos serán agregados aquí.
 
 \hypertarget{bibliografuxeda}{%
 \chapter*{Bibliografía}\label{bibliografuxeda}}

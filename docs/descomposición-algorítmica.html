@@ -847,7 +847,7 @@ Tomemos el primer ejemplo de este capítulo:</p>
 <h3>
 <span class="header-section-number">4.7.4</span> Modificar una variable global desde el cuerpo de una función en R<a class="anchor" aria-label="anchor" href="#modificar-una-variable-global-desde-el-cuerpo-de-una-funci%C3%B3n-en-r"><i class="fas fa-link"></i></a>
 </h3>
-<p>Hemos dicho que una función recibe información desde el programa principal a través de sus parámetros, y envía información al mismo mediante el valor que devuelve. Sin embargo, es posible alterar el comportamiento para que sea capaz de producir efectos secundarios, por ejemplo, modificando el valor de una variable global, violando así el principio de transparencia referencial. Esto se logra</p>
+<p>Hemos dicho que una función recibe información desde el programa principal a través de sus parámetros, y envía información al mismo mediante el valor que devuelve. Sin embargo, es posible alterar el comportamiento para que sea capaz de producir efectos secundarios, por ejemplo, modificando el valor de una variable global, violando así el principio de transparencia referencial.</p>
 <p>Los siguientes ejemplos definen dos funciones con un único argumento, <code>x</code>, pero que en su cuerpo hacen uso de una variable global, <code>y</code>, definida el algoritmo principal (estos casos violan el principio de transparencia referencial, su práctica no es recomendable). La diferencia entre ellas es que <code>g1()</code> modifica el valor de <code>y</code> dentro de la función, pero el valor de <code>y</code> en el ambiente global no es alterado; mientras que <code>g2()</code> cambia el valor de <code>y</code> no sólo localmente, sino también en el ambiente global. Esto se logra mediante el uso del operador <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;&lt;-</a></code><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En realidad, el operador &lt;code&gt;&amp;lt;&amp;lt;-&lt;/code&gt; trabaja de forma más compleja que lo mencionado en esta guía. En programas más elaborados de R, pueden haber ambientes anidados y este operador iniciará una búsqueda desde el ambiente actual hacia los superiores hasta encontrar una variable que se llame &lt;code&gt;y&lt;/code&gt; para asignarle un valor. En este caso sencillo, sólo hay dos ambientes, el de la función &lt;code&gt;g2&lt;/code&gt; y el global. Por lo tanto el operador &lt;code&gt;&amp;lt;&amp;lt;-&lt;/code&gt; hace que se le asigne un valor a la variable &lt;code&gt;y&lt;/code&gt; en el global.&lt;/p&gt;"><sup>18</sup></a>.</p>
 <div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># ---------------------------------------------------------------</span>
@@ -1083,7 +1083,7 @@ FIN</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-06-04.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-06-17.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

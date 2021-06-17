@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.6.4)  4 JUN 2021 21:46
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.6.16)  17 JUN 2021 20:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **introprog2021.tex
 (./introprog2021.tex
-LaTeX2e <2021-06-01>
+LaTeX2e <2021-06-01> patch level 1
 L3 programming layer <2021-06-01> (/home/marcos/.TinyTeX/texmf-dist/tex/latex/b
 ase/book.cls
 Document Class: book 2021/02/12 v1.4n Standard LaTeX document class
@@ -231,7 +231,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2021-02-27 v7.00k Hypertext links for LaTeX
+Package: hyperref 2021-06-07 v7.00m Hypertext links for LaTeX
 (/home/marcos/.TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -256,9 +256,9 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 \Hy@linkcounter=\count289
 \Hy@pagecounter=\count290
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2021-02-27 v7.00k Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2021-06-07 v7.00m Hyperref: PDFDocEncoding definition (HO)
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
-File: hyperref-langpatches.def 2021-02-27 v7.00k Hyperref: patches for babel la
+File: hyperref-langpatches.def 2021-06-07 v7.00m Hyperref: patches for babel la
 nguages
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
@@ -267,7 +267,7 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count291
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2021-02-27 v7.00k Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
 )
 Package hyperref Info: Option `unicode' set `true' on input line 4073.
 Package hyperref Info: Hyper figures OFF on input line 4192.
@@ -293,15 +293,15 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 \Fld@menulength=\count293
 \Field@Width=\dimen154
 \Fld@charsize=\dimen155
-Package hyperref Info: Hyper figures OFF on input line 6075.
-Package hyperref Info: Link nesting OFF on input line 6080.
-Package hyperref Info: Hyper index ON on input line 6083.
-Package hyperref Info: backreferencing OFF on input line 6090.
-Package hyperref Info: Link coloring OFF on input line 6095.
-Package hyperref Info: Link coloring with OCG OFF on input line 6100.
-Package hyperref Info: PDF/A mode OFF on input line 6105.
-LaTeX Info: Redefining \ref on input line 6145.
-LaTeX Info: Redefining \pageref on input line 6149.
+Package hyperref Info: Hyper figures OFF on input line 6076.
+Package hyperref Info: Link nesting OFF on input line 6081.
+Package hyperref Info: Hyper index ON on input line 6084.
+Package hyperref Info: backreferencing OFF on input line 6091.
+Package hyperref Info: Link coloring OFF on input line 6096.
+Package hyperref Info: Link coloring with OCG OFF on input line 6101.
+Package hyperref Info: PDF/A mode OFF on input line 6106.
+LaTeX Info: Redefining \ref on input line 6146.
+LaTeX Info: Redefining \pageref on input line 6150.
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
@@ -312,7 +312,7 @@ package with kernel methods
 )
 Package hyperref Info: Driver (autodetected): hxetex.
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.def
-File: hxetex.def 2021-02-27 v7.00k Hyperref driver for XeTeX
+File: hxetex.def 2021-06-07 v7.00m Hyperref driver for XeTeX
 (/home/marcos/.TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
@@ -1557,8 +1557,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [57]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 3313.
-LaTeX Info: Redefining \% on input line 3313.
+LaTeX Info: Redefining \. on input line 3316.
+LaTeX Info: Redefining \% on input line 3316.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1706,79 +1706,78 @@ LaTeX Info: Redefining \% on input line 4273.
 [74]
 Underfull \vbox (badness 2680) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 4308.
-LaTeX Info: Redefining \% on input line 4308.
+LaTeX Info: Redefining \. on input line 4310.
+LaTeX Info: Redefining \% on input line 4310.
 [75]
-LaTeX Info: Redefining \. on input line 4369.
-LaTeX Info: Redefining \% on input line 4369.
+LaTeX Info: Redefining \. on input line 4371.
+LaTeX Info: Redefining \% on input line 4371.
 [76]
-Underfull \vbox (badness 10000) detected at line 4426
- []
+Underfull \vbox (badness 5388) has occurred while \output is active []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 4426.
-LaTeX Info: Redefining \% on input line 4426.
+LaTeX Info: Redefining \. on input line 4421.
+LaTeX Info: Redefining \% on input line 4421.
 [77]
-LaTeX Info: Redefining \. on input line 4485.
-LaTeX Info: Redefining \% on input line 4485.
+LaTeX Info: Redefining \. on input line 4478.
+LaTeX Info: Redefining \% on input line 4478.
 [78]
 File: images/05_estructuras/estr09.png Graphic file (type bmp)
 <images/05_estructuras/estr09.png>
-File: images/05_estructuras/estr09.png Graphic file (type bmp)
-<images/05_estructuras/estr09.png>
+File: images/05_estructuras/lista_rstudio.png Graphic file (type bmp)
+<images/05_estructuras/lista_rstudio.png>
+LaTeX Info: Redefining \. on input line 4543.
+LaTeX Info: Redefining \% on input line 4543.
+[79]
 File: images/05_estructuras/estr10.png Graphic file (type bmp)
 <images/05_estructuras/estr10.png>
-LaTeX Info: Redefining \. on input line 4551.
-LaTeX Info: Redefining \% on input line 4551.
-[79]
-LaTeX Info: Redefining \. on input line 4551.
-LaTeX Info: Redefining \% on input line 4551.
+LaTeX Info: Redefining \. on input line 4605.
+LaTeX Info: Redefining \% on input line 4605.
 [80]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 4666.
-LaTeX Info: Redefining \% on input line 4666.
+LaTeX Info: Redefining \. on input line 4689.
+LaTeX Info: Redefining \% on input line 4689.
 [81]
-LaTeX Info: Redefining \. on input line 4722.
-LaTeX Info: Redefining \% on input line 4722.
-[82]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 4755
+ []
 
-LaTeX Info: Redefining \. on input line 4823.
-LaTeX Info: Redefining \% on input line 4823.
+
+Overfull \vbox (1.171pt too high) detected at line 4755
+ []
+
+LaTeX Info: Redefining \. on input line 4755.
+LaTeX Info: Redefining \% on input line 4755.
+[82]
+LaTeX Info: Redefining \. on input line 4846.
+LaTeX Info: Redefining \% on input line 4846.
 [83]
-LaTeX Info: Redefining \. on input line 4931.
-LaTeX Info: Redefining \% on input line 4931.
+LaTeX Info: Redefining \. on input line 4964.
+LaTeX Info: Redefining \% on input line 4964.
 [84]
-Overfull \hbox (638.766pt too wide) in paragraph at lines 4986--4986
+Overfull \hbox (638.766pt too wide) in paragraph at lines 4988--4988
 []\TU/lmtt/m/n/10 En este último ejemplo, se han elegido arbitrariamente los no
 mbres `Categorias` y `Grupos` para llamar al conjunto completo de las filas y d
 e las columnas, respectivamente. Esos nombres pueden ser cambiados por otros.[]
  
  []
 
-LaTeX Info: Redefining \. on input line 5033.
-LaTeX Info: Redefining \% on input line 5033.
+LaTeX Info: Redefining \. on input line 5051.
+LaTeX Info: Redefining \% on input line 5051.
 [85]
-LaTeX Info: Redefining \. on input line 5083.
-LaTeX Info: Redefining \% on input line 5083.
+LaTeX Info: Redefining \. on input line 5085.
+LaTeX Info: Redefining \% on input line 5085.
 [86]
 Unidad 6.
-LaTeX Info: Redefining \. on input line 5088.
-LaTeX Info: Redefining \% on input line 5088.
+LaTeX Info: Redefining \. on input line 5090.
+LaTeX Info: Redefining \% on input line 5090.
 [87
 
 ]
-LaTeX Info: Redefining \. on input line 5088.
-LaTeX Info: Redefining \% on input line 5088.
+LaTeX Info: Redefining \. on input line 5090.
+LaTeX Info: Redefining \% on input line 5090.
 [88
 
 ]
 Unidad 7.
-LaTeX Info: Redefining \. on input line 5091.
-LaTeX Info: Redefining \% on input line 5091.
+LaTeX Info: Redefining \. on input line 5130.
+LaTeX Info: Redefining \% on input line 5130.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1788,8 +1787,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [89]
-LaTeX Info: Redefining \. on input line 5091.
-LaTeX Info: Redefining \% on input line 5091.
+File: images/07_otros/consola.png Graphic file (type bmp)
+<images/07_otros/consola.png>
+LaTeX Info: Redefining \. on input line 5174.
+LaTeX Info: Redefining \% on input line 5174.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1798,11 +1799,68 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
-[90
+[90]
+File: images/07_otros/consola2.png Graphic file (type bmp)
+<images/07_otros/consola2.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 5219.
+LaTeX Info: Redefining \% on input line 5219.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[91]
+File: images/07_otros/consola3.png Graphic file (type bmp)
+<images/07_otros/consola3.png>
+
+Overfull \vbox (0.61963pt too high) detected at line 5273
+ []
+
+LaTeX Info: Redefining \. on input line 5273.
+LaTeX Info: Redefining \% on input line 5273.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[92]
+File: images/07_otros/consola4.png Graphic file (type bmp)
+<images/07_otros/consola4.png>
+LaTeX Info: Redefining \. on input line 5290.
+LaTeX Info: Redefining \% on input line 5290.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[93]
+LaTeX Info: Redefining \. on input line 5290.
+LaTeX Info: Redefining \% on input line 5290.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[94
 
 ]
-LaTeX Info: Redefining \. on input line 5152.
-LaTeX Info: Redefining \% on input line 5152.
+LaTeX Info: Redefining \. on input line 5351.
+LaTeX Info: Redefining \% on input line 5351.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1811,20 +1869,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
-[91] (./introprog2021.aux
+[95] (./introprog2021.aux
 LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
 )
 Package rerunfilecheck Info: File `introprog2021.out' has not changed.
-(rerunfilecheck)             Checksum: 4E67F2D2B98E3918195A7A954993C935;6031.
+(rerunfilecheck)             Checksum: 36095F8DE1AB651171B7ECD5408A0FFE;6219.
  ) 
 Here is how much of TeX's memory you used:
- 21092 strings out of 478475
- 376255 string characters out of 5858957
- 897789 words of memory out of 5000000
- 41028 multiletter control sequences out of 15000+600000
+ 21193 strings out of 478430
+ 379480 string characters out of 5857671
+ 899478 words of memory out of 5000000
+ 41168 multiletter control sequences out of 15000+600000
  409961 words of font info for 90 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  87i,12n,120p,1547b,690s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on introprog2021.pdf (91 pages).
+Output written on introprog2021.pdf (95 pages).
