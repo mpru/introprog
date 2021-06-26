@@ -159,13 +159,13 @@ Campo 8 - Precio: precio del pasaje, tipo numérico</code></pre>
 <li>
 <p><strong>Creación de un archivo</strong></p>
 <p>Para que un archivo pueda ser utilizado, antes tiene que exister, obviamente. Si bien la creación de un nuevo archivo es una tarea propia del sistema operativo, la representaremos en el pseudocódigo de la siguiente forma, donde <code>nombre</code> puede ser reemplazado por cualquier nombre que deseemos darle al archivo:</p>
-<pre class="text"><code>  CREAR ARCHIVO (nombre)</code></pre>
+<pre><code>  CREAR ARCHIVO (nombre)</code></pre>
 <p>Una vez que el archivo fue creado y existe, se pueden hacer con él las restantes operaciones. En la mayoría de las aplicaciones que veremos, tendremos archivos que han sido creados con anterioridad y ya tienen registros, por lo cual usaremos pocas veces esta acción.</p>
 </li>
 <li>
 <p><strong>Apertura de un archivo</strong></p>
 <p>Para que un programa pueda operar sobre un archivo, la primera acción que debe realizar es la <strong>apertura</strong> del mismo, que incluye la identificación del archivo a utilizar y el modo (lectura o escritura). Esto hace que el sistema operativo establezca una <em>conexión</em> con el archivo que mientras se mantenga activa permitirá la lectura y escritura de registros en el mismo. En pseudocódigo lo indicaremos así:</p>
-<pre class="text"><code>ABRIR ARCHIVO (nombre) secuencial, lectura
+<pre><code>ABRIR ARCHIVO (nombre) secuencial, lectura
 ABRIR ARCHIVO (nombre) secuencial, escritura</code></pre>
 </li>
 <li>
@@ -236,7 +236,7 @@ FIN PARA</code></pre>
 </ul>
 <p>Como ilustración, se muestran los primeros registros del archivo:</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-137"></span>
+<span id="fig:unnamed-chunk-135"></span>
 <img src="images/06_archivos/arch00.png" alt="Primeros registros del archivo reservas.txt" width="30%"><p class="caption">
 Figura 6.1: Primeros registros del archivo reservas.txt
 </p>
@@ -286,7 +286,7 @@ Figura 6.1: Primeros registros del archivo reservas.txt
 </tbody>
 </table>
 </li>
-<li><p>Determinar el total de pernoctaciones en el hotel durante el 2019. Las pernoctaciones son las cantidades de noches que los pasajeros se alojan en el establecimiento y es algo que cada hotel debe informar a la secretaría de turismo de la municipalidad.</p></li>
+<li><p>Determinar el total de pernoctaciones en el hotel durante el 2019, es decir, la cantidad total de noches que los huéspedes se alojaron en el establecimiento (información que cada hotel debe comunicar a la secretaría de turismo de la municipalidad).</p></li>
 <li><p>Determinar cuál fue el mes de mayor cantidad de reservas.</p></li>
 <li><p>Determinar para cada tipo de habitación el mes con menor número de reservas.</p></li>
 </ol>
@@ -390,7 +390,7 @@ ESCRIBIR "El archivo cuenta con" NFILA(datos) "registros de" NCOL(datos) "campos
 <p>Una vez leído el archivo, vamos a continuar con los puntos pedidos. El primero de ellos pedía generar un cuadro con el conteo de la cantidad de reservas en cada mes y según el tipo de habitación, incluyendo los totales marginales y el total general. Por otro lado, para el punto b necesitamos sumar el número de noches en cada reserva. Será necesario, entonces, recorrer todos los registros guardados en el dataset <code>datos</code> e ir realizando los conteos correspondientes.</p>
 <p>El paso más importante es diseñar todas las estructuras de datos que necesitaremos para almacenar esta información. Una buena idea es agarrar papel y lápiz y hacer un bosquejo, por ejemplo, como el que sigue:</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-142"></span>
+<span id="fig:unnamed-chunk-140"></span>
 <img src="images/06_archivos/arch01.png" alt="Bosquejo de las estructuras de datos necesarias" width="100%"><p class="caption">
 Figura 6.2: Bosquejo de las estructuras de datos necesarias
 </p>
@@ -493,7 +493,7 @@ FIN PARA</code></pre>
 <span class="header-section-number">6.4.3</span> a) Mostrar el cuadro<a class="anchor" aria-label="anchor" href="#a-mostrar-el-cuadro"><i class="fas fa-link"></i></a>
 </h3>
 <p>Tenemos que anexarle a <code>tabla</code> los totales fila, los totales columna, el total general y los nombres de fila y columna para poder completar el pedido. Vamos a empezar por definir vectores de tipo caracter que tengan todos los meses del año y los tipos de habitación, para usarlos como nombres de filas y columnas más adelante:</p>
-<pre class="text"><code># Pseudocódigo
+<pre><code># Pseudocódigo
 VARIABLE caracter tipos(3), meses(12)
 tipos[1] &lt;- "Simple"
 tipos[2] &lt;- "Doble"
@@ -613,7 +613,7 @@ Mes          Simple Doble Triple Total
 <span class="header-section-number">6.4.4</span> b) Determinar el total de pernoctaciones en el hotel durante el 2019<a class="anchor" aria-label="anchor" href="#b-determinar-el-total-de-pernoctaciones-en-el-hotel-durante-el-2019"><i class="fas fa-link"></i></a>
 </h3>
 <p>Como dijimos antes, el total de pernoctaciones es la suma de las cantidades de noches de cada reserva y a esto ya lo calculamos en la variable <code>pernoc</code> mientras recorrimos todos los registros del dataset. Solamente tenemos que mostrar el resultado:</p>
-<pre class="text"><code># Pseudocódigo
+<pre><code># Pseudocódigo
 ESCRIBIR "El número total de pernoctaciones en el hotel durante el 2019 fue", pernoc</code></pre>
 <div class="sourceCode" id="cb437"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># En R</span>
@@ -626,7 +626,7 @@ ESCRIBIR "El número total de pernoctaciones en el hotel durante el 2019 fue", p
 </h3>
 <p>Para lograr este objetivo tenemos que ver cuál es el valor máximo en el vector <code>total_fila</code>. Dado que el mismo tiene la cantidad total de reservas hecha en cada mes, saber en qué posición de este vector se encuentra el máximo nos permitirá determinar de qué mes se trata.</p>
 <p>Si prestamos atención nos daremos cuenta que este tipo de problema ya lo hemos resuelto en la práctica 4, en la cual hemos escrito una función llamada <code>maximo()</code> que devolvía como resultado tanto el valor máximo en un vector como su posición en el mismo. Entonces, podemos invocar a dicho subalgoritmo:</p>
-<pre class="text"><code># Pseudocódigo
+<pre><code># Pseudocódigo
 res &lt;- maximo(total_fila)
 ESCRIBIR "El mes de mayor cantidad de reservas fue", meses[res[2]], "con", res[1], "reservas."</code></pre>
 <p>Si recordamos la definición de la función <code>maximo()</code>, veremos que el resultado arrojado, <code>res</code>, es un vector de 2 elementos: el primero, <code>res[1]</code>, tiene el valor del máximo, mientras que el segundo, <code>res[2]</code>, tiene el valor de su posición. Por ejemplo, si <code>res[2]</code> vale 7, significa que el máximo está en la posición 7, es decir, en el mes de julio. Como <code>meses</code> es un vector que guarda todos los nombres de los meses, indicar <code>meses[res[2]]</code> sería equivalente a hacer <code>meses[7]</code> que devuelve el valor <code>Julio</code>. De esta manera se pudo construir el mensaje mostrado.</p>
@@ -778,16 +778,16 @@ FIN</code></pre>
 <span class="fu"><a href="https://rdrr.io/r/base/dimnames.html">dimnames</a></span><span class="op">(</span><span class="va">cuadro</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>Mes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">meses</span>, <span class="st">"Total"</span><span class="op">)</span>, 
                          <span class="st">"Tipo de habitación"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">tipos</span>, <span class="st">"Total"</span><span class="op">)</span> <span class="op">)</span>
 <span class="co"># Mostrar el resultado</span>
-<span class="st">"Número de reservas durante el 2019 según mes y tipo de habitación"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Número de reservas durante el 2019 según mes y tipo de habitación\n"</span><span class="op">)</span>
 <span class="va">cuadro</span>
 
 <span class="co"># b) Determinar el total de pernoctaciones en el hotel durante el 2019</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El número total de pernoctaciones en el hotel durante el 2019 fue"</span>, <span class="va">pernoc</span>, <span class="st">"\n"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nEl número total de pernoctaciones en el hotel durante el 2019 fue"</span>, <span class="va">pernoc</span>, <span class="st">"\n\n"</span><span class="op">)</span>
 
 <span class="co"># c) Determinar cuál fue el mes de mayor cantidad de reservas</span>
 <span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">maximo</span><span class="op">(</span><span class="va">total_fila</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El mes de mayor cantidad de reservas fue"</span>, <span class="va">meses</span><span class="op">[</span><span class="va">res</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, <span class="st">"con"</span>, 
-    <span class="va">res</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="st">"reservas.\n"</span><span class="op">)</span>
+    <span class="va">res</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="st">"reservas.\n\n"</span><span class="op">)</span>
 
 <span class="co"># d) Determinar para cada tipo de habitación el mes con menor número de reservas</span>
 <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span> <span class="op">{</span>
@@ -796,7 +796,7 @@ FIN</code></pre>
         <span class="st">"el mes con menor\n     número de reservas fue"</span>, 
         <span class="va">meses</span><span class="op">[</span><span class="va">res</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, <span class="st">"con"</span>, <span class="va">res</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="st">"reservas.\n"</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
-<pre><code>[1] "Número de reservas durante el 2019 según mes y tipo de habitación"
+<pre><code>Número de reservas durante el 2019 según mes y tipo de habitación
             Tipo de habitación
 Mes          Simple Doble Triple Total
   Enero         200   129     72   401
@@ -812,14 +812,81 @@ Mes          Simple Doble Triple Total
   Noviembre      99    68     36   203
   Diciembre     200   119     66   385
   Total        1975  1172    706  3853
+
 El número total de pernoctaciones en el hotel durante el 2019 fue 19323 
+
 El mes de mayor cantidad de reservas fue Julio con 589 reservas.
+
 Para las habitaciones de tipo Simple el mes con menor
      número de reservas fue Noviembre con 99 reservas.
 Para las habitaciones de tipo Doble el mes con menor
      número de reservas fue Abril con 61 reservas.
 Para las habitaciones de tipo Triple el mes con menor
      número de reservas fue Marzo con 35 reservas.</code></pre>
+</div>
+</div>
+<div id="creación-de-archivos-y-escritura-de-resultados" class="section level2" number="6.5">
+<h2>
+<span class="header-section-number">6.5</span> Creación de archivos y escritura de resultados<a class="anchor" aria-label="anchor" href="#creaci%C3%B3n-de-archivos-y-escritura-de-resultados"><i class="fas fa-link"></i></a>
+</h2>
+<p>Anteriormente hemos mencionado que cuando trabajamos con archivos podemos realizar acciones tanto de lectura como de escritura, aunque hasta el momento nos hemos limitado a leer registros de un archivo. En este apartado presentamos cómo crear un archivo de texto desde R, de manera que pueda utilizarse para escribir y guardar allí los resultados obtenidos.</p>
+<div id="crear-un-archivo-para-guardar-resultados" class="section level3" number="6.5.1">
+<h3>
+<span class="header-section-number">6.5.1</span> Crear un archivo para guardar resultados<a class="anchor" aria-label="anchor" href="#crear-un-archivo-para-guardar-resultados"><i class="fas fa-link"></i></a>
+</h3>
+<p>La función <code><a href="https://rdrr.io/r/base/sink.html">sink()</a></code> permite escribir en un archivo de texto todos los resultados que habitualmente vemos en la consola de R. Sus argumentos son:</p>
+<ul>
+<li>
+<code>file</code>: nombre del archivo, si no existe será creado. Se guarda en el directorio de trabajo actual, a menos que indiquemos aquí la ruta completa hacia otra carpeta.</li>
+<li>
+<code>append</code>: si el archivo ya existía, por default lo sobreescribe (borra lo anterior), a menos que indiquemos <code>append = TRUE</code> para que agregue nuevas línea sin borrar nada.</li>
+<li>
+<code>split</code>: por default mientras la conexión al archivo está activa, los resultados que enviamos al mismo no se muestran en la consola de R, a menos que indiquemos <code>split = TRUE</code>, en cuyo caso sucederán ambas cosas: los resultados serán escritos en el archivo y se verán en la consola.</li>
+</ul>
+<p>Cuando se desea cerrar la conexión al archivo, se debe correr <code><a href="https://rdrr.io/r/base/sink.html">sink()</a></code> sin ningún argumento. Veamos un ejemplo:</p>
+<div class="sourceCode" id="cb455"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
+<span class="va">b</span> <span class="op">&lt;-</span> <span class="fl">3</span>
+<span class="va">d</span> <span class="op">&lt;-</span> <span class="fl">5</span>
+<span class="fu"><a href="https://rdrr.io/r/base/sink.html">sink</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"salida.txt"</span>, append <span class="op">=</span> <span class="cn">TRUE</span>, split <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"            ARCHIVO DE RESULTADOS         \n"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n\n"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El valor de b es"</span>, <span class="va">b</span>, <span class="st">", mientras que d vale "</span>, <span class="va">d</span>, <span class="st">"\n\n"</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Esta es la matriz a:\n\n"</span><span class="op">)</span>
+<span class="va">a</span>
+<span class="fu"><a href="https://rdrr.io/r/base/sink.html">sink</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>Así luce el archivo <code>salida.txt</code>:</p>
+<pre><code>==========================================
+            ARCHIVO DE RESULTADOS         
+==========================================
+
+El valor de b es  3, mientras que d vale 5 
+
+Esta es la matriz a:
+     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9</code></pre>
+<p>Se deja propuesto como ejercicio implementar esto en el ejemplo anterior, para que los resultados del análisis de las reservas se guarden en un archivo de texto.</p>
+</div>
+<div id="crear-un-archivo-para-guardar-conjuntos-de-datos" class="section level3" number="6.5.2">
+<h3>
+<span class="header-section-number">6.5.2</span> Crear un archivo para guardar conjuntos de datos<a class="anchor" aria-label="anchor" href="#crear-un-archivo-para-guardar-conjuntos-de-datos"><i class="fas fa-link"></i></a>
+</h3>
+<p>En algunas oportunidades con nuestro trabajo modificamos o generamos nuevos conjuntos de datos o tablas que queremos guardar, ya sea en un archivo de texto o en formato de planilla de Excel. Esto lo podemos hacer con alguna de las opciones que se detallan a continuación, en las cuales suponemos que deseamos guardar el contenido de un dataset llamado <code>mis_datos</code> en un archivo llamado <code>mi_archivo</code>:</p>
+<div class="sourceCode" id="cb457"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Guardarlo en un archivo de texto separado por tabulaciones</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">mis_datos</span>, <span class="st">"mi_archivo.txt"</span>, quote <span class="op">=</span> <span class="cn">FALSE</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span>, sep <span class="op">=</span> <span class="st">"\t"</span><span class="op">)</span>
+
+<span class="co"># Guardarlo en un archivo de texto separado por comas</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">mis_datos</span>, <span class="st">"mi_archivo.txt"</span>, quote <span class="op">=</span> <span class="cn">FALSE</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+
+<span class="co"># Guardarlo en un archivo de Excel</span>
+<span class="co"># install.packages("writexl")</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/writexl/">writexl</a></span><span class="op">)</span>
+<span class="fu"><a href="https://docs.ropensci.org/writexl/reference/write_xlsx.html">write_xlsx</a></span><span class="op">(</span><span class="va">mis_datos</span>, <span class="st">"mi_archivo.xlsx"</span><span class="op">)</span></code></pre></div>
+<p>Se debe recordar que para indicar este tipo de operaciones en pseudocódigo es necesario seguir las convenciones planteadas en la sección 6.3, incluyendo las instrucciones de creación, apertura y cierre del archivo, junto con la escritura secuencial de los registros.</p>
 
 </div>
 </div>
@@ -846,6 +913,12 @@ Para las habitaciones de tipo Triple el mes con menor
 <li><a class="nav-link" href="#soluci%C3%B3n-completa"><span class="header-section-number">6.4.7</span> Solución completa</a></li>
 </ul>
 </li>
+<li>
+<a class="nav-link" href="#creaci%C3%B3n-de-archivos-y-escritura-de-resultados"><span class="header-section-number">6.5</span> Creación de archivos y escritura de resultados</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#crear-un-archivo-para-guardar-resultados"><span class="header-section-number">6.5.1</span> Crear un archivo para guardar resultados</a></li>
+<li><a class="nav-link" href="#crear-un-archivo-para-guardar-conjuntos-de-datos"><span class="header-section-number">6.5.2</span> Crear un archivo para guardar conjuntos de datos</a></li>
+</ul>
+</li>
 </ul>
 
       <div class="book-extra">
@@ -862,7 +935,7 @@ Para las habitaciones de tipo Triple el mes con menor
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-06-25.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-06-26.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

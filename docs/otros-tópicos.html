@@ -84,7 +84,7 @@
 </ul>
 <p>Desde la consola podemos correr nuestros programas de R. Hacer esto es necesario cuando tenemos que programar alguna tarea de gran escala que se ejecutará de manera remota en algún servidor o cuando necesitamos encapsular nuestro programa para que otros lo puedan correr sin siquiera saber nada de R.</p>
 <p>Veamos un ejemplo. En mi carpeta <em>Documents</em> tengo guardado el siguiente script, en un archivo llamado <em>mi_programa.R</em> que tiene este contenido:</p>
-<div class="sourceCode" id="cb455"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb458"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
 <span class="va">b</span> <span class="op">&lt;-</span> <span class="fl">3</span>
 <span class="va">d</span> <span class="op">&lt;-</span> <span class="fl">5</span>
@@ -96,7 +96,7 @@
 <span class="va">a</span></code></pre></div>
 <p>Para ejecutar este programa desde la terminal, sin abrir RStudio o R, primero me dirijo hasta dicha carpeta con el comando <em>cd</em> y luego ejecuto el programa con el comando <em>Rscript</em>, que le indica a la computadora que el contenido del archivo <em>mi_programa.R</em> debe ser evaluado por R. Esto es lo que se observa en la consola</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-160"></span>
+<span id="fig:unnamed-chunk-157"></span>
 <img src="images/07_otros/consola.png" alt="Correr el programa de R desde la consola en Linux" width="80%"><p class="caption">
 Figura 7.1: Correr el programa de R desde la consola en Linux
 </p>
@@ -115,7 +115,7 @@ Figura 7.1: Correr el programa de R desde la consola en Linux
 <p>Veamos algunos ejemplos.</p>
 <p><strong>Práctica 2, Ejercicio 1: paridad de un número</strong></p>
 <p>La función <code><a href="https://rdrr.io/r/base/scan.html">scan()</a></code> es la que permite <em>escanear</em> o <em>leer</em> valores que los usuarios ingresen por la consola. Entre sus argumentos tenemos a uno llamado <code>file</code>, que si lo seteamos como <code>file = "stdin"</code> indica que vamos a leer información desde la consola. Otros argumentos que podemos elegir son <code>n = 1</code>, que indica que sólo leeremos un valor y <code>quite = TRUE</code> que le pide a esta función que no emita ningún mensaje. Por ejemplo, si el siguiente código se guarda en el archivo ´paridad.R´ y es ejecutado desde la consola, le va a pedir a la persona que lo esté usando que indique cualquier número y luego le va a comunicar si es par o impar:</p>
-<div class="sourceCode" id="cb456"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb459"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"           PARIDAD DE UN NÚMERO           \n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n\n"</span><span class="op">)</span>
@@ -128,14 +128,14 @@ Figura 7.1: Correr el programa de R desde la consola en Linux
 <span class="op">}</span></code></pre></div>
 <p>Esto es lo que ocurre en la terminal:</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-162"></span>
+<span id="fig:unnamed-chunk-159"></span>
 <img src="images/07_otros/consola2.png" alt="Programa paridad.R" width="80%"><p class="caption">
 Figura 7.2: Programa paridad.R
 </p>
 </div>
 <p><strong>Práctica 2, Ejercicio 3: salario</strong></p>
 <p>En este ejemplo, tenemos que leer tres valores, dos de lo cuales son de tipo caracter. Para poder leer desde la consola un valor de tipo caracter tenemos que indicárselo a la función <code><a href="https://rdrr.io/r/base/scan.html">scan()</a></code> con el argumento <code>what = ""</code>. Si no agregamos este argumento, sólo se aceptan números. Si el siguiente código se guarda en el archivo ´salario.R´ y se lo ejecuta desde la consola, produce el resultado que se muestra en la imagen.</p>
-<div class="sourceCode" id="cb457"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb460"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"           CÁLCULO DEL SALARIO            \n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n\n"</span><span class="op">)</span>
@@ -155,7 +155,7 @@ Figura 7.2: Programa paridad.R
 <span class="op">}</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nEl salario que se debe abonar es $"</span>, <span class="va">salario</span>, <span class="st">"\n"</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-164"></span>
+<span id="fig:unnamed-chunk-161"></span>
 <img src="images/07_otros/consola3.png" alt="Programa salario.R" width="80%"><p class="caption">
 Figura 7.3: Programa salario.R
 </p>
@@ -177,7 +177,7 @@ v <- scan("stdin", n = n, quiet = TRUE)
 cat("\nLa suma de los números es:", sum(v), "\n")
 ```
 -->
-<div class="sourceCode" id="cb458"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb461"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"              SUMA DE NÚMEROS             \n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n\n"</span><span class="op">)</span>
@@ -191,7 +191,7 @@ cat("\nLa suma de los números es:", sum(v), "\n")
 <span class="op">}</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nLa suma de los números es:"</span>, <span class="va">suma</span>, <span class="st">"\n"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-167"></span>
+<span id="fig:unnamed-chunk-164"></span>
 <img src="images/07_otros/consola4.png" alt="Programa suma.R" width="80%"><p class="caption">
 Figura 7.4: Programa suma.R
 </p>
@@ -230,7 +230,7 @@ Figura 7.4: Programa suma.R
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-06-25.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-06-26.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

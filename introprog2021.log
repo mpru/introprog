@@ -1,11 +1,11 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.6.16)  25 JUN 2021 20:31
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.6.26)  26 JUN 2021 17:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **introprog2021.tex
 (./introprog2021.tex
 LaTeX2e <2021-06-01> patch level 1
-L3 programming layer <2021-06-01> (/home/marcos/.TinyTeX/texmf-dist/tex/latex/b
+L3 programming layer <2021-06-18> (/home/marcos/.TinyTeX/texmf-dist/tex/latex/b
 ase/book.cls
 Document Class: book 2021/02/12 v1.4n Standard LaTeX document class
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/base/bk10.clo
@@ -127,7 +127,7 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (/h
 ome/marcos/.TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2021-06-01 L3 programming layer (loader) 
+Package: expl3 2021-06-18 L3 programming layer (loader) 
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2021-05-07 L3 backend support: XeTeX
 (|extractbb --version)
@@ -146,9 +146,9 @@ Package: unicode-math 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
 Package: unicode-math-xetex 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLa
 TeX
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2021-06-01 L3 Experimental document command parser
+Package: xparse 2021-06-18 L3 Experimental document command parser
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-Package: l3keys2e 2021-06-01 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2021-06-18 LaTeX2e option processing using LaTeX3 keys
 ) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty
 Package: fontspec 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
@@ -1857,20 +1857,18 @@ LaTeX Info: Redefining \% on input line 6122.
 [101]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 6149.
-LaTeX Info: Redefining \% on input line 6149.
+LaTeX Info: Redefining \. on input line 6152.
+LaTeX Info: Redefining \% on input line 6152.
 [102]
-LaTeX Info: Redefining \. on input line 6152.
-LaTeX Info: Redefining \% on input line 6152.
+LaTeX Info: Redefining \. on input line 6206.
+LaTeX Info: Redefining \% on input line 6206.
 [103]
-LaTeX Info: Redefining \. on input line 6152.
-LaTeX Info: Redefining \% on input line 6152.
-[104
-
-]
+LaTeX Info: Redefining \. on input line 6233.
+LaTeX Info: Redefining \% on input line 6233.
+[104]
 Unidad 7.
-LaTeX Info: Redefining \. on input line 6192.
-LaTeX Info: Redefining \% on input line 6192.
+LaTeX Info: Redefining \. on input line 6273.
+LaTeX Info: Redefining \% on input line 6273.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1879,11 +1877,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
-[105]
+[105
+
+]
 File: images/07_otros/consola.png Graphic file (type bmp)
 <images/07_otros/consola.png>
-LaTeX Info: Redefining \. on input line 6236.
-LaTeX Info: Redefining \% on input line 6236.
+LaTeX Info: Redefining \. on input line 6317.
+LaTeX Info: Redefining \% on input line 6317.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1898,8 +1898,8 @@ File: images/07_otros/consola2.png Graphic file (type bmp)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 6281.
-LaTeX Info: Redefining \% on input line 6281.
+LaTeX Info: Redefining \. on input line 6362.
+LaTeX Info: Redefining \% on input line 6362.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1912,11 +1912,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: images/07_otros/consola3.png Graphic file (type bmp)
 <images/07_otros/consola3.png>
 
-Overfull \vbox (0.61963pt too high) detected at line 6335
+Overfull \vbox (0.61963pt too high) detected at line 6416
  []
 
-LaTeX Info: Redefining \. on input line 6335.
-LaTeX Info: Redefining \% on input line 6335.
+LaTeX Info: Redefining \. on input line 6416.
+LaTeX Info: Redefining \% on input line 6416.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1928,8 +1928,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [108]
 File: images/07_otros/consola4.png Graphic file (type bmp)
 <images/07_otros/consola4.png>
-LaTeX Info: Redefining \. on input line 6352.
-LaTeX Info: Redefining \% on input line 6352.
+LaTeX Info: Redefining \. on input line 6433.
+LaTeX Info: Redefining \% on input line 6433.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1939,8 +1939,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [109]
-LaTeX Info: Redefining \. on input line 6352.
-LaTeX Info: Redefining \% on input line 6352.
+LaTeX Info: Redefining \. on input line 6433.
+LaTeX Info: Redefining \% on input line 6433.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1952,8 +1952,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [110
 
 ]
-LaTeX Info: Redefining \. on input line 6413.
-LaTeX Info: Redefining \% on input line 6413.
+LaTeX Info: Redefining \. on input line 6494.
+LaTeX Info: Redefining \% on input line 6494.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1967,13 +1967,13 @@ LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
 )
 Package rerunfilecheck Info: File `introprog2021.out' has not changed.
-(rerunfilecheck)             Checksum: A79AFAC5A060997743186B9AEEA0404B;6967.
+(rerunfilecheck)             Checksum: D7BB5F25300A7F09C18BFD8F18F1592A;7273.
  ) 
 Here is how much of TeX's memory you used:
- 21247 strings out of 478430
- 381223 string characters out of 5857671
- 901434 words of memory out of 5000000
- 41219 multiletter control sequences out of 15000+600000
+ 21251 strings out of 478437
+ 381387 string characters out of 5857997
+ 901775 words of memory out of 5000000
+ 41216 multiletter control sequences out of 15000+600000
  409961 words of font info for 90 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  87i,12n,120p,1547b,690s stack positions out of 5000i,500n,10000p,200000b,80000s

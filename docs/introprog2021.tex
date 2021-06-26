@@ -243,7 +243,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2021-06-25}
+\date{2021-06-26}
 
 \begin{document}
 \maketitle
@@ -5292,7 +5292,7 @@ Como ilustración, se muestran los primeros registros del archivo:
 
 }
 
-\caption{Primeros registros del archivo reservas.txt}\label{fig:unnamed-chunk-137}
+\caption{Primeros registros del archivo reservas.txt}\label{fig:unnamed-chunk-135}
 \end{figure}
 
 La primera línea de este archivo de texto contiene los nombres de los campos. La segunda línea contiene los datos correspondientes al registro, que se trata de una reserva para una habitación triple (\texttt{tipohab} es igual a 3), en el mes de enero (\texttt{mes} es igual a 1) y por 12 noches (\texttt{noches} es igual a 12).
@@ -5316,7 +5316,7 @@ Se necesita crear un programa que permita obtener los siguientes resultados:
   \bottomrule
   \end{longtable}
 \item
-  Determinar el total de pernoctaciones en el hotel durante el 2019. Las pernoctaciones son las cantidades de noches que los pasajeros se alojan en el establecimiento y es algo que cada hotel debe informar a la secretaría de turismo de la municipalidad.
+  Determinar el total de pernoctaciones en el hotel durante el 2019, es decir, la cantidad total de noches que los huéspedes se alojaron en el establecimiento (información que cada hotel debe comunicar a la secretaría de turismo de la municipalidad).
 \item
   Determinar cuál fue el mes de mayor cantidad de reservas.
 \item
@@ -5512,7 +5512,7 @@ El paso más importante es diseñar todas las estructuras de datos que necesitar
 
 }
 
-\caption{Bosquejo de las estructuras de datos necesarias}\label{fig:unnamed-chunk-142}
+\caption{Bosquejo de las estructuras de datos necesarias}\label{fig:unnamed-chunk-140}
 \end{figure}
 
 En la figura anterior se señalan los vectores y matrices necesarios para cumplir con el objetivo. Por ahora, nos concentraremos en obtener los conteos y acumular la cantidad de noches. Más adelante, veremos cómo unir todos los resultados y poner nombres de filas y columnas.
@@ -6100,16 +6100,16 @@ FIN
 \FunctionTok{dimnames}\NormalTok{(cuadro) }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\AttributeTok{Mes =} \FunctionTok{c}\NormalTok{(meses, }\StringTok{"Total"}\NormalTok{), }
                          \StringTok{"Tipo de habitación"} \OtherTok{=} \FunctionTok{c}\NormalTok{(tipos, }\StringTok{"Total"}\NormalTok{) )}
 \CommentTok{\# Mostrar el resultado}
-\StringTok{"Número de reservas durante el 2019 según mes y tipo de habitación"}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Número de reservas durante el 2019 según mes y tipo de habitación}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
 \NormalTok{cuadro}
 
 \CommentTok{\# b) Determinar el total de pernoctaciones en el hotel durante el 2019}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"El número total de pernoctaciones en el hotel durante el 2019 fue"}\NormalTok{, pernoc, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{El número total de pernoctaciones en el hotel durante el 2019 fue"}\NormalTok{, pernoc, }\StringTok{"}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
 
 \CommentTok{\# c) Determinar cuál fue el mes de mayor cantidad de reservas}
 \NormalTok{res }\OtherTok{\textless{}{-}} \FunctionTok{maximo}\NormalTok{(total\_fila)}
 \FunctionTok{cat}\NormalTok{(}\StringTok{"El mes de mayor cantidad de reservas fue"}\NormalTok{, meses[res[}\DecValTok{2}\NormalTok{]], }\StringTok{"con"}\NormalTok{, }
-\NormalTok{    res[}\DecValTok{1}\NormalTok{], }\StringTok{"reservas.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{    res[}\DecValTok{1}\NormalTok{], }\StringTok{"reservas.}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
 
 \CommentTok{\# d) Determinar para cada tipo de habitación el mes con menor número de reservas}
 \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{) \{}
@@ -6122,7 +6122,7 @@ FIN
 \end{Shaded}
 
 \begin{verbatim}
-[1] "Número de reservas durante el 2019 según mes y tipo de habitación"
+Número de reservas durante el 2019 según mes y tipo de habitación
             Tipo de habitación
 Mes          Simple Doble Triple Total
   Enero         200   129     72   401
@@ -6138,8 +6138,11 @@ Mes          Simple Doble Triple Total
   Noviembre      99    68     36   203
   Diciembre     200   119     66   385
   Total        1975  1172    706  3853
+
 El número total de pernoctaciones en el hotel durante el 2019 fue 19323 
+
 El mes de mayor cantidad de reservas fue Julio con 589 reservas.
+
 Para las habitaciones de tipo Simple el mes con menor
      número de reservas fue Noviembre con 99 reservas.
 Para las habitaciones de tipo Doble el mes con menor
@@ -6147,6 +6150,84 @@ Para las habitaciones de tipo Doble el mes con menor
 Para las habitaciones de tipo Triple el mes con menor
      número de reservas fue Marzo con 35 reservas.
 \end{verbatim}
+
+\hypertarget{creaciuxf3n-de-archivos-y-escritura-de-resultados}{%
+\section{Creación de archivos y escritura de resultados}\label{creaciuxf3n-de-archivos-y-escritura-de-resultados}}
+
+Anteriormente hemos mencionado que cuando trabajamos con archivos podemos realizar acciones tanto de lectura como de escritura, aunque hasta el momento nos hemos limitado a leer registros de un archivo. En este apartado presentamos cómo crear un archivo de texto desde R, de manera que pueda utilizarse para escribir y guardar allí los resultados obtenidos.
+
+\hypertarget{crear-un-archivo-para-guardar-resultados}{%
+\subsection{Crear un archivo para guardar resultados}\label{crear-un-archivo-para-guardar-resultados}}
+
+La función \texttt{sink()} permite escribir en un archivo de texto todos los resultados que habitualmente vemos en la consola de R. Sus argumentos son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{file}: nombre del archivo, si no existe será creado. Se guarda en el directorio de trabajo actual, a menos que indiquemos aquí la ruta completa hacia otra carpeta.
+\item
+  \texttt{append}: si el archivo ya existía, por default lo sobreescribe (borra lo anterior), a menos que indiquemos \texttt{append\ =\ TRUE} para que agregue nuevas línea sin borrar nada.
+\item
+  \texttt{split}: por default mientras la conexión al archivo está activa, los resultados que enviamos al mismo no se muestran en la consola de R, a menos que indiquemos \texttt{split\ =\ TRUE}, en cuyo caso sucederán ambas cosas: los resultados serán escritos en el archivo y se verán en la consola.
+\end{itemize}
+
+Cuando se desea cerrar la conexión al archivo, se debe correr \texttt{sink()} sin ningún argumento. Veamos un ejemplo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{, }\AttributeTok{nrow =} \DecValTok{3}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \DecValTok{3}
+\NormalTok{d }\OtherTok{\textless{}{-}} \DecValTok{5}
+\FunctionTok{sink}\NormalTok{(}\AttributeTok{file =} \StringTok{"salida.txt"}\NormalTok{, }\AttributeTok{append =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{split =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"            ARCHIVO DE RESULTADOS         }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"El valor de b es"}\NormalTok{, b, }\StringTok{", mientras que d vale "}\NormalTok{, d, }\StringTok{"}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{, }\AttributeTok{sep =} \StringTok{""}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Esta es la matriz a:}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{a}
+\FunctionTok{sink}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Así luce el archivo \texttt{salida.txt}:
+
+\begin{verbatim}
+==========================================
+            ARCHIVO DE RESULTADOS         
+==========================================
+
+El valor de b es  3, mientras que d vale 5 
+
+Esta es la matriz a:
+     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
+\end{verbatim}
+
+Se deja propuesto como ejercicio implementar esto en el ejemplo anterior, para que los resultados del análisis de las reservas se guarden en un archivo de texto.
+
+\hypertarget{crear-un-archivo-para-guardar-conjuntos-de-datos}{%
+\subsection{Crear un archivo para guardar conjuntos de datos}\label{crear-un-archivo-para-guardar-conjuntos-de-datos}}
+
+En algunas oportunidades con nuestro trabajo modificamos o generamos nuevos conjuntos de datos o tablas que queremos guardar, ya sea en un archivo de texto o en formato de planilla de Excel. Esto lo podemos hacer con alguna de las opciones que se detallan a continuación, en las cuales suponemos que deseamos guardar el contenido de un dataset llamado \texttt{mis\_datos} en un archivo llamado \texttt{mi\_archivo}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Guardarlo en un archivo de texto separado por tabulaciones}
+\FunctionTok{write.table}\NormalTok{(mis\_datos, }\StringTok{"mi\_archivo.txt"}\NormalTok{, }\AttributeTok{quote =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{)}
+
+\CommentTok{\# Guardarlo en un archivo de texto separado por comas}
+\FunctionTok{write.csv}\NormalTok{(mis\_datos, }\StringTok{"mi\_archivo.txt"}\NormalTok{, }\AttributeTok{quote =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# Guardarlo en un archivo de Excel}
+\CommentTok{\# install.packages("writexl")}
+\FunctionTok{library}\NormalTok{(writexl)}
+\FunctionTok{write\_xlsx}\NormalTok{(mis\_datos, }\StringTok{"mi\_archivo.xlsx"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Se debe recordar que para indicar este tipo de operaciones en pseudocódigo es necesario seguir las convenciones planteadas en la sección 6.3, incluyendo las instrucciones de creación, apertura y cierre del archivo, junto con la escritura secuencial de los registros.
 
 \hypertarget{otros-tuxf3picos}{%
 \chapter{Otros tópicos}\label{otros-tuxf3picos}}
@@ -6218,7 +6299,7 @@ Para ejecutar este programa desde la terminal, sin abrir RStudio o R, primero me
 
 }
 
-\caption{Correr el programa de R desde la consola en Linux}\label{fig:unnamed-chunk-160}
+\caption{Correr el programa de R desde la consola en Linux}\label{fig:unnamed-chunk-157}
 \end{figure}
 
 Todo lo que en el programa estaba encerrado en una llamada a la función \texttt{cat()} es lo que se mostrará como mensajes en la consola.
@@ -6273,7 +6354,7 @@ Esto es lo que ocurre en la terminal:
 
 }
 
-\caption{Programa paridad.R}\label{fig:unnamed-chunk-162}
+\caption{Programa paridad.R}\label{fig:unnamed-chunk-159}
 \end{figure}
 
 \textbf{Práctica 2, Ejercicio 3: salario}
@@ -6309,7 +6390,7 @@ En este ejemplo, tenemos que leer tres valores, dos de lo cuales son de tipo car
 
 }
 
-\caption{Programa salario.R}\label{fig:unnamed-chunk-164}
+\caption{Programa salario.R}\label{fig:unnamed-chunk-161}
 \end{figure}
 
 \textbf{Práctica 4, Ejercicio 1: suma de elementos de un vector}
@@ -6340,7 +6421,7 @@ Vamos a ver cómo hacer para que un usuario nos diga cuáles son los valores que
 
 }
 
-\caption{Programa suma.R}\label{fig:unnamed-chunk-167}
+\caption{Programa suma.R}\label{fig:unnamed-chunk-164}
 \end{figure}
 
 \hypertarget{otros}{%
