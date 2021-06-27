@@ -664,7 +664,7 @@ La función `sink()` permite escribir en un archivo de texto todos los resultado
 - `append`: si el archivo ya existía, por default lo sobreescribe (borra lo anterior), a menos que indiquemos `append = TRUE` para que agregue nuevas línea sin borrar nada.
 - `split`: por default mientras la conexión al archivo está activa, los resultados que enviamos al mismo no se muestran en la consola de R, a menos que indiquemos `split = TRUE`, en cuyo caso sucederán ambas cosas: los resultados serán escritos en el archivo y se verán en la consola.
 
-Cuando se desea cerrar la conexión al archivo, se debe correr `sink()` sin ningún argumento. Veamos un  ejemplo:
+Cuando se desea cerrar la conexión al archivo, se debe correr `sink()` sin ningún argumento. Todo lo que *imprimamos* con `cat()` entre ambos llamados a `sink()` se guardará en el archivo. Veamos un  ejemplo:
 
 ```{r, eval=FALSE}
 a <- matrix(1:9, nrow = 3)
@@ -698,9 +698,43 @@ Esta es la matriz a:
 
 Se deja propuesto como ejercicio implementar esto en el ejemplo anterior, para que los resultados del análisis de las reservas se guarden en un archivo de texto.
 
-### Crear un archivo para guardar conjuntos de datos
+### Crear un archivo para guardar conjuntos de datos, línea por línea
 
-En algunas oportunidades con nuestro trabajo modificamos o generamos nuevos conjuntos de datos o tablas que queremos guardar, ya sea en un archivo de texto o en formato de planilla de Excel. Esto lo podemos hacer con alguna de las opciones que se detallan a continuación, en las cuales suponemos que deseamos guardar el contenido de un dataset llamado `mis_datos` en un archivo llamado `mi_archivo`:
+En algunas oportunidades con nuestro trabajo modificamos o generamos nuevos conjuntos de datos o tablas que queremos guardar y para esto necesitamos crear un nuevo archivo. Supongamos que, por ejemplo, como parte de nuestro algoritmo tenemos un dataset llamado `datos` con 4 columnas, cuyo contenido deseamos que sea escrito y guardado en un archivo llamado `mi_archivo.txt`. Siguiendo las convenciones indicadas en la sección 6.3, esto puede ser incorporado en el pseudocódigo de esta forma:
+
+```
+CREAR ARCHIVO (mi_archivo)
+ABRIR ARCHIVO (mi_archivo) secuencial, de salida
+PARA i DESDE 1 HASTA NFILA(datos) HACER
+	ESCRIBIR REGISTRO (mi_archivo) datos[i, 1] datos[i, 2] datos[i, 3] datos[i, 4]
+FIN PARA
+CERRAR ARCHIVO (mi_archivo)
+```
+
+En R podemos cumplir este objetivo usando tan solo la ya muy conocida función `cat()`, pero con algunos argumentos adicionales. En `file =` indicamos el nombre del archivo donde queremos escribir. Si el mismo no existe previamente, será creado al correr `cat()`. Con `sep = "\t"` establecemos que los distintos valores a imprimir estarán separados por tabulaciones (podría ser `sep = ","` si queremos generar un archivo de extensión `.csv`). Con `fill = TRUE` nos aseguramos que lo que se imprima en el mismo archivo más tarde con otro llamado a `cat()` se coloque en una línea nueva por debajo. Sabiendo todo esto, podemos crear un nuevo archivo de datos de esta forma:
+
+```{r, eval=FALSE}
+cat("campo1", "campo2", "campo3", "campo4", file = "mi_archivo.txt", sep = "\t", fill = TRUE)
+```
+
+Por ahora el archivo sólo tiene una línea con los nombres de los campos, pero todavía no tiene ningún dato. Si quisiera escribir un primer registro, puedo hacer, por ejemplo:
+
+```{r, eval=FALSE}
+cat(23, 1, "hola", 985, file = "mi_archivo.txt", sep = "\t", fill = TRUE, append = TRUE)
+```
+
+El argumento `append = TRUE` hace que no se borre lo  que hayamos escrito antes. Luego de esta sentencia, el archivo luce así:
+
+```
+campo1	campo2	campo3	campo4
+23		1		hola	985	
+```
+
+Claramente, se debe proceder de manera análoga, tal vez haciendo uso de alguna estructura iterativa, para agregar todos los registros que se deseen en el archivo.
+
+### Crear un archivo para guardar conjuntos de datos, todos los registros juntos
+
+Si bien lo anterior sigue la estructura planteada en el pseudocódigo, R provee una gran variedad de funciones para guardar todo el contenido de un objeto de tipo `data.frame` en un archivo de una sola vez, como se muestra en los ejemplos que siguen, en los cuales suponemos que deseamos guardar el contenido de un `data.frame` llamado `mis_datos` en un archivo llamado `mi_archivo`:
 
 ```{r, eval=FALSE}
 # Guardarlo en un archivo de texto separado por tabulaciones
@@ -714,5 +748,3 @@ write.csv(mis_datos, "mi_archivo.txt", quote = FALSE, row.names = FALSE)
 library(writexl)
 write_xlsx(mis_datos, "mi_archivo.xlsx")
 ```
-
-Se debe recordar que para indicar este tipo de operaciones en pseudocódigo es necesario seguir las convenciones planteadas en la sección 6.3, incluyendo las instrucciones de creación, apertura y cierre del archivo, junto con la escritura secuencial de los registros.

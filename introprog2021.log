@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.6.26)  26 JUN 2021 17:08
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.6.26)  26 JUN 2021 21:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1863,43 +1863,20 @@ LaTeX Info: Redefining \% on input line 6152.
 LaTeX Info: Redefining \. on input line 6206.
 LaTeX Info: Redefining \% on input line 6206.
 [103]
-LaTeX Info: Redefining \. on input line 6233.
-LaTeX Info: Redefining \% on input line 6233.
+LaTeX Info: Redefining \. on input line 6267.
+LaTeX Info: Redefining \% on input line 6267.
 [104]
-Unidad 7.
-LaTeX Info: Redefining \. on input line 6273.
-LaTeX Info: Redefining \% on input line 6273.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.69003pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.69003pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
-
-[105
+LaTeX Info: Redefining \. on input line 6270.
+LaTeX Info: Redefining \% on input line 6270.
+[105]
+LaTeX Info: Redefining \. on input line 6270.
+LaTeX Info: Redefining \% on input line 6270.
+[106
 
 ]
-File: images/07_otros/consola.png Graphic file (type bmp)
-<images/07_otros/consola.png>
-LaTeX Info: Redefining \. on input line 6317.
-LaTeX Info: Redefining \% on input line 6317.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.69003pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.69003pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
-
-[106]
-File: images/07_otros/consola2.png Graphic file (type bmp)
-<images/07_otros/consola2.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 6362.
-LaTeX Info: Redefining \% on input line 6362.
+Unidad 7.
+LaTeX Info: Redefining \. on input line 6310.
+LaTeX Info: Redefining \% on input line 6310.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1909,14 +1886,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [107]
-File: images/07_otros/consola3.png Graphic file (type bmp)
-<images/07_otros/consola3.png>
-
-Overfull \vbox (0.61963pt too high) detected at line 6416
- []
-
-LaTeX Info: Redefining \. on input line 6416.
-LaTeX Info: Redefining \% on input line 6416.
+File: images/07_otros/consola.png Graphic file (type bmp)
+<images/07_otros/consola.png>
+LaTeX Info: Redefining \. on input line 6354.
+LaTeX Info: Redefining \% on input line 6354.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1926,10 +1899,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [108]
-File: images/07_otros/consola4.png Graphic file (type bmp)
-<images/07_otros/consola4.png>
-LaTeX Info: Redefining \. on input line 6433.
-LaTeX Info: Redefining \% on input line 6433.
+File: images/07_otros/consola2.png Graphic file (type bmp)
+<images/07_otros/consola2.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 6399.
+LaTeX Info: Redefining \% on input line 6399.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1939,8 +1915,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [109]
-LaTeX Info: Redefining \. on input line 6433.
-LaTeX Info: Redefining \% on input line 6433.
+File: images/07_otros/consola3.png Graphic file (type bmp)
+<images/07_otros/consola3.png>
+
+Overfull \vbox (0.61963pt too high) detected at line 6453
+ []
+
+LaTeX Info: Redefining \. on input line 6453.
+LaTeX Info: Redefining \% on input line 6453.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1949,11 +1931,35 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
-[110
+[110]
+File: images/07_otros/consola4.png Graphic file (type bmp)
+<images/07_otros/consola4.png>
+LaTeX Info: Redefining \. on input line 6470.
+LaTeX Info: Redefining \% on input line 6470.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[111]
+LaTeX Info: Redefining \. on input line 6470.
+LaTeX Info: Redefining \% on input line 6470.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.69003pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.69003pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
+
+[112
 
 ]
-LaTeX Info: Redefining \. on input line 6494.
-LaTeX Info: Redefining \% on input line 6494.
+LaTeX Info: Redefining \. on input line 6531.
+LaTeX Info: Redefining \% on input line 6531.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1962,7 +1968,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
-[111] (./introprog2021.aux
+[113] (./introprog2021.aux
 LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
 )
@@ -1970,12 +1976,12 @@ Package rerunfilecheck Info: File `introprog2021.out' has not changed.
 (rerunfilecheck)             Checksum: D7BB5F25300A7F09C18BFD8F18F1592A;7273.
  ) 
 Here is how much of TeX's memory you used:
- 21251 strings out of 478437
- 381387 string characters out of 5857997
- 901775 words of memory out of 5000000
- 41216 multiletter control sequences out of 15000+600000
+ 21253 strings out of 478437
+ 381514 string characters out of 5857997
+ 901904 words of memory out of 5000000
+ 41218 multiletter control sequences out of 15000+600000
  409961 words of font info for 90 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  87i,12n,120p,1547b,690s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on introprog2021.pdf (111 pages).
+Output written on introprog2021.pdf (113 pages).

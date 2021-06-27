@@ -6171,7 +6171,7 @@ La función \texttt{sink()} permite escribir en un archivo de texto todos los re
   \texttt{split}: por default mientras la conexión al archivo está activa, los resultados que enviamos al mismo no se muestran en la consola de R, a menos que indiquemos \texttt{split\ =\ TRUE}, en cuyo caso sucederán ambas cosas: los resultados serán escritos en el archivo y se verán en la consola.
 \end{itemize}
 
-Cuando se desea cerrar la conexión al archivo, se debe correr \texttt{sink()} sin ningún argumento. Veamos un ejemplo:
+Cuando se desea cerrar la conexión al archivo, se debe correr \texttt{sink()} sin ningún argumento. Todo lo que \emph{imprimamos} con \texttt{cat()} entre ambos llamados a \texttt{sink()} se guardará en el archivo. Veamos un ejemplo:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6207,10 +6207,49 @@ Esta es la matriz a:
 
 Se deja propuesto como ejercicio implementar esto en el ejemplo anterior, para que los resultados del análisis de las reservas se guarden en un archivo de texto.
 
-\hypertarget{crear-un-archivo-para-guardar-conjuntos-de-datos}{%
-\subsection{Crear un archivo para guardar conjuntos de datos}\label{crear-un-archivo-para-guardar-conjuntos-de-datos}}
+\hypertarget{crear-un-archivo-para-guardar-conjuntos-de-datos-luxednea-por-luxednea}{%
+\subsection{Crear un archivo para guardar conjuntos de datos, línea por línea}\label{crear-un-archivo-para-guardar-conjuntos-de-datos-luxednea-por-luxednea}}
 
-En algunas oportunidades con nuestro trabajo modificamos o generamos nuevos conjuntos de datos o tablas que queremos guardar, ya sea en un archivo de texto o en formato de planilla de Excel. Esto lo podemos hacer con alguna de las opciones que se detallan a continuación, en las cuales suponemos que deseamos guardar el contenido de un dataset llamado \texttt{mis\_datos} en un archivo llamado \texttt{mi\_archivo}:
+En algunas oportunidades con nuestro trabajo modificamos o generamos nuevos conjuntos de datos o tablas que queremos guardar y para esto necesitamos crear un nuevo archivo. Supongamos que, por ejemplo, como parte de nuestro algoritmo tenemos un dataset llamado \texttt{datos} con 4 columnas, cuyo contenido deseamos que sea escrito y guardado en un archivo llamado \texttt{mi\_archivo.txt}. Siguiendo las convenciones indicadas en la sección 6.3, esto puede ser incorporado en el pseudocódigo de esta forma:
+
+\begin{verbatim}
+CREAR ARCHIVO (mi_archivo)
+ABRIR ARCHIVO (mi_archivo) secuencial, de salida
+PARA i DESDE 1 HASTA NFILA(datos) HACER
+    ESCRIBIR REGISTRO (mi_archivo) datos[i, 1] datos[i, 2] datos[i, 3] datos[i, 4]
+FIN PARA
+CERRAR ARCHIVO (mi_archivo)
+\end{verbatim}
+
+En R podemos cumplir este objetivo usando tan solo la ya muy conocida función \texttt{cat()}, pero con algunos argumentos adicionales. En \texttt{file\ =} indicamos el nombre del archivo donde queremos escribir. Si el mismo no existe previamente, será creado al correr \texttt{cat()}. Con \texttt{sep\ =\ "\textbackslash{}t"} establecemos que los distintos valores a imprimir estarán separados por tabulaciones (podría ser \texttt{sep\ =\ ","} si queremos generar un archivo de extensión \texttt{.csv}). Con \texttt{fill\ =\ TRUE} nos aseguramos que lo que se imprima en el mismo archivo más tarde con otro llamado a \texttt{cat()} se coloque en una línea nueva por debajo. Sabiendo todo esto, podemos crear un nuevo archivo de datos de esta forma:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"campo1"}\NormalTok{, }\StringTok{"campo2"}\NormalTok{, }\StringTok{"campo3"}\NormalTok{, }\StringTok{"campo4"}\NormalTok{, }\AttributeTok{file =} \StringTok{"mi\_archivo.txt"}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{fill =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Por ahora el archivo sólo tiene una línea con los nombres de los campos, pero todavía no tiene ningún dato. Si quisiera escribir un primer registro, puedo hacer, por ejemplo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\DecValTok{23}\NormalTok{, }\DecValTok{1}\NormalTok{, }\StringTok{"hola"}\NormalTok{, }\DecValTok{985}\NormalTok{, }\AttributeTok{file =} \StringTok{"mi\_archivo.txt"}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{fill =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{append =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+El argumento \texttt{append\ =\ TRUE} hace que no se borre lo que hayamos escrito antes. Luego de esta sentencia, el archivo luce así:
+
+\begin{verbatim}
+campo1  campo2  campo3  campo4
+23      1       hola    985 
+\end{verbatim}
+
+Claramente, se debe proceder de manera análoga, tal vez haciendo uso de alguna estructura iterativa, para agregar todos los registros que se deseen en el archivo.
+
+\hypertarget{crear-un-archivo-para-guardar-conjuntos-de-datos-todos-los-registros-juntos}{%
+\subsection{Crear un archivo para guardar conjuntos de datos, todos los registros juntos}\label{crear-un-archivo-para-guardar-conjuntos-de-datos-todos-los-registros-juntos}}
+
+Si bien lo anterior sigue la estructura planteada en el pseudocódigo, R provee una gran variedad de funciones para guardar todo el contenido de un objeto de tipo \texttt{data.frame} en un archivo de una sola vez, como se muestra en los ejemplos que siguen, en los cuales suponemos que deseamos guardar el contenido de un \texttt{data.frame} llamado \texttt{mis\_datos} en un archivo llamado \texttt{mi\_archivo}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6226,8 +6265,6 @@ En algunas oportunidades con nuestro trabajo modificamos o generamos nuevos conj
 \FunctionTok{write\_xlsx}\NormalTok{(mis\_datos, }\StringTok{"mi\_archivo.xlsx"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-Se debe recordar que para indicar este tipo de operaciones en pseudocódigo es necesario seguir las convenciones planteadas en la sección 6.3, incluyendo las instrucciones de creación, apertura y cierre del archivo, junto con la escritura secuencial de los registros.
 
 \hypertarget{otros-tuxf3picos}{%
 \chapter{Otros tópicos}\label{otros-tuxf3picos}}
@@ -6299,7 +6336,7 @@ Para ejecutar este programa desde la terminal, sin abrir RStudio o R, primero me
 
 }
 
-\caption{Correr el programa de R desde la consola en Linux}\label{fig:unnamed-chunk-157}
+\caption{Correr el programa de R desde la consola en Linux}\label{fig:unnamed-chunk-159}
 \end{figure}
 
 Todo lo que en el programa estaba encerrado en una llamada a la función \texttt{cat()} es lo que se mostrará como mensajes en la consola.
@@ -6354,7 +6391,7 @@ Esto es lo que ocurre en la terminal:
 
 }
 
-\caption{Programa paridad.R}\label{fig:unnamed-chunk-159}
+\caption{Programa paridad.R}\label{fig:unnamed-chunk-161}
 \end{figure}
 
 \textbf{Práctica 2, Ejercicio 3: salario}
@@ -6390,7 +6427,7 @@ En este ejemplo, tenemos que leer tres valores, dos de lo cuales son de tipo car
 
 }
 
-\caption{Programa salario.R}\label{fig:unnamed-chunk-161}
+\caption{Programa salario.R}\label{fig:unnamed-chunk-163}
 \end{figure}
 
 \textbf{Práctica 4, Ejercicio 1: suma de elementos de un vector}
@@ -6421,7 +6458,7 @@ Vamos a ver cómo hacer para que un usuario nos diga cuáles son los valores que
 
 }
 
-\caption{Programa suma.R}\label{fig:unnamed-chunk-164}
+\caption{Programa suma.R}\label{fig:unnamed-chunk-166}
 \end{figure}
 
 \hypertarget{otros}{%
