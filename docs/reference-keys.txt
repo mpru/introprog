@@ -37,11 +37,11 @@ fig:unnamed-chunk-118
 fig:unnamed-chunk-120
 fig:unnamed-chunk-121
 fig:unnamed-chunk-135
-fig:unnamed-chunk-140
-fig:unnamed-chunk-159
-fig:unnamed-chunk-161
-fig:unnamed-chunk-163
+fig:unnamed-chunk-141
+fig:unnamed-chunk-162
+fig:unnamed-chunk-164
 fig:unnamed-chunk-166
+fig:unnamed-chunk-169
 introducción-a-la-programación
 qué-es-la-programación
 una-breve-reseña-histórica-sobre-la-programación

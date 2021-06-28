@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>6 Uso de archivos de datos | Introducción a la Programación</title>
 <meta name="author" content="Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.)">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.8/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.7/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style.css">
@@ -158,7 +158,7 @@ Campo 8 - Precio: precio del pasaje, tipo numérico</code></pre>
 <ul>
 <li>
 <p><strong>Creación de un archivo</strong></p>
-<p>Para que un archivo pueda ser utilizado, antes tiene que exister, obviamente. Si bien la creación de un nuevo archivo es una tarea propia del sistema operativo, la representaremos en el pseudocódigo de la siguiente forma, donde <code>nombre</code> puede ser reemplazado por cualquier nombre que deseemos darle al archivo:</p>
+<p>Para que un archivo pueda ser utilizado, antes tiene que existir, obviamente. Si bien la creación de un nuevo archivo es una tarea propia del sistema operativo, la representaremos en el pseudocódigo de la siguiente forma, donde <code>nombre</code> puede ser reemplazado por cualquier nombre que deseemos darle al archivo:</p>
 <pre><code>  CREAR ARCHIVO (nombre)</code></pre>
 <p>Una vez que el archivo fue creado y existe, se pueden hacer con él las restantes operaciones. En la mayoría de las aplicaciones que veremos, tendremos archivos que han sido creados con anterioridad y ya tienen registros, por lo cual usaremos pocas veces esta acción.</p>
 </li>
@@ -241,7 +241,7 @@ FIN PARA</code></pre>
 Figura 6.1: Primeros registros del archivo reservas.txt
 </p>
 </div>
-<p>La primera línea de este archivo de texto contiene los nombres de los campos. La segunda línea contiene los datos correspondientes al registro, que se trata de una reserva para una habitación triple (<code>tipohab</code> es igual a 3), en el mes de enero (<code>mes</code> es igual a 1) y por 12 noches (<code>noches</code> es igual a 12).</p>
+<p>La primera línea de este archivo de texto contiene los nombres de los campos. La segunda línea contiene los datos correspondientes al registro, que se trata de una reserva para una habitación triple (<code>tipohab</code> es igual a 3), en el mes de enero (<code>mes</code> es igual a 1) y por 1 noche (<code>noches</code> es igual a 1).</p>
 <p>Se necesita crear un programa que permita obtener los siguientes resultados:</p>
 <ol style="list-style-type: lower-alpha">
 <li>
@@ -304,7 +304,7 @@ ESCRIBIR "El archivo cuenta con" NFILA(datos) "registros de" NCOL(datos) "campos
 <div class="sourceCode" id="cb377"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.delim</a></span><span class="op">(</span><span class="st">"/home/marcos/GitProjects/introprog/archivos/reservas.txt"</span><span class="op">)</span></code></pre></div>
 <!-- Si tenemos que importar otro tipo de archivo (por ejemplo, de Excel o de texto separado con comas) y no nos acordamos cuál es la función que permite hacerlo, podemos recurrir al menú de importación de datos mediante el botón `Import Dataset` en el panel `Environment` de RStudio (arriba a la derecha). Ahí podremos elegir distintas opciones para la importación y automáticamente se generará y correrá el código de R necesario, el cual debemos copiar y pegar en nuestro script para dejar sentado cómo se realizó la importación. -->
-<p>RStudio provee asistencia para la importación de datos mediante el botón <code>Import Dataset</code> en el panel <code>Environment</code>. Sin embargo, para este curso es importante que dichas opciones no sea utilizadas y los datos sean leídos mediante el código propuesto anteriormente. Esto se debe a que algunas de las opciones provistas por RStudio producen estructuras para almacenar datos con ciertas propiedades que imposibilitan la indexación con corchetes tal como la hemos implementado hasta el momento.</p>
+<p>RStudio provee asistencia para la importación de datos mediante el botón <code>Import Dataset</code> en el panel <code>Environment</code>. Sin embargo, para este curso es importante que dichas opciones no sean utilizadas y los datos sean leídos mediante el código propuesto anteriormente. Esto se debe a que algunas de las opciones provistas por RStudio producen estructuras para almacenar datos con ciertas propiedades que imposibilitan la indexación con corchetes tal como la hemos implementado hasta el momento.</p>
 <p>Una vez completo este paso, en el ambiente podremos ver listado un nuevo objeto llamado <code>datos</code>, junto con una breve descripción del mismo que nos dice que tiene 3853 observaciones (registros) de 3 variables (campos). Si hacemos clic sobre el nombre del objeto se abrirá una pestaña para que podamos explorar su contenido.</p>
 <p>Si bien a simple vista parece una matriz numérica como las que ya habíamos utilizado, no lo es. Este objeto es un <em>dataset</em>, lo cual significa que sus columnas pueden tener distintos tipos de datos (numérico, caracter, lógico). Más específicamente, si le preguntamos a R de qué tipo de objeto se trata, nos indicará que es un <code>data.frame</code>, que es el término que utiliza R para referirse a los conjuntos de datos. Así como tenemos objetos que pueden ser numéricos, lógicos o caracter, vectores, matrices o listas, hay de estos otros objetos que son de tipo <code>data.frame</code>:</p>
 <div class="sourceCode" id="cb378"><pre class="downlit sourceCode r">
@@ -390,7 +390,7 @@ ESCRIBIR "El archivo cuenta con" NFILA(datos) "registros de" NCOL(datos) "campos
 <p>Una vez leído el archivo, vamos a continuar con los puntos pedidos. El primero de ellos pedía generar un cuadro con el conteo de la cantidad de reservas en cada mes y según el tipo de habitación, incluyendo los totales marginales y el total general. Por otro lado, para el punto b necesitamos sumar el número de noches en cada reserva. Será necesario, entonces, recorrer todos los registros guardados en el dataset <code>datos</code> e ir realizando los conteos correspondientes.</p>
 <p>El paso más importante es diseñar todas las estructuras de datos que necesitaremos para almacenar esta información. Una buena idea es agarrar papel y lápiz y hacer un bosquejo, por ejemplo, como el que sigue:</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-140"></span>
+<span id="fig:unnamed-chunk-141"></span>
 <img src="images/06_archivos/arch01.png" alt="Bosquejo de las estructuras de datos necesarias" width="100%"><p class="caption">
 Figura 6.2: Bosquejo de las estructuras de datos necesarias
 </p>
@@ -906,8 +906,8 @@ CERRAR ARCHIVO (mi_archivo)</code></pre>
 
 <span class="co"># Guardarlo en un archivo de Excel</span>
 <span class="co"># install.packages("writexl")</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/writexl/">writexl</a></span><span class="op">)</span>
-<span class="fu"><a href="https://docs.ropensci.org/writexl/reference/write_xlsx.html">write_xlsx</a></span><span class="op">(</span><span class="va">mis_datos</span>, <span class="st">"mi_archivo.xlsx"</span><span class="op">)</span></code></pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">writexl</span><span class="op">)</span>
+<span class="fu">write_xlsx</span><span class="op">(</span><span class="va">mis_datos</span>, <span class="st">"mi_archivo.xlsx"</span><span class="op">)</span></code></pre></div>
 
 </div>
 </div>
@@ -957,7 +957,7 @@ CERRAR ARCHIVO (mi_archivo)</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-06-26.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-06-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
