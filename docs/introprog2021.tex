@@ -243,7 +243,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2021-06-26}
+\date{2021-07-05}
 
 \begin{document}
 \maketitle
@@ -2250,7 +2250,7 @@ FIN
 
 Un principio fundamental en la resolución de un problema es intentar descomponerlo en partes más pequeñas, que puedan ser más fáciles de afrontar. Este concepto también se aplica en la programación. Nuestros algoritmos pueden descomponerse en \textbf{subalgoritmos} que den solución a un aspecto del problema, de menor extensión. Este proceso se conoce como \textbf{descomposición algorítmica} o \textbf{descomposición modular}. Cada subalgoritmo debe ser independiente de los demás y a su vez podría seguir descomponiéndose en partes más sencillas en lo que se conoce como \textbf{refinamiento sucesivo}. Si un programa es muy largo se corre el riesgo de que sea muy difícil de entender como un todo, pero siempre se lo puede dividir en secciones más simples y manejables. Un subalgoritmo se escribe una vez y luego es utilizado por todos aquellos algoritmos que lo necesiten.
 
-Cada vez que, como parte de la resolución de un problema, desde un algoritmo se solicita que se realicen las acciones establecidas por un subalgoritmo, se dice que se lo está \textbf{invocando} o \textbf{llamando}. Al algoritmo que invoca a los subalgoritmos a veces le decimos \emph{algoritmo principal} para darle un mayor énfasis a la idea que, desde el curso de acción principal, cada tanto se delega la ejecución de algunas al subalgoritmo.
+Cada vez que, como parte de la resolución de un problema, desde un algoritmo se solicita que se realicen las acciones establecidas por un subalgoritmo, se dice que se lo está \textbf{invocando} o \textbf{llamando}. Al algoritmo que invoca a los subalgoritmos a veces le decimos \emph{algoritmo principal} para darle un mayor énfasis a la idea que, desde el curso de acción principal, cada tanto se delega la ejecución de algunas tareas al subalgoritmo.
 
 El empleo de subalgoritmos, desarrollando por separado ciertas partes del problema, resulta especialmente ventajoso en los casos siguientes:
 
@@ -2284,7 +2284,7 @@ Sin embargo, suele haber bastante consenso en distinguir, dentro de los subalgor
 \hypertarget{funciones}{%
 \section{Funciones}\label{funciones}}
 
-Una \textbf{función} es un subalgoritmo que devuelve un único resultado a partir de otros valores provistos. El valor que la función devuelve define su \textbf{tipo}, de modo que una función puede ser de tipo \textbf{numérica}, \textbf{caracter} o \textbf{lógica} \footnote{No siempre se pueden clasificar de esta forma a las funciones, ya que hay algunas que pueden devolver distinto tipos de valores según el caso o que devuelven otras clases de objetos.}.
+Una \textbf{función} es un subalgoritmo que devuelve un único resultado a partir de otros valores provistos. El valor que la función devuelve define su \textbf{tipo}, de modo que una función puede ser de tipo \textbf{numérica}, \textbf{caracter} o \textbf{lógica} \footnote{No siempre se pueden clasificar de esta forma a las funciones, ya que hay algunas que pueden devolver distintos tipos de valores según el caso o que devuelven otras clases de objetos.}.
 
 Para ejemplificar, podemos decir que la noción de \emph{función} en programación se asemeja a la idea matemática de \emph{función de una o más variables}. Por ejemplo, podemos pensar en la función \(f(x, y) = x^2 + 3y\) (ejemplo 1). Si queremos saber cuál es el valor numérico de la función \(f\) cuando \(x\) toma el valor \(4\) e \(y\) toma el valor \(5\), reemplazamos en la expresión anterior las variables por los valores mencionados y obtenemos: \(f(4, 5) = 4^2 + 3 \times 5 = 31\).
 
@@ -5175,7 +5175,7 @@ Los procedimientos básicos que los programas pueden llevar a cabo sobre los dis
 \item
   \textbf{Creación de un archivo}
 
-  Para que un archivo pueda ser utilizado, antes tiene que exister, obviamente. Si bien la creación de un nuevo archivo es una tarea propia del sistema operativo, la representaremos en el pseudocódigo de la siguiente forma, donde \texttt{nombre} puede ser reemplazado por cualquier nombre que deseemos darle al archivo:
+  Para que un archivo pueda ser utilizado, antes tiene que existir, obviamente. Si bien la creación de un nuevo archivo es una tarea propia del sistema operativo, la representaremos en el pseudocódigo de la siguiente forma, donde \texttt{nombre} puede ser reemplazado por cualquier nombre que deseemos darle al archivo:
 
 \begin{verbatim}
   CREAR ARCHIVO (nombre)
@@ -5295,7 +5295,7 @@ Como ilustración, se muestran los primeros registros del archivo:
 \caption{Primeros registros del archivo reservas.txt}\label{fig:unnamed-chunk-135}
 \end{figure}
 
-La primera línea de este archivo de texto contiene los nombres de los campos. La segunda línea contiene los datos correspondientes al registro, que se trata de una reserva para una habitación triple (\texttt{tipohab} es igual a 3), en el mes de enero (\texttt{mes} es igual a 1) y por 12 noches (\texttt{noches} es igual a 12).
+La primera línea de este archivo de texto contiene los nombres de los campos. La segunda línea contiene los datos correspondientes al registro, que se trata de una reserva para una habitación triple (\texttt{tipohab} es igual a 3), en el mes de enero (\texttt{mes} es igual a 1) y por 1 noche (\texttt{noches} es igual a 1).
 
 Se necesita crear un programa que permita obtener los siguientes resultados:
 
@@ -5345,7 +5345,7 @@ En R, podemos leer todos los registros de un archivo de texto con campos separad
 \end{Highlighting}
 \end{Shaded}
 
-RStudio provee asistencia para la importación de datos mediante el botón \texttt{Import\ Dataset} en el panel \texttt{Environment}. Sin embargo, para este curso es importante que dichas opciones no sea utilizadas y los datos sean leídos mediante el código propuesto anteriormente. Esto se debe a que algunas de las opciones provistas por RStudio producen estructuras para almacenar datos con ciertas propiedades que imposibilitan la indexación con corchetes tal como la hemos implementado hasta el momento.
+RStudio provee asistencia para la importación de datos mediante el botón \texttt{Import\ Dataset} en el panel \texttt{Environment}. Sin embargo, para este curso es importante que dichas opciones no sean utilizadas y los datos sean leídos mediante el código propuesto anteriormente. Esto se debe a que algunas de las opciones provistas por RStudio producen estructuras para almacenar datos con ciertas propiedades que imposibilitan la indexación con corchetes tal como la hemos implementado hasta el momento.
 
 Una vez completo este paso, en el ambiente podremos ver listado un nuevo objeto llamado \texttt{datos}, junto con una breve descripción del mismo que nos dice que tiene 3853 observaciones (registros) de 3 variables (campos). Si hacemos clic sobre el nombre del objeto se abrirá una pestaña para que podamos explorar su contenido.
 
@@ -5512,7 +5512,7 @@ El paso más importante es diseñar todas las estructuras de datos que necesitar
 
 }
 
-\caption{Bosquejo de las estructuras de datos necesarias}\label{fig:unnamed-chunk-140}
+\caption{Bosquejo de las estructuras de datos necesarias}\label{fig:unnamed-chunk-141}
 \end{figure}
 
 En la figura anterior se señalan los vectores y matrices necesarios para cumplir con el objetivo. Por ahora, nos concentraremos en obtener los conteos y acumular la cantidad de noches. Más adelante, veremos cómo unir todos los resultados y poner nombres de filas y columnas.
@@ -6019,7 +6019,7 @@ COMENZAR
   pernoc <- 0
   PARA i DESDE 1 HASTA NFILA(datos) HACER
     
-  tipohab <- datos[i, 1]
+    tipohab <- datos[i, 1]
     mes <- datos[i, 2]
     noches <- datos[i, 3]
     
@@ -6336,7 +6336,7 @@ Para ejecutar este programa desde la terminal, sin abrir RStudio o R, primero me
 
 }
 
-\caption{Correr el programa de R desde la consola en Linux}\label{fig:unnamed-chunk-159}
+\caption{Correr el programa de R desde la consola en Linux}\label{fig:unnamed-chunk-162}
 \end{figure}
 
 Todo lo que en el programa estaba encerrado en una llamada a la función \texttt{cat()} es lo que se mostrará como mensajes en la consola.
@@ -6391,7 +6391,7 @@ Esto es lo que ocurre en la terminal:
 
 }
 
-\caption{Programa paridad.R}\label{fig:unnamed-chunk-161}
+\caption{Programa paridad.R}\label{fig:unnamed-chunk-164}
 \end{figure}
 
 \textbf{Práctica 2, Ejercicio 3: salario}
@@ -6427,7 +6427,7 @@ En este ejemplo, tenemos que leer tres valores, dos de lo cuales son de tipo car
 
 }
 
-\caption{Programa salario.R}\label{fig:unnamed-chunk-163}
+\caption{Programa salario.R}\label{fig:unnamed-chunk-166}
 \end{figure}
 
 \textbf{Práctica 4, Ejercicio 1: suma de elementos de un vector}
@@ -6458,7 +6458,7 @@ Vamos a ver cómo hacer para que un usuario nos diga cuáles son los valores que
 
 }
 
-\caption{Programa suma.R}\label{fig:unnamed-chunk-166}
+\caption{Programa suma.R}\label{fig:unnamed-chunk-169}
 \end{figure}
 
 \hypertarget{otros}{%

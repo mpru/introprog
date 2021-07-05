@@ -559,7 +559,7 @@ COMENZAR
   pernoc <- 0
   PARA i DESDE 1 HASTA NFILA(datos) HACER
     
-  tipohab <- datos[i, 1]
+    tipohab <- datos[i, 1]
     mes <- datos[i, 2]
     noches <- datos[i, 3]
     

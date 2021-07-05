@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>2 Objetos y operadores | Introducción a la Programación</title>
 <meta name="author" content="Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.)">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.7/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.8/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style.css">
@@ -158,7 +158,7 @@ peso_nacimiento &lt;- 3.423</code></pre>
 <p>Todos los objetos que vamos definiendo en nuestro algoritmo y, posteriormente, en nuestro programa, forman parte del <em>ambiente</em>. En Rstudio podemos ver listados todos los objetos presentes en el ambiente en la pestaña <em>Environment</em> del panel superior derecho. También podemos ver en la consola un listado de todos los nombres de los objetos que existen en el ambiente con la función <code><a href="https://rdrr.io/r/base/ls.html">ls()</a></code>, por ejemplo:</p>
 <div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] "arch"     "archivos" "var1"     "var2"     "var3"    </code></pre>
+<pre><code>[1] "var1" "var2" "var3"</code></pre>
 <p>Es probable que mientras estamos escribiendo el código, necesitemos probar si algunas partes funcionan y para eso corremos algunas líneas de código, creando objetos en el ambiente. Entre intento e intento, probablemnte necesitemos borrar alguno o todos esos objetos que se crearon, para poder comenzar con un ambiente libre. Si deseamos borrar todos los objetos del ambiente podemos correr la sentencia <code><a href="https://rdrr.io/r/base/rm.html">rm(list = ls())</a></code> o hacer clic en el ícono de la escoba en el panel <em>Environment</em>. Si queremos eliminar sólo un objeto debemos ejecutar la función <code><a href="https://rdrr.io/r/base/rm.html">rm()</a></code>, indicando entre paréntesis el identificador del objeto que deseamos borrar, por ejemplo:</p>
 <div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">var1</span><span class="op">)</span></code></pre></div>
@@ -620,7 +620,7 @@ EN R
 <span class="co"># La primera parte da TRUE, se continúa con la segunda, pero da error porque no</span>
 <span class="co"># existe un objeto llamado z</span>
 <span class="op">(</span><span class="va">y</span> <span class="op">&gt;</span> <span class="va">x</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">z</span><span class="op">)</span></code></pre></div>
-<pre><code>Error in eval(expr, envir, enclos): objeto 'z' no encontrado</code></pre>
+<pre><code>Error in eval(expr, envir, enclos): object 'z' not found</code></pre>
 <div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># La primera parte da FALSE, entonces toda la operación será FALSE, no se</span>
 <span class="co"># continúa con la segunda parte, con lo cual no se intenta usar el objeto</span>
@@ -637,7 +637,7 @@ EN R
 <code class="sourceCode R"><span class="co"># Como la primera parte es FALSE, debe evaluar la segunda, no encuentra a z y da</span>
 <span class="co"># error</span>
 <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">y</span><span class="op">)</span> <span class="op">||</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">z</span><span class="op">)</span></code></pre></div>
-<pre><code>Error in eval(expr, envir, enclos): objeto 'z' no encontrado</code></pre>
+<pre><code>Error in eval(expr, envir, enclos): object 'z' not found</code></pre>
 </div>
 <div id="orden-de-precedencia-completo-en-r" class="section level4" number="2.2.3.2">
 <h4>
@@ -778,7 +778,7 @@ FIN</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-06-27.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-07-05.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
