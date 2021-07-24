@@ -243,7 +243,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2021-07-05}
+\date{2021-07-24}
 
 \begin{document}
 \maketitle
@@ -755,8 +755,8 @@ Cuando se abre RStudio se pueden visualizar cuatro paneles:
   \end{itemize}
 \end{itemize}
 
-\hypertarget{uso-de-rstudio}{%
-\subsection{Uso de RStudio}\label{uso-de-rstudio}}
+\hypertarget{uso-de-la-consola}{%
+\subsection{Uso de la consola}\label{uso-de-la-consola}}
 
 Podemos usar la consola de R que encontramos en el panel de la izquierda para introducir allí nuestras sentencias y al hacer \texttt{Enter} serán evaluadas, produciendo algún resultado. Por ejemplo, podemos hacer algunos cálculos matemáticos como dividir, multiplicar, sumar, restar, calcular potencias, logaritmos, raíces y mucho más:
 
@@ -867,7 +867,9 @@ R Se divide en dos partes:
   \textbf{Paquetes adicionales}. Un paquete es un conjunto de archivos que se descarga de forma opcional desde CRAN u otros repositorios y que sirven para hacer alguna tarea especial. Por ejemplo, para poder hacer gráficos lindos, se puede usar un paquete que se llama \texttt{ggplot2}.
 \end{itemize}
 
-Como dijimos antes, en la pestaña \emph{Packages} del panel de abajo a la derecha tiene el listado de todos los paquetes que ya están instalados (muchos vienen con R Base). Allí también hay un botón para instalar nuevos, aunque otra opción es correr la sentencia \texttt{install.packages("nombredelpaquete")}, por ejemplo, \texttt{install.packages("ggplot2")}. Un paquete se instala una sola vez, pero cada vez que lo queramos usar debemos \emph{cargarlo} para que las herramientas que trae queden a nuestra disposición. Eso se hace con la sentencia \texttt{library("nombredelpaquete")}, por ejemplo, \texttt{library("ggplot2")}.
+Como dijimos antes, en la pestaña \emph{Packages} del panel de abajo a la derecha tiene el listado de todos los paquetes que ya están instalados (muchos vienen con R Base). Allí también hay un botón para instalar nuevos, aunque otra opción es correr la sentencia \texttt{install.packages("nombredelpaquete")}, por ejemplo, \texttt{install.packages("ggplot2")}. También es posible instalar paquetes publicados en otros repositorios\footnote{Por ejemplo, es muy común descargar paquetes en desarrollo o en experimentación que estén disponibles en la plataforma Github. Estos paquetes se instalan especificando el nombre de la cuenta de Github de quien lo haya publicado y el nombre del paquete, por ejemplo: \texttt{devtools::install\_github("mpru/karel")}. Para esto previamente hay que haber instalado desde CRAN el paquete \texttt{devtools} con \texttt{install.packages("devtools")}.}.
+
+Un paquete se instala una sola vez, pero cada vez que lo queramos usar debemos \emph{cargarlo} para que las herramientas que trae queden a nuestra disposición. Eso se hace con la sentencia \texttt{library("nombredelpaquete")}, por ejemplo, \texttt{library("ggplot2")}.
 
 \hypertarget{guuxeda-de-estilo}{%
 \section{Guía de estilo}\label{guuxeda-de-estilo}}
@@ -983,8 +985,8 @@ compras <- 12
 stock <- stock - ventas + compras
 \end{verbatim}
 
-\hypertarget{creaciuxf3n-y-manejo-de-objetos-en-r}{%
-\subsection{Creación y manejo de objetos en R}\label{creaciuxf3n-y-manejo-de-objetos-en-r}}
+\hypertarget{objetosenR}{%
+\subsection{Creación y manejo de objetos en R}\label{objetosenR}}
 
 En R también se usa el operador ``flechita'' para asignar valores a variables. Como lo vamos a usar muchísimas veces, es conveniente recordar su \emph{shortcut}: \texttt{Alt\ +\ -} (teclas \emph{Alt} y guión medio). Como ya mencionamos antes, R es un lenguaje dinámico, lo cual significa que no tenemos que declarar las variables antes de asignarles un valor. Por ejemplo, si necesitamos registrar el peso y lugar de nacimiento de una persona, solamente tenemos que hacer:
 
@@ -1096,7 +1098,7 @@ Todos los objetos generados viven temporalmente en la memoria de la computadora 
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{save.image}\NormalTok{(}\StringTok{"C:/Users/Ana/Documentos/Facultad/objetos.RData"}\NormalTok{)}
+\FunctionTok{save.image}\NormalTok{(}\StringTok{"C:/Users/Marcos/Documentos/Facultad/objetos.RData"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1104,7 +1106,7 @@ Si por el contrario necesitamos \emph{importar} al ambiente objetos que estén g
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{load}\NormalTok{(}\StringTok{"C:/Users/Ana/Documentos/Facultad/objetos.RData"}\NormalTok{)}
+\FunctionTok{load}\NormalTok{(}\StringTok{"C:/Users/Marcos/Documentos/Facultad/objetos.RData"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1626,6 +1628,101 @@ El área del círculo es 78.53982
 \end{verbatim}
 
 \emph{Nota}: \texttt{pi} ya es una constante incorporada en R Base, en realidad no es necesario crear esta constante y asignarle valor.
+
+\hypertarget{directorio-de-trabajo}{%
+\section{Directorio de trabajo}\label{directorio-de-trabajo}}
+
+Antes de terminar este capítulo vamos a presentar un concepto fundamental acerca de cómo se relaciona R con el sistema opertaivo de nuestra computadora para poder tener acceso a nuestros archivos o para generar otros nuevos.
+
+Al finalizar la sección \ref{objetosenR} vimos ejemplos en los que se utilizó R para, en primer lugar, generar un archivo llamado \texttt{objetos.RData} con todos los objetos existentes en nuestro ambiente de trabajo y, en segundo lugar, cargar la información que dicho archivo contiene:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{save.image}\NormalTok{(}\StringTok{"C:/Users/Marcos/Documentos/Facultad/objetos.RData"}\NormalTok{)}
+\FunctionTok{load}\NormalTok{(}\StringTok{"C:/Users/Marcos/Documentos/Facultad/objetos.RData"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+En ambos casos, dentro de las funciones \texttt{save.image()} y \texttt{load()} se tuvo que escribir la dirección completa que representa cuál es la ubicación exacta de dicho archivo en la computadora: \texttt{C:/Users/Marcos/Documentos/Facultad/objetos.RData}. Esto significa que el archivo se encuentra en la carpeta \texttt{Facultad}, que a su vez está dentro de la carpeta \texttt{Documentos}, dentro de \texttt{Ana} y dentro de \texttt{Users}, en el disco C de la computadora.
+
+Expresiones como \texttt{C:/Users/Marcos/Documentos/Facultad/objetos.RData} reciben el nombre de \textbf{ruta informática} o \emph{path} y sirven para referenciar de manera exacta la localización ya sea de una carpeta o de un archivo en particular dentro del sistema de archivos que maneja el sistema operativo de la computadora. Un \emph{path} está compuesto por todos los nombres de los directorios que ordenadamente nos permiten llegar hasta la carpeta o archivo de interés, separados por un carácter que dependiendo del sistema operativo puede ser una barra diagonal \texttt{/} o una barra inversa \texttt{\textbackslash{}}.
+
+R siempre está mirando a alguna carpeta en particular dentro de la computadora, la cual recibe el nombre \textbf{directorio de trabajo} (o \emph{working directory}, \emph{wd}). Por ejemplo, en este momento y en mi computadora, R está posando su atención en una carpeta que se llama \texttt{introprog} y cuya ruta puedo descubrir con la función \texttt{getwd()}, que significa ``obtener (get) el directorio de trabajo (wd)'':
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{getwd}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "/home/marcos/GitProjects/introprog"
+\end{verbatim}
+
+Esto quiere decir que R puede ver y acceder de manera directa a todos los archivos que hay allí, sin necesidad de escribir la ruta completa. Por ejemplo, si en lugar de ejecutar:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{save.image}\NormalTok{(}\StringTok{"C:/Users/Marcos/Documentos/Facultad/objetos.RData"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+ejecuto sencillamente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{save.image}\NormalTok{(}\StringTok{"objetos.RData"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+lo que ocurre es que el nuevo archivo se generará en mi directorio de trabajo (carpeta \texttt{introprog}) y no en la carpeta \texttt{Facultad}. Del mismo modo, si ejecuto:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{load}\NormalTok{(}\StringTok{"objetos.RData"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+el software va a buscar el archivo \texttt{objetos.RData} en mi directorio de trabajo (carpeta \texttt{introprog}) y va a cargar su contenido al ambiente de trabajo. Si en dicha carpeta no existe un archivo con ese nombre, obtendremos un mensaje de error muy famoso:
+
+\begin{verbatim}
+cannot find file 'objetos.RData', probable reason 'No such file or directory'
+\end{verbatim}
+
+El directorio de trabajo por default suele ser la carpeta \emph{Documentos} o alguna equivalente y es la que vemos en el panel \texttt{Files} de RStudio. Podemos cambiar el directorio de trabajo por cualquier otra carpeta en la que queramos estar trabajando con la función \texttt{setwd()} (``setear el working directory''):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{setwd}\NormalTok{(}\StringTok{"/home/marcos/documents/introprog/tp1"}\NormalTok{)}
+\FunctionTok{getwd}\NormalTok{()}
+\StringTok{"/home/marcos/documents/introprog/tp1"}
+\end{Highlighting}
+\end{Shaded}
+
+Por ejemplo, si estamos resolviendo un trabajo práctico para el cual tenemos varios archivos necesarios guardados en la carpeta \texttt{tp1}, tenemos dos opciones:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Sin importar cuál es nuestro directorio de trabajo, hacer referencia a dichos archivos con \emph{paths} completos, por ejemplo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{load}\NormalTok{(}\StringTok{"/home/marcos/documents/introprog/tp1/objetos.RData"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Setear como directorio de trabajo a la carpeta del trabajo práctico y hacer un uso directo de los archivos que se encuentren allí:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{setwd}\NormalTok{(}\StringTok{"/home/marcos/documents/introprog/tp1"}\NormalTok{)}
+\FunctionTok{load}\NormalTok{(}\StringTok{"objetos.RData"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+\end{enumerate}
+
+Es importante recordar lo siguiente: al escribir \emph{paths}, R sólo reconoce como caracteres delimitadores entre los nombres de carpetas a la barra diagonal \texttt{/} o a dos barras invertidas \texttt{\textbackslash{}\textbackslash{}}. Quienes usan el sistema operativo Windows notarán que en el explorador de archivos, las rutas están delimitadas con una sola barra invertida \texttt{\textbackslash{}}. En el contexto de R, debe ser reemplazada por dos barras invertidas o por una sola barra diagonal.
 
 \hypertarget{estructuras-de-control}{%
 \chapter{Estructuras de control}\label{estructuras-de-control}}
@@ -2424,8 +2521,8 @@ FIN
 
 En la sección anterior vimos cómo definir funciones en pseudocódigo. Antes de pasar a ver cómo programar nuestras funciones en R, vamos a comentar algunas cuestiones acerca de las funciones que R ya trae disponibles como parte de su funcionalidad básica.
 
-\hypertarget{funciones-predefinidas-de-r}{%
-\subsection{Funciones predefinidas de R}\label{funciones-predefinidas-de-r}}
+\hypertarget{funcpredef}{%
+\subsection{Funciones predefinidas de R}\label{funcpredef}}
 
 R, como todo lenguaje de programación, tiene \textbf{funciones predefinidas}, es decir, sentencias que se encargan de realizar alguna actividad. Ya estuvimos usando algunas de ellas, por ejemplo, cuando hemos necesitado mostrar algún mensaje usamos las funciones \texttt{cat()} o \texttt{print()}\footnote{Sentencias como \texttt{for}, \texttt{while} o \texttt{if} también son funciones, aunque con una estructura muy particular.}. Además, existen muchas otras funciones predefinidas, como todas aquellas que se necesitan para realizar ciertas operaciones matemáticas:
 
@@ -2503,7 +2600,7 @@ Esa página de ayuda tiene bastante información, porque reúne información sob
 
 }
 
-\caption{Captura de pantalla de la ayuda sobre la función log()}\label{fig:unnamed-chunk-64}
+\caption{Captura de pantalla de la ayuda sobre la función log()}\label{fig:unnamed-chunk-72}
 \end{figure}
 
 En la sección \emph{Usage} (``uso'') descubrimos que la función \texttt{log()} puede usarse con dos argumentos: \texttt{x} y \texttt{base}. En la sección \emph{Arguments} entendemos que \texttt{x} es el número al cual le vamos a sacar el logaritmo y \texttt{base} es la base con respecto a la cual se toma el logaritmo. Por eso, al correr \texttt{log(100,\ 10)}, estamos calculando el logaritmo de \texttt{x\ =\ 100} con \texttt{base\ =\ 10}.
@@ -2604,7 +2701,7 @@ En R, definimos esta función así:
 
 }
 
-\caption{Estructura de una función en R}\label{fig:unnamed-chunk-70}
+\caption{Estructura de una función en R}\label{fig:unnamed-chunk-78}
 \end{figure}
 
 La estructura general es:
@@ -2814,8 +2911,8 @@ Esta distinción también es importante en R: la definición de las funciones de
 El resultado es 59
 \end{verbatim}
 
-\hypertarget{documentaciuxf3n-de-los-subalgoritmos}{%
-\section{Documentación de los subalgoritmos}\label{documentaciuxf3n-de-los-subalgoritmos}}
+\hypertarget{ejemplofact}{%
+\section{Documentación de los subalgoritmos}\label{ejemplofact}}
 
 En el contexto de la programación, documentar significa escribir indicaciones para que otras personas puedan entender lo que queremos hacer en nuestro código o para que sepan cómo usar nuestras funciones. Por ejemplo, como vimos antes todas funciones predefinidas de R están documentadas para que podamos buscar ayuda si la necesitamos. Cuando estamos creando nuestras propios subalgoritmos, es importante que también incluyamos comentarios para guiar a otras personas (y a nosotros mismos en el futuro si nos olvidamos) para qué y cómo se usa lo que estamos desarrollando.
 
@@ -3678,7 +3775,7 @@ Un \textbf{arreglo unidimensional} o \textbf{vector} tiene \emph{n} elementos to
 
 }
 
-\caption{Ejemplo de un vector numérico}\label{fig:unnamed-chunk-92}
+\caption{Ejemplo de un vector numérico}\label{fig:unnamed-chunk-100}
 \end{figure}
 
 Cada uno de los elementos ocupa una posición determinada en el vector. Por ejemplo, el elemento 3 del vector \texttt{x} es el numéro 2.71. Se puede \emph{acceder} o hacer referencia a cada elemento mediante el uso de \emph{índices}, expresados entre corchetes al lado del nombre del vector. De esta forma, si escribimos \texttt{x{[}3{]}} hacemos referencia a la tercera posición del vector, que actualmente guarda al valor 2.71. Como podemos ver, sólo hace falta un índice para hacer referencia a cada elemento de un vector.
@@ -3689,7 +3786,7 @@ Cada uno de los elementos ocupa una posición determinada en el vector. Por ejem
 
 }
 
-\caption{Ejemplo de un vector numérico: índices para señalar cada posición.}\label{fig:unnamed-chunk-93}
+\caption{Ejemplo de un vector numérico: índices para señalar cada posición.}\label{fig:unnamed-chunk-101}
 \end{figure}
 
 Los siguientes son ejemplos de vectores de tipo caracter y lógico, con distintas cantidades de elementos:
@@ -3700,7 +3797,7 @@ Los siguientes son ejemplos de vectores de tipo caracter y lógico, con distinta
 
 }
 
-\caption{Ejemplo de un vector caracter y un vector lógico}\label{fig:unnamed-chunk-94}
+\caption{Ejemplo de un vector caracter y un vector lógico}\label{fig:unnamed-chunk-102}
 \end{figure}
 
 Al igual que todas las variables que empleamos en nuestros algoritmos, los vectores que serán utilizados deben ser declarados en el pseudocódigo, eligiendo un \emph{identificador} (nombre) e indicando su tipo y su tamaño, es decir, la cantidad de posiciones que contienen. Esto último se señala entre paréntesis al lado del nombre elegido. Por ejemplo, el vector \texttt{x} visto anteriomente puede ser creado de la siguiente forma:
@@ -3732,7 +3829,7 @@ En R, los vectores se construyen de forma dinámica por lo cual no es necesario 
 
 }
 
-\caption{Creación de vectores en R}\label{fig:unnamed-chunk-96}
+\caption{Creación de vectores en R}\label{fig:unnamed-chunk-104}
 \end{figure}
 
 Cuando ejecutamos dichas líneas, se crean en el ambiente global los objetos \texttt{x}, \texttt{y} y \texttt{z}, como podemos notar en la pestaña \texttt{Environment} de RStudio. Es decir, los vectores, así como cualquier otro tipo de arreglo, son \textbf{objetos} que constituyen entidades en sí mismas y que pueden ser manipulados al hacer referencia a sus indicadores. Además, RStudio nos muestra en la pestaña mencionada qué tipo de vector es cada uno (\texttt{num}, \texttt{chr}, \texttt{logi}), cuántos elementos tiene (\texttt{{[}1:5{]}}, \texttt{{[}1:4{]}}, \texttt{{[}1:3{]}}) y una previsualización de sus primeros elementos.
@@ -4014,7 +4111,7 @@ Un \textbf{arreglo bidimensional} representa lo que habitualmente conocemos en m
 
 }
 
-\caption{Ejemplo de una matriz numérica}\label{fig:unnamed-chunk-103}
+\caption{Ejemplo de una matriz numérica}\label{fig:unnamed-chunk-111}
 \end{figure}
 
 A diferencia de los vectores, las matrices requieren dos índices para señalar la posición de cada elemento, el primero para indicar la fila y el segundo para indicar la columna. Los mismos se colocan entre corchetes, separados por una coma, al lado del identificador de la matriz. De esta forma, si hablamos de \texttt{x{[}1,\ 3{]}} hacemos referencia a la posición ocupada por el valor 18, mientras que si mencionamos \texttt{x{[}3,\ 1{]}} nos referimos al valor 14.
@@ -4025,7 +4122,7 @@ A diferencia de los vectores, las matrices requieren dos índices para señalar 
 
 }
 
-\caption{Ejemplo de una matriz numérica: índices para señalar cada posición}\label{fig:unnamed-chunk-104}
+\caption{Ejemplo de una matriz numérica: índices para señalar cada posición}\label{fig:unnamed-chunk-112}
 \end{figure}
 
 Al \emph{tamaño} de una matriz, es decir, cuántas filas y columnas tiene, se le dice \textbf{dimensión}. La matriz anterior es de dimension \(3 \times 4\).
@@ -4166,7 +4263,7 @@ Podemos recorrer todas las posiciones de una matriz con una estructura iterativa
 
 }
 
-\caption{Recorrer una matriz por fila}\label{fig:unnamed-chunk-109}
+\caption{Recorrer una matriz por fila}\label{fig:unnamed-chunk-117}
 \end{figure}
 
 También se puede recorrer la matriz por columna, si modificamos ligeramente las estructuras iterativas:
@@ -4177,7 +4274,7 @@ También se puede recorrer la matriz por columna, si modificamos ligeramente las
 
 }
 
-\caption{Recorrer una matriz por columna}\label{fig:unnamed-chunk-111}
+\caption{Recorrer una matriz por columna}\label{fig:unnamed-chunk-119}
 \end{figure}
 
 Se puede usar cualquier letra o palabra como variables iteradoras, pero el uso de \texttt{i} para las filas y de \texttt{j} para las columnas es bastante común.
@@ -4235,7 +4332,7 @@ En Álgebra, trasponer una matriz de dimensión \(m \times n\) significa generar
 
 }
 
-\caption{Matriz traspuesta}\label{fig:unnamed-chunk-113}
+\caption{Matriz traspuesta}\label{fig:unnamed-chunk-121}
 \end{figure}
 
 Podemos formalizar el algoritmo que permite generar la matriz traspuesta, teniendo en cuenta que cada elemento que originalmente ocupa la posición \texttt{{[}i,\ j{]}} en la matriz original, debe pasar a ocupar la posición \texttt{{[}j,\ i{]}} en la matriz traspuesta:
@@ -4495,7 +4592,7 @@ Una de las principales características de los \textbf{arreglos} es la \textbf{h
 
 }
 
-\caption{Ejemplo de una lista}\label{fig:unnamed-chunk-118}
+\caption{Ejemplo de una lista}\label{fig:unnamed-chunk-126}
 \end{figure}
 
 En R la creación de esta lista se realiza mediante la función \texttt{list()}, cuyos argumentos son los elementos que queremos guardar en la lista, separados por comas:
@@ -4536,7 +4633,7 @@ Luego de correr la sentencia anterior, podemos ver que \texttt{mi\_lista} es un 
 
 }
 
-\caption{La lista en la pestaña Environment de RStudio}\label{fig:unnamed-chunk-120}
+\caption{La lista en la pestaña Environment de RStudio}\label{fig:unnamed-chunk-128}
 \end{figure}
 
 Usamos dobles corchetes \texttt{{[}{[}\ {]}{]}} para referenciar a cada objeto que forma parte de la lista. Además, si queremos indicar un elemento dentro de un objeto que forma parte de la lista, agregamos otro conjunto de corchetes como hacemos con vectores y matrices. Por ejemplo:
@@ -4547,7 +4644,7 @@ Usamos dobles corchetes \texttt{{[}{[}\ {]}{]}} para referenciar a cada objeto q
 
 }
 
-\caption{Ejemplo de una lista}\label{fig:unnamed-chunk-121}
+\caption{Ejemplo de una lista}\label{fig:unnamed-chunk-129}
 \end{figure}
 
 \begin{Shaded}
@@ -5292,7 +5389,7 @@ Como ilustración, se muestran los primeros registros del archivo:
 
 }
 
-\caption{Primeros registros del archivo reservas.txt}\label{fig:unnamed-chunk-135}
+\caption{Primeros registros del archivo reservas.txt}\label{fig:unnamed-chunk-143}
 \end{figure}
 
 La primera línea de este archivo de texto contiene los nombres de los campos. La segunda línea contiene los datos correspondientes al registro, que se trata de una reserva para una habitación triple (\texttt{tipohab} es igual a 3), en el mes de enero (\texttt{mes} es igual a 1) y por 1 noche (\texttt{noches} es igual a 1).
@@ -5512,7 +5609,7 @@ El paso más importante es diseñar todas las estructuras de datos que necesitar
 
 }
 
-\caption{Bosquejo de las estructuras de datos necesarias}\label{fig:unnamed-chunk-141}
+\caption{Bosquejo de las estructuras de datos necesarias}\label{fig:unnamed-chunk-149}
 \end{figure}
 
 En la figura anterior se señalan los vectores y matrices necesarios para cumplir con el objetivo. Por ahora, nos concentraremos en obtener los conteos y acumular la cantidad de noches. Más adelante, veremos cómo unir todos los resultados y poner nombres de filas y columnas.
@@ -6273,6 +6370,1652 @@ Las reglas que aprendimos para escribir el pseudocódigo nos permiten traducir n
 
 En este capítulo vamos mencionar algunas cosas útiles sobre R.
 
+\hypertarget{muxe1s-funciones-predefinidas}{%
+\section{Más funciones predefinidas}\label{muxe1s-funciones-predefinidas}}
+
+En este proceso de aprendizaje sobre programación hemos encarado la tarea de escribir muchas funciones que, por lo general, ya forman parte de la sintaxis básica de cualquier lenguaje de programación. Sí\ldots{} hemos trabajado de más, ¡pero fue para poder aprender! Ahora vamos a mencionar algunos ejemplos de funciones que fuimos capaces de programar por nuestros propios medios, pero que ya estaban disponibles en R. De hecho, en la sección \ref{funcpredef} vimos que R tiene funciones predefinidas para que podamos cumplir muchas tareas con facilidad.
+
+Recordemos algunos ejercicios:
+
+\begin{itemize}
+\item
+  En la sección \ref{funcpredef} vimos la definición de una función para el cálculo de factoriales, que a su vez usamos en el ejercicio 1 de la \textbf{Práctica 3} para crear una función que calcule números combinatorios. R ya trae funciones que cumplen ese rol:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Cálculo de factoriales}
+\FunctionTok{factorial}\NormalTok{(}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 120
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Cálculo de números combinatorios}
+\FunctionTok{choose}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 45
+\end{verbatim}
+\item
+  En el \textbf{ejercicio 1} de la \textbf{Práctica 4} definimos la siguiente función para sumar los elementos de un vector:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{suma }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(v) \{}
+\NormalTok{    rtdo }\OtherTok{\textless{}{-}} \DecValTok{0}
+    \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(v)) \{}
+\NormalTok{        rtdo }\OtherTok{\textless{}{-}}\NormalTok{ rtdo }\SpecialCharTok{+}\NormalTok{ v[i]}
+\NormalTok{    \}}
+    \FunctionTok{return}\NormalTok{(rtdo)}
+\NormalTok{\}}
+
+\NormalTok{mi\_vector }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{60}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\FunctionTok{suma}\NormalTok{(mi\_vector)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 68
+\end{verbatim}
+
+  Sin embargo, podríamos usar directamente la función \texttt{sum()} de R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(mi\_vector)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 68
+\end{verbatim}
+\item
+  En el \textbf{ejercicio 3} de la \textbf{Práctica 4} creamos las funciones \texttt{ordenar\_asc()} y \texttt{ordenar\_des()} para ordenar los elementos de un vector. Esto se puede hacer así:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sort}\NormalTok{(mi\_vector)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] -5  0  1 12 60
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sort}\NormalTok{(mi\_vector, }\AttributeTok{decreasing =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 60 12  1  0 -5
+\end{verbatim}
+\item
+  En el \textbf{ejercicio 4} de la \textbf{Práctica 4}, escribimos funciones para encontrar el mínimo o el máximo en un vector, al igual que su posición. R nos facilita estas funciones para lograr lo mismo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Valor mínimo}
+\FunctionTok{min}\NormalTok{(mi\_vector)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] -5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Posición del mínimo en el vector}
+\FunctionTok{which.min}\NormalTok{(mi\_vector)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Valor máximo}
+\FunctionTok{max}\NormalTok{(mi\_vector)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 60
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Posición del máximo en el vector}
+\FunctionTok{which.max}\NormalTok{(mi\_vector)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Al igual que nuestra función, si el valor se repite nos da la posición de su}
+\CommentTok{\# primera ocurrencia}
+\NormalTok{w }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+\FunctionTok{max}\NormalTok{(w)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{which.max}\NormalTok{(w)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Pero podemos obtener todas las posiciones así:}
+\FunctionTok{which}\NormalTok{(w }\SpecialCharTok{==} \FunctionTok{max}\NormalTok{(w))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2 5
+\end{verbatim}
+\item
+  También podemos aplicar esto a la búsqueda de mínimos y máximos en una matriz:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{sample}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{20}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{5}\NormalTok{)}
+\NormalTok{A}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2] [,3] [,4]
+[1,]    9   77   19   46
+[2,]   29   62   20   38
+[3,]   45   25   98   56
+[4,]   11   54   22   35
+[5,]   16   59    2    6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Valor máximo}
+\FunctionTok{max}\NormalTok{(A)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 98
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Posición (arr.ind = TRUE para que nos indique fila y columna)}
+\FunctionTok{which}\NormalTok{(A }\SpecialCharTok{==} \FunctionTok{max}\NormalTok{(A), }\AttributeTok{arr.ind =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     row col
+[1,]   3   3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Máximo en cada fila de A (la función apply aplica la función provista, max, }
+\CommentTok{\# a cada fila de A)}
+\FunctionTok{apply}\NormalTok{(A, }\DecValTok{1}\NormalTok{, max)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 77 62 98 54 59
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Si en lugar de 1 ponemos 2, tenemos el máximo en cada columna}
+\FunctionTok{apply}\NormalTok{(A, }\DecValTok{2}\NormalTok{, max)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 45 77 98 56
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Posición del máximo en cada fila}
+\FunctionTok{max.col}\NormalTok{(A) }\CommentTok{\# Una opción}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2 2 3 2 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apply}\NormalTok{(A, }\DecValTok{1}\NormalTok{, which.max) }\CommentTok{\# Otra opción}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2 2 3 2 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Posición del máximo en cada columna}
+\FunctionTok{apply}\NormalTok{(A, }\DecValTok{2}\NormalTok{, which.max)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 3 1 3 3
+\end{verbatim}
+\item
+  En otras ocasiones, puede ser que R no incluya en su instalación base la función que necesitamos, pero que la misma ya haya sido programada por otra persona y esté disponible en un \emph{paquete} que podemos descargar e instalar. Por ejemplo, en el ejercicio 8 de la Práctica 3 escribimos una función llamada \texttt{max\_com\_div()} para hallar el máximo común divisor entre dos naturales. R no tiene una función que compute esto, pero podemos instalar el paquete \texttt{FRACTION} que sí la incluye:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages("FRACTION")}
+\FunctionTok{library}\NormalTok{(}\StringTok{"FRACTION"}\NormalTok{)}
+\FunctionTok{gcd}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{24}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 4
+\end{verbatim}
+\end{itemize}
+
+\hypertarget{operaciones-vectorizadas}{%
+\section{Operaciones vectorizadas}\label{operaciones-vectorizadas}}
+
+Otro aspecto importante es que la mayoría de las funciones de R están \textbf{vectorizadas}. Esto quiere decir que están diseñadas para operar al mismo tiempo con todos los elementos de los vectores y matrices y no es necesario recorrer cada posición, una por una, como aprendimos para incorporar nuestros primeros conocimientos sobre programación. Las funciones operan en todos los elementos sin tener que usar estructuras iterativas, haciendo que el código sea más conciso, fácil de leer y con menos chances de cometer errores.
+
+Recordemos algunas situaciones:
+
+\begin{itemize}
+\item
+  \textbf{Práctica 4, ejercicio 2}: definimos una función para sumar dos vectores:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sumar\_vectores }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(u, v) \{}
+\NormalTok{    nu }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(u)}
+\NormalTok{    nv }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(v)}
+    \ControlFlowTok{if}\NormalTok{ (nu }\SpecialCharTok{==}\NormalTok{ nv) \{}
+\NormalTok{        suma }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{(nu)}
+        \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{nu) \{ }
+\NormalTok{            suma[i] }\OtherTok{\textless{}{-}}\NormalTok{ u[i] }\SpecialCharTok{+}\NormalTok{ v[i]}
+\NormalTok{        \}}
+        \FunctionTok{return}\NormalTok{(suma)}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+        \FunctionTok{cat}\NormalTok{(}\StringTok{"Las dimensiones de los vectores no coinciden}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+        \FunctionTok{return}\NormalTok{(}\ConstantTok{NULL}\NormalTok{)}
+\NormalTok{    \}}
+\NormalTok{\}}
+
+\NormalTok{u }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\NormalTok{v }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{)}
+\FunctionTok{sumar\_vectores}\NormalTok{(u, v)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  7 11  1
+\end{verbatim}
+
+  Pero directamente, podemos hacer \texttt{u\ +\ v}, puesto que R realizará la suma elemento a elemento entre los dos vectores:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{u }\SpecialCharTok{+}\NormalTok{ v}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  7 11  1
+\end{verbatim}
+\item
+  \textbf{Práctica 4, ejercicio 5}: creamos una función para calcular el producto escalar entre dos vectores. Se puede hacer de manera directa así:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(u }\SpecialCharTok{*}\NormalTok{ v)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 32
+\end{verbatim}
+
+  \texttt{u\ *\ v} hace la multiplicación elemento a elemento entre los vectores \texttt{u} y \texttt{v} y luego sumamos con \texttt{sum()}.
+\item
+  \textbf{Práctica 4, ejercicio 7}: programamos una función para hacer la suma entre dos matrices:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sumar\_matrices }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(A, B) \{}
+    \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{nrow}\NormalTok{(A) }\SpecialCharTok{==} \FunctionTok{nrow}\NormalTok{(B) }\SpecialCharTok{\&\&} \FunctionTok{ncol}\NormalTok{(A) }\SpecialCharTok{==} \FunctionTok{ncol}\NormalTok{(B)) \{}
+\NormalTok{        suma }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(A), }\FunctionTok{ncol}\NormalTok{(A))}
+        \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(A)) \{}
+            \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(A)) \{}
+\NormalTok{                suma[i, j] }\OtherTok{\textless{}{-}}\NormalTok{ A[i, j] }\SpecialCharTok{+}\NormalTok{ B[i, j]}
+\NormalTok{            \}}
+\NormalTok{        \}}
+        \FunctionTok{return}\NormalTok{(suma)}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+        \FunctionTok{cat}\NormalTok{(}\StringTok{"Las dimensiones de las matrices no coinciden}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+        \FunctionTok{return}\NormalTok{(}\ConstantTok{NULL}\NormalTok{)}
+\NormalTok{    \}}
+\NormalTok{\}}
+
+\CommentTok{\# Ejemplo de su uso}
+\NormalTok{a }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{3}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{3}\NormalTok{)}
+\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]    5    2
+[2,]    8    3
+[3,]    2    1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{b}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]    0    1
+[2,]   -1    2
+[3,]    3    4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sumar\_matrices}\NormalTok{(a, b)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]    5    3
+[2,]    7    5
+[3,]    5    5
+\end{verbatim}
+
+  Gracias a las operaciones vectorizadas de R, esto se puede resumir en:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\SpecialCharTok{+}\NormalTok{ b}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]    5    3
+[2,]    7    5
+[3,]    5    5
+\end{verbatim}
+\end{itemize}
+
+A continuación presentamos un listado de las operaciones vectorizadas más comunes:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Matrices de ejemplo}
+\NormalTok{a }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{2}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{3}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{3}\NormalTok{)}
+\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]    5    1
+[2,]    3    8
+[3,]    1    2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{b}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]    0    1
+[2,]   -1    2
+[3,]    3    4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Operaciones elemento a elemento}
+\NormalTok{a }\SpecialCharTok{+}\NormalTok{ b}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]    5    2
+[2,]    2   10
+[3,]    4    6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\SpecialCharTok{{-}}\NormalTok{ b}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]    5    0
+[2,]    4    6
+[3,]   -2   -2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\SpecialCharTok{*}\NormalTok{ b}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]    0    1
+[2,]   -3   16
+[3,]    3    8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\SpecialCharTok{/}\NormalTok{ b}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+           [,1] [,2]
+[1,]        Inf  1.0
+[2,] -3.0000000  4.0
+[3,]  0.3333333  0.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a}\SpecialCharTok{\^{}}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]   25    1
+[2,]    9   64
+[3,]    1    4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sqrt}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+         [,1]     [,2]
+[1,] 2.236068 1.000000
+[2,] 1.732051 2.828427
+[3,] 1.000000 1.414214
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Operaciones lógicas elemento a elemento}
+\NormalTok{a }\SpecialCharTok{==} \DecValTok{3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+      [,1]  [,2]
+[1,] FALSE FALSE
+[2,]  TRUE FALSE
+[3,] FALSE FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{b }\SpecialCharTok{\textgreater{}} \DecValTok{0}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+      [,1] [,2]
+[1,] FALSE TRUE
+[2,] FALSE TRUE
+[3,]  TRUE TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\SpecialCharTok{\textgreater{}}\NormalTok{ b}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+      [,1]  [,2]
+[1,]  TRUE FALSE
+[2,]  TRUE  TRUE
+[3,] FALSE FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\SpecialCharTok{\textless{}} \DecValTok{0} \SpecialCharTok{|}\NormalTok{ b }\SpecialCharTok{\textgreater{}} \DecValTok{0}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+      [,1] [,2]
+[1,] FALSE TRUE
+[2,] FALSE TRUE
+[3,]  TRUE TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Mínimo y máximo}
+\FunctionTok{min}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{which}\NormalTok{(a }\SpecialCharTok{==} \FunctionTok{min}\NormalTok{(a)) }\CommentTok{\# posición del mínimo (todas las ocurrencias)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 3 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apply}\NormalTok{(a, }\DecValTok{1}\NormalTok{, min) }\CommentTok{\# valor mínimo por fila}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 3 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apply}\NormalTok{(a, }\DecValTok{1}\NormalTok{, which.min) }\CommentTok{\# posición del mínimo por fila (primer ocurrencia)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2 1 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apply}\NormalTok{(a, }\DecValTok{1}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{which}\NormalTok{(x }\SpecialCharTok{==} \FunctionTok{min}\NormalTok{(x))) }\CommentTok{\# pos del mín por fila (todas las ocurrencias)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2 1 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Sumas y promedios para un vector}
+\NormalTok{v }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\FunctionTok{sum}\NormalTok{(v)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 15
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(v)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Sumas y promedios para una matriz, en general o para cada fila/columna}
+\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]    5    1
+[2,]    3    8
+[3,]    1    2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 20
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 3.333333
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rowSums}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  6 11  3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{colSums}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  9 11
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rowMeans}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 3.0 5.5 1.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{colMeans}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 3.000000 3.666667
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Álgebra matricial}
+\CommentTok{\# Transpuesta}
+\FunctionTok{t}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2] [,3]
+[1,]    5    3    1
+[2,]    1    8    2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Producto matricial}
+\NormalTok{d }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{, }\AttributeTok{nrow =} \DecValTok{2}\NormalTok{)}
+\NormalTok{a }\SpecialCharTok{\%*\%}\NormalTok{ d}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]    7   19
+[2,]   19   41
+[3,]    5   11
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Inversa}
+\FunctionTok{solve}\NormalTok{(d)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]   -2  1.5
+[2,]    1 -0.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Diagonal}
+\FunctionTok{diag}\NormalTok{(d)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 4
+\end{verbatim}
+
+\hypertarget{indexaciuxf3n-de-vectores-matrices-y-data.frames}{%
+\section{Indexación de vectores, matrices y data.frames}\label{indexaciuxf3n-de-vectores-matrices-y-data.frames}}
+
+Como ya sabemos, indexar es hacer referencia a uno o más elementos particulares dentro de una estructura de datos. Vimos que para indexar a un vector, hace falta sólo un índice:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{10.4}\NormalTok{, }\FloatTok{5.6}\NormalTok{, }\FloatTok{3.1}\NormalTok{, }\FloatTok{6.4}\NormalTok{, }\FloatTok{21.7}\NormalTok{)}
+\NormalTok{x[}\DecValTok{3}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 3.1
+\end{verbatim}
+
+Y que para indexar matrices, son necesarios dos índices:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{20}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{7}\NormalTok{, }\DecValTok{12}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{8}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{17}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{3}\NormalTok{)}
+\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2] [,3]
+[1,]    4   20   -8
+[2,]   -2   -7   13
+[3,]    1   12   17
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a[}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 13
+\end{verbatim}
+
+Pero también podemos hacer indexar a múltiples elementos de un vector o una matriz a la vez:
+
+\textbf{Vector}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Mostrar los primeros tres elementos del vector x}
+\NormalTok{x[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 10.4  5.6  3.1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Mostrar los elementos en las posiciones 2 y 4}
+\NormalTok{x[}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 5.6 6.4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Mostrar todos los elementos menos el cuarto}
+\NormalTok{x[}\SpecialCharTok{{-}}\DecValTok{4}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 10.4  5.6  3.1 21.7
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Mostrar el último elemento}
+\NormalTok{x[}\FunctionTok{length}\NormalTok{(x)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 21.7
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Indexar con valores lógicos. Obtenemos sólo las posiciones indicadas con TRUE:}
+\NormalTok{x[}\FunctionTok{c}\NormalTok{(F, F, T, T, F)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 3.1 6.4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Sabiendo que la siguiente operación devuelve TRUE o FALSE para cada posición de x:}
+\NormalTok{x }\SpecialCharTok{\textgreater{}} \DecValTok{10}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  TRUE FALSE FALSE FALSE  TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ...la podemos usar para quedarnos con aquellos elementos de x mayores a 10:}
+\NormalTok{x[x }\SpecialCharTok{\textgreater{}} \DecValTok{10}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 10.4 21.7
+\end{verbatim}
+
+\textbf{Matriz}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Toda la fila 3}
+\NormalTok{a[}\DecValTok{3}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  1 12 17
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Toda la columna 2}
+\NormalTok{a[, }\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 20 -7 12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Submatriz con las columnas 1 y 2}
+\NormalTok{a[, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]    4   20
+[2,]   -2   -7
+[3,]    1   12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Submatriz con las columnas 1 y 3}
+\NormalTok{a[, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]    4   -8
+[2,]   -2   13
+[3,]    1   17
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Asignar el mismo valor en toda la fila 3}
+\NormalTok{a[}\DecValTok{3}\NormalTok{, ] }\OtherTok{\textless{}{-}} \DecValTok{10}
+\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2] [,3]
+[1,]    4   20   -8
+[2,]   -2   -7   13
+[3,]   10   10   10
+\end{verbatim}
+
+\textbf{data.frames:}
+
+Inventamos un pequeño conjunto de datos de ejemplo con la estructura de los \texttt{data.frames} de R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mis\_datos }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+    \AttributeTok{altura =} \FunctionTok{c}\NormalTok{(}\DecValTok{181}\NormalTok{, }\DecValTok{165}\NormalTok{, }\DecValTok{149}\NormalTok{, }\DecValTok{178}\NormalTok{),}
+    \AttributeTok{peso =} \FunctionTok{c}\NormalTok{(}\DecValTok{85}\NormalTok{, }\DecValTok{65}\NormalTok{, }\DecValTok{52}\NormalTok{, }\DecValTok{72}\NormalTok{),}
+    \AttributeTok{edad =} \FunctionTok{c}\NormalTok{(}\DecValTok{29}\NormalTok{, }\DecValTok{27}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{32}\NormalTok{)}
+\NormalTok{)}
+\NormalTok{mis\_datos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  altura peso edad
+1    181   85   29
+2    165   65   27
+3    149   52   21
+4    178   72   32
+\end{verbatim}
+
+Un \texttt{data.frame} puede ser indexado de la misma forma empleada con matrices, por ejemplo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mis\_datos[}\DecValTok{3}\SpecialCharTok{:}\DecValTok{4}\NormalTok{, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  altura edad
+3    149   21
+4    178   32
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mis\_datos[}\DecValTok{3}\SpecialCharTok{:}\DecValTok{4}\NormalTok{, }\FunctionTok{c}\NormalTok{(}\StringTok{"altura"}\NormalTok{, }\StringTok{"edad"}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  altura edad
+3    149   21
+4    178   32
+\end{verbatim}
+
+Para hacer referencia a una variable dentro del \texttt{data.frame}, empleamos la estructura \texttt{dataset\$variable}. Por ejemplo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mis\_datos}\SpecialCharTok{$}\NormalTok{altura}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 181 165 149 178
+\end{verbatim}
+
+Lo anterior resulta en un vector, con el que se pueden hacer operaciones como buscar el valor mínimo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{min}\NormalTok{(mis\_datos}\SpecialCharTok{$}\NormalTok{altura)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 149
+\end{verbatim}
+
+\textbf{Ejemplo: cuadrado mágico}
+
+Podemos combinar lo mencionado en esta sección para escribir una nueva versión de la función \texttt{cuadrado\_magico()}, que desarrollamos en el ejercicio 10 de la práctica 4:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cuadrado\_magico }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(cuadrado) \{}
+    \CommentTok{\# Calcular el primer total fila para tener de control}
+\NormalTok{  control }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(cuadrado[}\DecValTok{1}\NormalTok{, ])}
+  
+  \CommentTok{\# Todos los controles}
+\NormalTok{  sumas\_filas }\OtherTok{\textless{}{-}} \FunctionTok{rowSums}\NormalTok{(cuadrado)}
+\NormalTok{  sumas\_col }\OtherTok{\textless{}{-}} \FunctionTok{colSums}\NormalTok{(cuadrado)}
+\NormalTok{  suma\_diag1 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(}\FunctionTok{diag}\NormalTok{(cuadrado))}
+\NormalTok{  suma\_diag2 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(}\FunctionTok{diag}\NormalTok{(cuadrado[}\FunctionTok{nrow}\NormalTok{(cuadrado)}\SpecialCharTok{:}\DecValTok{1}\NormalTok{, ]))}
+\NormalTok{  sumas }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(sumas\_filas, sumas\_col, suma\_diag1, suma\_diag2)}
+  
+  \CommentTok{\# Si alguna de las sumas no es igual al control, devolver FALSE}
+  \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{any}\NormalTok{(sumas }\SpecialCharTok{!=}\NormalTok{ control)) }\FunctionTok{return}\NormalTok{(}\ConstantTok{FALSE}\NormalTok{)}
+  \FunctionTok{return}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{\}}
+
+\NormalTok{cuadrado }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{16}\NormalTok{,  }\DecValTok{3}\NormalTok{,  }\DecValTok{2}\NormalTok{, }\DecValTok{13}\NormalTok{,}
+                      \DecValTok{5}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{11}\NormalTok{,  }\DecValTok{8}\NormalTok{,}
+                      \DecValTok{9}\NormalTok{,  }\DecValTok{6}\NormalTok{,  }\DecValTok{7}\NormalTok{, }\DecValTok{12}\NormalTok{,}
+                      \DecValTok{4}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{14}\NormalTok{,  }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{4}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{cuadrado\_magico}\NormalTok{(cuadrado)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cuadrado }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{( }\DecValTok{0}\NormalTok{,  }\DecValTok{3}\NormalTok{,  }\DecValTok{2}\NormalTok{, }\DecValTok{13}\NormalTok{,}
+                      \DecValTok{5}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{11}\NormalTok{,  }\DecValTok{8}\NormalTok{,}
+                      \DecValTok{9}\NormalTok{,  }\DecValTok{6}\NormalTok{,  }\DecValTok{7}\NormalTok{, }\DecValTok{12}\NormalTok{,}
+                      \DecValTok{4}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{14}\NormalTok{,  }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{4}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{cuadrado\_magico}\NormalTok{(cuadrado)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] FALSE
+\end{verbatim}
+
+\hypertarget{generaciuxf3n-de-secuencias}{%
+\section{Generación de secuencias}\label{generaciuxf3n-de-secuencias}}
+
+A continuación mostramos cómo generar algunos vectores numéricos en R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Generar vectores con secuencias numéricas}
+
+\CommentTok{\# Enteros de 1 a 5}
+\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 2 3 4 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Números de 1 a 10 cada 2}
+\FunctionTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 3 5 7 9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Números de 0 a {-}1 cada {-}0.1}
+\FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{0.1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ [1]  0.0 -0.1 -0.2 -0.3 -0.4 -0.5 -0.6 -0.7 -0.8 -0.9 -1.0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Siete números equiespaciados entre 0 y 1}
+\FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\AttributeTok{length.out =} \DecValTok{7}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.0000000 0.1666667 0.3333333 0.5000000 0.6666667 0.8333333 1.0000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Repetir el 1 tres veces}
+\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 1 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Repetir (1, 2, 3) tres veces}
+\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 2 3 1 2 3 1 2 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Repetir cada número tres veces}
+\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{, }\AttributeTok{each =} \DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 1 1 2 2 2 3 3 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Generar una matriz diagonal}
+\FunctionTok{diag}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2] [,3] [,4]
+[1,]    3    0    0    0
+[2,]    0    7    0    0
+[3,]    0    0    1    0
+[4,]    0    0    0    5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Generar una matriz identidad}
+\FunctionTok{diag}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    0    0    0    0
+[2,]    0    1    0    0    0
+[3,]    0    0    1    0    0
+[4,]    0    0    0    1    0
+[5,]    0    0    0    0    1
+\end{verbatim}
+
+\hypertarget{resoluciuxf3n-alternativa-de-un-ejercicio}{%
+\section{Resolución alternativa de un ejercicio}\label{resoluciuxf3n-alternativa-de-un-ejercicio}}
+
+Combinando todo lo mencionado hasta acá, podemos plantear una solución alternativa al \textbf{ejercicio 1} de la \textbf{Práctica 5}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# PROGRAMA: Análisis de los discos de Charly García }
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+
+\CommentTok{\# Leer archivo}
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"charly.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Vector con los nombres de los discos}
+\NormalTok{discos }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Yendo de la cama al living"}\NormalTok{, }\StringTok{"Parte de la religión"}\NormalTok{, }
+                        \StringTok{"Filosofía barata y zapatos de goma"}\NormalTok{, }\StringTok{"Say no more"}\NormalTok{, }
+                        \StringTok{"Influencia"}\NormalTok{, }\StringTok{"Random"}\NormalTok{)}
+
+\CommentTok{\# Crear un factor significa asignarle un nombre a cada categoría. Todos los "1"}
+\CommentTok{\# serán reemplazados por "Yendo de la cama al living", los "2" por "Parte de la}
+\CommentTok{\# religión", etc. Correrlo y ver cómo quedó en el data.frame.}
+\NormalTok{datos}\SpecialCharTok{$}\NormalTok{disco }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{disco, }\AttributeTok{levels =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{, }\AttributeTok{labels =}\NormalTok{ discos)}
+
+
+\CommentTok{\# a) y b) Cantidad de canciones en cada disco {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# table() indica la frecuencia absoluta de cada valor en un vector}
+\NormalTok{conteos }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{disco)}
+\NormalTok{conteos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+        Yendo de la cama al living               Parte de la religión 
+                                 8                                 10 
+Filosofía barata y zapatos de goma                        Say no more 
+                                11                                 14 
+                        Influencia                             Random 
+                                13                                 10 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{conteos }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(conteos, }\AttributeTok{ncol =} \DecValTok{1}\NormalTok{,}
+                                    \AttributeTok{dimnames =} \FunctionTok{list}\NormalTok{(}\AttributeTok{Disco =} \FunctionTok{names}\NormalTok{(conteos), }\StringTok{"Nro de canciones"}\NormalTok{))}
+\NormalTok{conteos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+                                    
+Disco                                Nro de canciones
+  Yendo de la cama al living                        8
+  Parte de la religión                             10
+  Filosofía barata y zapatos de goma               11
+  Say no more                                      14
+  Influencia                                       13
+  Random                                           10
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Menor y mayor cantidad de canciones}
+\FunctionTok{min}\NormalTok{(conteos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{max}\NormalTok{(conteos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# De qué discos se trata}
+\NormalTok{discos[}\FunctionTok{which.min}\NormalTok{(conteos)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "Yendo de la cama al living"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{discos[}\FunctionTok{which.max}\NormalTok{(conteos)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "Say no more"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# c) Buscar el mayor valor en energía {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\FunctionTok{max}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{energico)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.949
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Cuál es la fila donde se encuentra el máximo}
+\FunctionTok{which.max}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{energico)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 48
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Nombre de la canción con máxima energía}
+\NormalTok{datos}\SpecialCharTok{$}\NormalTok{tema[}\FunctionTok{which.max}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{energico)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "El Amor Espera"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Nombre del disco que contiene a la canción con máxima energía}
+\NormalTok{datos}\SpecialCharTok{$}\NormalTok{disco[}\FunctionTok{which.max}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{energico)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] Influencia
+6 Levels: Yendo de la cama al living ... Random
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# d) Porcentaje de canciones con valor mayor a 0.5 en positivo {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{porc }\OtherTok{\textless{}{-}} \DecValTok{100} \SpecialCharTok{*} \FunctionTok{mean}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{positivo }\SpecialCharTok{\textgreater{}} \FloatTok{0.5}\NormalTok{)}
+\NormalTok{porc}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 51.51515
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Número de canciones con valor de positivo \textgreater{} 0.5}
+\FunctionTok{sum}\NormalTok{((datos}\SpecialCharTok{$}\NormalTok{positivo }\SpecialCharTok{\textgreater{}} \FloatTok{0.5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 34
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# e) Tabla de distribución de frecuencias para los valores de acústico {-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# Con la función cut() agregamos una nueva variable al data.frame que identifica}
+\CommentTok{\# a qué intervalo pertenece cada valor de acústico (hacer clic en "datos" en}
+\CommentTok{\# Environment y observar la nueva columna)}
+\NormalTok{datos}\SpecialCharTok{$}\NormalTok{acustico2 }\OtherTok{\textless{}{-}} \FunctionTok{cut}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{acustico, }\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{0.2}\NormalTok{))}
+\NormalTok{tabla }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{acustico2)}
+\NormalTok{tabla}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  (0,0.2] (0.2,0.4] (0.4,0.6] (0.6,0.8]   (0.8,1] 
+       32        16         7         3         8 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# prop.table() calcula proporciones, es decir, frecuencias relativas}
+\FunctionTok{prop.table}\NormalTok{(tabla)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+   (0,0.2]  (0.2,0.4]  (0.4,0.6]  (0.6,0.8]    (0.8,1] 
+0.48484848 0.24242424 0.10606061 0.04545455 0.12121212 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Entonces...}
+\NormalTok{cuadro }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(tabla, }\FunctionTok{round}\NormalTok{(}\DecValTok{100} \SpecialCharTok{*} \FunctionTok{prop.table}\NormalTok{(tabla), }\DecValTok{2}\NormalTok{))}
+\FunctionTok{colnames}\NormalTok{(cuadro) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Frec. Abs"}\NormalTok{, }\StringTok{"Frec. Rel. \%"}\NormalTok{)}
+\NormalTok{cuadro}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+          Frec. Abs Frec. Rel. %
+(0,0.2]          32        48.48
+(0.2,0.4]        16        24.24
+(0.4,0.6]         7        10.61
+(0.6,0.8]         3         4.55
+(0.8,1]           8        12.12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# f) Calcular promedios de cada variable según disco {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# aggregate() permite calcular el promedio de cada variable para cada grupo}
+\CommentTok{\# datos[, 3:13] es la forma de indicar a qué columnas le sacamos el promedio}
+\CommentTok{\# by = list(datos$disco) indica que queremos el promedio para cada disco}
+\CommentTok{\# FUN = mean indica que a cada variable hay que aplicarle la función mean}
+\NormalTok{promedios }\OtherTok{\textless{}{-}} \FunctionTok{aggregate}\NormalTok{(datos[, }\DecValTok{3}\SpecialCharTok{:}\DecValTok{12}\NormalTok{], }\AttributeTok{by =} \FunctionTok{list}\NormalTok{(}\AttributeTok{Disco =}\NormalTok{ datos}\SpecialCharTok{$}\NormalTok{disco), }\AttributeTok{FUN =}\NormalTok{ mean)}
+\NormalTok{promedios}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+                               Disco  bailable  energico    volumen    hablado
+1         Yendo de la cama al living 0.6837500 0.4603750 -11.991500 0.07821250
+2               Parte de la religión 0.6328000 0.7103000  -8.595500 0.03709000
+3 Filosofía barata y zapatos de goma 0.5923636 0.3843636 -17.392273 0.03637273
+4                        Say no more 0.3847857 0.4690714 -14.946929 0.04922143
+5                         Influencia 0.5774615 0.5899231  -9.732231 0.06428462
+6                             Random 0.6548000 0.7390000  -6.257800 0.03108000
+   acustico instrumental      vivo  positivo    tempo duracion
+1 0.2933375  0.021097349 0.1717625 0.5172500 105.7604 259585.0
+2 0.2783200  0.059160403 0.1407200 0.5642000 113.8903 234867.9
+3 0.1078570  0.009021264 0.1138364 0.4998818 110.0092 229543.1
+4 0.4143786  0.293317647 0.2162286 0.3436429 109.0935 238400.1
+5 0.3960287  0.077699555 0.2357000 0.5994615 109.7010 199760.9
+6 0.2022443  0.000144704 0.2617200 0.5968000 113.3571 204040.0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Redondear todas las columnas excepto la primera y la última}
+\NormalTok{promedios[, }\DecValTok{2}\SpecialCharTok{:}\DecValTok{10}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(promedios[, }\DecValTok{2}\SpecialCharTok{:}\DecValTok{10}\NormalTok{], }\DecValTok{3}\NormalTok{)}
+\NormalTok{promedios}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+                               Disco bailable energico volumen hablado acustico
+1         Yendo de la cama al living    0.684    0.460 -11.992   0.078    0.293
+2               Parte de la religión    0.633    0.710  -8.595   0.037    0.278
+3 Filosofía barata y zapatos de goma    0.592    0.384 -17.392   0.036    0.108
+4                        Say no more    0.385    0.469 -14.947   0.049    0.414
+5                         Influencia    0.577    0.590  -9.732   0.064    0.396
+6                             Random    0.655    0.739  -6.258   0.031    0.202
+  instrumental  vivo positivo   tempo duracion
+1        0.021 0.172    0.517 105.760 259585.0
+2        0.059 0.141    0.564 113.890 234867.9
+3        0.009 0.114    0.500 110.009 229543.1
+4        0.293 0.216    0.344 109.094 238400.1
+5        0.078 0.236    0.599 109.701 199760.9
+6        0.000 0.262    0.597 113.357 204040.0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# g) Disco con menor promedio en bailable {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\FunctionTok{min}\NormalTok{(promedios}\SpecialCharTok{$}\NormalTok{bailable)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.385
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{which.min}\NormalTok{(promedios}\SpecialCharTok{$}\NormalTok{bailable)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{promedios}\SpecialCharTok{$}\NormalTok{Disco[}\FunctionTok{which.min}\NormalTok{(promedios}\SpecialCharTok{$}\NormalTok{bailable)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] Say no more
+6 Levels: Yendo de la cama al living ... Random
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Disco con mayor promedio en instrumental}
+\FunctionTok{max}\NormalTok{(promedios}\SpecialCharTok{$}\NormalTok{instrumental)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.293
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{which.max}\NormalTok{(promedios}\SpecialCharTok{$}\NormalTok{instrumental)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{promedios}\SpecialCharTok{$}\NormalTok{Disco[}\FunctionTok{which.max}\NormalTok{(promedios}\SpecialCharTok{$}\NormalTok{instrumental)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] Say no more
+6 Levels: Yendo de la cama al living ... Random
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# h) Diferencia entre la duración promedio de las canciones }
+\CommentTok{\# del primer disco y las del último, expresada en minutos.{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{diferencia }\OtherTok{\textless{}{-}}\NormalTok{ (promedios}\SpecialCharTok{$}\NormalTok{duracion[}\DecValTok{1}\NormalTok{] }\SpecialCharTok{{-}}\NormalTok{ promedios}\SpecialCharTok{$}\NormalTok{duracion[}\DecValTok{6}\NormalTok{]) }\SpecialCharTok{/} \DecValTok{60000}
+\NormalTok{diferencia}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.92575
+\end{verbatim}
+
+Podemos guardar todos estos resultados en un archivo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sink}\NormalTok{(}\StringTok{"salida.txt"}\NormalTok{)}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"{-}{-}{-}{-}{-} Cantidad de canciones en cada disco {-}{-}{-}{-}{-}}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{conteos}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{El disco con menor cantidad de canciones es:"}\NormalTok{, discos[}\FunctionTok{which.min}\NormalTok{(conteos)], }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"El disco con mayor cantidad de canciones es:"}\NormalTok{, discos[}\FunctionTok{which.max}\NormalTok{(conteos)], }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{{-}{-}{-}{-}{-} Energía {-}{-}{-}{-}{-}}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"La canción con mayor valor de energía ("}\NormalTok{, }\FunctionTok{max}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{energico), }\StringTok{") es "}\NormalTok{, }
+\NormalTok{        datos}\SpecialCharTok{$}\NormalTok{tema[}\FunctionTok{which.max}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{energico)], }\StringTok{" y pertenece}\SpecialCharTok{\textbackslash{}n}\StringTok{ al disco "}\NormalTok{, }
+\NormalTok{        discos[datos}\SpecialCharTok{$}\NormalTok{disco[}\FunctionTok{which.max}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{energico)]], }\StringTok{".}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\AttributeTok{sep =} \StringTok{""}\NormalTok{)}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{{-}{-}{-}{-}{-} Positivo {-}{-}{-}{-}{-}}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"El porcentaje de canciones con valor mayor a 0.5 en Positivo es "}\NormalTok{, porc, }
+    \StringTok{"\%.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\AttributeTok{sep =} \StringTok{""}\NormalTok{)}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{{-}{-}{-}{-}{-} Acústico {-}{-}{-}{-}{-}}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{cuadro}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{{-}{-}{-}{-}{-} Promedio de cada variable según disco {-}{-}{-}{-}{-}}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{promedios}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{{-}{-}{-}{-}{-} Bailable e Instrumental {-}{-}{-}{-}{-}}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"El disco con menor promedio en bailable ("}\NormalTok{, }\FunctionTok{min}\NormalTok{(promedios}\SpecialCharTok{$}\NormalTok{bailable),}
+        \StringTok{") es "}\NormalTok{, discos[}\FunctionTok{which.min}\NormalTok{(promedios}\SpecialCharTok{$}\NormalTok{bailable)], }\StringTok{".}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\AttributeTok{sep =} \StringTok{""}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"El disco con mayor promedio en instrumental ("}\NormalTok{, }\FunctionTok{min}\NormalTok{(promedios}\SpecialCharTok{$}\NormalTok{instrumental),}
+        \StringTok{") es "}\NormalTok{, discos[}\FunctionTok{which.max}\NormalTok{(promedios}\SpecialCharTok{$}\NormalTok{instrumental)], }\StringTok{".}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\AttributeTok{sep =} \StringTok{""}\NormalTok{)}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{{-}{-}{-}{-}{-} Duración {-}{-}{-}{-}{-}}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"La diferencia entre la duración promedio de las canciones del primer disco }
+\StringTok{        y las del último es de "}\NormalTok{, diferencia, }\StringTok{"minutos.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+
+\FunctionTok{sink}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Así se ve el archivo creado:
+
+\begin{verbatim}
+----- Cantidad de canciones en cada disco -----
+                                    
+Disco                                Nro de canciones
+  Yendo de la cama al living                        8
+  Parte de la religión                             10
+  Filosofía barata y zapatos de goma               11
+  Say no more                                      14
+  Influencia                                       13
+  Random                                           10
+
+El disco con menor cantidad de canciones es: Yendo de la cama al living 
+El disco con mayor cantidad de canciones es: Say no more 
+
+----- Energía -----
+La canción con mayor valor de energía (0.949) es El Amor Espera y pertenece al disco Influencia.
+
+----- Positivo -----
+El porcentaje de canciones con valor mayor a 0.5 en Positivo es 51.51515%.
+
+----- Acústico -----
+          Frec. Abs Frec. Rel. %
+(0,0.2]          32        48.48
+(0.2,0.4]        16        24.24
+(0.4,0.6]         7        10.61
+(0.6,0.8]         3         4.55
+(0.8,1]           8        12.12
+
+----- Promedio de cada variable según disco -----
+                               Disco bailable energico volumen hablado acustico instrumental  vivo positivo   tempo duracion
+1         Yendo de la cama al living    0.684    0.460 -11.992   0.078    0.293        0.021 0.172    0.517 105.760 259585.0
+2               Parte de la religión    0.633    0.710  -8.595   0.037    0.278        0.059 0.141    0.564 113.890 234867.9
+3 Filosofía barata y zapatos de goma    0.592    0.384 -17.392   0.036    0.108        0.009 0.114    0.500 110.009 229543.1
+4                        Say no more    0.385    0.469 -14.947   0.049    0.414        0.293 0.216    0.344 109.094 238400.1
+5                         Influencia    0.577    0.590  -9.732   0.064    0.396        0.078 0.236    0.599 109.701 199760.9
+6                             Random    0.655    0.739  -6.258   0.031    0.202        0.000 0.262    0.597 113.357 204040.0
+
+----- Bailable e Instrumental -----
+El disco con menor promedio en bailable (0.385) es Say no more.
+El disco con mayor promedio en instrumental (0) es Say no more.
+
+----- Duración -----
+La diferencia entre la duración promedio de las canciones del primer disco y las del último es de  0.92575 minutos.
+\end{verbatim}
+
 \hypertarget{la-consola}{%
 \section{La consola}\label{la-consola}}
 
@@ -6336,7 +8079,7 @@ Para ejecutar este programa desde la terminal, sin abrir RStudio o R, primero me
 
 }
 
-\caption{Correr el programa de R desde la consola en Linux}\label{fig:unnamed-chunk-162}
+\caption{Correr el programa de R desde la consola en Linux}\label{fig:unnamed-chunk-197}
 \end{figure}
 
 Todo lo que en el programa estaba encerrado en una llamada a la función \texttt{cat()} es lo que se mostrará como mensajes en la consola.
@@ -6391,7 +8134,7 @@ Esto es lo que ocurre en la terminal:
 
 }
 
-\caption{Programa paridad.R}\label{fig:unnamed-chunk-164}
+\caption{Programa paridad.R}\label{fig:unnamed-chunk-199}
 \end{figure}
 
 \textbf{Práctica 2, Ejercicio 3: salario}
@@ -6427,7 +8170,7 @@ En este ejemplo, tenemos que leer tres valores, dos de lo cuales son de tipo car
 
 }
 
-\caption{Programa salario.R}\label{fig:unnamed-chunk-166}
+\caption{Programa salario.R}\label{fig:unnamed-chunk-201}
 \end{figure}
 
 \textbf{Práctica 4, Ejercicio 1: suma de elementos de un vector}
@@ -6458,7 +8201,7 @@ Vamos a ver cómo hacer para que un usuario nos diga cuáles son los valores que
 
 }
 
-\caption{Programa suma.R}\label{fig:unnamed-chunk-169}
+\caption{Programa suma.R}\label{fig:unnamed-chunk-204}
 \end{figure}
 
 \hypertarget{otros}{%

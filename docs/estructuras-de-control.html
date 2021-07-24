@@ -74,9 +74,9 @@
 FIN SI</code></pre>
 <p>La palabra <code>SI</code> indica el comando de evaluación lógica, <code>&lt;condición&gt;</code> indica la condición a evaluar y <code>Acción/es</code> son las instrucciones que se realizarán sólo si se cumple la condición, es decir, si la evalución resulta en <code>VERDADERO</code>. Si la condición no se verifica, no se ejecuta ninguna acción y el algoritmo sigue su estructura secuencial a continuación del <code>FIN SI</code>.</p>
 <p>En R, la estructura que nos permite realizar esto es:</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="estructuras-de-control.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condición) {</span>
-<span id="cb90-2"><a href="estructuras-de-control.html#cb90-2" aria-hidden="true" tabindex="-1"></a>    ...código para ejecutar acciones...</span>
-<span id="cb90-3"><a href="estructuras-de-control.html#cb90-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="estructuras-de-control.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condición) {</span>
+<span id="cb100-2"><a href="estructuras-de-control.html#cb100-2" aria-hidden="true" tabindex="-1"></a>    ...código para ejecutar acciones...</span>
+<span id="cb100-3"><a href="estructuras-de-control.html#cb100-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Por ejemplo, el siguiente algoritmo registra la edad de una persona y, en el caso de que sea mayor de edad, avisa que puede votar en las elecciones provinciales de Santa Fe:</p>
 <pre><code>ALGORITMO: "Analizar edad para votar"
 COMENZAR
@@ -86,7 +86,7 @@ COMENZAR
         ESCRIBIR "Edad = " edad " años: puede votar"
     FIN SI
 FIN</code></pre>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Programa: "Analizar edad para votar" -------------------------------</span>
 <span class="va">edad</span> <span class="op">&lt;-</span> <span class="fl">21</span>
 <span class="kw">if</span> <span class="op">(</span><span class="va">edad</span> <span class="op">&gt;=</span> <span class="fl">18</span><span class="op">)</span> <span class="op">{</span>
@@ -107,11 +107,11 @@ SI NO
 FIN SI</code></pre>
 <p>La palabra <code>ENTONCES</code> antecede a las acciones que se realizan si se cumple la condición y la expresión <code>SI NO</code> a las que se realizan si no se verifica la misma.</p>
 <p>En R se utiliza el comando <code>else</code>:</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="estructuras-de-control.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condición) {</span>
-<span id="cb95-2"><a href="estructuras-de-control.html#cb95-2" aria-hidden="true" tabindex="-1"></a>    ...código para ejecutar acciones...</span>
-<span id="cb95-3"><a href="estructuras-de-control.html#cb95-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb95-4"><a href="estructuras-de-control.html#cb95-4" aria-hidden="true" tabindex="-1"></a>    ...código para ejecutar acciones...</span>
-<span id="cb95-5"><a href="estructuras-de-control.html#cb95-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="estructuras-de-control.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condición) {</span>
+<span id="cb105-2"><a href="estructuras-de-control.html#cb105-2" aria-hidden="true" tabindex="-1"></a>    ...código para ejecutar acciones...</span>
+<span id="cb105-3"><a href="estructuras-de-control.html#cb105-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb105-4"><a href="estructuras-de-control.html#cb105-4" aria-hidden="true" tabindex="-1"></a>    ...código para ejecutar acciones...</span>
+<span id="cb105-5"><a href="estructuras-de-control.html#cb105-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Retomando el ejemplo anterior:</p>
 <pre><code>ALGORITMO: "Analizar edad para votar"
 COMENZAR
@@ -123,7 +123,7 @@ COMENZAR
         ESCRIBIR "Edad = " edad " años: no puede votar"
     FIN SI
 FIN</code></pre>
-<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Programa: "Analizar edad para votar" -------------------------------</span>
 <span class="va">edad</span> <span class="op">&lt;-</span> <span class="fl">21</span>
 <span class="kw">if</span> <span class="op">(</span><span class="va">edad</span> <span class="op">&gt;=</span> <span class="fl">18</span><span class="op">)</span> <span class="op">{</span>
@@ -149,13 +149,13 @@ SI NO
 FIN SI</code></pre>
 <p>En la estructura anterior, hay una primera evaluación lógica en la cual si el resultado es <code>VERDADERO</code>, se ejecuta la Acción 1 y nada más. En cambio, si su resultado es <code>FALSO</code>, se procede a realizar una segunda evaluación lógica, que da lugar a la ejecución de la Acción 2 o de la Acción 3 si su resultado es <code>VERDADERO</code> o <code>FALSO</code>, respectivamente.</p>
 <p>Se debe notar que luego del primer <code>SI NO</code> comienza una nueva estructura completa de <code>SI/ENTONCES/SI NO/FIN SI</code>. Cada <code>SI</code> termina con su propio <code>FIN SI</code>. Al traducir esto a R, se vuelve algo más sencillo:</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="estructuras-de-control.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condición <span class="dv">1</span>) {</span>
-<span id="cb100-2"><a href="estructuras-de-control.html#cb100-2" aria-hidden="true" tabindex="-1"></a>    ...Acción <span class="dv">1</span>...</span>
-<span id="cb100-3"><a href="estructuras-de-control.html#cb100-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (condición <span class="dv">2</span>) {</span>
-<span id="cb100-4"><a href="estructuras-de-control.html#cb100-4" aria-hidden="true" tabindex="-1"></a>    ...Acción <span class="dv">2</span>...</span>
-<span id="cb100-5"><a href="estructuras-de-control.html#cb100-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb100-6"><a href="estructuras-de-control.html#cb100-6" aria-hidden="true" tabindex="-1"></a>    ...Acción <span class="dv">3</span>...</span>
-<span id="cb100-7"><a href="estructuras-de-control.html#cb100-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="estructuras-de-control.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condición <span class="dv">1</span>) {</span>
+<span id="cb110-2"><a href="estructuras-de-control.html#cb110-2" aria-hidden="true" tabindex="-1"></a>    ...Acción <span class="dv">1</span>...</span>
+<span id="cb110-3"><a href="estructuras-de-control.html#cb110-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (condición <span class="dv">2</span>) {</span>
+<span id="cb110-4"><a href="estructuras-de-control.html#cb110-4" aria-hidden="true" tabindex="-1"></a>    ...Acción <span class="dv">2</span>...</span>
+<span id="cb110-5"><a href="estructuras-de-control.html#cb110-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb110-6"><a href="estructuras-de-control.html#cb110-6" aria-hidden="true" tabindex="-1"></a>    ...Acción <span class="dv">3</span>...</span>
+<span id="cb110-7"><a href="estructuras-de-control.html#cb110-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>El último bloque de acciones (<code>...Acción 3...</code>) se evaluará si ninguna de las condiciones lógicas anteriores fue <code>VERDADERO</code>.</p>
 <p>En el ejemplo de la edad:</p>
 <pre><code>ALGORITMO: "Analizar edad para votar"
@@ -172,7 +172,7 @@ COMENZAR
         FIN SI
     FIN SI
 FIN</code></pre>
-<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Programa: "Analizar edad para votar" -------------------------------</span>
 <span class="va">edad</span> <span class="op">&lt;-</span> <span class="fl">21</span>
 <span class="kw">if</span> <span class="op">(</span><span class="va">edad</span> <span class="op">&lt;</span> <span class="fl">18</span><span class="op">)</span> <span class="op">{</span>
@@ -221,7 +221,7 @@ COMENZAR
 FIN</code></pre>
 <p>La letra <code>i</code> es la variable de iteración. Podríamos haber elegido otra letra u otra palabra en su lugar, pero emplear <code>i</code> es una elección bastante común. En este ejemplo, su única función es ir contando la cantidad de veces que se repiten las acciones encerradas dentro de la estructura <code>PARA/FIN PARA</code>. El bloque de instrucciones se repite tantas veces como <code>i</code> tarde en llegar a 5 partiendo desde 1. Por convención, a la variable de iteración no la declaramos junto con las otras variables numéricas (como <code>x</code> y <code>resultado</code>).</p>
 <p>En R, el ejemplo anterior se implementa así:</p>
-<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Programa: "Calcular la quinta potencia" ------------------------</span>
 <span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">4</span>
 <span class="va">resultado</span> <span class="op">&lt;-</span> <span class="fl">1</span>
@@ -239,7 +239,7 @@ COMENZAR
         ESCRIBIR "8 x" i "=" resultado
     FIN PARA
 FIN</code></pre>
-<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Programa: "Mostrar tabla del 8" -------------------------------</span>
 <span class="va">resultado</span> <span class="op">&lt;-</span> <span class="fl">1</span>
 <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op">{</span>
@@ -258,7 +258,7 @@ FIN</code></pre>
 8 x 9 = 72 
 8 x 10 = 80 </code></pre>
 <p>En lo anterior, <code>\n</code> es un caracter especial que indica “salto de línea”. Si no lo agregamos, los mensajes se imprimirían uno al lado del otro en el mismo renglón:</p>
-<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Programa: "Mostrar tabla del 8" -------------------------------</span>
 <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op">{</span>
     <span class="va">resultado</span> <span class="op">&lt;-</span> <span class="fl">8</span> <span class="op">*</span> <span class="va">i</span>
@@ -306,7 +306,7 @@ COMENZAR
         ESCRIBIR x
     FIN MIENTRAS
 FIN</code></pre>
-<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">100</span>
 <span class="kw">while</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;=</span> <span class="fl">0.01</span><span class="op">)</span> <span class="op">{</span>
     <span class="va">x</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">/</span> <span class="fl">2</span>
@@ -347,7 +347,7 @@ COMENZAR
     HASTA QUE x &lt; 0.01
 FIN</code></pre>
 <p>En R este tipo de estructura se implementa con la sentencia <code>repeat {}</code>. Si bien a continuación se muestra el correspondiente ejemplo, no vamos a utilizar esta estructura, debido a que su escritura es más compleja y a que generalmente es posible obtener el mismo resultado con un <code>while () {}</code>.</p>
-<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">100</span>
 <span class="kw">repeat</span> <span class="op">{</span>
     <span class="va">x</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">/</span> <span class="fl">2</span>
@@ -403,7 +403,7 @@ var = -1 No puedo parar!!!
 <ul>
 <li>
 <p>No necesariamente tiene que ser <code>i</code> la variable iteradora, podemos darle cualquier nombre:</p>
-<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw">for</span> <span class="op">(</span><span class="va">guau</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="op">{</span>
     <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">guau</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
@@ -416,7 +416,7 @@ var = -1 No puedo parar!!!
 </li>
 <li>
 <p>Acá tenemos un ejemplo de dos estructuras <code>for</code> anidadas. En primer lugar, <code>i</code> toma el valor 1, y entonces <code>j</code> varía de 1 a 2, generando las combinaciones <code>i = 1, j = 1; i = 1, j = 2</code>. Luego que <code>j</code> recorrió todo su campo de variación, se actualiza <code>i</code> y pasa a valer 2, generando las combinaciones <code>i = 2, j = 1; i = 2, j = 2</code>. Finalmente, se actualiza <code>i</code> y pasa a valer 3, generando las combinaciones <code>i = 3, j = 1; i = 3, j = 2</code>. Para cada combinación, se muestra el valor de la suma:</p>
-<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span> <span class="op">{</span>
     <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span> <span class="op">{</span>
         <span class="va">suma</span> <span class="op">&lt;-</span> <span class="va">i</span> <span class="op">+</span> <span class="va">j</span>
@@ -432,7 +432,7 @@ i vale 3 y j vale 2 . La suma es igual a 5 </code></pre>
 </li>
 <li>
 <p>Sumar los números naturales del 1 al 5:</p>
-<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">suma</span> <span class="op">&lt;-</span> <span class="fl">0</span>
 <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="op">{</span>
     <span class="va">suma</span> <span class="op">&lt;-</span> <span class="va">suma</span> <span class="op">+</span> <span class="va">i</span>
@@ -442,7 +442,7 @@ i vale 3 y j vale 2 . La suma es igual a 5 </code></pre>
 </li>
 <li>
 <p>Sumar números naturales hasta que la suma pase el valor 100 y detenerse:</p>
-<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">suma</span> <span class="op">&lt;-</span> <span class="fl">0</span>
 <span class="va">i</span> <span class="op">&lt;-</span> <span class="fl">1</span>
 <span class="kw">while</span> <span class="op">(</span><span class="va">suma</span> <span class="op">&lt;</span> <span class="fl">100</span><span class="op">)</span> <span class="op">{</span>
@@ -463,7 +463,7 @@ COMENZAR
         multiplo &lt;- multiplo + 8
     FIN MIENTRAS
 FIN</code></pre>
-<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb144"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Programa: "Múltiplos de 8 menores a 150" ------------------------</span>
 <span class="va">multiplo</span> <span class="op">&lt;-</span> <span class="fl">8</span>
 <span class="kw">while</span> <span class="op">(</span><span class="va">multiplo</span> <span class="op">&lt;</span> <span class="fl">150</span><span class="op">)</span> <span class="op">{</span>
@@ -569,7 +569,7 @@ https://stackoverflow.com/questions/10904124/global-and-local-variables-in-r/109
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-07-05.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-07-24.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

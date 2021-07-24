@@ -80,7 +80,7 @@ compras <- 12
 stock <- stock - ventas + compras
 ```
 
-### Creación y manejo de objetos en R
+### Creación y manejo de objetos en R {#objetosenR}
 
 En R también se usa el operador "flechita" para asignar valores a variables. Como lo vamos a usar muchísimas veces, es conveniente recordar su *shortcut*: `Alt + -` (teclas *Alt* y guión medio). Como ya mencionamos antes, R es un lenguaje dinámico, lo cual significa que no tenemos que declarar las variables antes de asignarles un valor. Por ejemplo, si necesitamos registrar el peso y lugar de nacimiento de una persona, solamente tenemos que hacer:
 
@@ -126,13 +126,13 @@ rm(var1)
 Todos los objetos generados viven temporalmente en la memoria de la computadora mientras dure la sesión de R en la que estamos trabajando. Si cerramos R, toda esa información desaparecerá. Muchas veces eso es algo deseable: una vez finalizado el programa, guardamos algún resultado que nos interese (por ejemplo, un conjunto de datos en un archivo de Excel) y todos los objetos del ambiente que fuimos necesitando en el camino son descartados. Sin embargo, en otras oportunidades nos interesa guardar de forma permanente en la computadora una copia de todo lo que se encuentra en el ambiente en un archivo dentro de alguna carpeta. Los archivos que contienen los objetos creados en R tienen extensión `.RData`. Estos archivos se generan con el ícono de guardar en la pestaña *Environment* o usando la función `save.image()`, que necesita que escribamos entre los paréntesis la carpeta donde guardaremos el archivo y el nombre elegido para el mismo, por ejemplo:
 
 ```{r, eval = FALSE}
-save.image("C:/Users/Ana/Documentos/Facultad/objetos.RData")
+save.image("C:/Users/Marcos/Documentos/Facultad/objetos.RData")
 ```
 
 Si por el contrario necesitamos *importar* al ambiente objetos que estén guardados en algún lugar de nuestra compu en un archivo `.RData`, podemos usar el ícono de abrir en la pestaña *Environment* o la función `load()`, por ejemplo:
 
 ```{r, eval=FALSE}
-load("C:/Users/Ana/Documentos/Facultad/objetos.RData")
+load("C:/Users/Marcos/Documentos/Facultad/objetos.RData")
 ```
 
 ## Operadores
@@ -458,3 +458,74 @@ cat("El área del círculo es", area)
 ```
 
 *Nota*: `pi` ya es una constante incorporada en R Base, en realidad no es necesario crear esta constante y asignarle valor.
+
+
+## Directorio de trabajo
+
+Antes de terminar este capítulo vamos a presentar un concepto fundamental acerca de cómo se relaciona R con el sistema opertaivo de nuestra computadora para poder tener acceso a nuestros archivos o para generar otros nuevos.
+
+Al finalizar la sección \@ref(objetosenR) vimos ejemplos en los que se utilizó R para, en primer lugar, generar un archivo llamado `objetos.RData` con todos los objetos existentes en nuestro ambiente de trabajo y, en segundo lugar, cargar la información que dicho archivo contiene:
+
+```{r, eval = FALSE}
+save.image("C:/Users/Marcos/Documentos/Facultad/objetos.RData")
+load("C:/Users/Marcos/Documentos/Facultad/objetos.RData")
+```
+
+En ambos casos, dentro de las funciones `save.image()` y `load()` se tuvo que escribir la dirección completa que representa cuál es la ubicación exacta de dicho archivo en la computadora: `C:/Users/Marcos/Documentos/Facultad/objetos.RData`. Esto significa que el archivo se encuentra en la carpeta `Facultad`, que a su vez está dentro de la carpeta `Documentos`, dentro de `Ana` y dentro de `Users`, en el disco C de la computadora.
+
+Expresiones como `C:/Users/Marcos/Documentos/Facultad/objetos.RData` reciben el nombre de **ruta informática** o *path* y sirven para referenciar de manera exacta la localización ya sea de una carpeta o de un archivo en particular dentro del sistema de archivos que maneja el sistema operativo de la computadora. Un *path* está compuesto por todos los nombres de los directorios que ordenadamente nos permiten llegar hasta la carpeta o archivo de interés, separados por un carácter que dependiendo del sistema operativo puede ser una barra diagonal `/` o una barra inversa `\`.
+
+R siempre está mirando a alguna carpeta en particular dentro de la computadora, la cual recibe el nombre **directorio de trabajo** (o *working directory*, *wd*). Por ejemplo, en este momento y en mi computadora, R está posando su atención en una carpeta que se llama `introprog` y cuya ruta puedo descubrir con la función `getwd()`, que significa "obtener (get) el directorio de trabajo (wd)":
+
+```{r}
+getwd()
+```
+
+Esto quiere decir que R puede ver y acceder de manera directa a todos los archivos que hay allí, sin necesidad de escribir la ruta completa. Por ejemplo, si en lugar de ejecutar:
+
+```{r, eval = FALSE}
+save.image("C:/Users/Marcos/Documentos/Facultad/objetos.RData")
+```
+
+ejecuto sencillamente:
+
+```{r, eval = FALSE}
+save.image("objetos.RData")
+```
+
+lo que ocurre es que el nuevo archivo se generará en mi directorio de trabajo (carpeta `introprog`) y no en la carpeta `Facultad`. Del mismo modo, si ejecuto:
+
+```{r, eval=FALSE}
+load("objetos.RData")
+```
+
+el software va a buscar el archivo `objetos.RData` en mi directorio de trabajo (carpeta `introprog`) y va a cargar su contenido al ambiente de trabajo. Si en dicha carpeta no existe un archivo con ese nombre, obtendremos un mensaje de error muy famoso:
+
+```
+cannot find file 'objetos.RData', probable reason 'No such file or directory'
+```
+
+El directorio de trabajo por default suele ser la carpeta *Documentos* o alguna equivalente y es la que vemos en el panel `Files` de RStudio. Podemos cambiar el directorio de trabajo por cualquier otra carpeta en la que queramos estar trabajando con la función `setwd()` ("setear el working directory"):
+
+```{r, eval=FALSE}
+setwd("/home/marcos/documents/introprog/tp1")
+getwd()
+"/home/marcos/documents/introprog/tp1"
+```
+
+Por ejemplo, si estamos resolviendo un trabajo práctico para el cual tenemos varios archivos necesarios guardados en la carpeta `tp1`, tenemos dos opciones:
+
+1. Sin importar cuál es nuestro directorio de trabajo, hacer referencia a dichos archivos con *paths* completos, por ejemplo:
+
+	```{r, eval = F}
+	load("/home/marcos/documents/introprog/tp1/objetos.RData")
+	```
+
+2. Setear como directorio de trabajo a la carpeta del trabajo práctico y hacer un uso directo de los archivos que se encuentren allí:
+
+	```{r, eval = F}
+	setwd("/home/marcos/documents/introprog/tp1")
+	load("objetos.RData")
+	```
+
+Es importante recordar lo siguiente: al escribir *paths*, R sólo reconoce como caracteres delimitadores entre los nombres de carpetas a la barra diagonal `/` o a dos barras invertidas `\\`. Quienes usan el sistema operativo Windows notarán que en el explorador de archivos, las rutas están delimitadas con una sola barra invertida `\`. En el contexto de R, debe ser reemplazada por dos barras invertidas o por una sola barra diagonal.

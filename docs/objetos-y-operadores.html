@@ -121,9 +121,9 @@ ventas &lt;- 29
 compras &lt;- 12
 stock &lt;- stock - ventas + compras</code></pre>
 </div>
-<div id="creación-y-manejo-de-objetos-en-r" class="section level3" number="2.1.3">
+<div id="objetosenR" class="section level3" number="2.1.3">
 <h3>
-<span class="header-section-number">2.1.3</span> Creación y manejo de objetos en R<a class="anchor" aria-label="anchor" href="#creaci%C3%B3n-y-manejo-de-objetos-en-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.1.3</span> Creación y manejo de objetos en R<a class="anchor" aria-label="anchor" href="#objetosenR"><i class="fas fa-link"></i></a>
 </h3>
 <p>En R también se usa el operador “flechita” para asignar valores a variables. Como lo vamos a usar muchísimas veces, es conveniente recordar su <em>shortcut</em>: <code>Alt + -</code> (teclas <em>Alt</em> y guión medio). Como ya mencionamos antes, R es un lenguaje dinámico, lo cual significa que no tenemos que declarar las variables antes de asignarles un valor. Por ejemplo, si necesitamos registrar el peso y lugar de nacimiento de una persona, solamente tenemos que hacer:</p>
 <pre class="text"><code>lugar_nacimiento &lt;- "Bombal"
@@ -164,10 +164,10 @@ peso_nacimiento &lt;- 3.423</code></pre>
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">var1</span><span class="op">)</span></code></pre></div>
 <p>Todos los objetos generados viven temporalmente en la memoria de la computadora mientras dure la sesión de R en la que estamos trabajando. Si cerramos R, toda esa información desaparecerá. Muchas veces eso es algo deseable: una vez finalizado el programa, guardamos algún resultado que nos interese (por ejemplo, un conjunto de datos en un archivo de Excel) y todos los objetos del ambiente que fuimos necesitando en el camino son descartados. Sin embargo, en otras oportunidades nos interesa guardar de forma permanente en la computadora una copia de todo lo que se encuentra en el ambiente en un archivo dentro de alguna carpeta. Los archivos que contienen los objetos creados en R tienen extensión <code>.RData</code>. Estos archivos se generan con el ícono de guardar en la pestaña <em>Environment</em> o usando la función <code><a href="https://rdrr.io/r/base/save.html">save.image()</a></code>, que necesita que escribamos entre los paréntesis la carpeta donde guardaremos el archivo y el nombre elegido para el mismo, por ejemplo:</p>
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/save.html">save.image</a></span><span class="op">(</span><span class="st">"C:/Users/Ana/Documentos/Facultad/objetos.RData"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/save.html">save.image</a></span><span class="op">(</span><span class="st">"C:/Users/Marcos/Documentos/Facultad/objetos.RData"</span><span class="op">)</span></code></pre></div>
 <p>Si por el contrario necesitamos <em>importar</em> al ambiente objetos que estén guardados en algún lugar de nuestra compu en un archivo <code>.RData</code>, podemos usar el ícono de abrir en la pestaña <em>Environment</em> o la función <code><a href="https://rdrr.io/r/base/load.html">load()</a></code>, por ejemplo:</p>
 <div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"C:/Users/Ana/Documentos/Facultad/objetos.RData"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"C:/Users/Marcos/Documentos/Facultad/objetos.RData"</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="operadores" class="section level2" number="2.2">
@@ -611,7 +611,7 @@ EN R
 <h4>
 <span class="header-section-number">2.2.3.1</span> Evaluación en cortocircuito<a class="anchor" aria-label="anchor" href="#evaluaci%C3%B3n-en-cortocircuito"><i class="fas fa-link"></i></a>
 </h4>
-<p>Para evaluar la operación de conjunción <code>x &amp;&amp; y</code>, en R se comienza por evaluar la expresión del primer operando <code>x</code> y si su resultado es <code>FALSE</code> ya no se evalúa la expresión <code>y</code> del segundo operando. Esto es porque si <code>x</code> es <code>FALSE</code>, el resultado de <code>x &amp;&amp; y</code> ya no depende de <code>y</code>, será siempre <code>FALSE</code>. Por este motivo se dice que el operador <code><a href="https://rdrr.io/r/base/Logic.html">&amp;&amp;</a></code> se evalúa en <em>cortocircuito</em>. La evaluación en cortocircuito evita realizar operaciones innecesarias<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;El otro operador de conjunción, &amp;amp;, no evalúa en cortocircuito, además de poseer otras diferencias.&lt;/p&gt;"><sup>6</sup></a></p>
+<p>Para evaluar la operación de conjunción <code>x &amp;&amp; y</code>, en R se comienza por evaluar la expresión del primer operando <code>x</code> y si su resultado es <code>FALSE</code> ya no se evalúa la expresión <code>y</code> del segundo operando. Esto es porque si <code>x</code> es <code>FALSE</code>, el resultado de <code>x &amp;&amp; y</code> ya no depende de <code>y</code>, será siempre <code>FALSE</code>. Por este motivo se dice que el operador <code><a href="https://rdrr.io/r/base/Logic.html">&amp;&amp;</a></code> se evalúa en <em>cortocircuito</em>. La evaluación en cortocircuito evita realizar operaciones innecesarias<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;El otro operador de conjunción, &amp;amp;, no evalúa en cortocircuito, además de poseer otras diferencias.&lt;/p&gt;"><sup>7</sup></a></p>
 <p>Por ejemplo:</p>
 <div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span>
@@ -736,6 +736,53 @@ FIN</code></pre>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El área del círculo es"</span>, <span class="va">area</span><span class="op">)</span></code></pre></div>
 <pre><code>El área del círculo es 78.53982</code></pre>
 <p><em>Nota</em>: <code>pi</code> ya es una constante incorporada en R Base, en realidad no es necesario crear esta constante y asignarle valor.</p>
+</div>
+<div id="directorio-de-trabajo" class="section level2" number="2.4">
+<h2>
+<span class="header-section-number">2.4</span> Directorio de trabajo<a class="anchor" aria-label="anchor" href="#directorio-de-trabajo"><i class="fas fa-link"></i></a>
+</h2>
+<p>Antes de terminar este capítulo vamos a presentar un concepto fundamental acerca de cómo se relaciona R con el sistema opertaivo de nuestra computadora para poder tener acceso a nuestros archivos o para generar otros nuevos.</p>
+<p>Al finalizar la sección <a href="objetos-y-operadores.html#objetosenR">2.1.3</a> vimos ejemplos en los que se utilizó R para, en primer lugar, generar un archivo llamado <code>objetos.RData</code> con todos los objetos existentes en nuestro ambiente de trabajo y, en segundo lugar, cargar la información que dicho archivo contiene:</p>
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/save.html">save.image</a></span><span class="op">(</span><span class="st">"C:/Users/Marcos/Documentos/Facultad/objetos.RData"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"C:/Users/Marcos/Documentos/Facultad/objetos.RData"</span><span class="op">)</span></code></pre></div>
+<p>En ambos casos, dentro de las funciones <code><a href="https://rdrr.io/r/base/save.html">save.image()</a></code> y <code><a href="https://rdrr.io/r/base/load.html">load()</a></code> se tuvo que escribir la dirección completa que representa cuál es la ubicación exacta de dicho archivo en la computadora: <code>C:/Users/Marcos/Documentos/Facultad/objetos.RData</code>. Esto significa que el archivo se encuentra en la carpeta <code>Facultad</code>, que a su vez está dentro de la carpeta <code>Documentos</code>, dentro de <code>Ana</code> y dentro de <code>Users</code>, en el disco C de la computadora.</p>
+<p>Expresiones como <code>C:/Users/Marcos/Documentos/Facultad/objetos.RData</code> reciben el nombre de <strong>ruta informática</strong> o <em>path</em> y sirven para referenciar de manera exacta la localización ya sea de una carpeta o de un archivo en particular dentro del sistema de archivos que maneja el sistema operativo de la computadora. Un <em>path</em> está compuesto por todos los nombres de los directorios que ordenadamente nos permiten llegar hasta la carpeta o archivo de interés, separados por un carácter que dependiendo del sistema operativo puede ser una barra diagonal <code><a href="https://rdrr.io/r/base/Arithmetic.html">/</a></code> o una barra inversa <code>\</code>.</p>
+<p>R siempre está mirando a alguna carpeta en particular dentro de la computadora, la cual recibe el nombre <strong>directorio de trabajo</strong> (o <em>working directory</em>, <em>wd</em>). Por ejemplo, en este momento y en mi computadora, R está posando su atención en una carpeta que se llama <code>introprog</code> y cuya ruta puedo descubrir con la función <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code>, que significa “obtener (get) el directorio de trabajo (wd)”:</p>
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] "/home/marcos/GitProjects/introprog"</code></pre>
+<p>Esto quiere decir que R puede ver y acceder de manera directa a todos los archivos que hay allí, sin necesidad de escribir la ruta completa. Por ejemplo, si en lugar de ejecutar:</p>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/save.html">save.image</a></span><span class="op">(</span><span class="st">"C:/Users/Marcos/Documentos/Facultad/objetos.RData"</span><span class="op">)</span></code></pre></div>
+<p>ejecuto sencillamente:</p>
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/save.html">save.image</a></span><span class="op">(</span><span class="st">"objetos.RData"</span><span class="op">)</span></code></pre></div>
+<p>lo que ocurre es que el nuevo archivo se generará en mi directorio de trabajo (carpeta <code>introprog</code>) y no en la carpeta <code>Facultad</code>. Del mismo modo, si ejecuto:</p>
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"objetos.RData"</span><span class="op">)</span></code></pre></div>
+<p>el software va a buscar el archivo <code>objetos.RData</code> en mi directorio de trabajo (carpeta <code>introprog</code>) y va a cargar su contenido al ambiente de trabajo. Si en dicha carpeta no existe un archivo con ese nombre, obtendremos un mensaje de error muy famoso:</p>
+<pre><code>cannot find file 'objetos.RData', probable reason 'No such file or directory'</code></pre>
+<p>El directorio de trabajo por default suele ser la carpeta <em>Documentos</em> o alguna equivalente y es la que vemos en el panel <code>Files</code> de RStudio. Podemos cambiar el directorio de trabajo por cualquier otra carpeta en la que queramos estar trabajando con la función <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> (“setear el working directory”):</p>
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"/home/marcos/documents/introprog/tp1"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span>
+<span class="st">"/home/marcos/documents/introprog/tp1"</span></code></pre></div>
+<p>Por ejemplo, si estamos resolviendo un trabajo práctico para el cual tenemos varios archivos necesarios guardados en la carpeta <code>tp1</code>, tenemos dos opciones:</p>
+<ol style="list-style-type: decimal">
+<li>
+<p>Sin importar cuál es nuestro directorio de trabajo, hacer referencia a dichos archivos con <em>paths</em> completos, por ejemplo:</p>
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"/home/marcos/documents/introprog/tp1/objetos.RData"</span><span class="op">)</span></code></pre></div>
+</li>
+<li>
+<p>Setear como directorio de trabajo a la carpeta del trabajo práctico y hacer un uso directo de los archivos que se encuentren allí:</p>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"/home/marcos/documents/introprog/tp1"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"objetos.RData"</span><span class="op">)</span></code></pre></div>
+</li>
+</ol>
+<p>Es importante recordar lo siguiente: al escribir <em>paths</em>, R sólo reconoce como caracteres delimitadores entre los nombres de carpetas a la barra diagonal <code><a href="https://rdrr.io/r/base/Arithmetic.html">/</a></code> o a dos barras invertidas <code>\\</code>. Quienes usan el sistema operativo Windows notarán que en el explorador de archivos, las rutas están delimitadas con una sola barra invertida <code>\</code>. En el contexto de R, debe ser reemplazada por dos barras invertidas o por una sola barra diagonal.</p>
 
 </div>
 </div>
@@ -751,7 +798,7 @@ FIN</code></pre>
 <a class="nav-link" href="#objetos"><span class="header-section-number">2.1</span> Objetos</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#declaraci%C3%B3n-de-variables-y-constantes"><span class="header-section-number">2.1.1</span> Declaración de variables y constantes</a></li>
 <li><a class="nav-link" href="#acci%C3%B3n-de-asignaci%C3%B3n"><span class="header-section-number">2.1.2</span> Acción de asignación</a></li>
-<li><a class="nav-link" href="#creaci%C3%B3n-y-manejo-de-objetos-en-r"><span class="header-section-number">2.1.3</span> Creación y manejo de objetos en R</a></li>
+<li><a class="nav-link" href="#objetosenR"><span class="header-section-number">2.1.3</span> Creación y manejo de objetos en R</a></li>
 </ul>
 </li>
 <li>
@@ -762,6 +809,7 @@ FIN</code></pre>
 </ul>
 </li>
 <li><a class="nav-link" href="#entrada-y-salida-de-informaci%C3%B3n"><span class="header-section-number">2.3</span> Entrada y salida de información</a></li>
+<li><a class="nav-link" href="#directorio-de-trabajo"><span class="header-section-number">2.4</span> Directorio de trabajo</a></li>
 </ul>
 
       <div class="book-extra">
@@ -778,7 +826,7 @@ FIN</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-07-05.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-07-24.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
