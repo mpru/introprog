@@ -389,7 +389,7 @@ diag(rep(1, 5))
 
 ## Resolución alternativa de un ejercicio
 
-Combinando todo lo mencionado hasta acá, podemos plantear una solución alternativa al **ejercicio 1** de la **Práctica 5**.
+Combinando todo lo mencionado hasta acá, podemos plantear una solución alternativa al **ejercicio 7** de la **Práctica 5**.
 
 ```{r, echo=FALSE}
 datos <- read.csv("/home/marcos/gdrive/TallerDeProgramacion/2021/practicas/practica5/charly.csv")
@@ -408,8 +408,8 @@ datos <- read.csv("charly.csv")
 ```{r}
 # Vector con los nombres de los discos
 discos <- c("Yendo de la cama al living", "Parte de la religión", 
-						"Filosofía barata y zapatos de goma", "Say no more", 
-						"Influencia", "Random")
+            "Filosofía barata y zapatos de goma", "Say no more", 
+            "Influencia", "Random")
 
 # Crear un factor significa asignarle un nombre a cada categoría. Todos los "1"
 # serán reemplazados por "Yendo de la cama al living", los "2" por "Parte de la
@@ -422,7 +422,7 @@ datos$disco <- factor(datos$disco, levels = 1:6, labels = discos)
 conteos <- table(datos$disco)
 conteos
 conteos <- matrix(conteos, ncol = 1,
-									dimnames = list(Disco = names(conteos), "Nro de canciones"))
+                  dimnames = list(Disco = names(conteos), "Nro de canciones"))
 conteos
 
 # Menor y mayor cantidad de canciones
@@ -721,7 +721,3 @@ cat("\nLa suma de los números es:", suma, "\n")
 ```{r, out.width='80%', fig.show='hold', fig.cap='Programa suma.R', echo=FALSE, fig.align="center"}
 knitr::include_graphics('images/07_otros/consola4.png')
 ```
-
-## Otros
-
-Otros tópicos serán agregados aquí.

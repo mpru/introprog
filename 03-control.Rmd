@@ -20,7 +20,7 @@ SI <condición> ENTONCES
 FIN SI
 ```
 
-La palabra `SI` indica el comando de evaluación lógica, `<condición>` indica la condición a evaluar y `Acción/es` son las instrucciones que se realizarán sólo si se cumple la condición, es decir, si la evalución resulta en `VERDADERO`. Si la condición no se verifica, no se ejecuta ninguna acción y el algoritmo sigue su estructura secuencial a continuación del `FIN SI`.
+La palabra `SI` indica el comando de evaluación lógica, `<condición>` indica la condición a evaluar y `Acción/es` son las instrucciones que se realizarán sólo si se cumple la condición, es decir, si la evaluación resulta en `VERDADERO`. Si la condición no se verifica, no se ejecuta ninguna acción y el algoritmo sigue su estructura secuencial a continuación del `FIN SI`.
 
 En R, la estructura que nos permite realizar esto es:
 

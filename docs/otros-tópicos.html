@@ -138,11 +138,11 @@
 <code class="sourceCode R"><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">20</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
 <span class="va">A</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4]
-[1,]   81   49   39   95
-[2,]    9   72   96   48
-[3,]   44    4   18   97
-[4,]   77    5   99   14
-[5,]    8   92   76   36</code></pre>
+[1,]   14   67   45   51
+[2,]   74    2   60    5
+[3,]   54   59   78   43
+[4,]   42   88   92   91
+[5,]   69   23   99   81</code></pre>
 <div class="sourceCode" id="cb500"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Valor máximo</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></code></pre></div>
@@ -151,27 +151,27 @@
 <code class="sourceCode R"><span class="co"># Posición (arr.ind = TRUE para que nos indique fila y columna)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">A</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span>, arr.ind <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <pre><code>     row col
-[1,]   4   3</code></pre>
+[1,]   5   3</code></pre>
 <div class="sourceCode" id="cb504"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Máximo en cada fila de A (la función apply aplica la función provista, max, </span>
 <span class="co"># a cada fila de A)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">A</span>, <span class="fl">1</span>, <span class="va">max</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 95 96 97 99 92</code></pre>
+<pre><code>[1] 67 74 78 92 99</code></pre>
 <div class="sourceCode" id="cb506"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Si en lugar de 1 ponemos 2, tenemos el máximo en cada columna</span>
 <span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">A</span>, <span class="fl">2</span>, <span class="va">max</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 81 92 99 97</code></pre>
+<pre><code>[1] 74 88 99 91</code></pre>
 <div class="sourceCode" id="cb508"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Posición del máximo en cada fila</span>
 <span class="fu"><a href="https://rdrr.io/r/base/maxCol.html">max.col</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span> <span class="co"># Una opción</span></code></pre></div>
-<pre><code>[1] 4 3 4 3 2</code></pre>
+<pre><code>[1] 2 1 3 3 3</code></pre>
 <div class="sourceCode" id="cb510"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">A</span>, <span class="fl">1</span>, <span class="va">which.max</span><span class="op">)</span> <span class="co"># Otra opción</span></code></pre></div>
-<pre><code>[1] 4 3 4 3 2</code></pre>
+<pre><code>[1] 2 1 3 3 3</code></pre>
 <div class="sourceCode" id="cb512"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Posición del máximo en cada columna</span>
 <span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">A</span>, <span class="fl">2</span>, <span class="va">which.max</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 1 5 4 3</code></pre>
+<pre><code>[1] 2 4 5 4</code></pre>
 </li>
 <li>
 <p>En otras ocasiones, puede ser que R no incluya en su instalación base la función que necesitamos, pero que la misma ya haya sido programada por otra persona y esté disponible en un <em>paquete</em> que podemos descargar e instalar. Por ejemplo, en el ejercicio 8 de la Práctica 3 escribimos una función llamada <code>max_com_div()</code> para hallar el máximo común divisor entre dos naturales. R no tiene una función que compute esto, pero podemos instalar el paquete <code>FRACTION</code> que sí la incluye:</p>
@@ -628,7 +628,7 @@
 <h2>
 <span class="header-section-number">7.5</span> Resolución alternativa de un ejercicio<a class="anchor" aria-label="anchor" href="#resoluci%C3%B3n-alternativa-de-un-ejercicio"><i class="fas fa-link"></i></a>
 </h2>
-<p>Combinando todo lo mencionado hasta acá, podemos plantear una solución alternativa al <strong>ejercicio 1</strong> de la <strong>Práctica 5</strong>.</p>
+<p>Combinando todo lo mencionado hasta acá, podemos plantear una solución alternativa al <strong>ejercicio 7</strong> de la <strong>Práctica 5</strong>.</p>
 <div class="sourceCode" id="cb652"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#----------------------------------------------------------------------------</span>
 <span class="co"># PROGRAMA: Análisis de los discos de Charly García </span>
@@ -639,8 +639,8 @@
 <div class="sourceCode" id="cb653"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Vector con los nombres de los discos</span>
 <span class="va">discos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Yendo de la cama al living"</span>, <span class="st">"Parte de la religión"</span>, 
-                        <span class="st">"Filosofía barata y zapatos de goma"</span>, <span class="st">"Say no more"</span>, 
-                        <span class="st">"Influencia"</span>, <span class="st">"Random"</span><span class="op">)</span>
+            <span class="st">"Filosofía barata y zapatos de goma"</span>, <span class="st">"Say no more"</span>, 
+            <span class="st">"Influencia"</span>, <span class="st">"Random"</span><span class="op">)</span>
 
 <span class="co"># Crear un factor significa asignarle un nombre a cada categoría. Todos los "1"</span>
 <span class="co"># serán reemplazados por "Yendo de la cama al living", los "2" por "Parte de la</span>
@@ -661,7 +661,7 @@ Filosofía barata y zapatos de goma                        Say no more
                                 13                                 10 </code></pre>
 <div class="sourceCode" id="cb655"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">conteos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">conteos</span>, ncol <span class="op">=</span> <span class="fl">1</span>,
-                                    dimnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>Disco <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">conteos</span><span class="op">)</span>, <span class="st">"Nro de canciones"</span><span class="op">)</span><span class="op">)</span>
+                  dimnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>Disco <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">conteos</span><span class="op">)</span>, <span class="st">"Nro de canciones"</span><span class="op">)</span><span class="op">)</span>
 <span class="va">conteos</span></code></pre></div>
 <pre><code>                                    
 Disco                                Nro de canciones
@@ -1028,12 +1028,6 @@ cat("\nLa suma de los números es:", sum(v), "\n")
 Figura 7.4: Programa suma.R
 </p>
 </div>
-</div>
-<div id="otros" class="section level2" number="7.7">
-<h2>
-<span class="header-section-number">7.7</span> Otros<a class="anchor" aria-label="anchor" href="#otros"><i class="fas fa-link"></i></a>
-</h2>
-<p>Otros tópicos serán agregados aquí.</p>
 
 </div>
 </div>
@@ -1050,7 +1044,6 @@ Figura 7.4: Programa suma.R
 <li><a class="nav-link" href="#generaci%C3%B3n-de-secuencias"><span class="header-section-number">7.4</span> Generación de secuencias</a></li>
 <li><a class="nav-link" href="#resoluci%C3%B3n-alternativa-de-un-ejercicio"><span class="header-section-number">7.5</span> Resolución alternativa de un ejercicio</a></li>
 <li><a class="nav-link" href="#la-consola"><span class="header-section-number">7.6</span> La consola</a></li>
-<li><a class="nav-link" href="#otros"><span class="header-section-number">7.7</span> Otros</a></li>
 </ul>
 
       <div class="book-extra">
@@ -1067,7 +1060,7 @@ Figura 7.4: Programa suma.R
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-07-24.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-08-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

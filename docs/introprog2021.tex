@@ -243,7 +243,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2021-07-24}
+\date{2021-08-08}
 
 \begin{document}
 \maketitle
@@ -525,7 +525,7 @@ n2 <- scan()
 print(n1 + n2)
 \end{verbatim}
 
-En las dos primeras líneas con la sentencia \texttt{scan()} (que quiere decir ``escanear'', ``leer'') se le pide a la persona que indique dos números y en la tercera línea se muestra el resultado de la suma, con la sentencia \texttt{print()} (``imprimir'', ``mostrar''). Mucho más corto y entendible.
+En las dos primeras líneas con la instrucción \texttt{scan()} (que quiere decir ``escanear'', ``leer'') se le pide a la persona que indique dos números y en la tercera línea se muestra el resultado de la suma, con la instrucción \texttt{print()} (``imprimir'', ``mostrar''). Mucho más corto y entendible.
 
 Esta simplificación es posible porque nos permitimos \emph{ignorar} ciertos aspectos del proceso que realiza la computadora. Todas esas acciones que se ven ejemplificadas en la imagen con el código ensamblador se llevan a cabo de todas formas, pero no lo vemos. Nosotros sólo tenemos que aprender esas últimas tres líneas de código, de forma que nos podemos concentrar en el problema a resolver (ingresar dos números, sumarlos y mostrar el resultado) y no en las complejas operaciones internas que tiene que hacer el microprocesador.
 
@@ -558,7 +558,7 @@ Además de los compiladores, para realizar este pasaje también existen los \emp
 
 Concluyendo, gracias al concepto de la \emph{abstracción} podemos escribir programas en un lenguaje que nos resulte fácil entender, y gracias al trabajo de los \emph{compiladores} e \emph{intérpretes} la computadora podrá llevar adelante las tareas necesarias.
 
-Cada una de las acciones que componen al algoritmo son codificadas con una o varias \emph{instrucciones} o \emph{sentencias}, expresadas en el lenguaje de programación elegido, y el conjunto de todas ellas constituye un \emph{programa}. El programa se guarda en un \emph{archivo} con un nombre generalmente dividido en dos partes por un punto, por ejemplo: \texttt{mi\_primer\_programa.R}. La primera parte es la \emph{raíz} del nombre con la cual podemos describir el contenido del archivo. La segunda parte es indicativa del uso del archivo, por ejemplo, \texttt{.R} indica que contiene un programa escrito en el lenguaje R. El proceso general de ingresar o modificar el contenido de un archivo se denomina \emph{edición}.
+Cada una de las acciones que componen al algoritmo son codificadas con una o varias \emph{instrucciones}, expresadas en el lenguaje de programación elegido, y el conjunto de todas ellas constituye un \emph{programa}. El programa se guarda en un \emph{archivo} con un nombre generalmente dividido en dos partes por un punto, por ejemplo: \texttt{mi\_primer\_programa.R}. La primera parte es la \emph{raíz} del nombre con la cual podemos describir el contenido del archivo. La segunda parte es indicativa del uso del archivo, por ejemplo, \texttt{.R} indica que contiene un programa escrito en el lenguaje R. El proceso general de ingresar o modificar el contenido de un archivo se denomina \emph{edición}.
 
 \hypertarget{errores-de-programaciuxf3n}{%
 \section{Errores de programación}\label{errores-de-programaciuxf3n}}
@@ -580,7 +580,7 @@ A continuación se presenta una de las posibles clasificaciones de los errores q
 
 \begin{itemize}
 \item
-  \emph{Errores de sintaxis}. Tal como el lenguaje humano, los lenguajes de programación tienen su propio vocabulario y su propia sintaxis, que es el conjunto de reglas gramaticales que establecen cómo se pueden combinar las distintas partes. Estas reglas sintácticas determinan que ciertas sentencias están correctamente construidas, mientras que otras no. Cuando ejecutamos un programa, el compilador o el intérprete chequea si el mismo es sintácticamente correcto. Si hemos violado alguna regla, por ejemplo, nos faltó una coma o nos sobra un paréntesis, mostrará un mensaje de error y debemos editar nuestro programa para corregirlo. En estos casos, hay que interpretar el mensaje de error, revisar el código y corregir el error.
+  \emph{Errores de sintaxis}. Tal como el lenguaje humano, los lenguajes de programación tienen su propio vocabulario y su propia sintaxis, que es el conjunto de reglas gramaticales que establecen cómo se pueden combinar las distintas partes. Estas reglas sintácticas determinan que ciertas instrucciones están correctamente construidas, mientras que otras no. Cuando ejecutamos un programa, el compilador o el intérprete chequea si el mismo es sintácticamente correcto. Si hemos violado alguna regla, por ejemplo, nos faltó una coma o nos sobra un paréntesis, mostrará un mensaje de error y debemos editar nuestro programa para corregirlo. En estos casos, hay que interpretar el mensaje de error, revisar el código y corregir el error.
 \item
   \emph{Errores lógicos}. Se presentan cuando el programa puede ser compilado sin errores pero arroja resultados incorrectos o ningún resultado. El software no muestra mensajes de error, debido a que, por supuesto, no sabe cuál es el resultado deseado, sino que sólo se limita a hacer lo que hemos programado. En estos casos hay que revisar el programa para encontrar algún error en su lógica. Este tipo de errores suelen ser los más problemáticos. Algunas ideas para enfrentarlos incluyen volver a pensar paso por paso lo que se debería hacer para solucionar el problema y compararlo con lo que se ha programado, agregar pasos para mostrar resultados intermedios o emplear herramientas especializadas de \emph{debugging} (llamadas \emph{debugger}) para explorar el código paso a paso hasta identificar el error.
 \item
@@ -689,14 +689,14 @@ REPETIR 6 VECES
     DERRAMAR la clara y la yema sobre el plato
 \end{verbatim}
 
-En el contexto de la resolución de un problema computacional, el \emph{procesador} será la computadora; las acciones estarán dadas por las sentencias disponibles en el lenguaje de programación utilizado o las que podamos crear en base al mismo; y el \emph{ambiente} estará constituido por un conjunto de variables, estructuras de datos, funciones y otros elementos que serán de utilidad en la programación.
+En el contexto de la resolución de un problema computacional, el \emph{procesador} será la computadora; las acciones estarán dadas por las instrucciones disponibles en el lenguaje de programación utilizado o las que podamos crear en base al mismo; y el \emph{ambiente} estará constituido por un conjunto de variables, estructuras de datos, funciones y otros elementos que serán de utilidad en la programación.
 
 \hypertarget{r-y-rstudio}{%
 \section{R y RStudio}\label{r-y-rstudio}}
 
 Como dijimos anteriormente, pondremos en práctica los conceptos sobre programación utilizando \textbf{R}, un lenguaje orientado a la realización de procesos estadísticos y gráficos. A diferencia de muchos otros, este es un software libre y gratuito: se distribuye bajo la licencia \emph{GNU GPLv2} que establece la libertad de usarlo con cualquier propósito, de ver cómo fue hecho, cómo funciona y modificarlo, de distribuir copias y crear contribuciones y agregados para que estén disponibles para otros \footnote{\textbf{R} tiene una comunidad de usuarios muy activa, de las más diversas áreas, con muchos blogs, portales y encuentros en persona para buscar y recibir ayuda. Por ejemplo, existe el grupo de R en Rosario: (\url{https://renrosario.rbind.io})}.
 
-Si bien R será nuestro medio de comunicación con la computadora, vamos a usar otro programa que brinda algunas herramientas para facilitar nuestro trabajo de programación, es decir, vamos a usar un \textbf{entorno de desarrollo integrado} (o \emph{IDE}, por \emph{integrated development environment}). Un IDE es un programa que hace que la codificación sea más sencilla porque permite manejar varios archivos de código, visualizar el \emph{ambiente} de trabajo, utilizar resaltado con colores para distintas partes del código, emplear autocompletado para escribir más rápido, explorar páginas de ayuda, implementar estrategias de depuración e incluso intercalar la ejecución de sentencias con la visualización de los resultados mientras avanzamos en el análisis o solución del problema. El IDE más popularmente empleado para programar con R es \textbf{RStudio} y será el programa que estaremos usando todo el tiempo.
+Si bien R será nuestro medio de comunicación con la computadora, vamos a usar otro programa que brinda algunas herramientas para facilitar nuestro trabajo de programación, es decir, vamos a usar un \textbf{entorno de desarrollo integrado} (o \emph{IDE}, por \emph{integrated development environment}). Un IDE es un programa que hace que la codificación sea más sencilla porque permite manejar varios archivos de código, visualizar el \emph{ambiente} de trabajo, utilizar resaltado con colores para distintas partes del código, emplear autocompletado para escribir más rápido, explorar páginas de ayuda, implementar estrategias de depuración e incluso intercalar la ejecución de instrucciones con la visualización de los resultados mientras avanzamos en el análisis o solución del problema. El IDE más popularmente empleado para programar con R es \textbf{RStudio} y será el programa que estaremos usando todo el tiempo.
 
 Para instalar estos programas, se debe visitar las páginas oficiales de \href{https://www.r-project.org/}{R} y de \href{https://www.rstudio.org/}{RStudio}, descargar los instaladores y ejecutarlos. En este \href{https://www.youtube.com/watch?v=D9Bp11iZssc}{enlace} se presenta un video con la instalación completa.
 
@@ -721,9 +721,9 @@ Cuando se abre RStudio se pueden visualizar cuatro paneles:
   \begin{itemize}
   \tightlist
   \item
-    Arriba está el \textbf{editor de archivos}. Es el lugar donde escribiremos y editaremos nuestros programas, para luego guardarlos (una especie de Bloc de Notas* o de un \emph{Word} muy simple). La primera vez que se abre RStudio después de su instalación puede ser que este panel no esté presente, pero aparece si vamos a \texttt{File\ \textgreater{}\ New\ File\ \textgreater{}\ R\ Script}, con el atajo \texttt{Ctrl\ +\ Shift\ +\ N} o haciendo clic en el primer ícono de la barra de herramientas. Podemos abrir varios archivos a la vez.
+    Arriba está el \textbf{editor de archivos}. Es el lugar donde escribiremos y editaremos nuestros programas, para luego guardarlos (una especie de \emph{Bloc de Notas} o de un \emph{Word} muy simple). La primera vez que se abre RStudio después de su instalación puede ser que este panel no esté presente, pero aparece si vamos a \texttt{File\ \textgreater{}\ New\ File\ \textgreater{}\ R\ Script}, con el atajo \texttt{Ctrl\ +\ Shift\ +\ N} o haciendo clic en el primer ícono de la barra de herramientas. Podemos abrir varios archivos a la vez.
   \item
-    Abajo está la \textbf{consola}. Es la ventana que se comunica con R. A través de ella se envían las instrucciones o \emph{sentencias} a R para que las evalúe (también decimos, que las ejecute o corra) y se visualizan los resultados.
+    Abajo está la \textbf{consola}. Es la ventana que se comunica con R. A través de ella se envían las instrucciones a R para que las evalúe (también decimos, que las ejecute o corra) y se visualizan los resultados.
   \end{itemize}
 \item
   Arriba a la derecha hay un panel con algunas pestañas:
@@ -758,7 +758,7 @@ Cuando se abre RStudio se pueden visualizar cuatro paneles:
 \hypertarget{uso-de-la-consola}{%
 \subsection{Uso de la consola}\label{uso-de-la-consola}}
 
-Podemos usar la consola de R que encontramos en el panel de la izquierda para introducir allí nuestras sentencias y al hacer \texttt{Enter} serán evaluadas, produciendo algún resultado. Por ejemplo, podemos hacer algunos cálculos matemáticos como dividir, multiplicar, sumar, restar, calcular potencias, logaritmos, raíces y mucho más:
+Podemos usar la consola de R que encontramos en el panel de la izquierda para introducir allí nuestras instrucciones y al hacer \texttt{Enter} serán evaluadas, produciendo algún resultado. Por ejemplo, podemos hacer algunos cálculos matemáticos como dividir, multiplicar, sumar, restar, calcular potencias, logaritmos, raíces y mucho más:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -830,7 +830,7 @@ Podemos usar la consola de R que encontramos en el panel de la izquierda para in
 [1] -1+0i
 \end{verbatim}
 
-Si bien podemos escribir nuestras sentencias en la consola y dar \texttt{Enter} para que se ejecuten, en general queremos que queden escritas y guardadas en el archivo de código, por eso vamos a escribir nuestros programas en el panel de arriba a la izquierda. Una vez que escribimos una sentencia en el script, podemos \emph{correrla} (es decir, enviarla a la consola para que se ejecute) haciendo clic en el ícono \emph{Run} o con el atajo \emph{Ctrl + Enter}. De esta forma, se \emph{corre} la línea en la cual está el cursor o las líneas que hayamos seleccionado.
+Si bien podemos escribir nuestras instrucciones en la consola y dar \texttt{Enter} para que se ejecuten, en general queremos que queden escritas y guardadas en el archivo de código, por eso vamos a escribir nuestros programas en el panel de arriba a la izquierda. Una vez que escribimos una instrucción en el script, podemos \emph{correrla} (es decir, enviarla a la consola para que se ejecute) haciendo clic en el ícono \emph{Run} o con el atajo \emph{Ctrl + Enter}. De esta forma, se \emph{corre} la línea en la cual está el cursor o las líneas que hayamos seleccionado.
 
 En todo lenguaje de programación existe un caracter especial que, al ser colocado al comienzo de una línea de código, le indica al software que dicha línea no debe ser evaluada. Esto se utiliza para incluir \textbf{comentarios}, es decir, líneas que expresan en español explicaciones o aclaraciones para nosotros mismos u otros que puedan utilizar nuestro código. También se utiliza para añadir encabezados con descripciones sobre el script, o indicar distintas secciones o partes en el programa. En R, este caracter especial es el símbolo numera (\texttt{\#}). Si \emph{corremos} líneas que empiezan con \texttt{\#}, R no hará nada con ellas, las salteará. Por ejemplo
 
@@ -867,9 +867,9 @@ R Se divide en dos partes:
   \textbf{Paquetes adicionales}. Un paquete es un conjunto de archivos que se descarga de forma opcional desde CRAN u otros repositorios y que sirven para hacer alguna tarea especial. Por ejemplo, para poder hacer gráficos lindos, se puede usar un paquete que se llama \texttt{ggplot2}.
 \end{itemize}
 
-Como dijimos antes, en la pestaña \emph{Packages} del panel de abajo a la derecha tiene el listado de todos los paquetes que ya están instalados (muchos vienen con R Base). Allí también hay un botón para instalar nuevos, aunque otra opción es correr la sentencia \texttt{install.packages("nombredelpaquete")}, por ejemplo, \texttt{install.packages("ggplot2")}. También es posible instalar paquetes publicados en otros repositorios\footnote{Por ejemplo, es muy común descargar paquetes en desarrollo o en experimentación que estén disponibles en la plataforma Github. Estos paquetes se instalan especificando el nombre de la cuenta de Github de quien lo haya publicado y el nombre del paquete, por ejemplo: \texttt{devtools::install\_github("mpru/karel")}. Para esto previamente hay que haber instalado desde CRAN el paquete \texttt{devtools} con \texttt{install.packages("devtools")}.}.
+Como dijimos antes, en la pestaña \emph{Packages} del panel de abajo a la derecha tiene el listado de todos los paquetes que ya están instalados (muchos vienen con R Base). Allí también hay un botón para instalar nuevos, aunque otra opción es correr la instrucción \texttt{install.packages("nombredelpaquete")}, por ejemplo, \texttt{install.packages("ggplot2")}. También es posible instalar paquetes publicados en otros repositorios\footnote{Por ejemplo, es muy común descargar paquetes en desarrollo o en experimentación que estén disponibles en la plataforma Github. Estos paquetes se instalan especificando el nombre de la cuenta de Github de quien lo haya publicado y el nombre del paquete, por ejemplo: \texttt{devtools::install\_github("mpru/karel")}. Para esto previamente hay que haber instalado desde CRAN el paquete \texttt{devtools} con \texttt{install.packages("devtools")}.}.
 
-Un paquete se instala una sola vez, pero cada vez que lo queramos usar debemos \emph{cargarlo} para que las herramientas que trae queden a nuestra disposición. Eso se hace con la sentencia \texttt{library("nombredelpaquete")}, por ejemplo, \texttt{library("ggplot2")}.
+Un paquete se instala una sola vez, pero cada vez que lo queramos usar debemos \emph{cargarlo} para que las herramientas que trae queden a nuestra disposición. Eso se hace con la instrucción \texttt{library("nombredelpaquete")}, por ejemplo, \texttt{library("ggplot2")}.
 
 \hypertarget{guuxeda-de-estilo}{%
 \section{Guía de estilo}\label{guuxeda-de-estilo}}
@@ -1750,7 +1750,7 @@ SI <condición> ENTONCES
 FIN SI
 \end{verbatim}
 
-La palabra \texttt{SI} indica el comando de evaluación lógica, \texttt{\textless{}condición\textgreater{}} indica la condición a evaluar y \texttt{Acción/es} son las instrucciones que se realizarán sólo si se cumple la condición, es decir, si la evalución resulta en \texttt{VERDADERO}. Si la condición no se verifica, no se ejecuta ninguna acción y el algoritmo sigue su estructura secuencial a continuación del \texttt{FIN\ SI}.
+La palabra \texttt{SI} indica el comando de evaluación lógica, \texttt{\textless{}condición\textgreater{}} indica la condición a evaluar y \texttt{Acción/es} son las instrucciones que se realizarán sólo si se cumple la condición, es decir, si la evaluación resulta en \texttt{VERDADERO}. Si la condición no se verifica, no se ejecuta ninguna acción y el algoritmo sigue su estructura secuencial a continuación del \texttt{FIN\ SI}.
 
 En R, la estructura que nos permite realizar esto es:
 
@@ -2364,7 +2364,7 @@ En este capítulo hay algunas secciones indicadas como ``opcionales'' y algunos 
 \hypertarget{tipos-de-subalgoritmos}{%
 \section{Tipos de subalgoritmos}\label{tipos-de-subalgoritmos}}
 
-En el mundo de la programación existen muchos términos para definir distintos tipos de subalgoritmos: subrutinas, funciones, procedimientos, métodos, subprogramas, etc. No es posible obtener una definición que capture todas las variantes que existen en el uso de estos términos debido a que el signficado de cada uno de ellos varía según el paradigma
+En el mundo de la programación existen muchos términos para definir distintos tipos de subalgoritmos: subrutinas, funciones, procedimientos, métodos, subprogramas, etc. No es posible obtener una definición que capture todas las variantes que existen en el uso de estos términos debido a que el significado de cada uno de ellos varía según el paradigma
 \footnote{Se usa el término paradigma de programación para clasificar a los lenguajes según sus características. En \href{https://hackr.io/blog/programming-paradigms}{este link} se puede encontrar una breve descripción de los principales paradigmas de programación}
 y el lenguaje de programación escogidos. Qué se entiende por cada uno de ellos depende muchas veces del paradigma de programación empleado y del lenguaje escogido, por lo cual no existe una definición lo suficientemente general para cada uno.
 
@@ -6549,11 +6549,11 @@ Recordemos algunos ejercicios:
 
 \begin{verbatim}
      [,1] [,2] [,3] [,4]
-[1,]    9   77   19   46
-[2,]   29   62   20   38
-[3,]   45   25   98   56
-[4,]   11   54   22   35
-[5,]   16   59    2    6
+[1,]   11   37   44   22
+[2,]   29   32   17   69
+[3,]   87    4   19   76
+[4,]   36    7   55   30
+[5,]   86   33    8   65
 \end{verbatim}
 
 \begin{Shaded}
@@ -6564,7 +6564,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 98
+[1] 87
 \end{verbatim}
 
 \begin{Shaded}
@@ -6576,7 +6576,7 @@ Recordemos algunos ejercicios:
 
 \begin{verbatim}
      row col
-[1,]   3   3
+[1,]   3   1
 \end{verbatim}
 
 \begin{Shaded}
@@ -6588,7 +6588,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 77 62 98 54 59
+[1] 44 69 87 55 86
 \end{verbatim}
 
 \begin{Shaded}
@@ -6599,7 +6599,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 45 77 98 56
+[1] 87 37 55 76
 \end{verbatim}
 
 \begin{Shaded}
@@ -6610,7 +6610,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 2 2 3 2 2
+[1] 3 4 1 3 1
 \end{verbatim}
 
 \begin{Shaded}
@@ -6620,7 +6620,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 2 2 3 2 2
+[1] 3 4 1 3 1
 \end{verbatim}
 
 \begin{Shaded}
@@ -6631,7 +6631,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 3 1 3 3
+[1] 3 1 4 3
 \end{verbatim}
 \item
   En otras ocasiones, puede ser que R no incluya en su instalación base la función que necesitamos, pero que la misma ya haya sido programada por otra persona y esté disponible en un \emph{paquete} que podemos descargar e instalar. Por ejemplo, en el ejercicio 8 de la Práctica 3 escribimos una función llamada \texttt{max\_com\_div()} para hallar el máximo común divisor entre dos naturales. R no tiene una función que compute esto, pero podemos instalar el paquete \texttt{FRACTION} que sí la incluye:
@@ -7580,7 +7580,7 @@ A continuación mostramos cómo generar algunos vectores numéricos en R:
 \hypertarget{resoluciuxf3n-alternativa-de-un-ejercicio}{%
 \section{Resolución alternativa de un ejercicio}\label{resoluciuxf3n-alternativa-de-un-ejercicio}}
 
-Combinando todo lo mencionado hasta acá, podemos plantear una solución alternativa al \textbf{ejercicio 1} de la \textbf{Práctica 5}.
+Combinando todo lo mencionado hasta acá, podemos plantear una solución alternativa al \textbf{ejercicio 7} de la \textbf{Práctica 5}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7597,8 +7597,8 @@ Combinando todo lo mencionado hasta acá, podemos plantear una solución alterna
 \begin{Highlighting}[]
 \CommentTok{\# Vector con los nombres de los discos}
 \NormalTok{discos }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Yendo de la cama al living"}\NormalTok{, }\StringTok{"Parte de la religión"}\NormalTok{, }
-                        \StringTok{"Filosofía barata y zapatos de goma"}\NormalTok{, }\StringTok{"Say no more"}\NormalTok{, }
-                        \StringTok{"Influencia"}\NormalTok{, }\StringTok{"Random"}\NormalTok{)}
+            \StringTok{"Filosofía barata y zapatos de goma"}\NormalTok{, }\StringTok{"Say no more"}\NormalTok{, }
+            \StringTok{"Influencia"}\NormalTok{, }\StringTok{"Random"}\NormalTok{)}
 
 \CommentTok{\# Crear un factor significa asignarle un nombre a cada categoría. Todos los "1"}
 \CommentTok{\# serán reemplazados por "Yendo de la cama al living", los "2" por "Parte de la}
@@ -7625,7 +7625,7 @@ Filosofía barata y zapatos de goma                        Say no more
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{conteos }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(conteos, }\AttributeTok{ncol =} \DecValTok{1}\NormalTok{,}
-                                    \AttributeTok{dimnames =} \FunctionTok{list}\NormalTok{(}\AttributeTok{Disco =} \FunctionTok{names}\NormalTok{(conteos), }\StringTok{"Nro de canciones"}\NormalTok{))}
+                  \AttributeTok{dimnames =} \FunctionTok{list}\NormalTok{(}\AttributeTok{Disco =} \FunctionTok{names}\NormalTok{(conteos), }\StringTok{"Nro de canciones"}\NormalTok{))}
 \NormalTok{conteos}
 \end{Highlighting}
 \end{Shaded}
@@ -8203,11 +8203,6 @@ Vamos a ver cómo hacer para que un usuario nos diga cuáles son los valores que
 
 \caption{Programa suma.R}\label{fig:unnamed-chunk-204}
 \end{figure}
-
-\hypertarget{otros}{%
-\section{Otros}\label{otros}}
-
-Otros tópicos serán agregados aquí.
 
 \hypertarget{bibliografuxeda}{%
 \chapter*{Bibliografía}\label{bibliografuxeda}}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.6.30)  24 JUL 2021 15:06
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.7.31)  8 AUG 2021 18:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -183,7 +183,12 @@ LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 \g__um_primekern_muskip=\muskip17
 
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex
-))) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/microtype/microtype.sty
+))) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+(/home/marcos/.TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)) (/home/marcos/.TinyTeX/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2021/03/14 v2.8c Micro-typographical refinements (RS)
 (/home/marcos/.TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
@@ -1233,8 +1238,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [18]
 File: images/intro/12_AbrirRStudio.png Graphic file (type bmp)
 <images/intro/12_AbrirRStudio.png>
-LaTeX Info: Redefining \. on input line 746.
-LaTeX Info: Redefining \% on input line 746.
+LaTeX Info: Redefining \. on input line 748.
+LaTeX Info: Redefining \% on input line 748.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1244,7 +1249,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [19]
-Underfull \vbox (badness 5203) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 865.
 LaTeX Info: Redefining \% on input line 865.
@@ -1764,9 +1769,9 @@ LaTeX Info: Redefining \% on input line 5061.
 [86]
 Overfull \hbox (638.766pt too wide) in paragraph at lines 5085--5085
 []\TU/lmtt/m/n/10 En este último ejemplo, se han elegido arbitrariamente los no
-mbres `Categorias` y `Grupos` para llamar al conjunto completo de las filas y d
-e las columnas, respectivamente. Esos nombres pueden ser cambiados por otros.[]
- 
+mbres []Categorias[] y []Grupos[] para llamar al conjunto completo de las filas
+ y de las columnas, respectivamente. Esos nombres pueden ser cambiados por otro
+s.[] 
  []
 
 LaTeX Info: Redefining \. on input line 5148.
@@ -2188,11 +2193,8 @@ File: images/07_otros/consola3.png Graphic file (type bmp)
 <images/07_otros/consola3.png>
 File: images/07_otros/consola4.png Graphic file (type bmp)
 <images/07_otros/consola4.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 8213.
-LaTeX Info: Redefining \% on input line 8213.
+LaTeX Info: Redefining \. on input line 8208.
+LaTeX Info: Redefining \% on input line 8208.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2202,8 +2204,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [128]
-LaTeX Info: Redefining \. on input line 8213.
-LaTeX Info: Redefining \% on input line 8213.
+LaTeX Info: Redefining \. on input line 8208.
+LaTeX Info: Redefining \% on input line 8208.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2213,8 +2215,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [129]
-LaTeX Info: Redefining \. on input line 8213.
-LaTeX Info: Redefining \% on input line 8213.
+LaTeX Info: Redefining \. on input line 8208.
+LaTeX Info: Redefining \% on input line 8208.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2226,8 +2228,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [130
 
 ]
-LaTeX Info: Redefining \. on input line 8274.
-LaTeX Info: Redefining \% on input line 8274.
+LaTeX Info: Redefining \. on input line 8269.
+LaTeX Info: Redefining \% on input line 8269.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2241,13 +2243,13 @@ LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
 )
 Package rerunfilecheck Info: File `introprog2021.out' has not changed.
-(rerunfilecheck)             Checksum: A2B0C0C3597F8E912B8C7130598CAA7B;8558.
+(rerunfilecheck)             Checksum: 41F04655F1321123C27A4A27304FF6C2;8478.
  ) 
 Here is how much of TeX's memory you used:
- 21268 strings out of 478437
- 381792 string characters out of 5857997
- 904004 words of memory out of 5000000
- 41233 multiletter control sequences out of 15000+600000
+ 21299 strings out of 478437
+ 382475 string characters out of 5857997
+ 904071 words of memory out of 5000000
+ 41258 multiletter control sequences out of 15000+600000
  409961 words of font info for 90 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  87i,12n,120p,1547b,694s stack positions out of 5000i,500n,10000p,200000b,80000s

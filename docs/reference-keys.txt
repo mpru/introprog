@@ -136,4 +136,3 @@ indexación-de-vectores-matrices-y-data.frames
 generación-de-secuencias
 resolución-alternativa-de-un-ejercicio
 la-consola
-otros
