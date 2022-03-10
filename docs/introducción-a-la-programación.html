@@ -6,10 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>1 Introducción a la Programación | Introducción a la Programación</title>
 <meta name="author" content="Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.)">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.8/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="1.1 Qué es la programación Las computadoras son una parte esencial de nuestra vida cotidiana. Casi todos los aparatos que usamos tienen algún tipo de computadora capaz de ejecutar ciertas tareas:...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="1 Introducción a la Programación | Introducción a la Programación">
+<meta property="og:type" content="book">
+<meta property="og:description" content="1.1 Qué es la programación Las computadoras son una parte esencial de nuestra vida cotidiana. Casi todos los aparatos que usamos tienen algún tipo de computadora capaz de ejecutar ciertas tareas:...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1 Introducción a la Programación | Introducción a la Programación">
+<meta name="twitter:description" content="1.1 Qué es la programación Las computadoras son una parte esencial de nuestra vida cotidiana. Casi todos los aparatos que usamos tienen algún tipo de computadora capaz de ejecutar ciertas tareas:...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -70,14 +78,14 @@
 <p>La historia de la programación está vinculada directamente con la de la computación. Esta palabra proviene del latín <em>computatio</em>, que deriva del verbo <em>computare</em>, cuyo significado es “enumerar cantidades”. Computación, en este sentido, designa la acción y efecto de computar, realizar una cuenta, un cálculo matemático. De allí que antiguamente computación fuese un término usado para referirse a los cálculos realizados por una persona con un instrumento expresamente utilizado para tal fin (como el ábaco, por ejemplo) o sin él. En este sentido, la computación ha estado presente desde tiempos ancestrales, sin embargo debemos remontarnos al siglo XVII para encontrar los primeros dispositivos diseñados para automatizar cómputos matemáticos.</p>
 <p>En 1617 el matemático escocés John Napier (el mismo que definió los logaritmos) inventó un sistema conocido como <em>los huesos de Napier</em> o <em>huesos neperianos</em> que facilitaba la tarea de multiplicar, dividir y tomar raíces cuadradas, usando unas barras de hueso o marfil que tenían dígitos grabados. Esta fue la base para otras ideas más avanzadas, entre ellas la que dio origen a la primera calculadora mecánica, inventada por el alemán Wilhelm Schickard en 1623, capaz de realizar cómputos aritméticos sencillos funcionando a base de ruedas y engranajes. Se componía de dos mecanismos diferenciados, un ábaco de Napier de forma cilíndrica en la parte superior y un mecanismo en la inferior para realizar sumas parciales de los resultados obtenidos con el aparato de la parte superior. Fue llamado <em>reloj calculador</em>. A partir de aquí se fueron desarrollando otros modelos, todos ellos teniendo en común el hecho de ser puramente mecánicos, sin motores ni otras fuentes de energía. El operador ingresaba números ubicando ruedas de metal en posiciones particulares y al girarlas otras partes de la máquina se movían y mostraban el resultado. Algunos ejemplos son las calculadoras del inglés William Oughtred en 1624, de Blaise Pascal en 1645 (llamada <em>pascalina</em>), la de Samuel Morland en 1666 y las de Leibniz, en 1673 y 1694.</p>
 <div class="figure" style="text-align: center">
-<span id="fig:calculadora"></span>
+<span style="display:block;" id="fig:calculadora"></span>
 <img src="images/historia/calculadoras.png" alt="De izquierda a derecha: los huesos de Napier (Museo Arqueológico Nacional de España), el reloj calculador de Schickard (Museo de la Ciencia de la Universidad Pública de Navarra) y una pascalina del año 1952" width="100%"><p class="caption">
 Figura 1.1: De izquierda a derecha: los huesos de Napier (Museo Arqueológico Nacional de España), el reloj calculador de Schickard (Museo de la Ciencia de la Universidad Pública de Navarra) y una pascalina del año 1952
 </p>
 </div>
 <p>El siglo XVIII trajo consigo algunos otros diseños, pero un gran salto se dio a comienzos del siglo XIX de mano de un tejedor y comerciante francés, Joseph Jacquard. En 1801 creó un telar que tenía un sistema de tarjetas perforadas para controlar las puntadas del tejido, de forma que fuera posible <em>programar</em> una gran diversidad de tramas y figuras. Sin saberlo, Jacquard sentó una idea fundamental para la creación de las computadoras.</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-1"></span>
+<span style="display:block;" id="fig:unnamed-chunk-1"></span>
 <img src="images/historia/telar.png" alt="Un telar de Jacquard y sus tarjetas perforadas en el Museo de la ciencia y la industria en Mánchester." width="50%"><p class="caption">
 Figura 1.2: Un telar de Jacquard y sus tarjetas perforadas en el Museo de la ciencia y la industria en Mánchester.
 </p>
@@ -85,7 +93,7 @@ Figura 1.2: Un telar de Jacquard y sus tarjetas perforadas en el Museo de la cie
 <p>En 1822 el matemático británico Charles Babbage publicó un diseño para la construcción de una <em>máquina diferencial</em>, que podía calcular valores de funciones polinómicas mediante el método de las diferencias. Este complejo sistema de ruedas y engranajes era el primero que podía trabajar automáticamente utilizando resultados de operaciones previas. Si bien el diseño era viable, por motivos técnicos y económicos no lo pudo concretar (sólo construyó un modelo de menor escala). Sin embargo, Babbage no se dio por vencido y en 1837 presentó el diseño de una <em>máquina analítica</em>, un aparato capaz de ejecutar cualquier tipo de cálculo matemático y que, por lo tanto, se podría utilizar con cualquier propósito. Tal como el telar de Jacquard, la operación de esta máquina sería controlada por un patrón de perforaciones hechas sobre una tarjetas que la misma podría leer. Al cambiar el patrón de las perforaciones, se podría cambiar el comportamiento de la máquina para que resuelva diferentes tipos de cálculos. Para la salida de resultados, la máquina sería capaz de perforar tarjetas. Además, funcionaría con un motor a vapor y su tamaño hubiese sido de 30 metros de largo por 10 de ancho. Si bien Babbage tampoco llegó a concretar en vida este diseño que dejó plasmado en más de 300 dibujos y 2200 páginas por motivos políticos, se lo considera como la primera conceptualización de lo que hoy conocemos como computadora, por lo cual Babbage es conocido como <em>el padre de la computación</em>.</p>
 <p>En 1843 Lady Ada Lovelace, una matemática y escritora británica, publicó una serie de notas sobre la máquina analítica de Babbage, en las que resaltaba sus potenciales aplicaciones prácticas, incluyendo la descripción detallada de tarjetas perforadas para que sea capaz de calcular los números de Bernoulli. Al haber señalado los pasos para que la máquina pueda cumplir con estas y otras tareas, Ada es considerada actualmente como la primera programadora del mundo, a pesar de que en la época no fue tomada en serio por la comunidad científica, principalmente por su condición de mujer.</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-2"></span>
+<span style="display:block;" id="fig:unnamed-chunk-2"></span>
 <img src="images/historia/babbage_ada.png" alt="Charles Babbage, Ada Lovelace y el algoritmo que publicó Ada para calcular los números de Bernoulli con la máquina analítica de Charles." width="100%"><p class="caption">
 Figura 1.3: Charles Babbage, Ada Lovelace y el algoritmo que publicó Ada para calcular los números de Bernoulli con la máquina analítica de Charles.
 </p>
@@ -98,7 +106,7 @@ También ya había experimentado con esta idea el alemán Konrad Zuse, quien ent
 <!-- Un relé funciona como un interruptor controlado por una bobina y un electroimán que integrado en un circuito eléctrico acciona uno o varios contactos, abriendo o cerrando otros circuitos eléctricos independientes.  -->
 El modelo original de la Z3 fue destruido en Berlín por un bombardeo durante la segunda guerra mundial.</p>
 <div class="figure" style="text-align: center">
-<span id="fig:berry"></span>
+<span style="display:block;" id="fig:berry"></span>
 <img src="images/historia/berry_eniac_z3.png" alt="De izquierda a derecha: las computadoras ABC, ENIAC y Z3" width="100%"><p class="caption">
 Figura 1.4: De izquierda a derecha: las computadoras ABC, ENIAC y Z3
 </p>
@@ -116,7 +124,7 @@ Figura 1.4: De izquierda a derecha: las computadoras ABC, ENIAC y Z3
 <em>Cuarta generación</em> (aprox. 1971-presente): los avances tecnológicos permitieron construir la unidad entera de procesamiento de una computadora sobre un único chip de silicio (<em>microprocesador</em>), incluyendo la memoria y los controles de entrada y salida de datos. Todo lo que en una computadora de la primera generación ocupaba una habitación entera, fue capaz de entrar en la palma de una mano. El primer microprocesador fue el Intel 4004 de 1971, mientras que la primera computadora de uso doméstico fue desarrollada por IBM en 1981. Surgieron también en esta generación el ratón (<em>mouse</em>) y las interfaces gráficas de usuario (como Windows, en 1985).</li>
 </ul>
 <div class="figure" style="text-align: center">
-<span id="fig:evolucion"></span>
+<span style="display:block;" id="fig:evolucion"></span>
 <img src="images/historia/05_tubovacio_transistor_chip.jpg" alt="De derecha a izquierda: un tubo de vacío, un transistor y un chip." width="50%"><p class="caption">
 Figura 1.5: De derecha a izquierda: un tubo de vacío, un transistor y un chip.
 </p>
@@ -128,7 +136,7 @@ Figura 1.5: De derecha a izquierda: un tubo de vacío, un transistor y un chip.
 </h2>
 <p>Como podemos ver, en la historia de la computación hubo dos aspectos que fueron evolucionando: las máquinas y los programas que las dirigen. Hacemos referencia a estos elementos como <em>hardware</em> y <em>software</em> respectivamente, y es la conjunción de ambos la que le da vida a la computación y hace posible la programación.</p>
 <div class="figure" style="text-align: center">
-<span id="fig:hardvssoft"></span>
+<span style="display:block;" id="fig:hardvssoft"></span>
 <img src="images/intro/06_hardsoft.jpg" alt="Representación de la diferencia entre hardware y software." width="50%"><p class="caption">
 Figura 1.6: Representación de la diferencia entre hardware y software.
 </p>
@@ -402,7 +410,7 @@ FIN</code></pre>
 <p>Es importante destacar la presencia de sangrías (<em>sangrado</em>) en el ejemplo anterior, que facilitan la lectura.</p>
 <p>Los algoritmos suelen ser representados también mediante <em>diagramas de flujo</em>, como el que se muestra en la siguiente figura<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En este curso no emplearemos diagramas de flujo&lt;/p&gt;"><sup>1</sup></a>.</p>
 <div class="figure" style="text-align: center">
-<span id="fig:algoritmo"></span>
+<span style="display:block;" id="fig:algoritmo"></span>
 <img src="images/intro/flujo.png" alt='Ejemplo del algoritmo "Arrancar el auto" representado gráficamente con un diagrama de flujo.' width="70%"><p class="caption">
 Figura 1.7: Ejemplo del algoritmo “Arrancar el auto” representado gráficamente con un diagrama de flujo.
 </p>
@@ -416,7 +424,7 @@ Figura 1.7: Ejemplo del algoritmo “Arrancar el auto” representado gráficame
 <p>Si bien hay distintos lenguajes de programación, una computadora en definitiva es un aparato que sólo sabe <em>hablar</em> en <em>binario</em>, es decir, sólo interpreta señales eléctricas con dos estados posibles, los cuales son representados por los dígitos binarios 0 y 1. Toda instrucción que recibe la computadora se construye mediante una adecuada y larga combinación de ceros y unos<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Como vimos anteriormente, las computadoras de la primera generación no se manejaban con lenguajes de programación, sino que para introducir información e instrucciones en las primeras computadoras se usaban tarjetas perforadas, en las cuales los orificios representaban un “0” y las posiciones que no los tenían se entendían como un “1”, de modo que la máquina podía operar empleando el sistema binario.&lt;/p&gt;"><sup>2</sup></a>. Este sistema de código con ceros y unos que la computadora interpreta como instrucciones o conjuntos de datos se llama <em>lenguaje de máquina</em> (o código de máquina).</p>
 <p>Programar en lenguaje de máquina es muy complejo y lento, y es fácil cometer errores pero es difícil arreglarlos. Por eso a principios de la década de 1950 se inventaron los <em>lenguaje ensambladores</em>, que usan palabras para representar simbólicamente las operaciones que debe realizar la computadora. Cada una de estas palabras reemplaza un código de máquina binario, siendo un poco más fácil programar. Imaginemos que deseamos crear un programa que permita sumar dos números elegidos por una persona. La computadora puede hacer esto si se lo comunicamos mediante un mensaje compuesto por una larga cadena de ceros y unos (lenguaje de máquina) que a simple vista no podríamos entender. Sin embargo, escrito en lenguaje de máquina, el programa se vería así (por ejemplo):</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-5"></span>
+<span style="display:block;" id="fig:unnamed-chunk-5"></span>
 <img src="images/intro/ensamblador.png" alt="Programa en lenguaje ensamblador para leer dos números, sumarlos y mostrar el resultado. Al final de cada línea hay una descripción de la operación realizada." width="100%"><p class="caption">
 Figura 1.8: Programa en lenguaje ensamblador para leer dos números, sumarlos y mostrar el resultado. Al final de cada línea hay una descripción de la operación realizada.
 </p>
@@ -438,7 +446,7 @@ print(n1 + n2)</code></pre>
 <em>Lenguajes de nivel medio de abstracción</em>: son lenguajes con características mixtas entre ambos grupos anteriores.</li>
 </ul>
 <div class="figure" style="text-align: center">
-<span id="fig:lenguajes"></span>
+<span style="display:block;" id="fig:lenguajes"></span>
 <img src="images/intro/07_lenguajes.jpg" alt="Distintos lenguajes de programación y sus logos." width="70%"><p class="caption">
 Figura 1.9: Distintos lenguajes de programación y sus logos.
 </p>
@@ -460,7 +468,7 @@ Figura 1.9: Distintos lenguajes de programación y sus logos.
 <p>Apenas iniciemos nuestro camino en el mundo de la programación nos daremos cuenta que tendremos siempre ciertos compañeros de viaje: los <em>errores</em>. Muchas veces nos pasará que queremos ejecutar nuestro código y el mismo no anda o no produce el resultado esperado. No importa cuán cuidadosos seamos, ni cuánta experiencia tengamos, los errores están siempre presentes. Con el tiempo y práctica, vamos a poder identificarlos y corregirlos con mayor facilidad, pero probablemente nunca dejemos de cometerlos.</p>
 <p>A los errores en programación se los suele llamar <em>bugs</em> (insecto o bicho en inglés) y el proceso de la corrección de los mismos se conoce como <em>debugging</em> (depuración)<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Algunos usan el término bug para referirse exclusivamente a errores lógicos&lt;/p&gt;"><sup>4</sup></a>. Se dice que esta terminología proviene de 1947, cuando una computadora en la Universidad de Harvard (la <em>Mark II</em>) dejó de funcionar y finalmente se descubrió que la causa del problema era la presencia de una polilla en un relé electromagnético de la máquina. Sin embargo, otros historiadores sostienen que el término ya se usaba desde antes.</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-6"></span>
+<span style="display:block;" id="fig:unnamed-chunk-6"></span>
 <img src="images/intro/First_Computer_Bug.jpg" alt="La polilla (bug) encontrada por la científica de la computación Grace Hooper en la Mark II fue pegada con cinta en un reporte sobre el malfuncionamiento de la máquina." width="70%"><p class="caption">
 Figura 1.10: La polilla (bug) encontrada por la científica de la computación Grace Hooper en la Mark II fue pegada con cinta en un reporte sobre el malfuncionamiento de la máquina.
 </p>
@@ -473,7 +481,7 @@ Figura 1.10: La polilla (bug) encontrada por la científica de la computación G
 </ul>
 <p>Los errores en la programación son tan comunes, que un científico de la computación muy reconocido, Edsger Dijkstra, dijo una vez: “si la depuración es el proceso de eliminar errores, entonces la programación es el proceso de generarlos”. Ante la presencia de uno, no hay más que respirar profundo y con paciencia revisar hasta encontrarlo y solucionarlo.</p>
 <div class="figure" style="text-align: center">
-<span id="fig:bug"></span>
+<span style="display:block;" id="fig:bug"></span>
 <img src="images/intro/08_bug.jpg" alt="Encontrando un bug en un programa." width="50%"><p class="caption">
 Figura 1.11: Encontrando un bug en un programa.
 </p>
@@ -563,7 +571,7 @@ FIN</code></pre>
 </h3>
 <p>Cuando se abre RStudio se pueden visualizar cuatro paneles:</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-10"></span>
+<span style="display:block;" id="fig:unnamed-chunk-10"></span>
 <img src="images/intro/12_AbrirRStudio.png" alt="Captura de pantalla de RStudio" width="100%"><p class="caption">
 Figura 1.12: Captura de pantalla de RStudio
 </p>
@@ -706,7 +714,7 @@ Figura 1.12: Captura de pantalla de RStudio
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-08-08.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2022-03-09.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -726,6 +734,22 @@ Figura 1.12: Captura de pantalla de RStudio
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
 </script>
 </body>
 </html>

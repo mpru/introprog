@@ -1,4 +1,4 @@
-book_filename: "introprog2021"
+book_filename: "introprog"
 delete_merged_file: true
 output_dir: "docs"
 language:

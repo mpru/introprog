@@ -6,10 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>5 Estructuras de Datos | Introducción a la Programación</title>
 <meta name="author" content="Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.)">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.8/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Hasta ahora todos los algoritmos que hemos desarrollado hacen uso de objetos que guardan datos individuales, los cuales representaban un número, una cadena de texto o un valor lógico. Sin embargo,...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="5 Estructuras de Datos | Introducción a la Programación">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Hasta ahora todos los algoritmos que hemos desarrollado hacen uso de objetos que guardan datos individuales, los cuales representaban un número, una cadena de texto o un valor lógico. Sin embargo,...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="5 Estructuras de Datos | Introducción a la Programación">
+<meta name="twitter:description" content="Hasta ahora todos los algoritmos que hemos desarrollado hacen uso de objetos que guardan datos individuales, los cuales representaban un número, una cadena de texto o un valor lógico. Sin embargo,...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -73,21 +81,21 @@
 </h3>
 <p>Un <strong>arreglo unidimensional</strong> o <strong>vector</strong> tiene <em>n</em> elementos todos del mismo tipo. Por ejemplo, el siguiente es un vector de tipo numérico llamado <code>x</code> con 5 elementos:</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-100"></span>
+<span style="display:block;" id="fig:unnamed-chunk-100"></span>
 <img src="images/05_estructuras/estr01.png" alt="Ejemplo de un vector numérico" width="60%"><p class="caption">
 Figura 5.1: Ejemplo de un vector numérico
 </p>
 </div>
 <p>Cada uno de los elementos ocupa una posición determinada en el vector. Por ejemplo, el elemento 3 del vector <code>x</code> es el numéro 2.71. Se puede <em>acceder</em> o hacer referencia a cada elemento mediante el uso de <em>índices</em>, expresados entre corchetes al lado del nombre del vector. De esta forma, si escribimos <code>x[3]</code> hacemos referencia a la tercera posición del vector, que actualmente guarda al valor 2.71. Como podemos ver, sólo hace falta un índice para hacer referencia a cada elemento de un vector.</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-101"></span>
+<span style="display:block;" id="fig:unnamed-chunk-101"></span>
 <img src="images/05_estructuras/estr02.png" alt="Ejemplo de un vector numérico: índices para señalar cada posición." width="60%"><p class="caption">
 Figura 5.2: Ejemplo de un vector numérico: índices para señalar cada posición.
 </p>
 </div>
 <p>Los siguientes son ejemplos de vectores de tipo caracter y lógico, con distintas cantidades de elementos:</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-102"></span>
+<span style="display:block;" id="fig:unnamed-chunk-102"></span>
 <img src="images/05_estructuras/estr03.png" alt="Ejemplo de un vector caracter y un vector lógico" width="60%"><p class="caption">
 Figura 5.3: Ejemplo de un vector caracter y un vector lógico
 </p>
@@ -106,7 +114,7 @@ x[5] &lt;- 25</code></pre>
 <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ARG"</span>, <span class="st">"correo@gmail.com"</span>, <span class="st">"Ok"</span>, <span class="st">"chau"</span><span class="op">)</span>
 <span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-104"></span>
+<span style="display:block;" id="fig:unnamed-chunk-104"></span>
 <img src="images/05_estructuras/estr04.png" alt="Creación de vectores en R" width="80%"><p class="caption">
 Figura 5.4: Creación de vectores en R
 </p>
@@ -199,21 +207,21 @@ FIN PARA</code></pre>
 <p><strong>Ejemplo: invertir los elementos de un vector</strong></p>
 <p>Nos planteamos el problema de dar vuelta los elementos pertenecientes a un vector, de manera que el primer elemento pase a ser el último, el segundo pase al penúltimo lugar, etcétera. Por ejemplo, dado el vector de tipo caracter <code>v</code>:</p>
 <div class="figure" style="text-align: center">
-<span id="fig:inv1"></span>
+<span style="display:block;" id="fig:inv1"></span>
 <img src="images/05_estructuras/estr11.png" alt="Vector v original" width="80%"><p class="caption">
 Figura 5.5: Vector v original
 </p>
 </div>
 <p>queremos modificarlo para obtener:</p>
 <div class="figure" style="text-align: center">
-<span id="fig:inv2"></span>
+<span style="display:block;" id="fig:inv2"></span>
 <img src="images/05_estructuras/estr12.png" alt="Vector v reordenado" width="80%"><p class="caption">
 Figura 5.6: Vector v reordenado
 </p>
 </div>
 <p>Si bien podemos pensar en distintas formas para resolver este problema, probablemente la más sencilla requiere que intercambiemos de a dos los valores en ciertas posiciones del vector, por ejemplo, empezando por intercambiar el primero con el último. Para esto podemos emplear una variable auxiliar que guarde el valor de alguna de las celdas temporariamente (por eso lo vamos a llamar <code>tmp</code>):</p>
 <div class="figure" style="text-align: center">
-<span id="fig:inv3"></span>
+<span style="display:block;" id="fig:inv3"></span>
 <img src="images/05_estructuras/estr13.png" alt="Pasos para intercambiar valores" width="80%"><p class="caption">
 Figura 5.7: Pasos para intercambiar valores
 </p>
@@ -262,14 +270,14 @@ FIN</code></pre>
 </h3>
 <p>Un <strong>arreglo bidimensional</strong> representa lo que habitualmente conocemos en matemática como <strong>matriz</strong> y por eso también lo llamamos de esa forma. Podemos <em>imaginar</em> que en una matriz los elementos están organizados en <em>filas</em> y <em>columnas</em> formando una tabla. Por ejemplo, la siguiente es una matriz llamada <code>x</code>:</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-111"></span>
+<span style="display:block;" id="fig:unnamed-chunk-111"></span>
 <img src="images/05_estructuras/estr05.png" alt="Ejemplo de una matriz numérica" width="60%"><p class="caption">
 Figura 5.8: Ejemplo de una matriz numérica
 </p>
 </div>
 <p>A diferencia de los vectores, las matrices requieren dos índices para señalar la posición de cada elemento, el primero para indicar la fila y el segundo para indicar la columna. Los mismos se colocan entre corchetes, separados por una coma, al lado del identificador de la matriz. De esta forma, si hablamos de <code>x[1, 3]</code> hacemos referencia a la posición ocupada por el valor 18, mientras que si mencionamos <code>x[3, 1]</code> nos referimos al valor 14.</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-112"></span>
+<span style="display:block;" id="fig:unnamed-chunk-112"></span>
 <img src="images/05_estructuras/estr06.png" alt="Ejemplo de una matriz numérica: índices para señalar cada posición" width="80%"><p class="caption">
 Figura 5.9: Ejemplo de una matriz numérica: índices para señalar cada posición
 </p>
@@ -337,14 +345,14 @@ x[3, 4] &lt;- 29</code></pre>
 <pre><code>[1] 5</code></pre>
 <p>Podemos recorrer todas las posiciones de una matriz con una estructura iterativa doble: nos situamos en la primera fila y recorremos cada columna, luego en la segunda fila y recorremos todas las columnas y así sucesivamente:</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-117"></span>
+<span style="display:block;" id="fig:unnamed-chunk-117"></span>
 <img src="images/05_estructuras/estr07.png" alt="Recorrer una matriz por fila" width="80%"><p class="caption">
 Figura 5.10: Recorrer una matriz por fila
 </p>
 </div>
 <p>También se puede recorrer la matriz por columna, si modificamos ligeramente las estructuras iterativas:</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-119"></span>
+<span style="display:block;" id="fig:unnamed-chunk-119"></span>
 <img src="images/05_estructuras/estr08.png" alt="Recorrer una matriz por columna" width="80%"><p class="caption">
 Figura 5.11: Recorrer una matriz por columna
 </p>
@@ -383,7 +391,7 @@ FIN PARA</code></pre>
 </h4>
 <p>En Álgebra, trasponer una matriz de dimensión <span class="math inline">\(m \times n\)</span> significa generar una nueva matriz de dimensión <span class="math inline">\(n \times m\)</span>, donde los elementos se intercambian de este modo:</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-121"></span>
+<span style="display:block;" id="fig:unnamed-chunk-121"></span>
 <img src="images/05_estructuras/estr14.png" alt="Matriz traspuesta" width="80%"><p class="caption">
 Figura 5.12: Matriz traspuesta
 </p>
@@ -595,7 +603,7 @@ caja     mañana tarde
 <li>Un valor lógico.</li>
 </ol>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-126"></span>
+<span style="display:block;" id="fig:unnamed-chunk-126"></span>
 <img src="images/05_estructuras/estr09.png" alt="Ejemplo de una lista" width="50%"><p class="caption">
 Figura 5.13: Ejemplo de una lista
 </p>
@@ -624,14 +632,14 @@ Figura 5.13: Ejemplo de una lista
 [1] TRUE</code></pre>
 <p>Luego de correr la sentencia anterior, podemos ver que <code>mi_lista</code> es un nuevo objeto disponible en el ambiente global y como tal está listado en el panel <em>Environment</em>. Allí se nos indica que se trata de una lista y, además, podemos previsualizar su contenido al hacer clic en el círculo celeste que antecede a su nombre:</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-128"></span>
+<span style="display:block;" id="fig:unnamed-chunk-128"></span>
 <img src="images/05_estructuras/lista_rstudio.png" alt="La lista en la pestaña Environment de RStudio" width="50%"><p class="caption">
 Figura 5.14: La lista en la pestaña Environment de RStudio
 </p>
 </div>
 <p>Usamos dobles corchetes <code>[[ ]]</code> para referenciar a cada objeto que forma parte de la lista. Además, si queremos indicar un elemento dentro de un objeto que forma parte de la lista, agregamos otro conjunto de corchetes como hacemos con vectores y matrices. Por ejemplo:</p>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-129"></span>
+<span style="display:block;" id="fig:unnamed-chunk-129"></span>
 <img src="images/05_estructuras/estr10.png" alt="Ejemplo de una lista" width="50%"><p class="caption">
 Figura 5.15: Ejemplo de una lista
 </p>
@@ -979,7 +987,7 @@ $z
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2021-08-08.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2022-03-09.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -999,6 +1007,22 @@ $z
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
 </script>
 </body>
 </html>

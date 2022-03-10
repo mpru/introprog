@@ -32,7 +32,7 @@ Change the _output.yaml to the following:
 
 ¡Les damos la bienvenida a la asignatura Introducción a la Programación en la Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario! La presente guía resume los conceptos más importantes que vamos a desarrollar. La misma irá siendo revisada, completada y actualizada a lo largo del cuatrimestre y no está exenta de presentar errores o expresar ideas que puedan ser mejoradas. Avisanos si encontrás algo que deba ser cambiado. ¡Esperamos que juntos podamos pasarla bien al dar nuestros primeros pasos en la programación!
 
-Este material fue escrito por el Mgs. Lic. Marcos Prunello (profesor titular) y revisado por los integrantes de la cátedra, Tec. César Mignoni y Lic. Maite San Martín.
+Este material fue escrito por el Mgs. Lic. Marcos Prunello (Profesor Titular por Concurso). Se agradecen las observaciones realizadas por los integrantes de la cátedra, AUS. César Mignoni y Lic. Maite San Martín.
 
 `r if (knitr::is_latex_output()) '-->'`
 
