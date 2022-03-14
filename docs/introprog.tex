@@ -243,7 +243,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2022-03-09}
+\date{2022-03-13}
 
 \begin{document}
 \maketitle
@@ -328,7 +328,7 @@ En 1843 Lady Ada Lovelace, una matemática y escritora británica, publicó una 
 
 La utilidad de las tarjetas perforadas quedó confirmada en 1890, cuando Herman Hollerith las utilizó para automatizar la tabulación de datos en el censo de Estados Unidos. Las perforaciones en determinados lugares representaban información como el sexo o la edad de las personas, logrando que se pudieran lograr clasificaciones y conteos de forma muy veloz. Así, se tardaron sólo 3 años en procesar la información del censo, cinco años menos que en el anterior de 1880. Con el fin de comercializar esta tecnología, Hollerith fundó una compañía que terminaría siendo la famosa International Business Machine (IBM), empresa líder en informática hasta el día de hoy.
 
-Sin embargo, la visión de Babbage de una computadora programable no se hizo realidad hasta los años 1940, cuando el advenimiento de la electrónica hizo posible superar a los dispositivos mecánicos existentes. John Atanasoff y Clifford Barry (Iowa State College, Estados Unidos) terminaron en 1942 en Iowa State College (Estados Unidos) una computadora electrónica capaz de resolver sistemas de ecuaciones lineales simultáneas, llamada \emph{ABC} (por ``Atanasoff Berry Computer''). La misma contaba con 300 tubos de vacío, unas bombillas de vidrio con ciertos componentes que podían recibir y modificar una señal eléctrica mediante el control del movimiento de los electrones produciendo una respuesta, que habían sido presentados por primera vez en 1906 por el estadounidense Lee De Forest. La \emph{ABC} dio comienzo a la conocida como la \emph{primera generación de computadoras} basadas en el empleo de tubos de vacío.
+Sin embargo, la visión de Babbage de una computadora programable no se hizo realidad hasta los años 1940, cuando el advenimiento de la electrónica hizo posible superar a los dispositivos mecánicos existentes. John Atanasoff y Clifford Berry (Iowa State College, Estados Unidos) terminaron en 1942 en Iowa State College (Estados Unidos) una computadora electrónica capaz de resolver sistemas de ecuaciones lineales simultáneas, llamada \emph{ABC} (por ``Atanasoff Berry Computer''). La misma contaba con 300 tubos de vacío, unas bombillas de vidrio con ciertos componentes que podían recibir y modificar una señal eléctrica mediante el control del movimiento de los electrones produciendo una respuesta, que habían sido presentados por primera vez en 1906 por el estadounidense Lee De Forest. La \emph{ABC} dio comienzo a la conocida como la \emph{primera generación de computadoras} basadas en el empleo de tubos de vacío.
 
 La primera computadora electrónica de propósito general fue la \emph{ENIAC}, \emph{Electronic Numerical Integrator and Computer}, completada por Presper Eckert y John Mauchly en la Universidad de Pensilvania. Podía realizar cinco mil operaciones aritmética por segundo y tenía más de 18000 tubos de vacío, ocupando una sala de 9x15 metros en un sótano de la universidad donde se montó un sistema de aire acondicionado especial.
 
@@ -504,7 +504,7 @@ El algoritmo anterior está presentado en pseudocódigo utilizando el lenguaje e
 
 Si bien hay distintos lenguajes de programación, una computadora en definitiva es un aparato que sólo sabe \emph{hablar} en \emph{binario}, es decir, sólo interpreta señales eléctricas con dos estados posibles, los cuales son representados por los dígitos binarios 0 y 1. Toda instrucción que recibe la computadora se construye mediante una adecuada y larga combinación de ceros y unos\footnote{Como vimos anteriormente, las computadoras de la primera generación no se manejaban con lenguajes de programación, sino que para introducir información e instrucciones en las primeras computadoras se usaban tarjetas perforadas, en las cuales los orificios representaban un ``0'' y las posiciones que no los tenían se entendían como un ``1'', de modo que la máquina podía operar empleando el sistema binario.}. Este sistema de código con ceros y unos que la computadora interpreta como instrucciones o conjuntos de datos se llama \emph{lenguaje de máquina} (o código de máquina).
 
-Programar en lenguaje de máquina es muy complejo y lento, y es fácil cometer errores pero es difícil arreglarlos. Por eso a principios de la década de 1950 se inventaron los \emph{lenguaje ensambladores}, que usan palabras para representar simbólicamente las operaciones que debe realizar la computadora. Cada una de estas palabras reemplaza un código de máquina binario, siendo un poco más fácil programar. Imaginemos que deseamos crear un programa que permita sumar dos números elegidos por una persona. La computadora puede hacer esto si se lo comunicamos mediante un mensaje compuesto por una larga cadena de ceros y unos (lenguaje de máquina) que a simple vista no podríamos entender. Sin embargo, escrito en lenguaje de máquina, el programa se vería así (por ejemplo):
+Programar en lenguaje de máquina es muy complejo y lento, y es fácil cometer errores pero es difícil arreglarlos. Por eso a principios de la década de 1950 se inventaron los \emph{lenguaje ensambladores}, que usan palabras para representar simbólicamente las operaciones que debe realizar la computadora. Cada una de estas palabras reemplaza un código de máquina binario, siendo un poco más fácil programar. Imaginemos que deseamos crear un programa que permita sumar dos números elegidos por una persona. La computadora puede hacer esto si se lo comunicamos mediante un mensaje compuesto por una larga cadena de ceros y unos (lenguaje de máquina) que a simple vista no podríamos entender. Sin embargo, escrito en lenguaje ensamblador, el programa se vería así (por ejemplo):
 
 \begin{figure}
 
@@ -552,7 +552,7 @@ En programación, la idea de simplificar un proceso complejo ignorando algunas d
 
 Si bien podemos programar usando un lenguaje de alto nivel para que nos resulte más sencillo, \emph{alguien} o \emph{algo} debe traducirlo a lenguaje de máquina para que la computadora, que sólo entiende de ceros y unos, pueda realizar las tareas. Esto también es necesario incluso si programáramos en lenguaje ensamblador. Para estos procesos de traducción se crearon los \emph{compiladores} e \emph{intérpretes}.
 
-Un \emph{compilador} es un programa que toma el código escrito en un lenguaje de alto nivel y lo traduce a código de máquina, guardándolo en un archivo que la computadora ejecutará posteriormente (archivo ejecutable). Para ilustrar el rol del compilador, imaginemos que alguien que sólo habla español le quiere mandar una carta escrita en español a alguien que vive en Alemania y sólo habla alemán. Cuando esta persona la reciba, no la va a entender. Se necesita de un intermediario que tome la carta en español, la traduzca y la escriba en alemán y luego se la mande al destinatario, quien ahora sí la podrá entender. Ese es el rol de un \emph{compilador} en la computadora. Ahora bien, el resultado de la traducción, que es la carta escrita en alemán, sólo sive para gente que hable alemán. Si se quiere enviar el mismo mensaje a personas que hablen otros idiomas, necesitaremos hacer la traducción que corresponda. De la misma forma, el código generado por un compilador es específico para cada máquina, depende de su arquitectura.
+Un \emph{compilador} es un programa que toma el código escrito en un lenguaje de alto nivel y lo traduce a código de máquina, guardándolo en un archivo que la computadora ejecutará posteriormente (archivo ejecutable). Para ilustrar el rol del compilador, imaginemos que alguien que sólo habla español le quiere mandar una carta escrita en español a alguien que vive en Alemania y sólo habla alemán. Cuando esta persona la reciba, no la va a entender. Se necesita de un intermediario que tome la carta en español, la traduzca y la escriba en alemán y luego se la mande al destinatario, quien ahora sí la podrá entender. Ese es el rol de un \emph{compilador} en la computadora. Ahora bien, el resultado de la traducción, que es la carta escrita en alemán, sólo sirve para gente que hable alemán. Si se quiere enviar el mismo mensaje a personas que hablen otros idiomas, necesitaremos hacer la traducción que corresponda. De la misma forma, el código generado por un compilador es específico para cada máquina, depende de su arquitectura.
 
 Además de los compiladores, para realizar este pasaje también existen los \emph{intérpretes}. Un intérprete es un programa que traduce el código escrito en lenguaje de alto nivel a código de máquina, pero lo va haciendo a medida que se necesita, es decir, su resultado reside en la memoria temporal de la computadora y no se genera ningún archivo ejecutable. Siguiendo con el ejemplo anterior, es similar a viajar a Alemania con un intérprete que nos vaya traduciendo en vivo y en directo cada vez que le queramos decir algo a alguien de ese país. En su implementación por defecto, el lenguaje R es interpretado, no compilado.
 
@@ -6549,11 +6549,11 @@ Recordemos algunos ejercicios:
 
 \begin{verbatim}
      [,1] [,2] [,3] [,4]
-[1,]   79   56   66   92
-[2,]    3    9   15   13
-[3,]   44   70   98   53
-[4,]   40   58    7   94
-[5,]   20   47   97   35
+[1,]   46   78   51   68
+[2,]   11   40  100   55
+[3,]   22   14   20   32
+[4,]   34   82   76   72
+[5,]   29   33   75   91
 \end{verbatim}
 
 \begin{Shaded}
@@ -6564,7 +6564,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 98
+[1] 100
 \end{verbatim}
 
 \begin{Shaded}
@@ -6576,7 +6576,7 @@ Recordemos algunos ejercicios:
 
 \begin{verbatim}
      row col
-[1,]   3   3
+[1,]   2   3
 \end{verbatim}
 
 \begin{Shaded}
@@ -6588,7 +6588,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 92 15 98 94 97
+[1]  78 100  32  82  91
 \end{verbatim}
 
 \begin{Shaded}
@@ -6599,7 +6599,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 79 70 98 94
+[1]  46  82 100  91
 \end{verbatim}
 
 \begin{Shaded}
@@ -6610,7 +6610,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 4 3 3 4 3
+[1] 2 3 4 2 4
 \end{verbatim}
 
 \begin{Shaded}
@@ -6620,7 +6620,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 4 3 3 4 3
+[1] 2 3 4 2 4
 \end{verbatim}
 
 \begin{Shaded}
@@ -6631,7 +6631,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 1 3 3 4
+[1] 1 4 2 5
 \end{verbatim}
 \item
   En otras ocasiones, puede ser que R no incluya en su instalación base la función que necesitamos, pero que la misma ya haya sido programada por otra persona y esté disponible en un \emph{paquete} que podemos descargar e instalar. Por ejemplo, en el ejercicio 8 de la Práctica 3 escribimos una función llamada \texttt{max\_com\_div()} para hallar el máximo común divisor entre dos naturales. R no tiene una función que compute esto, pero podemos instalar el paquete \texttt{FRACTION} que sí la incluye:
