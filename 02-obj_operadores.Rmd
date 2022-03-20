@@ -471,7 +471,7 @@ save.image("C:/Users/Marcos/Documentos/Facultad/objetos.RData")
 load("C:/Users/Marcos/Documentos/Facultad/objetos.RData")
 ```
 
-En ambos casos, dentro de las funciones `save.image()` y `load()` se tuvo que escribir la dirección completa que representa cuál es la ubicación exacta de dicho archivo en la computadora: `C:/Users/Marcos/Documentos/Facultad/objetos.RData`. Esto significa que el archivo se encuentra en la carpeta `Facultad`, que a su vez está dentro de la carpeta `Documentos`, dentro de `Ana` y dentro de `Users`, en el disco C de la computadora.
+En ambos casos, dentro de las funciones `save.image()` y `load()` se tuvo que escribir la dirección completa que representa cuál es la ubicación exacta de dicho archivo en la computadora: `C:/Users/Marcos/Documentos/Facultad/objetos.RData`. Esto significa que el archivo se encuentra en la carpeta `Facultad`, que a su vez está dentro de la carpeta `Documentos`, dentro de `Marcos` y dentro de `Users`, en el disco C de la computadora.
 
 Expresiones como `C:/Users/Marcos/Documentos/Facultad/objetos.RData` reciben el nombre de **ruta informática** o *path* y sirven para referenciar de manera exacta la localización ya sea de una carpeta o de un archivo en particular dentro del sistema de archivos que maneja el sistema operativo de la computadora. Un *path* está compuesto por todos los nombres de los directorios que ordenadamente nos permiten llegar hasta la carpeta o archivo de interés, separados por un carácter que dependiendo del sistema operativo puede ser una barra diagonal `/` o una barra inversa `\`.
 
