@@ -243,7 +243,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2022-03-20}
+\date{2022-03-26}
 
 \begin{document}
 \maketitle
@@ -6368,7 +6368,262 @@ Si bien lo anterior sigue la estructura planteada en el pseudocódigo, R provee 
 
 Las reglas que aprendimos para escribir el pseudocódigo nos permiten traducir nuestros algoritmos a cualquier lenguaje de computación de manera muy general y sencilla. Sin embargo, cada lenguaje de programación tiene diseñado su propio conjunto de funciones y estructuras de datos que facilitan algunas tareas. Una vez que hemos incorporado los conceptos básicos de la programación, podemos dedicarnos a aprender las profundidades de un lenguaje en particular.
 
-En este capítulo vamos mencionar algunas cosas útiles sobre R.
+En este capítulo vamos mencionar algunas cosas útiles sobre R y otras cuestiones.
+
+\hypertarget{la-consola}{%
+\section{La consola}\label{la-consola}}
+
+Cuando prendemos nuestra computadora nos encontramos con una interfaz gráfica implementada por el sistema operativo para que podamos hacer lo que necesitemos de manera sencilla usando ventanas y menúes, interactuando con el sistema a través del mouse, teclado, micrófono o pantalla táctil. Sin embargo, es posible usar la compu de otra forma, escribiendo comandos especiales en una ventanita, llamada \textbf{consola} que es capaz de interpretarlos para hacer cualquier tipo de actividad, sin utilizar la interfaz gráfica. Años atrás, esta era la única manera disponible de usar la computadora (por ejemplo, con sistema operativo MS-DOS de Windows).
+
+Saber usar la consola es muy útil para automatizar actividades, realizar tareas administrativas, manipular varios archivos u objetos en simultáneo, lanzar a correr proyectos grandes, conectarse de manera remota a un servidor, etc. La primera vez que uno se mete en esto puede ser intimidante, pero no hay que olvidar que ya estamos acostumbrados a usar la consola de R, con lo cual esto de escribir comandos e interpretar respuestas es algo familiar.
+
+Los términos \emph{terminal}, \emph{consola}, \emph{shell} y \emph{línea de comandos} son términos que a veces se usan como sinónimos sin demasiada preocupación, como si fuesen distintas formas de llamar a lo mismo: una ventanita donde puedo escribir comandos y hacer que sucedan cosas en la computadora. Sin embargo, hay pequeñas diferencias entre estos conceptos, que acá tratamos de resumir (aunque ni siquiera entre informáticos hay mucho acuerdo en las definiciones):
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Shell} (intérprete de línea de comandos): es software, es un programa que corre otros programas, procesa los comandos que recibe y devuelve resultados Ejemplo: Bash (la más común en sistemas Linux), sh, PowerShell, etc.
+\item
+  \textbf{Terminal}: un programa que propicia la transferencia de input/output entre el usuario y la shell. No ejecuta comandos, pero recibe los comandos que el shell va a procesar. Ejemplos: Command prompt, guake, gnome-terminal, etc. Antiguamente, se trataba de las múltiples estaciones con un monitor y un teclado que una gran computadora tenía para ser usada por varias personas.
+\item
+  \textbf{Consola}: un tipo particular de terminal, con una ventana escribir inputs y leer outputs. Históricamente, se trataba de un panel físico (consola) con controles. Siri o Cortana podrían considerarse terminales, pero no son consolas, ya que no hay que escribir para mandar comandos. Terminal y consola se usan prácticamente como sinónimos.
+\end{itemize}
+
+Para abrir una terminal en Linux se puede usar el atajo \texttt{ctrl\ +\ alt\ +\ t} y en Windows se puede escribir \texttt{cmd} en Inicio.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/07_otros/terminal} 
+
+}
+
+\caption{Abrir la terminal en Windows. En computadoras con Windows en español, en lugar de Command Prompt dice Símbolo del sistema.}\label{fig:unnamed-chunk-169}
+\end{figure}
+
+Así luce la línea de comandos de Windows:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/07_otros/terminal2} 
+
+}
+
+\caption{Línea de comandos de Windows.}\label{fig:unnamed-chunk-170}
+\end{figure}
+
+Los comandos se escriben en la última línea a continuación del símbolo \texttt{\textgreater{}}, que a su vez está precedido por la ruta a la carpeta que es el directorio de trabajo actual de la terminal, en este caso, \texttt{C:\textbackslash{}Users\textbackslash{}Marcos} (carpeta \texttt{Marcos}, dentro de la carpeta \texttt{Users}, en el disco \texttt{C}).
+
+Si bien hay muchísimos comandos para utilizar en la terminal, acá vamos a mencionar algunos como ejemplo:
+
+\begin{itemize}
+\tightlist
+\item
+  Mostrar en qué carpeta (directorio) de la compu estamos situados: \emph{pwd} en Linux o \emph{cd} en Windows
+\item
+  Listar todos los archivos y carpetas que tenemos en el directorio actual: \emph{ls}
+\item
+  Entrar a una subcarpeta desde el directorio en el que estamos: \emph{cd nombresubcarpeta}
+\item
+  Ver la ayuda de los comandos: \emph{help}
+\item
+  Limpiar la consola: \emph{cls} en Windows o \emph{clear} en Linux
+\item
+  Cerrar la consola: \emph{exit}
+\end{itemize}
+
+Por ejemplo, podemos ver todos los archivos que existen en el directorio actual con \texttt{ls}:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/07_otros/terminal3} 
+
+}
+
+\caption{Contenido del directorio actual (Windows).}\label{fig:unnamed-chunk-171}
+\end{figure}
+
+Para los siguientes ejemplos, trabajaremos en una carpeta llamada \texttt{Ejemplos}, cuyo \emph{path} es \texttt{C:\textbackslash{}Users\textbackslash{}Marcos\textbackslash{}Trabajo\textbackslash{}Ejemplos} que tiene la siguiente composición:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/07_otros/terminal4} 
+
+}
+
+\caption{Carpeta en la cual deseamos trabajar.}\label{fig:unnamed-chunk-172}
+\end{figure}
+
+Podemos convertir a dicha carpeta como nuestro nuevo directorio de trabajo con el comando \texttt{cd} (\emph{change directory}):
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/07_otros/terminal5} 
+
+}
+
+\caption{Cambio de directorio de trabajo y listado de archivos en el mismo.}\label{fig:unnamed-chunk-173}
+\end{figure}
+
+En Windows hay una forma más directa de abrir la terminal y que ya tenga seteada como directorio de trabajo a una carpeta deseada. Antes de abrir la terminal, vamos con el \emph{Explorador de archivos} a la carpeta en cuestión, nos posicionamos en la barra del explorador, escribimos \texttt{cmd} y le damos \texttt{ENTER}. Automáticamente se abrirá la terminal, con esta carpeta como directorio de referencia.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/07_otros/terminal6} 
+
+}
+
+\caption{Abrir la terminal desde una carpeta en particular en Windows.}\label{fig:unnamed-chunk-174}
+\end{figure}
+
+Desde la terminal podemos correr nuestros programas de R. Hacer esto es necesario cuando tenemos que programar alguna tarea de gran escala que se ejecutará de manera remota en algún servidor o cuando necesitamos encapsular nuestro programa para que otros lo puedan correr sin siquiera saber nada de R.
+
+Veamos un ejemplo. En la carpeta \texttt{C:\textbackslash{}Users\textbackslash{}Marcos\textbackslash{}Trabajo\textbackslash{}Ejemplos} tengo guardado el siguiente script, en un archivo llamado \texttt{mi\_programa.R} que tiene este contenido:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OtherTok{\textless{}{-}} \StringTok{"¡Hola, Mundo!"}
+\NormalTok{b }\OtherTok{\textless{}{-}} \DecValTok{3}
+\NormalTok{d }\OtherTok{\textless{}{-}} \DecValTok{5}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"                 RESULTADOS               }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"El valor de b es "}\NormalTok{, b, }\StringTok{", mientras que d vale "}\NormalTok{, d, }\StringTok{".}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{, }\AttributeTok{sep =} \StringTok{""}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"La suma entre ellos es igual a "}\NormalTok{, b }\SpecialCharTok{+}\NormalTok{ d, }\StringTok{".}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{, }\AttributeTok{sep =} \StringTok{""}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Este es un saludo:"}\NormalTok{, a)}
+\end{Highlighting}
+\end{Shaded}
+
+Para ejecutar este programa desde la terminal, sin abrir RStudio o R, utilizo el comando \texttt{Rscript}, que le indica a la computadora que el contenido del archivo \texttt{mi\_programa.R} debe ser evaluado por R. Esto es lo que se observa en la consola:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/07_otros/terminal7} 
+
+}
+
+\caption{Correr el programa de R desde la consola en Windows.}\label{fig:unnamed-chunk-176}
+\end{figure}
+
+Todo lo que en el programa estaba encerrado en una llamada a la función \texttt{cat()} es lo que se muestra como mensajes en la terminal. Notar que la instrucción \texttt{RScript\ mi\_programa.R} funcione, debemos tener como directorio de trabajo aquella carpeta que aloja al archivo \texttt{mi\_programa.R}, en caso contrario el sistema nos alertará que el mismo no está disponible.
+
+Para que lo anterior funcione en Windows, hay que indicarle al sistema operativo que \texttt{Rscript} es un comando que se instaló con R y que lo puede encontrar en la carpeta de los archivos del programa R. Esto hay que hacerlo una sola vez editando las \textbf{variables de entorno} de Windows, que son cadenas de texto que contienen información acerca del sistema para determinar, por ejemplo, dónde buscar algunos archivos. Esto se logra siguiendo estos pasos:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Fijarse en qué carpeta de la compu está instalado R. Seguramente lo encuentres si, abriendo el explorador de archivo, vas siguiendo este camino: \texttt{Este\ equipo\ \textgreater{}\ Windows\ (C:)\ \textgreater{}\ Archivos\ de\ programa\ \textgreater{}\ R\ \textgreater{}\ R-version\ \textgreater{}\ bin}. En esta carpeta tiene que haber dos archivos, llamados \texttt{R.exe} y \texttt{Rscript.exe}. Si es así, hacé clic con el botón derecho del mouse sobre cualquiera de ellos, luego en ``Propiedades'' y copiá el path que aparece en ``Ubicación'' (deberías copiar algo como \texttt{C:\textbackslash{}Program\ Files\textbackslash{}R\textbackslash{}R-3.6.0\textbackslash{}bin}).
+\item
+  En Inicio, escribir ``Entorno'' y hacer clic en la opción ``Editar las variables de entorno del sistema (panel de control)''.
+\item
+  Hacer clic en el botón ``Variables de entorno''.
+\item
+  En el cuadro ``Variables del sistema'', hacer clic en la variable ``Path'' y luego en ``Editar''.
+\item
+  Hacer clic en ``Nuevo'', pegar la dirección \texttt{C:\textbackslash{}Program\ Files\textbackslash{}R\textbackslash{}R-3.6.0\textbackslash{}bin} y dar Enter. Luego, hacer clic en ``Aceptar'' tres veces para cerrar todo.
+\item
+  ¡Listo! Ya podés correr tus programas desde la consola con el comando \emph{Rscript}.
+\end{enumerate}
+
+Lo bueno de esto es que si corremos nuestros programas desde la terminal, podemos hacer cosas interactivas. Por ejemplo, para todo lo que pusimos \texttt{LEER} en nuestros pseudocódigos, ahora podemos hacer verdaderamente que la persona usuaria del programa provea los valores correspondientes.
+
+Veamos algunos ejemplos.
+
+\textbf{Práctica 2, Ejercicio 1: paridad de un número}
+
+La función \texttt{scan()} es la que permite \emph{escanear} o \emph{leer} valores que los usuarios ingresen por la terminal. Entre sus argumentos tenemos a \texttt{file}, que si lo seteamos como \texttt{file\ =\ "stdin"} indica que vamos a leer información desde la consola. Otros argumentos que son de utilidad incluyen a \texttt{n\ =\ 1}, que indica que sólo leeremos un valor y \texttt{quite\ =\ TRUE} que le pide a esta función que no emita ningún mensaje. Por ejemplo, si el siguiente código se guarda en el archivo \texttt{paridad.R} y es ejecutado desde la consola, le va a pedir a la persona que lo esté usando que indique cualquier número y luego le va a comunicar si es par o impar:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"           PARIDAD DE UN NÚMERO           }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Ingrese un número entero y presione enter:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{n }\OtherTok{\textless{}{-}} \FunctionTok{scan}\NormalTok{(}\AttributeTok{file =} \StringTok{"stdin"}\NormalTok{, }\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
+\ControlFlowTok{if}\NormalTok{ (n }\SpecialCharTok{\%\%} \DecValTok{2} \SpecialCharTok{==} \DecValTok{0}\NormalTok{) \{}
+    \FunctionTok{cat}\NormalTok{(n, }\StringTok{"es par}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+    \FunctionTok{cat}\NormalTok{(n, }\StringTok{"es impar}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Esto es lo que ocurre en la terminal:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/07_otros/terminal8} 
+
+}
+
+\caption{Programa paridad.R.}\label{fig:unnamed-chunk-178}
+\end{figure}
+
+\textbf{Práctica 2, Ejercicio 3: salario}
+
+En este ejemplo, tenemos que leer tres valores, dos de lo cuales son de tipo carácter. Para esto tenemos que agregar en la función \texttt{scan()} el argumento \texttt{what\ =\ ""}, que admite el ingreso de caracteres alfanuméricos (por default \texttt{scan()} sòlo espera recibir valores numéricos). Si el siguiente código se guarda en el archivo \texttt{salario.R} y se lo ejecuta desde la consola, produce el resultado que se muestra en la imagen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"           CÁLCULO DEL SALARIO            }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Ingrese la cantidad de horas trabajadas:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{horas }\OtherTok{\textless{}{-}} \FunctionTok{scan}\NormalTok{(}\StringTok{"stdin"}\NormalTok{, }\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Ingrese el día de la semana (DOM LUN MAR MIE JUE VIE SAB):}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{dia }\OtherTok{\textless{}{-}} \FunctionTok{scan}\NormalTok{(}\StringTok{"stdin"}\NormalTok{, }\AttributeTok{what =} \StringTok{""}\NormalTok{, }\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Ingrese el turno (M T N):}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{turno }\OtherTok{\textless{}{-}} \FunctionTok{scan}\NormalTok{(}\StringTok{"stdin"}\NormalTok{, }\AttributeTok{what =} \StringTok{""}\NormalTok{, }\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
+
+\NormalTok{salario }\OtherTok{\textless{}{-}}\NormalTok{ horas }\SpecialCharTok{*} \DecValTok{400}
+\ControlFlowTok{if}\NormalTok{ (turno }\SpecialCharTok{==} \StringTok{"N"}\NormalTok{) \{}
+\NormalTok{    salario }\OtherTok{\textless{}{-}}\NormalTok{ salario }\SpecialCharTok{+}\NormalTok{ horas }\SpecialCharTok{*} \DecValTok{200}
+\NormalTok{\}}
+\ControlFlowTok{if}\NormalTok{ (turno }\SpecialCharTok{==} \StringTok{"DOM"}\NormalTok{) \{}
+\NormalTok{    salario }\OtherTok{\textless{}{-}}\NormalTok{ salario }\SpecialCharTok{+}\NormalTok{ horas }\SpecialCharTok{*} \DecValTok{100}
+\NormalTok{\}}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{El salario que se debe abonar es $"}\NormalTok{, salario, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\AttributeTok{sep =} \StringTok{""}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/07_otros/terminal9} 
+
+}
+
+\caption{Programa salario.R.}\label{fig:unnamed-chunk-180}
+\end{figure}
+
+\textbf{Práctica 4, Ejercicio 1: suma de elementos de un vector}\footnote{Si estás leyendo esto antes de que hayamos visto en clase la Unidad 5, podés omitir este último ejemplo y retomarlo más adelante en el cursado.}
+
+En este ejercicio escribimos una función para sumar los elementos de un vector. Vamos a ver cómo hacer para que un usuario nos diga cuáles son los valores que quiere sumar desde la consola. Primero preguntamos cuántos números se desean sumar y luego los recibimos en el vector \texttt{v}. Si el siguiente código queda guardado en el archivo \texttt{suma.R} y se lo corre desde la terminal, produce el resultado que se muestra en la imagen.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"              SUMA DE NÚMEROS             }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"¿Cuántos números va a ingresar?}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{n }\OtherTok{\textless{}{-}} \FunctionTok{scan}\NormalTok{(}\StringTok{"stdin"}\NormalTok{, }\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Ingrese los números, presionando Enter luego de cada uno:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{v }\OtherTok{\textless{}{-}} \FunctionTok{scan}\NormalTok{(}\StringTok{"stdin"}\NormalTok{, }\AttributeTok{n =}\NormalTok{ n, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{suma }\OtherTok{\textless{}{-}} \DecValTok{0}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(v)) \{}
+\NormalTok{    suma }\OtherTok{\textless{}{-}}\NormalTok{ suma }\SpecialCharTok{+}\NormalTok{ v[i]}
+\NormalTok{\}}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{La suma de los números es:"}\NormalTok{, suma, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/07_otros/terminal10} 
+
+}
+
+\caption{Programa suma.R.}\label{fig:unnamed-chunk-182}
+\end{figure}
 
 \hypertarget{muxe1s-funciones-predefinidas}{%
 \section{Más funciones predefinidas}\label{muxe1s-funciones-predefinidas}}
@@ -6549,11 +6804,11 @@ Recordemos algunos ejercicios:
 
 \begin{verbatim}
      [,1] [,2] [,3] [,4]
-[1,]   75   71   76   92
-[2,]   63   61   36   84
-[3,]   25   87   26   98
-[4,]   10    4   90   38
-[5,]   45   70   67   94
+[1,]    6   99   12   15
+[2,]   18   35   51   52
+[3,]   87   74   71   77
+[4,]   55   69   20   76
+[5,]   91    3   40   41
 \end{verbatim}
 
 \begin{Shaded}
@@ -6564,7 +6819,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 98
+[1] 99
 \end{verbatim}
 
 \begin{Shaded}
@@ -6576,7 +6831,7 @@ Recordemos algunos ejercicios:
 
 \begin{verbatim}
      row col
-[1,]   3   4
+[1,]   1   2
 \end{verbatim}
 
 \begin{Shaded}
@@ -6588,7 +6843,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 92 84 98 90 94
+[1] 99 52 87 76 91
 \end{verbatim}
 
 \begin{Shaded}
@@ -6599,7 +6854,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 75 87 90 98
+[1] 91 99 71 77
 \end{verbatim}
 
 \begin{Shaded}
@@ -6610,7 +6865,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 4 4 4 3 4
+[1] 2 4 1 4 1
 \end{verbatim}
 
 \begin{Shaded}
@@ -6620,7 +6875,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 4 4 4 3 4
+[1] 2 4 1 4 1
 \end{verbatim}
 
 \begin{Shaded}
@@ -6631,7 +6886,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 1 3 4 3
+[1] 5 1 3 3
 \end{verbatim}
 \item
   En otras ocasiones, puede ser que R no incluya en su instalación base la función que necesitamos, pero que la misma ya haya sido programada por otra persona y esté disponible en un \emph{paquete} que podemos descargar e instalar. Por ejemplo, en el ejercicio 8 de la Práctica 3 escribimos una función llamada \texttt{max\_com\_div()} para hallar el máximo común divisor entre dos naturales. R no tiene una función que compute esto, pero podemos instalar el paquete \texttt{FRACTION} que sí la incluye:
@@ -8015,194 +8270,6 @@ El disco con mayor promedio en instrumental (0) es Say no more.
 ----- Duración -----
 La diferencia entre la duración promedio de las canciones del primer disco y las del último es de  0.92575 minutos.
 \end{verbatim}
-
-\hypertarget{la-consola}{%
-\section{La consola}\label{la-consola}}
-
-Cuando prendemos nuestra computadora nos encontramos con una interfaz gráfica implementada por el sistema operativo para que podamos hacer lo que necesitemos de manera sencilla usando ventanas y menúes, interactuando con el sistema a través del mouse, teclado, micrófono o pantalla táctil. Sin embargo, es posible usar la compu de otra forma, escribiendo comandos especiales en una ventanita, llamada \textbf{consola} que es capaz de interpretarlos para hacer cualquier tipo de actividad, sin utilizar la interfaz gráfica. Años atrás, esta era la única manera disponible de usar la computadora (por ejemplo, con sistema operativo MS-DOS de Windows).
-
-Saber usar la consola es muy útil para automatizar actividades, realizar tareas administrativas, manipular varios archivos u objetos en simultáneo, lanzar a correr proyectos grandes, conectarse de manera remota a un servidor, etc. La primera vez que uno se mete en esto puede ser intimidante, pero no hay que olvidar que ya estamos acostumbrados a usar la consola de R, con lo cual esto de escribir comandos e interpretar respuestas es algo familiar.
-
-Los términos \emph{terminal}, \emph{consola}, \emph{shell} y \emph{línea de comandos} son términos que a veces se usan como sinónimos sin demasiada preocupación, como si fuesen distintas formas de llamar a lo mismo: una ventanita donde puedo escribir comandos y hacer que sucedan cosas en la computadora. Sin embargo, hay pequeñas diferencias entre estos conceptos, que acá tratamos de resumir (aunque ni siquiera entre informáticos hay mucho acuerdo en las definiciones):
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Shell} (intérprete de línea de comandos): es software, es un programa que corre otros programas, procesa los comandos que recibe y devuelve resultados Ejemplo: Bash (la más común en sistemas Linux), sh, PowerShell, etc.
-\item
-  \textbf{Terminal}: un programa que propicia la transferencia de input/output entre el usuario y la shell. No ejecuta comandos, pero recibe los comandos que el shell va a procesar. Ejemplos: Command prompt, guake, gnome-terminal, etc. Antiguamente, se trataba de las múltiples estaciones con un monitor y un teclado que una gran computadora tenía para ser usada por varias personas.
-\item
-  \textbf{Consola}: un tipo particular de terminal, con una ventana escribir inputs y leer outputs. Históricamente, se trataba de un panel físico (consola) con controles. Siri o Cortana podrían considerarse terminales, pero no son consolas, ya que no hay que escribir para mandar comandos. Terminal y consola se usan prácticamente como sinónimos.
-\end{itemize}
-
-Para abrir una terminal en Linux se puede usar el atajo \texttt{ctrl\ +\ alt\ +\ t} y en Windows se puede escribir \texttt{cmd} en Inicio. Si bien hay muchísimos comandos para utilizar, acá vamos a mencionar algunos como ejemplo:
-
-\begin{itemize}
-\tightlist
-\item
-  Mostrar en qué carpeta (directorio) de la compu estamos situados: \emph{pwd} en Linux o \emph{cd} en Windows
-\item
-  Listar todos los archivos y carpetas que tenemos en el directorio actual: \emph{ls}
-\item
-  Entrar a una subcarpeta desde el directorio en el que estamos: \emph{cd nombresubcarpeta}
-\item
-  Ver la ayuda de los comandos: \emph{help}
-\item
-  Limpiar la consola: \emph{cls} en Windows o \emph{clear} en Linux
-\item
-  Cerrar la consola: \emph{exit}
-\end{itemize}
-
-Desde la consola podemos correr nuestros programas de R. Hacer esto es necesario cuando tenemos que programar alguna tarea de gran escala que se ejecutará de manera remota en algún servidor o cuando necesitamos encapsular nuestro programa para que otros lo puedan correr sin siquiera saber nada de R.
-
-Veamos un ejemplo. En mi carpeta \emph{Documents} tengo guardado el siguiente script, en un archivo llamado \emph{mi\_programa.R} que tiene este contenido:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{a }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{, }\AttributeTok{nrow =} \DecValTok{3}\NormalTok{)}
-\NormalTok{b }\OtherTok{\textless{}{-}} \DecValTok{3}
-\NormalTok{d }\OtherTok{\textless{}{-}} \DecValTok{5}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"                  RESULTADOS              }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"El valor de b es "}\NormalTok{, b, }\StringTok{", mientras que d vale "}\NormalTok{, d, }\StringTok{"}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{, }\AttributeTok{sep =} \StringTok{""}\NormalTok{)}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"Esta es la matriz a:}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\NormalTok{a}
-\end{Highlighting}
-\end{Shaded}
-
-Para ejecutar este programa desde la terminal, sin abrir RStudio o R, primero me dirijo hasta dicha carpeta con el comando \emph{cd} y luego ejecuto el programa con el comando \emph{Rscript}, que le indica a la computadora que el contenido del archivo \emph{mi\_programa.R} debe ser evaluado por R. Esto es lo que se observa en la consola
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{images/07_otros/consola} 
-
-}
-
-\caption{Correr el programa de R desde la consola en Linux}\label{fig:unnamed-chunk-197}
-\end{figure}
-
-Todo lo que en el programa estaba encerrado en una llamada a la función \texttt{cat()} es lo que se mostrará como mensajes en la consola.
-
-Para que lo anterior funcione en Windows, hay que indicarle al sistema operativo que \texttt{Rscript} es un comando que se instaló con R y que lo puede encontrar en la carpeta de los archivos del programa R. Esto hay que hacerlo una sola vez editando las \textbf{variables de entorno} de Windows, que son cadenas de texto que contienen información acerca del entorno para determinar, por ejemplo, dónde buscar algunos archivos. Para hacerlo hay que seguir estos pasos:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Fijarse en qué carpeta de la compu está instaldo R. Abriendo el explorador de archivos, seguramente lo encontrás si hacés clic en ``Este equipo \textgreater{} Windows (C:) \textgreater{} Archivos de programa \textgreater{} R \textgreater{} R-version \textgreater{} bin''. En esta carpeta tiene que haber dos archivos, llamados ``R'' y ``Rscript''. Si es así, hacé clic en la barra de navegación y copia todo ese camino. Por ejemplo, deberías copiar algo como ``C:\textbackslash Program Files\textbackslash R\textbackslash R-3.6.0\textbackslash bin''.
-\item
-  En Inicio, escribir ``Entorno'' y hacer clic en la opción ``Editar las variables de entorno del sistema (panel de control)''.
-\item
-  Hacer clic en el botón ``Variables de entorno''.
-\item
-  En el cuadro ``Variables del sistema'', hacer clic en la variable ``Path'' y luego en ``Editar''.
-\item
-  Hacer clic en ``Nuevo'', pegar la dirección ``C:\textbackslash Program Files\textbackslash R\textbackslash R-3.6.0\textbackslash bin'' y dar Enter. Luego, hacer clic en ``Aceptar'' tres veces para cerrar todo.
-\item
-  ¡Listo! Ya podés correr tus programas desde la consola con el comando \emph{Rscript}.
-\end{enumerate}
-
-Lo bueno de esto es que si corremos nuestros programas desde la consola, podemos hacer cosas más interactivas. Por ejemplo, para todo lo que pusimos \texttt{LEER} en nuestros pseudocódigo, ahora podemos hacer verdaderamente que la persona usuaria del programa provea los valores correspondientes.
-
-Veamos algunos ejemplos.
-
-\textbf{Práctica 2, Ejercicio 1: paridad de un número}
-
-La función \texttt{scan()} es la que permite \emph{escanear} o \emph{leer} valores que los usuarios ingresen por la consola. Entre sus argumentos tenemos a uno llamado \texttt{file}, que si lo seteamos como \texttt{file\ =\ "stdin"} indica que vamos a leer información desde la consola. Otros argumentos que podemos elegir son \texttt{n\ =\ 1}, que indica que sólo leeremos un valor y \texttt{quite\ =\ TRUE} que le pide a esta función que no emita ningún mensaje. Por ejemplo, si el siguiente código se guarda en el archivo ´paridad.R´ y es ejecutado desde la consola, le va a pedir a la persona que lo esté usando que indique cualquier número y luego le va a comunicar si es par o impar:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"           PARIDAD DE UN NÚMERO           }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"Ingrese un número entero y presione enter:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\NormalTok{n }\OtherTok{\textless{}{-}} \FunctionTok{scan}\NormalTok{(}\AttributeTok{file =} \StringTok{"stdin"}\NormalTok{, }\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
-\ControlFlowTok{if}\NormalTok{ (n }\SpecialCharTok{\%\%} \DecValTok{2} \SpecialCharTok{==} \DecValTok{0}\NormalTok{) \{}
-    \FunctionTok{cat}\NormalTok{(n, }\StringTok{"es par}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
-    \FunctionTok{cat}\NormalTok{(n, }\StringTok{"es impar}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-Esto es lo que ocurre en la terminal:
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{images/07_otros/consola2} 
-
-}
-
-\caption{Programa paridad.R}\label{fig:unnamed-chunk-199}
-\end{figure}
-
-\textbf{Práctica 2, Ejercicio 3: salario}
-
-En este ejemplo, tenemos que leer tres valores, dos de lo cuales son de tipo caracter. Para poder leer desde la consola un valor de tipo caracter tenemos que indicárselo a la función \texttt{scan()} con el argumento \texttt{what\ =\ ""}. Si no agregamos este argumento, sólo se aceptan números. Si el siguiente código se guarda en el archivo ´salario.R´ y se lo ejecuta desde la consola, produce el resultado que se muestra en la imagen.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"           CÁLCULO DEL SALARIO            }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"Ingrese la cantidad de horas trabajadas:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\NormalTok{horas }\OtherTok{\textless{}{-}} \FunctionTok{scan}\NormalTok{(}\StringTok{"stdin"}\NormalTok{, }\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Ingrese el día de la semana (DOM LUN MAR MIE JUE VIE SAB):}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\NormalTok{dia }\OtherTok{\textless{}{-}} \FunctionTok{scan}\NormalTok{(}\StringTok{"stdin"}\NormalTok{, }\AttributeTok{what =} \StringTok{""}\NormalTok{, }\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Ingrese el turno (M T N):}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\NormalTok{turno }\OtherTok{\textless{}{-}} \FunctionTok{scan}\NormalTok{(}\StringTok{"stdin"}\NormalTok{, }\AttributeTok{what =} \StringTok{""}\NormalTok{, }\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
-
-\NormalTok{salario }\OtherTok{\textless{}{-}}\NormalTok{ horas }\SpecialCharTok{*} \DecValTok{400}
-\ControlFlowTok{if}\NormalTok{ (turno }\SpecialCharTok{==} \StringTok{"N"}\NormalTok{) \{}
-\NormalTok{    salario }\OtherTok{\textless{}{-}}\NormalTok{ salario }\SpecialCharTok{+}\NormalTok{ horas }\SpecialCharTok{*} \DecValTok{200}
-\NormalTok{\}}
-\ControlFlowTok{if}\NormalTok{ (turno }\SpecialCharTok{==} \StringTok{"DOM"}\NormalTok{) \{}
-\NormalTok{    salario }\OtherTok{\textless{}{-}}\NormalTok{ salario }\SpecialCharTok{+}\NormalTok{ horas }\SpecialCharTok{*} \DecValTok{100}
-\NormalTok{\}}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{El salario que se debe abonar es $"}\NormalTok{, salario, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\AttributeTok{sep =} \StringTok{""}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{images/07_otros/consola3} 
-
-}
-
-\caption{Programa salario.R}\label{fig:unnamed-chunk-201}
-\end{figure}
-
-\textbf{Práctica 4, Ejercicio 1: suma de elementos de un vector}
-
-En este ejercicio escribimos una función para sumar los elementos de un vector.
-Vamos a ver cómo hacer para que un usuario nos diga cuáles son los valores que quiere sumar desde la consola. Primero preguntamos cuántos números se desean sumar y luego los recibimos en el vector \texttt{v}. Si el siguiente código queda guardado en el archivo ´suma.R´ y se lo corre desde la consola, produce el resultado que se muestra en la imagen.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"              SUMA DE NÚMEROS             }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"¿Cuántos números va a ingresar?}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\NormalTok{n }\OtherTok{\textless{}{-}} \FunctionTok{scan}\NormalTok{(}\StringTok{"stdin"}\NormalTok{, }\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Ingrese los números, presionando Enter luego de cada uno:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\NormalTok{v }\OtherTok{\textless{}{-}} \FunctionTok{scan}\NormalTok{(}\StringTok{"stdin"}\NormalTok{, }\AttributeTok{n =}\NormalTok{ n, }\AttributeTok{quiet =} \ConstantTok{TRUE}\NormalTok{)}
-\NormalTok{suma }\OtherTok{\textless{}{-}} \DecValTok{0}
-\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(v)) \{}
-\NormalTok{    suma }\OtherTok{\textless{}{-}}\NormalTok{ suma }\SpecialCharTok{+}\NormalTok{ v[i]}
-\NormalTok{\}}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{La suma de los números es:"}\NormalTok{, suma, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{images/07_otros/consola4} 
-
-}
-
-\caption{Programa suma.R}\label{fig:unnamed-chunk-204}
-\end{figure}
 
 \hypertarget{bibliografuxeda}{%
 \chapter*{Bibliografía}\label{bibliografuxeda}}
