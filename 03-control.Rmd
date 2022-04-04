@@ -25,7 +25,7 @@ La palabra `SI` indica el comando de evaluación lógica, `<condición>` indica 
 En R, la estructura que nos permite realizar esto es:
 
 ```{r, eval=FALSE}
-if (condición) {
+if (<condición>) {
 	...código para ejecutar acciones...
 }
 ```
@@ -71,7 +71,7 @@ La palabra `ENTONCES` antecede a las acciones que se realizan si se cumple la co
 En R se utiliza el comando `else`:
 
 ```{r, eval=FALSE}
-if (condición) {
+if (<condición>) {
 	...código para ejecutar acciones...
 } else {
 	...código para ejecutar acciones...
@@ -124,9 +124,9 @@ En la estructura anterior, hay una primera evaluación lógica en la cual si el 
 Se debe notar que luego del primer `SI NO` comienza una nueva estructura completa de `SI/ENTONCES/SI NO/FIN SI`. Cada `SI` termina con su propio `FIN SI`. Al traducir esto a R, se vuelve algo más sencillo:
 
 ```{r, eval=FALSE}
-if (condición 1) {
+if (<condición 1>) {
 	...Acción 1...
-} else if (condición 2) {
+} else if (<condición 2>) {
 	...Acción 2...
 } else {
 	...Acción 3...
@@ -235,14 +235,13 @@ FIN
 
 ```{r}
 # Programa: "Mostrar tabla del 8" -------------------------------
-resultado <- 1
 for (i in 0:10) {
 	resultado <- 8 * i
 	cat("8 x", i, "=", resultado, "\n")
 }
 ```
 
-En lo anterior, `\n` es un caracter especial que indica "salto de línea". Si no lo agregamos, los mensajes se imprimirían uno al lado del otro en el mismo renglón:
+En lo anterior, `\n` es un carácter especial que indica "salto de línea". Si no lo agregamos, los mensajes se imprimirían uno al lado del otro en el mismo renglón:
 
 ```{r}
 # Programa: "Mostrar tabla del 8" -------------------------------
@@ -287,7 +286,7 @@ FIN MIENTRAS
 En R:
 
 ```
-while(<condición>) {
+while (<condición>) {
 	...Acción/es a repetir...
 }
 ```
@@ -296,6 +295,8 @@ Observaciones:
 
 - La evaluación de la condición se lleva a cabo antes de cada iteración, incluso antes de ejecutar el código dentro del bloque por primera vez. Si la condición es `FALSO` inicialmente, entonces las acciones en el cuerpo de la estructura no se ejecutan nunca.
 - La evaluación de la condición **sólo** se lleva a cabo al inicio de cada iteración. Si la condición se vuelve `FALSO` en algún punto durante la ejecución de un bloque, el programa no lo nota hasta que se termine de ejecutar el bloque y la condición sea evaluada antes de comenzar la próxima iteración.
+
+Veamos un ejemplo:
 
 ```
 ALGORITMO: "Dividir un número por 2 hasta encontrar un valor menor que 0.01"
@@ -380,6 +381,18 @@ var = -1 No puedo parar!!!
 ...
 ```
 
+En R se puede usar la instrucción `break` para forzar la detención del proceso iterativo si se presenta alguna condición en particular^[También podemos usar `break` dentro de una estructura `for`]:
+
+```{r}
+var <- 9
+while (var < 10) {
+	var <- var - 1
+	cat("var =", var, "No puedo parar!!!\n")
+	if (var == -3) break
+}
+```
+
+
 ## Ejemplos
 
 A continuación se presentan algunos otros ejemplos
@@ -394,7 +407,7 @@ A continuación se presentan algunos otros ejemplos
 
 	La sentencia `print()` también sirve para mostrar resultados. La ventaja con respecto a `cat()` es que no necesitamos agregar `\n` para que el siguiente mensaje se escriba en un nuevo renglón, ya que lo agrega por sí sola sin que lo pidamos. La desventaja es que no nos permite crear un mensaje combinando elementos separados entre comas, tal como se puede hacer con `cat()` (por ejemplo, `cat("El valor de x es igual a", x)`).
 
-- Acá tenemos un ejemplo de dos estructuras `for` anidadas. En primer lugar, `i` toma el valor 1, y entonces `j` varía de 1 a 2, generando las combinaciones `i = 1, j = 1; i = 1, j = 2`. Luego que `j` recorrió todo su campo de variación, se actualiza `i` y pasa a valer 2, generando las combinaciones `i = 2, j = 1; i = 2, j = 2`. Finalmente, se actualiza `i` y pasa a valer 3, generando las combinaciones `i = 3, j = 1; i = 3, j = 2`. Para cada combinación, se muestra el valor de la suma:
+- Acá tenemos un ejemplo de dos estructuras `for` anidadas. En primer lugar, `i` toma el valor 1, y entonces `j` varía de 1 a 2, generando las combinaciones `i = 1, j = 1; i = 1, j = 2`. Luego de que el *loop* de `j` finalice habiendo recorrido todo su campo de variación, comienza la segunda iteración del *loop* de `i`, actualizándose su valor a 2 y comenzando otra vez el *loop* de `j`, que varía de 1 a 2. Así, se generan las combinaciones `i = 2, j = 1; i = 2, j = 2`. Finalmente, se actualiza `i` y pasa a valer 3, generando las combinaciones `i = 3, j = 1; i = 3, j = 2`. Para cada combinación, se muestra el valor de la suma:
 
 	```{r}
 	for (i in 1:3) {

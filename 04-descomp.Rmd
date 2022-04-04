@@ -64,9 +64,9 @@ Sin embargo, suele haber bastante consenso en distinguir, dentro de los subalgor
 
 ## Funciones
 
-Una **función** es un subalgoritmo que devuelve un único resultado a partir de otros valores provistos.  El valor que la función devuelve define su **tipo**, de modo que una función puede ser de tipo **numérica**, **caracter** o **lógica** ^[No siempre se pueden clasificar de esta forma a las funciones, ya que hay algunas que pueden devolver distintos tipos de valores según el caso o que devuelven otras clases de objetos.]. 
+Una **función** es un subalgoritmo que devuelve un único resultado a partir de otros valores provistos.  El valor que la función devuelve define su **tipo**, de modo que una función puede ser de tipo **numérica**, **carácter** o **lógica** ^[No siempre se pueden clasificar de esta forma a las funciones, ya que hay algunas que pueden devolver distintos tipos de valores según el caso o que devuelven otras clases de objetos.]. 
 
-Para ejemplificar, podemos decir que la noción de *función* en programación se asemeja a la idea matemática de *función de una o más variables*. Por ejemplo, podemos pensar en la función $f(x, y) = x^2 + 3y$ (ejemplo 1). Si queremos saber cuál es el valor numérico de la función $f$ cuando $x$ toma el valor $4$ e $y$ toma el valor $5$, reemplazamos en la expresión anterior las variables por los valores mencionados y obtenemos: $f(4, 5) = 4^2 + 3 \times 5 = 31$.
+Para ejemplificar, podemos decir que la noción de *función* en programación se asemeja a la idea matemática de *función de una o más variables*. Podemos pensar en la función $f(x, y) = x^2 + 3y$ (ejemplo 1). Si queremos saber cuál es el valor numérico de la función $f$ cuando $x$ toma el valor $4$ e $y$ toma el valor $5$, reemplazamos en la expresión anterior las variables por los valores mencionados y obtenemos: $f(4, 5) = 4^2 + 3 \times 5 = 31$.
 
 Podemos definir dicha función en pseudocódigo de la siguiente manera:
 
@@ -142,10 +142,10 @@ COMENZAR
 	ESCRIBIR "El resultado es " rtdo
 FIN
 
-ALGORITMO: "Incorrecto por proveer valores de tipo caracter para la función"
+ALGORITMO: "Incorrecto por proveer valores de tipo carácter para la función"
 COMENZAR
 	VARIABLE numérica rtdo
-	VARIABLE caracter x, y
+	VARIABLE carácter x, y
 	x <- "chau"
 	y <- "hola"
 	rtdo <- maximo(x, y) - 100
@@ -207,7 +207,7 @@ En la sección anterior vimos cómo definir funciones en pseudocódigo. Antes de
 R, como todo lenguaje de programación, tiene **funciones predefinidas**, es decir, sentencias que se encargan de realizar alguna actividad. Ya estuvimos usando algunas de ellas, por ejemplo, cuando hemos necesitado mostrar algún mensaje usamos las funciones `cat()` o `print()`^[Sentencias como `for`, `while` o `if` también son funciones, aunque con una estructura muy particular.]. Además, existen muchas otras funciones predefinidas, como todas aquellas que se necesitan para realizar ciertas operaciones matemáticas:
 
 ```{r}
-# Raiz cuadrada
+# Raíz cuadrada
 sqrt(100)
 # Valor absoluto
 abs(100)

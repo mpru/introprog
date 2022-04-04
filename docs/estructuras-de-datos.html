@@ -81,21 +81,21 @@
 </h3>
 <p>Un <strong>arreglo unidimensional</strong> o <strong>vector</strong> tiene <em>n</em> elementos todos del mismo tipo. Por ejemplo, el siguiente es un vector de tipo numérico llamado <code>x</code> con 5 elementos:</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-100"></span>
+<span style="display:block;" id="fig:unnamed-chunk-101"></span>
 <img src="images/05_estructuras/estr01.png" alt="Ejemplo de un vector numérico" width="60%"><p class="caption">
 Figura 5.1: Ejemplo de un vector numérico
 </p>
 </div>
 <p>Cada uno de los elementos ocupa una posición determinada en el vector. Por ejemplo, el elemento 3 del vector <code>x</code> es el numéro 2.71. Se puede <em>acceder</em> o hacer referencia a cada elemento mediante el uso de <em>índices</em>, expresados entre corchetes al lado del nombre del vector. De esta forma, si escribimos <code>x[3]</code> hacemos referencia a la tercera posición del vector, que actualmente guarda al valor 2.71. Como podemos ver, sólo hace falta un índice para hacer referencia a cada elemento de un vector.</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-101"></span>
+<span style="display:block;" id="fig:unnamed-chunk-102"></span>
 <img src="images/05_estructuras/estr02.png" alt="Ejemplo de un vector numérico: índices para señalar cada posición." width="60%"><p class="caption">
 Figura 5.2: Ejemplo de un vector numérico: índices para señalar cada posición.
 </p>
 </div>
 <p>Los siguientes son ejemplos de vectores de tipo caracter y lógico, con distintas cantidades de elementos:</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-102"></span>
+<span style="display:block;" id="fig:unnamed-chunk-103"></span>
 <img src="images/05_estructuras/estr03.png" alt="Ejemplo de un vector caracter y un vector lógico" width="60%"><p class="caption">
 Figura 5.3: Ejemplo de un vector caracter y un vector lógico
 </p>
@@ -109,23 +109,23 @@ x[4] &lt;- -6
 x[5] &lt;- 25</code></pre>
 <p>Si bien la declaración de un vector sólo tiene como objetivo permitirle a la computadora que reserve internamente el espacio necesario en memoria para el mismo, para escribir pseudocódigo de una manera sencilla estableceremos la siguiente <strong>convención</strong>. Cuando declaramos un vector de tipo numérico con la expresión <code>VARIABLE numérica x(5)</code> asumiremos que, además de reservar espacio en memoria para el vector, se le asigna un 0 (cero) en cada posición. Es decir, el vector <code>x</code> es iniciado con ceros, que más tarde pueden ser reemplazados por otros valores. Del mismo modo, asumiremos que cuando declaramos vectores de tipo caracter, todos sus elementos son iniciados con valores <code>""</code> (una cadena de texto vacía) y cuando declaramos vectores de tipo lógico, con el valor <code>FALSO</code>.</p>
 <p>En R, los vectores se construyen de forma dinámica por lo cual no es necesario declararlos antes de comenzar a utilizarlos. La función <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> (de <em>combinar</em>) permite crear vectores, por ejemplo, los mencionados anteriormente:</p>
-<div class="sourceCode" id="cb251"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb253"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4.5</span>, <span class="fl">12</span>, <span class="fl">2.71</span>, <span class="op">-</span><span class="fl">6</span>, <span class="fl">25</span><span class="op">)</span>
 <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ARG"</span>, <span class="st">"correo@gmail.com"</span>, <span class="st">"Ok"</span>, <span class="st">"chau"</span><span class="op">)</span>
 <span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-104"></span>
+<span style="display:block;" id="fig:unnamed-chunk-105"></span>
 <img src="images/05_estructuras/estr04.png" alt="Creación de vectores en R" width="80%"><p class="caption">
 Figura 5.4: Creación de vectores en R
 </p>
 </div>
 <p>Cuando ejecutamos dichas líneas, se crean en el ambiente global los objetos <code>x</code>, <code>y</code> y <code>z</code>, como podemos notar en la pestaña <code>Environment</code> de RStudio. Es decir, los vectores, así como cualquier otro tipo de arreglo, son <strong>objetos</strong> que constituyen entidades en sí mismas y que pueden ser manipulados al hacer referencia a sus indicadores. Además, RStudio nos muestra en la pestaña mencionada qué tipo de vector es cada uno (<code>num</code>, <code>chr</code>, <code>logi</code>), cuántos elementos tiene (<code>[1:5]</code>, <code>[1:4]</code>, <code>[1:3]</code>) y una previsualización de sus primeros elementos.</p>
-<p>Dado que la función <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> resulta, en consecuencia, muy importante al programar en R, es recomendable que evitemos usar la letra <code>c</code> como nombre para otros objetos<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Aunque a veces me olvido de esta recomendación y por eso en algunos ejemplos de la asignatura hay variables llamadas &lt;code&gt;c&lt;/code&gt;&lt;/p&gt;"><sup>21</sup></a>.</p>
+<p>Dado que la función <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> resulta, en consecuencia, muy importante al programar en R, es recomendable que evitemos usar la letra <code>c</code> como nombre para otros objetos<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Aunque a veces me olvido de esta recomendación y por eso en algunos ejemplos de la asignatura hay variables llamadas &lt;code&gt;c&lt;/code&gt;&lt;/p&gt;"><sup>22</sup></a>.</p>
 <p>Podemos emplear estructuras iterativas para recorrer todas las posiciones de un vector y realizar operaciones con ellas, por ejemplo:</p>
 <pre><code>PARA i DESDE 1 HASTA 5 HACER
     ESCRIBIR "La posición " i "de x está ocupada por el valor " x[i]
 FIN PARA</code></pre>
-<div class="sourceCode" id="cb253"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb255"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="op">{</span>
     <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"La posición"</span>, <span class="va">i</span>, <span class="st">"de x está ocupada por el valor"</span>, <span class="va">x</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="st">"\n"</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
@@ -138,13 +138,13 @@ La posición 5 de x está ocupada por el valor 25 </code></pre>
 <pre><code>ESCRIBIR "El vector x tiene " LARGO(x) " elementos."
 ESCRIBIR "El vector y tiene " LARGO(y) " elementos."
 ESCRIBIR "El vector z tiene " LARGO(z) " elementos."</code></pre>
-<div class="sourceCode" id="cb256"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb258"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El vector x tiene"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="st">"elementos."</span><span class="op">)</span></code></pre></div>
 <pre><code>El vector x tiene 5 elementos.</code></pre>
-<div class="sourceCode" id="cb258"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb260"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El vector y tiene"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, <span class="st">"elementos."</span><span class="op">)</span></code></pre></div>
 <pre><code>El vector y tiene 4 elementos.</code></pre>
-<div class="sourceCode" id="cb260"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb262"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El vector z tiene"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span>, <span class="st">"elementos."</span><span class="op">)</span></code></pre></div>
 <pre><code>El vector z tiene 3 elementos.</code></pre>
 <p>Entonces, para recorrer todos los elementos del vector podemos hacer también:</p>
@@ -157,17 +157,17 @@ PARA i DESDE 1 HASTA tam HACER
     ESCRIBIR "La posición " i "de x está ocupada por el valor " x[i]
 FIN PARA</code></pre>
 <p>Antes comentamos que en R los vectores se crean con expresiones como <code>x &lt;- c(-4.5, 12, 2.71, -6, 25)</code>, donde sus elementos están listados de forma literal. También podemos crear vectores de un largo determinado dejando que cada posición quede ocupada por un valor por default. Por ejemplo, el siguiente código crea un vector tipo numérico con 10 posiciones, uno caracter con 7 y otro lógico con 2. En cada caso, R rellena por defecto todas las posiciones con el mismo valor: un 0 para todas las posiciones del vector numérico, un caracter vacío <code>""</code> para las del vector caracter y el valor <code>FALSE</code> para el vector lógico:</p>
-<div class="sourceCode" id="cb264"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb266"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>
 <span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="fl">7</span><span class="op">)</span>
 <span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/logical.html">logical</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>
 
 <span class="va">a</span></code></pre></div>
 <pre><code> [1] 0 0 0 0 0 0 0 0 0 0</code></pre>
-<div class="sourceCode" id="cb266"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb268"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">b</span></code></pre></div>
 <pre><code>[1] "" "" "" "" "" "" ""</code></pre>
-<div class="sourceCode" id="cb268"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb270"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">d</span></code></pre></div>
 <pre><code>[1] FALSE FALSE</code></pre>
 <p>Se pueden asignar valores a una, varias o todas las posiciones de un vector en cualquier parte del algoritmo. Además, en pseudocódigo emplearemos la palabra clave <code>MOSTRAR</code> cuando deseamos que se escriba en pantalla todo el contenido de un vector. Por ejemplo:</p>
@@ -179,7 +179,7 @@ PARA i DESDE 1 HASTA LARGO(a) HACER
     FIN SI
 FIN PARA
 MOSTRAR a</code></pre>
-<div class="sourceCode" id="cb271"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb273"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>
 <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
     <span class="kw">if</span> <span class="op">(</span><span class="va">i</span> <span class="op">%%</span> <span class="fl">3</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span>
@@ -197,11 +197,11 @@ PARA i DESDE 1 HASTA tam HACER
 FIN PARA</code></pre>
 <p>Por ahora, toda instrucción de <em>leer</em> en el pseudocódigo será traducida en R mediante la asignación directa de valores. Por ejemplo, <code>LEER tam</code> se reemplaza por <code>tam &lt;- 5</code> (o el número que necesitemos).</p>
 <p>Antes de terminar esta sección haremos una última observación. En R todos los objetos que hemos considerado como “variable” y que guardan un único valor (como <code>tam</code> en el ejemplo anterior), son también considerados como vectores, cuyo largo es 1, como podemos verificar en el siguiente ejemplo:</p>
-<div class="sourceCode" id="cb274"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb276"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">25</span>
 <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] 1</code></pre>
-<div class="sourceCode" id="cb276"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb278"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/vector.html">is.vector</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="co"># Esta función lógica le pregunta a R si el objeto x es un vector</span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <p><strong>Ejemplo: invertir los elementos de un vector</strong></p>
@@ -253,7 +253,7 @@ COMENZAR
     
 FIN</code></pre>
 <p>En el ejemplo anterior hemos incorporado el uso de comentarios en el pseudocódigo para describir el objetivo de cada parte. Imitando lo que hacemos en R, señalamos la presencia de comentarios con el caracter <code>#</code> (podríamos usar otra cosa, pero adheriremos a esta convención). Se usó la expresión <code>ENTERO()</code> para hacer referencia a la parte entera del número indicado entre paréntesis, lo cual se puede indicar en R con la función <code><a href="https://rdrr.io/r/base/Round.html">floor()</a></code>. Además, en R reemplazamos todas las instrucciones <code>LEER</code> por una asignación directa de valores:</p>
-<div class="sourceCode" id="cb279"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb281"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Estadística"</span>, <span class="st">"en"</span>, <span class="st">"Licenciatura"</span>, <span class="st">"la"</span>, <span class="st">"Aguante"</span><span class="op">)</span>
 <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span>
 <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="va">n</span> <span class="op">/</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
@@ -270,14 +270,14 @@ FIN</code></pre>
 </h3>
 <p>Un <strong>arreglo bidimensional</strong> representa lo que habitualmente conocemos en matemática como <strong>matriz</strong> y por eso también lo llamamos de esa forma. Podemos <em>imaginar</em> que en una matriz los elementos están organizados en <em>filas</em> y <em>columnas</em> formando una tabla. Por ejemplo, la siguiente es una matriz llamada <code>x</code>:</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-111"></span>
+<span style="display:block;" id="fig:unnamed-chunk-112"></span>
 <img src="images/05_estructuras/estr05.png" alt="Ejemplo de una matriz numérica" width="60%"><p class="caption">
 Figura 5.8: Ejemplo de una matriz numérica
 </p>
 </div>
 <p>A diferencia de los vectores, las matrices requieren dos índices para señalar la posición de cada elemento, el primero para indicar la fila y el segundo para indicar la columna. Los mismos se colocan entre corchetes, separados por una coma, al lado del identificador de la matriz. De esta forma, si hablamos de <code>x[1, 3]</code> hacemos referencia a la posición ocupada por el valor 18, mientras que si mencionamos <code>x[3, 1]</code> nos referimos al valor 14.</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-112"></span>
+<span style="display:block;" id="fig:unnamed-chunk-113"></span>
 <img src="images/05_estructuras/estr06.png" alt="Ejemplo de una matriz numérica: índices para señalar cada posición" width="80%"><p class="caption">
 Figura 5.9: Ejemplo de una matriz numérica: índices para señalar cada posición
 </p>
@@ -298,7 +298,7 @@ x[3, 2] &lt;- 19
 x[3, 3] &lt;- 24
 x[3, 4] &lt;- 29</code></pre>
 <p>En R, no es necesario declarar las matrices con anterioridad y las mismas pueden ser creadas de manera literal con la función <code><a href="https://rdrr.io/r/base/matrix.html">matrix()</a></code>. Su primer argumento, <code>data</code>, es un vector con todos los elementos que queremos guardar en la matriz. Luego, se indica la cantidad de filas para la misma con <code>nrow</code> y la cantidad de columnas con <code>ncol</code>:</p>
-<div class="sourceCode" id="cb282"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb284"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">11</span>, <span class="fl">14</span>, <span class="fl">13</span>, <span class="fl">16</span>, <span class="fl">19</span>, <span class="fl">18</span>, <span class="fl">21</span>, <span class="fl">24</span>, <span class="fl">23</span>, <span class="fl">26</span>, <span class="fl">29</span><span class="op">)</span>,
             nrow <span class="op">=</span> <span class="fl">3</span>, ncol <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
 <span class="va">x</span></code></pre></div>
@@ -307,7 +307,7 @@ x[3, 4] &lt;- 29</code></pre>
 [2,]   11   16   21   26
 [3,]   14   19   24   29</code></pre>
 <p>Notar que R ubicó a los valores provistos llenando primero la columna 1, luego la 2, etc. Ese comportamiento puede ser modificado con el argumento <code>byrow</code>, que por default es <code>FALSE</code>. Si lo cambiamos a <code>TRUE</code> los elementos son ubicados por fila. Además, podemos usar saltos de líneas (<em>enter</em>) para visualizar las diferentes filas de la matriz. Esto no tiene ningún impacto en R, sólo sirve para que el código sea más fácil de leer. Dado que hemos provisto 12 valores e indicamos que queremos 3 filas, el argumento <code>ncol</code> no es necesario (es obvio que quedarán 4 columnas). Por eso, las siguientes sentencias son equivalentes a la anterior:</p>
-<div class="sourceCode" id="cb284"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb286"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">18</span>, <span class="fl">23</span>, 
               <span class="fl">11</span>, <span class="fl">16</span>, <span class="fl">21</span>, <span class="fl">26</span>, 
               <span class="fl">14</span>, <span class="fl">19</span>, <span class="fl">24</span>, <span class="fl">29</span><span class="op">)</span>, 
@@ -318,41 +318,41 @@ x[3, 4] &lt;- 29</code></pre>
               <span class="fl">14</span>, <span class="fl">19</span>, <span class="fl">24</span>, <span class="fl">29</span><span class="op">)</span>, 
             ncol <span class="op">=</span> <span class="fl">4</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>Si colocamos un único valor como primer argumento en la función <code><a href="https://rdrr.io/r/base/matrix.html">matrix()</a></code>, el mismo se repetirá en todas las posiciones. En este caso sí o sí tenemos que indicar cuántas filas y columnas deseamos:</p>
-<div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb287"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">0</span>, nrow <span class="op">=</span> <span class="fl">2</span>, ncol <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
 <span class="va">y</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    0    0    0    0    0
 [2,]    0    0    0    0    0</code></pre>
 <p>Una vez que la matriz ya existe, en el pseudocódigo haremos referencia al número de filas y columnas de la misma con las expresiones <code>NFILA(x)</code> y <code><a href="https://rdrr.io/r/base/nrow.html">NCOL(x)</a></code>. En R tenemos las siguientes funciones para analizar el tamaño de las matrices:</p>
-<div class="sourceCode" id="cb287"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] 3 4</code></pre>
-<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] 3</code></pre>
-<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] 4</code></pre>
-<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb295"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] 2 5</code></pre>
-<div class="sourceCode" id="cb295"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] 2</code></pre>
-<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] 5</code></pre>
 <p>Podemos recorrer todas las posiciones de una matriz con una estructura iterativa doble: nos situamos en la primera fila y recorremos cada columna, luego en la segunda fila y recorremos todas las columnas y así sucesivamente:</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-117"></span>
+<span style="display:block;" id="fig:unnamed-chunk-118"></span>
 <img src="images/05_estructuras/estr07.png" alt="Recorrer una matriz por fila" width="80%"><p class="caption">
 Figura 5.10: Recorrer una matriz por fila
 </p>
 </div>
 <p>También se puede recorrer la matriz por columna, si modificamos ligeramente las estructuras iterativas:</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-119"></span>
+<span style="display:block;" id="fig:unnamed-chunk-120"></span>
 <img src="images/05_estructuras/estr08.png" alt="Recorrer una matriz por columna" width="80%"><p class="caption">
 Figura 5.11: Recorrer una matriz por columna
 </p>
@@ -366,7 +366,7 @@ PARA i DESDE 1 HASTA NFILA(x) HACER
     FIN PARA
 FIN PARA
 MOSTRAR x</code></pre>
-<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">0</span>, nrow <span class="op">=</span> <span class="fl">3</span>, ncol <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
 <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
     <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
@@ -391,7 +391,7 @@ FIN PARA</code></pre>
 </h4>
 <p>En Álgebra, trasponer una matriz de dimensión <span class="math inline">\(m \times n\)</span> significa generar una nueva matriz de dimensión <span class="math inline">\(n \times m\)</span>, donde los elementos se intercambian de este modo:</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-121"></span>
+<span style="display:block;" id="fig:unnamed-chunk-122"></span>
 <img src="images/05_estructuras/estr14.png" alt="Matriz traspuesta" width="80%"><p class="caption">
 Figura 5.12: Matriz traspuesta
 </p>
@@ -427,7 +427,7 @@ COMENZAR
     
 FIN</code></pre>
 <p>Dado que en R vamos a asignar valores en la matriz de manera literal, primero la creamos y luego usamos <code><a href="https://rdrr.io/r/base/nrow.html">nrow()</a></code> y <code><a href="https://rdrr.io/r/base/nrow.html">ncol()</a></code> para obtener los correspondientes valores de <code>nf</code> y <code>nc</code>. En el siguiente ejemplo, además, todas las posiciones de la matriz traspuesta son iniciadas con el valor <code>NA</code> (valor lógico que significa <em>Not Available</em> o “no disponible”).</p>
-<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">18</span>, <span class="fl">23</span>, 
               <span class="fl">11</span>, <span class="fl">16</span>, <span class="fl">21</span>, <span class="fl">26</span>, 
               <span class="fl">14</span>, <span class="fl">19</span>, <span class="fl">24</span>, <span class="fl">29</span><span class="op">)</span>, 
@@ -468,7 +468,7 @@ Matriz traspuesta
 <p>Por lo tanto, lo siguiente es de <strong>lectura opcional</strong>. El arreglo de 3 dimensiones que permite acomodar toda la información del ejemplo en una sola estructura puede definirse en pseudocódigo así:</p>
 <pre><code>VARIABLE numérica clientes(3, 2, 5)</code></pre>
 <p>Y en R:</p>
-<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">clientes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html">array</a></span><span class="op">(</span><span class="fl">0</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span>
 <span class="va">clientes</span></code></pre></div>
 <pre><code>, , 1
@@ -506,7 +506,7 @@ Matriz traspuesta
 [2,]    0    0
 [3,]    0    0</code></pre>
 <p>Luego, si queremos registrar que la caja 1 en el turno tarde del día jueves atendió 12 clientes, hacemos, tanto en R como en pseudocódigo:</p>
-<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">clientes</span><span class="op">[</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">12</span>
 <span class="va">clientes</span></code></pre></div>
 <pre><code>, , 1
@@ -544,7 +544,7 @@ Matriz traspuesta
 [2,]    0    0
 [3,]    0    0</code></pre>
 <p>En R, podemos ponerle un nombre a cada una de las dimensiones del arreglo (“caja”, “turno”, “dia”), para poder identificar mejor a qué aspecto hace referencia y, a su vez, un nombre a cada una de sus modalidades (por ejemplo, “caja 1”, “caja 2” o “caja 3”). Esto se logra de la siguiente forma:</p>
-<div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/dimnames.html">dimnames</a></span><span class="op">(</span><span class="va">clientes</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>caja <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"caja 1"</span>, <span class="st">"caja 2"</span>, <span class="st">"caja 3"</span><span class="op">)</span>,
                            turno <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mañana"</span>, <span class="st">"tarde"</span><span class="op">)</span>,
                            dia <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lun"</span>, <span class="st">"mar"</span>, <span class="st">"mie"</span>, <span class="st">"jue"</span>, <span class="st">"vie"</span><span class="op">)</span><span class="op">)</span>
@@ -603,13 +603,13 @@ caja     mañana tarde
 <li>Un valor lógico.</li>
 </ol>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-126"></span>
+<span style="display:block;" id="fig:unnamed-chunk-127"></span>
 <img src="images/05_estructuras/estr09.png" alt="Ejemplo de una lista" width="50%"><p class="caption">
 Figura 5.13: Ejemplo de una lista
 </p>
 </div>
 <p>En R la creación de esta lista se realiza mediante la función <code><a href="https://rdrr.io/r/base/list.html">list()</a></code>, cuyos argumentos son los elementos que queremos guardar en la lista, separados por comas:</p>
-<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb315"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mi_lista</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
     <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4.5</span>, <span class="fl">12</span>, <span class="fl">2.71</span><span class="op">)</span>,
     <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"hola"</span>, <span class="st">"chau"</span><span class="op">)</span>,
@@ -632,46 +632,46 @@ Figura 5.13: Ejemplo de una lista
 [1] TRUE</code></pre>
 <p>Luego de correr la sentencia anterior, podemos ver que <code>mi_lista</code> es un nuevo objeto disponible en el ambiente global y como tal está listado en el panel <em>Environment</em>. Allí se nos indica que se trata de una lista y, además, podemos previsualizar su contenido al hacer clic en el círculo celeste que antecede a su nombre:</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-128"></span>
+<span style="display:block;" id="fig:unnamed-chunk-129"></span>
 <img src="images/05_estructuras/lista_rstudio.png" alt="La lista en la pestaña Environment de RStudio" width="50%"><p class="caption">
 Figura 5.14: La lista en la pestaña Environment de RStudio
 </p>
 </div>
 <p>Usamos dobles corchetes <code>[[ ]]</code> para referenciar a cada objeto que forma parte de la lista. Además, si queremos indicar un elemento dentro de un objeto que forma parte de la lista, agregamos otro conjunto de corchetes como hacemos con vectores y matrices. Por ejemplo:</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-129"></span>
+<span style="display:block;" id="fig:unnamed-chunk-130"></span>
 <img src="images/05_estructuras/estr10.png" alt="Ejemplo de una lista" width="50%"><p class="caption">
 Figura 5.15: Ejemplo de una lista
 </p>
 </div>
-<div class="sourceCode" id="cb315"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></code></pre></div>
 <pre><code>[1] -4.50 12.00  2.71</code></pre>
-<div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span></code></pre></div>
 <pre><code>[1] 2.71</code></pre>
-<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></code></pre></div>
 <pre><code>[1] "hola" "chau"</code></pre>
-<div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></code></pre></div>
 <pre><code>[1] "chau"</code></pre>
-<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    8   13
 [2,]   11   16</code></pre>
-<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">]</span></code></pre></div>
 <pre><code>[1] 11</code></pre>
-<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb329"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">4</span><span class="op">]</span><span class="op">]</span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb329"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb331"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">4</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <p>Podemos asignar valor a algún elemento usando los índices de esa misma forma:</p>
-<div class="sourceCode" id="cb331"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb333"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0</span>
 <span class="va">mi_lista</span></code></pre></div>
 <pre><code>[[1]]
@@ -702,7 +702,7 @@ mi_lista[[2]][1] &lt;- "hola"
 mi_lista[[4]] &lt;- VERDADERO</code></pre>
 <p><strong>Ejemplo: función que devuelve una lista</strong></p>
 <p>En el capítulo anterior, dijimos que las funciones son subalgoritmos que podían devolver exactamente un objeto como resultado. Esto puede ser una limitación, ya que en algunos casos tal vez necesitemos devolver varios elementos de distinto tipo
-<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Si fuesen elementos del mismo tipo, los podríamos devolver dentro de un vector, por ejemplo, las dos soluciones reales distintas de una ecuación cuadrática.&lt;/p&gt;"><sup>22</sup></a>
+<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Si fuesen elementos del mismo tipo, los podríamos devolver dentro de un vector, por ejemplo, las dos soluciones reales distintas de una ecuación cuadrática.&lt;/p&gt;"><sup>23</sup></a>
 .
 La solución consiste en devolver una lista que englobe a todos los objetos que nos interese que la función le entregue como resultado al algoritmo principal que la invocó. Como una lista es un único objeto, ¡la función puede devolverla sin ningún problema!</p>
 <p>Para ejemplificar, recordemos el siguiente ejercicio de la práctica 3: escribir el algoritmo y el programa en R para la creación de la función <code>triangulos(a, b, c)</code> que a partir de la longitud de los tres lados de un triángulo <code>a</code>, <code>b</code> y <code>c</code> (valores positivos) lo clasifica con los siguientes resultados posibles: no forman un triángulo (un lado mayor que la suma de los otros dos), triángulo equilátero, isósceles o escaleno. Vamos a modificar la función para que tenga el siguiente comportamiento: la función debe devolver el tipo de triángulo como cadena de texto y el valor numérico del perímetro del mismo (o un 0 si no es triángulo). Es decir, la función debe devolver tanto un objeto de tipo caracter y otro de tipo numérico. Para lograrlo los encerraremos en una lista:</p>
@@ -739,7 +739,7 @@ COMENZAR
     DEVOLVER LISTA(tipo, perimetro)
 FIN FUNCIÓN</code></pre>
 <p>Código en R:</p>
-<div class="sourceCode" id="cb336"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb338"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#-----------------------------------------------------</span>
 <span class="co"># Función triangulos</span>
 <span class="co"># Clasifica un triángulo según la longitud de sus lados</span>
@@ -765,17 +765,17 @@ FIN FUNCIÓN</code></pre>
     <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">tipo</span>, <span class="va">perimetro</span><span class="op">)</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <p>Ejemplos del uso de esta función:</p>
-<div class="sourceCode" id="cb337"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb339"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Guardamos el resultado devuelto (una lista) en el objeto resultado</span>
 <span class="va">resultado</span> <span class="op">&lt;-</span> <span class="fu">triangulos</span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>
 <span class="co"># Miramos el primer elemento de la lista (caracter que indica el tipo)</span>
 <span class="va">resultado</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></code></pre></div>
 <pre><code>[1] "escaleno"</code></pre>
-<div class="sourceCode" id="cb339"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb341"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Miramos el primer elemento de la lista (perímetro)</span>
 <span class="va">resultado</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></code></pre></div>
 <pre><code>[1] 9</code></pre>
-<div class="sourceCode" id="cb341"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb343"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Miramos todo junto</span>
 <span class="va">resultado</span></code></pre></div>
 <pre><code>[[1]]
@@ -783,12 +783,12 @@ FIN FUNCIÓN</code></pre>
 
 [[2]]
 [1] 9</code></pre>
-<div class="sourceCode" id="cb343"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb345"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Otro ejemplo:</span>
 <span class="va">resultado2</span> <span class="op">&lt;-</span> <span class="fu">triangulos</span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">10</span><span class="op">)</span>
 <span class="va">resultado2</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></code></pre></div>
 <pre><code>[1] "no es triángulo"</code></pre>
-<div class="sourceCode" id="cb345"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb347"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">resultado2</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></code></pre></div>
 <pre><code>[1] 0</code></pre>
 </div>
@@ -806,16 +806,16 @@ FIN FUNCIÓN</code></pre>
 <ul>
 <li>
 <p>Opción 1: después de crear el vector</p>
-<div class="sourceCode" id="cb347"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb349"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># El vector se llama "frutas" y tiene 4 elementos</span>
 <span class="va">frutas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">7</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>
 <span class="va">frutas</span></code></pre></div>
 <pre><code>[1] 3 7 2 1</code></pre>
-<div class="sourceCode" id="cb349"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb351"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Cada uno de estos elementos no tienen nombres</span>
 <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">frutas</span><span class="op">)</span></code></pre></div>
 <pre><code>NULL</code></pre>
-<div class="sourceCode" id="cb351"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb353"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Le doy un nombre a cada elemento</span>
 <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">frutas</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"manzanas"</span>, <span class="st">"naranjas"</span>, <span class="st">"bananas"</span>, <span class="st">"peras"</span><span class="op">)</span>
 <span class="va">frutas</span></code></pre></div>
@@ -824,7 +824,7 @@ FIN FUNCIÓN</code></pre>
 </li>
 <li>
 <p>Opción 2: en el momento de crear el vector</p>
-<div class="sourceCode" id="cb353"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb355"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">frutas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>manzanas <span class="op">=</span> <span class="fl">3</span>, naranjas <span class="op">=</span> <span class="fl">7</span>, bananas <span class="op">=</span> <span class="fl">2</span>, peras <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="va">frutas</span></code></pre></div>
 <pre><code>manzanas naranjas  bananas    peras 
@@ -832,21 +832,21 @@ FIN FUNCIÓN</code></pre>
 </li>
 </ul>
 <p>Los nombres son útiles porque permiten indexar al vector, sin necesidad de usar como índice la posición del elemento:</p>
-<div class="sourceCode" id="cb355"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb357"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">frutas</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></code></pre></div>
 <pre><code>naranjas 
        7 </code></pre>
-<div class="sourceCode" id="cb357"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb359"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">frutas</span><span class="op">[</span><span class="st">"naranjas"</span><span class="op">]</span></code></pre></div>
 <pre><code>naranjas 
        7 </code></pre>
 <p>No todos los elementos de un vector tienen que tener nombre:</p>
-<div class="sourceCode" id="cb359"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb361"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">frutas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>manzanas <span class="op">=</span> <span class="fl">3</span>, <span class="fl">7</span>, bananas <span class="op">=</span> <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>
 <span class="va">frutas</span></code></pre></div>
 <pre><code>manzanas           bananas          
        3        7        2        1 </code></pre>
-<div class="sourceCode" id="cb361"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb363"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">frutas</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] "manzanas" ""         "bananas"  ""        </code></pre>
 </div>
@@ -858,7 +858,7 @@ FIN FUNCIÓN</code></pre>
 <ul>
 <li>
 <p>Opción 1: después de crear la matriz</p>
-<div class="sourceCode" id="cb363"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb365"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">18</span>, <span class="fl">23</span>, 
               <span class="fl">11</span>, <span class="fl">16</span>, <span class="fl">21</span>, <span class="fl">26</span>, 
               <span class="fl">14</span>, <span class="fl">19</span>, <span class="fl">24</span>, <span class="fl">29</span><span class="op">)</span>, 
@@ -873,7 +873,7 @@ C   14     19     24     29</code></pre>
 </li>
 <li><p>Opción 2: al crear la matriz</p></li>
 </ul>
-<div class="sourceCode" id="cb365"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb367"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">18</span>, <span class="fl">23</span>, 
               <span class="fl">11</span>, <span class="fl">16</span>, <span class="fl">21</span>, <span class="fl">26</span>, 
               <span class="fl">14</span>, <span class="fl">19</span>, <span class="fl">24</span>, <span class="fl">29</span><span class="op">)</span>, 
@@ -888,7 +888,7 @@ Categorias grupo1 grupo2 grupo3 grupo4
          C     14     19     24     29</code></pre>
 <pre><code>En este último ejemplo, se han elegido arbitrariamente los nombres `Categorias` y `Grupos` para llamar al conjunto completo de las filas y de las columnas, respectivamente. Esos nombres pueden ser cambiados por otros.</code></pre>
 <p>Al igual que con los vectores, podemos usar los nombres de filas y columnas para indexar:</p>
-<div class="sourceCode" id="cb368"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb370"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span><span class="op">[</span><span class="st">"B"</span>, <span class="st">"grupo2"</span><span class="op">]</span></code></pre></div>
 <pre><code>[1] 16</code></pre>
 <p>En el caso de los arreglos multidimensionales, ya se indicó en el ejemplo del local comercial el uso de nombres para las distintas dimensiones.</p>
@@ -898,7 +898,7 @@ Categorias grupo1 grupo2 grupo3 grupo4
 <span class="header-section-number">5.3.3</span> Listas<a class="anchor" aria-label="anchor" href="#listas-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>Podemos asignarle un nombre a uno, algunos o todos los integrantes en una lista:</p>
-<div class="sourceCode" id="cb370"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb372"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mi_lista</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
     w <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4.5</span>, <span class="fl">12</span>, <span class="fl">2.71</span><span class="op">)</span>,
     x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"hola"</span>, <span class="st">"chau"</span><span class="op">)</span>,
@@ -920,17 +920,17 @@ $y
 $z
 [1] TRUE</code></pre>
 <p>Esto amplía las opciones para hacer referencia a cada objeto y elemento allí contenido. Las siguientes sentencias son todas equivalentes y sirven para acceder al tercer elemento de la lista, cuyo nombre es <code>y</code>:</p>
-<div class="sourceCode" id="cb372"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb374"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    8   13
 [2,]   11   16</code></pre>
-<div class="sourceCode" id="cb374"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb376"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="st">"y"</span><span class="op">]</span><span class="op">]</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    8   13
 [2,]   11   16</code></pre>
-<div class="sourceCode" id="cb376"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb378"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mi_lista</span><span class="op">$</span><span class="va">y</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    8   13
@@ -987,7 +987,7 @@ $z
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2022-03-26.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2022-04-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
