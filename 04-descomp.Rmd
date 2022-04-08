@@ -36,6 +36,10 @@ http://homepage.divms.uiowa.edu/~luke/R/references.html
 https://www.datamentor.io/r-programming/environment-scope/
 https://stackoverflow.com/questions/1236620/global-variables-in-r
 https://stackoverflow.com/questions/10904124/global-and-local-variables-in-r/10904810
+
+# NULL, NA, NaNs
+http://rstudio-pubs-static.s3.amazonaws.com/261838_71b13475011340ab94e9c51d8e462080.html
+https://www.r-bloggers.com/2018/07/r-null-values-null-na-nan-inf/
 -->
 
 # Descomposición algorítmica
@@ -411,6 +415,33 @@ rtdo2 <- f(3, 10)
 rtdo3 <- maximo(rtdo1, rtdo2) + 20
 cat("El resultado es", rtdo3)
 ```
+
+### `NULL` vs `NA` vs `NaN`
+
+Generalmente los lenguajes de programación poseen un valor conocido como `NULO`, para representar un objeto vacío, sin información. El mismo suele emplearse como valor devuelto por funciones cuando no corresponde devolver otro tipo de resultado. En pseudocódigo podemos usar esta estrategia escribiendo `DEVOLVER NULO`, cuanod deseamos que nuestra función no devuelva nada. La representación en R de este tipo de objeto es `NULL`, que se trata de un objeto vacío que generalmente devuelven las funciones cuando el resultado es indefinido. Podemos crear funciones que terminen con un `return(NULL)`. 
+
+El objeto vación `NULL` no debe confundirse con otros dos valores existentes en el lenguaje R: `NA` y `NaN`:
+
+- `NA` son las siglas de *Not Available* y es un valor lógico (como `TRUE` y `FALSE`) que generalmente representa datos faltantes.
+- `NaN` son las siglas de *Not a Number* y es un valor numérico que generalmente surge como resultado de operaciones aritméticas imposibles de calcular, como indeterminaciones, raíces negativas, etc. (correr `0/0`, `log(-1)` o `sqrt(-1)` para verlo). Es un valor establecido por IEEE, el estándar con el cual se rige la representación numérica de los valores en la computadora.
+
+Otro valor numérico muy especial es `Inf` (y su contrapartida negativa, `-Inf`), que es el resultado de almacenar un número muy grande o de una división por cero. No es semejante a `NA`, porque además de no ser de tipo lógico, no representa que hay un dato faltante sino que se trata de un valor numérico.
+
+```{r}
+a <- NULL
+b <- NA
+d <- NaN
+e <- Inf
+f <- "NULL"
+
+class(a)
+class(b)
+class(d)
+class(e)
+class(f)
+```
+
+<!-- Cualquiera de estas dos opciones podría ser devuelta por una función ante casos particulares (`return(NULL)` o `return(NA)`). -->
 
 ## Documentación de los subalgoritmos {#ejemplofact}
 

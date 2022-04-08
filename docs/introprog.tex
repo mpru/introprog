@@ -243,7 +243,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2022-04-04}
+\date{2022-04-08}
 
 \begin{document}
 \maketitle
@@ -2940,6 +2940,79 @@ Esta distinción también es importante en R: la definición de las funciones de
 El resultado es 59
 \end{verbatim}
 
+\hypertarget{null-vs-na-vs-nan}{%
+\subsection{\texorpdfstring{\texttt{NULL} vs \texttt{NA} vs \texttt{NaN}}{NULL vs NA vs NaN}}\label{null-vs-na-vs-nan}}
+
+Generalmente los lenguajes de programación poseen un valor conocido como \texttt{NULO}, para representar un objeto vacío, sin información. El mismo suele emplearse como valor devuelto por funciones cuando no corresponde devolver otro tipo de resultado. En pseudocódigo podemos usar esta estrategia escribiendo \texttt{DEVOLVER\ NULO}, cuanod deseamos que nuestra función no devuelva nada. La representación en R de este tipo de objeto es \texttt{NULL}, que se trata de un objeto vacío que generalmente devuelven las funciones cuando el resultado es indefinido. Podemos crear funciones que terminen con un \texttt{return(NULL)}.
+
+El objeto vación \texttt{NULL} no debe confundirse con otros dos valores existentes en el lenguaje R: \texttt{NA} y \texttt{NaN}:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{NA} son las siglas de \emph{Not Available} y es un valor lógico (como \texttt{TRUE} y \texttt{FALSE}) que generalmente representa datos faltantes.
+\item
+  \texttt{NaN} son las siglas de \emph{Not a Number} y es un valor numérico que generalmente surge como resultado de operaciones aritméticas imposibles de calcular, como indeterminaciones, raíces negativas, etc. (correr \texttt{0/0}, \texttt{log(-1)} o \texttt{sqrt(-1)} para verlo). Es un valor establecido por IEEE, el estándar con el cual se rige la representación numérica de los valores en la computadora.
+\end{itemize}
+
+Otro valor numérico muy especial es \texttt{Inf} (y su contrapartida negativa, \texttt{-Inf}), que es el resultado de almacenar un número muy grande o el resultado de una división por cero. No es semejante a \texttt{NA}, porque además de no ser de tipo lógico, no representa que hay un dato faltante sino que se trata de un valor numérico.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OtherTok{\textless{}{-}} \ConstantTok{NULL}
+\NormalTok{b }\OtherTok{\textless{}{-}} \ConstantTok{NA}
+\NormalTok{d }\OtherTok{\textless{}{-}} \ConstantTok{NaN}
+\NormalTok{e }\OtherTok{\textless{}{-}} \ConstantTok{Inf}
+\NormalTok{f }\OtherTok{\textless{}{-}} \StringTok{"NULL"}
+
+\FunctionTok{class}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "NULL"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{class}\NormalTok{(b)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "logical"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{class}\NormalTok{(d)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "numeric"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{class}\NormalTok{(e)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "numeric"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{class}\NormalTok{(f)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "character"
+\end{verbatim}
+
 \hypertarget{ejemplofact}{%
 \section{Documentación de los subalgoritmos}\label{ejemplofact}}
 
@@ -3786,7 +3859,7 @@ Un \textbf{arreglo} (o \emph{array}) se define como una colección de valores in
 \item
   \emph{Ordenamiento}: los valores individuales pueden ser enumerados en orden, es decir, debe ser posible identificar en qué posición del arreglo se encuentra cada valor.
 \item
-  \emph{Homogeneidad}: los valores individuales almacenados en un arreglo son todos del mismo tipo (numérico, caracter, lógico).
+  \emph{Homogeneidad}: los valores individuales almacenados en un arreglo son todos del mismo tipo (numérico, carácter, lógico).
 \end{itemize}
 
 Los arreglos son muy útiles para almacenar información en la memoria de la computadora, organizando valores que estén relacionados entre sí de alguna manera, por ejemplo, una conjunto de precios, los meses del año, el listado de calificaciones de estudiantes en distintos parciales, etc.
@@ -3804,7 +3877,7 @@ Un \textbf{arreglo unidimensional} o \textbf{vector} tiene \emph{n} elementos to
 
 }
 
-\caption{Ejemplo de un vector numérico}\label{fig:unnamed-chunk-101}
+\caption{Ejemplo de un vector numérico}\label{fig:unnamed-chunk-102}
 \end{figure}
 
 Cada uno de los elementos ocupa una posición determinada en el vector. Por ejemplo, el elemento 3 del vector \texttt{x} es el numéro 2.71. Se puede \emph{acceder} o hacer referencia a cada elemento mediante el uso de \emph{índices}, expresados entre corchetes al lado del nombre del vector. De esta forma, si escribimos \texttt{x{[}3{]}} hacemos referencia a la tercera posición del vector, que actualmente guarda al valor 2.71. Como podemos ver, sólo hace falta un índice para hacer referencia a cada elemento de un vector.
@@ -3815,10 +3888,10 @@ Cada uno de los elementos ocupa una posición determinada en el vector. Por ejem
 
 }
 
-\caption{Ejemplo de un vector numérico: índices para señalar cada posición.}\label{fig:unnamed-chunk-102}
+\caption{Ejemplo de un vector numérico: índices para señalar cada posición.}\label{fig:unnamed-chunk-103}
 \end{figure}
 
-Los siguientes son ejemplos de vectores de tipo caracter y lógico, con distintas cantidades de elementos:
+Los siguientes son ejemplos de vectores de tipo carácter y lógico, con distintas cantidades de elementos:
 
 \begin{figure}
 
@@ -3826,7 +3899,7 @@ Los siguientes son ejemplos de vectores de tipo caracter y lógico, con distinta
 
 }
 
-\caption{Ejemplo de un vector caracter y un vector lógico}\label{fig:unnamed-chunk-103}
+\caption{Ejemplo de un vector carácter y un vector lógico}\label{fig:unnamed-chunk-104}
 \end{figure}
 
 Al igual que todas las variables que empleamos en nuestros algoritmos, los vectores que serán utilizados deben ser declarados en el pseudocódigo, eligiendo un \emph{identificador} (nombre) e indicando su tipo y su tamaño, es decir, la cantidad de posiciones que contienen. Esto último se señala entre paréntesis al lado del nombre elegido. Por ejemplo, el vector \texttt{x} visto anteriomente puede ser creado de la siguiente forma:
@@ -3840,7 +3913,7 @@ x[4] <- -6
 x[5] <- 25
 \end{verbatim}
 
-Si bien la declaración de un vector sólo tiene como objetivo permitirle a la computadora que reserve internamente el espacio necesario en memoria para el mismo, para escribir pseudocódigo de una manera sencilla estableceremos la siguiente \textbf{convención}. Cuando declaramos un vector de tipo numérico con la expresión \texttt{VARIABLE\ numérica\ x(5)} asumiremos que, además de reservar espacio en memoria para el vector, se le asigna un 0 (cero) en cada posición. Es decir, el vector \texttt{x} es iniciado con ceros, que más tarde pueden ser reemplazados por otros valores. Del mismo modo, asumiremos que cuando declaramos vectores de tipo caracter, todos sus elementos son iniciados con valores \texttt{""} (una cadena de texto vacía) y cuando declaramos vectores de tipo lógico, con el valor \texttt{FALSO}.
+Si bien la declaración de un vector sólo tiene como objetivo permitirle a la computadora que reserve internamente el espacio necesario en memoria para el mismo, para escribir pseudocódigo de una manera sencilla estableceremos la siguiente \textbf{convención}. Cuando declaramos un vector de tipo numérico con la expresión \texttt{VARIABLE\ numérica\ x(5)} asumiremos que, además de reservar espacio en memoria para el vector, se le asigna un 0 (cero) en cada posición. Es decir, el vector \texttt{x} es iniciado con ceros, que más tarde pueden ser reemplazados por otros valores. Del mismo modo, asumiremos que cuando declaramos vectores de tipo carácter, todos sus elementos son iniciados con valores \texttt{""} (una cadena de texto vacía) y cuando declaramos vectores de tipo lógico, con el valor \texttt{FALSO}.
 
 En R, los vectores se construyen de forma dinámica por lo cual no es necesario declararlos antes de comenzar a utilizarlos. La función \texttt{c()} (de \emph{combinar}) permite crear vectores, por ejemplo, los mencionados anteriormente:
 
@@ -3858,7 +3931,7 @@ En R, los vectores se construyen de forma dinámica por lo cual no es necesario 
 
 }
 
-\caption{Creación de vectores en R}\label{fig:unnamed-chunk-105}
+\caption{Creación de vectores en R}\label{fig:unnamed-chunk-106}
 \end{figure}
 
 Cuando ejecutamos dichas líneas, se crean en el ambiente global los objetos \texttt{x}, \texttt{y} y \texttt{z}, como podemos notar en la pestaña \texttt{Environment} de RStudio. Es decir, los vectores, así como cualquier otro tipo de arreglo, son \textbf{objetos} que constituyen entidades en sí mismas y que pueden ser manipulados al hacer referencia a sus indicadores. Además, RStudio nos muestra en la pestaña mencionada qué tipo de vector es cada uno (\texttt{num}, \texttt{chr}, \texttt{logi}), cuántos elementos tiene (\texttt{{[}1:5{]}}, \texttt{{[}1:4{]}}, \texttt{{[}1:3{]}}) y una previsualización de sus primeros elementos.
@@ -3944,7 +4017,7 @@ PARA i DESDE 1 HASTA tam HACER
 FIN PARA
 \end{verbatim}
 
-Antes comentamos que en R los vectores se crean con expresiones como \texttt{x\ \textless{}-\ c(-4.5,\ 12,\ 2.71,\ -6,\ 25)}, donde sus elementos están listados de forma literal. También podemos crear vectores de un largo determinado dejando que cada posición quede ocupada por un valor por default. Por ejemplo, el siguiente código crea un vector tipo numérico con 10 posiciones, uno caracter con 7 y otro lógico con 2. En cada caso, R rellena por defecto todas las posiciones con el mismo valor: un 0 para todas las posiciones del vector numérico, un caracter vacío \texttt{""} para las del vector caracter y el valor \texttt{FALSE} para el vector lógico:
+Antes comentamos que en R los vectores se crean con expresiones como \texttt{x\ \textless{}-\ c(-4.5,\ 12,\ 2.71,\ -6,\ 25)}, donde sus elementos están listados de forma literal. También podemos crear vectores de un largo determinado dejando que cada posición quede ocupada por un valor por default. Por ejemplo, el siguiente código crea un vector tipo numérico con 10 posiciones, uno carácter con 7 y otro lógico con 2. En cada caso, R rellena por defecto todas las posiciones con el mismo valor: un 0 para todas las posiciones del vector numérico, un carácter vacío \texttt{""} para las del vector carácter y el valor \texttt{FALSE} para el vector lógico:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4047,7 +4120,7 @@ Antes de terminar esta sección haremos una última observación. En R todos los
 
 \textbf{Ejemplo: invertir los elementos de un vector}
 
-Nos planteamos el problema de dar vuelta los elementos pertenecientes a un vector, de manera que el primer elemento pase a ser el último, el segundo pase al penúltimo lugar, etcétera. Por ejemplo, dado el vector de tipo caracter \texttt{v}:
+Nos planteamos el problema de dar vuelta los elementos pertenecientes a un vector, de manera que el primer elemento pase a ser el último, el segundo pase al penúltimo lugar, etcétera. Por ejemplo, dado el vector de tipo carácter \texttt{v}:
 
 \begin{figure}
 
@@ -4080,7 +4153,7 @@ Si bien podemos pensar en distintas formas para resolver este problema, probable
 \caption{Pasos para intercambiar valores}\label{fig:inv3}
 \end{figure}
 
-Ahora sólo resta realizar el mismo procedimiento para los valores de las posiciones 2 y 4. Como el número de elementos en el vector es impar, el valor en la posición central queda en su lugar. Podemos definir el siguiente algorimo para resolver este problema de manera general. En el siguiente pseudocódigo, primero declaramos una variable numérica \texttt{n} que puede tomar cualquier valor y que servirá para declarar cuántos espacios necesita el vector. Luego, se itera para leer cada elemento del vector. Finalmente, se implementa la estrategia de reordenamiento:
+Ahora sólo resta realizar el mismo procedimiento para los valores de las posiciones 2 y 4. Como el número de elementos en el vector es impar, el valor en la posición central queda en su lugar. Podemos definir el siguiente algoritmo para resolver este problema de manera general. En el siguiente pseudocódigo, primero declaramos una variable numérica \texttt{n} que puede tomar cualquier valor y que servirá para declarar cuántos espacios necesita el vector. Luego, se itera para leer cada elemento del vector. Finalmente, se implementa la estrategia de reordenamiento:
 
 \begin{verbatim}
 ALGORITMO: "Invertir (dar vuelta) los elementos de un vector"
@@ -4088,9 +4161,9 @@ COMENZAR
     
   # Declarar variables
   VARIABLE numérica n
-  VARIABLE caracter tmp
+  VARIABLE carácter tmp
   LEER n
-  VARIABLE caracter v(n)
+  VARIABLE carácter v(n)
   
   # Asignar valores al vector
   PARA i DESDE 1 HASTA n HACER
@@ -4110,7 +4183,7 @@ COMENZAR
 FIN
 \end{verbatim}
 
-En el ejemplo anterior hemos incorporado el uso de comentarios en el pseudocódigo para describir el objetivo de cada parte. Imitando lo que hacemos en R, señalamos la presencia de comentarios con el caracter \texttt{\#} (podríamos usar otra cosa, pero adheriremos a esta convención). Se usó la expresión \texttt{ENTERO()} para hacer referencia a la parte entera del número indicado entre paréntesis, lo cual se puede indicar en R con la función \texttt{floor()}. Además, en R reemplazamos todas las instrucciones \texttt{LEER} por una asignación directa de valores:
+En el ejemplo anterior hemos incorporado el uso de comentarios en el pseudocódigo para describir el objetivo de cada parte. Imitando lo que hacemos en R, señalamos la presencia de comentarios con el carácter \texttt{\#} (podríamos usar otra cosa, pero adheriremos a esta convención). Se usó la expresión \texttt{ENTERO()} para hacer referencia a la parte entera del número indicado entre paréntesis, lo cual se puede indicar en R con la función \texttt{floor()}. Además, en R reemplazamos todas las instrucciones \texttt{LEER} por una asignación directa de valores:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4140,7 +4213,7 @@ Un \textbf{arreglo bidimensional} representa lo que habitualmente conocemos en m
 
 }
 
-\caption{Ejemplo de una matriz numérica}\label{fig:unnamed-chunk-112}
+\caption{Ejemplo de una matriz numérica}\label{fig:unnamed-chunk-113}
 \end{figure}
 
 A diferencia de los vectores, las matrices requieren dos índices para señalar la posición de cada elemento, el primero para indicar la fila y el segundo para indicar la columna. Los mismos se colocan entre corchetes, separados por una coma, al lado del identificador de la matriz. De esta forma, si hablamos de \texttt{x{[}1,\ 3{]}} hacemos referencia a la posición ocupada por el valor 18, mientras que si mencionamos \texttt{x{[}3,\ 1{]}} nos referimos al valor 14.
@@ -4151,12 +4224,12 @@ A diferencia de los vectores, las matrices requieren dos índices para señalar 
 
 }
 
-\caption{Ejemplo de una matriz numérica: índices para señalar cada posición}\label{fig:unnamed-chunk-113}
+\caption{Ejemplo de una matriz numérica: índices para señalar cada posición}\label{fig:unnamed-chunk-114}
 \end{figure}
 
 Al \emph{tamaño} de una matriz, es decir, cuántas filas y columnas tiene, se le dice \textbf{dimensión}. La matriz anterior es de dimension \(3 \times 4\).
 
-Como hicimos con los vectores, debemos declarar las matrices que vamos a usar en el pseudocódigo, indicando su identificador, tipo y dimensión: \texttt{VARIABLE\ numérica\ x(3,\ 4)}. También vamos a asumir que todas las posiciones de una matriz son iniciadas con el valor 0, \texttt{""} o \texttt{FALSO} si la misma es numérica, caracter o lógica, respectivamente. La matriz \texttt{x} puede ser generada en pseudocódigo de esta forma:
+Como hicimos con los vectores, debemos declarar las matrices que vamos a usar en el pseudocódigo, indicando su identificador, tipo y dimensión: \texttt{VARIABLE\ numérica\ x(3,\ 4)}. También vamos a asumir que todas las posiciones de una matriz son iniciadas con el valor 0, \texttt{""} o \texttt{FALSO} si la misma es numérica, carácter o lógica, respectivamente. La matriz \texttt{x} puede ser generada en pseudocódigo de esta forma:
 
 \begin{verbatim}
 VARIABLE numérica x(3, 4)
@@ -4292,7 +4365,7 @@ Podemos recorrer todas las posiciones de una matriz con una estructura iterativa
 
 }
 
-\caption{Recorrer una matriz por fila}\label{fig:unnamed-chunk-118}
+\caption{Recorrer una matriz por fila}\label{fig:unnamed-chunk-119}
 \end{figure}
 
 También se puede recorrer la matriz por columna, si modificamos ligeramente las estructuras iterativas:
@@ -4303,7 +4376,7 @@ También se puede recorrer la matriz por columna, si modificamos ligeramente las
 
 }
 
-\caption{Recorrer una matriz por columna}\label{fig:unnamed-chunk-120}
+\caption{Recorrer una matriz por columna}\label{fig:unnamed-chunk-121}
 \end{figure}
 
 Se puede usar cualquier letra o palabra como variables iteradoras, pero el uso de \texttt{i} para las filas y de \texttt{j} para las columnas es bastante común.
@@ -4361,7 +4434,7 @@ En Álgebra, trasponer una matriz de dimensión \(m \times n\) significa generar
 
 }
 
-\caption{Matriz traspuesta}\label{fig:unnamed-chunk-122}
+\caption{Matriz traspuesta}\label{fig:unnamed-chunk-123}
 \end{figure}
 
 Podemos formalizar el algoritmo que permite generar la matriz traspuesta, teniendo en cuenta que cada elemento que originalmente ocupa la posición \texttt{{[}i,\ j{]}} en la matriz original, debe pasar a ocupar la posición \texttt{{[}j,\ i{]}} en la matriz traspuesta:
@@ -4608,7 +4681,7 @@ Una de las principales características de los \textbf{arreglos} es la \textbf{h
 \item
   Un vector numérico de largo 3.
 \item
-  Un vector caracter de largo 2.
+  Un vector carácter de largo 2.
 \item
   Una matriz numérica de dimensión 2x2.
 \item
@@ -4621,7 +4694,7 @@ Una de las principales características de los \textbf{arreglos} es la \textbf{h
 
 }
 
-\caption{Ejemplo de una lista}\label{fig:unnamed-chunk-127}
+\caption{Ejemplo de una lista}\label{fig:unnamed-chunk-128}
 \end{figure}
 
 En R la creación de esta lista se realiza mediante la función \texttt{list()}, cuyos argumentos son los elementos que queremos guardar en la lista, separados por comas:
@@ -4662,7 +4735,7 @@ Luego de correr la sentencia anterior, podemos ver que \texttt{mi\_lista} es un 
 
 }
 
-\caption{La lista en la pestaña Environment de RStudio}\label{fig:unnamed-chunk-129}
+\caption{La lista en la pestaña Environment de RStudio}\label{fig:unnamed-chunk-130}
 \end{figure}
 
 Usamos dobles corchetes \texttt{{[}{[}\ {]}{]}} para referenciar a cada objeto que forma parte de la lista. Además, si queremos indicar un elemento dentro de un objeto que forma parte de la lista, agregamos otro conjunto de corchetes como hacemos con vectores y matrices. Por ejemplo:
@@ -4673,7 +4746,7 @@ Usamos dobles corchetes \texttt{{[}{[}\ {]}{]}} para referenciar a cada objeto q
 
 }
 
-\caption{Ejemplo de una lista}\label{fig:unnamed-chunk-130}
+\caption{Ejemplo de una lista}\label{fig:unnamed-chunk-131}
 \end{figure}
 
 \begin{Shaded}
@@ -4787,7 +4860,7 @@ A medida que las estructuras de datos se hacen más complejas, existen menos con
 
 \begin{verbatim}
 VARIABLE numérica w(3), y(2, 2)
-VARIABLE caracter x(2)
+VARIABLE carácter x(2)
 VARIABLE lógica z
 VARIABLE LISTA mi_lista
 mi_lista <- LISTA(x, w, y, z)
@@ -4811,7 +4884,7 @@ En el capítulo anterior, dijimos que las funciones son subalgoritmos que podía
 .
 La solución consiste en devolver una lista que englobe a todos los objetos que nos interese que la función le entregue como resultado al algoritmo principal que la invocó. Como una lista es un único objeto, ¡la función puede devolverla sin ningún problema!
 
-Para ejemplificar, recordemos el siguiente ejercicio de la práctica 3: escribir el algoritmo y el programa en R para la creación de la función \texttt{triangulos(a,\ b,\ c)} que a partir de la longitud de los tres lados de un triángulo \texttt{a}, \texttt{b} y \texttt{c} (valores positivos) lo clasifica con los siguientes resultados posibles: no forman un triángulo (un lado mayor que la suma de los otros dos), triángulo equilátero, isósceles o escaleno. Vamos a modificar la función para que tenga el siguiente comportamiento: la función debe devolver el tipo de triángulo como cadena de texto y el valor numérico del perímetro del mismo (o un 0 si no es triángulo). Es decir, la función debe devolver tanto un objeto de tipo caracter y otro de tipo numérico. Para lograrlo los encerraremos en una lista:
+Para ejemplificar, recordemos el siguiente ejercicio de la práctica 3: escribir el algoritmo y el programa en R para la creación de la función \texttt{triangulos(a,\ b,\ c)} que a partir de la longitud de los tres lados de un triángulo \texttt{a}, \texttt{b} y \texttt{c} (valores positivos) lo clasifica con los siguientes resultados posibles: no forman un triángulo (un lado mayor que la suma de los otros dos), triángulo equilátero, isósceles o escaleno. Vamos a modificar la función para que tenga el siguiente comportamiento: la función debe devolver el tipo de triángulo como cadena de texto y el valor numérico del perímetro del mismo (o un 0 si no es triángulo). Es decir, la función debe devolver tanto un objeto de tipo carácter y otro de tipo numérico. Para lograrlo los encerraremos en una lista:
 
 Algoritmo:
 
@@ -4822,13 +4895,13 @@ Algoritmo:
 # Entrada:
 #       - a, b, c, números reales positivos
 # Salida:
-#       - una lista cuyo primer elemento es un caracter que indica el tipo de
+#       - una lista cuyo primer elemento es un carácter que indica el tipo de
 #       triángulo y el segundo elemento es el perímetro del triángulo o el valor 0 si
 #       no los lados provistos no corresponden a un triángulo
 #-----------------------------------------------------
 FUNCIÓN triangulos(a: numérico, b: numérico, c: numérico): lista
 COMENZAR
-    VARIABLE caracter tipo
+    VARIABLE carácter tipo
     VARIABLE numérica perimetro
     SI a > b + c O b > a + c O c > a + b ENTONCES
         tipo <- "no es triángulo"
@@ -4859,7 +4932,7 @@ Código en R:
 \CommentTok{\# Entrada:}
 \CommentTok{\#       {-} a, b, c, números reales positivos}
 \CommentTok{\# Salida:}
-\CommentTok{\#       {-} una lista cuyo primer elemento es un caracter que indica el tipo de}
+\CommentTok{\#       {-} una lista cuyo primer elemento es un carácter que indica el tipo de}
 \CommentTok{\#       triángulo y el segundo elemento es el perímetro del triángulo o el valor 0 si}
 \CommentTok{\#       no los lados provistos no corresponden a un triángulo}
 \CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -4886,7 +4959,7 @@ Ejemplos del uso de esta función:
 \begin{Highlighting}[]
 \CommentTok{\# Guardamos el resultado devuelto (una lista) en el objeto resultado}
 \NormalTok{resultado }\OtherTok{\textless{}{-}} \FunctionTok{triangulos}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{)}
-\CommentTok{\# Miramos el primer elemento de la lista (caracter que indica el tipo)}
+\CommentTok{\# Miramos el primer elemento de la lista (carácter que indica el tipo)}
 \NormalTok{resultado[[}\DecValTok{1}\NormalTok{]]}
 \end{Highlighting}
 \end{Shaded}
@@ -5418,7 +5491,7 @@ Como ilustración, se muestran los primeros registros del archivo:
 
 }
 
-\caption{Primeros registros del archivo reservas.txt}\label{fig:unnamed-chunk-144}
+\caption{Primeros registros del archivo reservas.txt}\label{fig:unnamed-chunk-145}
 \end{figure}
 
 La primera línea de este archivo de texto contiene los nombres de los campos. La segunda línea contiene los datos correspondientes al registro, que se trata de una reserva para una habitación triple (\texttt{tipohab} es igual a 3), en el mes de enero (\texttt{mes} es igual a 1) y por 1 noche (\texttt{noches} es igual a 1).
@@ -5638,7 +5711,7 @@ El paso más importante es diseñar todas las estructuras de datos que necesitar
 
 }
 
-\caption{Bosquejo de las estructuras de datos necesarias}\label{fig:unnamed-chunk-150}
+\caption{Bosquejo de las estructuras de datos necesarias}\label{fig:unnamed-chunk-151}
 \end{figure}
 
 En la figura anterior se señalan los vectores y matrices necesarios para cumplir con el objetivo. Por ahora, nos concentraremos en obtener los conteos y acumular la cantidad de noches. Más adelante, veremos cómo unir todos los resultados y poner nombres de filas y columnas.
@@ -6426,7 +6499,7 @@ Para abrir una terminal en Linux se puede usar el atajo \texttt{ctrl\ +\ alt\ +\
 
 }
 
-\caption{Abrir la terminal en Windows. En computadoras con Windows en español, en lugar de Command Prompt dice Símbolo del sistema.}\label{fig:unnamed-chunk-170}
+\caption{Abrir la terminal en Windows. En computadoras con Windows en español, en lugar de Command Prompt dice Símbolo del sistema.}\label{fig:unnamed-chunk-171}
 \end{figure}
 
 Así luce la línea de comandos de Windows:
@@ -6437,7 +6510,7 @@ Así luce la línea de comandos de Windows:
 
 }
 
-\caption{Línea de comandos de Windows.}\label{fig:unnamed-chunk-171}
+\caption{Línea de comandos de Windows.}\label{fig:unnamed-chunk-172}
 \end{figure}
 
 Los comandos se escriben en la última línea a continuación del símbolo \texttt{\textgreater{}}, que a su vez está precedido por la ruta a la carpeta que es el directorio de trabajo actual de la terminal, en este caso, \texttt{C:\textbackslash{}Users\textbackslash{}Marcos} (carpeta \texttt{Marcos}, dentro de la carpeta \texttt{Users}, en el disco \texttt{C}).
@@ -6468,7 +6541,7 @@ Por ejemplo, podemos ver todos los archivos que existen en el directorio actual 
 
 }
 
-\caption{Contenido del directorio actual (Windows).}\label{fig:unnamed-chunk-172}
+\caption{Contenido del directorio actual (Windows).}\label{fig:unnamed-chunk-173}
 \end{figure}
 
 Para los siguientes ejemplos, trabajaremos en una carpeta llamada \texttt{Ejemplos}, cuyo \emph{path} es \texttt{C:\textbackslash{}Users\textbackslash{}Marcos\textbackslash{}Trabajo\textbackslash{}Ejemplos} que tiene la siguiente composición:
@@ -6479,7 +6552,7 @@ Para los siguientes ejemplos, trabajaremos en una carpeta llamada \texttt{Ejempl
 
 }
 
-\caption{Carpeta en la cual deseamos trabajar.}\label{fig:unnamed-chunk-173}
+\caption{Carpeta en la cual deseamos trabajar.}\label{fig:unnamed-chunk-174}
 \end{figure}
 
 Podemos convertir a dicha carpeta como nuestro nuevo directorio de trabajo con el comando \texttt{cd} (\emph{change directory}):
@@ -6490,7 +6563,7 @@ Podemos convertir a dicha carpeta como nuestro nuevo directorio de trabajo con e
 
 }
 
-\caption{Cambio de directorio de trabajo y listado de archivos en el mismo.}\label{fig:unnamed-chunk-174}
+\caption{Cambio de directorio de trabajo y listado de archivos en el mismo.}\label{fig:unnamed-chunk-175}
 \end{figure}
 
 En Windows hay una forma más directa de abrir la terminal y que ya tenga seteada como directorio de trabajo a una carpeta deseada. Antes de abrir la terminal, vamos con el \emph{Explorador de archivos} a la carpeta en cuestión, nos posicionamos en la barra del explorador, escribimos \texttt{cmd} y le damos \texttt{ENTER}. Automáticamente se abrirá la terminal, con esta carpeta como directorio de referencia.
@@ -6501,7 +6574,7 @@ En Windows hay una forma más directa de abrir la terminal y que ya tenga setead
 
 }
 
-\caption{Abrir la terminal desde una carpeta en particular en Windows.}\label{fig:unnamed-chunk-175}
+\caption{Abrir la terminal desde una carpeta en particular en Windows.}\label{fig:unnamed-chunk-176}
 \end{figure}
 
 Desde la terminal podemos correr nuestros programas de R. Hacer esto es necesario cuando tenemos que programar alguna tarea de gran escala que se ejecutará de manera remota en algún servidor o cuando necesitamos encapsular nuestro programa para que otros lo puedan correr sin siquiera saber nada de R.
@@ -6530,7 +6603,7 @@ Para ejecutar este programa desde la terminal, sin abrir RStudio o R, utilizo el
 
 }
 
-\caption{Correr el programa de R desde la consola en Windows.}\label{fig:unnamed-chunk-177}
+\caption{Correr el programa de R desde la consola en Windows.}\label{fig:unnamed-chunk-178}
 \end{figure}
 
 Todo lo que en el programa estaba encerrado en una llamada a la función \texttt{cat()} es lo que se muestra como mensajes en la terminal. Notar que la instrucción \texttt{RScript\ mi\_programa.R} funcione, debemos tener como directorio de trabajo aquella carpeta que aloja al archivo \texttt{mi\_programa.R}, en caso contrario el sistema nos alertará que el mismo no está disponible.
@@ -6585,7 +6658,7 @@ Esto es lo que ocurre en la terminal:
 
 }
 
-\caption{Programa paridad.R.}\label{fig:unnamed-chunk-179}
+\caption{Programa paridad.R.}\label{fig:unnamed-chunk-180}
 \end{figure}
 
 \textbf{Práctica 2, Ejercicio 3: salario}
@@ -6621,7 +6694,7 @@ En este ejemplo, tenemos que leer tres valores, dos de lo cuales son de tipo car
 
 }
 
-\caption{Programa salario.R.}\label{fig:unnamed-chunk-181}
+\caption{Programa salario.R.}\label{fig:unnamed-chunk-182}
 \end{figure}
 
 \textbf{Práctica 4, Ejercicio 1: suma de elementos de un vector}\footnote{Si estás leyendo esto antes de que hayamos visto en clase la Unidad 5, podés omitir este último ejemplo y retomarlo más adelante en el cursado.}
@@ -6651,7 +6724,7 @@ En este ejercicio escribimos una función para sumar los elementos de un vector.
 
 }
 
-\caption{Programa suma.R.}\label{fig:unnamed-chunk-183}
+\caption{Programa suma.R.}\label{fig:unnamed-chunk-184}
 \end{figure}
 
 \hypertarget{muxe1s-funciones-predefinidas}{%
@@ -6833,11 +6906,11 @@ Recordemos algunos ejercicios:
 
 \begin{verbatim}
      [,1] [,2] [,3] [,4]
-[1,]    2   87   39   91
-[2,]   92   79   90   73
-[3,]   71   30   11   84
-[4,]   45   48   76   32
-[5,]   19   97   18   35
+[1,]   98   35   61   20
+[2,]   62   81    4   24
+[3,]   60   52   46   29
+[4,]   16   38   23   36
+[5,]   40   15   51   10
 \end{verbatim}
 
 \begin{Shaded}
@@ -6848,7 +6921,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 97
+[1] 98
 \end{verbatim}
 
 \begin{Shaded}
@@ -6860,7 +6933,7 @@ Recordemos algunos ejercicios:
 
 \begin{verbatim}
      row col
-[1,]   5   2
+[1,]   1   1
 \end{verbatim}
 
 \begin{Shaded}
@@ -6872,7 +6945,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 91 92 84 76 97
+[1] 98 81 60 38 51
 \end{verbatim}
 
 \begin{Shaded}
@@ -6883,7 +6956,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 92 97 90 91
+[1] 98 81 61 36
 \end{verbatim}
 
 \begin{Shaded}
@@ -6894,7 +6967,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 4 1 4 3 2
+[1] 1 2 1 2 3
 \end{verbatim}
 
 \begin{Shaded}
@@ -6904,7 +6977,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 4 1 4 3 2
+[1] 1 2 1 2 3
 \end{verbatim}
 
 \begin{Shaded}
@@ -6915,7 +6988,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 2 5 2 1
+[1] 1 2 1 4
 \end{verbatim}
 \item
   En otras ocasiones, puede ser que R no incluya en su instalación base la función que necesitamos, pero que la misma ya haya sido programada por otra persona y esté disponible en un \emph{paquete} que podemos descargar e instalar. Por ejemplo, en el ejercicio 8 de la Práctica 3 escribimos una función llamada \texttt{max\_com\_div()} para hallar el máximo común divisor entre dos naturales. R no tiene una función que compute esto, pero podemos instalar el paquete \texttt{FRACTION} que sí la incluye:
@@ -7477,7 +7550,7 @@ Y que para indexar matrices, son necesarios dos índices:
 [1] 13
 \end{verbatim}
 
-Pero también podemos hacer indexar a múltiples elementos de un vector o una matriz a la vez:
+Pero también podemos indexar a múltiples elementos de un vector o una matriz a la vez:
 
 \textbf{Vector}:
 

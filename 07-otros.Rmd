@@ -417,7 +417,7 @@ a
 a[2, 3]
 ```
 
-Pero también podemos hacer indexar a múltiples elementos de un vector o una matriz a la vez:
+Pero también podemos indexar a múltiples elementos de un vector o una matriz a la vez:
 
 **Vector**:
 

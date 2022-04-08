@@ -9,7 +9,7 @@ Veremos dos tipos de estructuras de datos: los **arreglos** y las **listas**.
 Un **arreglo** (o *array*) se define como una colección de valores individuales con dos características fundamentales:
 
 - *Ordenamiento*: los valores individuales pueden ser enumerados en orden, es decir, debe ser posible identificar en qué posición del arreglo se encuentra cada valor.
-- *Homogeneidad*: los valores individuales almacenados en un arreglo son todos del mismo tipo (numérico, caracter, lógico).
+- *Homogeneidad*: los valores individuales almacenados en un arreglo son todos del mismo tipo (numérico, carácter, lógico).
 
 Los arreglos son muy útiles para almacenar información en la memoria de la computadora, organizando valores que estén relacionados entre sí de alguna manera, por ejemplo, una conjunto de precios, los meses del año, el listado de calificaciones de estudiantes en distintos parciales, etc.
 
@@ -29,9 +29,9 @@ Cada uno de los elementos ocupa una posición determinada en el vector. Por ejem
 knitr::include_graphics('images/05_estructuras/estr02.png')
 ```
 
-Los siguientes son ejemplos de vectores de tipo caracter y lógico, con distintas cantidades de elementos:
+Los siguientes son ejemplos de vectores de tipo carácter y lógico, con distintas cantidades de elementos:
 
-```{r, out.width='60%', fig.show='hold', fig.cap='Ejemplo de un vector caracter y un vector lógico', echo=FALSE, fig.align="center"}
+```{r, out.width='60%', fig.show='hold', fig.cap='Ejemplo de un vector carácter y un vector lógico', echo=FALSE, fig.align="center"}
 knitr::include_graphics('images/05_estructuras/estr03.png')
 ```
 
@@ -46,7 +46,7 @@ x[4] <- -6
 x[5] <- 25
 ```
 
-Si bien la declaración de un vector sólo tiene como objetivo permitirle a la computadora que reserve internamente el espacio necesario en memoria para el mismo, para escribir pseudocódigo de una manera sencilla estableceremos la siguiente **convención**. Cuando declaramos un vector de tipo numérico con la expresión `VARIABLE numérica x(5)` asumiremos que, además de reservar espacio en memoria para el vector, se le asigna un 0 (cero) en cada posición. Es decir, el vector `x` es iniciado con ceros, que más tarde pueden ser reemplazados por otros valores. Del mismo modo, asumiremos que cuando declaramos vectores de tipo caracter, todos sus elementos son iniciados con valores `""` (una cadena de texto vacía) y cuando declaramos vectores de tipo lógico, con el valor `FALSO`.
+Si bien la declaración de un vector sólo tiene como objetivo permitirle a la computadora que reserve internamente el espacio necesario en memoria para el mismo, para escribir pseudocódigo de una manera sencilla estableceremos la siguiente **convención**. Cuando declaramos un vector de tipo numérico con la expresión `VARIABLE numérica x(5)` asumiremos que, además de reservar espacio en memoria para el vector, se le asigna un 0 (cero) en cada posición. Es decir, el vector `x` es iniciado con ceros, que más tarde pueden ser reemplazados por otros valores. Del mismo modo, asumiremos que cuando declaramos vectores de tipo carácter, todos sus elementos son iniciados con valores `""` (una cadena de texto vacía) y cuando declaramos vectores de tipo lógico, con el valor `FALSO`.
 
 En R, los vectores se construyen de forma dinámica por lo cual no es necesario declararlos antes de comenzar a utilizarlos. La función `c()` (de *combinar*) permite crear vectores, por ejemplo, los mencionados anteriormente:
 
@@ -109,7 +109,7 @@ PARA i DESDE 1 HASTA tam HACER
 FIN PARA
 ```
 
-Antes comentamos que en R los vectores se crean con expresiones como `x <- c(-4.5, 12, 2.71, -6, 25)`, donde sus elementos están listados de forma literal. También podemos crear vectores de un largo determinado dejando que cada posición quede ocupada por un valor por default. Por ejemplo, el siguiente código crea un vector tipo numérico con 10 posiciones, uno caracter con 7 y otro lógico con 2. En cada caso, R rellena por defecto todas las posiciones con el mismo valor: un 0 para todas las posiciones del vector numérico, un caracter vacío `""` para las del vector caracter y el valor `FALSE` para el vector lógico:
+Antes comentamos que en R los vectores se crean con expresiones como `x <- c(-4.5, 12, 2.71, -6, 25)`, donde sus elementos están listados de forma literal. También podemos crear vectores de un largo determinado dejando que cada posición quede ocupada por un valor por default. Por ejemplo, el siguiente código crea un vector tipo numérico con 10 posiciones, uno carácter con 7 y otro lógico con 2. En cada caso, R rellena por defecto todas las posiciones con el mismo valor: un 0 para todas las posiciones del vector numérico, un carácter vacío `""` para las del vector carácter y el valor `FALSE` para el vector lógico:
 
 ```{r}
 a <- numeric(10)
@@ -167,7 +167,7 @@ is.vector(x) # Esta función lógica le pregunta a R si el objeto x es un vector
 
 **Ejemplo: invertir los elementos de un vector**
 
-Nos planteamos el problema de dar vuelta los elementos pertenecientes a un vector, de manera que el primer elemento pase a ser el último, el segundo pase al penúltimo lugar, etcétera. Por ejemplo, dado el vector de tipo caracter `v`:
+Nos planteamos el problema de dar vuelta los elementos pertenecientes a un vector, de manera que el primer elemento pase a ser el último, el segundo pase al penúltimo lugar, etcétera. Por ejemplo, dado el vector de tipo carácter `v`:
 
 ```{r inv1, out.width='80%', fig.show='hold', fig.cap='Vector v original', echo=FALSE, fig.align="center"}
 knitr::include_graphics('images/05_estructuras/estr11.png')
@@ -185,7 +185,7 @@ Si bien podemos pensar en distintas formas para resolver este problema, probable
 knitr::include_graphics('images/05_estructuras/estr13.png')
 ```
 
-Ahora sólo resta realizar el mismo procedimiento para los valores de las posiciones 2 y 4. Como el número de elementos en el vector es impar, el valor en la posición central queda en su lugar. Podemos definir el siguiente algorimo para resolver este problema de manera general. En el siguiente pseudocódigo, primero declaramos una variable numérica `n` que puede tomar cualquier valor y que servirá para declarar cuántos espacios necesita el vector. Luego, se itera para leer cada elemento del vector. Finalmente, se implementa la estrategia de reordenamiento:
+Ahora sólo resta realizar el mismo procedimiento para los valores de las posiciones 2 y 4. Como el número de elementos en el vector es impar, el valor en la posición central queda en su lugar. Podemos definir el siguiente algoritmo para resolver este problema de manera general. En el siguiente pseudocódigo, primero declaramos una variable numérica `n` que puede tomar cualquier valor y que servirá para declarar cuántos espacios necesita el vector. Luego, se itera para leer cada elemento del vector. Finalmente, se implementa la estrategia de reordenamiento:
 
 ```
 ALGORITMO: "Invertir (dar vuelta) los elementos de un vector"
@@ -193,9 +193,9 @@ COMENZAR
     
   # Declarar variables
   VARIABLE numérica n
-  VARIABLE caracter tmp
+  VARIABLE carácter tmp
   LEER n
-  VARIABLE caracter v(n)
+  VARIABLE carácter v(n)
   
   # Asignar valores al vector
   PARA i DESDE 1 HASTA n HACER
@@ -215,7 +215,7 @@ COMENZAR
 FIN
 ```
 
-En el ejemplo anterior hemos incorporado el uso de comentarios en el pseudocódigo para describir el objetivo de cada parte. Imitando lo que hacemos en R, señalamos la presencia de comentarios con el caracter `#` (podríamos usar otra cosa, pero adheriremos a esta convención). Se usó la expresión `ENTERO()` para hacer referencia a la parte entera del número indicado entre paréntesis, lo cual se puede indicar en R con la función `floor()`. Además, en R reemplazamos todas las instrucciones `LEER` por una asignación directa de valores:
+En el ejemplo anterior hemos incorporado el uso de comentarios en el pseudocódigo para describir el objetivo de cada parte. Imitando lo que hacemos en R, señalamos la presencia de comentarios con el carácter `#` (podríamos usar otra cosa, pero adheriremos a esta convención). Se usó la expresión `ENTERO()` para hacer referencia a la parte entera del número indicado entre paréntesis, lo cual se puede indicar en R con la función `floor()`. Además, en R reemplazamos todas las instrucciones `LEER` por una asignación directa de valores:
 
 ```{r}
 v <- c("Estadística", "en", "Licenciatura", "la", "Aguante")
@@ -244,7 +244,7 @@ knitr::include_graphics('images/05_estructuras/estr06.png')
 
 Al *tamaño* de una matriz, es decir, cuántas filas y columnas tiene, se le dice **dimensión**. La matriz anterior es de dimension $3 \times 4$.
 
-Como hicimos con los vectores, debemos declarar las matrices que vamos a usar en el pseudocódigo, indicando su identificador, tipo y dimensión: `VARIABLE numérica x(3, 4)`. También vamos a asumir que todas las posiciones de una matriz son iniciadas con el valor 0, `""` o `FALSO` si la misma es numérica, caracter o lógica, respectivamente. La matriz `x` puede ser generada en pseudocódigo de esta forma:
+Como hicimos con los vectores, debemos declarar las matrices que vamos a usar en el pseudocódigo, indicando su identificador, tipo y dimensión: `VARIABLE numérica x(3, 4)`. También vamos a asumir que todas las posiciones de una matriz son iniciadas con el valor 0, `""` o `FALSO` si la misma es numérica, carácter o lógica, respectivamente. La matriz `x` puede ser generada en pseudocódigo de esta forma:
 
 ```
 VARIABLE numérica x(3, 4)
@@ -475,7 +475,7 @@ En lo anterior hemos utilizado una **lista**, que se trata de otro tipo de estru
 Una de las principales características de los **arreglos** es la **homegeneidad**: todos los elementos que contienen deben ser del mismo tipo. No se puede, por ejemplo, mezclar en una matriz valores numéricos y lógicos. Sin embargo, en muchos problemas resulta útil contar con alguna estructura de datos que permita agrupar objetos de diversos tipos. Esa es, justamente, la definición de una **lista**. Podemos imaginarla como una bolsa en la cual podemos meter todo tipo de objetos, incluyendo vectores, matrices y, por qué no, otras bolsas (es decir, bolsas dentro de una bolsa o listas dentro de una lista). Todos los lenguajes de programación proveen algún tipo de estructura con estas características, aunque no todos las llaman igual. Otros posibles nombres con los que se conocen pueden ser *tupla* o *agregado*. En R se llaman **listas** o **vectores recursivos**. El siguiente diagrama presenta una lista (recuadro con puntas redondeadas) que contiene:
 
 1. Un vector numérico de largo 3.
-2. Un vector caracter de largo 2.
+2. Un vector carácter de largo 2.
 3. Una matriz numérica de dimensión 2x2.
 4. Un valor lógico.
 
@@ -529,7 +529,7 @@ A medida que las estructuras de datos se hacen más complejas, existen menos con
 
 ```
 VARIABLE numérica w(3), y(2, 2)
-VARIABLE caracter x(2)
+VARIABLE carácter x(2)
 VARIABLE lógica z
 VARIABLE LISTA mi_lista
 mi_lista <- LISTA(x, w, y, z)
@@ -553,7 +553,7 @@ En el capítulo anterior, dijimos que las funciones son subalgoritmos que podía
 .
 La solución consiste en devolver una lista que englobe a todos los objetos que nos interese que la función le entregue como resultado al algoritmo principal que la invocó. Como una lista es un único objeto, ¡la función puede devolverla sin ningún problema!
 
-Para ejemplificar, recordemos el siguiente ejercicio de la práctica 3: escribir el algoritmo y el programa en R para la creación de la función `triangulos(a, b, c)` que a partir de la longitud de los tres lados de un triángulo `a`, `b` y `c` (valores positivos) lo clasifica con los siguientes resultados posibles: no forman un triángulo (un lado mayor que la suma de los otros dos), triángulo equilátero, isósceles o escaleno. Vamos a modificar la función para que tenga el siguiente comportamiento: la función debe devolver el tipo de triángulo como cadena de texto y el valor numérico del perímetro del mismo (o un 0 si no es triángulo). Es decir, la función debe devolver tanto un objeto de tipo caracter y otro de tipo numérico. Para lograrlo los encerraremos en una lista:
+Para ejemplificar, recordemos el siguiente ejercicio de la práctica 3: escribir el algoritmo y el programa en R para la creación de la función `triangulos(a, b, c)` que a partir de la longitud de los tres lados de un triángulo `a`, `b` y `c` (valores positivos) lo clasifica con los siguientes resultados posibles: no forman un triángulo (un lado mayor que la suma de los otros dos), triángulo equilátero, isósceles o escaleno. Vamos a modificar la función para que tenga el siguiente comportamiento: la función debe devolver el tipo de triángulo como cadena de texto y el valor numérico del perímetro del mismo (o un 0 si no es triángulo). Es decir, la función debe devolver tanto un objeto de tipo carácter y otro de tipo numérico. Para lograrlo los encerraremos en una lista:
 
 Algoritmo: 
 
@@ -564,13 +564,13 @@ Algoritmo:
 # Entrada:
 #		- a, b, c, números reales positivos
 # Salida:
-#		- una lista cuyo primer elemento es un caracter que indica el tipo de
+#		- una lista cuyo primer elemento es un carácter que indica el tipo de
 #		triángulo y el segundo elemento es el perímetro del triángulo o el valor 0 si
 #		no los lados provistos no corresponden a un triángulo
 #-----------------------------------------------------
 FUNCIÓN triangulos(a: numérico, b: numérico, c: numérico): lista
 COMENZAR
-	VARIABLE caracter tipo
+	VARIABLE carácter tipo
 	VARIABLE numérica perimetro
 	SI a > b + c O b > a + c O c > a + b ENTONCES
 		tipo <- "no es triángulo"
@@ -600,7 +600,7 @@ Código en R:
 # Entrada:
 #		- a, b, c, números reales positivos
 # Salida:
-#		- una lista cuyo primer elemento es un caracter que indica el tipo de
+#		- una lista cuyo primer elemento es un carácter que indica el tipo de
 #		triángulo y el segundo elemento es el perímetro del triángulo o el valor 0 si
 #		no los lados provistos no corresponden a un triángulo
 #-----------------------------------------------------
@@ -625,7 +625,7 @@ Ejemplos del uso de esta función:
 ```{r}
 # Guardamos el resultado devuelto (una lista) en el objeto resultado
 resultado <- triangulos(2, 3, 4)
-# Miramos el primer elemento de la lista (caracter que indica el tipo)
+# Miramos el primer elemento de la lista (carácter que indica el tipo)
 resultado[[1]]
 # Miramos el primer elemento de la lista (perímetro)
 resultado[[2]]
