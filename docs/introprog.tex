@@ -243,7 +243,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2022-04-08}
+\date{2022-04-24}
 
 \begin{document}
 \maketitle
@@ -2395,7 +2395,7 @@ En este capítulo hay algunas secciones indicadas como ``opcionales'' y algunos 
 
 En el mundo de la programación existen muchos términos para definir distintos tipos de subalgoritmos: subrutinas, funciones, procedimientos, métodos, subprogramas, etc. No es posible obtener una definición que capture todas las variantes que existen en el uso de estos términos debido a que el significado de cada uno de ellos varía según el paradigma
 \footnote{Se usa el término paradigma de programación para clasificar a los lenguajes según sus características. En \href{https://hackr.io/blog/programming-paradigms}{este link} se puede encontrar una breve descripción de los principales paradigmas de programación}
-y el lenguaje de programación escogidos. Qué se entiende por cada uno de ellos depende muchas veces del paradigma de programación empleado y del lenguaje escogido, por lo cual no existe una definición lo suficientemente general para cada uno.
+y el lenguaje de programación escogidos.
 
 Sin embargo, suele haber bastante consenso en distinguir, dentro de los subalgoritmos, a las \textbf{funciones} y a los \textbf{procedimientos} de esta forma:
 
@@ -2533,7 +2533,7 @@ FIN FUNCIÓN
 ALGORITMO PRINCIPAL
 --------------------------------------------------------------
 
-ALGORITMO: "Realizar  operaciones matemáticas muy importantes"
+ALGORITMO: "Realizar operaciones matemáticas muy importantes"
 COMENZAR
     VARIABLE numérica rtdo1, rtdo2, rtdo3
     rtdo1 <- f(2, 5)
@@ -2943,19 +2943,38 @@ El resultado es 59
 \hypertarget{null-vs-na-vs-nan}{%
 \subsection{\texorpdfstring{\texttt{NULL} vs \texttt{NA} vs \texttt{NaN}}{NULL vs NA vs NaN}}\label{null-vs-na-vs-nan}}
 
-Generalmente los lenguajes de programación poseen un valor conocido como \texttt{NULO}, para representar un objeto vacío, sin información. El mismo suele emplearse como valor devuelto por funciones cuando no corresponde devolver otro tipo de resultado. En pseudocódigo podemos usar esta estrategia escribiendo \texttt{DEVOLVER\ NULO}, cuanod deseamos que nuestra función no devuelva nada. La representación en R de este tipo de objeto es \texttt{NULL}, que se trata de un objeto vacío que generalmente devuelven las funciones cuando el resultado es indefinido. Podemos crear funciones que terminen con un \texttt{return(NULL)}.
+Generalmente los lenguajes de programación poseen un valor conocido como \texttt{NULO}, para representar un objeto vacío, sin información. El mismo suele emplearse como valor devuelto por funciones cuando no corresponde devolver otro tipo de resultado. En pseudocódigo podemos usar esta estrategia escribiendo \texttt{DEVOLVER\ NULO}, si deseamos que nuestra función no devuelva nada. La representación en R de este tipo de objeto es \texttt{NULL}, que se trata de un objeto vacío que generalmente devuelven las funciones cuando el resultado es indefinido. Es decir, podemos crear funciones que terminen con un \texttt{return(NULL)}, como en el siguiente caso donde interesa emitir un mensaje, pero no devolver ningún objeto:
 
-El objeto vación \texttt{NULL} no debe confundirse con otros dos valores existentes en el lenguaje R: \texttt{NA} y \texttt{NaN}:
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x, y) \{}
+\NormalTok{    resultado }\OtherTok{\textless{}{-}}\NormalTok{ x}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+} \DecValTok{3} \SpecialCharTok{*}\NormalTok{ y}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"El resultado de esta cuenta es:"}\NormalTok{, resultado)}
+    \FunctionTok{return}\NormalTok{(}\ConstantTok{NULL}\NormalTok{)}
+\NormalTok{\}}
+\FunctionTok{g}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+El resultado de esta cuenta es: 31
+\end{verbatim}
+
+\begin{verbatim}
+NULL
+\end{verbatim}
+
+El objeto \texttt{NULL} no debe confundirse con otros dos valores existentes en el lenguaje R: \texttt{NA} y \texttt{NaN}:
 
 \begin{itemize}
 \tightlist
 \item
   \texttt{NA} son las siglas de \emph{Not Available} y es un valor lógico (como \texttt{TRUE} y \texttt{FALSE}) que generalmente representa datos faltantes.
 \item
-  \texttt{NaN} son las siglas de \emph{Not a Number} y es un valor numérico que generalmente surge como resultado de operaciones aritméticas imposibles de calcular, como indeterminaciones, raíces negativas, etc. (correr \texttt{0/0}, \texttt{log(-1)} o \texttt{sqrt(-1)} para verlo). Es un valor establecido por IEEE, el estándar con el cual se rige la representación numérica de los valores en la computadora.
+  \texttt{NaN} son las siglas de \emph{Not a Number} y es un valor numérico que generalmente surge como resultado de operaciones aritméticas imposibles de calcular, como indeterminaciones, raíces negativas, etc. (correr \texttt{0/0}, \texttt{log(-1)} o \texttt{sqrt(-1)} para verlo). Es un valor establecido por IEEE, el estándar con el cual se rige la representación numérica en la computadora.
 \end{itemize}
 
-Otro valor numérico muy especial es \texttt{Inf} (y su contrapartida negativa, \texttt{-Inf}), que es el resultado de almacenar un número muy grande o el resultado de una división por cero. No es semejante a \texttt{NA}, porque además de no ser de tipo lógico, no representa que hay un dato faltante sino que se trata de un valor numérico.
+Otro valor numérico muy especial es \texttt{Inf} (y su contrapartida negativa, \texttt{-Inf}), que es el resultado de almacenar un número muy grande o de una división por cero. No es semejante a \texttt{NA}, porque además de no ser de tipo lógico, no representa que hay un dato faltante sino que se trata de un valor numérico.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3011,6 +3030,119 @@ Otro valor numérico muy especial es \texttt{Inf} (y su contrapartida negativa, 
 
 \begin{verbatim}
 [1] "character"
+\end{verbatim}
+
+\hypertarget{funciuxf3n-return}{%
+\subsection{\texorpdfstring{Función \texttt{return()}}{Función return()}}\label{funciuxf3n-return}}
+
+En R, la función \texttt{return()} puede omitirse, ya que si no está presente se devuelve el resultado de la última expresión analizada. Por eso, las siguientes funciones son equivalentes:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g1 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x, y) \{}
+\NormalTok{    resultado }\OtherTok{\textless{}{-}}\NormalTok{ x}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+} \DecValTok{3} \SpecialCharTok{*}\NormalTok{ y}
+    \FunctionTok{return}\NormalTok{(resultado)}
+\NormalTok{\}}
+\FunctionTok{g1}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 31
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g2 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x, y) \{}
+\NormalTok{    x}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+} \DecValTok{3} \SpecialCharTok{*}\NormalTok{ y}
+\NormalTok{\}}
+\FunctionTok{g2}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 31
+\end{verbatim}
+
+De todos modos, es aconsejable usar \texttt{return()} para evitar ambigüedades y ganar en claridad. Además, en funciones más complejas, su uso puede ser indispensable para indicar el término de la evaluación de la función.
+
+En el caso particular donde interese que nuestra función emita un mensaje, sin necesariamente devolver un objeto en particular, podemos proceder como se mencionó en la sección anterior:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g3 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x, y) \{}
+\NormalTok{    resultado }\OtherTok{\textless{}{-}}\NormalTok{ x}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+} \DecValTok{3} \SpecialCharTok{*}\NormalTok{ y}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"El resultado de esta cuenta es:"}\NormalTok{, resultado)}
+    \FunctionTok{return}\NormalTok{(}\ConstantTok{NULL}\NormalTok{)}
+\NormalTok{\}}
+\FunctionTok{g3}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+El resultado de esta cuenta es: 31
+\end{verbatim}
+
+\begin{verbatim}
+NULL
+\end{verbatim}
+
+O de esta otra forma:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g4 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x, y) \{}
+\NormalTok{    resultado }\OtherTok{\textless{}{-}}\NormalTok{ x}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+} \DecValTok{3} \SpecialCharTok{*}\NormalTok{ y}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"El resultado de esta cuenta es:"}\NormalTok{, resultado)}
+\NormalTok{\}}
+\FunctionTok{g4}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+El resultado de esta cuenta es: 31
+\end{verbatim}
+
+En ambos casos, la función escribe el mensaje y devuelve como resultado un objeto \texttt{NULL}: en \texttt{g3} porque se lo pedimos explícitamente y en \texttt{g4} porque la función \texttt{cat()}, que es lo último en evaluarse, además de escribir un mensaje, devuelve un \texttt{NULL}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{g3}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+El resultado de esta cuenta es: 31
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+NULL
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{g4}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+El resultado de esta cuenta es: 31
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+NULL
 \end{verbatim}
 
 \hypertarget{ejemplofact}{%
@@ -3278,7 +3410,7 @@ En todo lenguaje de programación se le dice \textbf{ámbito} o \textbf{scope} a
 \hypertarget{variables-locales}{%
 \subsection{Variables locales}\label{variables-locales}}
 
-Las variables declaradas dentro de un subalgoritmo (por ejemplo, dentro de una función) se llaman \textbf{variables locales}. Sólo pueden ser usadas por las sentencias que están dentro de esa función, mientras que el programa principal u otros subalgoritmos desconocen su existencia y no las pueden usar. Las \emph{variables locales} residen en el \emph{ambiente local} de un subalgortimo y no tienen nada que ver con las variables que puedan ser declaradas con el mismo nombre en otros lugares\footnote{Cuando otro subalgoritmo utiliza el mismo nombre se refiere a una posición diferente en memoria.}. En el siguiente ejemplo, las variables \texttt{a} y \texttt{b} son locales a la función \texttt{f1} y no se pueden usar desde el programa principal, porque dejan de existir una vez que termina la ejecución de \texttt{f1}:
+Las variables declaradas dentro de un subalgoritmo (por ejemplo, dentro de una función) se llaman \textbf{variables locales}. Sólo pueden ser usadas por las instrucciones que están dentro de esa función, mientras que el programa principal u otros subalgoritmos desconocen su existencia y no las pueden usar. Las \emph{variables locales} residen en el \emph{ambiente local} de un subalgortimo y no tienen nada que ver con las variables que puedan ser declaradas con el mismo nombre en otros lugares\footnote{Cuando otro subalgoritmo utiliza el mismo nombre se refiere a una posición diferente en memoria.}. En el siguiente ejemplo, las variables \texttt{a} y \texttt{b} son locales a la función \texttt{f1} y no se pueden usar desde el programa principal, porque dejan de existir una vez que termina la ejecución de \texttt{f1}:
 
 \begin{verbatim}
 ---------------------------------------------------------------
@@ -3348,7 +3480,7 @@ El uso de \emph{variables locales} tiene muchas ventajas. Permiten independizar 
 \hypertarget{variables-globales}{%
 \subsection{Variables globales}\label{variables-globales}}
 
-Las variables globales son las que se definen fuera de una función, mantienen su valor a lo largo de todo el programa y pueden ser usadas dentro de las funciones, aún cuando no se la pasemos como argumento. En el ejemplo anterior \texttt{z} es una variable global\footnote{\texttt{f1} también es global: todo tipo de objeto, incluso las funciones, pertenecen a un determinado ambiente}. Las \emph{variables globales} residen en el \emph{ambiente global} del algoritmo.
+Las variables globales son las que se definen en el algoritmo principal y pueden ser usadas dentro de los subalgoritmos, aún cuando no se las pase como argumento. En el ejemplo anterior \texttt{z} es una variable global\footnote{\texttt{f1} también es global: todo tipo de objeto, incluso las funciones, pertenecen a un determinado ambiente}. Las \emph{variables globales} residen en el \emph{ambiente global} del algoritmo.
 
 El siguiente ejemplo muestra cómo la función \texttt{f2} puede hacer uso de una variable global \texttt{y} que fue definida fuera de ella, en el programa principal
 \footnote{Algunos autores sugieren agregar la palabra \emph{GLOBAL} o \emph{LOCAL} en la declaración de las variables para distinguir su ambiente, por ejemplo, poner dentro de \texttt{f2} \texttt{VARIABLE\ LOCAL\ numérica\ a} y en el algoritmo \texttt{VARIABLE\ GLOBAL\ y}, pero no seguiremos esta práctica para ganar en sencillez de escritura. También algunos lenguajes de programación requieren señalar de alguna manera especial a las variables globales.}:
@@ -3505,8 +3637,8 @@ Acá, en el programa principal, el valor de a es 70
 
 Se debe prestar atención que con la sentencia \texttt{ESCRIBIR} o la función \texttt{cat()} en R se muestra en pantalla un mensaje en el momento en el que se ejecuta esa acción. Si el mensaje incluye mostrar valores guardados en objetos, se mostrarán los valores que los mismos tienen en ese momento. Por otro lado, lo devuelto por la sentencia \texttt{DEVOLVER} o la función \texttt{return()} es el resultado de la ejecución de la función: el valor que la función entrega puede ser asignado a otro objeto en el algoritmo principal, como ocurre en la lína de \texttt{z\ \textless{}-\ f3(50)}.
 
-\hypertarget{otros-tuxf3picos-de-lectura-opcional}{%
-\section{Otros tópicos de lectura opcional}\label{otros-tuxf3picos-de-lectura-opcional}}
+\hypertarget{otras-nociones-importantes-en-r}{%
+\section{Otras nociones importantes en R}\label{otras-nociones-importantes-en-r}}
 
 \hypertarget{la-funciuxf3n-source}{%
 \subsection{La función source()}\label{la-funciuxf3n-source}}
@@ -3551,41 +3683,7 @@ Luego, en cualquier problema que requiera el cálculo de factoriales, vamos a pe
 \end{Highlighting}
 \end{Shaded}
 
-Gracias a \texttt{source()} todas las funciones definidas en el archivo \texttt{funciones.R} aparecerán en el entorno y no hay necesidad ni siquiera de abrirlo. Notar que \texttt{C:/Documentos/Facultad/IALP/} es la dirección o \emph{path} de la carpeta en la computadora donde hayas guardado el archivo \texttt{funciones.R}.
-
-\hypertarget{sentencia-return}{%
-\subsection{Sentencia return}\label{sentencia-return}}
-
-La sentencia \texttt{return()} puede omitirse. R devuelve el resultado de la última expresión analizada. Por eso, las siguientes funciones son equivalentes:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{g1 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x, y) \{}
-\NormalTok{    resultado }\OtherTok{\textless{}{-}}\NormalTok{ x}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+} \DecValTok{3} \SpecialCharTok{*}\NormalTok{ y}
-    \FunctionTok{return}\NormalTok{(resultado)}
-\NormalTok{\}}
-\FunctionTok{g1}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 31
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{g2 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x, y) \{}
-\NormalTok{    x}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+} \DecValTok{3} \SpecialCharTok{*}\NormalTok{ y}
-\NormalTok{\}}
-\FunctionTok{g2}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 31
-\end{verbatim}
-
-De todos modos, es aconsejable usar \texttt{return()} para ganar en claridad. Además, en funciones más complejas, su uso puede ser indispensable para indicar el término de la evaluación de la función.
+Gracias a \texttt{source()} todas las funciones definidas en el archivo \texttt{funciones.R} aparecerán en el entorno y no hay necesidad ni siquiera de abrirlo. Notar que \texttt{C:/Documentos/Facultad/IALP/} es la dirección o \emph{path} de la carpeta en la computadora donde está guardado el archivo \texttt{funciones.R}.
 
 \hypertarget{argumentos-con-valores-asignados-por-defecto}{%
 \subsection{Argumentos con valores asignados por defecto}\label{argumentos-con-valores-asignados-por-defecto}}
@@ -3663,6 +3761,9 @@ Error in nueva_f(): argument "x" is missing, with no default
 \begin{verbatim}
 Error in nueva_f(y = 5): argument "x" is missing, with no default
 \end{verbatim}
+
+\hypertarget{otros-tuxf3picos-de-lectura-opcional}{%
+\section{Otros tópicos de lectura opcional}\label{otros-tuxf3picos-de-lectura-opcional}}
 
 \hypertarget{modificar-una-variable-global-desde-el-cuerpo-de-una-funciuxf3n-en-r}{%
 \subsection{Modificar una variable global desde el cuerpo de una función en R}\label{modificar-una-variable-global-desde-el-cuerpo-de-una-funciuxf3n-en-r}}
@@ -3877,7 +3978,7 @@ Un \textbf{arreglo unidimensional} o \textbf{vector} tiene \emph{n} elementos to
 
 }
 
-\caption{Ejemplo de un vector numérico}\label{fig:unnamed-chunk-102}
+\caption{Ejemplo de un vector numérico}\label{fig:unnamed-chunk-106}
 \end{figure}
 
 Cada uno de los elementos ocupa una posición determinada en el vector. Por ejemplo, el elemento 3 del vector \texttt{x} es el numéro 2.71. Se puede \emph{acceder} o hacer referencia a cada elemento mediante el uso de \emph{índices}, expresados entre corchetes al lado del nombre del vector. De esta forma, si escribimos \texttt{x{[}3{]}} hacemos referencia a la tercera posición del vector, que actualmente guarda al valor 2.71. Como podemos ver, sólo hace falta un índice para hacer referencia a cada elemento de un vector.
@@ -3888,7 +3989,7 @@ Cada uno de los elementos ocupa una posición determinada en el vector. Por ejem
 
 }
 
-\caption{Ejemplo de un vector numérico: índices para señalar cada posición.}\label{fig:unnamed-chunk-103}
+\caption{Ejemplo de un vector numérico: índices para señalar cada posición.}\label{fig:unnamed-chunk-107}
 \end{figure}
 
 Los siguientes son ejemplos de vectores de tipo carácter y lógico, con distintas cantidades de elementos:
@@ -3899,7 +4000,7 @@ Los siguientes son ejemplos de vectores de tipo carácter y lógico, con distint
 
 }
 
-\caption{Ejemplo de un vector carácter y un vector lógico}\label{fig:unnamed-chunk-104}
+\caption{Ejemplo de un vector carácter y un vector lógico}\label{fig:unnamed-chunk-108}
 \end{figure}
 
 Al igual que todas las variables que empleamos en nuestros algoritmos, los vectores que serán utilizados deben ser declarados en el pseudocódigo, eligiendo un \emph{identificador} (nombre) e indicando su tipo y su tamaño, es decir, la cantidad de posiciones que contienen. Esto último se señala entre paréntesis al lado del nombre elegido. Por ejemplo, el vector \texttt{x} visto anteriomente puede ser creado de la siguiente forma:
@@ -3931,7 +4032,7 @@ En R, los vectores se construyen de forma dinámica por lo cual no es necesario 
 
 }
 
-\caption{Creación de vectores en R}\label{fig:unnamed-chunk-106}
+\caption{Creación de vectores en R}\label{fig:unnamed-chunk-110}
 \end{figure}
 
 Cuando ejecutamos dichas líneas, se crean en el ambiente global los objetos \texttt{x}, \texttt{y} y \texttt{z}, como podemos notar en la pestaña \texttt{Environment} de RStudio. Es decir, los vectores, así como cualquier otro tipo de arreglo, son \textbf{objetos} que constituyen entidades en sí mismas y que pueden ser manipulados al hacer referencia a sus indicadores. Además, RStudio nos muestra en la pestaña mencionada qué tipo de vector es cada uno (\texttt{num}, \texttt{chr}, \texttt{logi}), cuántos elementos tiene (\texttt{{[}1:5{]}}, \texttt{{[}1:4{]}}, \texttt{{[}1:3{]}}) y una previsualización de sus primeros elementos.
@@ -4213,7 +4314,7 @@ Un \textbf{arreglo bidimensional} representa lo que habitualmente conocemos en m
 
 }
 
-\caption{Ejemplo de una matriz numérica}\label{fig:unnamed-chunk-113}
+\caption{Ejemplo de una matriz numérica}\label{fig:unnamed-chunk-117}
 \end{figure}
 
 A diferencia de los vectores, las matrices requieren dos índices para señalar la posición de cada elemento, el primero para indicar la fila y el segundo para indicar la columna. Los mismos se colocan entre corchetes, separados por una coma, al lado del identificador de la matriz. De esta forma, si hablamos de \texttt{x{[}1,\ 3{]}} hacemos referencia a la posición ocupada por el valor 18, mientras que si mencionamos \texttt{x{[}3,\ 1{]}} nos referimos al valor 14.
@@ -4224,7 +4325,7 @@ A diferencia de los vectores, las matrices requieren dos índices para señalar 
 
 }
 
-\caption{Ejemplo de una matriz numérica: índices para señalar cada posición}\label{fig:unnamed-chunk-114}
+\caption{Ejemplo de una matriz numérica: índices para señalar cada posición}\label{fig:unnamed-chunk-118}
 \end{figure}
 
 Al \emph{tamaño} de una matriz, es decir, cuántas filas y columnas tiene, se le dice \textbf{dimensión}. La matriz anterior es de dimension \(3 \times 4\).
@@ -4365,7 +4466,7 @@ Podemos recorrer todas las posiciones de una matriz con una estructura iterativa
 
 }
 
-\caption{Recorrer una matriz por fila}\label{fig:unnamed-chunk-119}
+\caption{Recorrer una matriz por fila}\label{fig:unnamed-chunk-123}
 \end{figure}
 
 También se puede recorrer la matriz por columna, si modificamos ligeramente las estructuras iterativas:
@@ -4376,7 +4477,7 @@ También se puede recorrer la matriz por columna, si modificamos ligeramente las
 
 }
 
-\caption{Recorrer una matriz por columna}\label{fig:unnamed-chunk-121}
+\caption{Recorrer una matriz por columna}\label{fig:unnamed-chunk-125}
 \end{figure}
 
 Se puede usar cualquier letra o palabra como variables iteradoras, pero el uso de \texttt{i} para las filas y de \texttt{j} para las columnas es bastante común.
@@ -4434,7 +4535,7 @@ En Álgebra, trasponer una matriz de dimensión \(m \times n\) significa generar
 
 }
 
-\caption{Matriz traspuesta}\label{fig:unnamed-chunk-123}
+\caption{Matriz traspuesta}\label{fig:unnamed-chunk-127}
 \end{figure}
 
 Podemos formalizar el algoritmo que permite generar la matriz traspuesta, teniendo en cuenta que cada elemento que originalmente ocupa la posición \texttt{{[}i,\ j{]}} en la matriz original, debe pasar a ocupar la posición \texttt{{[}j,\ i{]}} en la matriz traspuesta:
@@ -4694,7 +4795,7 @@ Una de las principales características de los \textbf{arreglos} es la \textbf{h
 
 }
 
-\caption{Ejemplo de una lista}\label{fig:unnamed-chunk-128}
+\caption{Ejemplo de una lista}\label{fig:unnamed-chunk-132}
 \end{figure}
 
 En R la creación de esta lista se realiza mediante la función \texttt{list()}, cuyos argumentos son los elementos que queremos guardar en la lista, separados por comas:
@@ -4735,7 +4836,7 @@ Luego de correr la sentencia anterior, podemos ver que \texttt{mi\_lista} es un 
 
 }
 
-\caption{La lista en la pestaña Environment de RStudio}\label{fig:unnamed-chunk-130}
+\caption{La lista en la pestaña Environment de RStudio}\label{fig:unnamed-chunk-134}
 \end{figure}
 
 Usamos dobles corchetes \texttt{{[}{[}\ {]}{]}} para referenciar a cada objeto que forma parte de la lista. Además, si queremos indicar un elemento dentro de un objeto que forma parte de la lista, agregamos otro conjunto de corchetes como hacemos con vectores y matrices. Por ejemplo:
@@ -4746,7 +4847,7 @@ Usamos dobles corchetes \texttt{{[}{[}\ {]}{]}} para referenciar a cada objeto q
 
 }
 
-\caption{Ejemplo de una lista}\label{fig:unnamed-chunk-131}
+\caption{Ejemplo de una lista}\label{fig:unnamed-chunk-135}
 \end{figure}
 
 \begin{Shaded}
@@ -5491,7 +5592,7 @@ Como ilustración, se muestran los primeros registros del archivo:
 
 }
 
-\caption{Primeros registros del archivo reservas.txt}\label{fig:unnamed-chunk-145}
+\caption{Primeros registros del archivo reservas.txt}\label{fig:unnamed-chunk-149}
 \end{figure}
 
 La primera línea de este archivo de texto contiene los nombres de los campos. La segunda línea contiene los datos correspondientes al registro, que se trata de una reserva para una habitación triple (\texttt{tipohab} es igual a 3), en el mes de enero (\texttt{mes} es igual a 1) y por 1 noche (\texttt{noches} es igual a 1).
@@ -5711,7 +5812,7 @@ El paso más importante es diseñar todas las estructuras de datos que necesitar
 
 }
 
-\caption{Bosquejo de las estructuras de datos necesarias}\label{fig:unnamed-chunk-151}
+\caption{Bosquejo de las estructuras de datos necesarias}\label{fig:unnamed-chunk-155}
 \end{figure}
 
 En la figura anterior se señalan los vectores y matrices necesarios para cumplir con el objetivo. Por ahora, nos concentraremos en obtener los conteos y acumular la cantidad de noches. Más adelante, veremos cómo unir todos los resultados y poner nombres de filas y columnas.
@@ -6499,7 +6600,7 @@ Para abrir una terminal en Linux se puede usar el atajo \texttt{ctrl\ +\ alt\ +\
 
 }
 
-\caption{Abrir la terminal en Windows. En computadoras con Windows en español, en lugar de Command Prompt dice Símbolo del sistema.}\label{fig:unnamed-chunk-171}
+\caption{Abrir la terminal en Windows. En computadoras con Windows en español, en lugar de Command Prompt dice Símbolo del sistema.}\label{fig:unnamed-chunk-175}
 \end{figure}
 
 Así luce la línea de comandos de Windows:
@@ -6510,7 +6611,7 @@ Así luce la línea de comandos de Windows:
 
 }
 
-\caption{Línea de comandos de Windows.}\label{fig:unnamed-chunk-172}
+\caption{Línea de comandos de Windows.}\label{fig:unnamed-chunk-176}
 \end{figure}
 
 Los comandos se escriben en la última línea a continuación del símbolo \texttt{\textgreater{}}, que a su vez está precedido por la ruta a la carpeta que es el directorio de trabajo actual de la terminal, en este caso, \texttt{C:\textbackslash{}Users\textbackslash{}Marcos} (carpeta \texttt{Marcos}, dentro de la carpeta \texttt{Users}, en el disco \texttt{C}).
@@ -6541,7 +6642,7 @@ Por ejemplo, podemos ver todos los archivos que existen en el directorio actual 
 
 }
 
-\caption{Contenido del directorio actual (Windows).}\label{fig:unnamed-chunk-173}
+\caption{Contenido del directorio actual (Windows).}\label{fig:unnamed-chunk-177}
 \end{figure}
 
 Para los siguientes ejemplos, trabajaremos en una carpeta llamada \texttt{Ejemplos}, cuyo \emph{path} es \texttt{C:\textbackslash{}Users\textbackslash{}Marcos\textbackslash{}Trabajo\textbackslash{}Ejemplos} que tiene la siguiente composición:
@@ -6552,7 +6653,7 @@ Para los siguientes ejemplos, trabajaremos en una carpeta llamada \texttt{Ejempl
 
 }
 
-\caption{Carpeta en la cual deseamos trabajar.}\label{fig:unnamed-chunk-174}
+\caption{Carpeta en la cual deseamos trabajar.}\label{fig:unnamed-chunk-178}
 \end{figure}
 
 Podemos convertir a dicha carpeta como nuestro nuevo directorio de trabajo con el comando \texttt{cd} (\emph{change directory}):
@@ -6563,7 +6664,7 @@ Podemos convertir a dicha carpeta como nuestro nuevo directorio de trabajo con e
 
 }
 
-\caption{Cambio de directorio de trabajo y listado de archivos en el mismo.}\label{fig:unnamed-chunk-175}
+\caption{Cambio de directorio de trabajo y listado de archivos en el mismo.}\label{fig:unnamed-chunk-179}
 \end{figure}
 
 En Windows hay una forma más directa de abrir la terminal y que ya tenga seteada como directorio de trabajo a una carpeta deseada. Antes de abrir la terminal, vamos con el \emph{Explorador de archivos} a la carpeta en cuestión, nos posicionamos en la barra del explorador, escribimos \texttt{cmd} y le damos \texttt{ENTER}. Automáticamente se abrirá la terminal, con esta carpeta como directorio de referencia.
@@ -6574,7 +6675,7 @@ En Windows hay una forma más directa de abrir la terminal y que ya tenga setead
 
 }
 
-\caption{Abrir la terminal desde una carpeta en particular en Windows.}\label{fig:unnamed-chunk-176}
+\caption{Abrir la terminal desde una carpeta en particular en Windows.}\label{fig:unnamed-chunk-180}
 \end{figure}
 
 Desde la terminal podemos correr nuestros programas de R. Hacer esto es necesario cuando tenemos que programar alguna tarea de gran escala que se ejecutará de manera remota en algún servidor o cuando necesitamos encapsular nuestro programa para que otros lo puedan correr sin siquiera saber nada de R.
@@ -6603,7 +6704,7 @@ Para ejecutar este programa desde la terminal, sin abrir RStudio o R, utilizo el
 
 }
 
-\caption{Correr el programa de R desde la consola en Windows.}\label{fig:unnamed-chunk-178}
+\caption{Correr el programa de R desde la consola en Windows.}\label{fig:unnamed-chunk-182}
 \end{figure}
 
 Todo lo que en el programa estaba encerrado en una llamada a la función \texttt{cat()} es lo que se muestra como mensajes en la terminal. Notar que la instrucción \texttt{RScript\ mi\_programa.R} funcione, debemos tener como directorio de trabajo aquella carpeta que aloja al archivo \texttt{mi\_programa.R}, en caso contrario el sistema nos alertará que el mismo no está disponible.
@@ -6658,7 +6759,7 @@ Esto es lo que ocurre en la terminal:
 
 }
 
-\caption{Programa paridad.R.}\label{fig:unnamed-chunk-180}
+\caption{Programa paridad.R.}\label{fig:unnamed-chunk-184}
 \end{figure}
 
 \textbf{Práctica 2, Ejercicio 3: salario}
@@ -6694,7 +6795,7 @@ En este ejemplo, tenemos que leer tres valores, dos de lo cuales son de tipo car
 
 }
 
-\caption{Programa salario.R.}\label{fig:unnamed-chunk-182}
+\caption{Programa salario.R.}\label{fig:unnamed-chunk-186}
 \end{figure}
 
 \textbf{Práctica 4, Ejercicio 1: suma de elementos de un vector}\footnote{Si estás leyendo esto antes de que hayamos visto en clase la Unidad 5, podés omitir este último ejemplo y retomarlo más adelante en el cursado.}
@@ -6724,7 +6825,7 @@ En este ejercicio escribimos una función para sumar los elementos de un vector.
 
 }
 
-\caption{Programa suma.R.}\label{fig:unnamed-chunk-184}
+\caption{Programa suma.R.}\label{fig:unnamed-chunk-188}
 \end{figure}
 
 \hypertarget{muxe1s-funciones-predefinidas}{%
@@ -6906,11 +7007,11 @@ Recordemos algunos ejercicios:
 
 \begin{verbatim}
      [,1] [,2] [,3] [,4]
-[1,]   98   35   61   20
-[2,]   62   81    4   24
-[3,]   60   52   46   29
-[4,]   16   38   23   36
-[5,]   40   15   51   10
+[1,]   92   55    5   90
+[2,]   49   36   38    2
+[3,]   47   52   53   20
+[4,]   74   21   29    1
+[5,]    3   14   95    8
 \end{verbatim}
 
 \begin{Shaded}
@@ -6921,7 +7022,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 98
+[1] 95
 \end{verbatim}
 
 \begin{Shaded}
@@ -6933,7 +7034,7 @@ Recordemos algunos ejercicios:
 
 \begin{verbatim}
      row col
-[1,]   1   1
+[1,]   5   3
 \end{verbatim}
 
 \begin{Shaded}
@@ -6945,7 +7046,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 98 81 60 38 51
+[1] 92 49 53 74 95
 \end{verbatim}
 
 \begin{Shaded}
@@ -6956,7 +7057,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 98 81 61 36
+[1] 92 55 95 90
 \end{verbatim}
 
 \begin{Shaded}
@@ -6967,7 +7068,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 1 2 1 2 3
+[1] 1 1 3 1 3
 \end{verbatim}
 
 \begin{Shaded}
@@ -6977,7 +7078,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 1 2 1 2 3
+[1] 1 1 3 1 3
 \end{verbatim}
 
 \begin{Shaded}
@@ -6988,7 +7089,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 1 2 1 4
+[1] 1 1 5 1
 \end{verbatim}
 \item
   En otras ocasiones, puede ser que R no incluya en su instalación base la función que necesitamos, pero que la misma ya haya sido programada por otra persona y esté disponible en un \emph{paquete} que podemos descargar e instalar. Por ejemplo, en el ejercicio 8 de la Práctica 3 escribimos una función llamada \texttt{max\_com\_div()} para hallar el máximo común divisor entre dos naturales. R no tiene una función que compute esto, pero podemos instalar el paquete \texttt{FRACTION} que sí la incluye:
