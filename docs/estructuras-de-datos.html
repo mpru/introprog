@@ -6,14 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>5 Estructuras de Datos | Introducción a la Programación</title>
 <meta name="author" content="Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.)">
-<meta name="description" content="Hasta ahora todos los algoritmos que hemos desarrollado hacen uso de objetos que guardan datos individuales, los cuales representaban un número, una cadena de texto o un valor lógico. Sin embargo,...">
+<meta name="description" content="Hasta ahora todos los algoritmos que hemos desarrollado hacen uso de objetos que guardan datos individuales, los cuales representan un número, una cadena de texto o un valor lógico. Sin embargo,...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="5 Estructuras de Datos | Introducción a la Programación">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Hasta ahora todos los algoritmos que hemos desarrollado hacen uso de objetos que guardan datos individuales, los cuales representaban un número, una cadena de texto o un valor lógico. Sin embargo,...">
+<meta property="og:description" content="Hasta ahora todos los algoritmos que hemos desarrollado hacen uso de objetos que guardan datos individuales, los cuales representan un número, una cadena de texto o un valor lógico. Sin embargo,...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="5 Estructuras de Datos | Introducción a la Programación">
-<meta name="twitter:description" content="Hasta ahora todos los algoritmos que hemos desarrollado hacen uso de objetos que guardan datos individuales, los cuales representaban un número, una cadena de texto o un valor lógico. Sin embargo,...">
+<meta name="twitter:description" content="Hasta ahora todos los algoritmos que hemos desarrollado hacen uso de objetos que guardan datos individuales, los cuales representan un número, una cadena de texto o un valor lógico. Sin embargo,...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -60,13 +60,13 @@
 <h1>
 <span class="header-section-number">5</span> Estructuras de Datos<a class="anchor" aria-label="anchor" href="#estructuras-de-datos"><i class="fas fa-link"></i></a>
 </h1>
-<p>Hasta ahora todos los algoritmos que hemos desarrollado hacen uso de objetos que guardan datos individuales, los cuales representaban un número, una cadena de texto o un valor lógico. Sin embargo, la verdadera utilidad de la computación radica en poder trabajar con conjuntos de datos, organizados de acuerdo a ciertas reglas que permitan su manipulación y acceso. Definimos entonces como <strong>estructura de datos</strong> a un conjunto de datos que cuentan con un sistema de organización.</p>
+<p>Hasta ahora todos los algoritmos que hemos desarrollado hacen uso de objetos que guardan datos individuales, los cuales representan un número, una cadena de texto o un valor lógico. Sin embargo, la verdadera utilidad de la computación radica en poder trabajar con conjuntos de datos, organizados de acuerdo a ciertas reglas que permitan su manipulación y acceso. Definimos entonces como <strong>estructura de datos</strong> a un conjunto de datos que cuentan con un sistema de organización.</p>
 <p>Veremos dos tipos de estructuras de datos: los <strong>arreglos</strong> y las <strong>listas</strong>.</p>
 <div id="arreglos" class="section level2" number="5.1">
 <h2>
 <span class="header-section-number">5.1</span> Arreglos<a class="anchor" aria-label="anchor" href="#arreglos"><i class="fas fa-link"></i></a>
 </h2>
-<p>Un <strong>arreglo</strong> (o <em>array</em>) se define como una colección de valores individuales con dos características fundamentales:</p>
+<p>Un <strong>arreglo</strong> se define como una colección de valores individuales con dos características fundamentales:</p>
 <ul>
 <li>
 <em>Ordenamiento</em>: los valores individuales pueden ser enumerados en orden, es decir, debe ser posible identificar en qué posición del arreglo se encuentra cada valor.</li>
@@ -156,7 +156,7 @@ FIN PARA</code></pre>
 PARA i DESDE 1 HASTA tam HACER
     ESCRIBIR "La posición " i "de x está ocupada por el valor " x[i]
 FIN PARA</code></pre>
-<p>Antes comentamos que en R los vectores se crean con expresiones como <code>x &lt;- c(-4.5, 12, 2.71, -6, 25)</code>, donde sus elementos están listados de forma literal. También podemos crear vectores de un largo determinado dejando que cada posición quede ocupada por un valor por default. Por ejemplo, el siguiente código crea un vector tipo numérico con 10 posiciones, uno carácter con 7 y otro lógico con 2. En cada caso, R rellena por defecto todas las posiciones con el mismo valor: un 0 para todas las posiciones del vector numérico, un carácter vacío <code>""</code> para las del vector carácter y el valor <code>FALSE</code> para el vector lógico:</p>
+<p>Antes comentamos que en R los vectores se crean con expresiones como <code>x &lt;- c(-4.5, 12, 2.71, -6, 25)</code>, donde sus elementos están listados de forma literal. También podemos crear vectores de un largo determinado dejando que cada posición quede ocupada por algún valor asignado por defecto. Por ejemplo, el siguiente código crea un vector tipo numérico con 10 posiciones, uno carácter con 7 y otro lógico con 2. En cada caso, R rellena todas las posiciones con el mismo valor: ceros en el vector numérico, caracteres vacíos <code>""</code> en el vector de tipo carácter y valores <code>FALSE</code> en el vector lógico:</p>
 <div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>
 <span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="fl">7</span><span class="op">)</span>
@@ -186,7 +186,7 @@ MOSTRAR a</code></pre>
         <span class="va">a</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">i</span> <span class="op">*</span> <span class="fl">100</span>
     <span class="op">}</span>
 <span class="op">}</span>
-<span class="va">a</span>       <span class="co"># También: cat(a) o print(a)</span></code></pre></div>
+<span class="va">a</span></code></pre></div>
 <pre><code> [1]   0   0 300   0   0 600   0   0 900   0</code></pre>
 <p>En los ejemplos anteriores, declaramos los vectores explicitando su tamaño con un número: <code>VARIABLE numérica x(5)</code> o <code>VARIABLE numérica a(10)</code>. Sin embargo, el tamaño del vector podría estar guardado en otra variable, cuyo valor se determina en cada ejecución del programa mediante información externa o como resultado de algún cálculo anterior. En el siguiente ejemplo se deja que el usuario determine la dimensión del vector y que provea cada uno de los valores para el mismo. Antes de poder declarar la existencia del nuevo vector llamado <code>mi_vector</code>, se “lee” su tamaño:</p>
 <pre><code>VARIABLE numérica tam
@@ -242,7 +242,7 @@ COMENZAR
   FIN PARA
   
   # Reordenar
-  PARA i DESDE 1 HASTA ENTERO(n / 2) HACER
+  PARA i DESDE 1 HASTA n DIV 2 HACER
       tmp &lt;- v[i]                 # Paso 1
       v[i] &lt;- v[n - i + 1]        # Paso 2
       v[n - i + 1] &lt;- tmp         # Paso 3
@@ -252,11 +252,11 @@ COMENZAR
   MOSTRAR v
     
 FIN</code></pre>
-<p>En el ejemplo anterior hemos incorporado el uso de comentarios en el pseudocódigo para describir el objetivo de cada parte. Imitando lo que hacemos en R, señalamos la presencia de comentarios con el carácter <code>#</code> (podríamos usar otra cosa, pero adheriremos a esta convención). Se usó la expresión <code>ENTERO()</code> para hacer referencia a la parte entera del número indicado entre paréntesis, lo cual se puede indicar en R con la función <code><a href="https://rdrr.io/r/base/Round.html">floor()</a></code>. Además, en R reemplazamos todas las instrucciones <code>LEER</code> por una asignación directa de valores:</p>
+<p>En el ejemplo anterior hemos incorporado el uso de comentarios en el pseudocódigo para describir el objetivo de cada parte. Imitando lo que hacemos en R, señalamos la presencia de comentarios con el carácter <code>#</code> (podríamos usar otra cosa, pero adheriremos a esta convención). Se usó el operador <code>DIV</code> para obtener la división entera entre <code>n</code> y <code>2</code> (por ejemplo, <code>5 DIV 2 = 2</code>). En R reemplazamos todas las instrucciones <code>LEER</code> por una asignación directa de valores y empleamos el operador de división entera <code><a href="https://rdrr.io/r/base/Arithmetic.html">%/%</a></code>:</p>
 <div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Estadística"</span>, <span class="st">"en"</span>, <span class="st">"Licenciatura"</span>, <span class="st">"la"</span>, <span class="st">"Aguante"</span><span class="op">)</span>
 <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span>
-<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="va">n</span> <span class="op">/</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="op">(</span><span class="va">n</span><span class="op">%/%</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
     <span class="va">tmp</span> <span class="op">&lt;-</span> <span class="va">v</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>
     <span class="va">v</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">v</span><span class="op">[</span><span class="va">n</span> <span class="op">-</span> <span class="va">i</span> <span class="op">+</span> <span class="fl">1</span><span class="op">]</span>
     <span class="va">v</span><span class="op">[</span><span class="va">n</span> <span class="op">-</span> <span class="va">i</span> <span class="op">+</span> <span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">tmp</span>
@@ -426,7 +426,7 @@ COMENZAR
     MOSTRAR traspuesta
     
 FIN</code></pre>
-<p>Dado que en R vamos a asignar valores en la matriz de manera literal, primero la creamos y luego usamos <code><a href="https://rdrr.io/r/base/nrow.html">nrow()</a></code> y <code><a href="https://rdrr.io/r/base/nrow.html">ncol()</a></code> para obtener los correspondientes valores de <code>nf</code> y <code>nc</code>. En el siguiente ejemplo, además, todas las posiciones de la matriz traspuesta son iniciadas con el valor <code>NA</code> (valor lógico que significa <em>Not Available</em> o “no disponible”).</p>
+<p>Dado que en R vamos a asignar valores en la matriz de manera literal, primero la creamos y luego usamos <code><a href="https://rdrr.io/r/base/nrow.html">nrow()</a></code> y <code><a href="https://rdrr.io/r/base/nrow.html">ncol()</a></code> para obtener los correspondientes valores de <code>nf</code> y <code>nc</code>. En el siguiente ejemplo, además, todas las posiciones de la matriz traspuesta son iniciadas con el valor <code>NA</code>.</p>
 <div class="sourceCode" id="cb332"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">18</span>, <span class="fl">23</span>, 
               <span class="fl">11</span>, <span class="fl">16</span>, <span class="fl">21</span>, <span class="fl">26</span>, 
@@ -705,31 +705,31 @@ mi_lista[[4]] &lt;- VERDADERO</code></pre>
 <a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Si fuesen elementos del mismo tipo, los podríamos devolver dentro de un vector, por ejemplo, las dos soluciones reales distintas de una ecuación cuadrática.&lt;/p&gt;"><sup>23</sup></a>
 .
 La solución consiste en devolver una lista que englobe a todos los objetos que nos interese que la función le entregue como resultado al algoritmo principal que la invocó. Como una lista es un único objeto, ¡la función puede devolverla sin ningún problema!</p>
-<p>Para ejemplificar, recordemos el siguiente ejercicio de la práctica 3: escribir el algoritmo y el programa en R para la creación de la función <code>triangulos(a, b, c)</code> que a partir de la longitud de los tres lados de un triángulo <code>a</code>, <code>b</code> y <code>c</code> (valores positivos) lo clasifica con los siguientes resultados posibles: no forman un triángulo (un lado mayor que la suma de los otros dos), triángulo equilátero, isósceles o escaleno. Vamos a modificar la función para que tenga el siguiente comportamiento: la función debe devolver el tipo de triángulo como cadena de texto y el valor numérico del perímetro del mismo (o un 0 si no es triángulo). Es decir, la función debe devolver tanto un objeto de tipo carácter y otro de tipo numérico. Para lograrlo los encerraremos en una lista:</p>
+<p>Para ejemplificar, recordemos el siguiente ejercicio de la práctica 3: escribir el algoritmo y el programa en R para la creación de la función <code>triangulos(a, b, c)</code> que a partir de la longitud de los tres lados de un triángulo <code>a</code>, <code>b</code> y <code>d</code> (valores positivos) lo clasifica con los siguientes resultados posibles: no forman un triángulo (un lado mayor que la suma de los otros dos), triángulo equilátero, isósceles o escaleno. Vamos a modificar la función para que tenga el siguiente comportamiento: la función debe devolver el tipo de triángulo como cadena de texto y el valor numérico del perímetro del mismo (o un 0 si no es triángulo). Es decir, la función debe devolver tanto un objeto de tipo carácter y otro de tipo numérico. Para lograrlo los encerraremos en una lista:</p>
 <p>Algoritmo:</p>
-<pre><code>#-----------------------------------------------------
+<pre><code>#------------------------------------------------------------------------------
 # Función triangulos
 # Clasifica un triángulo según la longitud de sus lados
 # Entrada:
-#       - a, b, c, números reales positivos
+#       - a, b, d, números reales positivos
 # Salida:
 #       - una lista cuyo primer elemento es un carácter que indica el tipo de
-#       triángulo y el segundo elemento es el perímetro del triángulo o el valor 0 si
-#       no los lados provistos no corresponden a un triángulo
-#-----------------------------------------------------
+#       triángulo y el segundo elemento es el perímetro del triángulo o el valor 0 
+#       si no los lados provistos no corresponden a un triángulo
+#------------------------------------------------------------------------------
 FUNCIÓN triangulos(a: numérico, b: numérico, c: numérico): lista
 COMENZAR
     VARIABLE carácter tipo
     VARIABLE numérica perimetro
-    SI a &gt; b + c O b &gt; a + c O c &gt; a + b ENTONCES
+    SI a &gt; b + d O b &gt; a + d O d &gt; a + b ENTONCES
         tipo &lt;- "no es triángulo"
         perimetro &lt;- 0
     SI NO
-        perimetro &lt;- a + b + c
-        SI a == b Y a == c ENTONCES
+        perimetro &lt;- a + b + d
+        SI a == b Y a == d ENTONCES
             tipo &lt;- "equilátero"
         SI NO
-            SI a == b O a == c O b == c ENTONCES
+            SI a == b O a == d O b == d ENTONCES
                 tipo &lt;- "isósceles"
             SI NO
                 tipo &lt;- "escaleno"
@@ -750,14 +750,14 @@ FIN FUNCIÓN</code></pre>
 <span class="co">#       triángulo y el segundo elemento es el perímetro del triángulo o el valor 0 si</span>
 <span class="co">#       no los lados provistos no corresponden a un triángulo</span>
 <span class="co">#-----------------------------------------------------</span>
-<span class="va">triangulos</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span>, <span class="va">c</span><span class="op">)</span> <span class="op">{</span>
-    <span class="va">perimetro</span> <span class="op">&lt;-</span> <span class="va">a</span> <span class="op">+</span> <span class="va">b</span> <span class="op">+</span> <span class="va">c</span>
-    <span class="kw">if</span> <span class="op">(</span><span class="va">a</span> <span class="op">&gt;</span> <span class="va">b</span> <span class="op">+</span> <span class="va">c</span> <span class="op">||</span> <span class="va">b</span> <span class="op">&gt;</span> <span class="va">a</span> <span class="op">+</span> <span class="va">c</span> <span class="op">||</span> <span class="va">c</span> <span class="op">&gt;</span> <span class="va">a</span> <span class="op">+</span> <span class="va">b</span><span class="op">)</span> <span class="op">{</span>
+<span class="va">triangulos</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span>, <span class="va">d</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">perimetro</span> <span class="op">&lt;-</span> <span class="va">a</span> <span class="op">+</span> <span class="va">b</span> <span class="op">+</span> <span class="va">d</span>
+    <span class="kw">if</span> <span class="op">(</span><span class="va">a</span> <span class="op">&gt;</span> <span class="va">b</span> <span class="op">+</span> <span class="va">d</span> <span class="op">||</span> <span class="va">b</span> <span class="op">&gt;</span> <span class="va">a</span> <span class="op">+</span> <span class="va">d</span> <span class="op">||</span> <span class="va">d</span> <span class="op">&gt;</span> <span class="va">a</span> <span class="op">+</span> <span class="va">b</span><span class="op">)</span> <span class="op">{</span>
         <span class="va">tipo</span> <span class="op">&lt;-</span> <span class="st">"no es triángulo"</span>
         <span class="va">perimetro</span> <span class="op">&lt;-</span> <span class="fl">0</span>
-    <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">a</span> <span class="op">==</span> <span class="va">b</span> <span class="op">&amp;</span> <span class="va">a</span> <span class="op">==</span> <span class="va">c</span><span class="op">)</span> <span class="op">{</span>
+    <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">a</span> <span class="op">==</span> <span class="va">b</span> <span class="op">&amp;</span> <span class="va">a</span> <span class="op">==</span> <span class="va">d</span><span class="op">)</span> <span class="op">{</span>
         <span class="va">tipo</span> <span class="op">&lt;-</span> <span class="st">"equilátero"</span>
-    <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">a</span> <span class="op">==</span> <span class="va">b</span> <span class="op">||</span> <span class="va">a</span> <span class="op">==</span> <span class="va">c</span> <span class="op">||</span> <span class="va">b</span> <span class="op">==</span> <span class="va">c</span><span class="op">)</span> <span class="op">{</span>
+    <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">a</span> <span class="op">==</span> <span class="va">b</span> <span class="op">||</span> <span class="va">a</span> <span class="op">==</span> <span class="va">d</span> <span class="op">||</span> <span class="va">b</span> <span class="op">==</span> <span class="va">d</span><span class="op">)</span> <span class="op">{</span>
         <span class="va">tipo</span> <span class="op">&lt;-</span> <span class="st">"isósceles"</span>
     <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
         <span class="va">tipo</span> <span class="op">&lt;-</span> <span class="st">"escaleno"</span>
@@ -886,9 +886,9 @@ Categorias grupo1 grupo2 grupo3 grupo4
          A      8     13     18     23
          B     11     16     21     26
          C     14     19     24     29</code></pre>
-<pre><code>En este último ejemplo, se han elegido arbitrariamente los nombres `Categorias` y `Grupos` para llamar al conjunto completo de las filas y de las columnas, respectivamente. Esos nombres pueden ser cambiados por otros.</code></pre>
+<p>En este último ejemplo, se han elegido arbitrariamente los nombres <code>Categorias</code> y <code>Grupos</code> para llamar al conjunto completo de las filas y de las columnas, respectivamente. Esos nombres pueden ser cambiados por otros.</p>
 <p>Al igual que con los vectores, podemos usar los nombres de filas y columnas para indexar:</p>
-<div class="sourceCode" id="cb396"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb395"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span><span class="op">[</span><span class="st">"B"</span>, <span class="st">"grupo2"</span><span class="op">]</span></code></pre></div>
 <pre><code>[1] 16</code></pre>
 <p>En el caso de los arreglos multidimensionales, ya se indicó en el ejemplo del local comercial el uso de nombres para las distintas dimensiones.</p>
@@ -898,7 +898,7 @@ Categorias grupo1 grupo2 grupo3 grupo4
 <span class="header-section-number">5.3.3</span> Listas<a class="anchor" aria-label="anchor" href="#listas-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>Podemos asignarle un nombre a uno, algunos o todos los integrantes en una lista:</p>
-<div class="sourceCode" id="cb398"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb397"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mi_lista</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
     w <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4.5</span>, <span class="fl">12</span>, <span class="fl">2.71</span><span class="op">)</span>,
     x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"hola"</span>, <span class="st">"chau"</span><span class="op">)</span>,
@@ -920,17 +920,17 @@ $y
 $z
 [1] TRUE</code></pre>
 <p>Esto amplía las opciones para hacer referencia a cada objeto y elemento allí contenido. Las siguientes sentencias son todas equivalentes y sirven para acceder al tercer elemento de la lista, cuyo nombre es <code>y</code>:</p>
-<div class="sourceCode" id="cb400"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb399"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    8   13
 [2,]   11   16</code></pre>
-<div class="sourceCode" id="cb402"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb401"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="st">"y"</span><span class="op">]</span><span class="op">]</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    8   13
 [2,]   11   16</code></pre>
-<div class="sourceCode" id="cb404"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb403"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mi_lista</span><span class="op">$</span><span class="va">y</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    8   13
@@ -941,7 +941,7 @@ $z
 <h2>
 <span class="header-section-number">5.4</span> Otras consideraciones (lectura opcional)<a class="anchor" aria-label="anchor" href="#otras-consideraciones-lectura-opcional"><i class="fas fa-link"></i></a>
 </h2>
-<p>Dependiendo de cómo se almacenan los datos que componen a una estructura en el hardware de la computadora, las mismas se pueden clasificar en <strong>contiguas</strong> o <strong>enlazadas</strong>. En las estructuras contiguas, los datos se sitúan en áreas adyacentes de memoria y cada uno de ellos se puede localizar partiendo de la posición en memoria del primer elemento de la estructura. En las estructuras enlazadas, los datos no se sitúan necesariamente de forma continua en la memoria sino que existen <em>punteros</em> (otro tipo de dato que <em>apunta</em> hacia determinada posición de memoria) que permite identificar cuál es el orden de los elementos dentro de la estructura.</p>
+<p>Dependiendo de cómo se almacenan los datos que componen a una estructura en el <em>hardware</em> de la computadora, las mismas se pueden clasificar en <strong>contiguas</strong> o <strong>enlazadas</strong>. En las estructuras contiguas, los datos se sitúan en áreas adyacentes de memoria y cada uno de ellos se puede localizar partiendo de la posición en memoria del primer elemento de la estructura. En las estructuras enlazadas, los datos no se sitúan necesariamente de forma continua en la memoria sino que existen <em>punteros</em> (otro tipo de dato que <em>apunta</em> hacia determinada posición de memoria) que permite identificar cuál es el orden de los elementos dentro de la estructura.</p>
 <p>Por otro lado, las estructuras también se pueden clasificar en <strong>dinámicas</strong> o <strong>estáticas</strong>, según si su tamaño puede cambiar o no durante la ejecución de un programa, respectivamente. Cuando se emplea una estructura estática, se declara con anterioridad el tamaño que ocupará en memoria y su dimensión no podrá variar, aún cuando no se ocupen todas las posiciones reservadas. En contraposición, una estructura dinámica puede cambiar en tamaño.</p>
 <p>Antes se mencionó que las listas de R pueden contener objetos de distintos tipos. Para ser más rigurosos, una lista es un tipo especial de vector que agrupa punteros hacia distintos objetos. Técnicamente, todos los elementos de una lista son del mismo tipo (punteros), pero hacen referencia a distintos objetos, dándonos la impresión de que en una lista de R, sencillamente, podemos meter cualquier tipo de objeto.</p>
 
@@ -987,7 +987,7 @@ $z
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2022-04-24.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2022-04-30.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

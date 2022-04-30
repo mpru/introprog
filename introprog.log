@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.12.1)  24 APR 2022 15:42
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.12.1)  30 APR 2022 16:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1716,21 +1716,22 @@ File: images/05_estructuras/estr13.png Graphic file (type bmp)
 LaTeX Info: Redefining \. on input line 4285.
 LaTeX Info: Redefining \% on input line 4285.
 [73]
-Underfull \vbox (badness 10000) detected at line 4300
- []
+Underfull \vbox (badness 1152) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 4300.
-LaTeX Info: Redefining \% on input line 4300.
+LaTeX Info: Redefining \. on input line 4304.
+LaTeX Info: Redefining \% on input line 4304.
 [74]
 File: images/05_estructuras/estr05.png Graphic file (type bmp)
 <images/05_estructuras/estr05.png>
 File: images/05_estructuras/estr06.png Graphic file (type bmp)
 <images/05_estructuras/estr06.png>
-LaTeX Info: Redefining \. on input line 4349.
-LaTeX Info: Redefining \% on input line 4349.
+LaTeX Info: Redefining \. on input line 4352.
+LaTeX Info: Redefining \% on input line 4352.
 [75]
-LaTeX Info: Redefining \. on input line 4441.
-LaTeX Info: Redefining \% on input line 4441.
+Underfull \vbox (badness 7168) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 4449.
+LaTeX Info: Redefining \% on input line 4449.
 [76]
 File: images/05_estructuras/estr07.png Graphic file (type bmp)
 <images/05_estructuras/estr07.png>
@@ -1791,126 +1792,119 @@ LaTeX Info: Redefining \% on input line 5146.
 LaTeX Info: Redefining \. on input line 5264.
 LaTeX Info: Redefining \% on input line 5264.
 [88]
-Overfull \hbox (638.766pt too wide) in paragraph at lines 5288--5288
-[]\TU/lmtt/m/n/10 En este último ejemplo, se han elegido arbitrariamente los no
-mbres []Categorias[] y []Grupos[] para llamar al conjunto completo de las filas
- y de las columnas, respectivamente. Esos nombres pueden ser cambiados por otro
-s.[] 
- []
-
-LaTeX Info: Redefining \. on input line 5351.
-LaTeX Info: Redefining \% on input line 5351.
+LaTeX Info: Redefining \. on input line 5349.
+LaTeX Info: Redefining \% on input line 5349.
 [89]
-LaTeX Info: Redefining \. on input line 5385.
-LaTeX Info: Redefining \% on input line 5385.
+LaTeX Info: Redefining \. on input line 5383.
+LaTeX Info: Redefining \% on input line 5383.
 [90]
 Unidad 6.
-LaTeX Info: Redefining \. on input line 5422.
-LaTeX Info: Redefining \% on input line 5422.
+LaTeX Info: Redefining \. on input line 5420.
+LaTeX Info: Redefining \% on input line 5420.
 [91
 
 ]
 Underfull \vbox (badness 1297) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 5460.
-LaTeX Info: Redefining \% on input line 5460.
+LaTeX Info: Redefining \. on input line 5458.
+LaTeX Info: Redefining \% on input line 5458.
 [92]
-LaTeX Info: Redefining \. on input line 5508.
-LaTeX Info: Redefining \% on input line 5508.
+LaTeX Info: Redefining \. on input line 5506.
+LaTeX Info: Redefining \% on input line 5506.
 [93]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 5569.
-LaTeX Info: Redefining \% on input line 5569.
+LaTeX Info: Redefining \. on input line 5567.
+LaTeX Info: Redefining \% on input line 5567.
 [94]
 File: images/06_archivos/arch00.png Graphic file (type bmp)
 <images/06_archivos/arch00.png>
-LaTeX Info: Redefining \. on input line 5632.
-LaTeX Info: Redefining \% on input line 5632.
+LaTeX Info: Redefining \. on input line 5630.
+LaTeX Info: Redefining \% on input line 5630.
 [95]
 Underfull \vbox (badness 7203) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 5722.
-LaTeX Info: Redefining \% on input line 5722.
+LaTeX Info: Redefining \. on input line 5720.
+LaTeX Info: Redefining \% on input line 5720.
 [96]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 5806.
-LaTeX Info: Redefining \% on input line 5806.
+LaTeX Info: Redefining \. on input line 5804.
+LaTeX Info: Redefining \% on input line 5804.
 [97]
 File: images/06_archivos/arch01.png Graphic file (type bmp)
 <images/06_archivos/arch01.png>
-LaTeX Info: Redefining \. on input line 5840.
-LaTeX Info: Redefining \% on input line 5840.
+LaTeX Info: Redefining \. on input line 5838.
+LaTeX Info: Redefining \% on input line 5838.
 [98]
-Underfull \vbox (badness 10000) detected at line 5932
+Underfull \vbox (badness 10000) detected at line 5930
  []
 
 
-Overfull \vbox (2.00096pt too high) detected at line 5932
+Overfull \vbox (2.00096pt too high) detected at line 5930
  []
 
-LaTeX Info: Redefining \. on input line 5932.
-LaTeX Info: Redefining \% on input line 5932.
+LaTeX Info: Redefining \. on input line 5930.
+LaTeX Info: Redefining \% on input line 5930.
 [99]
-LaTeX Info: Redefining \. on input line 6009.
-LaTeX Info: Redefining \% on input line 6009.
+LaTeX Info: Redefining \. on input line 6007.
+LaTeX Info: Redefining \% on input line 6007.
 [100]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 6092.
-LaTeX Info: Redefining \% on input line 6092.
+LaTeX Info: Redefining \. on input line 6090.
+LaTeX Info: Redefining \% on input line 6090.
 [101]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 6171.
-LaTeX Info: Redefining \% on input line 6171.
+LaTeX Info: Redefining \. on input line 6169.
+LaTeX Info: Redefining \% on input line 6169.
 [102]
-LaTeX Info: Redefining \. on input line 6243.
-LaTeX Info: Redefining \% on input line 6243.
+LaTeX Info: Redefining \. on input line 6241.
+LaTeX Info: Redefining \% on input line 6241.
 [103]
-LaTeX Info: Redefining \. on input line 6362.
-LaTeX Info: Redefining \% on input line 6362.
+LaTeX Info: Redefining \. on input line 6360.
+LaTeX Info: Redefining \% on input line 6360.
 [104]
-Overfull \hbox (3.516pt too wide) in paragraph at lines 6362--6362
+Overfull \hbox (3.516pt too wide) in paragraph at lines 6360--6360
 []  \TU/lmtt/m/n/10 ESCRIBIR "El mes de mayor cantidad de reservas fue", meses[
 res[2]], "con", res[1], "reservas."[] 
  []
 
 
-Overfull \hbox (234.516pt too wide) in paragraph at lines 6362--6362
+Overfull \hbox (234.516pt too wide) in paragraph at lines 6360--6360
 []    \TU/lmtt/m/n/10 ESCRIBIR "Para las habitaciones de tipo", tipos[j], "el m
 es con menor número de reservas fue", meses[res[2]], "con", res[1], "reservas."
 [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6422
+Underfull \vbox (badness 10000) detected at line 6420
  []
 
 
-Overfull \vbox (1.281pt too high) detected at line 6422
+Overfull \vbox (1.281pt too high) detected at line 6420
  []
 
-LaTeX Info: Redefining \. on input line 6422.
-LaTeX Info: Redefining \% on input line 6422.
+LaTeX Info: Redefining \. on input line 6420.
+LaTeX Info: Redefining \% on input line 6420.
 [105]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 6452.
-LaTeX Info: Redefining \% on input line 6452.
+LaTeX Info: Redefining \. on input line 6450.
+LaTeX Info: Redefining \% on input line 6450.
 [106]
-LaTeX Info: Redefining \. on input line 6506.
-LaTeX Info: Redefining \% on input line 6506.
+LaTeX Info: Redefining \. on input line 6504.
+LaTeX Info: Redefining \% on input line 6504.
 [107]
-LaTeX Info: Redefining \. on input line 6567.
-LaTeX Info: Redefining \% on input line 6567.
+LaTeX Info: Redefining \. on input line 6565.
+LaTeX Info: Redefining \% on input line 6565.
 [108]
-LaTeX Info: Redefining \. on input line 6570.
-LaTeX Info: Redefining \% on input line 6570.
+LaTeX Info: Redefining \. on input line 6568.
+LaTeX Info: Redefining \% on input line 6568.
 [109]
-LaTeX Info: Redefining \. on input line 6570.
-LaTeX Info: Redefining \% on input line 6570.
+LaTeX Info: Redefining \. on input line 6568.
+LaTeX Info: Redefining \% on input line 6568.
 [110
 
 ]
@@ -1919,8 +1913,8 @@ File: images/07_otros/terminal.png Graphic file (type bmp)
 <images/07_otros/terminal.png>
 File: images/07_otros/terminal2.png Graphic file (type bmp)
 <images/07_otros/terminal2.png>
-LaTeX Info: Redefining \. on input line 6624.
-LaTeX Info: Redefining \% on input line 6624.
+LaTeX Info: Redefining \. on input line 6622.
+LaTeX Info: Redefining \% on input line 6622.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1930,8 +1924,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [111]
-LaTeX Info: Redefining \. on input line 6624.
-LaTeX Info: Redefining \% on input line 6624.
+LaTeX Info: Redefining \. on input line 6622.
+LaTeX Info: Redefining \% on input line 6622.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1944,7 +1938,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: images/07_otros/terminal3.png Graphic file (type bmp)
 <images/07_otros/terminal3.png>
 
-Overfull \hbox (52.90825pt too wide) in paragraph at lines 6648--6649
+Overfull \hbox (52.90825pt too wide) in paragraph at lines 6646--6647
 []\TU/lmr/m/n/10 Para los siguientes ejemplos, trabajaremos en una carpeta llam
 ada \TU/lmtt/m/n/10 Ejemplos\TU/lmr/m/n/10 , cuyo \TU/lmr/m/it/10 path \TU/lmr/
 m/n/10 es \TU/lmtt/m/n/10 C:\Users\Marcos\Trabajo\Ejemplos
@@ -1956,8 +1950,8 @@ File: images/07_otros/terminal5.png Graphic file (type bmp)
 <images/07_otros/terminal5.png>
 File: images/07_otros/terminal6.png Graphic file (type bmp)
 <images/07_otros/terminal6.png>
-LaTeX Info: Redefining \. on input line 6683.
-LaTeX Info: Redefining \% on input line 6683.
+LaTeX Info: Redefining \. on input line 6681.
+LaTeX Info: Redefining \% on input line 6681.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1967,8 +1961,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [113]
-LaTeX Info: Redefining \. on input line 6683.
-LaTeX Info: Redefining \% on input line 6683.
+LaTeX Info: Redefining \. on input line 6681.
+LaTeX Info: Redefining \% on input line 6681.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1980,8 +1974,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [114]
 File: images/07_otros/terminal7.png Graphic file (type bmp)
 <images/07_otros/terminal7.png>
-LaTeX Info: Redefining \. on input line 6726.
-LaTeX Info: Redefining \% on input line 6726.
+LaTeX Info: Redefining \. on input line 6724.
+LaTeX Info: Redefining \% on input line 6724.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1993,8 +1987,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [115]
 File: images/07_otros/terminal8.png Graphic file (type bmp)
 <images/07_otros/terminal8.png>
-LaTeX Info: Redefining \. on input line 6768.
-LaTeX Info: Redefining \% on input line 6768.
+LaTeX Info: Redefining \. on input line 6766.
+LaTeX Info: Redefining \% on input line 6766.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2006,8 +2000,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [116]
 File: images/07_otros/terminal9.png Graphic file (type bmp)
 <images/07_otros/terminal9.png>
-LaTeX Info: Redefining \. on input line 6805.
-LaTeX Info: Redefining \% on input line 6805.
+LaTeX Info: Redefining \. on input line 6803.
+LaTeX Info: Redefining \% on input line 6803.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2019,8 +2013,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [117]
 File: images/07_otros/terminal10.png Graphic file (type bmp)
 <images/07_otros/terminal10.png>
-LaTeX Info: Redefining \. on input line 6853.
-LaTeX Info: Redefining \% on input line 6853.
+LaTeX Info: Redefining \. on input line 6851.
+LaTeX Info: Redefining \% on input line 6851.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2030,14 +2024,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [118]
-Underfull \vbox (badness 10000) detected at line 6972
+Underfull \vbox (badness 10000) detected at line 6970
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 6972.
-LaTeX Info: Redefining \% on input line 6972.
+LaTeX Info: Redefining \. on input line 6970.
+LaTeX Info: Redefining \% on input line 6970.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2049,8 +2043,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [119]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 7096.
-LaTeX Info: Redefining \% on input line 7096.
+LaTeX Info: Redefining \. on input line 7094.
+LaTeX Info: Redefining \% on input line 7094.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2060,8 +2054,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [120]
-LaTeX Info: Redefining \. on input line 7176.
-LaTeX Info: Redefining \% on input line 7176.
+LaTeX Info: Redefining \. on input line 7174.
+LaTeX Info: Redefining \% on input line 7174.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2071,8 +2065,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [121]
-LaTeX Info: Redefining \. on input line 7267.
-LaTeX Info: Redefining \% on input line 7267.
+LaTeX Info: Redefining \. on input line 7265.
+LaTeX Info: Redefining \% on input line 7265.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2084,8 +2078,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [122]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 7384.
-LaTeX Info: Redefining \% on input line 7384.
+LaTeX Info: Redefining \. on input line 7382.
+LaTeX Info: Redefining \% on input line 7382.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2097,8 +2091,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [123]
 Underfull \vbox (badness 3590) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 7509.
-LaTeX Info: Redefining \% on input line 7509.
+LaTeX Info: Redefining \. on input line 7507.
+LaTeX Info: Redefining \% on input line 7507.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2108,8 +2102,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [124]
-LaTeX Info: Redefining \. on input line 7630.
-LaTeX Info: Redefining \% on input line 7630.
+LaTeX Info: Redefining \. on input line 7628.
+LaTeX Info: Redefining \% on input line 7628.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2121,8 +2115,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [125]
 Underfull \vbox (badness 3482) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 7759.
-LaTeX Info: Redefining \% on input line 7759.
+LaTeX Info: Redefining \. on input line 7757.
+LaTeX Info: Redefining \% on input line 7757.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2134,8 +2128,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [126]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 7865.
-LaTeX Info: Redefining \% on input line 7865.
+LaTeX Info: Redefining \. on input line 7863.
+LaTeX Info: Redefining \% on input line 7863.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2145,8 +2139,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [127]
-LaTeX Info: Redefining \. on input line 7952.
-LaTeX Info: Redefining \% on input line 7952.
+LaTeX Info: Redefining \. on input line 7950.
+LaTeX Info: Redefining \% on input line 7950.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2156,8 +2150,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [128]
-LaTeX Info: Redefining \. on input line 8072.
-LaTeX Info: Redefining \% on input line 8072.
+LaTeX Info: Redefining \. on input line 8070.
+LaTeX Info: Redefining \% on input line 8070.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2167,8 +2161,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [129]
-LaTeX Info: Redefining \. on input line 8166.
-LaTeX Info: Redefining \% on input line 8166.
+LaTeX Info: Redefining \. on input line 8164.
+LaTeX Info: Redefining \% on input line 8164.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2180,8 +2174,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [130]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 8286.
-LaTeX Info: Redefining \% on input line 8286.
+LaTeX Info: Redefining \. on input line 8284.
+LaTeX Info: Redefining \% on input line 8284.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2193,8 +2187,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [131]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 8375.
-LaTeX Info: Redefining \% on input line 8375.
+LaTeX Info: Redefining \. on input line 8373.
+LaTeX Info: Redefining \% on input line 8373.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2206,8 +2200,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [132]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 8475.
-LaTeX Info: Redefining \% on input line 8475.
+LaTeX Info: Redefining \. on input line 8473.
+LaTeX Info: Redefining \% on input line 8473.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2217,61 +2211,61 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [133]
-Overfull \hbox (3.516pt too wide) in paragraph at lines 8475--8475
+Overfull \hbox (3.516pt too wide) in paragraph at lines 8473--8473
 []\TU/lmtt/m/n/10 La canción con mayor valor de energía (0.949) es El Amor Espe
 ra y pertenece al disco Influencia.[] 
  []
 
 
-Overfull \hbox (150.516pt too wide) in paragraph at lines 8475--8475
+Overfull \hbox (150.516pt too wide) in paragraph at lines 8473--8473
 []                               \TU/lmtt/m/n/10 Disco bailable energico volume
 n hablado acustico instrumental  vivo positivo   tempo duracion[] 
  []
 
 
-Overfull \hbox (150.516pt too wide) in paragraph at lines 8475--8475
+Overfull \hbox (150.516pt too wide) in paragraph at lines 8473--8473
 []\TU/lmtt/m/n/10 1         Yendo de la cama al living    0.684    0.460 -11.99
 2   0.078    0.293        0.021 0.172    0.517 105.760 259585.0[] 
  []
 
 
-Overfull \hbox (150.516pt too wide) in paragraph at lines 8475--8475
+Overfull \hbox (150.516pt too wide) in paragraph at lines 8473--8473
 []\TU/lmtt/m/n/10 2               Parte de la religión    0.633    0.710  -8.59
 5   0.037    0.278        0.059 0.141    0.564 113.890 234867.9[] 
  []
 
 
-Overfull \hbox (150.516pt too wide) in paragraph at lines 8475--8475
+Overfull \hbox (150.516pt too wide) in paragraph at lines 8473--8473
 []\TU/lmtt/m/n/10 3 Filosofía barata y zapatos de goma    0.592    0.384 -17.39
 2   0.036    0.108        0.009 0.114    0.500 110.009 229543.1[] 
  []
 
 
-Overfull \hbox (150.516pt too wide) in paragraph at lines 8475--8475
+Overfull \hbox (150.516pt too wide) in paragraph at lines 8473--8473
 []\TU/lmtt/m/n/10 4                        Say no more    0.385    0.469 -14.94
 7   0.049    0.414        0.293 0.216    0.344 109.094 238400.1[] 
  []
 
 
-Overfull \hbox (150.516pt too wide) in paragraph at lines 8475--8475
+Overfull \hbox (150.516pt too wide) in paragraph at lines 8473--8473
 []\TU/lmtt/m/n/10 5                         Influencia    0.577    0.590  -9.73
 2   0.064    0.396        0.078 0.236    0.599 109.701 199760.9[] 
  []
 
 
-Overfull \hbox (150.516pt too wide) in paragraph at lines 8475--8475
+Overfull \hbox (150.516pt too wide) in paragraph at lines 8473--8473
 []\TU/lmtt/m/n/10 6                             Random    0.655    0.739  -6.25
 8   0.031    0.202        0.000 0.262    0.597 113.357 204040.0[] 
  []
 
 
-Overfull \hbox (103.266pt too wide) in paragraph at lines 8475--8475
+Overfull \hbox (103.266pt too wide) in paragraph at lines 8473--8473
 []\TU/lmtt/m/n/10 La diferencia entre la duración promedio de las canciones del
  primer disco y las del último es de  0.92575 minutos.[] 
  []
 
-LaTeX Info: Redefining \. on input line 8478.
-LaTeX Info: Redefining \% on input line 8478.
+LaTeX Info: Redefining \. on input line 8476.
+LaTeX Info: Redefining \% on input line 8476.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2281,8 +2275,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [134]
-LaTeX Info: Redefining \. on input line 8539.
-LaTeX Info: Redefining \% on input line 8539.
+LaTeX Info: Redefining \. on input line 8537.
+LaTeX Info: Redefining \% on input line 8537.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
