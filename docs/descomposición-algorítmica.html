@@ -7,17 +7,21 @@
 <title>4 Descomposición algorítmica | Introducción a la Programación</title>
 <meta name="author" content="Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.)">
 <meta name="description" content="Un principio fundamental en la resolución de un problema es intentar descomponerlo en partes más pequeñas, que puedan ser más fáciles de afrontar. Este concepto también se aplica en la...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.26 with bs4_book()">
 <meta property="og:title" content="4 Descomposición algorítmica | Introducción a la Programación">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Un principio fundamental en la resolución de un problema es intentar descomponerlo en partes más pequeñas, que puedan ser más fáciles de afrontar. Este concepto también se aplica en la...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="4 Descomposición algorítmica | Introducción a la Programación">
 <meta name="twitter:description" content="Un principio fundamental en la resolución de un problema es intentar descomponerlo en partes más pequeñas, que puedan ser más fáciles de afrontar. Este concepto también se aplica en la...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -45,7 +49,7 @@
 <li><a class="" href="objetos-y-operadores.html"><span class="header-section-number">2</span> Objetos y operadores</a></li>
 <li><a class="" href="estructuras-de-control.html"><span class="header-section-number">3</span> Estructuras de control</a></li>
 <li><a class="active" href="descomposici%C3%B3n-algor%C3%ADtmica.html"><span class="header-section-number">4</span> Descomposición algorítmica</a></li>
-<li><a class="" href="estructuras-de-datos.html"><span class="header-section-number">5</span> Estructuras de Datos</a></li>
+<li><a class="" href="estructuras-de-datos.html"><span class="header-section-number">5</span> Estructuras de datos</a></li>
 <li><a class="" href="uso-de-archivos-de-datos.html"><span class="header-section-number">6</span> Uso de archivos de datos</a></li>
 <li><a class="" href="otros-t%C3%B3picos.html"><span class="header-section-number">7</span> Otros tópicos</a></li>
 <li><a class="" href="bibliograf%C3%ADa.html">Bibliografía</a></li>
@@ -230,8 +234,8 @@ FIN</code></pre>
 Figura 4.1: Captura de pantalla de la ayuda sobre la función log()
 </p>
 </div>
-<p>En la sección <em>Usage</em> (“uso”) descubrimos que la función <code><a href="https://rdrr.io/r/base/Log.html">log()</a></code> puede usarse con dos argumentos: <code>x</code> y <code>base</code>. En la sección <em>Arguments</em> entendemos que <code>x</code> es el número al cual le vamos a sacar el logaritmo y <code>base</code> es la base con respecto a la cual se toma el logaritmo. Por eso, al correr <code><a href="https://rdrr.io/r/base/Log.html">log(100, 10)</a></code>, estamos calculando el logaritmo de <code>x = 100</code> con <code>base = 10</code>.</p>
-<p>Vemos, además, una diferencia en la forma en que <code>x</code> y <code>base</code> aparecen en la descripción: <code><a href="https://rdrr.io/r/base/Log.html">log(x, base = exp(1))</a></code>. Cuando un argumento tiene un signo <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code> significa que tiene asignado un <strong>valor por default</strong> y que no es necesario usarlo. Por eso, cuando corremos <code><a href="https://rdrr.io/r/base/Log.html">log(100)</a></code> estamos calculando el logaritmo de <code>x = 100</code> con la base elegida por R por defecto: <code>base = exp(1)</code>, que es la forma que tiene R de nombrar a la constante <span class="math inline">\(e = 2.718282...\)</span> (es el logaritmo natural). Si quiero cambiar la base, debo proveer un valor, por ejemplo, <code><a href="https://rdrr.io/r/base/Log.html">log(100, 10)</a></code>. Por el contrario, el argumento <code>x</code> no tiene asignado un valor por default. Eso significa que obligatoriamente tenemos que proveer un valor para el mismo.</p>
+<p>En la sección <em>Usage</em> (“uso”) descubrimos que la función <code><a href="https://rdrr.io/r/base/Log.html">log()</a></code> puede usarse con dos argumentos: <code>x</code> y <code>base</code>. En la sección <em>Arguments</em> entendemos que <code>x</code> es el número al cual le vamos a sacar el logaritmo y <code>base</code> es la base con respecto a la cual se toma el logaritmo. Por eso, al correr <code>log(100, 10)</code>, estamos calculando el logaritmo de <code>x = 100</code> con <code>base = 10</code>.</p>
+<p>Vemos, además, una diferencia en la forma en que <code>x</code> y <code>base</code> aparecen en la descripción: <code>log(x, base = exp(1))</code>. Cuando un argumento tiene un signo <code>=</code> significa que tiene asignado un <strong>valor por default</strong> y que no es necesario usarlo. Por eso, cuando corremos <code>log(100)</code> estamos calculando el logaritmo de <code>x = 100</code> con la base elegida por R por defecto: <code>base = exp(1)</code>, que es la forma que tiene R de nombrar a la constante <span class="math inline">\(e = 2.718282...\)</span> (es el logaritmo natural). Si quiero cambiar la base, debo proveer un valor, por ejemplo, <code>log(100, 10)</code>. Por el contrario, el argumento <code>x</code> no tiene asignado un valor por default. Eso significa que obligatoriamente tenemos que proveer un valor para el mismo.</p>
 <p>R también permite usar una función escribiendo los nombres de los argumentos (es decir, detallando tanto los parámetros formales como los actuales), lo cual muchas veces es muy esclarecedor:</p>
 <div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">100</span>, base <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></code></pre></div>
@@ -286,7 +290,7 @@ Figura 4.2: Estructura de una función en R
 <p>Debemos:</p>
 <ol style="list-style-type: decimal">
 <li>Elegir un nombre</li>
-<li>Al lado del nombre, colocar el operador de asignación (<code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code>) para asociar a ese nombre la definición de una función.</li>
+<li>Al lado del nombre, colocar el operador de asignación (<code>&lt;-</code>) para asociar a ese nombre la definición de una función.</li>
 <li>Escribir la sentencia <code>function(...) {...}</code>, donde entre paréntesis se definen todos los parámetros formales separados con coma y entre llaves el conjunto de acciones a englobar.</li>
 <li>El valor que la función debe arrojar como resultado se encierra dentro de la sentencia <code><a href="https://rdrr.io/r/base/function.html">return()</a></code>, que indica el fin de la ejecución.</li>
 </ol>
@@ -393,7 +397,7 @@ FIN</code></pre>
 <h3>
 <span class="header-section-number">4.3.3</span> <code>NULL</code> vs <code>NA</code> vs <code>NaN</code><a class="anchor" aria-label="anchor" href="#null-vs-na-vs-nan"><i class="fas fa-link"></i></a>
 </h3>
-<p>Generalmente los lenguajes de programación poseen un valor conocido como <code>NULO</code>, para representar un objeto vacío, sin información. El mismo suele emplearse como valor devuelto por funciones cuando no corresponde devolver otro tipo de resultado. En pseudocódigo podemos usar esta estrategia escribiendo <code>DEVOLVER NULO</code>, si deseamos que nuestra función no devuelva nada. La representación en R de este tipo de objeto es <code>NULL</code>, que se trata de un objeto vacío que generalmente devuelven las funciones cuando el resultado es indefinido. Es decir, podemos crear funciones que terminen con un <code><a href="https://rdrr.io/r/base/function.html">return(NULL)</a></code>, como en el siguiente caso donde interesa emitir un mensaje, pero no devolver ningún objeto:</p>
+<p>Generalmente los lenguajes de programación poseen un valor conocido como <code>NULO</code>, para representar un objeto vacío, sin información. El mismo suele emplearse como valor devuelto por funciones cuando no corresponde devolver otro tipo de resultado. En pseudocódigo podemos usar esta estrategia escribiendo <code>DEVOLVER NULO</code>, si deseamos que nuestra función no devuelva nada. La representación en R de este tipo de objeto es <code>NULL</code>, que se trata de un objeto vacío que generalmente devuelven las funciones cuando el resultado es indefinido. Es decir, podemos crear funciones que terminen con un <code>return(NULL)</code>, como en el siguiente caso donde interesa emitir un mensaje, pero no devolver ningún objeto:</p>
 <div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">g</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span>
     <span class="va">resultado</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">3</span> <span class="op">*</span> <span class="va">y</span>
@@ -408,7 +412,7 @@ FIN</code></pre>
 <li>
 <code>NA</code> son las siglas de <em>Not Available</em> y es un valor lógico (como <code>TRUE</code> y <code>FALSE</code>) que generalmente representa datos faltantes.</li>
 <li>
-<code>NaN</code> son las siglas de <em>Not a Number</em> y es un valor numérico que generalmente surge como resultado de operaciones aritméticas imposibles de calcular, como indeterminaciones, raíces negativas, etc. (correr <code>0/0</code>, <code><a href="https://rdrr.io/r/base/Log.html">log(-1)</a></code> o <code><a href="https://rdrr.io/r/base/MathFun.html">sqrt(-1)</a></code> para verlo). Es un valor establecido por IEEE, el estándar con el cual se rige la representación numérica en la computadora.</li>
+<code>NaN</code> son las siglas de <em>Not a Number</em> y es un valor numérico que generalmente surge como resultado de operaciones aritméticas imposibles de calcular, como indeterminaciones, raíces negativas, etc. (correr <code>0/0</code>, <code>log(-1)</code> o <code>sqrt(-1)</code> para verlo). Es un valor establecido por IEEE, el estándar con el cual se rige la representación numérica en la computadora.</li>
 </ul>
 <p>Otro valor numérico muy especial es <code>Inf</code> (y su contrapartida negativa, <code>-Inf</code>), que es el resultado de almacenar un número muy grande o de una división por cero. No es semejante a <code>NA</code>, porque además de no ser de tipo lógico, no representa que hay un dato faltante sino que se trata de un valor numérico.</p>
 <div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
@@ -937,7 +941,7 @@ Tomemos el primer ejemplo de este capítulo:</p>
 <span class="header-section-number">4.8.1</span> Modificar una variable global desde el cuerpo de una función en R<a class="anchor" aria-label="anchor" href="#modificar-una-variable-global-desde-el-cuerpo-de-una-funci%C3%B3n-en-r"><i class="fas fa-link"></i></a>
 </h3>
 <p>Hemos dicho que una función recibe información desde el programa principal a través de sus parámetros, y envía información al mismo mediante el valor que devuelve. Sin embargo, es posible alterar el comportamiento para que sea capaz de producir efectos secundarios, por ejemplo, modificando el valor de una variable global, violando así el principio de transparencia referencial.</p>
-<p>Los siguientes ejemplos definen dos funciones con un único argumento, <code>x</code>, pero que en su cuerpo hacen uso de una variable global, <code>y</code>, definida el algoritmo principal (estos casos violan el principio de transparencia referencial, su práctica no es recomendable). La diferencia entre ellas es que <code>g1()</code> modifica el valor de <code>y</code> dentro de la función, pero el valor de <code>y</code> en el ambiente global no es alterado; mientras que <code>g2()</code> cambia el valor de <code>y</code> no sólo localmente, sino también en el ambiente global. Esto se logra mediante el uso del operador <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;&lt;-</a></code><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En realidad, el operador &lt;code&gt;&amp;lt;&amp;lt;-&lt;/code&gt; trabaja de forma más compleja que lo mencionado en esta guía. En programas más elaborados de R, pueden haber ambientes anidados y este operador iniciará una búsqueda desde el ambiente actual hacia los superiores hasta encontrar una variable que se llame &lt;code&gt;y&lt;/code&gt; para asignarle un valor. En este caso sencillo, sólo hay dos ambientes, el de la función &lt;code&gt;g2&lt;/code&gt; y el global. Por lo tanto el operador &lt;code&gt;&amp;lt;&amp;lt;-&lt;/code&gt; hace que se le asigne un valor a la variable &lt;code&gt;y&lt;/code&gt; en el global.&lt;/p&gt;"><sup>20</sup></a>.</p>
+<p>Los siguientes ejemplos definen dos funciones con un único argumento, <code>x</code>, pero que en su cuerpo hacen uso de una variable global, <code>y</code>, definida el algoritmo principal (estos casos violan el principio de transparencia referencial, su práctica no es recomendable). La diferencia entre ellas es que <code>g1()</code> modifica el valor de <code>y</code> dentro de la función, pero el valor de <code>y</code> en el ambiente global no es alterado; mientras que <code>g2()</code> cambia el valor de <code>y</code> no sólo localmente, sino también en el ambiente global. Esto se logra mediante el uso del operador <code>&lt;&lt;-</code><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En realidad, el operador &lt;code&gt;&amp;lt;&amp;lt;-&lt;/code&gt; trabaja de forma más compleja que lo mencionado en esta guía. En programas más elaborados de R, pueden haber ambientes anidados y este operador iniciará una búsqueda desde el ambiente actual hacia los superiores hasta encontrar una variable que se llame &lt;code&gt;y&lt;/code&gt; para asignarle un valor. En este caso sencillo, sólo hay dos ambientes, el de la función &lt;code&gt;g2&lt;/code&gt; y el global. Por lo tanto el operador &lt;code&gt;&amp;lt;&amp;lt;-&lt;/code&gt; hace que se le asigne un valor a la variable &lt;code&gt;y&lt;/code&gt; en el global.&lt;/p&gt;"><sup>20</sup></a>.</p>
 <div class="sourceCode" id="cb271"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># ---------------------------------------------------------------</span>
 <span class="co"># DEFINICIÓN DE FUNCIONES</span>
@@ -1121,7 +1125,7 @@ FIN</code></pre>
 
   <div class="chapter-nav">
 <div class="prev"><a href="estructuras-de-control.html"><span class="header-section-number">3</span> Estructuras de control</a></div>
-<div class="next"><a href="estructuras-de-datos.html"><span class="header-section-number">5</span> Estructuras de Datos</a></div>
+<div class="next"><a href="estructuras-de-datos.html"><span class="header-section-number">5</span> Estructuras de datos</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="En esta página"><h2>En esta página</h2>
       <ul class="nav navbar-nav">
@@ -1177,7 +1181,7 @@ FIN</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2022-04-30.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2022-05-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

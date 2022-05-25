@@ -1,4 +1,4 @@
-# Estructuras de Datos
+# Estructuras de datos
 
 Hasta ahora todos los algoritmos que hemos desarrollado hacen uso de objetos que guardan datos individuales, los cuales representan un número, una cadena de texto o un valor lógico. Sin embargo, la verdadera utilidad de la computación radica en poder trabajar con conjuntos de datos, organizados de acuerdo a ciertas reglas que permitan su manipulación y acceso. Definimos entonces como **estructura de datos** a un conjunto de datos que cuentan con un sistema de organización. 
 
@@ -127,7 +127,7 @@ Se pueden asignar valores a una, varias o todas las posiciones de un vector en c
 VARIABLE numérica a(10)
 ...algunas acciones...
 PARA i DESDE 1 HASTA LARGO(a) HACER
-	SI i %% 3 == 0 ENTONCES  
+	SI i MOD 3 == 0 ENTONCES  
 		a[i] <- i * 100
 	FIN SI
 FIN PARA
@@ -568,7 +568,7 @@ Algoritmo:
 #		triángulo y el segundo elemento es el perímetro del triángulo o el valor 0 
 #		si no los lados provistos no corresponden a un triángulo
 #------------------------------------------------------------------------------
-FUNCIÓN triangulos(a: numérico, b: numérico, c: numérico): lista
+FUNCIÓN triangulos(a: numérico, b: numérico, d: numérico): lista
 COMENZAR
 	VARIABLE carácter tipo
 	VARIABLE numérica perimetro
@@ -598,7 +598,7 @@ Código en R:
 # Función triangulos
 # Clasifica un triángulo según la longitud de sus lados
 # Entrada:
-#		- a, b, c, números reales positivos
+#		- a, b, d, números reales positivos
 # Salida:
 #		- una lista cuyo primer elemento es un carácter que indica el tipo de
 #		triángulo y el segundo elemento es el perímetro del triángulo o el valor 0 si

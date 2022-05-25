@@ -129,7 +129,7 @@ ejemplo
 lectura-de-los-registros-del-archivo
 recorrer-todos-los-registros-para-obtener-la-info-necesaria
 a-mostrar-el-cuadro
-b-determinar-el-total-de-pernoctaciones-en-el-hotel-durante-el-2019
+b-determinar-el-total-de-pernoctaciones-en-el-hotel-durante-el-2021
 c-determinar-cuál-fue-el-mes-de-mayor-cantidad-de-reservas
 d-determinar-para-cada-tipo-de-habitación-el-mes-con-menor-número-de-reservas
 solución-completa

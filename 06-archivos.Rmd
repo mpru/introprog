@@ -163,7 +163,7 @@ Los procedimientos básicos que los programas pueden llevar a cabo sobre los dis
 
 ## Ejemplo
 
-El archivo `reservas.txt` cuenta con los registros de reservas en un famoso hotel de la ciudad de Rosario durante el año 2019. Cada registro del archivo dispone de información acerca del mes de la reserva, tipo de habitación reservada y cantidad de noches de la estadía:
+El archivo `reservas.txt` cuenta con los registros de reservas en un famoso hotel de la ciudad de Rosario durante el año 2021. Cada registro del archivo dispone de información acerca del mes de la reserva, tipo de habitación reservada y cantidad de noches de la estadía:
 
 * Archivo: `reservas.txt`
 * Campos:
@@ -182,7 +182,7 @@ La primera línea de este archivo de texto contiene los nombres de los campos. L
 
 Se necesita crear un programa que permita obtener los siguientes resultados:
 
-a) Generar la siguiente tabla de contingencia que presenta el número de reservas durante el año 2019 según mes y tipo de habitación:
+a) Generar la siguiente tabla de contingencia que presenta el número de reservas durante el año 2021 según mes y tipo de habitación:
 
 	|           | Hab. simple | Hab. doble | Hab. triple | Total |
 	|:---------:|:-----------:|:----------:|:-----------:|:-----:|
@@ -191,7 +191,7 @@ a) Generar la siguiente tabla de contingencia que presenta el número de reserva
 	| Diciembre |             |            |             |       |
 	|   Total   |             |            |             |       |
 
-b) Determinar el total de pernoctaciones en el hotel durante el 2019, es decir, la cantidad total de noches que los huéspedes se alojaron en el establecimiento (información que cada hotel debe comunicar a la secretaría de turismo de la municipalidad).
+b) Determinar el total de pernoctaciones en el hotel durante el 2021, es decir, la cantidad total de noches que los huéspedes se alojaron en el establecimiento (información que cada hotel debe comunicar a la secretaría de turismo de la municipalidad).
 c) Determinar cuál fue el mes de mayor cantidad de reservas.
 d) Determinar para cada tipo de habitación el mes con menor número de reservas.
 
@@ -459,18 +459,18 @@ dimnames(cuadro) <- list("Mes" = c(meses, "Total"),
 cuadro
 ```
 
-### b) Determinar el total de pernoctaciones en el hotel durante el 2019
+### b) Determinar el total de pernoctaciones en el hotel durante el 2021
 
 Como dijimos antes, el total de pernoctaciones es la suma de las cantidades de noches de cada reserva y a esto ya lo calculamos en la variable `pernoc` mientras recorrimos todos los registros del dataset. Solamente tenemos que mostrar el resultado:
 
 ```
 # Pseudocódigo
-ESCRIBIR "El número total de pernoctaciones en el hotel durante el 2019 fue", pernoc
+ESCRIBIR "El número total de pernoctaciones en el hotel durante el 2021 fue", pernoc
 ```
 
 ```{r}
 # En R
-cat("El número total de pernoctaciones en el hotel durante el 2019 fue", pernoc, "\n")
+cat("El número total de pernoctaciones en el hotel durante el 2021 fue", pernoc, "\n")
 ```
 
 ### c) Determinar cuál fue el mes de mayor cantidad de reservas
@@ -543,7 +543,7 @@ for (j in 1:3) {
 Ahora estamos en condiciones de juntar las piezas de este gran rompecabezas y presentar la solución completa al problema, tanto su algortimo como su código en R:
 
 ```{r, tidy=F, eval=FALSE, highlight=FALSE, echo=TRUE, results='hold'}
-ALGORITMO: "Análisis de las reservas en un famoso hotel de Rosario durante el año 2019"
+ALGORITMO: "Análisis de las reservas en un famoso hotel de Rosario durante el año 2021"
 COMENZAR
     
   VARIABLE numérica pernoc, tipohab, mes,tabla(12, 3), total_fila(12), total_col(3), res(2)
@@ -585,8 +585,8 @@ COMENZAR
     NOMBRES COLUMNAS  tipos "Total"
   FIN MOSTRAR CUADRO
 
-  # b) Determinar el total de pernoctaciones en el hotel durante el 2019
-  ESCRIBIR "El número total de pernoctaciones en el hotel durante el 2019 fue", pernoc
+  # b) Determinar el total de pernoctaciones en el hotel durante el 2021
+  ESCRIBIR "El número total de pernoctaciones en el hotel durante el 2021 fue", pernoc
 
   # c) Determinar cuál fue el mes de mayor cantidad de reservas
   res <- maximo(total_fila)
@@ -608,7 +608,7 @@ source("/home/marcos/GitProjects/introprog/archivos/funciones.R")
 # Leer archivo
 datos <- read.delim("/home/marcos/GitProjects/introprog/archivos/reservas.txt")
 
-# Programa: "Análisis de las reservas en un famoso hotel de Rosario durante el año 2019"
+# Programa: "Análisis de las reservas en un famoso hotel de Rosario durante el año 2021"
 tabla <- matrix(0, 12, 3)
 total_fila <- numeric(12)
 total_col <- numeric(3)
@@ -639,11 +639,11 @@ cuadro <- rbind(cuadro, c(total_col, nrow(datos)))
 dimnames(cuadro) <- list(Mes = c(meses, "Total"), 
                          "Tipo de habitación" = c(tipos, "Total") )
 # Mostrar el resultado
-cat("Número de reservas durante el 2019 según mes y tipo de habitación\n")
+cat("Número de reservas durante el 2021 según mes y tipo de habitación\n")
 cuadro
 
-# b) Determinar el total de pernoctaciones en el hotel durante el 2019
-cat("\nEl número total de pernoctaciones en el hotel durante el 2019 fue", pernoc, "\n\n")
+# b) Determinar el total de pernoctaciones en el hotel durante el 2021
+cat("\nEl número total de pernoctaciones en el hotel durante el 2021 fue", pernoc, "\n\n")
 
 # c) Determinar cuál fue el mes de mayor cantidad de reservas
 res <- maximo(total_fila)
@@ -666,7 +666,7 @@ source("archivos/funciones.R")
 # Leer archivo
 datos <- read.delim("archivos/reservas.txt")
 
-# Programa: "Análisis de las reservas en un famoso hotel de Rosario durante el año 2019"
+# Programa: "Análisis de las reservas en un famoso hotel de Rosario durante el año 2021"
 tabla <- matrix(0, 12, 3)
 total_fila <- numeric(12)
 total_col <- numeric(3)
@@ -697,11 +697,11 @@ cuadro <- rbind(cuadro, c(total_col, nrow(datos)))
 dimnames(cuadro) <- list(Mes = c(meses, "Total"), 
                          "Tipo de habitación" = c(tipos, "Total") )
 # Mostrar el resultado
-cat("Número de reservas durante el 2019 según mes y tipo de habitación\n")
+cat("Número de reservas durante el 2021 según mes y tipo de habitación\n")
 cuadro
 
-# b) Determinar el total de pernoctaciones en el hotel durante el 2019
-cat("\nEl número total de pernoctaciones en el hotel durante el 2019 fue", pernoc, "\n\n")
+# b) Determinar el total de pernoctaciones en el hotel durante el 2021
+cat("\nEl número total de pernoctaciones en el hotel durante el 2021 fue", pernoc, "\n\n")
 
 # c) Determinar cuál fue el mes de mayor cantidad de reservas
 res <- maximo(total_fila)
@@ -724,45 +724,88 @@ Anteriormente hemos mencionado que cuando trabajamos con archivos podemos realiz
 
 ### Crear un archivo para guardar resultados
 
-La función `sink()` permite escribir en un archivo de texto todos los resultados que habitualmente vemos en la consola de R. Sus argumentos son:
+Imaginemos que en el problema del hotel, en lugar de mostrar los resultados en la consola, queremos volcarlos en un archivo de texto llamado `resultados.txt`. Podemos indicar los pasos a seguir en pseudocódigo de la siguiente forma^[O de cualquier otra que exprese sin confusiones todo lo que se quiere volcar al archivo.]:
+
+```
+# Última parte del pseudocódigo...
+
+    # Crear archivo de resultados
+    CREAR ARCHIVO (resultados)
+    ABRIR ARCHIVO (resultados), de salida
+	
+    # a) Agregar el cuadro al archivo
+    tipos[1] <- "Simple"
+    tipos[2] <- "Doble"
+    tipos[3] <- "Triple"
+    meses[1] <- "Enero"
+    ...
+    meses[12] <- "Diciembre"
+    ESCRIBIR CUADRO EN ARCHIVO (resultados)
+      CUERPO tabla
+      ANEXAR FILA total_col
+      ANEXAR COLUMNA total_fila NFILA(datos)
+      NOMBRES FILAS meses "Total"
+      NOMBRES COLUMNAS  tipos "Total"
+    ESCRIBIR CUADRO EN ARCHIVO
+	
+	# b) Determinar el total de pernoctaciones en el hotel durante el 2021
+	ESCRIBIR EN ARCHIVO (resultados) "El número total de pernoctaciones en el hotel 
+	  durante el 2021 fue", pernoc
+	
+	# c) Determinar cuál fue el mes de mayor cantidad de reservas
+	res <- maximo(total_fila)
+	ESCRIBIR EN ARCHIVO (resultados) "El mes de mayor cantidad de reservas fue", 
+	  meses[res[2]], "con", res[1], "reservas."
+	
+	# d) Determinar para cada tipo de habitación el mes con menor número de reservas
+	PARA j DESDE 1 HASTA 3 HACER
+	  res <- minimo_matriz_col(tabla, j)
+	  ESCRIBIR EN ARCHIVO (resultados) "Para las habitaciones de tipo", tipos[j], 
+	  "el mes con menor número de reservas fue", meses[res[2]], "con", res[1], "reservas."
+	FIN PARA
+	
+	CERRAR ARCHIVO (resultado)
+FIN
+```
+
+En R, la función `sink()` permite escribir en un archivo de texto todos los resultados que habitualmente vemos en la consola. Sus argumentos son:
 
 - `file`: nombre del archivo, si no existe será creado. Se guarda en el directorio de trabajo actual, a menos que indiquemos aquí la ruta completa hacia otra carpeta.
 - `append`: si el archivo ya existía, por default lo sobreescribe (borra lo anterior), a menos que indiquemos `append = TRUE` para que agregue nuevas línea sin borrar nada.
 - `split`: por default mientras la conexión al archivo está activa, los resultados que enviamos al mismo no se muestran en la consola de R, a menos que indiquemos `split = TRUE`, en cuyo caso sucederán ambas cosas: los resultados serán escritos en el archivo y se verán en la consola.
 
-Cuando se desea cerrar la conexión al archivo, se debe correr `sink()` sin ningún argumento. Todo lo que *imprimamos* con `cat()` entre ambos llamados a `sink()` se guardará en el archivo. Veamos un  ejemplo:
+Cuando se desea cerrar la conexión al archivo, se debe correr `sink()` sin ningún argumento. Todo lo que *imprimamos* con `cat()` entre ambos llamados a `sink()` se guardará en el archivo. La última parte del código en el problema anterior debe ser:
 
 ```{r, eval=FALSE}
-a <- matrix(1:9, nrow = 3)
-b <- 3
-d <- 5
+# Crear conexión al archivo de resultados y poner un encabezado
 sink(file = "salida.txt", append = TRUE, split = TRUE)
 cat("==========================================\n")
 cat("            ARCHIVO DE RESULTADOS         \n")
 cat("==========================================\n\n")
-cat("El valor de b es", b, ", mientras que d vale ", d, "\n\n", sep = "")
-cat("Esta es la matriz a:\n\n")
-a
+
+# a) Mostrar la tabla
+cat("Número de reservas durante el 2021 según mes y tipo de habitación\n")
+cuadro
+
+# b) Determinar el total de pernoctaciones en el hotel durante el 2021
+cat("\nEl número total de pernoctaciones en el hotel durante el 2021 fue", pernoc, "\n\n")
+
+# c) Determinar cuál fue el mes de mayor cantidad de reservas
+res <- maximo(total_fila)
+cat("El mes de mayor cantidad de reservas fue", meses[res[2]], "con", 
+    res[1], "reservas.\n\n")
+
+# d) Determinar para cada tipo de habitación el mes con menor número de reservas
+for (j in 1:3) {
+	res <- minimo_matriz_col(tabla, j)
+	cat("Para las habitaciones de tipo", tipos[j], 
+	    "el mes con menor\n     número de reservas fue", 
+	    meses[res[2]], "con", res[1], "reservas.\n")
+}
+
+# Cerrar conexión al archivo
 sink()
 ```
-
-Así luce el archivo `salida.txt`:
-
-```
-==========================================
-            ARCHIVO DE RESULTADOS         
-==========================================
-
-El valor de b es  3, mientras que d vale 5 
-
-Esta es la matriz a:
-     [,1] [,2] [,3]
-[1,]    1    4    7
-[2,]    2    5    8
-[3,]    3    6    9
-```
-
-Se deja propuesto como ejercicio implementar esto en el ejemplo anterior, para que los resultados del análisis de las reservas se guarden en un archivo de texto.
 
 ### Crear un archivo para guardar conjuntos de datos, línea por línea
 

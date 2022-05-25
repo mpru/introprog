@@ -6,8 +6,8 @@
 ]{book}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -228,7 +228,7 @@
 % Para que en Latex las tables queden donde quiero
 \usepackage{float}
 % \floatplacement{table}{H}
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
@@ -243,7 +243,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2022-04-30}
+\date{2022-05-25}
 
 \begin{document}
 \maketitle
@@ -457,32 +457,36 @@ El pseudocódigo, como cualquier otro lenguaje, está compuesto por:
 
 El pseudocódigo sigue una \emph{estructura secuencial}: define una acción o instrucción que sigue a otra en secuencia. Esta estructura puede representarse de la siguiente forma:
 
-\begin{verbatim}
-ALGORITMO: "Ejemplo"
-COMENZAR
-    Acción 1
-    Acción 2
-    ...
-    Acción N
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Ejemplo"}
+\NormalTok{COMENZAR}
+\NormalTok{    Acción 1}
+\NormalTok{    Acción 2}
+\NormalTok{    ...}
+\NormalTok{    Acción N}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 Se comienza con un título que describa el problema que el algoritmo resuelve, seguido por la palabra \texttt{COMENZAR}. Luego se detallan las acciones o instrucciones a seguir y se concluye con la palabra \texttt{FIN}. Por ejemplo, si nuestro problema es poner en marcha un auto, el algoritmo para resolverlo puede ser expresado mediante el siguiente pseudocódigo:
 
-\begin{verbatim}
-ALGORITMO: "Arrancar el auto"
-COMENZAR
-    INSERTAR la llave de contacto
-    UBICAR el cambio en punto muerto
-    GIRAR la llave hasta la posición de arranque
-    SI el motor arranca 
-        ENTONCES
-            DEJAR la llave en posición "encendido"
-        SI NO
-            LLAMAR al mecánico
-    FINSI
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Arrancar el auto"}
+\NormalTok{COMENZAR}
+\NormalTok{    INSERTAR la llave de contacto}
+\NormalTok{    UBICAR el cambio en punto muerto}
+\NormalTok{    GIRAR la llave hasta la posición de arranque}
+\NormalTok{    SI el motor arranca }
+\NormalTok{        ENTONCES}
+\NormalTok{            DEJAR la llave en posición "encendido"}
+\NormalTok{        SI NO}
+\NormalTok{            LLAMAR al mecánico}
+\NormalTok{    FINSI}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 Es importante destacar la presencia de sangrías (\emph{sangrado}) en el ejemplo anterior, que facilitan la lectura.
 
@@ -621,19 +625,21 @@ Ejemplificaremos estos conceptos con los siguientes ejemplos:
 
 ¿Cuál es un algoritmo adecuado para solucionar este problema? Podría ser:
 
-\begin{verbatim}
-ALGORITMO: "Preparar una tortilla de 6 huevos"
-COMENZAR
-    ROMPER seis huevos en un plato
-    TIRAR las cáscaras en el tacho
-    BATIR los huevos
-    CALENTAR aceite en la sartén
-    PONER el contenido del plato en la sartén
-    ESPERAR diez minutos
-    RETIRAR la tortilla del fuego
-    APAGAR el fuego
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Preparar una tortilla de 6 huevos"}
+\NormalTok{COMENZAR}
+\NormalTok{    ROMPER seis huevos en un plato}
+\NormalTok{    TIRAR las cáscaras en el tacho}
+\NormalTok{    BATIR los huevos}
+\NormalTok{    CALENTAR aceite en la sartén}
+\NormalTok{    PONER el contenido del plato en la sartén}
+\NormalTok{    ESPERAR diez minutos}
+\NormalTok{    RETIRAR la tortilla del fuego}
+\NormalTok{    APAGAR el fuego}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 \emph{Ejemplo 2}
 
@@ -651,23 +657,25 @@ FIN
 
 ¿Cuál es un algoritmo adecuado para solucionar este problema? Podría ser:
 
-\begin{verbatim}
-ALGORITMO: "Calcular 5!"
-COMENZAR
-    PULSAR [ON]
-    PULSAR [1]
-    PULSAR [X]
-    PULSAR [2]
-    PULSAR [X]
-    PULSAR [3]
-    PULSAR [X]
-    PULSAR [4]
-    PULSAR [X]
-    PULSAR [5]
-    PULSAR [=]
-    MOSTRAR la pantalla
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Calcular 5!"}
+\NormalTok{COMENZAR}
+\NormalTok{    PULSAR [ON]}
+\NormalTok{    PULSAR [1]}
+\NormalTok{    PULSAR [X]}
+\NormalTok{    PULSAR [2]}
+\NormalTok{    PULSAR [X]}
+\NormalTok{    PULSAR [3]}
+\NormalTok{    PULSAR [X]}
+\NormalTok{    PULSAR [4]}
+\NormalTok{    PULSAR [X]}
+\NormalTok{    PULSAR [5]}
+\NormalTok{    PULSAR [=]}
+\NormalTok{    MOSTRAR la pantalla}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 Las acciones del algoritmo pueden clasificarse en función de su complejidad:
 
@@ -681,13 +689,15 @@ Las acciones del algoritmo pueden clasificarse en función de su complejidad:
 
 La descripción de un algoritmo en términos de acciones compuestas puede facilitar su comprensión, pero al desarrollar el programa será necesario descomponerlas en acciones primitivas que son las que realmente ejecuta el procesador. Por ejemplo, la acción compuesta en el ejemplo de la tortilla de ``romper seis huevos en un plato'' puede descomponerse en acciones más simples:
 
-\begin{verbatim}
-REPETIR 6 VECES
-    TOMAR un huevo
-    GOLPEAR el huevo para generar una fractura en la cáscara
-    EJERCER presión sobre la cáscara
-    DERRAMAR la clara y la yema sobre el plato
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{REPETIR 6 VECES}
+\NormalTok{    TOMAR un huevo}
+\NormalTok{    GOLPEAR el huevo para generar una fractura en la cáscara}
+\NormalTok{    EJERCER presión sobre la cáscara}
+\NormalTok{    DERRAMAR la clara y la yema sobre el plato}
+\end{Highlighting}
+\end{Shaded}
 
 En el contexto de la resolución de un problema computacional, el \emph{procesador} será la computadora; las acciones estarán dadas por las instrucciones disponibles en el lenguaje de programación utilizado o las que podamos crear en base al mismo; y el \emph{ambiente} estará constituido por un conjunto de variables, estructuras de datos, funciones y otros elementos que serán de utilidad en la programación.
 
@@ -936,14 +946,16 @@ Al expresar nuestros algoritmos en pseudocódigo tomaremos la costumbre de decla
 
 Veamos un ejemplo:
 
-\begin{verbatim}
-ALGORITMO: "Calcular área de un círculo"
-COMENZAR
-    CONSTANTE numérica pi
-    VARIABLE numérica radio, area
-        ...restantes acciones del algoritmo...
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Calcular área de un círculo"}
+\NormalTok{COMENZAR}
+\NormalTok{    CONSTANTE numérica pi}
+\NormalTok{    VARIABLE numérica radio, area}
+\NormalTok{        ...restantes acciones del algoritmo...}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 Una vez que una variable o constante ha sido definida con un tipo particular, es incorrecto intentar asignarle un valor de otro tipo, por ejemplo, asignarle a la variable \texttt{radio} del ejemplo anterior un valor de tipo caracter. Esto generaría ambigüedad, además de que en ciertos lenguajes de programación produciría un error.
 
@@ -956,44 +968,52 @@ Para hacer que una variable guarde un determinado valor se recurre a una \textbf
 
 En pseudocódigo expresaremos a la asignación como se muestra en estos ejemplos:
 
-\begin{verbatim}
-ALGORITMO: "Calcular área de un círculo"
-COMENZAR
-    CONSTANTE numérica pi
-    VARIABLE numérica radio, area
-    pi <- 3.14159265358979
-    radio <- 3
-    ...restantes acciones del algoritmo...
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Calcular área de un círculo"}
+\NormalTok{COMENZAR}
+\NormalTok{    CONSTANTE numérica pi}
+\NormalTok{    VARIABLE numérica radio, area}
+\NormalTok{    pi \textless{}{-} 3.14159265358979}
+\NormalTok{    radio \textless{}{-} 3}
+\NormalTok{    ...restantes acciones del algoritmo...}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 Si intervienen variables o constantes en la expresión a la derecha de una acción de asignación, se usará el valor que tengan las mismas en ese momento. Por ejemplo, la siguiente secuencia de acciones en un algoritmo:
 
-\begin{verbatim}
-var1 <- 2
-var2 <- var1
-var1 <- 7
-var3 <- var1
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{var1 \textless{}{-} 2}
+\NormalTok{var2 \textless{}{-} var1}
+\NormalTok{var1 \textless{}{-} 7}
+\NormalTok{var3 \textless{}{-} var1}
+\end{Highlighting}
+\end{Shaded}
 
 resultará en que las variables \texttt{var1}, \texttt{var2} y \texttt{var3} tengan almacenados los valores 7, 2 y 7 respectivamente. Un caso particular se da cuando a una variable se le asigna el valor de una operación de la que forma parte la misma variable. Por ejemplo:
 
-\begin{verbatim}
-stock <- 43
-ventas <- 29
-compras <- 12
-stock <- stock - ventas + compras
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{stock \textless{}{-} 43}
+\NormalTok{ventas \textless{}{-} 29}
+\NormalTok{compras \textless{}{-} 12}
+\NormalTok{stock \textless{}{-} stock {-} ventas + compras}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{objetosenR}{%
 \subsection{Creación y manejo de objetos en R}\label{objetosenR}}
 
 En R también se usa el operador ``flechita'' para asignar valores a variables. Como lo vamos a usar muchísimas veces, es conveniente recordar su \emph{shortcut}: \texttt{Alt\ +\ -} (teclas \emph{Alt} y guión medio). Como ya mencionamos antes, R es un lenguaje dinámico, lo cual significa que no tenemos que declarar las variables antes de asignarles un valor. Por ejemplo, si necesitamos registrar el peso y lugar de nacimiento de una persona, solamente tenemos que hacer:
 
-\begin{verbatim}
-lugar_nacimiento <- "Bombal"
-peso_nacimiento <- 3.423
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lugar\_nacimiento \textless{}{-} "Bombal"}
+\NormalTok{peso\_nacimiento \textless{}{-} 3.423}
+\end{Highlighting}
+\end{Shaded}
 
 En este caso, \texttt{lugar\_nacimiento} es un objeto de tipo carácter, ya que la información que contiene es \texttt{"Bombal"}, y \texttt{peso\_nacimiento} es un objeto numérico. Vale aclarar que en R el punto decimal se representa con el punto \texttt{.} y no con la coma \texttt{,} como solemos escribir habitualmente, por lo que el número indicado se lee ``tres coma cuatrocientos veintitrés'' y no ``tres mil cuatrocientos veintitrés''. Asimismo, no se usan separadores de miles al escribir los números.
 
@@ -1121,18 +1141,38 @@ El desarrollo de un algoritmo involucra la necesidad de efectuar operaciones de 
 Los operadores aritméticos permiten realizar operaciones matemáticas con datos de tipo numérico. A continuación presentamos su simbología más comúnmente empleada a la hora de expresarlos en pseudocódigo, junto con sus equivalentes en el lenguaje R:
 
 \begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.35}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.22}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.13}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.08}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.22}}@{}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3504}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2222}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1282}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.0769}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2222}}@{}}
 \caption{\label{tab:op-mat} Operadores aritméticos.}\tabularnewline
 \toprule
-Operación & Operador en pseudocódigo & Operador en R & Ejemplo & Rtdo para x \textless- 7, y \textless- 3 \\
+\begin{minipage}[b]{\linewidth}\centering
+Operación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Operador en pseudocódigo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Operador en R
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Ejemplo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Rtdo para x \textless- 7, y \textless- 3
+\end{minipage} \\
 \midrule
 \endfirsthead
 \toprule
-Operación & Operador en pseudocódigo & Operador en R & Ejemplo & Rtdo para x \textless- 7, y \textless- 3 \\
+\begin{minipage}[b]{\linewidth}\centering
+Operación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Operador en pseudocódigo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Operador en R
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Ejemplo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Rtdo para x \textless- 7, y \textless- 3
+\end{minipage} \\
 \midrule
 \endhead
 Suma & + & + & x + y & 10 \\
@@ -1188,18 +1228,38 @@ Operación & Resultado \\
 Los operadores relacionales sirven para comparar dos valores de cualquier tipo y dan como resultado un valor lógico: \emph{VERDADERO} (\texttt{T} o \texttt{TRUE} en R) o \emph{FALSO} (\texttt{F} o \texttt{FALSE} en R).
 
 \begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.20}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.27}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.16}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.09}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.27}}@{}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2737}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1579}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.0947}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2737}}@{}}
 \caption{\label{tab:op-rel} Operadores relacionales o de comparación.}\tabularnewline
 \toprule
-Comparación & Operador en pseudocódigo & Operador en R & Ejemplo & Rtdo para x \textless- 7, y \textless- 3 \\
+\begin{minipage}[b]{\linewidth}\centering
+Comparación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Operador en pseudocódigo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Operador en R
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Ejemplo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Rtdo para x \textless- 7, y \textless- 3
+\end{minipage} \\
 \midrule
 \endfirsthead
 \toprule
-Comparación & Operador en pseudocódigo & Operador en R & Ejemplo & Rtdo para x \textless- 7, y \textless- 3 \\
+\begin{minipage}[b]{\linewidth}\centering
+Comparación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Operador en pseudocódigo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Operador en R
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Ejemplo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Rtdo para x \textless- 7, y \textless- 3
+\end{minipage} \\
 \midrule
 \endhead
 Mayor que & \textgreater{} & \textgreater{} & x \textgreater{} y & TRUE \\
@@ -1268,18 +1328,38 @@ Si bien en pseudocódigo podemos usar tanto \texttt{=} o \texttt{==} para probar
 Mientras que los operadores relacionales comparan cualquier tipo de valores, los operadores lógicos sólo toman operandos de tipo lógico y producen también un resultado lógico. Los operadores lógicos que utilizaremos son:
 
 \begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.30}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.17}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.10}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.30}}@{}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1364}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2955}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1705}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1023}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2955}}@{}}
 \caption{\label{tab:op-log} Operadores lógicos.}\tabularnewline
 \toprule
-Operación & Operador en pseudocódigo & Operador en R & Ejemplo & Rtdo para x \textless- T, y \textless- F \\
+\begin{minipage}[b]{\linewidth}\centering
+Operación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Operador en pseudocódigo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Operador en R
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Ejemplo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Rtdo para x \textless- T, y \textless- F
+\end{minipage} \\
 \midrule
 \endfirsthead
 \toprule
-Operación & Operador en pseudocódigo & Operador en R & Ejemplo & Rtdo para x \textless- T, y \textless- F \\
+\begin{minipage}[b]{\linewidth}\centering
+Operación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Operador en pseudocódigo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Operador en R
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Ejemplo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Rtdo para x \textless- T, y \textless- F
+\end{minipage} \\
 \midrule
 \endhead
 Conjunción & Y & \&\& & x \&\& y & FALSE \\
@@ -1598,17 +1678,19 @@ Vamos a completar el ejemplo del algoritmo para el cálculo del área de un cír
 
 \textbf{Pseudocódigo}:
 
-\begin{verbatim}
-ALGORITMO: "Calcular área de un círculo"
-COMENZAR
-    CONSTANTE numérica pi
-    VARIABLE numérica radio, area
-    pi <- 3.14159265358979
-    LEER radio
-    area <- pi * radio^2
-    ESCRIBIR "El área del círculo es " area
-FIN
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Calcular área de un círculo"}
+\NormalTok{COMENZAR}
+\NormalTok{    CONSTANTE numérica pi}
+\NormalTok{    VARIABLE numérica radio, area}
+\NormalTok{    pi \textless{}{-} 3.14159265358979}
+\NormalTok{    LEER radio}
+\NormalTok{    area \textless{}{-} pi * radio\^{}2}
+\NormalTok{    ESCRIBIR "El área del círculo es " area}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 \textbf{En R}:
 
@@ -1744,11 +1826,13 @@ En algunas partes de un algoritmo puede ser útil detenerse a hacer una pregunta
 
 Postulan una evaluación lógica y, si su resultado es \texttt{VERDADERO}, se procede a ejecutar las acciones encerradas por esta estructura. Se describen en pseudocódigo con la siguiente sintaxis:
 
-\begin{verbatim}
-SI <condición> ENTONCES
-    Acción/es
-FIN SI
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{SI \textless{}condición\textgreater{} ENTONCES}
+\NormalTok{    Acción/es}
+\NormalTok{FIN SI}
+\end{Highlighting}
+\end{Shaded}
 
 La palabra \texttt{SI} indica el comando de evaluación lógica, \texttt{\textless{}condición\textgreater{}} indica la condición a evaluar y \texttt{Acción/es} son las instrucciones que se realizarán sólo si se cumple la condición, es decir, si la evaluación resulta en \texttt{VERDADERO}. Si la condición no se verifica, no se ejecuta ninguna acción y el algoritmo sigue su estructura secuencial a continuación del \texttt{FIN\ SI}.
 
@@ -1796,13 +1880,15 @@ Notar que si bien el uso de sangrías en el código es opcional, decidimos emple
 
 Este tipo de estructura añade una acción a ejecutarse en el caso de que la condición evaluada no se verifique (es decir, devuelve el valor \texttt{FALSO}). La sintaxis es:
 
-\begin{verbatim}
-SI <condición> ENTONCES
-  Acción/es
-SI NO
-  Acción/es
-FIN SI
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{SI \textless{}condición\textgreater{} ENTONCES}
+\NormalTok{  Acción/es}
+\NormalTok{SI NO}
+\NormalTok{  Acción/es}
+\NormalTok{FIN SI}
+\end{Highlighting}
+\end{Shaded}
 
 La palabra \texttt{ENTONCES} antecede a las acciones que se realizan si se cumple la condición y la expresión \texttt{SI\ NO} a las que se realizan si no se verifica la misma.
 
@@ -2038,11 +2124,13 @@ En lo anterior, \texttt{\textbackslash{}n} es un carácter especial que indica `
 
 De manera general, la sintaxis para este tipo de estructuras es:
 
-\begin{verbatim}
-PARA <variable> DESDE <valor1> HASTA <valor2> CON PASO <valor3> HACER
-    Acción/es
-FIN PARA
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{PARA \textless{}variable\textgreater{} DESDE \textless{}valor1\textgreater{} HASTA \textless{}valor2\textgreater{} CON PASO \textless{}valor3\textgreater{} HACER}
+\NormalTok{    Acción/es}
+\NormalTok{FIN PARA}
+\end{Highlighting}
+\end{Shaded}
 
 Dado un valor inicial \texttt{\textless{}valor1\textgreater{}} asignado a la \texttt{\textless{}variable\textgreater{}}, esta se irá aumentando o disminuyendo según el paso \texttt{\textless{}valor3\textgreater{}} hasta llegar a tomar el valor \texttt{\textless{}valor2\textgreater{}}. Si no se indica el paso se asume que la variable de iteración aumenta de uno en uno. En R:
 
@@ -2134,11 +2222,13 @@ FIN
 
 A diferencia de la estructura \emph{MIENTRAS QUE}, la estructura \emph{HASTA QUE} repite el bloque de acciones hasta que se cumpla una condición, es decir, se ejecuta mientras que dicha condición sea evaluada como \texttt{FALSA}. La sintaxis es:
 
-\begin{verbatim}
-REPETIR
-   Acción/es
-HASTA QUE <condición>
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{REPETIR}
+\NormalTok{   Acción/es}
+\NormalTok{HASTA QUE \textless{}condición\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
 
 Observación: con la estructura \emph{MIENTRAS QUE} podría ser que el conjunto de sentencias nunca llegue a ejecutarse si desde partida la condición evaluada ya es falsa. Por el contrario, en la estructura \emph{HASTA QUE} el proceso se realiza al menos una vez, dado que la condición se evalúa al final.
 
@@ -3944,7 +4034,7 @@ Si el parámetro \texttt{x} se pasa por valor mientras que \texttt{y} se pasa po
 Dado que en R el pasaje de argumentos es \textbf{siempre} por valor y no por referencia, no existen los procedimientos. Por esta razón, esta sección no se ejemplifica con código de R.
 
 \hypertarget{estructuras-de-datos}{%
-\chapter{Estructuras de Datos}\label{estructuras-de-datos}}
+\chapter{Estructuras de datos}\label{estructuras-de-datos}}
 
 Hasta ahora todos los algoritmos que hemos desarrollado hacen uso de objetos que guardan datos individuales, los cuales representan un número, una cadena de texto o un valor lógico. Sin embargo, la verdadera utilidad de la computación radica en poder trabajar con conjuntos de datos, organizados de acuerdo a ciertas reglas que permitan su manipulación y acceso. Definimos entonces como \textbf{estructura de datos} a un conjunto de datos que cuentan con un sistema de organización.
 
@@ -4160,7 +4250,7 @@ Se pueden asignar valores a una, varias o todas las posiciones de un vector en c
 VARIABLE numérica a(10)
 ...algunas acciones...
 PARA i DESDE 1 HASTA LARGO(a) HACER
-    SI i %% 3 == 0 ENTONCES  
+    SI i MOD 3 == 0 ENTONCES  
         a[i] <- i * 100
     FIN SI
 FIN PARA
@@ -5000,7 +5090,7 @@ Algoritmo:
 #       triángulo y el segundo elemento es el perímetro del triángulo o el valor 0 
 #       si no los lados provistos no corresponden a un triángulo
 #------------------------------------------------------------------------------
-FUNCIÓN triangulos(a: numérico, b: numérico, c: numérico): lista
+FUNCIÓN triangulos(a: numérico, b: numérico, d: numérico): lista
 COMENZAR
     VARIABLE carácter tipo
     VARIABLE numérica perimetro
@@ -5031,7 +5121,7 @@ Código en R:
 \CommentTok{\# Función triangulos}
 \CommentTok{\# Clasifica un triángulo según la longitud de sus lados}
 \CommentTok{\# Entrada:}
-\CommentTok{\#       {-} a, b, c, números reales positivos}
+\CommentTok{\#       {-} a, b, d, números reales positivos}
 \CommentTok{\# Salida:}
 \CommentTok{\#       {-} una lista cuyo primer elemento es un carácter que indica el tipo de}
 \CommentTok{\#       triángulo y el segundo elemento es el perímetro del triángulo o el valor 0 si}
@@ -5405,9 +5495,33 @@ Campo 7 - Destino: ciudad de destino, tipo caracter
 Campo 8 - Precio: precio del pasaje, tipo numérico
 \end{verbatim}
 
-\begin{longtable}[]{@{}ccccccll@{}}
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1700}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1700}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1000}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1200}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1200}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0900}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1400}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0900}}@{}}
 \toprule
-Pasaporte & Nombre & NroVuelo & FechaVuelo & NroAsiento & Origen & Destino & Precio \\
+\begin{minipage}[b]{\linewidth}\centering
+Pasaporte
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Nombre
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+NroVuelo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+FechaVuelo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+NroAsiento
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Origen
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Destino
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Precio
+\end{minipage} \\
 \midrule
 \endhead
 AAA235687 & Pamela Suárez & AR6071 & 12/09/17 & 17A & Rosario & Córdoba & 7532.23 \\
@@ -5563,7 +5677,7 @@ CERRAR ARCHIVO (nombre)
 \hypertarget{ejemplo}{%
 \section{Ejemplo}\label{ejemplo}}
 
-El archivo \texttt{reservas.txt} cuenta con los registros de reservas en un famoso hotel de la ciudad de Rosario durante el año 2019. Cada registro del archivo dispone de información acerca del mes de la reserva, tipo de habitación reservada y cantidad de noches de la estadía:
+El archivo \texttt{reservas.txt} cuenta con los registros de reservas en un famoso hotel de la ciudad de Rosario durante el año 2021. Cada registro del archivo dispone de información acerca del mes de la reserva, tipo de habitación reservada y cantidad de noches de la estadía:
 
 \begin{itemize}
 \item
@@ -5600,7 +5714,7 @@ Se necesita crear un programa que permita obtener los siguientes resultados:
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
 \item
-  Generar la siguiente tabla de contingencia que presenta el número de reservas durante el año 2019 según mes y tipo de habitación:
+  Generar la siguiente tabla de contingencia que presenta el número de reservas durante el año 2021 según mes y tipo de habitación:
 
   \begin{longtable}[]{@{}ccccc@{}}
   \toprule
@@ -5614,7 +5728,7 @@ Se necesita crear un programa que permita obtener los siguientes resultados:
   \bottomrule
   \end{longtable}
 \item
-  Determinar el total de pernoctaciones en el hotel durante el 2019, es decir, la cantidad total de noches que los huéspedes se alojaron en el establecimiento (información que cada hotel debe comunicar a la secretaría de turismo de la municipalidad).
+  Determinar el total de pernoctaciones en el hotel durante el 2021, es decir, la cantidad total de noches que los huéspedes se alojaron en el establecimiento (información que cada hotel debe comunicar a la secretaría de turismo de la municipalidad).
 \item
   Determinar cuál fue el mes de mayor cantidad de reservas.
 \item
@@ -6168,25 +6282,25 @@ Mes          Simple Doble Triple Total
   Total        1975  1172    706  3853
 \end{verbatim}
 
-\hypertarget{b-determinar-el-total-de-pernoctaciones-en-el-hotel-durante-el-2019}{%
-\subsection{b) Determinar el total de pernoctaciones en el hotel durante el 2019}\label{b-determinar-el-total-de-pernoctaciones-en-el-hotel-durante-el-2019}}
+\hypertarget{b-determinar-el-total-de-pernoctaciones-en-el-hotel-durante-el-2021}{%
+\subsection{b) Determinar el total de pernoctaciones en el hotel durante el 2021}\label{b-determinar-el-total-de-pernoctaciones-en-el-hotel-durante-el-2021}}
 
 Como dijimos antes, el total de pernoctaciones es la suma de las cantidades de noches de cada reserva y a esto ya lo calculamos en la variable \texttt{pernoc} mientras recorrimos todos los registros del dataset. Solamente tenemos que mostrar el resultado:
 
 \begin{verbatim}
 # Pseudocódigo
-ESCRIBIR "El número total de pernoctaciones en el hotel durante el 2019 fue", pernoc
+ESCRIBIR "El número total de pernoctaciones en el hotel durante el 2021 fue", pernoc
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# En R}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"El número total de pernoctaciones en el hotel durante el 2019 fue"}\NormalTok{, pernoc, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"El número total de pernoctaciones en el hotel durante el 2021 fue"}\NormalTok{, pernoc, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-El número total de pernoctaciones en el hotel durante el 2019 fue 19323 
+El número total de pernoctaciones en el hotel durante el 2021 fue 19323 
 \end{verbatim}
 
 \hypertarget{c-determinar-cuuxe1l-fue-el-mes-de-mayor-cantidad-de-reservas}{%
@@ -6300,64 +6414,66 @@ Para las habitaciones de tipo Triple el mes con menor
 
 Ahora estamos en condiciones de juntar las piezas de este gran rompecabezas y presentar la solución completa al problema, tanto su algortimo como su código en R:
 
-\begin{verbatim}
-ALGORITMO: "Análisis de las reservas en un famoso hotel de Rosario durante el año 2019"
-COMENZAR
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALGORITMO: "Análisis de las reservas en un famoso hotel de Rosario durante el año 2021"}
+\NormalTok{COMENZAR}
     
-  VARIABLE numérica pernoc, tipohab, mes,tabla(12, 3), total_fila(12), total_col(3), res(2)
-  VARIABLE caracter tipos(3), meses(12)
+\NormalTok{  VARIABLE numérica pernoc, tipohab, mes,tabla(12, 3), total\_fila(12), total\_col(3), res(2)}
+\NormalTok{  VARIABLE caracter tipos(3), meses(12)}
 
-  # Lectura de registros en el archivo
-  ABRIR ARCHIVO (reservas) secuencial, lectura
-  LEER REGISTROS (reservas) A DATASET (datos)
-  CERRAR ARCHIVO (reservas)
-  ESCRIBIR "El archivo cuenta con" NFILA(datos) "registros de" NCOL(datos) "campos." 
+\NormalTok{  \# Lectura de registros en el archivo}
+\NormalTok{  ABRIR ARCHIVO (reservas) secuencial, lectura}
+\NormalTok{  LEER REGISTROS (reservas) A DATASET (datos)}
+\NormalTok{  CERRAR ARCHIVO (reservas)}
+\NormalTok{  ESCRIBIR "El archivo cuenta con" NFILA(datos) "registros de" NCOL(datos) "campos." }
 
-  # Recorrer todos los registros para obtener la info necesaria
-  pernoc <- 0
-  PARA i DESDE 1 HASTA NFILA(datos) HACER
+\NormalTok{  \# Recorrer todos los registros para obtener la info necesaria}
+\NormalTok{  pernoc \textless{}{-} 0}
+\NormalTok{  PARA i DESDE 1 HASTA NFILA(datos) HACER}
     
-    tipohab <- datos[i, 1]
-    mes <- datos[i, 2]
-    noches <- datos[i, 3]
+\NormalTok{    tipohab \textless{}{-} datos[i, 1]}
+\NormalTok{    mes \textless{}{-} datos[i, 2]}
+\NormalTok{    noches \textless{}{-} datos[i, 3]}
     
-    tabla[mes, tipohab] <- tabla[mes, tipohab] + 1
-    pernoc <- pernoc + noches
-    total_fila[mes] <- total_fila[mes] + 1
-    total_col[tipohab] <- total_col[tipohab] + 1
+\NormalTok{    tabla[mes, tipohab] \textless{}{-} tabla[mes, tipohab] + 1}
+\NormalTok{    pernoc \textless{}{-} pernoc + noches}
+\NormalTok{    total\_fila[mes] \textless{}{-} total\_fila[mes] + 1}
+\NormalTok{    total\_col[tipohab] \textless{}{-} total\_col[tipohab] + 1}
     
-  FIN PARA
+\NormalTok{  FIN PARA}
 
-  # a) Mostrar la tabla
-  tipos[1] <- "Simple"
-  tipos[2] <- "Doble"
-  tipos[3] <- "Triple"
-  meses[1] <- "Enero"
-  ...
-  meses[12] <- "Diciembre"
-  MOSTRAR CUADRO
-    CUERPO tabla
-    ANEXAR FILA total_col
-    ANEXAR COLUMNA total_fila NFILA(datos)
-    NOMBRES FILAS meses "Total"
-    NOMBRES COLUMNAS  tipos "Total"
-  FIN MOSTRAR CUADRO
+\NormalTok{  \# a) Mostrar la tabla}
+\NormalTok{  tipos[1] \textless{}{-} "Simple"}
+\NormalTok{  tipos[2] \textless{}{-} "Doble"}
+\NormalTok{  tipos[3] \textless{}{-} "Triple"}
+\NormalTok{  meses[1] \textless{}{-} "Enero"}
+\NormalTok{  ...}
+\NormalTok{  meses[12] \textless{}{-} "Diciembre"}
+\NormalTok{  MOSTRAR CUADRO}
+\NormalTok{    CUERPO tabla}
+\NormalTok{    ANEXAR FILA total\_col}
+\NormalTok{    ANEXAR COLUMNA total\_fila NFILA(datos)}
+\NormalTok{    NOMBRES FILAS meses "Total"}
+\NormalTok{    NOMBRES COLUMNAS  tipos "Total"}
+\NormalTok{  FIN MOSTRAR CUADRO}
 
-  # b) Determinar el total de pernoctaciones en el hotel durante el 2019
-  ESCRIBIR "El número total de pernoctaciones en el hotel durante el 2019 fue", pernoc
+\NormalTok{  \# b) Determinar el total de pernoctaciones en el hotel durante el 2021}
+\NormalTok{  ESCRIBIR "El número total de pernoctaciones en el hotel durante el 2021 fue", pernoc}
 
-  # c) Determinar cuál fue el mes de mayor cantidad de reservas
-  res <- maximo(total_fila)
-  ESCRIBIR "El mes de mayor cantidad de reservas fue", meses[res[2]], "con", res[1], "reservas."
+\NormalTok{  \# c) Determinar cuál fue el mes de mayor cantidad de reservas}
+\NormalTok{  res \textless{}{-} maximo(total\_fila)}
+\NormalTok{  ESCRIBIR "El mes de mayor cantidad de reservas fue", meses[res[2]], "con", res[1], "reservas."}
 
-  # d) Determinar para cada tipo de habitación el mes con menor número de reservas
-  PARA j DESDE 1 HASTA 3 HACER
-    res <- minimo_matriz_col(tabla, j)
-    ESCRIBIR "Para las habitaciones de tipo", tipos[j], "el mes con menor número de reservas fue", meses[res[2]], "con", res[1], "reservas."
-  FIN PARA
+\NormalTok{  \# d) Determinar para cada tipo de habitación el mes con menor número de reservas}
+\NormalTok{  PARA j DESDE 1 HASTA 3 HACER}
+\NormalTok{    res \textless{}{-} minimo\_matriz\_col(tabla, j)}
+\NormalTok{    ESCRIBIR "Para las habitaciones de tipo", tipos[j], "el mes con menor número de reservas fue", meses[res[2]], "con", res[1], "reservas."}
+\NormalTok{  FIN PARA}
    
-FIN
-\end{verbatim}
+\NormalTok{FIN}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6367,7 +6483,7 @@ FIN
 \CommentTok{\# Leer archivo}
 \NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{read.delim}\NormalTok{(}\StringTok{"/home/marcos/GitProjects/introprog/archivos/reservas.txt"}\NormalTok{)}
 
-\CommentTok{\# Programa: "Análisis de las reservas en un famoso hotel de Rosario durante el año 2019"}
+\CommentTok{\# Programa: "Análisis de las reservas en un famoso hotel de Rosario durante el año 2021"}
 \NormalTok{tabla }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{3}\NormalTok{)}
 \NormalTok{total\_fila }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{(}\DecValTok{12}\NormalTok{)}
 \NormalTok{total\_col }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{(}\DecValTok{3}\NormalTok{)}
@@ -6398,11 +6514,11 @@ FIN
 \FunctionTok{dimnames}\NormalTok{(cuadro) }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\AttributeTok{Mes =} \FunctionTok{c}\NormalTok{(meses, }\StringTok{"Total"}\NormalTok{), }
                          \StringTok{"Tipo de habitación"} \OtherTok{=} \FunctionTok{c}\NormalTok{(tipos, }\StringTok{"Total"}\NormalTok{) )}
 \CommentTok{\# Mostrar el resultado}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"Número de reservas durante el 2019 según mes y tipo de habitación}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Número de reservas durante el 2021 según mes y tipo de habitación}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
 \NormalTok{cuadro}
 
-\CommentTok{\# b) Determinar el total de pernoctaciones en el hotel durante el 2019}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{El número total de pernoctaciones en el hotel durante el 2019 fue"}\NormalTok{, pernoc, }\StringTok{"}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\CommentTok{\# b) Determinar el total de pernoctaciones en el hotel durante el 2021}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{El número total de pernoctaciones en el hotel durante el 2021 fue"}\NormalTok{, pernoc, }\StringTok{"}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
 
 \CommentTok{\# c) Determinar cuál fue el mes de mayor cantidad de reservas}
 \NormalTok{res }\OtherTok{\textless{}{-}} \FunctionTok{maximo}\NormalTok{(total\_fila)}
@@ -6420,7 +6536,7 @@ FIN
 \end{Shaded}
 
 \begin{verbatim}
-Número de reservas durante el 2019 según mes y tipo de habitación
+Número de reservas durante el 2021 según mes y tipo de habitación
             Tipo de habitación
 Mes          Simple Doble Triple Total
   Enero         200   129     72   401
@@ -6437,7 +6553,7 @@ Mes          Simple Doble Triple Total
   Diciembre     200   119     66   385
   Total        1975  1172    706  3853
 
-El número total de pernoctaciones en el hotel durante el 2019 fue 19323 
+El número total de pernoctaciones en el hotel durante el 2021 fue 19323 
 
 El mes de mayor cantidad de reservas fue Julio con 589 reservas.
 
@@ -6457,7 +6573,51 @@ Anteriormente hemos mencionado que cuando trabajamos con archivos podemos realiz
 \hypertarget{crear-un-archivo-para-guardar-resultados}{%
 \subsection{Crear un archivo para guardar resultados}\label{crear-un-archivo-para-guardar-resultados}}
 
-La función \texttt{sink()} permite escribir en un archivo de texto todos los resultados que habitualmente vemos en la consola de R. Sus argumentos son:
+Imaginemos que en el problema del hotel, en lugar de mostrar los resultados en la consola, queremos volcarlos en un archivo de texto llamado \texttt{resultados.txt}. Podemos indicar los pasos a seguir en pseudocódigo de la siguiente forma\footnote{O de cualquier otra que exprese sin confusiones todo lo que se quiere volcar al archivo.}:
+
+\begin{verbatim}
+# Última parte del pseudocódigo...
+
+    # Crear archivo de resultados
+    CREAR ARCHIVO (resultados)
+    ABRIR ARCHIVO (resultados), de salida
+    
+    # a) Agregar el cuadro al archivo
+    tipos[1] <- "Simple"
+    tipos[2] <- "Doble"
+    tipos[3] <- "Triple"
+    meses[1] <- "Enero"
+    ...
+    meses[12] <- "Diciembre"
+    ESCRIBIR CUADRO EN ARCHIVO (resultados)
+      CUERPO tabla
+      ANEXAR FILA total_col
+      ANEXAR COLUMNA total_fila NFILA(datos)
+      NOMBRES FILAS meses "Total"
+      NOMBRES COLUMNAS  tipos "Total"
+    ESCRIBIR CUADRO EN ARCHIVO
+    
+    # b) Determinar el total de pernoctaciones en el hotel durante el 2021
+    ESCRIBIR EN ARCHIVO (resultados) "El número total de pernoctaciones en el hotel 
+      durante el 2021 fue", pernoc
+    
+    # c) Determinar cuál fue el mes de mayor cantidad de reservas
+    res <- maximo(total_fila)
+    ESCRIBIR EN ARCHIVO (resultados) "El mes de mayor cantidad de reservas fue", 
+      meses[res[2]], "con", res[1], "reservas."
+    
+    # d) Determinar para cada tipo de habitación el mes con menor número de reservas
+    PARA j DESDE 1 HASTA 3 HACER
+      res <- minimo_matriz_col(tabla, j)
+      ESCRIBIR EN ARCHIVO (resultados) "Para las habitaciones de tipo", tipos[j], 
+      "el mes con menor número de reservas fue", meses[res[2]], "con", res[1], "reservas."
+    FIN PARA
+    
+    CERRAR ARCHIVO (resultado)
+FIN
+\end{verbatim}
+
+En R, la función \texttt{sink()} permite escribir en un archivo de texto todos los resultados que habitualmente vemos en la consola. Sus argumentos son:
 
 \begin{itemize}
 \tightlist
@@ -6469,41 +6629,40 @@ La función \texttt{sink()} permite escribir en un archivo de texto todos los re
   \texttt{split}: por default mientras la conexión al archivo está activa, los resultados que enviamos al mismo no se muestran en la consola de R, a menos que indiquemos \texttt{split\ =\ TRUE}, en cuyo caso sucederán ambas cosas: los resultados serán escritos en el archivo y se verán en la consola.
 \end{itemize}
 
-Cuando se desea cerrar la conexión al archivo, se debe correr \texttt{sink()} sin ningún argumento. Todo lo que \emph{imprimamos} con \texttt{cat()} entre ambos llamados a \texttt{sink()} se guardará en el archivo. Veamos un ejemplo:
+Cuando se desea cerrar la conexión al archivo, se debe correr \texttt{sink()} sin ningún argumento. Todo lo que \emph{imprimamos} con \texttt{cat()} entre ambos llamados a \texttt{sink()} se guardará en el archivo. La última parte del código en el problema anterior debe ser:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{a }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{, }\AttributeTok{nrow =} \DecValTok{3}\NormalTok{)}
-\NormalTok{b }\OtherTok{\textless{}{-}} \DecValTok{3}
-\NormalTok{d }\OtherTok{\textless{}{-}} \DecValTok{5}
+\CommentTok{\# Crear conexión al archivo de resultados y poner un encabezado}
 \FunctionTok{sink}\NormalTok{(}\AttributeTok{file =} \StringTok{"salida.txt"}\NormalTok{, }\AttributeTok{append =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{split =} \ConstantTok{TRUE}\NormalTok{)}
 \FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
 \FunctionTok{cat}\NormalTok{(}\StringTok{"            ARCHIVO DE RESULTADOS         }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
 \FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"El valor de b es"}\NormalTok{, b, }\StringTok{", mientras que d vale "}\NormalTok{, d, }\StringTok{"}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{, }\AttributeTok{sep =} \StringTok{""}\NormalTok{)}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"Esta es la matriz a:}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\NormalTok{a}
+
+\CommentTok{\# a) Mostrar la tabla}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Número de reservas durante el 2021 según mes y tipo de habitación}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{cuadro}
+
+\CommentTok{\# b) Determinar el total de pernoctaciones en el hotel durante el 2021}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{El número total de pernoctaciones en el hotel durante el 2021 fue"}\NormalTok{, pernoc, }\StringTok{"}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+
+\CommentTok{\# c) Determinar cuál fue el mes de mayor cantidad de reservas}
+\NormalTok{res }\OtherTok{\textless{}{-}} \FunctionTok{maximo}\NormalTok{(total\_fila)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"El mes de mayor cantidad de reservas fue"}\NormalTok{, meses[res[}\DecValTok{2}\NormalTok{]], }\StringTok{"con"}\NormalTok{, }
+\NormalTok{    res[}\DecValTok{1}\NormalTok{], }\StringTok{"reservas.}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+
+\CommentTok{\# d) Determinar para cada tipo de habitación el mes con menor número de reservas}
+\ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{) \{}
+\NormalTok{    res }\OtherTok{\textless{}{-}} \FunctionTok{minimo\_matriz\_col}\NormalTok{(tabla, j)}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"Para las habitaciones de tipo"}\NormalTok{, tipos[j], }
+        \StringTok{"el mes con menor}\SpecialCharTok{\textbackslash{}n}\StringTok{     número de reservas fue"}\NormalTok{, }
+\NormalTok{        meses[res[}\DecValTok{2}\NormalTok{]], }\StringTok{"con"}\NormalTok{, res[}\DecValTok{1}\NormalTok{], }\StringTok{"reservas.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+
+\CommentTok{\# Cerrar conexión al archivo}
 \FunctionTok{sink}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
-
-Así luce el archivo \texttt{salida.txt}:
-
-\begin{verbatim}
-==========================================
-            ARCHIVO DE RESULTADOS         
-==========================================
-
-El valor de b es  3, mientras que d vale 5 
-
-Esta es la matriz a:
-     [,1] [,2] [,3]
-[1,]    1    4    7
-[2,]    2    5    8
-[3,]    3    6    9
-\end{verbatim}
-
-Se deja propuesto como ejercicio implementar esto en el ejemplo anterior, para que los resultados del análisis de las reservas se guarden en un archivo de texto.
 
 \hypertarget{crear-un-archivo-para-guardar-conjuntos-de-datos-luxednea-por-luxednea}{%
 \subsection{Crear un archivo para guardar conjuntos de datos, línea por línea}\label{crear-un-archivo-para-guardar-conjuntos-de-datos-luxednea-por-luxednea}}
@@ -7005,11 +7164,11 @@ Recordemos algunos ejercicios:
 
 \begin{verbatim}
      [,1] [,2] [,3] [,4]
-[1,]   11    4   72   35
-[2,]    5   73   93   33
-[3,]   51    6   64   54
-[4,]    8   71   21   76
-[5,]   67   49   14   68
+[1,]    9   20   81   32
+[2,]   49   46   21   80
+[3,]   58   82   84   16
+[4,]   34   40    7   30
+[5,]   86   10   53   67
 \end{verbatim}
 
 \begin{Shaded}
@@ -7020,7 +7179,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 93
+[1] 86
 \end{verbatim}
 
 \begin{Shaded}
@@ -7032,7 +7191,7 @@ Recordemos algunos ejercicios:
 
 \begin{verbatim}
      row col
-[1,]   2   3
+[1,]   5   1
 \end{verbatim}
 
 \begin{Shaded}
@@ -7044,7 +7203,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 72 93 64 76 68
+[1] 81 80 84 40 86
 \end{verbatim}
 
 \begin{Shaded}
@@ -7055,7 +7214,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 67 73 93 76
+[1] 86 82 84 80
 \end{verbatim}
 
 \begin{Shaded}
@@ -7066,7 +7225,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 3 3 3 4 4
+[1] 3 4 3 2 1
 \end{verbatim}
 
 \begin{Shaded}
@@ -7076,7 +7235,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 3 3 3 4 4
+[1] 3 4 3 2 1
 \end{verbatim}
 
 \begin{Shaded}
@@ -7087,7 +7246,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 5 2 2 4
+[1] 5 3 3 2
 \end{verbatim}
 \item
   En otras ocasiones, puede ser que R no incluya en su instalación base la función que necesitamos, pero que la misma ya haya sido programada por otra persona y esté disponible en un \emph{paquete} que podemos descargar e instalar. Por ejemplo, en el ejercicio 8 de la Práctica 3 escribimos una función llamada \texttt{max\_com\_div()} para hallar el máximo común divisor entre dos naturales. R no tiene una función que compute esto, pero podemos instalar el paquete \texttt{FRACTION} que sí la incluye:
