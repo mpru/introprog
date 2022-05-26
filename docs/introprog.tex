@@ -5735,7 +5735,7 @@ Se necesita crear un programa que permita obtener los siguientes resultados:
   Determinar para cada tipo de habitación el mes con menor número de reservas.
 \end{enumerate}
 
-En \href{https://github.com/mpru/introprog/tree/master/archivos}{este link} o en el aula virtual podrás encontrar el archivo de datos. Al final de esta sección se presenta el algoritmo y el programa en R que resuelven este problema, pero antes iremos explicando cada parte por separado.
+En \href{https://github.com/mpru/introprog/tree/master/archivos}{este enlace} o en el aula virtual podrás encontrar el archivo de datos. Al final de esta sección se presenta el algoritmo y el programa en R que resuelven este problema, pero antes iremos explicando cada parte por separado.
 
 \hypertarget{lectura-de-los-registros-del-archivo}{%
 \subsection{Lectura de los registros del archivo}\label{lectura-de-los-registros-del-archivo}}
@@ -6985,6 +6985,300 @@ En este ejercicio escribimos una función para sumar los elementos de un vector.
 \caption{Programa suma.R.}\label{fig:unnamed-chunk-188}
 \end{figure}
 
+\hypertarget{uso-de-argumentos-en-la-luxednea-de-comandos-al-ejecutar-cuxf3digo-de-r}{%
+\section{Uso de argumentos en la línea de comandos al ejecutar código de R}\label{uso-de-argumentos-en-la-luxednea-de-comandos-al-ejecutar-cuxf3digo-de-r}}
+
+En ejemplos anteriores hemos visto cómo capturar distintas piezas de información de forma interactiva mediante la función \texttt{scan()} mientras estamos ejecutando un programa de R desde la línea de comandos.
+
+En otras ocasiones, en lugar de pausar la ejecución del programa a la espera de que el usuario ingrese algún valor, es conveniente especificar algunas opciones directamente en la instrucción \texttt{Rscript} que ejecuta el código.
+
+Por ejemplo, imaginemos que tenemos un programa llamado \texttt{resumen.R} que se encarga de hacer un análisis descriptivo de un conjunto de datos que están guardados en un archivo de texto de nombre \texttt{02\_05\_22.txt}. Al ejecutar este programa desde la terminal, podemos indicar el nombre del archivo como un argumento adicional de esta forma:
+
+\begin{verbatim}
+Rscript resumen.R 02_05_22.txt
+\end{verbatim}
+
+Ahora supongamos que este mismo tipo de análisis se repite todos los días con datos nuevos. En lugar de modificar nuestro script \texttt{resumen.R}, ejecutamos lo anterior con el nombre del archivo que corresponda y listo:
+
+\begin{verbatim}
+Rscript resumen.R 03_05_22.txt
+Rscript resumen.R 04_05_22.txt
+Rscript resumen.R 05_05_22.txt
+\end{verbatim}
+
+Para que esto funcione, el programa que está guardado en \texttt{resumen.R} debe ser capaz de capturar el nombre del archivo que tiene leer y que el usuario se lo está pasando como un argumento adicional en la instrucción \texttt{Rscript}.
+
+La función que se encarga de capturar los argumentos adicionales que enviamos desde la terminal es \texttt{commandArgs()}. Toma todos los elementos que escribamos y los reúne en un vector de tipo carácter. Por ejemplo, el archivo \texttt{ejemplo1.R} tiene el siguiente contenido:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Capturar los argumentos pasados desde la terminal en un vector}
+\NormalTok{args }\OtherTok{\textless{}{-}} \FunctionTok{commandArgs}\NormalTok{(}\AttributeTok{trailingOnly =} \ConstantTok{TRUE}\NormalTok{)}
+
+\CommentTok{\# Contar cuántos argumentos nos pasaron}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Nos pasaron"}\NormalTok{, }\FunctionTok{length}\NormalTok{(args), }\StringTok{"argumentos.}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+
+\CommentTok{\# Mostrar los argumentos que nos pasaron}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Los argumentos que nos pasaron son:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(args, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+
+\CommentTok{\# Aunque los argumentos sean números, son tomados como carácter}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Los argumentos se toman como valores de tipo:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{class}\NormalTok{(args)}
+\end{Highlighting}
+\end{Shaded}
+
+Al ejecutarlo desde la línea de comandos con los argumentos ``hola'', ``chau'' y ``4'' obtenemos:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Rscript}\NormalTok{ ejemplo1.R hola chau 4}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Nos pasaron 3 argumentos.
+
+Los argumentos que nos pasaron son:
+hola chau 4 
+
+Los argumentos se toman como valores de tipo:
+[1] "character"
+\end{verbatim}
+
+Si lo ejecutamos sin argumentos:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Rscript}\NormalTok{ ejemplo1.R}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Nos pasaron 0 argumentos.
+
+Los argumentos que nos pasaron son:
+ 
+
+Los argumentos se toman como valores de tipo:
+[1] "character"
+\end{verbatim}
+
+Ahora vamos a suponer que el programa \texttt{ejemplo2.R} tiene como objetivo contar un chiste o decir un refrán, según lo que se le pida en el único argumento que se le pasa al correrlo desde la terminal. Si el argumento es igual ``chiste'', se cuenta el chiste; si es igual a ``refran'' se cuenta el refrán; y en otro caso no se hace nada. El contenido del archivo es:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Capturar los argumentos pasados desde la terminal en un vector}
+\NormalTok{args }\OtherTok{\textless{}{-}} \FunctionTok{commandArgs}\NormalTok{(}\AttributeTok{trailingOnly =} \ConstantTok{TRUE}\NormalTok{)}
+
+\ControlFlowTok{if}\NormalTok{ (args[}\DecValTok{1}\NormalTok{] }\SpecialCharTok{==} \StringTok{"chiste"}\NormalTok{) \{}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"{-} Juan, cómo has cambiado.}\SpecialCharTok{\textbackslash{}n}\StringTok{{-} Yo no soy Juan.}\SpecialCharTok{\textbackslash{}n}\StringTok{{-} Más a mi favor.}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (args[}\DecValTok{1}\NormalTok{] }\SpecialCharTok{==} \StringTok{"refran"}\NormalTok{) \{}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"No por mucho madrugar amanece más temprano.}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+    \CommentTok{\# Genero un error para que el programa se detenga, avisando lo que pasa}
+    \FunctionTok{stop}\NormalTok{(}\StringTok{"El argumento provisto debe ser igual a chiste o refran.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Ejecutamos este archivo pasando distintos valores para su argumento:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Rscript}\NormalTok{ ejemplo2.R refran}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+No por mucho madrugar amanece más temprano.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Rscript}\NormalTok{ ejemplo2.R chiste}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+- Juan, cómo has cambiado.
+- Yo no soy Juan.
+- Más a mi favor.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Rscript}\NormalTok{ ejemplo2.R hola}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Error: El argumento provisto debe ser igual a chiste o refran.
+Execution halted
+\end{verbatim}
+
+Podemos controlar la cantidad de argumentos admitidos generando errores en el código para aquellas situaciones donde el usuario envíe menos o más que la cantidad deseada. Por ejemplo, en el caso anterior, es obligatorio enviar uno y sólo un argumento:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Capturar los argumentos pasados desde la terminal en un vector}
+\NormalTok{args }\OtherTok{\textless{}{-}} \FunctionTok{commandArgs}\NormalTok{(}\AttributeTok{trailingOnly =} \ConstantTok{TRUE}\NormalTok{)}
+
+\CommentTok{\# Controlar la cantidad de argumentos}
+\ControlFlowTok{if}\NormalTok{ (}\FunctionTok{length}\NormalTok{(args) }\SpecialCharTok{==} \DecValTok{0} \SpecialCharTok{||} \FunctionTok{length}\NormalTok{(args) }\SpecialCharTok{\textgreater{}} \DecValTok{1}\NormalTok{) \{}
+    \FunctionTok{stop}\NormalTok{(}\StringTok{"Debe proveer exactamente un argumento, que debe ser igual a chiste o refran.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+
+\ControlFlowTok{if}\NormalTok{ (args[}\DecValTok{1}\NormalTok{] }\SpecialCharTok{==} \StringTok{"chiste"}\NormalTok{) \{}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"{-} Juan, cómo has cambiado.}\SpecialCharTok{\textbackslash{}n}\StringTok{{-} Yo no soy Juan.}\SpecialCharTok{\textbackslash{}n}\StringTok{{-} Más a mi favor.}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (args[}\DecValTok{1}\NormalTok{] }\SpecialCharTok{==} \StringTok{"refran"}\NormalTok{) \{}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"No por mucho madrugar amanece más temprano.}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+    \CommentTok{\# Genero un error para que el programa se detenga, avisando lo que pasa}
+    \FunctionTok{stop}\NormalTok{(}\StringTok{"El argumento provisto debe ser igual a chiste o refran.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Veamos lo que pasa si cumplimos o no con la cantidad exacta de argumentos que hay que pasarle al código de R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Rscript}\NormalTok{ ejemplo3.R}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Error: Debe proveer exactamente un argumento, que debe ser igual a chiste o refran.
+Execution halted
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Rscript}\NormalTok{ ejemplo3.R chiste refran}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Error: Debe proveer exactamente un argumento, que debe ser igual a chiste o refran.
+Execution halted
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Rscript}\NormalTok{ ejemplo3.R chiste}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+- Juan, cómo has cambiado.
+- Yo no soy Juan.
+- Más a mi favor.
+\end{verbatim}
+
+Imaginemos por último que es obligatorio pasar un primer argumento (``chiste'' o ``refran'') y que opcionalmente se puede pasar un segundo argumento, que se va a tratar de un número para indicar cuántas veces queremos que el chiste o el refrán se repita. Como todos los argumentos se pasan como datos de tipo carácter, para poder usar el número tendremos que convertirlo a dato de tipo numérico.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Capturar los argumentos pasados desde la terminal en un vector}
+\NormalTok{args }\OtherTok{\textless{}{-}} \FunctionTok{commandArgs}\NormalTok{(}\AttributeTok{trailingOnly =} \ConstantTok{TRUE}\NormalTok{)}
+
+\CommentTok{\# Si no proveyó argumentos, generar un error y que se detenga el programa}
+\ControlFlowTok{if}\NormalTok{ (}\FunctionTok{length}\NormalTok{(args) }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) \{}
+    \FunctionTok{stop}\NormalTok{(}\StringTok{"Debe proveer al menos un argumento (chiste o refran)."}\NormalTok{)}
+\NormalTok{\}}
+
+\CommentTok{\# Si proveyó más de 2 argumentos, generar un error y que se detenga el programa}
+\ControlFlowTok{if}\NormalTok{ (}\FunctionTok{length}\NormalTok{(args) }\SpecialCharTok{\textgreater{}} \DecValTok{2}\NormalTok{) \{}
+    \FunctionTok{stop}\NormalTok{(}\StringTok{"No debe proveer más de 2 argumentos. El primero es obligatorio (chiste o refran) y el segundo es opcional (un número que indica la cantidad de veces a repetir el chiste o el refrán)."}\NormalTok{)}
+\NormalTok{\}}
+
+\CommentTok{\# Si no hay segundo argumento, args[2] es NA}
+\ControlFlowTok{if}\NormalTok{ (}\FunctionTok{is.na}\NormalTok{(args[}\DecValTok{2}\NormalTok{])) \{}
+\NormalTok{    n }\OtherTok{\textless{}{-}} \DecValTok{1}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{    n }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(args[}\DecValTok{2}\NormalTok{])}
+\NormalTok{\}}
+
+\CommentTok{\# Repetir n veces}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{n) \{}
+    \ControlFlowTok{if}\NormalTok{ (args[}\DecValTok{1}\NormalTok{] }\SpecialCharTok{==} \StringTok{"chiste"}\NormalTok{) \{}
+        \FunctionTok{cat}\NormalTok{(}\StringTok{"{-} Juan, cómo has cambiado.}\SpecialCharTok{\textbackslash{}n}\StringTok{{-} Yo no soy Juan.}\SpecialCharTok{\textbackslash{}n}\StringTok{{-} Más a mi favor.}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{    \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (args[}\DecValTok{1}\NormalTok{] }\SpecialCharTok{==} \StringTok{"refran"}\NormalTok{) \{}
+        \FunctionTok{cat}\NormalTok{(}\StringTok{"No por mucho madrugar amanece más temprano.}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+        \CommentTok{\# Genero un error para que el programa se detenga, avisando lo que pasa}
+        \FunctionTok{stop}\NormalTok{(}\StringTok{"El argumento provisto debe ser igual a chiste o refran.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Veamos ahora cómo funciona:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Rscript}\NormalTok{ ejemplo4.R refran 5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+No por mucho madrugar amanece más temprano.
+
+No por mucho madrugar amanece más temprano.
+
+No por mucho madrugar amanece más temprano.
+
+No por mucho madrugar amanece más temprano.
+
+No por mucho madrugar amanece más temprano.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Rscript}\NormalTok{ ejemplo4.R chiste 3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+- Juan, cómo has cambiado.
+- Yo no soy Juan.
+- Más a mi favor.
+
+- Juan, cómo has cambiado.
+- Yo no soy Juan.
+- Más a mi favor.
+
+- Juan, cómo has cambiado.
+- Yo no soy Juan.
+- Más a mi favor.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Rscript}\NormalTok{ ejemplo4.R refran}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+No por mucho madrugar amanece más temprano.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Rscript}\NormalTok{ ejemplo4.R}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Error: Debe proveer al menos un argumento (chiste o refran).
+Execution halted
+\end{verbatim}
+
+Si querés probar estos ejemplos, podés crear los archivos de código mencionados copiando y pegando las instrucciones o descargarlos de \href{https://github.com/mpru/introprog/tree/master/archivos}{este enlace}.
+
+Además de la función \texttt{commandArgs()} existen paquetes de R para poder trabajar con argumentos y opciones de formas mucho más elaboradas, como los paquetes \texttt{argparse} y \texttt{optparse}, entre otros.
+
 \hypertarget{muxe1s-funciones-predefinidas}{%
 \section{Más funciones predefinidas}\label{muxe1s-funciones-predefinidas}}
 
@@ -7164,11 +7458,11 @@ Recordemos algunos ejercicios:
 
 \begin{verbatim}
      [,1] [,2] [,3] [,4]
-[1,]    9   20   81   32
-[2,]   49   46   21   80
-[3,]   58   82   84   16
-[4,]   34   40    7   30
-[5,]   86   10   53   67
+[1,]   87   88   79   19
+[2,]   20   72   96   27
+[3,]   69   70   33   39
+[4,]   62   91   21   50
+[5,]   93   31   64   14
 \end{verbatim}
 
 \begin{Shaded}
@@ -7179,7 +7473,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 86
+[1] 96
 \end{verbatim}
 
 \begin{Shaded}
@@ -7191,7 +7485,7 @@ Recordemos algunos ejercicios:
 
 \begin{verbatim}
      row col
-[1,]   5   1
+[1,]   2   3
 \end{verbatim}
 
 \begin{Shaded}
@@ -7203,7 +7497,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 81 80 84 40 86
+[1] 88 96 70 91 93
 \end{verbatim}
 
 \begin{Shaded}
@@ -7214,7 +7508,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 86 82 84 80
+[1] 93 91 96 50
 \end{verbatim}
 
 \begin{Shaded}
@@ -7225,7 +7519,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 3 4 3 2 1
+[1] 2 3 2 2 1
 \end{verbatim}
 
 \begin{Shaded}
@@ -7235,7 +7529,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 3 4 3 2 1
+[1] 2 3 2 2 1
 \end{verbatim}
 
 \begin{Shaded}
@@ -7246,7 +7540,7 @@ Recordemos algunos ejercicios:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 5 3 3 2
+[1] 5 4 2 4
 \end{verbatim}
 \item
   En otras ocasiones, puede ser que R no incluya en su instalación base la función que necesitamos, pero que la misma ya haya sido programada por otra persona y esté disponible en un \emph{paquete} que podemos descargar e instalar. Por ejemplo, en el ejercicio 8 de la Práctica 3 escribimos una función llamada \texttt{max\_com\_div()} para hallar el máximo común divisor entre dos naturales. R no tiene una función que compute esto, pero podemos instalar el paquete \texttt{FRACTION} que sí la incluye:

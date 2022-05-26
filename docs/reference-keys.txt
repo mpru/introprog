@@ -139,6 +139,7 @@ crear-un-archivo-para-guardar-conjuntos-de-datos-línea-por-línea
 crear-un-archivo-para-guardar-conjuntos-de-datos-todos-los-registros-juntos
 otros-tópicos
 la-consola
+uso-de-argumentos-en-la-línea-de-comandos-al-ejecutar-código-de-r
 más-funciones-predefinidas
 operaciones-vectorizadas
 indexación-de-vectores-matrices-y-data.frames

@@ -177,6 +177,158 @@ cat("\nLa suma de los números es:", suma, "\n")
 knitr::include_graphics('images/07_otros/terminal10.png')
 ```
 
+## Uso de argumentos en la línea de comandos al ejecutar código de R
+
+En ejemplos anteriores hemos visto cómo capturar distintas piezas de información de forma interactiva mediante la función `scan()` mientras estamos ejecutando un programa de R desde la línea de comandos.
+
+En otras ocasiones, en lugar de pausar la ejecución del programa a la espera de que el usuario ingrese algún valor, es conveniente especificar algunas opciones directamente en la instrucción `Rscript` que ejecuta el código.
+
+Por ejemplo, imaginemos que tenemos un programa llamado `resumen.R` que se encarga de hacer un análisis descriptivo de un conjunto de datos que están guardados en un archivo de texto de nombre `02_05_22.txt`.  Al ejecutar este programa desde la terminal, podemos indicar el nombre del archivo como un argumento adicional de esta forma:
+
+```
+Rscript resumen.R 02_05_22.txt
+```
+
+Ahora supongamos que este mismo tipo de análisis se repite todos los días con datos nuevos. En lugar de modificar nuestro script `resumen.R`, ejecutamos lo anterior con el nombre del archivo que corresponda y listo:
+
+```
+Rscript resumen.R 03_05_22.txt
+Rscript resumen.R 04_05_22.txt
+Rscript resumen.R 05_05_22.txt
+```
+
+Para que esto funcione, el programa que está guardado en `resumen.R` debe ser capaz de capturar el nombre del archivo que tiene leer y que el usuario se lo está pasando como un argumento adicional en la instrucción `Rscript`.
+
+La función que se encarga de capturar los argumentos adicionales que enviamos desde la terminal es `commandArgs()`. Toma todos los elementos que escribamos y los reúne en un vector de tipo carácter. Por ejemplo, el archivo `ejemplo1.R` tiene el siguiente contenido:
+
+```{r, file='archivos/ejemplo1.R', eval=FALSE}
+```
+
+Al ejecutarlo desde la línea de comandos con los argumentos "hola", "chau" y "4" obtenemos:
+
+```{bash, eval=FALSE}
+Rscript ejemplo1.R hola chau 4
+```
+
+```{bash, echo=FALSE}
+Rscript archivos/ejemplo1.R hola chau 4
+```
+
+Si lo ejecutamos sin argumentos:
+
+```{bash, eval=FALSE}
+Rscript ejemplo1.R
+```
+
+```{bash, echo=FALSE}
+Rscript archivos/ejemplo1.R
+```
+
+Ahora vamos a suponer que el programa `ejemplo2.R` tiene como objetivo contar un chiste o decir un refrán, según lo que se le pida en el único argumento que se le pasa al correrlo desde la terminal. Si el argumento es igual "chiste", se cuenta el chiste; si es igual a "refran" se cuenta el refrán; y en otro caso no se hace nada. El contenido del archivo es:
+
+```{r, file='archivos/ejemplo2.R', eval=FALSE}
+```
+
+Ejecutamos este archivo pasando distintos valores para su argumento:
+
+```{bash, error=TRUE, eval=FALSE}
+Rscript ejemplo2.R refran
+```
+
+```{bash, echo=FALSE, error=TRUE}
+Rscript archivos/ejemplo2.R refran
+```
+
+```{bash, error=TRUE, eval=FALSE}
+Rscript ejemplo2.R chiste
+```
+
+```{bash, echo=FALSE, error=TRUE}
+Rscript archivos/ejemplo2.R chiste
+```
+
+```{bash, error=TRUE, eval=FALSE}
+Rscript ejemplo2.R hola
+```
+
+```{bash, echo=FALSE, error=TRUE}
+Rscript archivos/ejemplo2.R hola
+```
+
+Podemos controlar la cantidad de argumentos admitidos generando errores en el código para aquellas situaciones donde el usuario envíe menos o más que la cantidad deseada. Por ejemplo, en el caso anterior, es obligatorio enviar uno y sólo un argumento:
+
+```{r, file='archivos/ejemplo3.R', eval=FALSE}
+```
+
+Veamos lo que pasa si cumplimos o no con la cantidad exacta de argumentos que hay que pasarle al código de R:
+
+```{bash, error=TRUE, eval=FALSE}
+Rscript ejemplo3.R
+```
+
+```{bash, echo=FALSE, error=TRUE}
+Rscript archivos/ejemplo3.R
+```
+
+```{bash, error=TRUE, eval=FALSE}
+Rscript ejemplo3.R chiste refran
+```
+
+```{bash, echo=FALSE, error=TRUE}
+Rscript archivos/ejemplo3.R chiste refran
+```
+
+```{bash, error=TRUE, eval=FALSE}
+Rscript ejemplo3.R chiste
+```
+
+```{bash, echo=FALSE, error=TRUE}
+Rscript archivos/ejemplo3.R chiste
+```
+
+Imaginemos por último que es obligatorio pasar un primer argumento ("chiste" o "refran") y que opcionalmente se puede pasar un segundo argumento, que se va a tratar de un número para indicar cuántas veces queremos que el chiste o el refrán se repita. Como todos los argumentos se pasan como datos de tipo carácter, para poder usar el número tendremos que convertirlo a dato de tipo numérico.
+
+```{r, file='archivos/ejemplo4.R', eval=FALSE}
+```
+
+Veamos ahora cómo funciona:
+
+```{bash, error=TRUE, eval=FALSE}
+Rscript ejemplo4.R refran 5
+```
+
+```{bash, echo=FALSE, error=TRUE}
+Rscript archivos/ejemplo4.R refran 5
+```
+
+```{bash, error=TRUE, eval=FALSE}
+Rscript ejemplo4.R chiste 3
+```
+
+```{bash, echo=FALSE, error=TRUE}
+Rscript archivos/ejemplo4.R chiste 3
+```
+
+```{bash, error=TRUE, eval=FALSE}
+Rscript ejemplo4.R refran
+```
+
+```{bash, echo=FALSE, error=TRUE}
+Rscript archivos/ejemplo4.R refran
+```
+
+```{bash, error=TRUE, eval=FALSE}
+Rscript ejemplo4.R
+```
+
+```{bash, echo=FALSE, error=TRUE}
+Rscript archivos/ejemplo4.R
+```
+
+Si querés probar estos ejemplos, podés crear los archivos de código mencionados copiando y pegando las instrucciones o descargarlos de [este enlace](https://github.com/mpru/introprog/tree/master/archivos). 
+
+Además de la función `commandArgs()` existen paquetes de R para poder trabajar con argumentos y opciones de formas mucho más elaboradas, como los paquetes `argparse` y `optparse`, entre otros.
+
 ## Más funciones predefinidas
 
 En este proceso de aprendizaje sobre programación hemos encarado la tarea de escribir muchas funciones que, por lo general, ya forman parte de la sintaxis básica de cualquier lenguaje de programación. Sí... hemos trabajado de más, ¡pero fue para poder aprender! Ahora vamos a mencionar algunos ejemplos de funciones que fuimos capaces de programar por nuestros propios medios, pero que ya estaban disponibles en R. De hecho, en la sección \@ref(funcpredef) vimos que R tiene funciones predefinidas para que podamos cumplir muchas tareas con facilidad.

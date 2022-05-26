@@ -195,7 +195,7 @@ b) Determinar el total de pernoctaciones en el hotel durante el 2021, es decir, 
 c) Determinar cuál fue el mes de mayor cantidad de reservas.
 d) Determinar para cada tipo de habitación el mes con menor número de reservas.
 
-En [este link](https://github.com/mpru/introprog/tree/master/archivos) o en el aula virtual podrás encontrar el archivo de datos. Al final de esta sección se presenta el algoritmo y el programa en R que resuelven este problema, pero antes iremos explicando cada parte por separado.
+En [este enlace](https://github.com/mpru/introprog/tree/master/archivos) o en el aula virtual podrás encontrar el archivo de datos. Al final de esta sección se presenta el algoritmo y el programa en R que resuelven este problema, pero antes iremos explicando cada parte por separado.
 
 ### Lectura de los registros del archivo
 
