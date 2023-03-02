@@ -603,6 +603,7 @@ SUBALGORITMOS
 FUNCIÓN fun(x: numérico, y: numérico): numérico
 COMENZAR
 	x <- x + 1
+	y <- y * 2
 	DEVOLVER x + y
 FIN FUNCIÓN
 
@@ -612,24 +613,25 @@ ALGORITMO PRINCIPAL
 
 ALGORITMO: "Ejemplo de pasaje de argumentos"
 COMENZAR
-	VARIABLE numérica a, b, c
+	VARIABLE numérica a, b, d
 	a <- 3
 	b <- 5
-	c <- fun(a, b - a)
-	ESCRIBIR a b c
+	d <- fun(a, b)
+	ESCRIBIR a b d
 FIN
 ```
 
 Si el pasaje de argumentos se hace por valor, los cambios producidos en el cuerpo de la función sobre los parámetros formales no son transmitidos a los parámetros actuales en el algoritmo principal. Esto significa que los formales son una "copia" de los actuales. Los pasos que sigue el algoritmo son:
 
 1. En el algoritmo principal, se asignan los valores: `a = 3`, `b = 5`.
-2. Al invocar la función, se establece la correspondencia: `x = 3, y = 5 - 3 = 2`.
+2. Al invocar la función, se establece la correspondencia: `x = 3, y = 5`.
 3. Primera línea de la función: `x = 3 + 1 = 4`.
-4. La función devuelve el valor `x + y = 4 + 2 = 6`.
-5. De regreso en el algoritmo principal: `c` recibe el valor `6`.
-6. El algoritmo escribe: `3 5 6`.
+4. Segunda línea de la función: `y = 5 * 2 = 10`.
+4. La función devuelve el valor `x + y = 4 + 10 = 14`.
+5. De regreso en el algoritmo principal: `d` recibe el valor `14`.
+6. El algoritmo escribe: `3 5 14`.
 
-En R, el pasaje de argumentos es **por valor**. Por lo tanto, este tipo de comportamiento es lo que vemos cuando implementamos el ejemplo discutido^[**Nota**: En general, se desalienta la reasignación de valor a los parámetros de la función por resultar confuso. Esto quiere decir que en el ejemplo anterior, para evitar ambigüedades, sería recomendable reemplazar `x <- x + 1` y  `DEVOLVER x + y` por algo como `z <- x + 1` y  `DEVOLVER z + y`, de modo que no se sobreescriba el valor del parámetro `x` y se use otra variable `z`.]:
+En R, el pasaje de argumentos es **por valor**. Por lo tanto, este tipo de comportamiento es lo que vemos cuando implementamos el ejemplo discutido^[**Nota**: En general, se desalienta la reasignación de valor a los parámetros de la función por resultar confuso. Esto quiere decir que en el ejemplo anterior, para evitar ambigüedades, sería recomendable reemplazar `x <- x + 1` por algo como `z <- x + 1` y operar con `z`, de modo que no se sobreescriba el valor del parámetro `x`. También sería aconsejable hacer algo similar para la `y`.]:
 
 ```{r}
 # ---------------------------------------------------------------
@@ -638,6 +640,7 @@ En R, el pasaje de argumentos es **por valor**. Por lo tanto, este tipo de compo
 
 fun <- function(x, y) {
 	x <- x + 1
+	y <- y * 2
 	return(x + y)
 }
 
@@ -647,8 +650,8 @@ fun <- function(x, y) {
 
 a <- 3
 b <- 5
-c <- fun(a, b - a)
-cat(a, b, c)
+d <- fun(a, b)
+cat(a, b, d)
 ```
 
 
@@ -674,6 +677,7 @@ SUBALGORITMOS
 FUNCIÓN fun(x: numérico, y: numérico): numérico
 COMENZAR
 	x <- x + 1
+	y <- y * 2
 	DEVOLVER x + y
 FIN FUNCIÓN
 
@@ -683,22 +687,23 @@ ALGORITMO PRINCIPAL
 
 ALGORITMO: "Ejemplo de pasaje de argumentos"
 COMENZAR
-	VARIABLE numérica a, b, c
+	VARIABLE numérica a, b, d
 	a <- 3
 	b <- 5
-	c <- fun(a, b - a)
-	ESCRIBIR a b c
+	d <- fun(a, b)
+	ESCRIBIR a b d
 FIN
 ```
 
 Si el pasaje de argumentos se hace por referencia, los pasos que sigue el algoritmo son:
 
 1. En el algoritmo principal, se asignan los valores: `a = 3`, `b = 5`.
-2. Al invocar la función, se establece la correspondencia: `x = 3, y = 5 - 3 = 2`.
-3. Primera línea de la función: `x = 3 + 1 = 4`. El parámetro actual asociado con `x`, `a`, sufre el mismo cambio y recibe el valor `4` (`a = 4`).
-4. La función devuelve el valor `x + y = 4 + 2 = 6`.
-5. De regreso en el algoritmo principal: `c` recibe el valor `6`.
-6. El algoritmo escribe: `4 5 6`.
+2. Al invocar la función, se establece la correspondencia: `x = 3, y = 5`.
+3. Primera línea de la función: `x = 3 + 1 = 4`. El parámetro actual asociado con `x`, `a`, es en realidad el que sufre dicho cambio y recibe el valor `4` (`a = 4`).
+3. Segunda línea de la función: `y = 5 * 2 = 10`. El parámetro actual asociado con `y`, `b`, es en realidad el que sufre dicho cambio y recibe el valor `10` (`b = 10`).
+4. La función devuelve el valor `x + y = 4 + 10 = 14`.
+5. De regreso en el algoritmo principal: `d` recibe el valor `14`.
+6. El algoritmo escribe: `4 10 14`.
 
 Debe notarse que los resultados difieren dependiendo del tipo de pasaje de argumentos empleado
 ^[Para diferenciar subalgoritmos con pasaje por referencia, algunos autores sugieren distinguir la declaración de los parámetros formales con algún símbolo, por ejemplo `&`.]. R no trabaja con pasaje por referencia (aunque es posible forzar a que haga algo similar, si así se lo desea).

@@ -595,6 +595,7 @@ SUBALGORITMOS
 FUNCIÓN fun(x: numérico, y: numérico): numérico
 COMENZAR
     x &lt;- x + 1
+    y &lt;- y * 2
     DEVOLVER x + y
 FIN FUNCIÓN
 
@@ -604,22 +605,23 @@ ALGORITMO PRINCIPAL
 
 ALGORITMO: "Ejemplo de pasaje de argumentos"
 COMENZAR
-    VARIABLE numérica a, b, c
+    VARIABLE numérica a, b, d
     a &lt;- 3
     b &lt;- 5
-    c &lt;- fun(a, b - a)
-    ESCRIBIR a b c
+    d &lt;- fun(a, b)
+    ESCRIBIR a b d
 FIN</code></pre>
 <p>Si el pasaje de argumentos se hace por valor, los cambios producidos en el cuerpo de la función sobre los parámetros formales no son transmitidos a los parámetros actuales en el algoritmo principal. Esto significa que los formales son una “copia” de los actuales. Los pasos que sigue el algoritmo son:</p>
 <ol style="list-style-type: decimal">
 <li>En el algoritmo principal, se asignan los valores: <code>a = 3</code>, <code>b = 5</code>.</li>
-<li>Al invocar la función, se establece la correspondencia: <code>x = 3, y = 5 - 3 = 2</code>.</li>
+<li>Al invocar la función, se establece la correspondencia: <code>x = 3, y = 5</code>.</li>
 <li>Primera línea de la función: <code>x = 3 + 1 = 4</code>.</li>
-<li>La función devuelve el valor <code>x + y = 4 + 2 = 6</code>.</li>
-<li>De regreso en el algoritmo principal: <code>c</code> recibe el valor <code>6</code>.</li>
-<li>El algoritmo escribe: <code>3 5 6</code>.</li>
+<li>Segunda línea de la función: <code>y = 5 * 2 = 10</code>.</li>
+<li>La función devuelve el valor <code>x + y = 4 + 10 = 14</code>.</li>
+<li>De regreso en el algoritmo principal: <code>d</code> recibe el valor <code>14</code>.</li>
+<li>El algoritmo escribe: <code>3 5 14</code>.</li>
 </ol>
-<p>En R, el pasaje de argumentos es <strong>por valor</strong>. Por lo tanto, este tipo de comportamiento es lo que vemos cuando implementamos el ejemplo discutido<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;: En general, se desalienta la reasignación de valor a los parámetros de la función por resultar confuso. Esto quiere decir que en el ejemplo anterior, para evitar ambigüedades, sería recomendable reemplazar &lt;code&gt;x &amp;lt;- x + 1&lt;/code&gt; y &lt;code&gt;DEVOLVER x + y&lt;/code&gt; por algo como &lt;code&gt;z &amp;lt;- x + 1&lt;/code&gt; y &lt;code&gt;DEVOLVER z + y&lt;/code&gt;, de modo que no se sobreescriba el valor del parámetro &lt;code&gt;x&lt;/code&gt; y se use otra variable &lt;code&gt;z&lt;/code&gt;.&lt;/p&gt;"><sup>14</sup></a>:</p>
+<p>En R, el pasaje de argumentos es <strong>por valor</strong>. Por lo tanto, este tipo de comportamiento es lo que vemos cuando implementamos el ejemplo discutido<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;: En general, se desalienta la reasignación de valor a los parámetros de la función por resultar confuso. Esto quiere decir que en el ejemplo anterior, para evitar ambigüedades, sería recomendable reemplazar &lt;code&gt;x &amp;lt;- x + 1&lt;/code&gt; por algo como &lt;code&gt;z &amp;lt;- x + 1&lt;/code&gt; y operar con &lt;code&gt;z&lt;/code&gt;, de modo que no se sobreescriba el valor del parámetro &lt;code&gt;x&lt;/code&gt;. También sería aconsejable hacer algo similar para la &lt;code&gt;y&lt;/code&gt;.&lt;/p&gt;"><sup>14</sup></a>:</p>
 <div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># ---------------------------------------------------------------</span>
 <span class="co"># DEFINICIÓN DE FUNCIONES</span>
@@ -627,6 +629,7 @@ FIN</code></pre>
 
 <span class="va">fun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span>
     <span class="va">x</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">1</span>
+    <span class="va">y</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">*</span> <span class="fl">2</span>
     <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span> <span class="op">+</span> <span class="va">y</span><span class="op">)</span>
 <span class="op">}</span>
 
@@ -636,9 +639,9 @@ FIN</code></pre>
 
 <span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">3</span>
 <span class="va">b</span> <span class="op">&lt;-</span> <span class="fl">5</span>
-<span class="va">c</span> <span class="op">&lt;-</span> <span class="fu">fun</span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span> <span class="op">-</span> <span class="va">a</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span>, <span class="va">c</span><span class="op">)</span></code></pre></div>
-<pre><code>3 5 6</code></pre>
+<span class="va">d</span> <span class="op">&lt;-</span> <span class="fu">fun</span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span>, <span class="va">d</span><span class="op">)</span></code></pre></div>
+<pre><code>3 5 14</code></pre>
 </div>
 <div id="pasaje-por-referencia" class="section level3" number="4.5.2">
 <h3>
@@ -660,6 +663,7 @@ SUBALGORITMOS
 FUNCIÓN fun(x: numérico, y: numérico): numérico
 COMENZAR
     x &lt;- x + 1
+    y &lt;- y * 2
     DEVOLVER x + y
 FIN FUNCIÓN
 
@@ -669,20 +673,21 @@ ALGORITMO PRINCIPAL
 
 ALGORITMO: "Ejemplo de pasaje de argumentos"
 COMENZAR
-    VARIABLE numérica a, b, c
+    VARIABLE numérica a, b, d
     a &lt;- 3
     b &lt;- 5
-    c &lt;- fun(a, b - a)
-    ESCRIBIR a b c
+    d &lt;- fun(a, b)
+    ESCRIBIR a b d
 FIN</code></pre>
 <p>Si el pasaje de argumentos se hace por referencia, los pasos que sigue el algoritmo son:</p>
 <ol style="list-style-type: decimal">
 <li>En el algoritmo principal, se asignan los valores: <code>a = 3</code>, <code>b = 5</code>.</li>
-<li>Al invocar la función, se establece la correspondencia: <code>x = 3, y = 5 - 3 = 2</code>.</li>
-<li>Primera línea de la función: <code>x = 3 + 1 = 4</code>. El parámetro actual asociado con <code>x</code>, <code>a</code>, sufre el mismo cambio y recibe el valor <code>4</code> (<code>a = 4</code>).</li>
-<li>La función devuelve el valor <code>x + y = 4 + 2 = 6</code>.</li>
-<li>De regreso en el algoritmo principal: <code>c</code> recibe el valor <code>6</code>.</li>
-<li>El algoritmo escribe: <code>4 5 6</code>.</li>
+<li>Al invocar la función, se establece la correspondencia: <code>x = 3, y = 5</code>.</li>
+<li>Primera línea de la función: <code>x = 3 + 1 = 4</code>. El parámetro actual asociado con <code>x</code>, <code>a</code>, es en realidad el que sufre dicho cambio y recibe el valor <code>4</code> (<code>a = 4</code>).</li>
+<li>Segunda línea de la función: <code>y = 5 * 2 = 10</code>. El parámetro actual asociado con <code>y</code>, <code>b</code>, es en realidad el que sufre dicho cambio y recibe el valor <code>10</code> (<code>b = 10</code>).</li>
+<li>La función devuelve el valor <code>x + y = 4 + 10 = 14</code>.</li>
+<li>De regreso en el algoritmo principal: <code>d</code> recibe el valor <code>14</code>.</li>
+<li>El algoritmo escribe: <code>4 10 14</code>.</li>
 </ol>
 <p>Debe notarse que los resultados difieren dependiendo del tipo de pasaje de argumentos empleado
 <a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Para diferenciar subalgoritmos con pasaje por referencia, algunos autores sugieren distinguir la declaración de los parámetros formales con algún símbolo, por ejemplo &lt;code&gt;&amp;amp;&lt;/code&gt;.&lt;/p&gt;"><sup>15</sup></a>. R no trabaja con pasaje por referencia (aunque es posible forzar a que haga algo similar, si así se lo desea).</p>
@@ -1181,7 +1186,7 @@ FIN</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2022-05-25.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2023-03-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

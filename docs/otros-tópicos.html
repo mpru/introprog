@@ -83,14 +83,14 @@
 </ul>
 <p>Para abrir una terminal en Linux se puede usar el atajo <code>ctrl + alt + t</code> y en Windows se puede escribir <code>cmd</code> en Inicio.</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-175"></span>
+<span style="display:block;" id="fig:unnamed-chunk-106"></span>
 <img src="images/07_otros/terminal.png" alt="Abrir la terminal en Windows. En computadoras con Windows en español, en lugar de Command Prompt dice Símbolo del sistema." width="80%"><p class="caption">
 Figura 7.1: Abrir la terminal en Windows. En computadoras con Windows en español, en lugar de Command Prompt dice Símbolo del sistema.
 </p>
 </div>
 <p>Así luce la línea de comandos de Windows:</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-176"></span>
+<span style="display:block;" id="fig:unnamed-chunk-107"></span>
 <img src="images/07_otros/terminal2.png" alt="Línea de comandos de Windows." width="80%"><p class="caption">
 Figura 7.2: Línea de comandos de Windows.
 </p>
@@ -111,35 +111,35 @@ Figura 7.2: Línea de comandos de Windows.
 </ul>
 <p>Por ejemplo, podemos ver todos los archivos que existen en el directorio actual con <code>ls</code>:</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-177"></span>
+<span style="display:block;" id="fig:unnamed-chunk-108"></span>
 <img src="images/07_otros/terminal3.png" alt="Contenido del directorio actual (Windows)." width="80%"><p class="caption">
 Figura 7.3: Contenido del directorio actual (Windows).
 </p>
 </div>
 <p>Para los siguientes ejemplos, trabajaremos en una carpeta llamada <code>Ejemplos</code>, cuyo <em>path</em> es <code>C:\Users\Marcos\Trabajo\Ejemplos</code> que tiene la siguiente composición:</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-178"></span>
+<span style="display:block;" id="fig:unnamed-chunk-109"></span>
 <img src="images/07_otros/terminal4.png" alt="Carpeta en la cual deseamos trabajar." width="80%"><p class="caption">
 Figura 7.4: Carpeta en la cual deseamos trabajar.
 </p>
 </div>
 <p>Podemos convertir a dicha carpeta como nuestro nuevo directorio de trabajo con el comando <code>cd</code> (<em>change directory</em>):</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-179"></span>
+<span style="display:block;" id="fig:unnamed-chunk-110"></span>
 <img src="images/07_otros/terminal5.png" alt="Cambio de directorio de trabajo y listado de archivos en el mismo." width="80%"><p class="caption">
 Figura 7.5: Cambio de directorio de trabajo y listado de archivos en el mismo.
 </p>
 </div>
 <p>En Windows hay una forma más directa de abrir la terminal y que ya tenga seteada como directorio de trabajo a una carpeta deseada. Antes de abrir la terminal, vamos con el <em>Explorador de archivos</em> a la carpeta en cuestión, nos posicionamos en la barra del explorador, escribimos <code>cmd</code> y le damos <code>ENTER</code>. Automáticamente se abrirá la terminal, con esta carpeta como directorio de referencia.</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-180"></span>
+<span style="display:block;" id="fig:unnamed-chunk-111"></span>
 <img src="images/07_otros/terminal6.png" alt="Abrir la terminal desde una carpeta en particular en Windows." width="80%"><p class="caption">
 Figura 7.6: Abrir la terminal desde una carpeta en particular en Windows.
 </p>
 </div>
 <p>Desde la terminal podemos correr nuestros programas de R. Hacer esto es necesario cuando tenemos que programar alguna tarea de gran escala que se ejecutará de manera remota en algún servidor o cuando necesitamos encapsular nuestro programa para que otros lo puedan correr sin siquiera saber nada de R.</p>
 <p>Veamos un ejemplo. En la carpeta <code>C:\Users\Marcos\Trabajo\Ejemplos</code> tengo guardado el siguiente script, en un archivo llamado <code>mi_programa.R</code> que tiene este contenido:</p>
-<div class="sourceCode" id="cb499"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb278"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="st">"¡Hola, Mundo!"</span>
 <span class="va">b</span> <span class="op">&lt;-</span> <span class="fl">3</span>
 <span class="va">d</span> <span class="op">&lt;-</span> <span class="fl">5</span>
@@ -151,7 +151,7 @@ Figura 7.6: Abrir la terminal desde una carpeta en particular en Windows.
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Este es un saludo:"</span>, <span class="va">a</span><span class="op">)</span></code></pre></div>
 <p>Para ejecutar este programa desde la terminal, sin abrir RStudio o R, utilizo el comando <code>Rscript</code>, que le indica a la computadora que el contenido del archivo <code>mi_programa.R</code> debe ser evaluado por R. Esto es lo que se observa en la consola:</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-182"></span>
+<span style="display:block;" id="fig:unnamed-chunk-113"></span>
 <img src="images/07_otros/terminal7.png" alt="Correr el programa de R desde la consola en Windows." width="80%"><p class="caption">
 Figura 7.7: Correr el programa de R desde la consola en Windows.
 </p>
@@ -170,7 +170,7 @@ Figura 7.7: Correr el programa de R desde la consola en Windows.
 <p>Veamos algunos ejemplos.</p>
 <p><strong>Práctica 2, Ejercicio 1: paridad de un número</strong></p>
 <p>La función <code><a href="https://rdrr.io/r/base/scan.html">scan()</a></code> es la que permite <em>escanear</em> o <em>leer</em> valores que los usuarios ingresen por la terminal. Entre sus argumentos tenemos a <code>file</code>, que si lo seteamos como <code>file = "stdin"</code> indica que vamos a leer información desde la consola. Otros argumentos que son de utilidad incluyen a <code>n = 1</code>, que indica que sólo leeremos un valor y <code>quite = TRUE</code> que le pide a esta función que no emita ningún mensaje. Por ejemplo, si el siguiente código se guarda en el archivo <code>paridad.R</code> y es ejecutado desde la consola, le va a pedir a la persona que lo esté usando que indique cualquier número y luego le va a comunicar si es par o impar:</p>
-<div class="sourceCode" id="cb500"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb279"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"           PARIDAD DE UN NÚMERO           \n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n\n"</span><span class="op">)</span>
@@ -183,14 +183,14 @@ Figura 7.7: Correr el programa de R desde la consola en Windows.
 <span class="op">}</span></code></pre></div>
 <p>Esto es lo que ocurre en la terminal:</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-184"></span>
+<span style="display:block;" id="fig:unnamed-chunk-115"></span>
 <img src="images/07_otros/terminal8.png" alt="Programa paridad.R." width="80%"><p class="caption">
 Figura 7.8: Programa paridad.R.
 </p>
 </div>
 <p><strong>Práctica 2, Ejercicio 3: salario</strong></p>
 <p>En este ejemplo, tenemos que leer tres valores, dos de lo cuales son de tipo carácter. Para esto tenemos que agregar en la función <code><a href="https://rdrr.io/r/base/scan.html">scan()</a></code> el argumento <code>what = ""</code>, que admite el ingreso de caracteres alfanuméricos (por default <code><a href="https://rdrr.io/r/base/scan.html">scan()</a></code> sòlo espera recibir valores numéricos). Si el siguiente código se guarda en el archivo <code>salario.R</code> y se lo ejecuta desde la consola, produce el resultado que se muestra en la imagen:</p>
-<div class="sourceCode" id="cb501"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb280"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"           CÁLCULO DEL SALARIO            \n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n\n"</span><span class="op">)</span>
@@ -210,14 +210,14 @@ Figura 7.8: Programa paridad.R.
 <span class="op">}</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nEl salario que se debe abonar es $"</span>, <span class="va">salario</span>, <span class="st">"\n"</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-186"></span>
+<span style="display:block;" id="fig:unnamed-chunk-117"></span>
 <img src="images/07_otros/terminal9.png" alt="Programa salario.R." width="80%"><p class="caption">
 Figura 7.9: Programa salario.R.
 </p>
 </div>
-<p><strong>Práctica 4, Ejercicio 1: suma de elementos de un vector</strong><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Si estás leyendo esto antes de que hayamos visto en clase la Unidad 5, podés omitir este último ejemplo y retomarlo más adelante en el cursado.&lt;/p&gt;"><sup>26</sup></a></p>
+<p><strong>Práctica 4, Ejercicio 1: suma de elementos de un vector</strong><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Si estás leyendo esto antes de que hayamos visto en clase la Unidad 5, podés omitir este último ejemplo y retomarlo más adelante en el cursado.&lt;/p&gt;"><sup>22</sup></a></p>
 <p>En este ejercicio escribimos una función para sumar los elementos de un vector. Vamos a ver cómo hacer para que un usuario nos diga cuáles son los valores que quiere sumar desde la consola. Primero preguntamos cuántos números se desean sumar y luego los recibimos en el vector <code>v</code>. Si el siguiente código queda guardado en el archivo <code>suma.R</code> y se lo corre desde la terminal, produce el resultado que se muestra en la imagen.</p>
-<div class="sourceCode" id="cb502"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb281"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"              SUMA DE NÚMEROS             \n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n\n"</span><span class="op">)</span>
@@ -231,7 +231,7 @@ Figura 7.9: Programa salario.R.
 <span class="op">}</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nLa suma de los números es:"</span>, <span class="va">suma</span>, <span class="st">"\n"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-188"></span>
+<span style="display:block;" id="fig:unnamed-chunk-119"></span>
 <img src="images/07_otros/terminal10.png" alt="Programa suma.R." width="80%"><p class="caption">
 Figura 7.10: Programa suma.R.
 </p>
@@ -251,7 +251,7 @@ Rscript resumen.R 04_05_22.txt
 Rscript resumen.R 05_05_22.txt</code></pre>
 <p>Para que esto funcione, el programa que está guardado en <code>resumen.R</code> debe ser capaz de capturar el nombre del archivo que tiene leer y que el usuario se lo está pasando como un argumento adicional en la instrucción <code>Rscript</code>.</p>
 <p>La función que se encarga de capturar los argumentos adicionales que enviamos desde la terminal es <code><a href="https://rdrr.io/r/base/commandArgs.html">commandArgs()</a></code>. Toma todos los elementos que escribamos y los reúne en un vector de tipo carácter. Por ejemplo, el archivo <code>ejemplo1.R</code> tiene el siguiente contenido:</p>
-<div class="sourceCode" id="cb505"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb284"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Capturar los argumentos pasados desde la terminal en un vector</span>
 <span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/commandArgs.html">commandArgs</a></span><span class="op">(</span>trailingOnly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
@@ -266,8 +266,9 @@ Rscript resumen.R 05_05_22.txt</code></pre>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nLos argumentos se toman como valores de tipo:\n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span></code></pre></div>
 <p>Al ejecutarlo desde la línea de comandos con los argumentos “hola”, “chau” y “4” obtenemos:</p>
-<div class="sourceCode" id="cb506"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb506-1"><a href="otros-t%C3%B3picos.html#cb506-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo1.R hola chau 4</span></code></pre></div>
-<pre><code>Nos pasaron 3 argumentos.
+<div class="sourceCode" id="cb285"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb285-1"><a href="otros-t%C3%B3picos.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo1.R hola chau 4</span></code></pre></div>
+<pre><code>WARNING: ignoring environment value of R_HOME
+Nos pasaron 3 argumentos.
 
 Los argumentos que nos pasaron son:
 hola chau 4 
@@ -275,8 +276,9 @@ hola chau 4
 Los argumentos se toman como valores de tipo:
 [1] "character"</code></pre>
 <p>Si lo ejecutamos sin argumentos:</p>
-<div class="sourceCode" id="cb508"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb508-1"><a href="otros-t%C3%B3picos.html#cb508-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo1.R</span></code></pre></div>
-<pre><code>Nos pasaron 0 argumentos.
+<div class="sourceCode" id="cb287"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb287-1"><a href="otros-t%C3%B3picos.html#cb287-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo1.R</span></code></pre></div>
+<pre><code>WARNING: ignoring environment value of R_HOME
+Nos pasaron 0 argumentos.
 
 Los argumentos que nos pasaron son:
  
@@ -284,7 +286,7 @@ Los argumentos que nos pasaron son:
 Los argumentos se toman como valores de tipo:
 [1] "character"</code></pre>
 <p>Ahora vamos a suponer que el programa <code>ejemplo2.R</code> tiene como objetivo contar un chiste o decir un refrán, según lo que se le pida en el único argumento que se le pasa al correrlo desde la terminal. Si el argumento es igual “chiste”, se cuenta el chiste; si es igual a “refran” se cuenta el refrán; y en otro caso no se hace nada. El contenido del archivo es:</p>
-<div class="sourceCode" id="cb510"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Capturar los argumentos pasados desde la terminal en un vector</span>
 <span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/commandArgs.html">commandArgs</a></span><span class="op">(</span>trailingOnly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
@@ -297,17 +299,20 @@ Los argumentos se toman como valores de tipo:
     <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"El argumento provisto debe ser igual a chiste o refran.\n"</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <p>Ejecutamos este archivo pasando distintos valores para su argumento:</p>
-<div class="sourceCode" id="cb511"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb511-1"><a href="otros-t%C3%B3picos.html#cb511-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo2.R refran</span></code></pre></div>
-<pre><code>No por mucho madrugar amanece más temprano.</code></pre>
-<div class="sourceCode" id="cb513"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb513-1"><a href="otros-t%C3%B3picos.html#cb513-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo2.R chiste</span></code></pre></div>
-<pre><code>- Juan, cómo has cambiado.
+<div class="sourceCode" id="cb290"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb290-1"><a href="otros-t%C3%B3picos.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo2.R refran</span></code></pre></div>
+<pre><code>WARNING: ignoring environment value of R_HOME
+No por mucho madrugar amanece más temprano.</code></pre>
+<div class="sourceCode" id="cb292"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb292-1"><a href="otros-t%C3%B3picos.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo2.R chiste</span></code></pre></div>
+<pre><code>WARNING: ignoring environment value of R_HOME
+- Juan, cómo has cambiado.
 - Yo no soy Juan.
 - Más a mi favor.</code></pre>
-<div class="sourceCode" id="cb515"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb515-1"><a href="otros-t%C3%B3picos.html#cb515-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo2.R hola</span></code></pre></div>
-<pre><code>Error: El argumento provisto debe ser igual a chiste o refran.
+<div class="sourceCode" id="cb294"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb294-1"><a href="otros-t%C3%B3picos.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo2.R hola</span></code></pre></div>
+<pre><code>WARNING: ignoring environment value of R_HOME
+Error: El argumento provisto debe ser igual a chiste o refran.
 Execution halted</code></pre>
 <p>Podemos controlar la cantidad de argumentos admitidos generando errores en el código para aquellas situaciones donde el usuario envíe menos o más que la cantidad deseada. Por ejemplo, en el caso anterior, es obligatorio enviar uno y sólo un argumento:</p>
-<div class="sourceCode" id="cb517"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb296"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Capturar los argumentos pasados desde la terminal en un vector</span>
 <span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/commandArgs.html">commandArgs</a></span><span class="op">(</span>trailingOnly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
@@ -325,18 +330,21 @@ Execution halted</code></pre>
     <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"El argumento provisto debe ser igual a chiste o refran.\n"</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <p>Veamos lo que pasa si cumplimos o no con la cantidad exacta de argumentos que hay que pasarle al código de R:</p>
-<div class="sourceCode" id="cb518"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb518-1"><a href="otros-t%C3%B3picos.html#cb518-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo3.R</span></code></pre></div>
-<pre><code>Error: Debe proveer exactamente un argumento, que debe ser igual a chiste o refran.
+<div class="sourceCode" id="cb297"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb297-1"><a href="otros-t%C3%B3picos.html#cb297-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo3.R</span></code></pre></div>
+<pre><code>WARNING: ignoring environment value of R_HOME
+Error: Debe proveer exactamente un argumento, que debe ser igual a chiste o refran.
 Execution halted</code></pre>
-<div class="sourceCode" id="cb520"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb520-1"><a href="otros-t%C3%B3picos.html#cb520-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo3.R chiste refran</span></code></pre></div>
-<pre><code>Error: Debe proveer exactamente un argumento, que debe ser igual a chiste o refran.
+<div class="sourceCode" id="cb299"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb299-1"><a href="otros-t%C3%B3picos.html#cb299-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo3.R chiste refran</span></code></pre></div>
+<pre><code>WARNING: ignoring environment value of R_HOME
+Error: Debe proveer exactamente un argumento, que debe ser igual a chiste o refran.
 Execution halted</code></pre>
-<div class="sourceCode" id="cb522"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb522-1"><a href="otros-t%C3%B3picos.html#cb522-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo3.R chiste</span></code></pre></div>
-<pre><code>- Juan, cómo has cambiado.
+<div class="sourceCode" id="cb301"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb301-1"><a href="otros-t%C3%B3picos.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo3.R chiste</span></code></pre></div>
+<pre><code>WARNING: ignoring environment value of R_HOME
+- Juan, cómo has cambiado.
 - Yo no soy Juan.
 - Más a mi favor.</code></pre>
 <p>Imaginemos por último que es obligatorio pasar un primer argumento (“chiste” o “refran”) y que opcionalmente se puede pasar un segundo argumento, que se va a tratar de un número para indicar cuántas veces queremos que el chiste o el refrán se repita. Como todos los argumentos se pasan como datos de tipo carácter, para poder usar el número tendremos que convertirlo a dato de tipo numérico.</p>
-<div class="sourceCode" id="cb524"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Capturar los argumentos pasados desde la terminal en un vector</span>
 <span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/commandArgs.html">commandArgs</a></span><span class="op">(</span>trailingOnly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
@@ -369,8 +377,9 @@ Execution halted</code></pre>
     <span class="op">}</span>
 <span class="op">}</span></code></pre></div>
 <p>Veamos ahora cómo funciona:</p>
-<div class="sourceCode" id="cb525"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb525-1"><a href="otros-t%C3%B3picos.html#cb525-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R refran 5</span></code></pre></div>
-<pre><code>No por mucho madrugar amanece más temprano.
+<div class="sourceCode" id="cb304"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb304-1"><a href="otros-t%C3%B3picos.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R refran 5</span></code></pre></div>
+<pre><code>WARNING: ignoring environment value of R_HOME
+No por mucho madrugar amanece más temprano.
 
 No por mucho madrugar amanece más temprano.
 
@@ -379,8 +388,9 @@ No por mucho madrugar amanece más temprano.
 No por mucho madrugar amanece más temprano.
 
 No por mucho madrugar amanece más temprano.</code></pre>
-<div class="sourceCode" id="cb527"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb527-1"><a href="otros-t%C3%B3picos.html#cb527-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R chiste 3</span></code></pre></div>
-<pre><code>- Juan, cómo has cambiado.
+<div class="sourceCode" id="cb306"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb306-1"><a href="otros-t%C3%B3picos.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R chiste 3</span></code></pre></div>
+<pre><code>WARNING: ignoring environment value of R_HOME
+- Juan, cómo has cambiado.
 - Yo no soy Juan.
 - Más a mi favor.
 
@@ -391,567 +401,52 @@ No por mucho madrugar amanece más temprano.</code></pre>
 - Juan, cómo has cambiado.
 - Yo no soy Juan.
 - Más a mi favor.</code></pre>
-<div class="sourceCode" id="cb529"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb529-1"><a href="otros-t%C3%B3picos.html#cb529-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R refran</span></code></pre></div>
-<pre><code>No por mucho madrugar amanece más temprano.</code></pre>
-<div class="sourceCode" id="cb531"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb531-1"><a href="otros-t%C3%B3picos.html#cb531-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R</span></code></pre></div>
-<pre><code>Error: Debe proveer al menos un argumento (chiste o refran).
+<div class="sourceCode" id="cb308"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb308-1"><a href="otros-t%C3%B3picos.html#cb308-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R refran</span></code></pre></div>
+<pre><code>WARNING: ignoring environment value of R_HOME
+No por mucho madrugar amanece más temprano.</code></pre>
+<div class="sourceCode" id="cb310"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb310-1"><a href="otros-t%C3%B3picos.html#cb310-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R</span></code></pre></div>
+<pre><code>WARNING: ignoring environment value of R_HOME
+Error: Debe proveer al menos un argumento (chiste o refran).
 Execution halted</code></pre>
 <p>Si querés probar estos ejemplos, podés crear los archivos de código mencionados copiando y pegando las instrucciones o descargarlos de <a href="https://github.com/mpru/introprog/tree/master/archivos">este enlace</a>.</p>
 <p>Además de la función <code><a href="https://rdrr.io/r/base/commandArgs.html">commandArgs()</a></code> existen paquetes de R para poder trabajar con argumentos y opciones de formas mucho más elaboradas, como los paquetes <code>argparse</code> y <code>optparse</code>, entre otros.</p>
 </div>
-<div id="más-funciones-predefinidas" class="section level2" number="7.3">
+<div id="generación-de-secuencias" class="section level2" number="7.3">
 <h2>
-<span class="header-section-number">7.3</span> Más funciones predefinidas<a class="anchor" aria-label="anchor" href="#m%C3%A1s-funciones-predefinidas"><i class="fas fa-link"></i></a>
-</h2>
-<p>En este proceso de aprendizaje sobre programación hemos encarado la tarea de escribir muchas funciones que, por lo general, ya forman parte de la sintaxis básica de cualquier lenguaje de programación. Sí… hemos trabajado de más, ¡pero fue para poder aprender! Ahora vamos a mencionar algunos ejemplos de funciones que fuimos capaces de programar por nuestros propios medios, pero que ya estaban disponibles en R. De hecho, en la sección <a href="descomposici%C3%B3n-algor%C3%ADtmica.html#funcpredef">4.3.1</a> vimos que R tiene funciones predefinidas para que podamos cumplir muchas tareas con facilidad.</p>
-<p>Recordemos algunos ejercicios:</p>
-<ul>
-<li>
-<p>En la sección <a href="descomposici%C3%B3n-algor%C3%ADtmica.html#funcpredef">4.3.1</a> vimos la definición de una función para el cálculo de factoriales, que a su vez usamos en el ejercicio 1 de la <strong>Práctica 3</strong> para crear una función que calcule números combinatorios. R ya trae funciones que cumplen ese rol:</p>
-<div class="sourceCode" id="cb533"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Cálculo de factoriales</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 120</code></pre>
-<div class="sourceCode" id="cb535"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Cálculo de números combinatorios</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">2</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 45</code></pre>
-</li>
-<li>
-<p>En el <strong>ejercicio 1</strong> de la <strong>Práctica 4</strong> definimos la siguiente función para sumar los elementos de un vector:</p>
-<div class="sourceCode" id="cb537"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">suma</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">v</span><span class="op">)</span> <span class="op">{</span>
-    <span class="va">rtdo</span> <span class="op">&lt;-</span> <span class="fl">0</span>
-    <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-        <span class="va">rtdo</span> <span class="op">&lt;-</span> <span class="va">rtdo</span> <span class="op">+</span> <span class="va">v</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>
-    <span class="op">}</span>
-    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">rtdo</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="va">mi_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">60</span>, <span class="op">-</span><span class="fl">5</span>, <span class="fl">0</span>, <span class="fl">12</span>, <span class="fl">1</span><span class="op">)</span>
-<span class="fu">suma</span><span class="op">(</span><span class="va">mi_vector</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 68</code></pre>
-<p>Sin embargo, podríamos usar directamente la función <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code> de R:</p>
-<div class="sourceCode" id="cb539"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">mi_vector</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 68</code></pre>
-</li>
-<li>
-<p>En el <strong>ejercicio 3</strong> de la <strong>Práctica 4</strong> creamos las funciones <code>ordenar_asc()</code> y <code>ordenar_des()</code> para ordenar los elementos de un vector. Esto se puede hacer así:</p>
-<div class="sourceCode" id="cb541"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">mi_vector</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] -5  0  1 12 60</code></pre>
-<div class="sourceCode" id="cb543"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">mi_vector</span>, decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 60 12  1  0 -5</code></pre>
-</li>
-<li>
-<p>En el <strong>ejercicio 4</strong> de la <strong>Práctica 4</strong>, escribimos funciones para encontrar el mínimo o el máximo en un vector, al igual que su posición. R nos facilita estas funciones para lograr lo mismo:</p>
-<div class="sourceCode" id="cb545"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Valor mínimo</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">mi_vector</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] -5</code></pre>
-<div class="sourceCode" id="cb547"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Posición del mínimo en el vector</span>
-<span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.min</a></span><span class="op">(</span><span class="va">mi_vector</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 2</code></pre>
-<div class="sourceCode" id="cb549"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Valor máximo</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">mi_vector</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 60</code></pre>
-<div class="sourceCode" id="cb551"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Posición del máximo en el vector</span>
-<span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">mi_vector</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 1</code></pre>
-<div class="sourceCode" id="cb553"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Al igual que nuestra función, si el valor se repite nos da la posición de su</span>
-<span class="co"># primera ocurrencia</span>
-<span class="va">w</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">5</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">4</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">w</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 5</code></pre>
-<div class="sourceCode" id="cb555"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">w</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 2</code></pre>
-<div class="sourceCode" id="cb557"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Pero podemos obtener todas las posiciones así:</span>
-<span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">w</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">w</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 2 5</code></pre>
-</li>
-<li>
-<p>También podemos aplicar esto a la búsqueda de mínimos y máximos en una matriz:</p>
-<div class="sourceCode" id="cb559"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">20</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
-<span class="va">A</span></code></pre></div>
-<pre><code>     [,1] [,2] [,3] [,4]
-[1,]   76   60   27   32
-[2,]   41   35   89   25
-[3,]   54   18   10   72
-[4,]   21   86   57   88
-[5,]   19   95   40  100</code></pre>
-<div class="sourceCode" id="cb561"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Valor máximo</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 100</code></pre>
-<div class="sourceCode" id="cb563"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Posición (arr.ind = TRUE para que nos indique fila y columna)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">A</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span>, arr.ind <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<pre><code>     row col
-[1,]   5   4</code></pre>
-<div class="sourceCode" id="cb565"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Máximo en cada fila de A (la función apply aplica la función provista, max, </span>
-<span class="co"># a cada fila de A)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">A</span>, <span class="fl">1</span>, <span class="va">max</span><span class="op">)</span></code></pre></div>
-<pre><code>[1]  76  89  72  88 100</code></pre>
-<div class="sourceCode" id="cb567"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Si en lugar de 1 ponemos 2, tenemos el máximo en cada columna</span>
-<span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">A</span>, <span class="fl">2</span>, <span class="va">max</span><span class="op">)</span></code></pre></div>
-<pre><code>[1]  76  95  89 100</code></pre>
-<div class="sourceCode" id="cb569"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Posición del máximo en cada fila</span>
-<span class="fu"><a href="https://rdrr.io/r/base/maxCol.html">max.col</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span> <span class="co"># Una opción</span></code></pre></div>
-<pre><code>[1] 1 3 4 4 4</code></pre>
-<div class="sourceCode" id="cb571"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">A</span>, <span class="fl">1</span>, <span class="va">which.max</span><span class="op">)</span> <span class="co"># Otra opción</span></code></pre></div>
-<pre><code>[1] 1 3 4 4 4</code></pre>
-<div class="sourceCode" id="cb573"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Posición del máximo en cada columna</span>
-<span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">A</span>, <span class="fl">2</span>, <span class="va">which.max</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 1 5 2 5</code></pre>
-</li>
-<li>
-<p>En otras ocasiones, puede ser que R no incluya en su instalación base la función que necesitamos, pero que la misma ya haya sido programada por otra persona y esté disponible en un <em>paquete</em> que podemos descargar e instalar. Por ejemplo, en el ejercicio 8 de la Práctica 3 escribimos una función llamada <code>max_com_div()</code> para hallar el máximo común divisor entre dos naturales. R no tiene una función que compute esto, pero podemos instalar el paquete <code>FRACTION</code> que sí la incluye:</p>
-<div class="sourceCode" id="cb575"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install.packages("FRACTION")</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st">"FRACTION"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/FRACTION/man/gcd.html">gcd</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">24</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 4</code></pre>
-</li>
-</ul>
-</div>
-<div id="operaciones-vectorizadas" class="section level2" number="7.4">
-<h2>
-<span class="header-section-number">7.4</span> Operaciones vectorizadas<a class="anchor" aria-label="anchor" href="#operaciones-vectorizadas"><i class="fas fa-link"></i></a>
-</h2>
-<p>Otro aspecto importante es que la mayoría de las funciones de R están <strong>vectorizadas</strong>. Esto quiere decir que están diseñadas para operar al mismo tiempo con todos los elementos de los vectores y matrices y no es necesario recorrer cada posición, una por una, como aprendimos para incorporar nuestros primeros conocimientos sobre programación. Las funciones operan en todos los elementos sin tener que usar estructuras iterativas, haciendo que el código sea más conciso, fácil de leer y con menos chances de cometer errores.</p>
-<p>Recordemos algunas situaciones:</p>
-<ul>
-<li>
-<p><strong>Práctica 4, ejercicio 2</strong>: definimos una función para sumar dos vectores:</p>
-<div class="sourceCode" id="cb577"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sumar_vectores</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">u</span>, <span class="va">v</span><span class="op">)</span> <span class="op">{</span>
-    <span class="va">nu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">u</span><span class="op">)</span>
-    <span class="va">nv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span>
-    <span class="kw">if</span> <span class="op">(</span><span class="va">nu</span> <span class="op">==</span> <span class="va">nv</span><span class="op">)</span> <span class="op">{</span>
-        <span class="va">suma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="va">nu</span><span class="op">)</span>
-        <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">nu</span><span class="op">)</span> <span class="op">{</span> 
-            <span class="va">suma</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">u</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">+</span> <span class="va">v</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>
-        <span class="op">}</span>
-        <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">suma</span><span class="op">)</span>
-    <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
-        <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Las dimensiones de los vectores no coinciden\n"</span><span class="op">)</span>
-        <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span>
-    <span class="op">}</span>
-<span class="op">}</span>
-
-<span class="va">u</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">2</span><span class="op">)</span>
-<span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span>
-<span class="fu">sumar_vectores</span><span class="op">(</span><span class="va">u</span>, <span class="va">v</span><span class="op">)</span></code></pre></div>
-<pre><code>[1]  7 11  1</code></pre>
-<p>Pero directamente, podemos hacer <code>u + v</code>, puesto que R realizará la suma elemento a elemento entre los dos vectores:</p>
-<div class="sourceCode" id="cb579"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">u</span> <span class="op">+</span> <span class="va">v</span></code></pre></div>
-<pre><code>[1]  7 11  1</code></pre>
-</li>
-<li>
-<p><strong>Práctica 4, ejercicio 5</strong>: creamos una función para calcular el producto escalar entre dos vectores. Se puede hacer de manera directa así:</p>
-<div class="sourceCode" id="cb581"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">u</span> <span class="op">*</span> <span class="va">v</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 32</code></pre>
-<p><code>u * v</code> hace la multiplicación elemento a elemento entre los vectores <code>u</code> y <code>v</code> y luego sumamos con <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code>.</p>
-</li>
-<li>
-<p><strong>Práctica 4, ejercicio 7</strong>: programamos una función para hacer la suma entre dos matrices:</p>
-<div class="sourceCode" id="cb583"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sumar_matrices</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">A</span>, <span class="va">B</span><span class="op">)</span> <span class="op">{</span>
-    <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">B</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">B</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-        <span class="va">suma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span><span class="op">)</span>
-        <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-            <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-                <span class="va">suma</span><span class="op">[</span><span class="va">i</span>, <span class="va">j</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">A</span><span class="op">[</span><span class="va">i</span>, <span class="va">j</span><span class="op">]</span> <span class="op">+</span> <span class="va">B</span><span class="op">[</span><span class="va">i</span>, <span class="va">j</span><span class="op">]</span>
-            <span class="op">}</span>
-        <span class="op">}</span>
-        <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">suma</span><span class="op">)</span>
-    <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
-        <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Las dimensiones de las matrices no coinciden\n"</span><span class="op">)</span>
-        <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span>
-    <span class="op">}</span>
-<span class="op">}</span>
-
-<span class="co"># Ejemplo de su uso</span>
-<span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-<span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-<span class="va">a</span></code></pre></div>
-<pre><code>     [,1] [,2]
-[1,]    5    2
-[2,]    8    3
-[3,]    2    1</code></pre>
-<div class="sourceCode" id="cb585"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">b</span></code></pre></div>
-<pre><code>     [,1] [,2]
-[1,]    0    1
-[2,]   -1    2
-[3,]    3    4</code></pre>
-<div class="sourceCode" id="cb587"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">sumar_matrices</span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span></code></pre></div>
-<pre><code>     [,1] [,2]
-[1,]    5    3
-[2,]    7    5
-[3,]    5    5</code></pre>
-<p>Gracias a las operaciones vectorizadas de R, esto se puede resumir en:</p>
-<div class="sourceCode" id="cb589"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">+</span> <span class="va">b</span></code></pre></div>
-<pre><code>     [,1] [,2]
-[1,]    5    3
-[2,]    7    5
-[3,]    5    5</code></pre>
-</li>
-</ul>
-<p>A continuación presentamos un listado de las operaciones vectorizadas más comunes:</p>
-<div class="sourceCode" id="cb591"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Matrices de ejemplo</span>
-<span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">8</span>, <span class="fl">2</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-<span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-<span class="va">a</span></code></pre></div>
-<pre><code>     [,1] [,2]
-[1,]    5    1
-[2,]    3    8
-[3,]    1    2</code></pre>
-<div class="sourceCode" id="cb593"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">b</span></code></pre></div>
-<pre><code>     [,1] [,2]
-[1,]    0    1
-[2,]   -1    2
-[3,]    3    4</code></pre>
-<div class="sourceCode" id="cb595"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Operaciones elemento a elemento</span>
-<span class="va">a</span> <span class="op">+</span> <span class="va">b</span></code></pre></div>
-<pre><code>     [,1] [,2]
-[1,]    5    2
-[2,]    2   10
-[3,]    4    6</code></pre>
-<div class="sourceCode" id="cb597"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">-</span> <span class="va">b</span></code></pre></div>
-<pre><code>     [,1] [,2]
-[1,]    5    0
-[2,]    4    6
-[3,]   -2   -2</code></pre>
-<div class="sourceCode" id="cb599"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">*</span> <span class="va">b</span></code></pre></div>
-<pre><code>     [,1] [,2]
-[1,]    0    1
-[2,]   -3   16
-[3,]    3    8</code></pre>
-<div class="sourceCode" id="cb601"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">/</span> <span class="va">b</span></code></pre></div>
-<pre><code>           [,1] [,2]
-[1,]        Inf  1.0
-[2,] -3.0000000  4.0
-[3,]  0.3333333  0.5</code></pre>
-<div class="sourceCode" id="cb603"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span><span class="op">^</span><span class="fl">2</span></code></pre></div>
-<pre><code>     [,1] [,2]
-[1,]   25    1
-[2,]    9   64
-[3,]    1    4</code></pre>
-<div class="sourceCode" id="cb605"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></code></pre></div>
-<pre><code>         [,1]     [,2]
-[1,] 2.236068 1.000000
-[2,] 1.732051 2.828427
-[3,] 1.000000 1.414214</code></pre>
-<div class="sourceCode" id="cb607"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Operaciones lógicas elemento a elemento</span>
-<span class="va">a</span> <span class="op">==</span> <span class="fl">3</span></code></pre></div>
-<pre><code>      [,1]  [,2]
-[1,] FALSE FALSE
-[2,]  TRUE FALSE
-[3,] FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb609"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">b</span> <span class="op">&gt;</span> <span class="fl">0</span></code></pre></div>
-<pre><code>      [,1] [,2]
-[1,] FALSE TRUE
-[2,] FALSE TRUE
-[3,]  TRUE TRUE</code></pre>
-<div class="sourceCode" id="cb611"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">&gt;</span> <span class="va">b</span></code></pre></div>
-<pre><code>      [,1]  [,2]
-[1,]  TRUE FALSE
-[2,]  TRUE  TRUE
-[3,] FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb613"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;</span> <span class="fl">0</span> <span class="op">|</span> <span class="va">b</span> <span class="op">&gt;</span> <span class="fl">0</span></code></pre></div>
-<pre><code>      [,1] [,2]
-[1,] FALSE TRUE
-[2,] FALSE TRUE
-[3,]  TRUE TRUE</code></pre>
-<div class="sourceCode" id="cb615"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Mínimo y máximo</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 1</code></pre>
-<div class="sourceCode" id="cb617"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">a</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span> <span class="co"># posición del mínimo (todas las ocurrencias)</span></code></pre></div>
-<pre><code>[1] 3 4</code></pre>
-<div class="sourceCode" id="cb619"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">a</span>, <span class="fl">1</span>, <span class="va">min</span><span class="op">)</span> <span class="co"># valor mínimo por fila</span></code></pre></div>
-<pre><code>[1] 1 3 1</code></pre>
-<div class="sourceCode" id="cb621"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">a</span>, <span class="fl">1</span>, <span class="va">which.min</span><span class="op">)</span> <span class="co"># posición del mínimo por fila (primer ocurrencia)</span></code></pre></div>
-<pre><code>[1] 2 1 1</code></pre>
-<div class="sourceCode" id="cb623"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">a</span>, <span class="fl">1</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="co"># pos del mín por fila (todas las ocurrencias)</span></code></pre></div>
-<pre><code>[1] 2 1 1</code></pre>
-<div class="sourceCode" id="cb625"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Sumas y promedios para un vector</span>
-<span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">9</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 15</code></pre>
-<div class="sourceCode" id="cb627"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 3</code></pre>
-<div class="sourceCode" id="cb629"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Sumas y promedios para una matriz, en general o para cada fila/columna</span>
-<span class="va">a</span></code></pre></div>
-<pre><code>     [,1] [,2]
-[1,]    5    1
-[2,]    3    8
-[3,]    1    2</code></pre>
-<div class="sourceCode" id="cb631"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 20</code></pre>
-<div class="sourceCode" id="cb633"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 3.333333</code></pre>
-<div class="sourceCode" id="cb635"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></code></pre></div>
-<pre><code>[1]  6 11  3</code></pre>
-<div class="sourceCode" id="cb637"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></code></pre></div>
-<pre><code>[1]  9 11</code></pre>
-<div class="sourceCode" id="cb639"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowMeans</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 3.0 5.5 1.5</code></pre>
-<div class="sourceCode" id="cb641"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colMeans</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 3.000000 3.666667</code></pre>
-<div class="sourceCode" id="cb643"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Álgebra matricial</span>
-<span class="co"># Transpuesta</span>
-<span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></code></pre></div>
-<pre><code>     [,1] [,2] [,3]
-[1,]    5    3    1
-[2,]    1    8    2</code></pre>
-<div class="sourceCode" id="cb645"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Producto matricial</span>
-<span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-<span class="va">a</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">d</span></code></pre></div>
-<pre><code>     [,1] [,2]
-[1,]    7   19
-[2,]   19   41
-[3,]    5   11</code></pre>
-<div class="sourceCode" id="cb647"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Inversa</span>
-<span class="fu"><a href="https://rdrr.io/r/base/solve.html">solve</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span></code></pre></div>
-<pre><code>     [,1] [,2]
-[1,]   -2  1.5
-[2,]    1 -0.5</code></pre>
-<div class="sourceCode" id="cb649"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Diagonal</span>
-<span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 1 4</code></pre>
-</div>
-<div id="indexación-de-vectores-matrices-y-data.frames" class="section level2" number="7.5">
-<h2>
-<span class="header-section-number">7.5</span> Indexación de vectores, matrices y data.frames<a class="anchor" aria-label="anchor" href="#indexaci%C3%B3n-de-vectores-matrices-y-data.frames"><i class="fas fa-link"></i></a>
-</h2>
-<p>Como ya sabemos, indexar es hacer referencia a uno o más elementos particulares dentro de una estructura de datos. Vimos que para indexar a un vector, hace falta sólo un índice:</p>
-<div class="sourceCode" id="cb651"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10.4</span>, <span class="fl">5.6</span>, <span class="fl">3.1</span>, <span class="fl">6.4</span>, <span class="fl">21.7</span><span class="op">)</span>
-<span class="va">x</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span></code></pre></div>
-<pre><code>[1] 3.1</code></pre>
-<p>Y que para indexar matrices, son necesarios dos índices:</p>
-<div class="sourceCode" id="cb653"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="op">-</span><span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">20</span>, <span class="op">-</span><span class="fl">7</span>, <span class="fl">12</span>, <span class="op">-</span><span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">17</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-<span class="va">a</span></code></pre></div>
-<pre><code>     [,1] [,2] [,3]
-[1,]    4   20   -8
-[2,]   -2   -7   13
-[3,]    1   12   17</code></pre>
-<div class="sourceCode" id="cb655"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span><span class="op">[</span><span class="fl">2</span>, <span class="fl">3</span><span class="op">]</span></code></pre></div>
-<pre><code>[1] 13</code></pre>
-<p>Pero también podemos indexar a múltiples elementos de un vector o una matriz a la vez:</p>
-<p><strong>Vector</strong>:</p>
-<div class="sourceCode" id="cb657"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Mostrar los primeros tres elementos del vector x</span>
-<span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></code></pre></div>
-<pre><code>[1] 10.4  5.6  3.1</code></pre>
-<div class="sourceCode" id="cb659"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Mostrar los elementos en las posiciones 2 y 4</span>
-<span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span><span class="op">]</span></code></pre></div>
-<pre><code>[1] 5.6 6.4</code></pre>
-<div class="sourceCode" id="cb661"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#Mostrar todos los elementos menos el cuarto</span>
-<span class="va">x</span><span class="op">[</span><span class="op">-</span><span class="fl">4</span><span class="op">]</span></code></pre></div>
-<pre><code>[1] 10.4  5.6  3.1 21.7</code></pre>
-<div class="sourceCode" id="cb663"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Mostrar el último elemento</span>
-<span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">]</span></code></pre></div>
-<pre><code>[1] 21.7</code></pre>
-<div class="sourceCode" id="cb665"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Indexar con valores lógicos. Obtenemos sólo las posiciones indicadas con TRUE:</span>
-<span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">F</span>, <span class="cn">F</span>, <span class="cn">T</span>, <span class="cn">T</span>, <span class="cn">F</span><span class="op">)</span><span class="op">]</span></code></pre></div>
-<pre><code>[1] 3.1 6.4</code></pre>
-<div class="sourceCode" id="cb667"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Sabiendo que la siguiente operación devuelve TRUE o FALSE para cada posición de x:</span>
-<span class="va">x</span> <span class="op">&gt;</span> <span class="fl">10</span></code></pre></div>
-<pre><code>[1]  TRUE FALSE FALSE FALSE  TRUE</code></pre>
-<div class="sourceCode" id="cb669"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># ...la podemos usar para quedarnos con aquellos elementos de x mayores a 10:</span>
-<span class="va">x</span><span class="op">[</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">10</span><span class="op">]</span></code></pre></div>
-<pre><code>[1] 10.4 21.7</code></pre>
-<p><strong>Matriz</strong>:</p>
-<div class="sourceCode" id="cb671"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Toda la fila 3</span>
-<span class="va">a</span><span class="op">[</span><span class="fl">3</span>, <span class="op">]</span></code></pre></div>
-<pre><code>[1]  1 12 17</code></pre>
-<div class="sourceCode" id="cb673"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Toda la columna 2</span>
-<span class="va">a</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span></code></pre></div>
-<pre><code>[1] 20 -7 12</code></pre>
-<div class="sourceCode" id="cb675"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Submatriz con las columnas 1 y 2</span>
-<span class="va">a</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span></code></pre></div>
-<pre><code>     [,1] [,2]
-[1,]    4   20
-[2,]   -2   -7
-[3,]    1   12</code></pre>
-<div class="sourceCode" id="cb677"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Submatriz con las columnas 1 y 3</span>
-<span class="va">a</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">]</span></code></pre></div>
-<pre><code>     [,1] [,2]
-[1,]    4   -8
-[2,]   -2   13
-[3,]    1   17</code></pre>
-<div class="sourceCode" id="cb679"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Asignar el mismo valor en toda la fila 3</span>
-<span class="va">a</span><span class="op">[</span><span class="fl">3</span>, <span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">10</span>
-<span class="va">a</span></code></pre></div>
-<pre><code>     [,1] [,2] [,3]
-[1,]    4   20   -8
-[2,]   -2   -7   13
-[3,]   10   10   10</code></pre>
-<p><strong>data.frames:</strong></p>
-<p>Inventamos un pequeño conjunto de datos de ejemplo con la estructura de los <code>data.frames</code> de R:</p>
-<div class="sourceCode" id="cb681"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mis_datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
-    altura <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">181</span>, <span class="fl">165</span>, <span class="fl">149</span>, <span class="fl">178</span><span class="op">)</span>,
-    peso <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">85</span>, <span class="fl">65</span>, <span class="fl">52</span>, <span class="fl">72</span><span class="op">)</span>,
-    edad <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">29</span>, <span class="fl">27</span>, <span class="fl">21</span>, <span class="fl">32</span><span class="op">)</span>
-<span class="op">)</span>
-<span class="va">mis_datos</span></code></pre></div>
-<pre><code>  altura peso edad
-1    181   85   29
-2    165   65   27
-3    149   52   21
-4    178   72   32</code></pre>
-<p>Un <code>data.frame</code> puede ser indexado de la misma forma empleada con matrices, por ejemplo:</p>
-<div class="sourceCode" id="cb683"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mis_datos</span><span class="op">[</span><span class="fl">3</span><span class="op">:</span><span class="fl">4</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">]</span></code></pre></div>
-<pre><code>  altura edad
-3    149   21
-4    178   32</code></pre>
-<div class="sourceCode" id="cb685"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mis_datos</span><span class="op">[</span><span class="fl">3</span><span class="op">:</span><span class="fl">4</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"altura"</span>, <span class="st">"edad"</span><span class="op">)</span><span class="op">]</span></code></pre></div>
-<pre><code>  altura edad
-3    149   21
-4    178   32</code></pre>
-<p>Para hacer referencia a una variable dentro del <code>data.frame</code>, empleamos la estructura <code>dataset$variable</code>. Por ejemplo:</p>
-<div class="sourceCode" id="cb687"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mis_datos</span><span class="op">$</span><span class="va">altura</span></code></pre></div>
-<pre><code>[1] 181 165 149 178</code></pre>
-<p>Lo anterior resulta en un vector, con el que se pueden hacer operaciones como buscar el valor mínimo:</p>
-<div class="sourceCode" id="cb689"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">mis_datos</span><span class="op">$</span><span class="va">altura</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 149</code></pre>
-<p><strong>Ejemplo: cuadrado mágico</strong></p>
-<p>Podemos combinar lo mencionado en esta sección para escribir una nueva versión de la función <code>cuadrado_magico()</code>, que desarrollamos en el ejercicio 10 de la práctica 4:</p>
-<div class="sourceCode" id="cb691"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">cuadrado_magico</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">cuadrado</span><span class="op">)</span> <span class="op">{</span>
-    <span class="co"># Calcular el primer total fila para tener de control</span>
-  <span class="va">control</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">cuadrado</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span><span class="op">)</span>
-  
-  <span class="co"># Todos los controles</span>
-  <span class="va">sumas_filas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">cuadrado</span><span class="op">)</span>
-  <span class="va">sumas_col</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="va">cuadrado</span><span class="op">)</span>
-  <span class="va">suma_diag1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">cuadrado</span><span class="op">)</span><span class="op">)</span>
-  <span class="va">suma_diag2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">cuadrado</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">cuadrado</span><span class="op">)</span><span class="op">:</span><span class="fl">1</span>, <span class="op">]</span><span class="op">)</span><span class="op">)</span>
-  <span class="va">sumas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">sumas_filas</span>, <span class="va">sumas_col</span>, <span class="va">suma_diag1</span>, <span class="va">suma_diag2</span><span class="op">)</span>
-  
-  <span class="co"># Si alguna de las sumas no es igual al control, devolver FALSE</span>
-  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/any.html">any</a></span><span class="op">(</span><span class="va">sumas</span> <span class="op">!=</span> <span class="va">control</span><span class="op">)</span><span class="op">)</span> <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span>
-  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="va">cuadrado</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">16</span>,  <span class="fl">3</span>,  <span class="fl">2</span>, <span class="fl">13</span>,
-                      <span class="fl">5</span>, <span class="fl">10</span>, <span class="fl">11</span>,  <span class="fl">8</span>,
-                      <span class="fl">9</span>,  <span class="fl">6</span>,  <span class="fl">7</span>, <span class="fl">12</span>,
-                      <span class="fl">4</span>, <span class="fl">15</span>, <span class="fl">14</span>,  <span class="fl">1</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">4</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu">cuadrado_magico</span><span class="op">(</span><span class="va">cuadrado</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb693"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">cuadrado</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fl">0</span>,  <span class="fl">3</span>,  <span class="fl">2</span>, <span class="fl">13</span>,
-                      <span class="fl">5</span>, <span class="fl">10</span>, <span class="fl">11</span>,  <span class="fl">8</span>,
-                      <span class="fl">9</span>,  <span class="fl">6</span>,  <span class="fl">7</span>, <span class="fl">12</span>,
-                      <span class="fl">4</span>, <span class="fl">15</span>, <span class="fl">14</span>,  <span class="fl">1</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">4</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu">cuadrado_magico</span><span class="op">(</span><span class="va">cuadrado</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div id="generación-de-secuencias" class="section level2" number="7.6">
-<h2>
-<span class="header-section-number">7.6</span> Generación de secuencias<a class="anchor" aria-label="anchor" href="#generaci%C3%B3n-de-secuencias"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.3</span> Generación de secuencias<a class="anchor" aria-label="anchor" href="#generaci%C3%B3n-de-secuencias"><i class="fas fa-link"></i></a>
 </h2>
 <p>A continuación mostramos cómo generar algunos vectores numéricos en R:</p>
-<div class="sourceCode" id="cb695"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Generar vectores con secuencias numéricas</span>
 
 <span class="co"># Enteros de 1 a 5</span>
 <span class="fl">1</span><span class="op">:</span><span class="fl">5</span></code></pre></div>
 <pre><code>[1] 1 2 3 4 5</code></pre>
-<div class="sourceCode" id="cb697"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Números de 1 a 10 cada 2</span>
 <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">10</span>, <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] 1 3 5 7 9</code></pre>
-<div class="sourceCode" id="cb699"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Números de 0 a -1 cada -0.1</span>
 <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">0.1</span><span class="op">)</span></code></pre></div>
 <pre><code> [1]  0.0 -0.1 -0.2 -0.3 -0.4 -0.5 -0.6 -0.7 -0.8 -0.9 -1.0</code></pre>
-<div class="sourceCode" id="cb701"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Siete números equiespaciados entre 0 y 1</span>
 <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, length.out <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] 0.0000000 0.1666667 0.3333333 0.5000000 0.6666667 0.8333333 1.0000000</code></pre>
-<div class="sourceCode" id="cb703"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Repetir el 1 tres veces</span>
 <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] 1 1 1</code></pre>
-<div class="sourceCode" id="cb705"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Repetir (1, 2, 3) tres veces</span>
 <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] 1 2 3 1 2 3 1 2 3</code></pre>
-<div class="sourceCode" id="cb707"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Repetir cada número tres veces</span>
 <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, each <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] 1 1 1 2 2 2 3 3 3</code></pre>
-<div class="sourceCode" id="cb709"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Generar una matriz diagonal</span>
 <span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">7</span>, <span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4]
@@ -959,7 +454,7 @@ Execution halted</code></pre>
 [2,]    0    7    0    0
 [3,]    0    0    1    0
 [4,]    0    0    0    5</code></pre>
-<div class="sourceCode" id="cb711"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Generar una matriz identidad</span>
 <span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
@@ -968,268 +463,6 @@ Execution halted</code></pre>
 [3,]    0    0    1    0    0
 [4,]    0    0    0    1    0
 [5,]    0    0    0    0    1</code></pre>
-</div>
-<div id="resolución-alternativa-de-un-ejercicio" class="section level2" number="7.7">
-<h2>
-<span class="header-section-number">7.7</span> Resolución alternativa de un ejercicio<a class="anchor" aria-label="anchor" href="#resoluci%C3%B3n-alternativa-de-un-ejercicio"><i class="fas fa-link"></i></a>
-</h2>
-<p>Combinando todo lo mencionado hasta acá, podemos plantear una solución alternativa al <strong>ejercicio 7</strong> de la <strong>Práctica 5</strong>.</p>
-<div class="sourceCode" id="cb713"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#----------------------------------------------------------------------------</span>
-<span class="co"># PROGRAMA: Análisis de los discos de Charly García </span>
-<span class="co">#----------------------------------------------------------------------------</span>
-
-<span class="co"># Leer archivo</span>
-<span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"charly.csv"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb714"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Vector con los nombres de los discos</span>
-<span class="va">discos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Yendo de la cama al living"</span>, <span class="st">"Parte de la religión"</span>, 
-            <span class="st">"Filosofía barata y zapatos de goma"</span>, <span class="st">"Say no more"</span>, 
-            <span class="st">"Influencia"</span>, <span class="st">"Random"</span><span class="op">)</span>
-
-<span class="co"># Crear un factor significa asignarle un nombre a cada categoría. Todos los "1"</span>
-<span class="co"># serán reemplazados por "Yendo de la cama al living", los "2" por "Parte de la</span>
-<span class="co"># religión", etc. Correrlo y ver cómo quedó en el data.frame.</span>
-<span class="va">datos</span><span class="op">$</span><span class="va">disco</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">disco</span>, levels <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, labels <span class="op">=</span> <span class="va">discos</span><span class="op">)</span>
-
-
-<span class="co"># a) y b) Cantidad de canciones en cada disco ----------------------------------</span>
-<span class="co"># table() indica la frecuencia absoluta de cada valor en un vector</span>
-<span class="va">conteos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">disco</span><span class="op">)</span>
-<span class="va">conteos</span></code></pre></div>
-<pre><code>
-        Yendo de la cama al living               Parte de la religión 
-                                 8                                 10 
-Filosofía barata y zapatos de goma                        Say no more 
-                                11                                 14 
-                        Influencia                             Random 
-                                13                                 10 </code></pre>
-<div class="sourceCode" id="cb716"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">conteos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">conteos</span>, ncol <span class="op">=</span> <span class="fl">1</span>,
-                  dimnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>Disco <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">conteos</span><span class="op">)</span>, <span class="st">"Nro de canciones"</span><span class="op">)</span><span class="op">)</span>
-<span class="va">conteos</span></code></pre></div>
-<pre><code>                                    
-Disco                                Nro de canciones
-  Yendo de la cama al living                        8
-  Parte de la religión                             10
-  Filosofía barata y zapatos de goma               11
-  Say no more                                      14
-  Influencia                                       13
-  Random                                           10</code></pre>
-<div class="sourceCode" id="cb718"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Menor y mayor cantidad de canciones</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">conteos</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 8</code></pre>
-<div class="sourceCode" id="cb720"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">conteos</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 14</code></pre>
-<div class="sourceCode" id="cb722"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># De qué discos se trata</span>
-<span class="va">discos</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.min</a></span><span class="op">(</span><span class="va">conteos</span><span class="op">)</span><span class="op">]</span></code></pre></div>
-<pre><code>[1] "Yendo de la cama al living"</code></pre>
-<div class="sourceCode" id="cb724"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">discos</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">conteos</span><span class="op">)</span><span class="op">]</span></code></pre></div>
-<pre><code>[1] "Say no more"</code></pre>
-<div class="sourceCode" id="cb726"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># c) Buscar el mayor valor en energía ------------------------------------------</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">energico</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 0.949</code></pre>
-<div class="sourceCode" id="cb728"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Cuál es la fila donde se encuentra el máximo</span>
-<span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">energico</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 48</code></pre>
-<div class="sourceCode" id="cb730"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Nombre de la canción con máxima energía</span>
-<span class="va">datos</span><span class="op">$</span><span class="va">tema</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">energico</span><span class="op">)</span><span class="op">]</span></code></pre></div>
-<pre><code>[1] "El Amor Espera"</code></pre>
-<div class="sourceCode" id="cb732"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Nombre del disco que contiene a la canción con máxima energía</span>
-<span class="va">datos</span><span class="op">$</span><span class="va">disco</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">energico</span><span class="op">)</span><span class="op">]</span></code></pre></div>
-<pre><code>[1] Influencia
-6 Levels: Yendo de la cama al living ... Random</code></pre>
-<div class="sourceCode" id="cb734"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># d) Porcentaje de canciones con valor mayor a 0.5 en positivo -----------------</span>
-<span class="va">porc</span> <span class="op">&lt;-</span> <span class="fl">100</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">positivo</span> <span class="op">&gt;</span> <span class="fl">0.5</span><span class="op">)</span>
-<span class="va">porc</span></code></pre></div>
-<pre><code>[1] 51.51515</code></pre>
-<div class="sourceCode" id="cb736"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Número de canciones con valor de positivo &gt; 0.5</span>
-<span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">positivo</span> <span class="op">&gt;</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 34</code></pre>
-<div class="sourceCode" id="cb738"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># e) Tabla de distribución de frecuencias para los valores de acústico ---------</span>
-<span class="co"># Con la función cut() agregamos una nueva variable al data.frame que identifica</span>
-<span class="co"># a qué intervalo pertenece cada valor de acústico (hacer clic en "datos" en</span>
-<span class="co"># Environment y observar la nueva columna)</span>
-<span class="va">datos</span><span class="op">$</span><span class="va">acustico2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">acustico</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0.2</span><span class="op">)</span><span class="op">)</span>
-<span class="va">tabla</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">acustico2</span><span class="op">)</span>
-<span class="va">tabla</span></code></pre></div>
-<pre><code>
-  (0,0.2] (0.2,0.4] (0.4,0.6] (0.6,0.8]   (0.8,1] 
-       32        16         7         3         8 </code></pre>
-<div class="sourceCode" id="cb740"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># prop.table() calcula proporciones, es decir, frecuencias relativas</span>
-<span class="fu"><a href="https://rdrr.io/r/base/proportions.html">prop.table</a></span><span class="op">(</span><span class="va">tabla</span><span class="op">)</span></code></pre></div>
-<pre><code>
-   (0,0.2]  (0.2,0.4]  (0.4,0.6]  (0.6,0.8]    (0.8,1] 
-0.48484848 0.24242424 0.10606061 0.04545455 0.12121212 </code></pre>
-<div class="sourceCode" id="cb742"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Entonces...</span>
-<span class="va">cuadro</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">tabla</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">100</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/proportions.html">prop.table</a></span><span class="op">(</span><span class="va">tabla</span><span class="op">)</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">cuadro</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Frec. Abs"</span>, <span class="st">"Frec. Rel. %"</span><span class="op">)</span>
-<span class="va">cuadro</span></code></pre></div>
-<pre><code>          Frec. Abs Frec. Rel. %
-(0,0.2]          32        48.48
-(0.2,0.4]        16        24.24
-(0.4,0.6]         7        10.61
-(0.6,0.8]         3         4.55
-(0.8,1]           8        12.12</code></pre>
-<div class="sourceCode" id="cb744"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># f) Calcular promedios de cada variable según disco ---------------------------</span>
-<span class="co"># aggregate() permite calcular el promedio de cada variable para cada grupo</span>
-<span class="co"># datos[, 3:13] es la forma de indicar a qué columnas le sacamos el promedio</span>
-<span class="co"># by = list(datos$disco) indica que queremos el promedio para cada disco</span>
-<span class="co"># FUN = mean indica que a cada variable hay que aplicarle la función mean</span>
-<span class="va">promedios</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">datos</span><span class="op">[</span>, <span class="fl">3</span><span class="op">:</span><span class="fl">12</span><span class="op">]</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>Disco <span class="op">=</span> <span class="va">datos</span><span class="op">$</span><span class="va">disco</span><span class="op">)</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span>
-<span class="va">promedios</span></code></pre></div>
-<pre><code>                               Disco  bailable  energico    volumen    hablado
-1         Yendo de la cama al living 0.6837500 0.4603750 -11.991500 0.07821250
-2               Parte de la religión 0.6328000 0.7103000  -8.595500 0.03709000
-3 Filosofía barata y zapatos de goma 0.5923636 0.3843636 -17.392273 0.03637273
-4                        Say no more 0.3847857 0.4690714 -14.946929 0.04922143
-5                         Influencia 0.5774615 0.5899231  -9.732231 0.06428462
-6                             Random 0.6548000 0.7390000  -6.257800 0.03108000
-   acustico instrumental      vivo  positivo    tempo duracion
-1 0.2933375  0.021097349 0.1717625 0.5172500 105.7604 259585.0
-2 0.2783200  0.059160403 0.1407200 0.5642000 113.8903 234867.9
-3 0.1078570  0.009021264 0.1138364 0.4998818 110.0092 229543.1
-4 0.4143786  0.293317647 0.2162286 0.3436429 109.0935 238400.1
-5 0.3960287  0.077699555 0.2357000 0.5994615 109.7010 199760.9
-6 0.2022443  0.000144704 0.2617200 0.5968000 113.3571 204040.0</code></pre>
-<div class="sourceCode" id="cb746"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Redondear todas las columnas excepto la primera y la última</span>
-<span class="va">promedios</span><span class="op">[</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">promedios</span><span class="op">[</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span>
-<span class="va">promedios</span></code></pre></div>
-<pre><code>                               Disco bailable energico volumen hablado acustico
-1         Yendo de la cama al living    0.684    0.460 -11.992   0.078    0.293
-2               Parte de la religión    0.633    0.710  -8.595   0.037    0.278
-3 Filosofía barata y zapatos de goma    0.592    0.384 -17.392   0.036    0.108
-4                        Say no more    0.385    0.469 -14.947   0.049    0.414
-5                         Influencia    0.577    0.590  -9.732   0.064    0.396
-6                             Random    0.655    0.739  -6.258   0.031    0.202
-  instrumental  vivo positivo   tempo duracion
-1        0.021 0.172    0.517 105.760 259585.0
-2        0.059 0.141    0.564 113.890 234867.9
-3        0.009 0.114    0.500 110.009 229543.1
-4        0.293 0.216    0.344 109.094 238400.1
-5        0.078 0.236    0.599 109.701 199760.9
-6        0.000 0.262    0.597 113.357 204040.0</code></pre>
-<div class="sourceCode" id="cb748"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># g) Disco con menor promedio en bailable ----------------------------------</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">promedios</span><span class="op">$</span><span class="va">bailable</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 0.385</code></pre>
-<div class="sourceCode" id="cb750"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.min</a></span><span class="op">(</span><span class="va">promedios</span><span class="op">$</span><span class="va">bailable</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 4</code></pre>
-<div class="sourceCode" id="cb752"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">promedios</span><span class="op">$</span><span class="va">Disco</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.min</a></span><span class="op">(</span><span class="va">promedios</span><span class="op">$</span><span class="va">bailable</span><span class="op">)</span><span class="op">]</span></code></pre></div>
-<pre><code>[1] Say no more
-6 Levels: Yendo de la cama al living ... Random</code></pre>
-<div class="sourceCode" id="cb754"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Disco con mayor promedio en instrumental</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">promedios</span><span class="op">$</span><span class="va">instrumental</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 0.293</code></pre>
-<div class="sourceCode" id="cb756"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">promedios</span><span class="op">$</span><span class="va">instrumental</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 4</code></pre>
-<div class="sourceCode" id="cb758"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">promedios</span><span class="op">$</span><span class="va">Disco</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">promedios</span><span class="op">$</span><span class="va">instrumental</span><span class="op">)</span><span class="op">]</span></code></pre></div>
-<pre><code>[1] Say no more
-6 Levels: Yendo de la cama al living ... Random</code></pre>
-<div class="sourceCode" id="cb760"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># h) Diferencia entre la duración promedio de las canciones </span>
-<span class="co"># del primer disco y las del último, expresada en minutos.----------------------</span>
-<span class="va">diferencia</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">promedios</span><span class="op">$</span><span class="va">duracion</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">-</span> <span class="va">promedios</span><span class="op">$</span><span class="va">duracion</span><span class="op">[</span><span class="fl">6</span><span class="op">]</span><span class="op">)</span> <span class="op">/</span> <span class="fl">60000</span>
-<span class="va">diferencia</span></code></pre></div>
-<pre><code>[1] 0.92575</code></pre>
-<p>Podemos guardar todos estos resultados en un archivo:</p>
-<div class="sourceCode" id="cb762"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sink.html">sink</a></span><span class="op">(</span><span class="st">"salida.txt"</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"----- Cantidad de canciones en cada disco -----\n"</span><span class="op">)</span>
-<span class="va">conteos</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nEl disco con menor cantidad de canciones es:"</span>, <span class="va">discos</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.min</a></span><span class="op">(</span><span class="va">conteos</span><span class="op">)</span><span class="op">]</span>, <span class="st">"\n"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El disco con mayor cantidad de canciones es:"</span>, <span class="va">discos</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">conteos</span><span class="op">)</span><span class="op">]</span>, <span class="st">"\n"</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\n----- Energía -----\n"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"La canción con mayor valor de energía ("</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">energico</span><span class="op">)</span>, <span class="st">") es "</span>, 
-        <span class="va">datos</span><span class="op">$</span><span class="va">tema</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">energico</span><span class="op">)</span><span class="op">]</span>, <span class="st">" y pertenece\n al disco "</span>, 
-        <span class="va">discos</span><span class="op">[</span><span class="va">datos</span><span class="op">$</span><span class="va">disco</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">energico</span><span class="op">)</span><span class="op">]</span><span class="op">]</span>, <span class="st">".\n"</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\n----- Positivo -----\n"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El porcentaje de canciones con valor mayor a 0.5 en Positivo es "</span>, <span class="va">porc</span>, 
-    <span class="st">"%.\n"</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\n----- Acústico -----\n"</span><span class="op">)</span>
-<span class="va">cuadro</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\n----- Promedio de cada variable según disco -----\n"</span><span class="op">)</span>
-<span class="va">promedios</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\n----- Bailable e Instrumental -----\n"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El disco con menor promedio en bailable ("</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">promedios</span><span class="op">$</span><span class="va">bailable</span><span class="op">)</span>,
-        <span class="st">") es "</span>, <span class="va">discos</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.min</a></span><span class="op">(</span><span class="va">promedios</span><span class="op">$</span><span class="va">bailable</span><span class="op">)</span><span class="op">]</span>, <span class="st">".\n"</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El disco con mayor promedio en instrumental ("</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">promedios</span><span class="op">$</span><span class="va">instrumental</span><span class="op">)</span>,
-        <span class="st">") es "</span>, <span class="va">discos</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">promedios</span><span class="op">$</span><span class="va">instrumental</span><span class="op">)</span><span class="op">]</span>, <span class="st">".\n"</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\n----- Duración -----\n"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"La diferencia entre la duración promedio de las canciones del primer disco 
-        y las del último es de "</span>, <span class="va">diferencia</span>, <span class="st">"minutos.\n"</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/sink.html">sink</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p>Así se ve el archivo creado:</p>
-<pre><code>----- Cantidad de canciones en cada disco -----
-                                    
-Disco                                Nro de canciones
-  Yendo de la cama al living                        8
-  Parte de la religión                             10
-  Filosofía barata y zapatos de goma               11
-  Say no more                                      14
-  Influencia                                       13
-  Random                                           10
-
-El disco con menor cantidad de canciones es: Yendo de la cama al living 
-El disco con mayor cantidad de canciones es: Say no more 
-
------ Energía -----
-La canción con mayor valor de energía (0.949) es El Amor Espera y pertenece al disco Influencia.
-
------ Positivo -----
-El porcentaje de canciones con valor mayor a 0.5 en Positivo es 51.51515%.
-
------ Acústico -----
-          Frec. Abs Frec. Rel. %
-(0,0.2]          32        48.48
-(0.2,0.4]        16        24.24
-(0.4,0.6]         7        10.61
-(0.6,0.8]         3         4.55
-(0.8,1]           8        12.12
-
------ Promedio de cada variable según disco -----
-                               Disco bailable energico volumen hablado acustico instrumental  vivo positivo   tempo duracion
-1         Yendo de la cama al living    0.684    0.460 -11.992   0.078    0.293        0.021 0.172    0.517 105.760 259585.0
-2               Parte de la religión    0.633    0.710  -8.595   0.037    0.278        0.059 0.141    0.564 113.890 234867.9
-3 Filosofía barata y zapatos de goma    0.592    0.384 -17.392   0.036    0.108        0.009 0.114    0.500 110.009 229543.1
-4                        Say no more    0.385    0.469 -14.947   0.049    0.414        0.293 0.216    0.344 109.094 238400.1
-5                         Influencia    0.577    0.590  -9.732   0.064    0.396        0.078 0.236    0.599 109.701 199760.9
-6                             Random    0.655    0.739  -6.258   0.031    0.202        0.000 0.262    0.597 113.357 204040.0
-
------ Bailable e Instrumental -----
-El disco con menor promedio en bailable (0.385) es Say no more.
-El disco con mayor promedio en instrumental (0) es Say no more.
-
------ Duración -----
-La diferencia entre la duración promedio de las canciones del primer disco y las del último es de  0.92575 minutos.</code></pre>
 
 </div>
 </div>
@@ -1243,11 +476,7 @@ La diferencia entre la duración promedio de las canciones del primer disco y la
 <li><a class="nav-link" href="#otros-t%C3%B3picos"><span class="header-section-number">7</span> Otros tópicos</a></li>
 <li><a class="nav-link" href="#la-consola"><span class="header-section-number">7.1</span> La consola</a></li>
 <li><a class="nav-link" href="#uso-de-argumentos-en-la-l%C3%ADnea-de-comandos-al-ejecutar-c%C3%B3digo-de-r"><span class="header-section-number">7.2</span> Uso de argumentos en la línea de comandos al ejecutar código de R</a></li>
-<li><a class="nav-link" href="#m%C3%A1s-funciones-predefinidas"><span class="header-section-number">7.3</span> Más funciones predefinidas</a></li>
-<li><a class="nav-link" href="#operaciones-vectorizadas"><span class="header-section-number">7.4</span> Operaciones vectorizadas</a></li>
-<li><a class="nav-link" href="#indexaci%C3%B3n-de-vectores-matrices-y-data.frames"><span class="header-section-number">7.5</span> Indexación de vectores, matrices y data.frames</a></li>
-<li><a class="nav-link" href="#generaci%C3%B3n-de-secuencias"><span class="header-section-number">7.6</span> Generación de secuencias</a></li>
-<li><a class="nav-link" href="#resoluci%C3%B3n-alternativa-de-un-ejercicio"><span class="header-section-number">7.7</span> Resolución alternativa de un ejercicio</a></li>
+<li><a class="nav-link" href="#generaci%C3%B3n-de-secuencias"><span class="header-section-number">7.3</span> Generación de secuencias</a></li>
 </ul>
 
       <div class="book-extra">
@@ -1264,7 +493,7 @@ La diferencia entre la duración promedio de las canciones del primer disco y la
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2022-05-25.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2023-03-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
