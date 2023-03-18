@@ -34,7 +34,7 @@ Los comandos se escriben en la última línea a continuación del símbolo `>`, 
 Si bien hay muchísimos comandos para utilizar en la terminal, acá vamos a mencionar algunos como ejemplo:
 
 - Mostrar en qué carpeta (directorio) de la compu estamos situados: *pwd* en Linux o *cd* en Windows
-- Listar todos los archivos y carpetas que tenemos en el directorio actual: *ls*
+- Listar todos los archivos y carpetas que tenemos en el directorio actual: *ls* en Linux o *dir* en Windows
 - Entrar a una subcarpeta desde el directorio en el que estamos: *cd nombresubcarpeta*
 - Ver la ayuda de los comandos: *help*
 - Limpiar la consola: *cls* en Windows o *clear* en Linux

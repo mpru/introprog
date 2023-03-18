@@ -371,7 +371,7 @@ x > 0 || y < 0
 
 #### Evaluación en cortocircuito
 
-Para evaluar la operación de conjunción `x && y`, en R se comienza por evaluar la expresión del primer operando `x` y si su resultado es `FALSE` ya no se evalúa la expresión `y` del segundo operando. Esto es porque si `x` es `FALSE`, el resultado de `x && y` ya no depende de `y`, será siempre `FALSE`. Por este motivo se dice que el operador `&&` se evalúa en *cortocircuito*. La evaluación en cortocircuito evita realizar operaciones innecesarias^[El otro operador de conjunción, &, no evalúa en cortocircuito, además de poseer otras diferencias.]
+Para evaluar la operación de conjunción `x && y`, en R se comienza por evaluar la expresión del primer operando `x` y si su resultado es `FALSE` ya no se evalúa la expresión `y` del segundo operando. Esto es porque si `x` es `FALSE`, el resultado de `x && y` ya no depende de `y`, será siempre `FALSE`. Por este motivo se dice que el operador `&&` se evalúa en *cortocircuito*. La evaluación en cortocircuito evita realizar operaciones innecesarias^[El otro operador de conjunción, &, no evalúa en cortocircuito, además de poseer otras diferencias.].
 
 Por ejemplo:
 
