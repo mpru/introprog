@@ -637,9 +637,7 @@ resultado2[[1]]
 resultado2[[2]]
 ```
 
-## Elementos con nombre (lectura opcional)
-
-La presente sección es de lectura opcional, lo cual significa que no será necesaria para la resolución de la práctica ni será tenida en cuenta en las evaluaciones.
+## Elementos con nombre en R
 
 Además de guardar información, los objetos de R pueden poseer ciertos **atributos**, que consisten en información adicional sobre el objeto. Uno de ellos es el atributo `names`, que permite que cada elemento dentro de un vector o una lista pueda tener su propio nombre, así como también que cada fila o columna de una matriz tenga su propio nombre, independientemente del nombre general del objeto.
 
@@ -674,7 +672,7 @@ frutas[2]
 frutas["naranjas"]
 ```
 
-No todos los elementos de un vector tienen que tener nombre:
+No todos los elementos de un vector deben tener nombre:
 
 ```{r}
 frutas <- c(manzanas = 3, 7, bananas = 2, 1)
@@ -742,10 +740,604 @@ mi_lista[["y"]]
 mi_lista$y
 ```
 
-## Otras consideraciones (lectura opcional)
+## Operaciones vectorizadas
+
+Con los conocimientos compartidos hasta aquí en esta unidad seremos capaces de escribir interesantes algoritmos para operar con vectores y matrices (por ejemplo: ordenar, buscar el mínimo, realizar cálculos algebraicos, etc.) y también de programarlos en R, como verán en la práctica. En este proceso de aprendizaje vamos a encarar la tarea de escribir muchas funciones que, por lo general, ya forman parte de la sintaxis básica de cualquier lenguaje de programación. Sí... trabajaremos de más, ¡pero es para poder aprender! No obstante, ahora vamos a mencionar algunos ejemplos de funciones que ya están disponibles en R y que evitan que tengamos que trabajar tanto.
+
+La mayoría de las funciones de R están **vectorizadas**. Esto quiere decir que están diseñadas para operar al mismo tiempo con todos los elementos de los vectores y matrices y no es necesario recorrer cada posición, una por una, como aprendimos para incorporar nuestros primeros conocimientos sobre algoritmos. Las funciones operan en todos los elementos sin tener que usar estructuras iterativas, haciendo que el código sea más conciso, fácil de leer y con menos chances de cometer errores.
+
+### Con vectores
+
+Por ejemplo, supongamos que queremos sumar dos vectores, como en el ***ejercicio 2 de la práctica 4**. Gracias a que la suma en R está vectorizada, esto se logra haciendo sencillamente:
+
+```{r}
+u <- c(5, 8, 2)
+v <- c(2, 3, -1)
+suma <- u + v
+suma
+```
+
+Sin vectorización, deberíamos diseñar y programar un algoritmo como el siguiente:
+
+```{r}
+suma <- numeric(length(u))
+for (i in 1:length(u)) { 
+	suma[i] <- u[i] + v[i]
+}
+suma
+```
+
+Como podemos notar, al ejecutar `u + v` R realiza la suma elemento a elemento entre los dos vectores. Esto también sucede con los otros operadores aritméticos:
+
+```{r}
+u - v
+u * v
+u / v
+u %% v
+```
+
+Estas operaciones también funcionan con vectores de distinto largo. En este caso, R aplica la **regla del reciclaje**: el vector más corto se recicla (se repiten sus elementos) hasta alcanzar la longitud del más largo y luego se opera elemento a elemento. Como es raro que queramos operar con dos vectores de distinto largo, R por las dudas nos tira una advertencia:
+
+```{r}
+z <- c(1, 2)
+u + z
+```
+
+Si hacemos operaciones que involucran a una constante y a un vector, R repetirá tal operación con cada elemento del vector:
+
+```{r}
+u + 5
+1 / v
+10 * z
+(u + v) / 100
+```
+
+Si le aplicamos funciones matemáticas como `log()` o `sqrt()` a un vector, obtendremos como resultado el valor de dicha función en cada uno de los elementos del vector:
+
+```{r}
+log(u)
+sqrt(z)
+```
+
+Hay funciones que cuando se aplican a un vector, logran resumirlo siguiendo algún criterio:
+
+- Sumar todos los elementos de un vector:
+
+	```{r}
+	sum(u)
+	```
+
+- Multiplicar todos los elementos de un vector:
+
+	```{r}
+	prod(u)
+	```
+
+- Calcular el promedio de los elementos de un vector:
+
+	```{r}
+	mean(u)
+	```
+
+- Encontrar el valor mínimo y su ubicación en el vector (como en el **ejercicio 4 de la práctica 4**):
+
+	```{r}
+	x <- c(40, 70, 20, 90, 20)
+	min(x)
+	which.min(x) # si el mínimo se repite, esta es la posición del primero
+	which(x == min(x)) # si el mínimo se repite, esto muestra todas sus posiciones
+	```
+
+- Encontrar el valor máximo y su ubicación en el vector:
+
+	```{r}
+	max(x)
+	which.max(x) # si el mínimo se repite, esta es la posición del primero
+	which(x == max(x)) # si el mínimo se repite, esto muestra todas sus posiciones
+	```
+
+Combinando las ideas anteriores, podemos resolver de forma muy rápida ciertos problemas, como el de calcular el producto escalar entre dos vectores (**ejercicio 5 de la práctica 4**):
+
+```{r}
+u
+v
+sum(u * v)
+```
+
+En lo anterior, `u * v` hace la multiplicación elemento a elemento entre los vectores `u` y `v` y luego sumamos esos valores con `sum()`. Sin las operaciones vectorizadas, deberíamos hacer algo como lo siguiente:
+
+```{r}
+rtdo <- 0
+for (i in 1:length(u)) { 
+	rtdo <- rtdo + u[i] * v[i]
+}
+rtdo
+```
+
+En el **ejercicio 3** de la **Práctica 4** creamos las funciones `ordenar_asc()` y `ordenar_des()` para ordenar los elementos de un vector. Con las funciones diponibles en R, ssto se puede hacer así:
+
+```{r}
+x
+sort(x)
+sort(x, decreasing = TRUE)
+```
+
+
+### Con matrices
+
+Los casos anteriores tienen sus equivalentes cuando operamos con matrices. Por ejemplo, en el **ejercicio 7 de la práctica 4** programamos una función para hacer la suma entre dos matrices. Sin vectorización, esto involucra pasos como los siguientes:
+
+```{r}
+a <- matrix(c(5, 8, 2, 2, 3, 1), nrow = 3)
+b <- matrix(c(0, -1, 3, 1, 2, 4), nrow = 3)
+a
+b
+suma <- matrix(NA, nrow(a), ncol(a))
+for (i in 1:nrow(a)) {
+	for (j in 1:ncol(a)) {
+		suma[i, j] <- a[i, j] + b[i, j]
+	}
+}
+suma
+```
+
+Gracias a las operaciones vectorizadas de R, esto se puede resumir en:
+
+```{r}
+a + b
+```
+
+A continuación, otros ejemplos de operaciones realizadas elemento a elemento con matrices:
+
+```{r}
+a + b
+a - b
+a * b
+a / b
+a^2
+sqrt(a)
+```
+
+También podemos resumir la información contenida en una matriz:
+
+- Suma de todos los elementos:
+
+	```{r}
+	a
+	sum(a)
+	```
+
+- Promedio de todos los elementos:
+
+	```{r}
+	mean(a)
+	```
+
+- Suma de los elementos por fila:
+
+	```{r}
+	rowSums(a)
+	```
+
+- Suma de los elementos por columna:
+
+	```{r}
+	colSums(a)
+	```
+
+- Promedio de los elementos por fila:
+
+	```{r}
+	rowMeans(a)
+	```
+
+- Promedio de los elementos por columna:
+
+	```{r}
+	colMeans(a)
+	```
+
+
+
+
+
+
+- Búsqueda de mínimos y máximos en una matriz:
+	
+	```{r}
+	A <- matrix(sample(100, 20), nrow = 5)
+	A
+	# Valor máximo
+	max(A)
+	# Posición (arr.ind = TRUE para que nos indique fila y columna)
+	which(A == max(A), arr.ind = TRUE)
+	# Valor mínimo
+	min(A)
+	# Posición
+	which(A == min(A), arr.ind = TRUE)
+	```
+
+operaciones logicas elemento a elemento, con indexacion?
+
+## Funciones apply
+
+```{r}
+# Máximo en cada fila de A (la función apply aplica la función provista, max, 
+# a cada fila de A)
+apply(A, 1, max)
+# Si en lugar de 1 ponemos 2, tenemos el máximo en cada columna
+apply(A, 2, max)
+# Posición del máximo en cada fila
+max.col(A) # Una opción
+apply(A, 1, which.max) # Otra opción
+# Posición del máximo en cada columna
+apply(A, 2, which.max)
+
+# agregar lapply, ver curso r
+```
+
+
+algebra matricial
+
+```{r}
+# Álgebra matricial
+# Transpuesta
+t(a)
+# Producto matricial
+d <- matrix(1:4, nrow = 2)
+a %*% d
+# Inversa
+solve(d)
+# Diagonal
+diag(d)
+```
+
+
+OJO MATRICES
+
+https://bookdown.org/ndphillips/YaRrr/arithmetic-operations-on-vectors.html
+https://www.r-tutor.com/r-introduction/vector/vector-arithmetics
+
+
+
+- **Práctica 4, ejercicio 7**: programamos una función para hacer la suma entre dos matrices:
+
+	```{r}
+	sumar_matrices <- function(A, B) {
+		if (nrow(A) == nrow(B) && ncol(A) == ncol(B)) {
+			suma <- matrix(NA, nrow(A), ncol(A))
+			for (i in 1:nrow(A)) {
+				for (j in 1:ncol(A)) {
+					suma[i, j] <- A[i, j] + B[i, j]
+				}
+			}
+			return(suma)
+		} else {
+			cat("Las dimensiones de las matrices no coinciden\n")
+			return(NULL)
+		}
+	}
+	
+	# Ejemplo de su uso
+	a <- matrix(c(5, 8, 2, 2, 3, 1), nrow = 3)
+	b <- matrix(c(0, -1, 3, 1, 2, 4), nrow = 3)
+	a
+	b
+	sumar_matrices(a, b)
+	```
+	
+	Gracias a las operaciones vectorizadas de R, esto se puede resumir en:
+	
+	```{r}
+	a + b
+	```
+
+A continuación presentamos un listado de las operaciones vectorizadas más comunes:
+
+```{r}
+# Matrices de ejemplo
+a <- matrix(c(5, 3, 1, 1, 8, 2), nrow = 3)
+b <- matrix(c(0, -1, 3, 1, 2, 4), nrow = 3)
+a
+b
+
+# Operaciones elemento a elemento
+a + b
+a - b
+a * b
+a / b
+a^2
+sqrt(a)
+
+# Operaciones lógicas elemento a elemento
+a == 3
+b > 0
+a > b
+a < 0 | b > 0
+
+# Mínimo y máximo
+min(a)
+which(a == min(a)) # posición del mínimo (todas las ocurrencias)
+apply(a, 1, min) # valor mínimo por fila
+apply(a, 1, which.min) # posición del mínimo por fila (primer ocurrencia)
+apply(a, 1, function(x) which(x == min(x))) # pos del mín por fila (todas las ocurrencias)
+
+# Sumas y promedios para un vector
+v <- c(2, 3, 9, 1, 0)
+sum(v)
+mean(v)
+
+# Sumas y promedios para una matriz, en general o para cada fila/columna
+a
+sum(a)
+mean(a)
+rowSums(a)
+colSums(a)
+rowMeans(a)
+colMeans(a)
+
+# Álgebra matricial
+# Transpuesta
+t(a)
+# Producto matricial
+d <- matrix(1:4, nrow = 2)
+a %*% d
+# Inversa
+solve(d)
+# Diagonal
+diag(d)
+```
+
+## Indexación de vectores, matrices y data.frames
+
+Como ya sabemos, indexar es hacer referencia a uno o más elementos particulares dentro de una estructura de datos. Vimos que para indexar a un vector, hace falta sólo un índice:
+
+```{r}
+x <- c(10.4, 5.6, 3.1, 6.4, 21.7)
+x[3]
+```
+
+Y que para indexar matrices, son necesarios dos índices:
+
+```{r}
+a <- matrix(c(4,-2, 1, 20, -7, 12, -8, 13, 17), nrow = 3)
+a
+a[2, 3]
+```
+
+Pero también podemos indexar a múltiples elementos de un vector o una matriz a la vez:
+
+**Vector**:
+
+```{r}
+# Mostrar los primeros tres elementos del vector x
+x[1:3]
+# Mostrar los elementos en las posiciones 2 y 4
+x[c(2, 4)]
+#Mostrar todos los elementos menos el cuarto
+x[-4]
+# Mostrar el último elemento
+x[length(x)]
+# Indexar con valores lógicos. Obtenemos sólo las posiciones indicadas con TRUE:
+x[c(F, F, T, T, F)]
+# Sabiendo que la siguiente operación devuelve TRUE o FALSE para cada posición de x:
+x > 10
+# ...la podemos usar para quedarnos con aquellos elementos de x mayores a 10:
+x[x > 10]
+```
+
+**Matriz**:
+
+```{r}
+# Toda la fila 3
+a[3, ]
+
+# Toda la columna 2
+a[, 2]
+
+# Submatriz con las columnas 1 y 2
+a[, 1:2]
+
+# Submatriz con las columnas 1 y 3
+a[, c(1, 3)]
+
+# Asignar el mismo valor en toda la fila 3
+a[3, ] <- 10
+a
+```
+
+**data.frames:**
+
+Inventamos un pequeño conjunto de datos de ejemplo con la estructura de los `data.frames` de R:
+
+```{r}
+mis_datos <- data.frame(
+    altura = c(181, 165, 149, 178),
+    peso = c(85, 65, 52, 72),
+    edad = c(29, 27, 21, 32)
+)
+mis_datos
+```
+
+Un `data.frame` puede ser indexado de la misma forma empleada con matrices, por ejemplo:
+
+```{r}
+mis_datos[3:4, c(1, 3)]
+mis_datos[3:4, c("altura", "edad")]
+```
+
+Para hacer referencia a una variable dentro del `data.frame`, empleamos la estructura `dataset$variable`. Por ejemplo:
+
+```{r}
+mis_datos$altura
+```
+
+Lo anterior resulta en un vector, con el que se pueden hacer operaciones como buscar el valor mínimo:
+
+```{r}
+min(mis_datos$altura)
+```
+
+**Ejemplo: cuadrado mágico**
+
+Podemos combinar lo mencionado en esta sección para escribir una nueva versión de la función `cuadrado_magico()`, que desarrollamos en el ejercicio 10 de la práctica 4:
+
+```{r}
+cuadrado_magico <- function(cuadrado) {
+	# Calcular el primer total fila para tener de control
+  control <- sum(cuadrado[1, ])
+  
+  # Todos los controles
+  sumas_filas <- rowSums(cuadrado)
+  sumas_col <- colSums(cuadrado)
+  suma_diag1 <- sum(diag(cuadrado))
+  suma_diag2 <- sum(diag(cuadrado[nrow(cuadrado):1, ]))
+  sumas <- c(sumas_filas, sumas_col, suma_diag1, suma_diag2)
+  
+  # Si alguna de las sumas no es igual al control, devolver FALSE
+  if (any(sumas != control)) return(FALSE)
+  return(TRUE)
+}
+
+cuadrado <- matrix(c(16,  3,  2, 13,
+                      5, 10, 11,  8,
+                      9,  6,  7, 12,
+                      4, 15, 14,  1), nrow = 4, byrow = TRUE)
+cuadrado_magico(cuadrado)
+
+cuadrado <- matrix(c( 0,  3,  2, 13,
+                      5, 10, 11,  8,
+                      9,  6,  7, 12,
+                      4, 15, 14,  1), nrow = 4, byrow = TRUE)
+cuadrado_magico(cuadrado)
+```
+
+
+## Generación de secuencias
+
+A continuación mostramos cómo generar algunos vectores numéricos en R:
+
+```{r}
+# Generar vectores con secuencias numéricas
+
+# Enteros de 1 a 5
+1:5
+
+# Números de 1 a 10 cada 2
+seq(1, 10, 2)
+
+# Números de 0 a -1 cada -0.1
+seq(0, -1, -0.1)
+
+# Siete números equiespaciados entre 0 y 1
+seq(0, 1, length.out = 7)
+
+# Repetir el 1 tres veces
+rep(1, 3)
+
+# Repetir (1, 2, 3) tres veces
+rep(1:3, 3)
+
+# Repetir cada número tres veces
+rep(1:3, each = 3)
+
+# Generar una matriz diagonal
+diag(c(3, 7, 1, 5))
+
+# Generar una matriz identidad
+diag(rep(1, 5))
+```
+
+
+## Otras consideraciones
 
 Dependiendo de cómo se almacenan los datos que componen a una estructura en el *hardware* de la computadora, las mismas se pueden clasificar en **contiguas** o **enlazadas**. En las estructuras contiguas, los datos se sitúan en áreas adyacentes de memoria y cada uno de ellos se puede localizar partiendo de la posición en memoria del primer elemento de la estructura. En las estructuras enlazadas, los datos no se sitúan necesariamente de forma continua en la memoria sino que existen *punteros* (otro tipo de dato que *apunta* hacia determinada posición de memoria) que permite identificar cuál es el orden de los elementos dentro de la estructura.
 
 Por otro lado, las estructuras también se pueden clasificar en **dinámicas** o **estáticas**, según si su tamaño puede cambiar o no durante la ejecución de un programa, respectivamente. Cuando se emplea una estructura estática, se declara con anterioridad el tamaño que ocupará en memoria y su dimensión no podrá variar, aún cuando no se ocupen todas las posiciones reservadas. En contraposición, una estructura dinámica puede cambiar en tamaño.
 
 Antes se mencionó que las listas de R pueden contener objetos de distintos tipos. Para ser más rigurosos, una lista es un tipo especial de vector que agrupa punteros hacia distintos objetos. Técnicamente, todos los elementos de una lista son del mismo tipo (punteros), pero hacen referencia a distintos objetos, dándonos la impresión de que en una lista de R, sencillamente, podemos meter cualquier tipo de objeto.
+
+
+## Más funciones predefinidas
+no escribir pseudocódigo
+
+Recordemos algunos ejercicios:
+
+
+- En el **ejercicio 1** de la **Práctica 4** definimos la siguiente función para sumar los elementos de un vector:
+
+	```{r}
+	suma <- function(v) {
+		rtdo <- 0
+		for (i in 1:length(v)) {
+			rtdo <- rtdo + v[i]
+		}
+		return(rtdo)
+	}
+	
+	mi_vector <- c(60, -5, 0, 12, 1)
+	suma(mi_vector)
+	```
+
+	Sin embargo, podríamos usar directamente la función `sum()` de R:
+		
+	```{r}
+	sum(mi_vector)
+	```
+
+- En el **ejercicio 3** de la **Práctica 4** creamos las funciones `ordenar_asc()` y `ordenar_des()` para ordenar los elementos de un vector. Esto se puede hacer así:
+
+	```{r}
+	sort(mi_vector)
+	sort(mi_vector, decreasing = TRUE)
+	```
+
+- En el **ejercicio 4** de la **Práctica 4**, escribimos funciones para encontrar el mínimo o el máximo en un vector, al igual que su posición. R nos facilita estas funciones para lograr lo mismo:
+
+	```{r}
+	# Valor mínimo
+	min(mi_vector)
+	# Posición del mínimo en el vector
+	which.min(mi_vector)
+	# Valor máximo
+	max(mi_vector)
+	# Posición del máximo en el vector
+	which.max(mi_vector)
+	# Al igual que nuestra función, si el valor se repite nos da la posición de su
+	# primera ocurrencia
+	w <- c(0, 5, 2, 3, 5, 4)
+	max(w)
+	which.max(w)
+	# Pero podemos obtener todas las posiciones así:
+	which(w == max(w))
+	```
+
+- También podemos aplicar esto a la búsqueda de mínimos y máximos en una matriz:
+	
+	```{r}
+	A <- matrix(sample(100, 20), nrow = 5)
+	A
+	# Valor máximo
+	max(A)
+	# Posición (arr.ind = TRUE para que nos indique fila y columna)
+	which(A == max(A), arr.ind = TRUE)
+	# Máximo en cada fila de A (la función apply aplica la función provista, max, 
+	# a cada fila de A)
+	apply(A, 1, max)
+	# Si en lugar de 1 ponemos 2, tenemos el máximo en cada columna
+	apply(A, 2, max)
+	# Posición del máximo en cada fila
+	max.col(A) # Una opción
+	apply(A, 1, which.max) # Otra opción
+	# Posición del máximo en cada columna
+	apply(A, 2, which.max)
+	```
+
+- En otras ocasiones, puede ser que R no incluya en su instalación base la función que necesitamos, pero que la misma ya haya sido programada por otra persona y esté disponible en un *paquete* que podemos descargar e instalar. Por ejemplo, en el ejercicio 8 de la Práctica 3 escribimos una función llamada `max_com_div()` para hallar el máximo común divisor entre dos naturales. R no tiene una función que compute esto, pero podemos instalar el paquete `FRACTION` que sí la incluye:
+
+	```{r}
+	# install.packages("FRACTION")
+	library("FRACTION")
+	gcd(100, 24)
+	```
+
