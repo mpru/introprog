@@ -83,14 +83,14 @@
 </ul>
 <p>Para abrir una terminal en Linux se puede usar el atajo <code>ctrl + alt + t</code> y en Windows se puede escribir <code>cmd</code> en Inicio.</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-106"></span>
+<span style="display:block;" id="fig:unnamed-chunk-196"></span>
 <img src="images/07_otros/terminal.png" alt="Abrir la terminal en Windows. En computadoras con Windows en español, en lugar de Command Prompt dice Símbolo del sistema." width="80%"><p class="caption">
 Figura 7.1: Abrir la terminal en Windows. En computadoras con Windows en español, en lugar de Command Prompt dice Símbolo del sistema.
 </p>
 </div>
 <p>Así luce la línea de comandos de Windows:</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-107"></span>
+<span style="display:block;" id="fig:unnamed-chunk-197"></span>
 <img src="images/07_otros/terminal2.png" alt="Línea de comandos de Windows." width="80%"><p class="caption">
 Figura 7.2: Línea de comandos de Windows.
 </p>
@@ -110,35 +110,35 @@ Figura 7.2: Línea de comandos de Windows.
 </ul>
 <p>Por ejemplo, podemos ver todos los archivos que existen en el directorio actual con <code>ls</code>:</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-108"></span>
+<span style="display:block;" id="fig:unnamed-chunk-198"></span>
 <img src="images/07_otros/terminal3.png" alt="Contenido del directorio actual (Windows)." width="80%"><p class="caption">
 Figura 7.3: Contenido del directorio actual (Windows).
 </p>
 </div>
 <p>Para los siguientes ejemplos, trabajaremos en una carpeta llamada <code>Ejemplos</code>, cuyo <em>path</em> es <code>C:\Users\Marcos\Trabajo\Ejemplos</code> que tiene la siguiente composición:</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-109"></span>
+<span style="display:block;" id="fig:unnamed-chunk-199"></span>
 <img src="images/07_otros/terminal4.png" alt="Carpeta en la cual deseamos trabajar." width="80%"><p class="caption">
 Figura 7.4: Carpeta en la cual deseamos trabajar.
 </p>
 </div>
 <p>Podemos convertir a dicha carpeta como nuestro nuevo directorio de trabajo con el comando <code>cd</code> (<em>change directory</em>):</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-110"></span>
+<span style="display:block;" id="fig:unnamed-chunk-200"></span>
 <img src="images/07_otros/terminal5.png" alt="Cambio de directorio de trabajo y listado de archivos en el mismo." width="80%"><p class="caption">
 Figura 7.5: Cambio de directorio de trabajo y listado de archivos en el mismo.
 </p>
 </div>
 <p>En Windows hay una forma más directa de abrir la terminal y que ya tenga seteada como directorio de trabajo a una carpeta deseada. Antes de abrir la terminal, vamos con el <em>Explorador de archivos</em> a la carpeta en cuestión, nos posicionamos en la barra del explorador, escribimos <code>cmd</code> y le damos <code>ENTER</code>. Automáticamente se abrirá la terminal, con esta carpeta como directorio de referencia.</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-111"></span>
+<span style="display:block;" id="fig:unnamed-chunk-201"></span>
 <img src="images/07_otros/terminal6.png" alt="Abrir la terminal desde una carpeta en particular en Windows." width="80%"><p class="caption">
 Figura 7.6: Abrir la terminal desde una carpeta en particular en Windows.
 </p>
 </div>
 <p>Desde la terminal podemos correr nuestros programas de R. Hacer esto es necesario cuando tenemos que programar alguna tarea de gran escala que se ejecutará de manera remota en algún servidor o cuando necesitamos encapsular nuestro programa para que otros lo puedan correr sin siquiera saber nada de R.</p>
 <p>Veamos un ejemplo. En la carpeta <code>C:\Users\Marcos\Trabajo\Ejemplos</code> tengo guardado el siguiente script, en un archivo llamado <code>mi_programa.R</code> que tiene este contenido:</p>
-<div class="sourceCode" id="cb278"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb632"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="st">"¡Hola, Mundo!"</span>
 <span class="va">b</span> <span class="op">&lt;-</span> <span class="fl">3</span>
 <span class="va">d</span> <span class="op">&lt;-</span> <span class="fl">5</span>
@@ -150,7 +150,7 @@ Figura 7.6: Abrir la terminal desde una carpeta en particular en Windows.
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Este es un saludo:"</span>, <span class="va">a</span><span class="op">)</span></code></pre></div>
 <p>Para ejecutar este programa desde la terminal, sin abrir RStudio o R, utilizo el comando <code>Rscript</code>, que le indica a la computadora que el contenido del archivo <code>mi_programa.R</code> debe ser evaluado por R. Esto es lo que se observa en la consola:</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-113"></span>
+<span style="display:block;" id="fig:unnamed-chunk-203"></span>
 <img src="images/07_otros/terminal7.png" alt="Correr el programa de R desde la consola en Windows." width="80%"><p class="caption">
 Figura 7.7: Correr el programa de R desde la consola en Windows.
 </p>
@@ -169,7 +169,7 @@ Figura 7.7: Correr el programa de R desde la consola en Windows.
 <p>Veamos algunos ejemplos.</p>
 <p><strong>Práctica 2, Ejercicio 1: paridad de un número</strong></p>
 <p>La función <code><a href="https://rdrr.io/r/base/scan.html">scan()</a></code> es la que permite <em>escanear</em> o <em>leer</em> valores que los usuarios ingresen por la terminal. Entre sus argumentos tenemos a <code>file</code>, que si lo seteamos como <code>file = "stdin"</code> indica que vamos a leer información desde la consola. Otros argumentos que son de utilidad incluyen a <code>n = 1</code>, que indica que sólo leeremos un valor y <code>quite = TRUE</code> que le pide a esta función que no emita ningún mensaje. Por ejemplo, si el siguiente código se guarda en el archivo <code>paridad.R</code> y es ejecutado desde la consola, le va a pedir a la persona que lo esté usando que indique cualquier número y luego le va a comunicar si es par o impar:</p>
-<div class="sourceCode" id="cb279"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb633"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"           PARIDAD DE UN NÚMERO           \n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n\n"</span><span class="op">)</span>
@@ -182,14 +182,14 @@ Figura 7.7: Correr el programa de R desde la consola en Windows.
 <span class="op">}</span></code></pre></div>
 <p>Esto es lo que ocurre en la terminal:</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-115"></span>
+<span style="display:block;" id="fig:unnamed-chunk-205"></span>
 <img src="images/07_otros/terminal8.png" alt="Programa paridad.R." width="80%"><p class="caption">
 Figura 7.8: Programa paridad.R.
 </p>
 </div>
 <p><strong>Práctica 2, Ejercicio 3: salario</strong></p>
 <p>En este ejemplo, tenemos que leer tres valores, dos de lo cuales son de tipo carácter. Para esto tenemos que agregar en la función <code><a href="https://rdrr.io/r/base/scan.html">scan()</a></code> el argumento <code>what = ""</code>, que admite el ingreso de caracteres alfanuméricos (por default <code><a href="https://rdrr.io/r/base/scan.html">scan()</a></code> sòlo espera recibir valores numéricos). Si el siguiente código se guarda en el archivo <code>salario.R</code> y se lo ejecuta desde la consola, produce el resultado que se muestra en la imagen:</p>
-<div class="sourceCode" id="cb280"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb634"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"           CÁLCULO DEL SALARIO            \n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n\n"</span><span class="op">)</span>
@@ -209,14 +209,14 @@ Figura 7.8: Programa paridad.R.
 <span class="op">}</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nEl salario que se debe abonar es $"</span>, <span class="va">salario</span>, <span class="st">"\n"</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-117"></span>
+<span style="display:block;" id="fig:unnamed-chunk-207"></span>
 <img src="images/07_otros/terminal9.png" alt="Programa salario.R." width="80%"><p class="caption">
 Figura 7.9: Programa salario.R.
 </p>
 </div>
-<p><strong>Práctica 4, Ejercicio 1: suma de elementos de un vector</strong><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Si estás leyendo esto antes de que hayamos visto en clase la Unidad 5, podés omitir este último ejemplo y retomarlo más adelante en el cursado.&lt;/p&gt;"><sup>22</sup></a></p>
+<p><strong>Práctica 4, Ejercicio 1: suma de elementos de un vector</strong><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Si estás leyendo esto antes de que hayamos visto en clase la Unidad 5, podés omitir este último ejemplo y retomarlo más adelante en el cursado.&lt;/p&gt;"><sup>25</sup></a></p>
 <p>En este ejercicio escribimos una función para sumar los elementos de un vector. Vamos a ver cómo hacer para que un usuario nos diga cuáles son los valores que quiere sumar desde la consola. Primero preguntamos cuántos números se desean sumar y luego los recibimos en el vector <code>v</code>. Si el siguiente código queda guardado en el archivo <code>suma.R</code> y se lo corre desde la terminal, produce el resultado que se muestra en la imagen.</p>
-<div class="sourceCode" id="cb281"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb635"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"              SUMA DE NÚMEROS             \n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n\n"</span><span class="op">)</span>
@@ -230,7 +230,7 @@ Figura 7.9: Programa salario.R.
 <span class="op">}</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nLa suma de los números es:"</span>, <span class="va">suma</span>, <span class="st">"\n"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-119"></span>
+<span style="display:block;" id="fig:unnamed-chunk-209"></span>
 <img src="images/07_otros/terminal10.png" alt="Programa suma.R." width="80%"><p class="caption">
 Figura 7.10: Programa suma.R.
 </p>
@@ -250,7 +250,7 @@ Rscript resumen.R 04_05_22.txt
 Rscript resumen.R 05_05_22.txt</code></pre>
 <p>Para que esto funcione, el programa que está guardado en <code>resumen.R</code> debe ser capaz de capturar el nombre del archivo que tiene leer y que el usuario se lo está pasando como un argumento adicional en la instrucción <code>Rscript</code>.</p>
 <p>La función que se encarga de capturar los argumentos adicionales que enviamos desde la terminal es <code><a href="https://rdrr.io/r/base/commandArgs.html">commandArgs()</a></code>. Toma todos los elementos que escribamos y los reúne en un vector de tipo carácter. Por ejemplo, el archivo <code>ejemplo1.R</code> tiene el siguiente contenido:</p>
-<div class="sourceCode" id="cb284"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb638"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Capturar los argumentos pasados desde la terminal en un vector</span>
 <span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/commandArgs.html">commandArgs</a></span><span class="op">(</span>trailingOnly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
@@ -265,7 +265,7 @@ Rscript resumen.R 05_05_22.txt</code></pre>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nLos argumentos se toman como valores de tipo:\n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span></code></pre></div>
 <p>Al ejecutarlo desde la línea de comandos con los argumentos “hola”, “chau” y “4” obtenemos:</p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb285-1"><a href="otros-t%C3%B3picos.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo1.R hola chau 4</span></code></pre></div>
+<div class="sourceCode" id="cb639"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb639-1"><a href="otros-t%C3%B3picos.html#cb639-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo1.R hola chau 4</span></code></pre></div>
 <pre><code>WARNING: ignoring environment value of R_HOME
 Nos pasaron 3 argumentos.
 
@@ -275,7 +275,7 @@ hola chau 4
 Los argumentos se toman como valores de tipo:
 [1] "character"</code></pre>
 <p>Si lo ejecutamos sin argumentos:</p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb287-1"><a href="otros-t%C3%B3picos.html#cb287-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo1.R</span></code></pre></div>
+<div class="sourceCode" id="cb641"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb641-1"><a href="otros-t%C3%B3picos.html#cb641-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo1.R</span></code></pre></div>
 <pre><code>WARNING: ignoring environment value of R_HOME
 Nos pasaron 0 argumentos.
 
@@ -285,7 +285,7 @@ Los argumentos que nos pasaron son:
 Los argumentos se toman como valores de tipo:
 [1] "character"</code></pre>
 <p>Ahora vamos a suponer que el programa <code>ejemplo2.R</code> tiene como objetivo contar un chiste o decir un refrán, según lo que se le pida en el único argumento que se le pasa al correrlo desde la terminal. Si el argumento es igual “chiste”, se cuenta el chiste; si es igual a “refran” se cuenta el refrán; y en otro caso no se hace nada. El contenido del archivo es:</p>
-<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb643"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Capturar los argumentos pasados desde la terminal en un vector</span>
 <span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/commandArgs.html">commandArgs</a></span><span class="op">(</span>trailingOnly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
@@ -298,20 +298,20 @@ Los argumentos se toman como valores de tipo:
     <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"El argumento provisto debe ser igual a chiste o refran.\n"</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <p>Ejecutamos este archivo pasando distintos valores para su argumento:</p>
-<div class="sourceCode" id="cb290"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb290-1"><a href="otros-t%C3%B3picos.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo2.R refran</span></code></pre></div>
+<div class="sourceCode" id="cb644"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb644-1"><a href="otros-t%C3%B3picos.html#cb644-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo2.R refran</span></code></pre></div>
 <pre><code>WARNING: ignoring environment value of R_HOME
 No por mucho madrugar amanece más temprano.</code></pre>
-<div class="sourceCode" id="cb292"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb292-1"><a href="otros-t%C3%B3picos.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo2.R chiste</span></code></pre></div>
+<div class="sourceCode" id="cb646"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb646-1"><a href="otros-t%C3%B3picos.html#cb646-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo2.R chiste</span></code></pre></div>
 <pre><code>WARNING: ignoring environment value of R_HOME
 - Juan, cómo has cambiado.
 - Yo no soy Juan.
 - Más a mi favor.</code></pre>
-<div class="sourceCode" id="cb294"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb294-1"><a href="otros-t%C3%B3picos.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo2.R hola</span></code></pre></div>
+<div class="sourceCode" id="cb648"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb648-1"><a href="otros-t%C3%B3picos.html#cb648-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo2.R hola</span></code></pre></div>
 <pre><code>WARNING: ignoring environment value of R_HOME
 Error: El argumento provisto debe ser igual a chiste o refran.
 Execution halted</code></pre>
 <p>Podemos controlar la cantidad de argumentos admitidos generando errores en el código para aquellas situaciones donde el usuario envíe menos o más que la cantidad deseada. Por ejemplo, en el caso anterior, es obligatorio enviar uno y sólo un argumento:</p>
-<div class="sourceCode" id="cb296"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb650"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Capturar los argumentos pasados desde la terminal en un vector</span>
 <span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/commandArgs.html">commandArgs</a></span><span class="op">(</span>trailingOnly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
@@ -329,21 +329,21 @@ Execution halted</code></pre>
     <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"El argumento provisto debe ser igual a chiste o refran.\n"</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <p>Veamos lo que pasa si cumplimos o no con la cantidad exacta de argumentos que hay que pasarle al código de R:</p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb297-1"><a href="otros-t%C3%B3picos.html#cb297-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo3.R</span></code></pre></div>
+<div class="sourceCode" id="cb651"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb651-1"><a href="otros-t%C3%B3picos.html#cb651-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo3.R</span></code></pre></div>
 <pre><code>WARNING: ignoring environment value of R_HOME
 Error: Debe proveer exactamente un argumento, que debe ser igual a chiste o refran.
 Execution halted</code></pre>
-<div class="sourceCode" id="cb299"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb299-1"><a href="otros-t%C3%B3picos.html#cb299-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo3.R chiste refran</span></code></pre></div>
+<div class="sourceCode" id="cb653"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb653-1"><a href="otros-t%C3%B3picos.html#cb653-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo3.R chiste refran</span></code></pre></div>
 <pre><code>WARNING: ignoring environment value of R_HOME
 Error: Debe proveer exactamente un argumento, que debe ser igual a chiste o refran.
 Execution halted</code></pre>
-<div class="sourceCode" id="cb301"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb301-1"><a href="otros-t%C3%B3picos.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo3.R chiste</span></code></pre></div>
+<div class="sourceCode" id="cb655"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb655-1"><a href="otros-t%C3%B3picos.html#cb655-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo3.R chiste</span></code></pre></div>
 <pre><code>WARNING: ignoring environment value of R_HOME
 - Juan, cómo has cambiado.
 - Yo no soy Juan.
 - Más a mi favor.</code></pre>
 <p>Imaginemos por último que es obligatorio pasar un primer argumento (“chiste” o “refran”) y que opcionalmente se puede pasar un segundo argumento, que se va a tratar de un número para indicar cuántas veces queremos que el chiste o el refrán se repita. Como todos los argumentos se pasan como datos de tipo carácter, para poder usar el número tendremos que convertirlo a dato de tipo numérico.</p>
-<div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb657"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Capturar los argumentos pasados desde la terminal en un vector</span>
 <span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/commandArgs.html">commandArgs</a></span><span class="op">(</span>trailingOnly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
@@ -376,7 +376,7 @@ Execution halted</code></pre>
     <span class="op">}</span>
 <span class="op">}</span></code></pre></div>
 <p>Veamos ahora cómo funciona:</p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb304-1"><a href="otros-t%C3%B3picos.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R refran 5</span></code></pre></div>
+<div class="sourceCode" id="cb658"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb658-1"><a href="otros-t%C3%B3picos.html#cb658-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R refran 5</span></code></pre></div>
 <pre><code>WARNING: ignoring environment value of R_HOME
 No por mucho madrugar amanece más temprano.
 
@@ -387,7 +387,7 @@ No por mucho madrugar amanece más temprano.
 No por mucho madrugar amanece más temprano.
 
 No por mucho madrugar amanece más temprano.</code></pre>
-<div class="sourceCode" id="cb306"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb306-1"><a href="otros-t%C3%B3picos.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R chiste 3</span></code></pre></div>
+<div class="sourceCode" id="cb660"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb660-1"><a href="otros-t%C3%B3picos.html#cb660-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R chiste 3</span></code></pre></div>
 <pre><code>WARNING: ignoring environment value of R_HOME
 - Juan, cómo has cambiado.
 - Yo no soy Juan.
@@ -400,10 +400,10 @@ No por mucho madrugar amanece más temprano.</code></pre>
 - Juan, cómo has cambiado.
 - Yo no soy Juan.
 - Más a mi favor.</code></pre>
-<div class="sourceCode" id="cb308"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb308-1"><a href="otros-t%C3%B3picos.html#cb308-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R refran</span></code></pre></div>
+<div class="sourceCode" id="cb662"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb662-1"><a href="otros-t%C3%B3picos.html#cb662-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R refran</span></code></pre></div>
 <pre><code>WARNING: ignoring environment value of R_HOME
 No por mucho madrugar amanece más temprano.</code></pre>
-<div class="sourceCode" id="cb310"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb310-1"><a href="otros-t%C3%B3picos.html#cb310-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R</span></code></pre></div>
+<div class="sourceCode" id="cb664"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb664-1"><a href="otros-t%C3%B3picos.html#cb664-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R</span></code></pre></div>
 <pre><code>WARNING: ignoring environment value of R_HOME
 Error: Debe proveer al menos un argumento (chiste o refran).
 Execution halted</code></pre>
@@ -415,37 +415,37 @@ Execution halted</code></pre>
 <span class="header-section-number">7.3</span> Generación de secuencias<a class="anchor" aria-label="anchor" href="#generaci%C3%B3n-de-secuencias"><i class="fas fa-link"></i></a>
 </h2>
 <p>A continuación mostramos cómo generar algunos vectores numéricos en R:</p>
-<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb666"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Generar vectores con secuencias numéricas</span>
 
 <span class="co"># Enteros de 1 a 5</span>
 <span class="fl">1</span><span class="op">:</span><span class="fl">5</span></code></pre></div>
 <pre><code>[1] 1 2 3 4 5</code></pre>
-<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb668"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Números de 1 a 10 cada 2</span>
 <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">10</span>, <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] 1 3 5 7 9</code></pre>
-<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb670"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Números de 0 a -1 cada -0.1</span>
 <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">0.1</span><span class="op">)</span></code></pre></div>
 <pre><code> [1]  0.0 -0.1 -0.2 -0.3 -0.4 -0.5 -0.6 -0.7 -0.8 -0.9 -1.0</code></pre>
-<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb672"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Siete números equiespaciados entre 0 y 1</span>
 <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, length.out <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] 0.0000000 0.1666667 0.3333333 0.5000000 0.6666667 0.8333333 1.0000000</code></pre>
-<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb674"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Repetir el 1 tres veces</span>
 <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] 1 1 1</code></pre>
-<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb676"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Repetir (1, 2, 3) tres veces</span>
 <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] 1 2 3 1 2 3 1 2 3</code></pre>
-<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb678"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Repetir cada número tres veces</span>
 <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, each <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] 1 1 1 2 2 2 3 3 3</code></pre>
-<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb680"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Generar una matriz diagonal</span>
 <span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">7</span>, <span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4]
@@ -453,7 +453,7 @@ Execution halted</code></pre>
 [2,]    0    7    0    0
 [3,]    0    0    1    0
 [4,]    0    0    0    5</code></pre>
-<div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb682"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Generar una matriz identidad</span>
 <span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
@@ -492,7 +492,7 @@ Execution halted</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2023-03-18.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2023-03-21.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

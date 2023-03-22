@@ -7,7 +7,7 @@ Hemos mencionado que para resolver un problema computacional se necesita de un *
 Los **objetos** son las distintas piezas de información, o más sencillamente, *datos*, que componen al *entorno* y que el procesador debe manipular para resolver una tarea. Las distintas acciones del algoritmo van creando o modificando a los objetos del entorno. A medida que avancemos, veremos que hay distintas clases de objetos, algunos con estructuras más simples y otros más complejos. Es más, cada lenguaje de programación propone su propio catálogo de clases de objetos y cada programador puede crear otras nuevas. Sin embargo, en general todos los lenguajes tienen en común el hecho de que sus objetos pueden almacenar los siguientes tres tipos de datos básicos, conocidos como **tipos de datos primitivos**:
 
 - **Datos de tipo numérico**: representan valores escalares de forma numérica y permiten realizar operaciones aritméticas comunes. Ejemplo: 230, 2.
-- **Datos de tipo caracter**: representan texto y no es posible hacer operaciones matemáticas con ellos. Representamos estos valores entre comillas. Ejemplo: "hola", "chau123"
+- **Datos de tipo carácter**: representan texto y no es posible hacer operaciones matemáticas con ellos. Representamos estos valores entre comillas. Ejemplo: "hola", "chau123"
 - **Datos de tipo lógico**: pueden tomar dos valores (*VERDADERO* o *FALSO*), ya que representan el resultado de alguna comparación entre otros objetos. En R, estos valores son `TRUE` y `FALSE`, escritos sin comillas.
 
 De manera general, al nombre de un objeto se le dice **identificador**, el cual es una secuencia de caracteres alfanuméricos que sirve para identificarlo a lo largo del algoritmo. Nombrar los objetos hace posible referirse a los mismos. La elección de los identificadores es una tarea del programador, pero cada lenguaje tiene sus propias reglas. Por ejemplo, en R los nombres de los objetos:
@@ -416,7 +416,7 @@ Table: (\#tab:orden) Orden de precedencia de los operadores en R.
 |   3   |         División entera y resto        |     %/%  %%     |
 |   4   |        Multiplicación y división       |       * /       |
 |   5   |              Suma y resta              |       +  -      |
-|   6   | Operaciones relaciones o comparaciones | < > <= >= == != |
+|   6   |        Operadores de comparación       | < > <= >= == != |
 |   7   |                Negación                |        !        |
 |   8   |               Conjunción               |      &&  &      |
 |   9   |               Disyunción               |      \|\|  \|   |
@@ -451,7 +451,7 @@ FIN
 ```{r, eval=T, echo=T}
 # PROGRAMA: "Calcular área de un círculo" ---------------------------
 
-pi <-  3.14159265358979
+pi <- 3.14159265358979
 radio <- 5
 area <- pi * radio^2
 cat("El área del círculo es", area)
