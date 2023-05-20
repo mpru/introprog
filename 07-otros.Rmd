@@ -103,7 +103,7 @@ Veamos algunos ejemplos.
 
 **Práctica 2, Ejercicio 1: paridad de un número**
 
-La función `scan()` es la que permite *escanear* o *leer* valores que los usuarios ingresen por la terminal. Entre sus argumentos tenemos a `file`, que si lo seteamos como `file = "stdin"` indica que vamos a leer información desde la consola. Otros argumentos que son de utilidad incluyen a `n = 1`, que indica que sólo leeremos un valor y `quite = TRUE` que le pide a esta función que no emita ningún mensaje. Por ejemplo, si el siguiente código se guarda en el archivo `paridad.R` y es ejecutado desde la consola, le va a pedir a la persona que lo esté usando que indique cualquier número y luego le va a comunicar si es par o impar:
+La función `scan()` es la que permite *escanear* o *leer* valores que los usuarios ingresen por la terminal. Entre sus argumentos tenemos a `file`, que si lo seteamos como `file = "stdin"` indica que vamos a leer información desde la consola. Otros argumentos que son de utilidad incluyen a `n = 1`, que indica que sólo leeremos un valor y `quiet = TRUE` que le pide a esta función que no emita ningún mensaje. Por ejemplo, si el siguiente código se guarda en el archivo `paridad.R` y es ejecutado desde la consola, le va a pedir a la persona que lo esté usando que indique cualquier número y luego le va a comunicar si es par o impar:
 
 ```{r, eval=FALSE}
 cat("==========================================\n")

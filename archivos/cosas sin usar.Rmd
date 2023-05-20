@@ -61,37 +61,3 @@ Lo anterior resulta en un vector, con el que se pueden hacer operaciones como bu
 ```{r}
 min(mis_datos$altura)
 ```
-
-**Ejemplo: cuadrado mágico**
-
-Podemos combinar lo mencionado en esta sección para escribir una nueva versión de la función `cuadrado_magico()`, que desarrollamos en el ejercicio 10 de la práctica 4:
-
-```{r}
-cuadrado_magico <- function(cuadrado) {
-	# Calcular el primer total fila para tener de control
-  control <- sum(cuadrado[1, ])
-  
-  # Todos los controles
-  sumas_filas <- rowSums(cuadrado)
-  sumas_col <- colSums(cuadrado)
-  suma_diag1 <- sum(diag(cuadrado))
-  suma_diag2 <- sum(diag(cuadrado[nrow(cuadrado):1, ]))
-  sumas <- c(sumas_filas, sumas_col, suma_diag1, suma_diag2)
-  
-  # Si alguna de las sumas no es igual al control, devolver FALSE
-  if (any(sumas != control)) return(FALSE)
-  return(TRUE)
-}
-
-cuadrado <- matrix(c(16,  3,  2, 13,
-                      5, 10, 11,  8,
-                      9,  6,  7, 12,
-                      4, 15, 14,  1), nrow = 4, byrow = TRUE)
-cuadrado_magico(cuadrado)
-
-cuadrado <- matrix(c( 0,  3,  2, 13,
-                      5, 10, 11,  8,
-                      9,  6,  7, 12,
-                      4, 15, 14,  1), nrow = 4, byrow = TRUE)
-cuadrado_magico(cuadrado)
-```
