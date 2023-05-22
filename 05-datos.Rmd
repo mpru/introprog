@@ -488,7 +488,7 @@ En el caso de las matrices, se le puede asignar nombres a sus filas y columnas:
 	              14, 19, 24, 29), 
               nrow = 3, byrow = TRUE)
 	rownames(x) <- c("A", "B", "C")
-	colnames(x) <- c("col1", "grupo2", "grupo3", "grupo4")
+	colnames(x) <- c("Grupo 1", "Grupo 2", "Grupo 3", "Grupo 4")
 	x
 	```
 
@@ -500,7 +500,7 @@ x <- matrix(c( 8, 13, 18, 23,
               14, 19, 24, 29), 
             nrow = 3, byrow = TRUE,
             dimnames = list(Categorias = c("A", "B", "C"), 
-                            Grupos = c("grupo1", "grupo2", "grupo3", "grupo4")))
+                            Grupos = c("Grupo 1", "Grupo 2", "Grupo 3", "Grupo 4")))
 x
 ```
 	
@@ -626,7 +626,7 @@ for (i in 1:length(u)) {
 rtdo
 ```
 
-En el **ejercicio 3** de la **Práctica 4** creamos las funciones `ordenar_asc()` y `ordenar_des()` para ordenar los elementos de un vector. Con las funciones disponibles en R, ssto se puede hacer así:
+En el **ejercicio 3** de la **Práctica 4** creamos las funciones `ordenar_asc()` y `ordenar_des()` para ordenar los elementos de un vector. Con las funciones disponibles en R, esto se puede hacer así:
 
 ```{r}
 x
