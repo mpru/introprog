@@ -106,40 +106,6 @@ El uso de archivos en programación es muy importante ya que nos permite leer da
 
 ## Lectura de los registros del archivo
 
-- Llegó el momento de cargar los datos sobre las ventas en R a partir del archivo `insumos.xlsx`.
-- RStudio provee ayuda para importar datos en el botón `Import Dataset` en el panel superior derecho.
-
-```{r, fig.show='hold', echo=FALSE, fig.align="center", out.width='30%'}
-knitr::include_graphics('Plots/importar1.png')
-```
-
-- RStudio nos despliega una batería de opciones para la importación: tenemos opciones para importar archivos de Excel y otros programas (SAS, SPSS, Stata), y también desde archivos de texto.
-
-```{r, fig.show='hold', echo=FALSE, fig.align="center", out.width='100%', eval=F}
-knitr::include_graphics('Plots/importar2.png')
-```
-
-- La primera vez que se realiza esto, puede que RStudio pida permiso para instalar o actualizar algunos paquetes. Si es así, le damos permiso.
-
-- Vamos a mostrar en clase cómo trabajar con este panel, pero tené en cuenta lo siguiente: este modo de importar datos nos muestra cuáles son las líneas de código que podríamos ejecutar en la consola para obtener el mismo resultado.
-
-- Es bueno que las copiemos y guardemos en nuestro script, para que este paso también quede documentado. *Un script sin las sentencias de importación de datos está incompleto...*
-
-- Al tener dichas líneas guardadas en el script, la próxima vez que necesitemos importar este archivo podemos hacerlo automáticamente al ejecutarlas.
-
-- Las sentencias generadas para este caso son:
-
-	```{r, eval=FALSE}
-	library(readxl)
-	datos <- read_excel("C:/Usuario/Datos/insumos.xlsx")
-	```
-
-- Una vez que los datos fueron importados, aparecerán bajo el nombre elegido en el panel `Environment` y podemos visualizarlos haciendo clic sobre el mismo. 
-
-
-En [este enlace](https://github.com/mpru/introprog/tree/master/archivos) o en el aula virtual podrás encontrar el archivo de datos. 
-
-
 Ya hemos mencionado que R se organiza mediante un sistema de paquetes, algunos de los cuales vienen instalados con la distribución básica de R, mientras que otros deben ser instalados si tenés el particular interés de usarlos. R Base trae muchas funciones útiles para la importación de datos, así como para las subsiguientes tareas de manejo, transformación y resumen. Sin embargo, en este curso aprenderemos a emplear una familia de paquetes conocida como [**tidyverse**](https://www.tidyverse.org), creados para la manipulación, exploración y visualización de datos con un diseño, estructuras y reglas de uso en común, que resultan muy amigables para programar. 
   
 ```{r, echo=FALSE, out.width = "70%"}
@@ -158,16 +124,14 @@ Lo anterior se realiza una sola vez. Luego, cada vez que queramos usar este sist
 library(tidyverse)
 ```
 
-El *tidyverse* provee una función de uso muy sencillo para leer datos guardados en un archivo de texto con campos separados por tabulaciones, como es el caso de `mundiales.txt`. 
+El *tidyverse* provee una función de uso muy sencillo para leer datos guardados en un archivo de texto con campos separados por tabulaciones, como es el caso de `mundiales.txt`. En [este enlace](https://github.com/mpru/introprog/tree/master/archivos) o en el aula virtual podrás encontrar el archivo de datos. 
 
 ```{r, eval=FALSE}
-datos <- read_delim("/home/marcos/GitProjects/introprog/archivos/mundiales.txt")
+datos <- read_delim("mundiales.txt")
 ```
 
-En la instrucción anterior se informó la ruta completa hasta la ubicación del archivo en la computadora. Si el *working directory* está seteado en la carpeta donde reside el archivo, no es necesario proveer la ruta completa, como ya sabemos.
-
 ```{r EVAL = TRUE, echo = FALSE}
-datos <- read.delim("archivos/mundiales.txt")
+datos <- read_delim("archivos/mundiales.txt")
 ```
 
 Si tenemos que importar otro tipo de archivo (por ejemplo, de Excel o de texto separado con comas) y no nos acordamos cuál es la función que permite hacerlo, podemos recurrir al menú de importación de datos mediante el botón `Import Dataset` en el panel `Environment` de RStudio (arriba a la derecha). Ahí podremos elegir distintas opciones para la importación y automáticamente se generará y ejecutará el código de R necesario, el cual debemos copiar y pegar en nuestro *script* para dejar sentado cómo se realizó la importación.
@@ -212,61 +176,471 @@ tail(datos)
 summary(datos)
 ```
 
-## Manejo de datos
-
-## Resumen de datos
-
-## Creación de archivos para la escritura de resultados
-
-
-# PENDIENTE
-
-Inventamos un pequeño conjunto de datos de ejemplo con la estructura de los `data.frames` de R:
-
-```{r}
-mis_datos <- data.frame(
-    altura = c(181, 165, 149, 178),
-    peso = c(85, 65, 52, 72),
-    edad = c(29, 27, 21, 32)
-)
-mis_datos
-```
-
 Un `data.frame` puede ser indexado de la misma forma empleada con matrices, por ejemplo:
 
 ```{r}
-mis_datos[3:4, c(1, 3)]
-mis_datos[3:4, c("altura", "edad")]
+# Mostrar las filas 3 y 4, columnas 1 y 3
+datos[3:4, c(1, 3)]
+# Mostrar las filas 3 y 4, columnas "seleccion" y "participaciones"
+datos[3:4, c("seleccion", "participaciones")]
 ```
 
-Para hacer referencia a una variable dentro del `data.frame`, empleamos la estructura `dataset$variable`. Por ejemplo:
+Para hacer referencia exclusivamente a una variable dentro del `data.frame`, usamos el nombre del conjunto de datos, seguido por el operador `$` y el nombre de la variable, por ejemplo:
 
 ```{r}
-mis_datos$altura
+datos$titulos
 ```
 
-Lo anterior resulta en un vector, con el que se pueden hacer operaciones como buscar el valor mínimo:
+Lo anterior resulta en un vector, con el que se pueden hacer operaciones como buscar el valor máximo si queremos saber cuál es la cantidad máxima de títulos alcanzada:
 
 ```{r}
-min(mis_datos$altura)
+max(datos$titulos)
 ```
 
+Si bien en los ejemplos anteriores vemos que en muchos aspectos los `data.frame`s son similares a las matrices, a partir de ahora vamos a ver cómo utilizar funciones que fueron especialmente pensadas para ayudarnos a transformar y explorar los conjuntos de datos que están guardados en objetos de tipo `data.frame` y que simplifican muchas tareas relacionadas al análisis de datos.
 
-Una vez que los registros fueron leídos y almacenados en el dataset, podemos hacer referencia a cada uno de ellos utilizando *índices* como lo hacemos con las matrices. Por ejemplo, `datos[3, 4]` hace referencia al valor correspondiente al cuarto campo en el tercer registro.
+## Manejo de datos
 
+### Editar o crear nuevas variables
 
-Detalles de lectura opcional:
+Es muy común tener que modificar una variable existente o añadir una nueva, la cual puede depender de algún cálculo realizado a partir de otras columnas presentes en el dataset. Para cualquiera de estas actividades que implican *modificar* o *mutar* el dataset, emplearemos la función `mutate()`. Vamos a calcular la cantitad total que cada selección ha jugado en los mundiales a lo largo de toda la historia (`pj`), sumando la cantidad de partidos que ha ganado, empatado y perdido:
 
+```{r}
+datos <- mutate(datos, pj = pg + pe + pp)
+```
 
-- Importar un archivo no es la única forma de crear un `data.frame`, también se puede crear uno de forma "manual", por ejemplo:
+¿Qué sucedió al correr esa instrucción?:
 
-	```{r}
-	mis_datos <- data.frame(
-		nombre = c("Ale", "Marti", "Edu"),
-		edad = c(21, 20, 22)
+  - Como primer argumento de la función proveemos el dataset con el que vamos a operar, `datos`.
+  - Elegimos en segundo lugar un nombre para una nueva variable, `pj` y la definimos como la suma de otras variables ya existentes.
+  - El resultado es el dataset original con esta modificación y lo guardamos con el mismo nombre. Si hubiésemos elegido otro nombre, generaríamos una copia del dataset con la modificación, mientras conservamos el original sin cambios.
+
+Al editar variables, podemos elegir entre sobrescribir o no una columna existente, así como también entre sobrescribir o no el conjunto de datos de partida. Para pensar... sin ejecutarlas, responder: ¿cuál es la diferencia entre las siguientes instrucciones?
+
+```{r, eval=F}
+# Sentencia (a)
+datos <- mutate(datos, pj = pg + pe + pp)
+
+# Sentencia (b)
+datos_modif <- mutate(datos, pj = pg + pe + pp)
+
+# Sentencia (c)
+datos <- mutate(datos, pg = pg + pe + pp)
+```
+
+Otras situaciones requieren que en lugar de *mutar* de la misma forma toda una columna, los cambios dependan de alguna condición que los registros verifiquen o no. Por ejemplo, agreguemos una nueva variable que indique si cada país es o no campeón del mundo, en función de los valores disponibles en la variable `titulos`. Vamos a crear una nueva columna que se llame `campeon` y tenga el valor `si` cuando `titulos > 0` y `no` en caso contrario, ayudándonos con la función `ifelse()`, la cual nos permite establecer una evaluación lógica y dos cursos de acción, en base a que esta resulte verdadera (`TRUE`) o falsa (`FALSE`).
+
+```{r}
+datos <- mutate(datos, campeon = ifelse(titulos > 0, "si", "no"))
+```
+
+Inspeccionamos la nueva columna, sumando una nueva función del `tidyverse`, `count()`. Sólo 8 países han ganado el mundial alguna vez (¡y Argentina es uno de ellos!):
+
+```{r}
+count(datos, campeon)
+```
+
+La función anterior es muy útil para chequear los valores guardados en atributos de tipo texto. Usémosla para inspeccionar la variable `continente`. ¿Hay algo que nos llame la atención?
+
+```{r}
+count(datos, continente)
+```
+
+Detectamos inconsistencias en la forma de registrar los nombres de los continentes: Europa aparece en inglés y en español, Asia aparece con mayúscula y con minúscula. Debemos homogeneizar la nomenclatura para poder hacer cualquier análisis válido. En este caso, en el cual la corrección implica sólo "recodificar" categorías, podemos usar la función `recode()` de forma muy sencilla. Aquellos registros con `"Europe"` en `continente` son reemplazados por `"Europa"`, y lo mismo ocurre con `"asia"`, que será reemplazado por `"Asia"`. Los otros valores quedan como estaban:
+  
+```{r}
+datos <- mutate(datos, continente = recode(continente, "Europe" = "Europa", "asia" = "Asia"))
+count(datos, continente)
+```
+
+Ediciones que requieran evaluaciones lógicas más complejas pueden realizarse con la función `case_when()`, que para cada fila del dataset realiza una evaluación lógica. Si resulta `TRUE`, devuelve el valor mencionado al lado del `~`. Si resulta `FALSE`, continúa evaluando la siguiente operación lógica.
+
+```{r, eval = F}
+datos <- mutate(
+	datos, 
+	continente = case_when(
+		continente == "Europe" ~ "Europa",
+		continente == "asia" ~ "Asia",
+		TRUE ~ continente # opción por defecto
+		)
 	)
-	mis_datos
-	```
+```
+
+<div class="alert alert-warning">
+**Ejercicio**: agregar nuevas columnas en las que se muestre:
+
+a) Crear una nueva variable llamada `puntos` que indique cuál es el puntaje total obtenido por cada selección a lo largo del tiempo, teniendo en cuenta que cada partido ganado aporta 3 puntos, cada partido empatado aporta 1 punto y cada partido perdido aporta 0 puntos.
+
+b) Crear una nueva variable llamada `dg`, diferencia de goles, definida como la resta entre los goles a favor y los goles en contra. 
+
+*Tip*: en `mutate()` podemos poner muchas modificaciones juntas, separándolas con coma.
+</div>
+
+```{r, echo=FALSE}
+datos <- mutate(
+	datos,
+	puntos = 3 * pg + pe,
+	dg = gf - gc
+)
+```
+
+### Renombrar atributos
+
+Para cambiar los nombres de una o más variables usamos la función `rename()`, listando los cambios con la estructura `nombre_nuevo = nombre_viejo`. Por ejemplo:
+    
+```{r}
+datos
+datos <- rename(datos, goles_favor = gf, goles_contra = gc)
+datos
+```
+
+### Unir o separar columnas
+
+En ocasiones puede ser necesario generar una nueva variable "pegando" o uniendo los datos presentes en otras. Imaginemos que tal vez necesitamos contar con una única variable textual que contenga tanto el nombre del país como el continente al que pertenece. Para esto recurrimos a la función `unite()`:
+    
+```{r}
+datos <- unite(datos, col = "pais_continente", seleccion, continente, sep = " - ", remove = FALSE)
+datos
+```
+
+La opción `remove = FALSE` hace que las columnas que se usaron para unir permanezcan en el dataset luego de este cambio. El comportamiento por defecto es eliminarlas. Si lo que nos interesa es separar en dos columnas información que esté concatenada en una sola, usamos la contrapartida, `separate()`:
+
+```{r, eval=FALSE}
+separate(datos, col = pais_continente, into = c("seleccion", "continente"), sep = " - ")
+```
+
+Por defecto estas funciones utilizan como separador cualquier carácter no alfanumérico que figure en ese campo, incluidos los espacios. El argumento `sep` se utiliza para indicar el separador adecuado cuando el establecido por defecto no es adecuado. La separación se podría hacer en más de dos columnas, de ser necesario, cuando el separador elegido aparece más de una vez.
+  
+### Filtrar y ordenar registros
+
+Podemos quedarnos sólo con los registros que cumplan con ciertas condiciones utilizando la función `filter()`:
+
+```{r, eval=F}
+# Una condición
+datos_america <- filter(datos, continente == "América")
+nrow(datos_america)
+
+# Dos condiciones
+datos_campeones_america <- filter(datos, continente == "América", campeon == "si")
+nrow(datos_campeones_america)
+# Alternativa equivalente: filter(datos, continente == "América" & campeon == "si")
+
+# Al menos una de las primeras condiciones ("o") y la segunda
+datos_filtro <- filter(datos, continente == "América" | campeon == "si", participaciones > 10)
+nrow(datos_filtro)
+```
+
+Para ordenar los registros según el orden creciente o decreciente en una columna, podemos usar la función `arrange()`:
+  
+```{r, eval=F}
+# Orden creciente:
+arrange(datos, puntos)
+
+# Orden decreciente:
+arrange(datos, desc(puntos))
+
+# Ordenar según más de una variable:
+arrange(datos, america, desc(titulos))
+```
+
+<div class="alert alert-warning">
+**Ejercicio**: filtrar el conjunto de datos original para quedarse con los países que tengan una diferencia de goles positiva y guardar estos registros en un nuevo `data.frame` llamado `datos_dg_positiva`.
+</div>
+
+```{r, echo=FALSE, eval=FALSE}
+datos_dg_positiva <- filter(datos, dg > 0)
+```
+
+### Seleccionar y reordenar columnas
+
+Podemos elegir quedarnos sólo con algunas columnas del dataset con la función **select()**:
+
+```{r, eval=F}
+# Elegir cuáles quedan
+select(datos, seleccion, participaciones)
+
+# Elegir cuáles se van
+select(datos, -goles_favor, -goles_contra)
+
+# Reordenar las columnas
+select(datos, seleccion, campeon, puntos, everything())
+```
+
+## Tuberías o *pipes*
+
+Hasta ahora, esto es parte de lo que hicimos con los datos de los mundiales:
+
+```{r, eval=FALSE}
+# Lectura del archivo
+datos <- read_delim("mundiales.txt")
+
+# Calcular la cantidad total de partidos jugados en mundiales
+datos <- mutate(datos, pj = pg + pe + pp)
+
+# Indicar si cada país es o no campeón del mundo
+datos <- mutate(datos, campeon = ifelse(titulos > 0, "si", "no"))
+
+# Corregir los nombres de los continentes
+datos <- mutate(datos, continente = recode(continente, "Europe" = "Europa", "asia" = "Asia"))
+
+# Calcular los puntos ganados por cada país y la diferencia de goles
+datos <- mutate(datos, puntos = 3 * pg + pe, dg = gf - gc)
+
+# Cambiar los nombres de algunas columnas
+datos <- rename(datos, goles_favor = gf, goles_contra = gc)
+
+# Crear una nueva variable con el nombre del país y del continente
+datos <- unite(datos, col = "pais_continente", seleccion, continente, sep = " - ", remove = FALSE)
+```
+
+En todas las instrucciones anteriores se repite la misma estructura: cada función toma el dataset, lo modifica y lo guarda, y esto se convierte en el input para la próxima función. Se puede escribir todo junto de manera más cómoda usando una **tubería** o **pipeline**. En una **tubería** el resultado de cada línea es el input para la línea siguiente (por eso eliminamos en cada función el primer argumento, el nombre del dataset). El símbolo `%>%`, conocido como *pipe*, es la unión entre las partes de la tubería^[También podemos usar el operador `%>%`.]. El atajo para escribir este operador de forma rápida con el teclado es `CTRL + Shift + M`. El `data.frame` devuelto por la última función de la tubería es guardado en el objeto cuyo nombre se indica al comienzo.
+
+```{r, eval=FALSE}
+datos <- 
+	read_delim("mundiales.txt") %>% 
+	mutate(
+		pj = pg + pe + pp,
+		campeon = ifelse(titulos > 0, "si", "no"),
+		continente = recode(continente, "Europe" = "Europa", "asia" = "Asia"),
+		puntos = 3 * pg + pe, 
+		dg = gf - gc
+	) %>% 
+	rename(goles_favor = gf, goles_contra = gc) %>% 
+	unite(col = "pais_continente", seleccion, continente, sep = " - ", remove = FALSE)
+```
+
+```{r, eval=FALSE, echo=FALSE}
+datos <- 
+	read_delim("archivos/mundiales.txt") %>% 
+	mutate(
+		pj = pg + pe + pp,
+		campeon = ifelse(titulos > 0, "si", "no"),
+		continente = recode(continente, "Europe" = "Europa", "asia" = "Asia"),
+		puntos = 3 * pg + pe, 
+		dg = gf - gc
+	) %>% 
+	rename(goles_favor = gf, goles_contra = gc) %>% 
+	unite(col = "pais_continente", seleccion, continente, sep = " - ", remove = FALSE)
+
+write.table(datos, "archivos/mundiales_procesado.txt", quote = FALSE, row.names = FALSE, sep = "\t")
+```
+
+## Escritura de conjuntos de datos en archivos
+
+Todas las modificaciones que hicimos del `data.frame` con los ejemplos anteriores no modificaron el archivo original `mundiales.txt` que reside en el disco rígido de nuestra computadora, sino que sirvieron para modificar al objeto `datos` que reside en la memoria temporal durante la ejecución de la sesión de R. Si al terminar con el procesamiento de los datos queremos generar un nuevo archivo permanente con la nueva versión del dataset, tenemos que hacer algo específico para eso. R provee una gran variedad de funciones para guardar todo el contenido de un objeto de tipo `data.frame` en un archivo, como se muestra en los ejemplos que siguen, en los que plasmamos la versión actual del `data.frame` en un nuevo archivo llamado `mundiales_procesado`. En cada ocasión, generamos un tipo de archivo distinto:
+
+```{r, eval=FALSE}
+# Guardarlo en un archivo de texto separado por tabulaciones
+write.table(datos, "mundiales_procesado.txt", quote = FALSE, row.names = FALSE, sep = "\t")
+
+# Guardarlo en un archivo de texto separado por comas
+write.csv(datos, "mundiales_procesado.txt", quote = FALSE, row.names = FALSE)
+
+# Guardarlo en un archivo de Excel
+# install.packages("writexl")
+library(writexl)
+write_xlsx(datos, "mundiales_procesado.xlsx")
+```
+
+## Resumen de datos
+
+Una vez que los datos han sido organizados y limpiados según corresponda, el siguiente paso de cualquier análisis es hacer un breve análisis exploratorio. En esta sección veremos cómo calcular algunas estadísticas y realizar tablas de distribuciones de frecuencias, ya sea para variables categóricas o cuantitativas.
+
+### Cálculo de estadísticas
+
+Imaginemos ahora que queremos saber cuántas veces en promedio han participado estas 80 selecciones del mundial. Esto se puede lograr de manera muy sencilla con `mean()`:
+
+```{r}
+mean(datos$participaciones)
+```
+
+Otra alternativa es utilizar la función `summarise()` del `tidyverse`:
+
+```{r}
+summarise(datos, total = mean(participaciones))
+```
+
+Si bien ésta última forma parece ser más compleja, tiene algunas ventajas:
+
+- Devuelve el resultado como un objeto de tipo `data.frame`, que puede ser usado como "materia prima" en otros análisis.
+- Permite resumir muchas variables a la vez, en general o por grupos, aplicando uno o varios cálculos de resumen.
+
+Por ejemplo, si queremos obtener el puntaje promedio obtenido por las selecciones de cada continente utilizamos `summarise()` en conjunto con `group_by()`, relacionando ambas funciones en una tubería:
+
+```{r}
+datos %>% 
+	group_by(continente) %>% 
+	summarise(prom_puntos = mean(puntos))
+```
+
+Podemos seguir alargando la tubería, para pedir que el resultado anterior se presente de forma descendente, de modo que veamos rápidamente cuál es el continente con mayor promedio de puntos obtenidos:
+
+```{r}
+datos %>% 
+	group_by(continente) %>% 
+	summarise(prom_puntos = mean(puntos)) %>% 
+	arrange(desc(prom_puntos))
+```
+
+Dentro de `summarise()` podemos pedir más de un resumen:
+
+```{r}
+datos %>% 
+	group_by(continente) %>% 
+	summarise(
+		prom_puntos = mean(puntos),      # promedio de los puntos de los países
+		min_puntos = min(puntos),        # mínimo puntaje en ese continente
+		max_puntos = max(puntos),        # máximo puntaje en ese continente
+		total_titulos = sum(titulos),    # mundiales ganados por países del continente
+		total_pj = sum(pj),              # cantidad total de partidos jugados
+		prom_dg = mean(dg),              # promedio de la diferencia de goles
+		n = n()                          # cantidad de registros en cada continente
+	) 
+```
+
+### Distribuciones de frecuencias
+
+* Cuando trabajamos con variables categóricas, una herramienta indispensable son las **tablas de frecuencias**.
+
+* En una tabla de este tipo representamos la cantidad de unidades que poseen cierta característica, haciendo mucho más fácil la comparación entre categorías de una misma variable.
+
+* Supongamos que nos interesa estudiar las ganancias obtenidas en cada operación, dividiendo sus valores según las consideremos "altas, "medias" o "bajas".
+
+- Para esto podemos *recategorizar* la variable `profit` y luego usar la ya conocida función `table()`:
+
+```{r}
+datos <- datos %>% 
+	mutate(
+		nivel = case_when(
+			profit < 0 ~ "Negativo",
+			profit < 10 ~ "Bajo",
+			profit < 100 ~ "Medio",
+			TRUE ~ "Alto"
+		)
+	)
+
+tabla1 <- table(datos$nivel)
+tabla1
+```
+
+* A estos valores se los denomina la **Frecuencia Absoluta** de cada categoría.
+
+* Para darles un orden adecuado a las categorías usamos la función `factor()`:
+
+```{r}
+datos <- datos %>% 
+	mutate(
+		nivel = factor(nivel, levels = c("Negativo", "Bajo", "Medio", "Alto"))
+	)
+
+tabla1 <- table(datos$nivel)
+tabla1
+```
+
+* Podemos calcular **frecuencias relativas** (proporciones) dividiendo las absolutas por el total para facilitar la interpretación:
+
+```{r}
+prop.table(tabla1)
+```
+
+* Las tablas de frecuencia también son útiles para estudiar la relación entre dos variables categóricas al mismo tiempo.
+
+* Una pregunta que puede surgir es: **¿qué categoría de productos produce mayor cantidad de ganancias catalogadas como altas?**
+
+* Observemos ahora cómo se distribuyen de forma conjunta las variables `category` y `nivel` en una **tabla a doble entrada**, también llamada *tabla de contingencia*:
+
+```{r}
+tabla2 <- table(datos$category, datos$nivel)
+tabla2
+```
+
+* Analizar las frecuencias absolutas en una tabla a doble entrada no es la única manera posible de interpretar los datos.
+
+* Una de las opciones que tenemos es dividir cada valor por el total de unidades, obteniendo así una tabla de frecuencias relativas:
+
+```{r}
+prop.table(tabla2)
+```
+
+* Tal vez sea más interesante dividir cada frecuencia por el total de su respectiva categoría, para saber cómo se distribuyen las ganancias dentro de cada una.
+
+* De esta manera obtenemos la **distribución condicional del nivel de ganancias en cada categoría**. Cada fila suma "100%":
+
+```{r}
+prop.table(tabla2, margin = 1)
+```
+
+
+* Usando `margin = 2` la división se hace con los totales por columna y obtenemos la **distribución condicional de categoría en cada nivel de ganancia**:
+
+```{r}
+prop.table(tabla2, margin = 2)
+```
+
+**Paquete janitor**
+
+- `janitor` es un paquete que trae funciones muy útiles para examinar y limpiar "datos sucios" que vale la pena [explorar](https://github.com/sfirke/janitor). No forma parte del `tidyverse` pero está creado con el mismo diseño.
+
+- Vamos a tomar de este paquete algunas funciones útiles para generar tablas de frecuencias.
+
+```{r, fig.show='hold', echo=FALSE, fig.align="center", out.width='20%'}
+knitr::include_graphics('Plots/janitor.png')
+```
+
+- Si analizamos una única variable categórica, la función `tabyl()` nos presenta tanto las frecuencias absolutas como las relativas y además si hay `NA`s, agrega una columna adicional (`valid_percent`) con las frecuencias calculadas sin contemplarlos.
+
+```{r}
+library(janitor)
+tabyl(datos, nivel)
+```
+
+- Cuando la usamos con dos variables, nos provee un tabla de contingencia con frecuencias absolutas.
+
+```{r}
+tabyl(datos, category, nivel)
+```
+
+- Lo interesante es que podemos cambiar la apariencia y la información mostrada con la familia de funciones `adorn_`:
+
+  - Con `adorn_totals()` elegimos agregar totales marginales por fila, por columna o por ambos.
+  - Con `adorn_percentages()` podemos pedir frecuencias relativas en lugar de absolutas, ya sea de la distribución conjunta (`all`), condicionada a la fila (`row`) o a la columna (`col`).
+  - Con `adorn_pct_formatting()` elegimos el formato para mostrar los porcentajes.
+  - Con `ns()` le agregamos los conteos entre paréntesis.
+  - Con `adorn_title()` configuramos la apariencia de los nombres de las filas y columnas.
+
+```{r}
+datos %>% 
+  tabyl(category, nivel) %>% 
+  adorn_totals(c("row", "col")) %>% 
+  adorn_percentages("row") %>%
+  adorn_pct_formatting(digits = 1) %>%
+  adorn_ns() %>% 
+  adorn_title(placement = "combined", "Categoría", "Nivel")
+```
+
+- El `tidyverse` también nos permite hacer conteos como los anteriores mediante la función `count()`, ya sea para una sola variable o para las combinaciones de categorías de más de una, pero ofrece los resultados como un data.frame en el que cada fila se corresponde con una celda de la tabla.
+
+- Si bien para presentación de resultados este formato no es lo más cómodo, es sumamente útil para ser utilizado como *input* en otros análisis, por ejemplo, para hacer gráficos.
+
+```{r}
+count(datos, nivel)
+count(datos, nivel, sort = TRUE)
+count(datos, category, nivel)
+
+# Análogo a tabyl(), pero una fila por celda:
+datos %>%
+  group_by(category, nivel) %>%
+  summarise(n = n()) %>%
+  mutate(frec_rel = prop.table(n))
+```
+
+* En ciertas ocasiones puede ser que nos interese agregar en el dataset una columna que diga cuántas observaciones hay en el grupo al que pertenece cada observación, de acuerdo con algún criterio de agrupación. Esto lo podemos hacer con la función `add_count()`:
+
+```{r, eval=FALSE}
+add_count(datos, nivel) #Ver en RStudio
+```
+
+
 
 
 ## Creación de archivos y escritura de resultados
@@ -316,19 +690,240 @@ for (j in 1:3) {
 sink()
 ```
 
-### Crear un archivo para guardar conjuntos de datos, todos los registros juntos
 
-Si bien lo anterior sigue la estructura planteada en el pseudocódigo, R provee una gran variedad de funciones para guardar todo el contenido de un objeto de tipo `data.frame` en un archivo de una sola vez, como se muestra en los ejemplos que siguen, en los cuales suponemos que deseamos guardar el contenido de un `data.frame` llamado `mis_datos` en un archivo llamado `mi_archivo`:
+
+
+## Lectura opcional
+
+### Otros ejemplos para obtener resúmenes
+
+Cuando aplicamos el mismo tipo de resumen a varias variables (en este caso, la media), podemos usar `across`:
+
+```{r}
+datos %>% 
+	group_by(continente) %>% 
+	summarise(across(c(goles_favor, goles_contra), mean))
+```
+
+Podemos aplicar el mismo tipo de resumen para todas las variables que tengan alguna característica en particular, por ejemplo, ser numéricas:
 
 ```{r, eval=FALSE}
-# Guardarlo en un archivo de texto separado por tabulaciones
-write.table(mis_datos, "mi_archivo.txt", quote = FALSE, row.names = FALSE, sep = "\t")
-
-# Guardarlo en un archivo de texto separado por comas
-write.csv(mis_datos, "mi_archivo.txt", quote = FALSE, row.names = FALSE)
-
-# Guardarlo en un archivo de Excel
-# install.packages("writexl")
-library(writexl)
-write_xlsx(mis_datos, "mi_archivo.xlsx")
+datos %>% 
+	group_by(continente) %>% 
+	summarise(across(where(is.numeric), mean))
 ```
+
+### Cambiar el formato de un `data.frame`
+
+Dependiendo de los requerimientos de los análisis que estemos realizando, es muy frecuente necesitar cambiar el formato que tienen los datos. Por ejemplo, puede ser necesario apilar columnas una debajo de otra, resultando en un dataset con más filas (más largo) y menos columnas (más angosto). La situación contraria también se puede presentar y consiste en desacoplar información concatenada en una sola columna para ubicarla en varias columnas adyacentes, resultando en una dataset con más columnas (más ancho) y menos filas (más corto). Por supuesto, estas transformaciones tienen que hacerse sin mezclar los registros:
+
+```{r, fig.show='hold', echo=FALSE, fig.align="center", out.width="60%"}
+knitr::include_graphics('images/06_archivos/tidyr-longer-wider.gif')
+```
+
+**Formato ancho a largo**
+
+Armemos un pequeño ejemplo de juguete para imaginar bien de qué se trata esto. Supongamos que tenemos datos con la cantidad vendida de 3 productos en distintos meses. De la siguiente forma se puede crear un `data.frame` "a mano", sin leer los datos desde un archivo:
+
+```{r}
+ejemplo1 <- data.frame(
+  producto = 1:3,
+  septiembre = c(234, 657, 989),
+  octubre = c(841, 621, 589),
+  noviembre = c(521, 147, 258)
+)
+ejemplo1
+```
+
+A ese formato le decimos "ancho" porque una misma variable (cantidad de ventas) se ubica en muchas columnas, cuyos nombres se confunden con lo que en realidad debe ser otra variable, el mes. Queremos pasarlo a un formato largo para que se vea así:
+
+```{r, echo=FALSE}
+pivot_longer(data = ejemplo1, cols = c(septiembre, octubre, noviembre), names_to = "mes", values_to = "ventas")
+```
+
+Lo logramos con la función `pivot_longer()`, cuyos argumentos son:
+
+  - **data**: el dataset que vamos a modificar
+  - **cols**: columnas que queremos apilar (o las que no queremos apilar, si es más fácil de indicar)
+  - **names_to**: cómo queremos que se llame la nueva columna que contendrá los nombres de las columnas apiladas.
+  - **values_to**: cómo queremos que se llame la nueva columna que contendrá los valores de las columnas apiladas.
+
+```{r, fig.show='hold', echo=FALSE, fig.align="center", out.width="60%"}
+knitr::include_graphics('images/06_archivos/original-dfs-tidy.png')
+```
+
+```{r}
+ejemplo2 <- pivot_longer(
+  data = ejemplo1, 
+  cols = c(septiembre, octubre, noviembre), 
+  names_to = "mes", 
+  values_to = "ventas"
+)
+ejemplo2
+```
+
+**Formato largo a ancho**
+
+A su vez, la función `pivot_wider()` permite pasar de **formatos largos** a **formatos anchos** (al revés de `pivot_longer()`):
+
+```{r, out.width="60%", echo=F}
+knitr::include_graphics('images/06_archivos/spread.png')
+```
+  
+Podríamos usarlo si queremos volver a la versión original de la base. Para ello necesitamos usar estos argumentos:
+
+  - **data**: el dataset
+  - **names_from**: columna que tiene los nombres de las nuevas columnas
+  - **values_from**: columna que tiene los valores que se distribuirán en las nuevas columnas
+
+```{r}
+pivot_wider(
+  data = ejemplo2, 
+  names_from = mes, 
+  values_from = ventas
+)
+```
+
+### Fusionar varios `data.frames`
+
+Muchas veces, los análisis de datos involucran múltiples tablas o conjuntos de datos, los cuales deben combinarse para dar respuesta a las preguntas de interés.. En estos casos importan las **relaciones** que se establecen entre las bases, más allá de los datos individuales que contenga cada uno de ellas. `R` nos ofrece diversas alternativas, las cuales dependen del tipo de relación que deseemos establecer entre los conjuntos de datos. Para definir estas relaciones debemos establecer qué variable funcionará como `key` o clave identificadora de los casos. Esta `key` debe figurar en ambos conjuntos de datos y representar lo mismo para que tenga sentido la relación. Las fusiones pueden clasificarse en dos grupos: las que producen modificaciones en uno de los conjuntos (*mutating joins*) y las que actúan como filtros (*filtering joins*).
+
+**Mutating Joins**
+
+Son funciones que permiten unir conjuntos de datos, agregando en uno de ellos nuevas variables que provienen del otro, a partir las filas con `key` coincidente:
+
+    - `left_join()`
+    - `right_join()`
+    - `inner_join()`
+    - `full_join()`
+
+Hacen una *mutación* en el sentido de que añaden columnas a uno de los conjuntos. Consideremos los siguientes conjuntos de datos, donde *X1* será la clave:
+
+```{r, warning=F, eval=T}
+Datos1 <- data.frame(X1 = c("A", "B", "C"), X2 = c(1, 2, 3))
+Datos2 <- data.frame(X1 = c("D", "B", "A"), X3 = c(9, 7, 5))
+```
+
+```{r, fig.show='hold', echo=FALSE, fig.align="center", out.width='40%'}
+knitr::include_graphics('images/06_archivos/Tabla1.png')
+```
+
+Veamos los distintos tipos de *mutating joins*:
+
+- `left_join()`: esta opción devuelve un conjunto de datos que contiene todas las filas de la tabla de la izquierda, agregando las columnas de la tabla de la derecha.
+	
+	```{r, warning=F, eval=T}
+	DatosUnidos <- left_join(Datos1, Datos2, by = "X1")
+	```
+	
+	```{r, fig.show='hold', echo=FALSE, fig.align="center", out.width='70%'}
+	knitr::include_graphics('images/06_archivos/leftjoin.PNG')
+	```
+
+- `right_join()`: devuelve un conjunto de datos que contiene todas las filas de la tabla de la derecha y agrega columnas de la tabla izquierda.
+	
+	```{r, warning=F, eval=T}
+	DatosUnidos <- right_join(Datos1, Datos2, by = "X1")
+	```
+	
+	```{r, fig.show='hold', echo=FALSE, fig.align="center", out.width='70%'}
+	knitr::include_graphics('images/06_archivos/rightjoin.PNG')
+	```
+
+- `inner_join()`: devuelve un conjunto de datos con todas las columnas pero sólo para las observaciones (filas) cuyos identificadores se repiten en ambos conjuntos de datos.
+	
+	```{r, warning=F, eval=T}
+	DatosUnidos <- inner_join(Datos1, Datos2, by = "X1")
+	```
+	
+	```{r, fig.show='hold', echo=FALSE, fig.align="center", out.width='70%'}
+	knitr::include_graphics('images/06_archivos/innerjoin.PNG')
+	```
+
+- `full_join()`: devuelve un conjunto de datos con todas las filas y columnas, fusionando a través de la `key` para las filas coincidentes entre ambos conjuntos.
+
+	```{r, warning=F, eval=T}
+	DatosUnidos <- full_join(Datos1, Datos2, by = "X1")
+	```
+	
+	```{r, fig.show='hold', echo=FALSE, fig.align="center", out.width='70%'}
+	knitr::include_graphics('images/06_archivos/fulljoin.PNG')
+	```
+
+**Filtering Joins**
+
+Son funciones que permiten unir las observaciones de dos datasets, pero sólo afectan a las filas sin alterar las columnas o variables. Funcionan como un **filtro** para las observaciones de una base de datos, de acuerdo a si *están* o *no están* (según el sentido que se elija) en otra base de datos:
+
+- `semi_join()`: devuelve todas las observaciones que están en `Datos1` que también están en `Datos2`, manteniendo sólo las columnas de `Datos1`. La relación se piensa como en `inner_join()`, pero el resultado es sólo la base `Datos1` filtrada. 
+	
+	```{r, warning=F, eval=T}
+	DatosFiltrados <- semi_join(Datos1, Datos2, by = "X1")
+	```
+	
+	```{r, fig.show='hold', echo=FALSE, fig.align="center", out.width='70%'}
+	knitr::include_graphics('images/06_archivos/semijoin.PNG')
+	```
+
+- `anti_join()`: devuelve aquellas observaciones que están en `Datos1` pero **no están** en `Datos2`, manteniendo las columnas de `Datos1`. Es el filtro contrario a `semi_join()`.
+	
+	```{r, warning=F, eval=T}
+	DatosFiltrados <- anti_join(Datos1, Datos2, by = "X1")
+	```
+	
+	```{r, fig.show='hold', echo=FALSE, fig.align="center", out.width='70%'}
+	knitr::include_graphics('images/06_archivos/antijoin.PNG')
+	```
+
+**Otros detalles sobre las keys**
+
+Hasta ahora hemos visto ejemplos donde las columnas que se usaron como claves identificadoras tenían valores únicos, sin repetir. Si la clave identificadora está duplicada en una de las bases de datos, la relación que `R` brindará con las funciones `*_join()` será del tipo "uno a varios":
+    
+```{r, eval=F, size="tiny"}
+d1 <- data.frame(
+  val_x = c("x1", "x2", "x3", "x4"), 
+  key = c(1, 2, 2, 1)
+)
+
+d2 <- data.frame(
+  key = c(1, 2), 
+  val_y = c("y1", "y2")
+)
+
+full_join(d1, d2)
+```
+
+```{r, fig.show='hold', echo=FALSE, fig.align="center", out.width='50%', size="tiny"}
+knitr::include_graphics('images/06_archivos/1dupkeys.PNG')
+```
+
+Si ambas bases de datos tienen claves duplicadas, las funciones `*_join()` devuelven todas las combinaciones posibles: 
+    
+```{r, eval=F, size="tiny"}
+d1 <- data.frame(
+  val_x = c("x1", "x2", "x3", "x4"),
+  key = c(1, 2, 2, 3)
+)
+
+d2 <- data.frame(
+  key = c(1, 2, 2, 3),
+  val_y = c("y1", "y2", "y3", "y4")
+)
+
+full_join(d1, d2)
+```
+
+```{r, fig.show='hold', echo=FALSE, fig.align="center", out.width='50%', size="tiny"}
+knitr::include_graphics('images/06_archivos/2dupkeys.PNG')
+```
+
+Muchas veces nos interesa que las observaciones de los conjuntos de datos se relacionen a través de más de una variable, es decir, queremos identificar a cada registro a través de más de una columna. En este caso tenemos 2 opciones:
+    
+1. Inventar una nueva variable identificadora (`key`) que de algún modo contenga la información de esas variables e identifique a cada observación de manera única (por ejemplo, pegar ambas columnas en una sola).
+
+2. Indicarle directamente en `R` que la relación entre las bases de datos debe hacerse a través de varias variables. En el argumento `by` de las funciones `*_join()` ponemos el vector de variables `by = c(Vble1, Vble2, Vble3)` mediante las cuales queremos que se relacionen las bases.
+
+Por defecto, los conjuntos de datos se unen a través de todas las variables que llevan el mismo nombre en ambos conjuntos, lo que suele denominarse **unión natural**. Si usamos `by` para indicar qué columnas vinculan ambas bases, y entre las columnas no mencionadas quedan variables con el mismo nombre en los dos conjuntos, entonces estas aparecerán repetidas en el dataset resultante, con una extensión en su nombre para identificar su origen (*nombre_columna.x, nombre_columna.y*).
+
+Las variables usadas como `key` podrían no tener el mismo nombre en ambos conjuntos de datos. Por ejemplo, si en Datos1 tenemos *DNI* y en Datos2 tenemos *Documento*, no es necesario renombrar estas columnas: al indicar **`by = c("DNI" = "Documento")`**, R las reconoce como la misma variable, las utilizará como clave y conservará el primer nombre (*DNI* en este ejemplo). 
+
+<!-- PENDIENTE: para ejemplificar fusiones, podria preparar un archivo que tenga un lsitado de todos los paises que fueron sede del mundial, dos columnas, seleccion y cantidad de veces que fue sede, y hacer la fusion con el conjunto original -->

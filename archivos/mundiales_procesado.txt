@@ -1,0 +1,81 @@
+pais_continente	seleccion	continente	participaciones	pg	pe	pp	goles_favor	goles_contra	titulos	pj	campeon	puntos	dg
+Brasil - América	Brasil	América	22	76	19	19	237	108	5	114	si	247	129
+Alemania - Europa	Alemania	Europa	20	68	21	23	232	130	4	112	si	225	102
+Argentina - América	Argentina	América	18	47	17	24	152	101	3	88	si	158	51
+Italia - Europa	Italia	Europa	18	45	21	17	128	77	4	83	si	156	51
+Francia - Europa	Francia	Europa	16	39	14	20	136	85	2	73	si	131	51
+Inglaterra - Europa	Inglaterra	Europa	16	32	22	20	104	68	1	74	si	118	36
+España - Europa	España	Europa	16	31	17	19	108	75	1	67	si	110	33
+Países Bajos - Europa	Países Bajos	Europa	11	30	14	11	96	52	0	55	no	104	44
+Uruguay - América	Uruguay	América	14	25	13	21	89	76	2	59	si	88	13
+Bélgica - Europa	Bélgica	Europa	14	21	10	20	69	74	0	51	no	73	-5
+Suecia - Europa	Suecia	Europa	12	19	13	19	80	73	0	51	no	70	7
+Rusia - Europa	Rusia	Europa	11	19	10	16	77	54	0	45	no	67	23
+México - América	México	América	17	17	15	28	62	101	0	60	no	66	-39
+Serbia - Europa	Serbia	Europa	13	18	9	22	71	71	0	49	no	63	0
+Portugal - Europa	Portugal	Europa	8	17	6	12	61	41	0	35	no	57	20
+Polonia - Europa	Polonia	Europa	9	17	6	15	49	50	0	38	no	57	-1
+Suiza - Europa	Suiza	Europa	12	14	8	19	55	73	0	41	no	50	-18
+Hungría - Europa	Hungría	Europa	9	15	3	14	87	57	0	32	no	48	30
+Croacia - Europa	Croacia	Europa	6	13	8	9	43	33	0	30	no	47	10
+República Checa - Europa	República Checa	Europa	9	12	5	16	47	49	0	33	no	41	-2
+Austria - Europa	Austria	Europa	7	12	4	13	43	47	0	29	no	40	-4
+Chile - América	Chile	América	9	11	7	15	40	49	0	33	no	40	-9
+Estados Unidos - América	Estados Unidos	América	11	9	8	20	40	66	0	37	no	35	-26
+Dinamarca - Europa	Dinamarca	Europa	6	9	6	8	31	29	0	23	no	33	2
+Paraguay - América	Paraguay	América	8	7	10	10	30	38	0	27	no	31	-8
+Corea del Sur - Asia	Corea del Sur	Asia	11	7	10	21	39	78	0	38	no	31	-39
+Colombia - América	Colombia	América	6	9	3	10	32	30	0	22	no	30	2
+Rumania - Europa	Rumania	Europa	7	8	5	8	30	32	0	21	no	29	-2
+Japón - Asia	Japón	Asia	7	7	6	12	25	33	0	25	no	27	-8
+Costa Rica - América	Costa Rica	América	6	6	5	10	22	39	0	21	no	23	-17
+Camerún - África	Camerún	África	8	5	8	13	22	47	0	26	no	23	-25
+Marruecos - África	Marruecos	África	6	5	7	11	20	27	0	23	no	22	-7
+Nigeria - África	Nigeria	África	6	6	3	12	23	30	0	21	no	21	-7
+Escocia - Europa	Escocia	Europa	8	4	7	12	25	41	0	23	no	19	-16
+Senegal - África	Senegal	África	3	5	3	4	16	17	0	12	no	18	-1
+Ghana - África	Ghana	África	4	5	3	7	18	23	0	15	no	18	-5
+Perú - América	Perú	América	5	5	3	10	21	33	0	18	no	18	-12
+Ecuador - América	Ecuador	América	4	5	2	6	14	14	0	13	no	17	0
+Bulgaria - Europa	Bulgaria	Europa	7	3	8	15	22	53	0	26	no	17	-31
+Turquía - Europa	Turquía	Europa	2	5	1	4	20	17	0	10	no	16	3
+Australia - Oceanía	Australia	Oceanía	6	4	4	12	17	37	0	20	no	16	-20
+Irlanda - Europa	Irlanda	Europa	3	2	8	3	10	10	0	13	no	14	0
+Irlanda del Norte - Europa	Irlanda del Norte	Europa	3	3	5	5	13	23	0	13	no	14	-10
+Túnez - África	Túnez	África	6	3	5	10	14	26	0	18	no	14	-12
+Arabia Saudita - Asia	Arabia Saudita	Asia	6	4	2	13	14	44	0	19	no	14	-30
+Irán - Asia	Irán	Asia	6	3	4	11	13	31	0	18	no	13	-18
+Argelia - África	Argelia	África	4	3	3	7	13	19	0	13	no	12	-6
+Costa de Marfil - África	Costa de Marfil	África	3	3	1	5	13	14	0	9	no	10	-1
+Sudáfrica - África	Sudáfrica	África	3	2	4	3	11	16	0	9	no	10	-5
+Noruega - Europa	Noruega	Europa	3	2	3	3	7	8	0	8	no	9	-1
+Alemania Democrática - Europa	Alemania Democrática	Europa	1	2	2	2	5	5	0	6	no	8	0
+Grecia - Europa	Grecia	Europa	3	2	2	6	5	20	0	10	no	8	-15
+Ucrania - Europa	Ucrania	Europa	1	2	1	2	5	7	0	5	no	7	-2
+Gales - Europa	Gales	Europa	2	1	4	3	5	10	0	8	no	7	-5
+Eslovaquia - Europa	Eslovaquia	Europa	1	1	1	2	5	7	0	4	no	4	-2
+Eslovenia - Europa	Eslovenia	Europa	2	1	1	4	5	10	0	6	no	4	-5
+Cuba - América	Cuba	América	1	1	1	1	5	12	0	3	no	4	-7
+Corea del Norte - Asia	Corea del Norte	Asia	2	1	1	5	6	21	0	7	no	4	-15
+Bosnia y Herzegovina - Europa	Bosnia y Herzegovina	Europa	1	1	0	2	4	4	0	3	no	3	0
+Jamaica - América	Jamaica	América	1	1	0	2	3	9	0	3	no	3	-6
+Nueva Zelanda - Oceanía	Nueva Zelanda	Oceanía	2	0	3	3	4	14	0	6	no	3	-10
+Honduras - América	Honduras	América	3	0	3	6	3	14	0	9	no	3	-11
+Angola - África	Angola	África	1	0	2	1	1	2	0	3	no	2	-1
+Israel - Asia	Israel	Asia	1	0	2	1	1	3	0	3	no	2	-2
+Egipto - África	Egipto	África	3	0	2	5	5	12	0	7	no	2	-7
+Islandia - Europa	Islandia	Europa	1	0	1	2	2	5	0	3	no	1	-3
+Kuwait - Asia	Kuwait	Asia	1	0	1	2	2	6	0	3	no	1	-4
+Trinidad y Tobago - América	Trinidad y Tobago	América	1	0	1	2	0	4	0	3	no	1	-4
+Bolivia - América	Bolivia	América	3	0	1	5	1	20	0	6	no	1	-19
+Irak - Asia	Irak	Asia	1	0	0	3	1	4	0	3	no	0	-3
+Togo - África	Togo	África	1	0	0	3	1	6	0	3	no	0	-5
+Catar - Asia	Catar	Asia	1	0	0	3	1	7	0	3	no	0	-6
+Indonesia - Asia	Indonesia	Asia	1	0	0	1	0	6	0	1	no	0	-6
+Panamá - América	Panamá	América	1	0	0	3	2	11	0	3	no	0	-9
+Emiratos Árabes Unidos - Asia	Emiratos Árabes Unidos	Asia	1	0	0	3	2	11	0	3	no	0	-9
+China - Asia	China	Asia	1	0	0	3	0	9	0	3	no	0	-9
+Canadá - América	Canadá	América	2	0	0	6	2	12	0	6	no	0	-10
+Haití - América	Haití	América	1	0	0	3	2	14	0	3	no	0	-12
+R. D. del Congo - África	R. D. del Congo	África	1	0	0	3	0	14	0	3	no	0	-14
+El Salvador - América	El Salvador	América	2	0	0	6	1	22	0	6	no	0	-21
