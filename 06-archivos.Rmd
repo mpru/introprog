@@ -228,10 +228,10 @@ datos_modif <- mutate(datos, pj = pg + pe + pp)
 datos <- mutate(datos, pg = pg + pe + pp)
 ```
 
-Otras situaciones requieren que en lugar de *mutar* de la misma forma toda una columna, los cambios dependan de alguna condición que los registros verifiquen o no. Por ejemplo, agreguemos una nueva variable que indique si cada país es o no campeón del mundo, en función de los valores disponibles en la variable `titulos`. Vamos a crear una nueva columna que se llame `campeon` y tenga el valor `si` cuando `titulos > 0` y `no` en caso contrario, ayudándonos con la función `ifelse()`, la cual nos permite establecer una evaluación lógica y dos cursos de acción, en base a que esta resulte verdadera (`TRUE`) o falsa (`FALSE`).
+Otras situaciones requieren que en lugar de *mutar* de la misma forma toda una columna, los cambios dependan de alguna condición que los registros verifiquen o no. Por ejemplo, agreguemos una nueva variable que indique si cada país es o no campeón del mundo, en función de los valores disponibles en la variable `titulos`. Vamos a crear una nueva columna que se llame `campeon` y tenga el valor `campeón` cuando `titulos > 0` y `no campeón` en caso contrario, ayudándonos con la función `ifelse()`, la cual nos permite establecer una evaluación lógica y dos cursos de acción, en base a que esta resulte verdadera (`TRUE`) o falsa (`FALSE`).
 
 ```{r}
-datos <- mutate(datos, campeon = ifelse(titulos > 0, "si", "no"))
+datos <- mutate(datos, campeon = ifelse(titulos > 0, "campeón", "no campeón"))
 ```
 
 Inspeccionamos la nueva columna, sumando una nueva función del `tidyverse`, `count()`. Sólo 8 países han ganado el mundial alguna vez (¡y Argentina es uno de ellos!):
@@ -321,12 +321,12 @@ datos_america <- filter(datos, continente == "América")
 nrow(datos_america)
 
 # Dos condiciones
-datos_campeones_america <- filter(datos, continente == "América", campeon == "si")
+datos_campeones_america <- filter(datos, continente == "América", campeon == "campeón")
 nrow(datos_campeones_america)
 # Alternativa equivalente: filter(datos, continente == "América" & campeon == "si")
 
 # Al menos una de las primeras condiciones ("o") y la segunda
-datos_filtro <- filter(datos, continente == "América" | campeon == "si", participaciones > 10)
+datos_filtro <- filter(datos, continente == "América" | campeon == "campeón", participaciones > 10)
 nrow(datos_filtro)
 ```
 
@@ -378,7 +378,7 @@ datos <- read_delim("mundiales.txt")
 datos <- mutate(datos, pj = pg + pe + pp)
 
 # Indicar si cada país es o no campeón del mundo
-datos <- mutate(datos, campeon = ifelse(titulos > 0, "si", "no"))
+datos <- mutate(datos, campeon = ifelse(titulos > 0, "campeón", "no campeón"))
 
 # Corregir los nombres de los continentes
 datos <- mutate(datos, continente = recode(continente, "Europe" = "Europa", "asia" = "Asia"))
@@ -400,7 +400,7 @@ datos <-
 	read_delim("mundiales.txt") %>% 
 	mutate(
 		pj = pg + pe + pp,
-		campeon = ifelse(titulos > 0, "si", "no"),
+		campeon = ifelse(titulos > 0, "campeón", "no campeón"),
 		continente = recode(continente, "Europe" = "Europa", "asia" = "Asia"),
 		puntos = 3 * pg + pe, 
 		dg = gf - gc
@@ -414,7 +414,7 @@ datos <-
 	read_delim("archivos/mundiales.txt") %>% 
 	mutate(
 		pj = pg + pe + pp,
-		campeon = ifelse(titulos > 0, "si", "no"),
+		campeon = ifelse(titulos > 0, "campeón", "no campeón"),
 		continente = recode(continente, "Europe" = "Europa", "asia" = "Asia"),
 		puntos = 3 * pg + pe, 
 		dg = gf - gc
@@ -498,7 +498,7 @@ datos %>%
 	) 
 ```
 
-### Distribuciones de frecuencias
+### Distribuciones de frecuencias para variables categóricas
 
 Cuando en los archivos de datos existen campos de tipo carácter, que representan variables categóricas, es común resumirlos creando **tablas de frecuencias**. Ya vimos que la función `count()` nos permite obtener la **frecuencia absoluta** (bajo el nombre de `n`) de cada categoría:
 
@@ -506,28 +506,49 @@ Cuando en los archivos de datos existen campos de tipo carácter, que representa
 count(datos, continente)
 ```
 
-Lo anterior es un nuevo `data.frame` con dos variables, el continente y los conteos que estábamos buscando. Sin embargo, en las tablas de frecuencias suele ser útil agregar también una columna de frecuencias relativas o proporciones, y de frecuencias acumuladas. Podemos hacer esto *mutando* el resultado anterior para generar las restantes columnas:
+Lo anterior es un nuevo `data.frame` con dos variables, el continente y los conteos que estábamos buscando. Sin embargo, en las tablas de frecuencias suele ser útil agregar también una columna de frecuencias relativas o proporciones y de frecuencias acumuladas (si la variable fuese ordinal). Podemos hacer esto *mutando* el resultado anterior para generar las restantes columnas y lo guardamos en un nuevo `data.frame` llamado `frecuencias` para poder usarlo después:
 
 ```{r}
-count(datos, continente) %>% 
-	mutate(
-		frec_rel = n / sum(n),
-		frec_abs_acum = cumsum(n), # cumsum = suma acumulada
-		frec_rel_acum = cumsum(frec_rel)
+frecuencias <-
+	datos %>% 
+	count(continente) %>% 
+	mutate(frec_rel = n / sum(n))
+
+frecuencias
+```
+
+En este caso, con pocas categorías, podemos apreciar rápidamente cuál es el continente con mayor y menor cantidad de países que participaron de mundiales, pero si queremos resaltar esta información podemos hacer algunos filtrados. A continuación, filtramos el `data.frame` `frecuencias` para retener aquellas filas donde el valor de `n` sea igual a su mínimo o a su máximo:
+
+```{r}
+minimo <- filter(frecuencias, n == min(n))
+minimo
+maximo <- filter(frecuencias, n == max(n))
+maximo
+```
+
+Notemos que los objetos `minimo` y `maximo` son nuevos `data.frame`s, con tan sólo una observación. Podríamos usarlos para emitir algún mensaje con los hallazgos:
+
+```{r}
+cat("El continente con la mayor cantidad de países que han participado de mundiales es", 
+		maximo$continente, "con", maximo$n, "selecciones, mientras que el de menor participación es", 
+		minimo$continente, "con", minimo$n, "selecciones.")
+```
+
+Por supuesto que si hubiesen empates en los valores máximos o mínimos tendríamos que pensar otra forma de comunicar el mensaje, pero con todos los conocimientos que tenemos de programación esa tarea es sencilla de resolver.
+
+Podríamos mejorar levemente la tabla de frecuencias cambiando los nombres de sus columnas, con la función `rename()`. Para poder usar nombres que contengan espacios, tenemos que encerrarlos en comillas invertidas (esto es poco práctico a la hora de escribir código, sólo sirve para mejorar la apariencia del resultado): 
+
+```{r}
+frecuencias %>% 
+	rename(
+		Continente = continente, 
+		`Frec. Absoluta` = n, 
+		`Frec. Relativa` = frec_rel
 	)
 ```
 
-En lo anterior escribimos nombres para las columnas que son cómodos para programar. Si queremos cambiarlos para que se vean mejor en la salida, podemos usar `rename()`. Para poder usar nombres que contengan espacios, tenemos que encerrarlos en comillas invertidas (esto es poco práctico a la hora de escribir código, sólo sirve para mejorar la apariencia del resultado). Además, guardamos todo esto en un nuevo `data.frame` llamado `frecuencias` para poder usarlo después:
-
-```{r}
-frecuencias <- 
-	datos %>% 
-	count(continente) %>% 
-	mutate(
-		frec_rel = n / sum(n),
-		frec_abs_acum = cumsum(n), # cumsum = suma acumulada
-		frec_rel_acum = cumsum(frec_rel)
-	) %>% 
+```{r, eval = F, echo=F}
+frecuencias %>% 
 	rename(
 		Continente = continente, 
 		`Frec. Absoluta` = n, 
@@ -539,118 +560,140 @@ frecuencias <-
 frecuencias
 ```
 
-
-
-```{r}
-ver <- filter(frecuencias, `Frec. Absoluta` == min(`Frec. Absoluta`))
-
-cat("El continente ", ver$Continente, " con", ver$`Frec. Absoluta`)
-
-frecuencias %>% 
-	filter(`Frec. Absoluta` == min(`Frec. Absoluta`))
-
-frecuencias %>% 
-	slice(which.min(`Frec. Absoluta`))
-```
-
-* Podemos calcular **frecuencias relativas** (proporciones) dividiendo las absolutas por el total para facilitar la interpretación:
+La función `count()` también permite obtener conteos asociados a cada combinación posible de las categorías de dos o más variables.
 
 ```{r}
-prop.table(tabla1)
+count(datos, continente, campeon)
 ```
 
-* Las tablas de frecuencia también son útiles para estudiar la relación entre dos variables categóricas al mismo tiempo.
+El resultado, como siempre, es un `data.frame` con una columna para cada una de las variables involucradas y otra para las frecuencias absolutas. Así, podemos ver que de todos los países americanos que jugaron algún mundial, 17 nunca fueron campeones y 3 sí.
 
-* Una pregunta que puede surgir es: **¿qué categoría de productos produce mayor cantidad de ganancias catalogadas como altas?**
-
-* Observemos ahora cómo se distribuyen de forma conjunta las variables `category` y `nivel` en una **tabla a doble entrada**, también llamada *tabla de contingencia*:
+Sin embargo, frecuencias como las anteriores suelen ser presentadas en **tablas de contingencia** o **tablas de doble entrada**, donde las filas se corresponden a las categorías de una variable y las columnas, a las de la otra. Existe un paquete que es muy útil para generar ese tipo de exploración de datos, llamado `janitor`. No forma parte del `tidyverse` pero está creado con el mismo diseño. Lo instalamos y cargamos:
 
 ```{r}
-tabla2 <- table(datos$category, datos$nivel)
-tabla2
-```
-
-* Analizar las frecuencias absolutas en una tabla a doble entrada no es la única manera posible de interpretar los datos.
-
-* Una de las opciones que tenemos es dividir cada valor por el total de unidades, obteniendo así una tabla de frecuencias relativas:
-
-```{r}
-prop.table(tabla2)
-```
-
-* Tal vez sea más interesante dividir cada frecuencia por el total de su respectiva categoría, para saber cómo se distribuyen las ganancias dentro de cada una.
-
-* De esta manera obtenemos la **distribución condicional del nivel de ganancias en cada categoría**. Cada fila suma "100%":
-
-```{r}
-prop.table(tabla2, margin = 1)
-```
-
-
-* Usando `margin = 2` la división se hace con los totales por columna y obtenemos la **distribución condicional de categoría en cada nivel de ganancia**:
-
-```{r}
-prop.table(tabla2, margin = 2)
-```
-
-**Paquete janitor**
-
-- `janitor` es un paquete que trae funciones muy útiles para examinar y limpiar "datos sucios" que vale la pena [explorar](https://github.com/sfirke/janitor). No forma parte del `tidyverse` pero está creado con el mismo diseño.
-
-- Vamos a tomar de este paquete algunas funciones útiles para generar tablas de frecuencias.
-
-```{r, fig.show='hold', echo=FALSE, fig.align="center", out.width='20%'}
-knitr::include_graphics('Plots/janitor.png')
-```
-
-- Si analizamos una única variable categórica, la función `tabyl()` nos presenta tanto las frecuencias absolutas como las relativas y además si hay `NA`s, agrega una columna adicional (`valid_percent`) con las frecuencias calculadas sin contemplarlos.
-
-```{r}
+# install.packages("janitor")
 library(janitor)
-tabyl(datos, nivel)
 ```
 
-- Cuando la usamos con dos variables, nos provee un tabla de contingencia con frecuencias absolutas.
+Para crear una tabla de contingencia, usamos la función `tabyl()`:
 
 ```{r}
-tabyl(datos, category, nivel)
+tabla_cont_campeon <- tabyl(datos, continente, campeon)
+tabla_cont_campeon
 ```
 
-- Lo interesante es que podemos cambiar la apariencia y la información mostrada con la familia de funciones `adorn_`:
+Podemos destacar cuál es el continente con mayor cantidad de campeones filtrando al registro con máximo valor en la columna `campeón`:
 
-  - Con `adorn_totals()` elegimos agregar totales marginales por fila, por columna o por ambos.
-  - Con `adorn_percentages()` podemos pedir frecuencias relativas en lugar de absolutas, ya sea de la distribución conjunta (`all`), condicionada a la fila (`row`) o a la columna (`col`).
-  - Con `adorn_pct_formatting()` elegimos el formato para mostrar los porcentajes.
-  - Con `ns()` le agregamos los conteos entre paréntesis.
-  - Con `adorn_title()` configuramos la apariencia de los nombres de las filas y columnas.
+```{r}
+filter(tabla_cont_campeon, campeón == max(campeón))
+```
+
+Lo interesante de la función `tabyl()` del paquete `janitor` es que nos permite de manera muy sencilla agregar totales marginales:
 
 ```{r}
 datos %>% 
-  tabyl(category, nivel) %>% 
-  adorn_totals(c("row", "col")) %>% 
-  adorn_percentages("row") %>%
-  adorn_pct_formatting(digits = 1) %>%
-  adorn_ns() %>% 
-  adorn_title(placement = "combined", "Categoría", "Nivel")
+  tabyl(continente, campeon) %>% 
+  adorn_totals(where = c("row", "col"))
 ```
 
-- El `tidyverse` también nos permite hacer conteos como los anteriores mediante la función `count()`, ya sea para una sola variable o para las combinaciones de categorías de más de una, pero ofrece los resultados como un data.frame en el que cada fila se corresponde con una celda de la tabla.
+Además, podemos pedir frecuencias relativas en lugar de absolutas, ya sea de la distribución conjunta de las dos variables (`denominator = all`), condicionada a la fila (`denominator = row`) o a la columna (`denominator = col`).
 
-- Si bien para presentación de resultados este formato no es lo más cómodo, es sumamente útil para ser utilizado como *input* en otros análisis, por ejemplo, para hacer gráficos.
+- **Distribución conjunta de las variables**: podemos ver, por ejemplo, que el 3.8% de todos los países participantes son de América y han salido campeón alguna vez.
+
+	```{r}
+	datos %>% 
+	  tabyl(continente, campeon) %>% 
+	  adorn_totals(where = c("row", "col")) %>% 
+		adorn_percentages(denominator = "all") %>%  # cálculo de proporciones
+	  adorn_pct_formatting(digits = 1)            # mostrarlas como porcentaje (opcional)
+	```
+
+- **Distribución condicional de campeon dado continente**: los porcentajes suman 1 en cada fila. De todos los países americanos que alguna vez participaron de un mundia, el 15% logró ser campeón y el 85%, no.
+
+	```{r}
+	datos %>% 
+	  tabyl(continente, campeon) %>% 
+	  adorn_totals(where = c("row", "col")) %>% 
+		adorn_percentages(denominator = "row") %>%
+	  adorn_pct_formatting(digits = 1)
+	```
+
+- **Distribución condicional de continente dado campeón**: los porcentajes suman 1 en cada columna. De todos los países que salieron campeones, el 62.5% son europeos y el 37.5% restante, americanos.
+
+	```{r}
+	datos %>% 
+	  tabyl(continente, campeon) %>% 
+	  adorn_totals(where = "row") %>% 
+		adorn_percentages(denominator = "col") %>%
+	  adorn_pct_formatting(digits = 1)
+	```
+
+También podemos mostrar frecuencias absolutas y relativas al mismo tiempo, así como editar los títulos. Ejemplificamos mostrando nuevamente la distribución conjunta:
 
 ```{r}
-count(datos, nivel)
-count(datos, nivel, sort = TRUE)
-count(datos, category, nivel)
-
-# Análogo a tabyl(), pero una fila por celda:
-datos %>%
-  group_by(category, nivel) %>%
-  summarise(n = n()) %>%
-  mutate(frec_rel = prop.table(n))
+datos %>% 
+  tabyl(continente, campeon) %>% 
+  adorn_totals(where = c("row", "col")) %>% 
+	adorn_percentages(denominator = "all") %>% 
+  adorn_pct_formatting(digits = 1) %>% 
+	adorn_ns() %>% 
+	adorn_title(placement = "top", "Continente", "Campeones del mundo")
 ```
 
-<!-- https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidyverse/ -->
+Si analizamos una única variable categórica, la función `tabyl()` nos presenta tanto las frecuencias absolutas como las relativas:
+
+```{r}
+datos %>% 
+	tabyl(continente) %>% 
+	adorn_totals()
+```
+
+### Distribuciones de frecuencias para variables cuantitativas
+
+Cuando se exploran datos de variables cuantitativas, es común realizar tablas de frecuencias agrupando los valores observados en intervalos. Usando la función `cut()` dentro de `mutate()` podemos especificar los puntos de corte y generar una nueva columna que informa a qué intervalo pertenece cada observación:
+
+```{r}
+datos <- mutate(datos, intervalos = cut(goles_favor, breaks = seq(0, 250, 50), right = FALSE))
+
+select(datos, seleccion, goles_favor, intervalos)
+```
+
+Ahora podemos emplear la nueva columna `intervalos` para realizar tablas de frecuencias como vimos antes:
+
+```{r}
+tabyl <- tabyl(datos, intervalos)
+
+tabla_gf <- tabyl(datos, intervalos)
+tabla_gf
+
+maximo <- filter(tabla_gf, n == max(n))
+maximo
+
+cat("El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones es", 
+		as.character(maximo$intervalos), "con", maximo$n, "países.")
+```
+
+
+
+```{r, eval=FALSE, echo=FALSE}
+tabla_gf <- 
+	tabla_gf %>% 
+	mutate(
+		`Frec. Abs. Acumulada` = cumsum(n),        # cumsum = suma acumulada
+		`Frec. Rel. Acumulada` = cumsum(percent)
+	) %>% 
+	rename(
+		`Goles a favor` = intervalos,
+		`Frec. Absoluta` = n, 
+		`Frec. Relativa` = percent
+	)
+tabla_gf
+```
+
+<!-- 
+IDEA EJERCICIO
+https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidyverse/ -->
+
 
 ## Creación de archivos y escritura de resultados
 
@@ -720,6 +763,27 @@ Podemos aplicar el mismo tipo de resumen para todas las variables que tengan alg
 datos %>% 
 	group_by(continente) %>% 
 	summarise(across(where(is.numeric), mean))
+```
+
+### Tablas de frecuencia con R Base
+
+Utilizar el paquete `janitor` no es la única forma de inspeccionar frecuencias. Se puede hacer de forma sencilla con funciones incorporadas en R Base, aunque la forma de presentar los resultados es menos vistosa:
+
+```{r}
+# Frecuencias absolutas
+tabla1 <- table(datos$continente)
+tabla1
+# Frencuencias relativas
+prop.table(tabla1)
+# Tabla de contingencia para dos variables
+tabla2 <- table(datos$continente, datos$campeon)
+tabla2
+# Distribución conjunta
+prop.table(tabla2)
+# Distribución condicional de campeon dado continente
+prop.table(tabla2, margin = 1)
+# Distribución condicional de continente dado campeon
+prop.table(tabla2, margin = 2)
 ```
 
 ### Cambiar el formato de un `data.frame`
