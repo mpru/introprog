@@ -500,41 +500,57 @@ datos %>%
 
 ### Distribuciones de frecuencias
 
-* Cuando trabajamos con variables categóricas, una herramienta indispensable son las **tablas de frecuencias**.
-
-* En una tabla de este tipo representamos la cantidad de unidades que poseen cierta característica, haciendo mucho más fácil la comparación entre categorías de una misma variable.
-
-* Supongamos que nos interesa estudiar las ganancias obtenidas en cada operación, dividiendo sus valores según las consideremos "altas, "medias" o "bajas".
-
-- Para esto podemos *recategorizar* la variable `profit` y luego usar la ya conocida función `table()`:
+Cuando en los archivos de datos existen campos de tipo carácter, que representan variables categóricas, es común resumirlos creando **tablas de frecuencias**. Ya vimos que la función `count()` nos permite obtener la **frecuencia absoluta** (bajo el nombre de `n`) de cada categoría:
 
 ```{r}
-datos <- datos %>% 
-	mutate(
-		nivel = case_when(
-			profit < 0 ~ "Negativo",
-			profit < 10 ~ "Bajo",
-			profit < 100 ~ "Medio",
-			TRUE ~ "Alto"
-		)
-	)
-
-tabla1 <- table(datos$nivel)
-tabla1
+count(datos, continente)
 ```
 
-* A estos valores se los denomina la **Frecuencia Absoluta** de cada categoría.
-
-* Para darles un orden adecuado a las categorías usamos la función `factor()`:
+Lo anterior es un nuevo `data.frame` con dos variables, el continente y los conteos que estábamos buscando. Sin embargo, en las tablas de frecuencias suele ser útil agregar también una columna de frecuencias relativas o proporciones, y de frecuencias acumuladas. Podemos hacer esto *mutando* el resultado anterior para generar las restantes columnas:
 
 ```{r}
-datos <- datos %>% 
+count(datos, continente) %>% 
 	mutate(
-		nivel = factor(nivel, levels = c("Negativo", "Bajo", "Medio", "Alto"))
+		frec_rel = n / sum(n),
+		frec_abs_acum = cumsum(n), # cumsum = suma acumulada
+		frec_rel_acum = cumsum(frec_rel)
+	)
+```
+
+En lo anterior escribimos nombres para las columnas que son cómodos para programar. Si queremos cambiarlos para que se vean mejor en la salida, podemos usar `rename()`. Para poder usar nombres que contengan espacios, tenemos que encerrarlos en comillas invertidas (esto es poco práctico a la hora de escribir código, sólo sirve para mejorar la apariencia del resultado). Además, guardamos todo esto en un nuevo `data.frame` llamado `frecuencias` para poder usarlo después:
+
+```{r}
+frecuencias <- 
+	datos %>% 
+	count(continente) %>% 
+	mutate(
+		frec_rel = n / sum(n),
+		frec_abs_acum = cumsum(n), # cumsum = suma acumulada
+		frec_rel_acum = cumsum(frec_rel)
+	) %>% 
+	rename(
+		Continente = continente, 
+		`Frec. Absoluta` = n, 
+		`Frec. Relativa` = frec_rel,
+		`Frec. Abs. Acumulada` = frec_abs_acum,
+		`Frec. Rel. Acumulada` = frec_rel_acum
 	)
 
-tabla1 <- table(datos$nivel)
-tabla1
+frecuencias
+```
+
+
+
+```{r}
+ver <- filter(frecuencias, `Frec. Absoluta` == min(`Frec. Absoluta`))
+
+cat("El continente ", ver$Continente, " con", ver$`Frec. Absoluta`)
+
+frecuencias %>% 
+	filter(`Frec. Absoluta` == min(`Frec. Absoluta`))
+
+frecuencias %>% 
+	slice(which.min(`Frec. Absoluta`))
 ```
 
 * Podemos calcular **frecuencias relativas** (proporciones) dividiendo las absolutas por el total para facilitar la interpretación:
@@ -634,14 +650,7 @@ datos %>%
   mutate(frec_rel = prop.table(n))
 ```
 
-* En ciertas ocasiones puede ser que nos interese agregar en el dataset una columna que diga cuántas observaciones hay en el grupo al que pertenece cada observación, de acuerdo con algún criterio de agrupación. Esto lo podemos hacer con la función `add_count()`:
-
-```{r, eval=FALSE}
-add_count(datos, nivel) #Ver en RStudio
-```
-
-
-
+<!-- https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidyverse/ -->
 
 ## Creación de archivos y escritura de resultados
 
