@@ -77,7 +77,7 @@ Existen distintos tipos de organización de los archivos según la forma en la q
 
 La organización más sencilla y más comúnmente empleada es la **secuencial**, aunque en algunos casos puede no ser la más eficiente. Si bien no todos los lenguajes de programación permiten el trabajo con archivos indexados o de organización directa, todos pueden manejar archivos secuenciales. 
 
-En este curso no profundizaremos en esta distinción y trabajaremos  con archivos guardados como documentos de Excel (extensión *.xlsx*) o archivos de texto (extensión *.txt* o *.csv*), los cuales siguen una organización secuencial.
+En esta asignatura no profundizaremos en esta distinción y trabajaremos  con archivos guardados como documentos de Excel (extensión *.xlsx*) o archivos de texto (extensión *.txt* o *.csv*), los cuales siguen una organización secuencial.
 
 Un **archivo de texto** (también conocido como *texto llano* o *texto simple*) es un archivo informático que contiene únicamente texto formado por una secuencia ordenada de caracteres. El texto almacenado en este tipo de archivo carece de cualquier tipo de formato tipográfico (negrita, cursiva, colores, subrayado, fuente, etc.), lo cual permite que una gran variedad de programas pueda leer y editar el contenido. Cada renglón en el archivo de texto es un registro y los distintos campos suelen estar señalizados con tabulaciones (archivos *.txt*, como el que usaremos de ejemplo, *mundiales.txt*) o separados por comas o punto y comas (archivos *.csv*).
 
@@ -106,7 +106,7 @@ El uso de archivos en programación es muy importante ya que nos permite leer da
 
 ## Lectura de los registros del archivo
 
-Ya hemos mencionado que R se organiza mediante un sistema de paquetes, algunos de los cuales vienen instalados con la distribución básica de R, mientras que otros deben ser instalados si tenés el particular interés de usarlos. R Base trae muchas funciones útiles para la importación de datos, así como para las subsiguientes tareas de manejo, transformación y resumen. Sin embargo, en este curso aprenderemos a emplear una familia de paquetes conocida como [**tidyverse**](https://www.tidyverse.org), creados para la manipulación, exploración y visualización de datos con un diseño, estructuras y reglas de uso en común, que resultan muy amigables para programar. 
+Ya hemos mencionado que R se organiza mediante un sistema de paquetes, algunos de los cuales vienen instalados con la distribución básica de R, mientras que otros deben ser instalados si tenés el particular interés de usarlos. R Base trae muchas funciones útiles para la importación de datos, así como para las subsiguientes tareas de manejo, transformación y resumen. Sin embargo, en esta asignatura aprenderemos a emplear una familia de paquetes conocida como [**tidyverse**](https://www.tidyverse.org), creados para la manipulación, exploración y visualización de datos con un diseño, estructuras y reglas de uso en común, que resultan muy amigables para programar. 
   
 ```{r, echo=FALSE, out.width = "70%"}
 knitr::include_graphics('images/06_archivos/tidyverse.png')
@@ -146,9 +146,9 @@ Una vez completado este paso, en el ambiente podremos ver listado un nuevo objet
 class(datos)
 ```
 
-Hasta ahora habíamos trabajado con tres tipos de datos básicos: numérico, carácter y lógico, y habíamos visto que con los mismos podíamos crear estructuras de datos como vectores, matrices o listas. Como indica la salida anterior, el objeto `datos` es de tipo `data.frame`, lo cual significa que es una estructura de datos bidimensional (como una matriz) en la cual cada fila representa a un registro y cada columna representa a uno de los campos del archivo, pudiendo entonces almacenar valores de distinto tipo en cada una de ellas (a diferencia de los arreglos, cuyos valores son todos homogéneos)^[Internamente, un `data.frame` es sencillamente una lista, compuesta por vectores de distinto tipo que tienen todos el mismo largo y que se organizan como columnas. Además, esta lista es almacenada junto con cierta información adicional (*atributos*) que nos permiten manipularla como una estructura tabular.].
+Hasta ahora habíamos trabajado con tres tipos de datos básicos: numérico, carácter y lógico, y habíamos visto que con los mismos podíamos crear estructuras de datos como vectores, matrices o listas. Como indica la salida anterior, el objeto `datos` es de tipo *data.frame*, lo cual significa que es una estructura de datos bidimensional (como una matriz) en la cual cada fila representa a un registro y cada columna representa a uno de los campos del archivo, pudiendo entonces almacenar valores de distinto tipo en cada una de ellas (a diferencia de los arreglos, cuyos valores son todos homogéneos)^[Internamente, un *data.frame* es sencillamente una lista, compuesta por vectores de distinto tipo que tienen todos el mismo largo y que se organizan como columnas. Además, esta lista es almacenada junto con cierta información adicional (*atributos*) que nos permiten manipularla como una estructura tabular.].
 
-Existen algunas funciones de R que nos permiten explorar el contenido de un `data.frame`:
+Existen algunas funciones de R que nos permiten explorar el contenido de un *data.frame*:
 
 ```{r}
 # Muestra los nombres de las columnas (campos del archivo)
@@ -176,7 +176,7 @@ tail(datos)
 summary(datos)
 ```
 
-Un `data.frame` puede ser indexado de la misma forma empleada con matrices, por ejemplo:
+Un *data.frame* puede ser indexado de la misma forma empleada con matrices, por ejemplo:
 
 ```{r}
 # Mostrar las filas 3 y 4, columnas 1 y 3
@@ -185,7 +185,7 @@ datos[3:4, c(1, 3)]
 datos[3:4, c("seleccion", "participaciones")]
 ```
 
-Para hacer referencia exclusivamente a una variable dentro del `data.frame`, usamos el nombre del conjunto de datos, seguido por el operador `$` y el nombre de la variable, por ejemplo:
+Para hacer referencia exclusivamente a una variable dentro del *data.frame*, usamos el nombre del conjunto de datos, seguido por el operador `$` y el nombre de la variable, por ejemplo:
 
 ```{r}
 datos$titulos
@@ -197,7 +197,7 @@ Lo anterior resulta en un vector, con el que se pueden hacer operaciones como bu
 max(datos$titulos)
 ```
 
-Si bien en los ejemplos anteriores vemos que en muchos aspectos los `data.frame`s son similares a las matrices, a partir de ahora vamos a ver cómo utilizar funciones que fueron especialmente pensadas para ayudarnos a transformar y explorar los conjuntos de datos que están guardados en objetos de tipo `data.frame` y que simplifican muchas tareas relacionadas al análisis de datos.
+Si bien en los ejemplos anteriores vemos que en muchos aspectos los *data.frame*s son similares a las matrices, a partir de ahora vamos a ver cómo utilizar funciones que fueron especialmente pensadas para ayudarnos a transformar y explorar los conjuntos de datos que están guardados en objetos de tipo *data.frame* y que simplifican muchas tareas relacionadas al análisis de datos.
 
 ## Manejo de datos
 
@@ -212,7 +212,7 @@ datos <- mutate(datos, pj = pg + pe + pp)
 ¿Qué sucedió al correr esa instrucción?:
 
   - Como primer argumento de la función proveemos el dataset con el que vamos a operar, `datos`.
-  - Elegimos en segundo lugar un nombre para una nueva variable, `pj` y la definimos como la suma de otras variables ya existentes.
+  - Elegimos en segundo lugar un nombre para una nueva variable, `pj`, y la definimos como la suma de otras variables ya existentes.
   - El resultado es el dataset original con esta modificación y lo guardamos con el mismo nombre. Si hubiésemos elegido otro nombre, generaríamos una copia del dataset con la modificación, mientras conservamos el original sin cambios.
 
 Al editar variables, podemos elegir entre sobrescribir o no una columna existente, así como también entre sobrescribir o no el conjunto de datos de partida. Para pensar... sin ejecutarlas, responder: ¿cuál es la diferencia entre las siguientes instrucciones?
@@ -228,13 +228,13 @@ datos_modif <- mutate(datos, pj = pg + pe + pp)
 datos <- mutate(datos, pg = pg + pe + pp)
 ```
 
-Otras situaciones requieren que en lugar de *mutar* de la misma forma toda una columna, los cambios dependan de alguna condición que los registros verifiquen o no. Por ejemplo, agreguemos una nueva variable que indique si cada país es o no campeón del mundo, en función de los valores disponibles en la variable `titulos`. Vamos a crear una nueva columna que se llame `campeon` y tenga el valor `campeón` cuando `titulos > 0` y `no campeón` en caso contrario, ayudándonos con la función `ifelse()`, la cual nos permite establecer una evaluación lógica y dos cursos de acción, en base a que esta resulte verdadera (`TRUE`) o falsa (`FALSE`).
+Otras situaciones requieren que en lugar de *mutar* de la misma forma toda una columna, los cambios dependan de alguna condición que los registros verifiquen o no. Por ejemplo, agreguemos una nueva variable que indique si cada país es o no campeón del mundo, en función de los valores disponibles en la variable `titulos`. Vamos a crear una nueva columna que se llame `campeon` y tenga el valor `"campeón"` cuando `titulos > 0` y `"no campeón"` en caso contrario, ayudándonos con la función `ifelse()`, la cual nos permite establecer una evaluación lógica y dos cursos de acción, en base a que esta resulte verdadera (`TRUE`) o falsa (`FALSE`).
 
 ```{r}
 datos <- mutate(datos, campeon = ifelse(titulos > 0, "campeón", "no campeón"))
 ```
 
-Inspeccionamos la nueva columna, sumando una nueva función del `tidyverse`, `count()`. Sólo 8 países han ganado el mundial alguna vez (¡y Argentina es uno de ellos!):
+Inspeccionamos la nueva columna, recurriendo a otra función del `tidyverse`, `count()`. Sólo 8 países han ganado el mundial alguna vez (¡y Argentina es uno de ellos!):
 
 ```{r}
 count(datos, campeon)
@@ -266,15 +266,13 @@ datos <- mutate(
 	)
 ```
 
-<div class="alert alert-warning">
-**Ejercicio**: agregar nuevas columnas en las que se muestre:
+Dejamos la siguiente propuesta para seguir practicando: agregar nuevas columnas en las que se muestre
 
 a) Crear una nueva variable llamada `puntos` que indique cuál es el puntaje total obtenido por cada selección a lo largo del tiempo, teniendo en cuenta que cada partido ganado aporta 3 puntos, cada partido empatado aporta 1 punto y cada partido perdido aporta 0 puntos.
 
 b) Crear una nueva variable llamada `dg`, diferencia de goles, definida como la resta entre los goles a favor y los goles en contra. 
 
-*Tip*: en `mutate()` podemos poner muchas modificaciones juntas, separándolas con coma.
-</div>
+*Sugerencia*: en `mutate()` podemos poner muchas modificaciones juntas, separándolas con coma.
 
 ```{r, echo=FALSE}
 datos <- mutate(
@@ -315,7 +313,7 @@ Por defecto estas funciones utilizan como separador cualquier carácter no alfan
 
 Podemos quedarnos sólo con los registros que cumplan con ciertas condiciones utilizando la función `filter()`:
 
-```{r, eval=F}
+```{r, eval=T}
 # Una condición
 datos_america <- filter(datos, continente == "América")
 nrow(datos_america)
@@ -343,9 +341,7 @@ arrange(datos, desc(puntos))
 arrange(datos, america, desc(titulos))
 ```
 
-<div class="alert alert-warning">
-**Ejercicio**: filtrar el conjunto de datos original para quedarse con los países que tengan una diferencia de goles positiva y guardar estos registros en un nuevo `data.frame` llamado `datos_dg_positiva`.
-</div>
+**Actividad propuesta**: filtrar el conjunto de datos original para quedarse con los países que tengan una diferencia de goles positiva y guardar estos registros en un nuevo *data.frame* llamado `datos_dg_positiva`.
 
 ```{r, echo=FALSE, eval=FALSE}
 datos_dg_positiva <- filter(datos, dg > 0)
@@ -362,7 +358,7 @@ select(datos, seleccion, participaciones)
 # Elegir cuáles se van
 select(datos, -goles_favor, -goles_contra)
 
-# Reordenar las columnas
+# Reordenar las columnas - everything() hace referencia al resto
 select(datos, seleccion, campeon, puntos, everything())
 ```
 
@@ -393,7 +389,7 @@ datos <- rename(datos, goles_favor = gf, goles_contra = gc)
 datos <- unite(datos, col = "pais_continente", seleccion, continente, sep = " - ", remove = FALSE)
 ```
 
-En todas las instrucciones anteriores se repite la misma estructura: cada función toma el dataset, lo modifica y lo guarda, y esto se convierte en el input para la próxima función. Se puede escribir todo junto de manera más cómoda usando una **tubería** o **pipeline**. En una **tubería** el resultado de cada línea es el input para la línea siguiente (por eso eliminamos en cada función el primer argumento, el nombre del dataset). El símbolo `%>%`, conocido como *pipe*, es la unión entre las partes de la tubería^[También podemos usar el operador `%>%`.]. El atajo para escribir este operador de forma rápida con el teclado es `CTRL + Shift + M`. El `data.frame` devuelto por la última función de la tubería es guardado en el objeto cuyo nombre se indica al comienzo.
+En todas las instrucciones anteriores se repite la misma estructura: cada función toma al *data.frame*, lo modifica y lo guarda, y esto se convierte en el input para la próxima función. Se puede escribir todo junto de manera más cómoda usando una **tubería** o **pipeline**. En una **tubería** el resultado de cada línea es el input para la línea siguiente (por eso eliminamos en cada función el primer argumento, el nombre del dataset). El símbolo `%>%`, conocido como *pipe*, es la unión entre las partes de la tubería^[También podemos usar el operador `|>`.]. El atajo para escribir este operador de forma rápida con el teclado es `CTRL + Shift + M`. El *data.frame* devuelto por la última función de la tubería es guardado en el objeto cuyo nombre se indica al comienzo.
 
 ```{r, eval=FALSE}
 datos <- 
@@ -427,14 +423,14 @@ write.table(datos, "archivos/mundiales_procesado.txt", quote = FALSE, row.names 
 
 ## Escritura de conjuntos de datos en archivos
 
-Todas las modificaciones que hicimos del `data.frame` con los ejemplos anteriores no modificaron el archivo original `mundiales.txt` que reside en el disco rígido de nuestra computadora, sino que sirvieron para modificar al objeto `datos` que reside en la memoria temporal durante la ejecución de la sesión de R. Si al terminar con el procesamiento de los datos queremos generar un nuevo archivo permanente con la nueva versión del dataset, tenemos que hacer algo específico para eso. R provee una gran variedad de funciones para guardar todo el contenido de un objeto de tipo `data.frame` en un archivo, como se muestra en los ejemplos que siguen, en los que plasmamos la versión actual del `data.frame` en un nuevo archivo llamado `mundiales_procesado`. En cada ocasión, generamos un tipo de archivo distinto:
+Todas las modificaciones que hicimos del *data.frame* con los ejemplos anteriores no modificaron el archivo original `mundiales.txt` que reside en el disco rígido de nuestra computadora, sino que sirvieron para modificar al objeto `datos` que reside en la memoria temporal durante la ejecución de la sesión de R. Si al terminar con el procesamiento de los datos queremos generar un nuevo archivo permanente con la nueva versión del dataset, tenemos que hacer algo específico para eso. R provee una gran variedad de funciones para guardar todo el contenido de un objeto de tipo *data.frame* en un archivo, como se muestra en los ejemplos que siguen, en los que plasmamos la versión actual del *data.frame* en un nuevo archivo llamado `mundiales_procesado`. En cada ocasión, generamos un tipo de archivo distinto:
 
 ```{r, eval=FALSE}
 # Guardarlo en un archivo de texto separado por tabulaciones
-write.table(datos, "mundiales_procesado.txt", quote = FALSE, row.names = FALSE, sep = "\t")
+write_delim(datos, file = "mundiales_procesados.txt", delim = "\t")
 
 # Guardarlo en un archivo de texto separado por comas
-write.csv(datos, "mundiales_procesado.txt", quote = FALSE, row.names = FALSE)
+write_csv(datos, file = "mundiales_procesados.csv")
 
 # Guardarlo en un archivo de Excel
 # install.packages("writexl")
@@ -457,12 +453,12 @@ mean(datos$participaciones)
 Otra alternativa es utilizar la función `summarise()` del `tidyverse`:
 
 ```{r}
-summarise(datos, total = mean(participaciones))
+summarise(datos, promedio = mean(participaciones))
 ```
 
-Si bien ésta última forma parece ser más compleja, tiene algunas ventajas:
+Si bien esta última forma parece ser más compleja, tiene algunas ventajas:
 
-- Devuelve el resultado como un objeto de tipo `data.frame`, que puede ser usado como "materia prima" en otros análisis.
+- Devuelve el resultado como un objeto de tipo *data.frame*, que puede ser usado como "materia prima" en otros análisis.
 - Permite resumir muchas variables a la vez, en general o por grupos, aplicando uno o varios cálculos de resumen.
 
 Por ejemplo, si queremos obtener el puntaje promedio obtenido por las selecciones de cada continente utilizamos `summarise()` en conjunto con `group_by()`, relacionando ambas funciones en una tubería:
@@ -506,18 +502,21 @@ Cuando en los archivos de datos existen campos de tipo carácter, que representa
 count(datos, continente)
 ```
 
-Lo anterior es un nuevo `data.frame` con dos variables, el continente y los conteos que estábamos buscando. Sin embargo, en las tablas de frecuencias suele ser útil agregar también una columna de frecuencias relativas o proporciones y de frecuencias acumuladas (si la variable fuese ordinal). Podemos hacer esto *mutando* el resultado anterior para generar las restantes columnas y lo guardamos en un nuevo `data.frame` llamado `frecuencias` para poder usarlo después:
+Sin embargo, utilizaremos un paquete que es muy útil para generar tablas de frecuencias, llamado `janitor`. No forma parte del `tidyverse` pero está creado con el mismo diseño. Lo instalamos y cargamos:
 
 ```{r}
-frecuencias <-
-	datos %>% 
-	count(continente) %>% 
-	mutate(frec_rel = n / sum(n))
+# install.packages("janitor")
+library(janitor)
+```
 
+Ahora usamos la función `tabyl` del paquete `janitor` para crear una tabla de frecuencias:
+
+```{r}
+frecuencias <- tabyl(datos, continente)
 frecuencias
 ```
 
-En este caso, con pocas categorías, podemos apreciar rápidamente cuál es el continente con mayor y menor cantidad de países que participaron de mundiales, pero si queremos resaltar esta información podemos hacer algunos filtrados. A continuación, filtramos el `data.frame` `frecuencias` para retener aquellas filas donde el valor de `n` sea igual a su mínimo o a su máximo:
+Lo anterior es un nuevo *data.frame* con tres variables, el continente, la frecuencia absoluta `n` y la frecuencia relativa, que si bien son proporciones que varían entre 0 y 1, el software las llama `percent`. En este caso, con pocas categorías, podemos apreciar rápidamente cuál es el continente con mayor y menor cantidad de países que participaron de mundiales, pero si queremos resaltar esta información podemos hacer algunos filtrados. A continuación, filtramos el *data.frame* `frecuencias` para retener aquellas filas donde el valor de `n` sea igual a su mínimo o a su máximo:
 
 ```{r}
 minimo <- filter(frecuencias, n == min(n))
@@ -526,7 +525,7 @@ maximo <- filter(frecuencias, n == max(n))
 maximo
 ```
 
-Notemos que los objetos `minimo` y `maximo` son nuevos `data.frame`s, con tan sólo una observación. Podríamos usarlos para emitir algún mensaje con los hallazgos:
+Notemos que los objetos `minimo` y `maximo` son nuevos *data.frames*, con tan sólo una observación. Podríamos usarlos para emitir algún mensaje con los hallazgos. Por supuesto que si hubiesen empates en los valores máximos o mínimos tendríamos que pensar otra forma de comunicar el mensaje, pero con todos los conocimientos que tenemos de programación esa tarea es sencilla de resolver:
 
 ```{r}
 cat("El continente con la mayor cantidad de países que han participado de mundiales es", 
@@ -534,48 +533,42 @@ cat("El continente con la mayor cantidad de países que han participado de mundi
 		minimo$continente, "con", minimo$n, "selecciones.")
 ```
 
-Por supuesto que si hubiesen empates en los valores máximos o mínimos tendríamos que pensar otra forma de comunicar el mensaje, pero con todos los conocimientos que tenemos de programación esa tarea es sencilla de resolver.
+Un aspecto útil de la función `tabyl()` es que puede ser acompañada por funciones que comienzan con el nombre `adorn_` y sirven para agregar algún tipo de "adorno" a la tabla, por ejemplo, los totales:
+
+```{r}
+frecuencias <- 
+	frecuencias %>% 
+	adorn_totals()
+frecuencias
+```
 
 Podríamos mejorar levemente la tabla de frecuencias cambiando los nombres de sus columnas, con la función `rename()`. Para poder usar nombres que contengan espacios, tenemos que encerrarlos en comillas invertidas (esto es poco práctico a la hora de escribir código, sólo sirve para mejorar la apariencia del resultado): 
 
 ```{r}
-frecuencias %>% 
-	rename(
-		Continente = continente, 
-		`Frec. Absoluta` = n, 
-		`Frec. Relativa` = frec_rel
-	)
-```
-
-```{r, eval = F, echo=F}
-frecuencias %>% 
-	rename(
-		Continente = continente, 
-		`Frec. Absoluta` = n, 
-		`Frec. Relativa` = frec_rel,
-		`Frec. Abs. Acumulada` = frec_abs_acum,
-		`Frec. Rel. Acumulada` = frec_rel_acum
-	)
-
+frecuencias <- 
+	frecuencias %>% 
+	rename(Continente = continente, `Frec. Absoluta` = n, `Frec. Relativa` = percent)
 frecuencias
 ```
 
-La función `count()` también permite obtener conteos asociados a cada combinación posible de las categorías de dos o más variables.
+Si escribimos todos los pasos que hicimos en una sola tubería, nos quedaría así:
 
 ```{r}
-count(datos, continente, campeon)
+frecuencias <- 
+	datos %>% 
+	tabyl(continente) %>% 
+	adorn_totals() %>% 
+	rename(Continente = continente, `Frec. Absoluta` = n, `Frec. Relativa` = percent)
+frecuencias
 ```
 
-El resultado, como siempre, es un `data.frame` con una columna para cada una de las variables involucradas y otra para las frecuencias absolutas. Así, podemos ver que de todos los países americanos que jugaron algún mundial, 17 nunca fueron campeones y 3 sí.
-
-Sin embargo, frecuencias como las anteriores suelen ser presentadas en **tablas de contingencia** o **tablas de doble entrada**, donde las filas se corresponden a las categorías de una variable y las columnas, a las de la otra. Existe un paquete que es muy útil para generar ese tipo de exploración de datos, llamado `janitor`. No forma parte del `tidyverse` pero está creado con el mismo diseño. Lo instalamos y cargamos:
+Otro tipo de escenario se presenta cuando queremos analizar las frecuencias de dos variables categóricas. La función `count()` también permite obtener conteos asociados a cada combinación posible de las categorías de dos o más variables. El resultado, como siempre, es un *data.frame* con una columna para cada una de las variables involucradas y otra para las frecuencias absolutas. Así, podemos ver que de todos los países americanos que jugaron algún mundial, 17 nunca fueron campeones y 3 sí.
 
 ```{r}
-# install.packages("janitor")
-library(janitor)
+count(datos, continente, campeon, sort = TRUE)
 ```
 
-Para crear una tabla de contingencia, usamos la función `tabyl()`:
+Esta forma de presentar los resultados es útil cuando deseamos identificar combinaciones de categorías con los valores mínimos y máximos. Sin embargo, frecuencias como las anteriores suelen ser presentadas en **tablas de contingencia** o **tablas de doble entrada**, donde las filas se corresponden a las categorías de una variable y las columnas, a las de la otra. La función`tabyl()` presenta los conteos de esa forma:
 
 ```{r}
 tabla_cont_campeon <- tabyl(datos, continente, campeon)
@@ -588,7 +581,7 @@ Podemos destacar cuál es el continente con mayor cantidad de campeones filtrand
 filter(tabla_cont_campeon, campeón == max(campeón))
 ```
 
-Lo interesante de la función `tabyl()` del paquete `janitor` es que nos permite de manera muy sencilla agregar totales marginales:
+La función `adorn_totals()` nos permite de manera muy sencilla agregar totales marginales, tanto para filas como columnas:
 
 ```{r}
 datos %>% 
@@ -596,7 +589,7 @@ datos %>%
   adorn_totals(where = c("row", "col"))
 ```
 
-Además, podemos pedir frecuencias relativas en lugar de absolutas, ya sea de la distribución conjunta de las dos variables (`denominator = all`), condicionada a la fila (`denominator = row`) o a la columna (`denominator = col`).
+Además, podemos pedir frecuencias relativas en lugar de absolutas, ya sea de la distribución conjunta de las dos variables (`denominator = "all"`), condicionada a la fila (`denominator = "row"`) o a la columna (`denominator = "col"`).
 
 - **Distribución conjunta de las variables**: podemos ver, por ejemplo, que el 3.8% de todos los países participantes son de América y han salido campeón alguna vez.
 
@@ -604,27 +597,27 @@ Además, podemos pedir frecuencias relativas en lugar de absolutas, ya sea de la
 	datos %>% 
 	  tabyl(continente, campeon) %>% 
 	  adorn_totals(where = c("row", "col")) %>% 
-		adorn_percentages(denominator = "all") %>%  # cálculo de proporciones
+	  adorn_percentages(denominator = "all") %>%  # cálculo de proporciones
 	  adorn_pct_formatting(digits = 1)            # mostrarlas como porcentaje (opcional)
 	```
 
-- **Distribución condicional de campeon dado continente**: los porcentajes suman 1 en cada fila. De todos los países americanos que alguna vez participaron de un mundia, el 15% logró ser campeón y el 85%, no.
+- **Distribución condicional de "campeon" dado "continente"**: los porcentajes suman 1 en cada fila. De todos los países americanos que alguna vez participaron de un mundial, el 15% logró ser campeón y el 85%, no.
 
 	```{r}
 	datos %>% 
 	  tabyl(continente, campeon) %>% 
 	  adorn_totals(where = c("row", "col")) %>% 
-		adorn_percentages(denominator = "row") %>%
+	  adorn_percentages(denominator = "row") %>%
 	  adorn_pct_formatting(digits = 1)
 	```
 
-- **Distribución condicional de continente dado campeón**: los porcentajes suman 1 en cada columna. De todos los países que salieron campeones, el 62.5% son europeos y el 37.5% restante, americanos.
+- **Distribución condicional de "continente" dado "campeón"**: los porcentajes suman 1 en cada columna. De todos los países que salieron campeones, el 62.5% son europeos y el 37.5% restante, americanos.
 
 	```{r}
 	datos %>% 
 	  tabyl(continente, campeon) %>% 
 	  adorn_totals(where = "row") %>% 
-		adorn_percentages(denominator = "col") %>%
+	  adorn_percentages(denominator = "col") %>%
 	  adorn_pct_formatting(digits = 1)
 	```
 
@@ -634,23 +627,15 @@ También podemos mostrar frecuencias absolutas y relativas al mismo tiempo, así
 datos %>% 
   tabyl(continente, campeon) %>% 
   adorn_totals(where = c("row", "col")) %>% 
-	adorn_percentages(denominator = "all") %>% 
+  adorn_percentages(denominator = "all") %>% 
   adorn_pct_formatting(digits = 1) %>% 
-	adorn_ns() %>% 
-	adorn_title(placement = "top", "Continente", "Campeones del mundo")
-```
-
-Si analizamos una única variable categórica, la función `tabyl()` nos presenta tanto las frecuencias absolutas como las relativas:
-
-```{r}
-datos %>% 
-	tabyl(continente) %>% 
-	adorn_totals()
+  adorn_ns() %>% 
+  adorn_title(placement = "top", "Continente", "Campeones del mundo")
 ```
 
 ### Distribuciones de frecuencias para variables cuantitativas
 
-Cuando se exploran datos de variables cuantitativas, es común realizar tablas de frecuencias agrupando los valores observados en intervalos. Usando la función `cut()` dentro de `mutate()` podemos especificar los puntos de corte y generar una nueva columna que informa a qué intervalo pertenece cada observación:
+Cuando se exploran datos de variables cuantitativas, es común realizar tablas de frecuencias agrupando los valores observados en intervalos. Usando la función `cut()` dentro de `mutate()` podemos especificar los puntos de corte y generar una nueva columna que informa a qué intervalo pertenece cada observación. El argumento `right` en `cut()` sirve para establecer si queremos que los intervalos sean cerrados por derecha (`TRUE`) o por izquierda (`FALSE`):
 
 ```{r}
 datos <- mutate(datos, intervalos = cut(goles_favor, breaks = seq(0, 250, 50), right = FALSE))
@@ -661,25 +646,27 @@ select(datos, seleccion, goles_favor, intervalos)
 Ahora podemos emplear la nueva columna `intervalos` para realizar tablas de frecuencias como vimos antes:
 
 ```{r}
-tabyl <- tabyl(datos, intervalos)
-
 tabla_gf <- tabyl(datos, intervalos)
 tabla_gf
+```
 
+Aunque lo vemos a simple vista, podemos programar la búsqueda del intervalo de valores con la mayor frecuencia y emitir un mensaje:
+
+```{r}
 maximo <- filter(tabla_gf, n == max(n))
 maximo
 
-cat("El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones es", 
-		as.character(maximo$intervalos), "con", maximo$n, "países.")
+cat("El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones es",
+    as.character(maximo$intervalos), "con", maximo$n, "países.")
 ```
 
+También podemos agregar columnas de frecuencias acumuladas, como suele ser común cuando se resumen variables cuantitativas o cualitativas ordinales. Para esto usamos la función `cumsum()`, que calcula una *suma acumulada*, es decir, cada fila tiene la suma de los valores encontrados desde la primera hasta ella inclusive. Además, aprovechamos a elegir nombres y cambiar los anteriores para que se vean mejor la impresión de la tabla:
 
-
-```{r, eval=FALSE, echo=FALSE}
+```{r}
 tabla_gf <- 
 	tabla_gf %>% 
 	mutate(
-		`Frec. Abs. Acumulada` = cumsum(n),        # cumsum = suma acumulada
+		`Frec. Abs. Acumulada` = cumsum(n),
 		`Frec. Rel. Acumulada` = cumsum(percent)
 	) %>% 
 	rename(
@@ -695,48 +682,26 @@ IDEA EJERCICIO
 https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidyverse/ -->
 
 
-## Creación de archivos y escritura de resultados
+## Escritura de resultados en archivos
 
-Anteriormente hemos mencionado que cuando trabajamos con archivos podemos realizar acciones tanto de lectura como de escritura, aunque hasta el momento nos hemos limitado a leer registros de un archivo. En este apartado presentamos cómo crear un archivo de texto desde R, de manera que pueda utilizarse para escribir y guardar allí los resultados obtenidos.
+Anteriormente hemos mencionado que cuando trabajamos con archivos podemos realizar acciones tanto de lectura como de escritura y hasta el momento hemos visto cómo leer registros de un archivo y guardar los datos de un *data.frame* en uno nuevo. En este apartado presentamos cómo crear un archivo de texto desde R, de manera que pueda utilizarse para escribir y guardar allí los resultados obtenidos en tareas básicas de exploración.
 
-### Crear un archivo para guardar resultados
-
-Imaginemos que en el problema del hotel, en lugar de mostrar los resultados en la consola, queremos volcarlos en un archivo de texto llamado `resultados.txt`.
-
-En R, la función `sink()` permite escribir en un archivo de texto todos los resultados que habitualmente vemos en la consola. Sus argumentos son:
+Vamos a volcar los hallazgos sobre los mundiales en un archivo de texto llamado `salida.txt`. En R, la función `sink()` permite escribir en un archivo de texto todos los resultados que habitualmente vemos en la consola. Sus argumentos son:
 
 - `file`: nombre del archivo, si no existe será creado. Se guarda en el directorio de trabajo actual, a menos que indiquemos aquí la ruta completa hacia otra carpeta.
-- `append`: si el archivo ya existía, por default lo sobreescribe (borra lo anterior), a menos que indiquemos `append = TRUE` para que agregue nuevas línea sin borrar nada.
-- `split`: por default mientras la conexión al archivo está activa, los resultados que enviamos al mismo no se muestran en la consola de R, a menos que indiquemos `split = TRUE`, en cuyo caso sucederán ambas cosas: los resultados serán escritos en el archivo y se verán en la consola.
+- `append`: si el archivo ya existía, por default lo sobreescribe (borra lo anterior), a menos que indiquemos `append = TRUE` para que agregue nuevas líneas sin borrar las anteriores.
+- `split`: mientras la conexión al archivo está activa, por defecto los resultados que enviamos al mismo no se muestran en la consola de R, a menos que indiquemos `split = TRUE`, en cuyo caso sucederán ambas cosas: los resultados serán escritos en el archivo y se verán en la consola.
 
 Cuando se desea cerrar la conexión al archivo, se debe correr `sink()` sin ningún argumento. Todo lo que *imprimamos* con `cat()` entre ambos llamados a `sink()` se guardará en el archivo. La última parte del código en el problema anterior debe ser:
 
 ```{r, eval=FALSE}
-# Crear conexión al archivo de resultados y poner un encabezado
+# Crear conexión al archivo de salida y poner un encabezado
 sink(file = "salida.txt", append = TRUE, split = TRUE)
 cat("==========================================\n")
 cat("            ARCHIVO DE RESULTADOS         \n")
 cat("==========================================\n\n")
 
-# a) Mostrar la tabla
-cat("Número de reservas durante el 2021 según mes y tipo de habitación\n")
-cuadro
 
-# b) Determinar el total de pernoctaciones en el hotel durante el 2021
-cat("\nEl número total de pernoctaciones en el hotel durante el 2021 fue", pernoc, "\n\n")
-
-# c) Determinar cuál fue el mes de mayor cantidad de reservas
-res <- maximo(total_fila)
-cat("El mes de mayor cantidad de reservas fue", meses[res[2]], "con", 
-    res[1], "reservas.\n\n")
-
-# d) Determinar para cada tipo de habitación el mes con menor número de reservas
-for (j in 1:3) {
-	res <- minimo_matriz_col(tabla, j)
-	cat("Para las habitaciones de tipo", tipos[j], 
-	    "el mes con menor\n     número de reservas fue", 
-	    meses[res[2]], "con", res[1], "reservas.\n")
-}
 
 # Cerrar conexión al archivo
 sink()
@@ -786,17 +751,13 @@ prop.table(tabla2, margin = 1)
 prop.table(tabla2, margin = 2)
 ```
 
-### Cambiar el formato de un `data.frame`
+### Cambiar el formato de un *data.frame*
 
 Dependiendo de los requerimientos de los análisis que estemos realizando, es muy frecuente necesitar cambiar el formato que tienen los datos. Por ejemplo, puede ser necesario apilar columnas una debajo de otra, resultando en un dataset con más filas (más largo) y menos columnas (más angosto). La situación contraria también se puede presentar y consiste en desacoplar información concatenada en una sola columna para ubicarla en varias columnas adyacentes, resultando en una dataset con más columnas (más ancho) y menos filas (más corto). Por supuesto, estas transformaciones tienen que hacerse sin mezclar los registros:
 
-```{r, fig.show='hold', echo=FALSE, fig.align="center", out.width="60%"}
-knitr::include_graphics('images/06_archivos/tidyr-longer-wider.gif')
-```
-
 **Formato ancho a largo**
 
-Armemos un pequeño ejemplo de juguete para imaginar bien de qué se trata esto. Supongamos que tenemos datos con la cantidad vendida de 3 productos en distintos meses. De la siguiente forma se puede crear un `data.frame` "a mano", sin leer los datos desde un archivo:
+Armemos un pequeño ejemplo de juguete para imaginar bien de qué se trata esto. Supongamos que tenemos datos con la cantidad vendida de 3 productos en distintos meses. De la siguiente forma se puede crear un *data.frame* "a mano", sin leer los datos desde un archivo:
 
 ```{r}
 ejemplo1 <- data.frame(

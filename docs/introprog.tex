@@ -243,7 +243,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2023-03-21}
+\date{2023-05-24}
 
 \begin{document}
 \maketitle
@@ -4837,16 +4837,16 @@ En el caso de las matrices, se le puede asignar nombres a sus filas y columnas:
               \DecValTok{14}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{29}\NormalTok{), }
               \AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
 \FunctionTok{rownames}\NormalTok{(x) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"C"}\NormalTok{)}
-\FunctionTok{colnames}\NormalTok{(x) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"col1"}\NormalTok{, }\StringTok{"grupo2"}\NormalTok{, }\StringTok{"grupo3"}\NormalTok{, }\StringTok{"grupo4"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(x) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"grupo1"}\NormalTok{, }\StringTok{"grupo2"}\NormalTok{, }\StringTok{"grupo3"}\NormalTok{, }\StringTok{"grupo4"}\NormalTok{)}
 \NormalTok{x}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-  col1 grupo2 grupo3 grupo4
-A    8     13     18     23
-B   11     16     21     26
-C   14     19     24     29
+  grupo1 grupo2 grupo3 grupo4
+A      8     13     18     23
+B     11     16     21     26
+C     14     19     24     29
 \end{verbatim}
 \item
   Opción 2: al crear la matriz
@@ -5204,7 +5204,7 @@ En lo anterior, \texttt{u\ *\ v} hace la multiplicación elemento a elemento ent
 [1] 32
 \end{verbatim}
 
-En el \textbf{ejercicio 3} de la \textbf{Práctica 4} creamos las funciones \texttt{ordenar\_asc()} y \texttt{ordenar\_des()} para ordenar los elementos de un vector. Con las funciones disponibles en R, ssto se puede hacer así:
+En el \textbf{ejercicio 3} de la \textbf{Práctica 4} creamos las funciones \texttt{ordenar\_asc()} y \texttt{ordenar\_des()} para ordenar los elementos de un vector. Con las funciones disponibles en R, esto se puede hacer así:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5483,7 +5483,7 @@ También podemos resumir la información contenida en una matriz:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 81
+[1] 98
 \end{verbatim}
 
 \begin{Shaded}
@@ -5495,7 +5495,7 @@ También podemos resumir la información contenida en una matriz:
 
 \begin{verbatim}
      row col
-[1,]   2   3
+[1,]   4   1
 \end{verbatim}
 
 \begin{Shaded}
@@ -5506,7 +5506,7 @@ También podemos resumir la información contenida en una matriz:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 5
+[1] 1
 \end{verbatim}
 
 \begin{Shaded}
@@ -5518,7 +5518,7 @@ También podemos resumir la información contenida en una matriz:
 
 \begin{verbatim}
      row col
-[1,]   4   4
+[1,]   4   3
 \end{verbatim}
 \end{itemize}
 
@@ -5617,7 +5617,7 @@ Como aprenderán en Álgebra, las matrices numéricas son muy útiles en diverso
 \end{Shaded}
 
 \begin{verbatim}
-[1]  6 80 14  5
+[1] 71 40 38 93
 \end{verbatim}
 \end{itemize}
 
@@ -6915,7 +6915,1757 @@ Para situaciones como la anterior, resulta más útil guardar los valores en otr
 \hypertarget{uso-de-archivos-de-datos}{%
 \chapter{Uso de archivos de datos}\label{uso-de-archivos-de-datos}}
 
-\textbf{Página en revisión}
+\hypertarget{introducciuxf3n}{%
+\section{Introducción}\label{introducciuxf3n}}
+
+Como hemos visto, los programas usan variables para guardar información: datos de entrada, resultados calculados, valores intermedios, etc. Sin embargo, la información guardada en las variables es efímera. Cuando los programas paran de correr, el valor almacenado en las variables se pierde. En muchas ocasiones, es necesario guardar información de una forma más permanente.
+
+En estos casos, el enfoque usual es recolectar la información en un todo lógicamente cohesivo y guardarlo en un medio permanente que generalmente se graba en el disco rígido de la máquina, es decir, en un archivo. Un \textbf{archivo} o \textbf{fichero} es un conjunto de información sobre un mismo tema tratado como una unidad de almacenamiento y organizado de forma estructurada para la búsqueda de un dato individual. Los archivos pueden contener instrucciones de programas o información creada o usada por un programa. Todos los objetos de datos permanentes que guardamos en nuestra computadora (documentos, juegos, programas ejecutables, código, etc.) son guardados en la forma de archivos.
+
+Un archivo se identifica con un \textbf{nombre}, seguido por un \emph{punto} y una \textbf{extensión}, la cual es un sufijo empleado para indicar características de su contenido, el uso pretendido o el software con el cual puede ser empleado. Por ejemplo, un archivo que se llama \emph{planilla.xlsx} es una hoja de cálculo de Excel o un archivo llamado \emph{codigo.R} es un script de código de R.
+
+\hypertarget{registros-campos-claves-y-bases-de-datos}{%
+\subsection{Registros, campos, claves y bases de datos}\label{registros-campos-claves-y-bases-de-datos}}
+
+En esta asignatura nos limitaremos a trabajar con archivos que guardan información de forma tabular, en los que la unidad elemental que los compone es un \textbf{registro}, es decir, una colección de información relativa a una misma entidad. En general, cada registro de un mismo archivo tiene la misma estructura que los demás. Los datos individuales sobre dicha entidad se organizan en \textbf{campos}. Un \textbf{campo} es la mínima unidad de información de un registro.
+
+Para ejemplificar, trabajaremos con un archivo llamado \emph{mundiales.txt} que tiene datos sobre todos los mundiales de fútbol de la FIFA, incluyendo el del año 2022, en el cual nuestra selección argentina conquistó su tercer título. Cada fila del conjunto de datos corresponde a un país y cada columna hace referencia a las siguientes variables\footnote{Los partidos definidos en tiempo complementario se cuentan como victorias y derrotas, mientras que los partidos definidos por tandas de penales se cuentan como empates.}:
+
+\begin{verbatim}
+ARCHIVO: mundiales.txt
+Campo 1 - seleccion: nombre del país, tipo carácter
+Campo 2 - continente: continente al que pertenece el país, tipo carácter
+Campo 3 - participaciones: cantidad de mundiales jugados, tipo numérico
+Campo 4 - pg: cantidad de partidos ganados, tipo numérico
+Campo 5 - pe: cantidad de partidos empatados, tipo numérico
+Campo 6 - pp: cantidad de partidos perdidos, tipo numérico
+Campo 7 - gf: cantidad de goles a favor, tipo numérico
+Campo 8 - gf: cantidad de goles en contra, tipo numérico
+Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico
+\end{verbatim}
+
+Este archivo tiene 80 registros, ya que son 80 países los que han disputado algún mundial a lo largo de la historia. Los primeros registros lucen así:
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1549}}
+  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1690}}
+  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.2394}}
+  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0563}}
+  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0563}}
+  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0563}}
+  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0704}}
+  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0704}}
+  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1268}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\centering
+seleccion
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+continente
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+participaciones
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+pg
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+pe
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+pp
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+gf
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+gc
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+titulos
+\end{minipage} \\
+\midrule()
+\endhead
+Brasil & América & 22 & 76 & 19 & 19 & 237 & 108 & 5 \\
+Alemania & Europa & 20 & 68 & 21 & 23 & 232 & 130 & 4 \\
+Argentina & América & 18 & 47 & 17 & 24 & 152 & 101 & 3 \\
+Italia & Europa & 18 & 45 & 21 & 17 & 128 & 77 & 4 \\
+Francia & Europe & 16 & 39 & 14 & 20 & 136 & 85 & 2 \\
+\bottomrule()
+\end{longtable}
+
+Un campo está caracterizado por el tipo de datos que almacena (carácter, numérico, lógico) y en algunos contextos es necesario precisar su longitud (por ejemplo, cantidad de caracteres admitidos como máximo en los datos del campo). Algunos lenguajes, como R, admiten trabajar con campos de longitud variable (sin necesidad de que sea especificada con anticipación).
+
+En el contexto del análisis de datos, cada columna o \emph{campo} en este tipo de archivos puede representar una variable observada sobre los individuos o unidades de interés, los cuales se encuentran dispuestos en las sucesivas filas.
+
+Generalmente suele ser necesario identificar de manera única a cada registro de un archivo. Para esto suele considerarse a uno de los campos del archivo como el \textbf{campo clave} o, más sencillamente, \textbf{clave}. La \textbf{clave} o \emph{key} es el campo que identifica inequívocamente a cada registro, permitiendo diferenciarlo del resto, como podría ser el nombre de la selección en el ejemplo anterior. En ocasiones donde no hay un campo \emph{clave} es posible identificar un registro a través de la combinación de los valores presentes en más de uno de los campos.
+
+Por último, cabe mencionar que llamamos \textbf{base de datos} a un conjunto de archivos que contienen datos relacionados entre sí, vinculados mediante sistemas complejos que enlazan las claves de uno y otro archivo y que pueden ser consultados mediante el uso de software especializado. Por eso, cuando trabajamos con los datos almacenados en un único archivo, es conveniente referirse a los mismos como ``conjunto de datos'' y no como ``base de datos''.
+
+\hypertarget{organizaciuxf3n-de-archivos}{%
+\subsection{Organización de archivos}\label{organizaciuxf3n-de-archivos}}
+
+Existen distintos tipos de organización de los archivos según la forma en la que se pueda acceder a cada uno de sus registros:
+
+\begin{itemize}
+\item
+  \textbf{Organización secuencial}
+
+  Los registros se encuentran en cierto orden que debe ser respetado para la lectura de los mismos. Para leer el registro situado en la posición \emph{n}, el programa previamente tiene que pasar por los \emph{n-1} registros que ocupan las posiciones anteriores.
+
+  Los archivos de tipo secuencial en general ocupan menos memoria y suelen ser utilizados para guardar contenidos que sufren pocas modificaciones. Los registros se graban consecutivamente en el soporte que los aloja (por ejemplo, en el disco). El orden físico con el que fueron escritos los registros coincide con el orden de lectura de los mismos.
+
+  Los registros pueden leerse uno por uno hasta llegar al final del archivo, donde se indica de alguna manera el fin del mismo, muchas veces a través de un caracter especial como un asterisco o de una línea en blanco. Esta marca generalmente se conoce como \emph{EOF} (\emph{end of file}). La mayoría de los lenguajes de programación disponen de una función lógica que devuelve un valor \texttt{VERDADERO} cuando se alcanza el final del archivo.
+\item
+  \textbf{Organización directa}
+
+  Son archivos que están organizados de manera que se pueda acceder de forma directa a cada registro mediante su posición en el soporte físico que lo contiene, sin tener que pasar secuencialmente por los registros anteriores. Poseen la ventaja de brindar un acceso rápido a la información y la posibilidad de leer y escribir registros en cualquier posición y orden.
+
+  Se puede mencionar como desventaja de este tipo de organización el hecho de que requiere la programación de la forma de identificar la posición de un registro a partir de alguno de los valores de sus campos, generalmente, la \emph{clave}. Esto se hace mediante un algoritmo de transformación de la clave (llamado \emph{hash function}) que a partir de la misma devuelve la dirección del registro en el soporte físico. El archivo debe diseñarse teniendo en cuenta de antemano una cantidad total de registros fija.
+\item
+  \textbf{Organización indexada}
+
+  Los archivos están estructurados de manera que los registros se pueden localizar sin pasar por los anteriores, consultando en una tabla adicional de índices la zona del archivo donde se encuentra el registro buscado. Esto permite localizar un registro por medio de su clave o del valor de algún campo en particular.
+
+  Para imaginarnos esto, podemos pensar que un diccionario es un ejemplo de un archivo indexado, ya que podemos encontrar la región donde se encuentra un registro (palabra) mediante el índice de letras. Si queremos buscar el término ``programación'' en un diccionario, no recorremos todas las palabras del mismo desde la ``A'' hasta encontrar el término de interés, sino que buscamos en el índice en qué página del diccionario se encuentra la ``P'' y comenzamos una búsqueda secuencial desde la misma.
+
+  Un archivo indexado, entonces, cuenta en realidad con dos archivos, uno de índices (que se recorre de forma secuencial) y otro con los registros propiamente dichos. Posee la ventaja de brindar un rápido acceso a los registros, pero con el costo de utilizar espacio adicional para la tabla de índices.
+\end{itemize}
+
+La organización más sencilla y más comúnmente empleada es la \textbf{secuencial}, aunque en algunos casos puede no ser la más eficiente. Si bien no todos los lenguajes de programación permiten el trabajo con archivos indexados o de organización directa, todos pueden manejar archivos secuenciales.
+
+En este curso no profundizaremos en esta distinción y trabajaremos con archivos guardados como documentos de Excel (extensión \emph{.xlsx}) o archivos de texto (extensión \emph{.txt} o \emph{.csv}), los cuales siguen una organización secuencial.
+
+Un \textbf{archivo de texto} (también conocido como \emph{texto llano} o \emph{texto simple}) es un archivo informático que contiene únicamente texto formado por una secuencia ordenada de caracteres. El texto almacenado en este tipo de archivo carece de cualquier tipo de formato tipográfico (negrita, cursiva, colores, subrayado, fuente, etc.), lo cual permite que una gran variedad de programas pueda leer y editar el contenido. Cada renglón en el archivo de texto es un registro y los distintos campos suelen estar señalizados con tabulaciones (archivos \emph{.txt}, como el que usaremos de ejemplo, \emph{mundiales.txt}) o separados por comas o punto y comas (archivos \emph{.csv}).
+
+Los archivos de texto están compuestos por caracteres ordinarios, como las letras, números y signos de puntuación, y por caracteres especiales que indican, por ejemplo, saltos de línea (\texttt{\textbackslash{}n}) y tabulaciones (\texttt{\textbackslash{}t}). Pero como en realidad las computadoras solamente entienden números, cada carácter es codificado internamente con una representación numérica binaria, que nosotros nunca llegamos a ver. Distintas maneras de hacer esta representación dan lugar a diferentes formatos de codificación de caracteres (como \emph{ASCII}, \emph{ISO-8859-1} o \emph{UTF-8}). Si en alguna oportunidad abrimos un archivo y nos percatamos que caracteres como la ``ñ'' o las tildes han sido reemplazadas por otros produciendo un aspecto ``raro'', significa que el archivo ha sido abierto empleando una codificación diferente de la que se utilizó al crear el archivo. La solución para este problema es muy sencilla, sólo hay que cambiar la opción de codificación a la hora de guardar o de abrir el archivo.
+
+\hypertarget{operaciones-sobre-archivos}{%
+\subsection{Operaciones sobre archivos}\label{operaciones-sobre-archivos}}
+
+El uso de archivos en programación es muy importante ya que nos permite leer datos para hacer algún tipo de procesamiento y también guardar resultados obtenidos. El sistema operativo de la computadora es el que se encarga de manipular los archivos para que podamos leerlos o escribir en ellos, pero debemos aprender las sentencias que el lenguaje de programación elegido utiliza para encargarle esas tareas al sistema operativo. Los procedimientos básicos que los programas pueden llevar a cabo sobre los distintos tipos de archivos son:
+
+\begin{itemize}
+\item
+  \textbf{Creación de un archivo}: para que un archivo pueda ser utilizado, antes tiene que existir, obviamente. Una vez que el archivo de datos fue creado y existe, se pueden hacer con él las restantes operaciones. En la mayoría de las aplicaciones que veremos, tendremos archivos que han sido creados con anterioridad y ya tienen registros, por lo cual usaremos pocas veces esta acción, pero eventualmente crearemos nuevos archivos para guardar nuevas versiones del conjunto de datos o para guardar resultados en otro tipo de documento.
+\item
+  \textbf{Apertura de un archivo}: para que un programa pueda operar sobre un archivo, la primera acción que debe realizar es la \textbf{apertura} del mismo, que incluye la identificación del archivo a utilizar y el modo (lectura o escritura). Esto hace que el sistema operativo establezca una \emph{conexión} con el archivo que mientras se mantenga activa permitirá la lectura y escritura de registros en el mismo. Dependiendo del lenguaje de programación o de las subsiguientes operaciones a realizar, en algunos casos la apertura tiene que ser indicada con alguna instrucción de manera explícita y en otros, no.
+\item
+  \textbf{Lectura de registros en un archivo}: la \textbf{lectura} consiste en transferir información del archivo a la memoria principal usada por el programa. En los archivos de organización secuencial, los registros se leen uno por uno, es decir, línea por línea, hasta llegar al final del archivo. Sin embargo, en la aplicaciones que nos interesan, el software se encarga de leer automáticamente todos los registros y almacenarlos en alguna estructura de datos especializada que definamos en el ambiente de trabajo.
+\item
+  \textbf{Escritura en un archivo}: la \textbf{escritura} es la transferencia de información guardada en las variables del programa al archivo.
+\item
+  \textbf{Cierre de un archivo}: cuando un programa no vaya a acceder más a un archivo, es necesario indicarlo a través del \textbf{cierre} del mismo, para que se interrumpa la conexión establecida por el sistema operativo. Esto hace que se liberen memoria y recursos del sistema, se prevenga la corrupción de los datos y se exprese explícitamente que ya no se hará más uso del mismo. En algunos lenguajes o para determinadas tareas, esto puede no ser necesario.
+\item
+  \textbf{Otras operaciones}: ptras operaciones que se pueden realizar sobre los archivos, en base a combinaciones de las anteriores, incluyen a las acciones de:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Actualización}: añadir (dar de alta), modificar o eliminar (dar de baja) algún registro.
+  \item
+    \emph{Clasificación}: reubicar los registros de tal forma que queden ordenados por algún campo determinado.
+  \item
+    \emph{Fusión o mezcla}: combinar dos o más archivos para formar uno nuevo.
+  \item
+    \emph{Partición}: subdividir los registros por el valor que toman en algún campo para generar más de un archivo.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{lectura-de-los-registros-del-archivo}{%
+\section{Lectura de los registros del archivo}\label{lectura-de-los-registros-del-archivo}}
+
+Ya hemos mencionado que R se organiza mediante un sistema de paquetes, algunos de los cuales vienen instalados con la distribución básica de R, mientras que otros deben ser instalados si tenés el particular interés de usarlos. R Base trae muchas funciones útiles para la importación de datos, así como para las subsiguientes tareas de manejo, transformación y resumen. Sin embargo, en este curso aprenderemos a emplear una familia de paquetes conocida como \href{https://www.tidyverse.org}{\textbf{tidyverse}}, creados para la manipulación, exploración y visualización de datos con un diseño, estructuras y reglas de uso en común, que resultan muy amigables para programar.
+
+\begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/tidyverse} \end{center}
+
+Instalamos esta colección de paquetes con:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Lo anterior se realiza una sola vez. Luego, cada vez que queramos usar este sistema, usamos \texttt{library()} para que queden a nuestra disposición las funciones provistas por los paquetes más importantes de esta gran familia:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+El \emph{tidyverse} provee una función de uso muy sencillo para leer datos guardados en un archivo de texto con campos separados por tabulaciones, como es el caso de \texttt{mundiales.txt}. En \href{https://github.com/mpru/introprog/tree/master/archivos}{este enlace} o en el aula virtual podrás encontrar el archivo de datos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{read\_delim}\NormalTok{(}\StringTok{"mundiales.txt"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Si tenemos que importar otro tipo de archivo (por ejemplo, de Excel o de texto separado con comas) y no nos acordamos cuál es la función que permite hacerlo, podemos recurrir al menú de importación de datos mediante el botón \texttt{Import\ Dataset} en el panel \texttt{Environment} de RStudio (arriba a la derecha). Ahí podremos elegir distintas opciones para la importación y automáticamente se generará y ejecutará el código de R necesario, el cual debemos copiar y pegar en nuestro \emph{script} para dejar sentado cómo se realizó la importación.
+
+\begin{center}\includegraphics[width=0.3\linewidth]{images/06_archivos/importar1} \end{center}
+
+Una vez completado este paso, en el ambiente podremos ver listado un nuevo objeto llamado \texttt{datos}, ya que ese es el nombre que elegimos como identificador para el conjunto de datos devuelto por la función \texttt{read\_delim()}. Allí también vemos una breve descripción que nos dice que \texttt{datos} tiene 80 observaciones (registros) de 9 variables (campos). Si hacemos clic sobre el nombre del objeto se abrirá una pestaña para que podamos explorar su contenido. Entonces\ldots{} ¿qué tipo de objeto es \texttt{datos}?:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{class}\NormalTok{(datos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "spec_tbl_df" "tbl_df"      "tbl"         "data.frame" 
+\end{verbatim}
+
+Hasta ahora habíamos trabajado con tres tipos de datos básicos: numérico, carácter y lógico, y habíamos visto que con los mismos podíamos crear estructuras de datos como vectores, matrices o listas. Como indica la salida anterior, el objeto \texttt{datos} es de tipo \emph{data.frame}, lo cual significa que es una estructura de datos bidimensional (como una matriz) en la cual cada fila representa a un registro y cada columna representa a uno de los campos del archivo, pudiendo entonces almacenar valores de distinto tipo en cada una de ellas (a diferencia de los arreglos, cuyos valores son todos homogéneos)\footnote{Internamente, un \emph{data.frame} es sencillamente una lista, compuesta por vectores de distinto tipo que tienen todos el mismo largo y que se organizan como columnas. Además, esta lista es almacenada junto con cierta información adicional (\emph{atributos}) que nos permiten manipularla como una estructura tabular.}.
+
+Existen algunas funciones de R que nos permiten explorar el contenido de un \emph{data.frame}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Muestra los nombres de las columnas (campos del archivo)}
+\FunctionTok{names}\NormalTok{(datos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "seleccion"       "continente"      "participaciones" "pg"             
+[5] "pe"              "pp"              "gf"              "gc"             
+[9] "titulos"        
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Muestra la "estructura" interna del dataset}
+\FunctionTok{str}\NormalTok{(datos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+spc_tbl_ [80 x 9] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ seleccion      : chr [1:80] "Brasil" "Alemania" "Argentina" "Italia" ...
+ $ continente     : chr [1:80] "América" "Europa" "América" "Europa" ...
+ $ participaciones: num [1:80] 22 20 18 18 16 16 16 11 14 14 ...
+ $ pg             : num [1:80] 76 68 47 45 39 32 31 30 25 21 ...
+ $ pe             : num [1:80] 19 21 17 21 14 22 17 14 13 10 ...
+ $ pp             : num [1:80] 19 23 24 17 20 20 19 11 21 20 ...
+ $ gf             : num [1:80] 237 232 152 128 136 104 108 96 89 69 ...
+ $ gc             : num [1:80] 108 130 101 77 85 68 75 52 76 74 ...
+ $ titulos        : num [1:80] 5 4 3 4 2 1 1 0 2 0 ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   seleccion = col_character(),
+  ..   continente = col_character(),
+  ..   participaciones = col_double(),
+  ..   pg = col_double(),
+  ..   pe = col_double(),
+  ..   pp = col_double(),
+  ..   gf = col_double(),
+  ..   gc = col_double(),
+  ..   titulos = col_double()
+  .. )
+ - attr(*, "problems")=<externalptr> 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Muestra la cantidad de filas y columnas}
+\FunctionTok{dim}\NormalTok{(datos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 80  9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Muestra la cantidad de filas}
+\FunctionTok{nrow}\NormalTok{(datos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 80
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Muestra la cantidad de columnas}
+\FunctionTok{ncol}\NormalTok{(datos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Muestra los primeros registros}
+\FunctionTok{head}\NormalTok{(datos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 6 x 9
+  seleccion  continente participaciones    pg    pe    pp    gf    gc titulos
+  <chr>      <chr>                <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>   <dbl>
+1 Brasil     América                 22    76    19    19   237   108       5
+2 Alemania   Europa                  20    68    21    23   232   130       4
+3 Argentina  América                 18    47    17    24   152   101       3
+4 Italia     Europa                  18    45    21    17   128    77       4
+5 Francia    Europe                  16    39    14    20   136    85       2
+6 Inglaterra Europa                  16    32    22    20   104    68       1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Muestra los últimos registros}
+\FunctionTok{tail}\NormalTok{(datos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 6 x 9
+  seleccion     continente participaciones    pg    pe    pp    gf    gc titulos
+  <chr>         <chr>                <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>   <dbl>
+1 Emiratos Ára~ asia                     1     0     0     3     2    11       0
+2 China         asia                     1     0     0     3     0     9       0
+3 Canadá        América                  2     0     0     6     2    12       0
+4 Haití         América                  1     0     0     3     2    14       0
+5 R. D. del Co~ África                   1     0     0     3     0    14       0
+6 El Salvador   América                  2     0     0     6     1    22       0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Muestra un resumen de cada campo}
+\FunctionTok{summary}\NormalTok{(datos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  seleccion          continente        participaciones        pg        
+ Length:80          Length:80          Min.   : 1.000   Min.   : 0.000  
+ Class :character   Class :character   1st Qu.: 1.750   1st Qu.: 0.750  
+ Mode  :character   Mode  :character   Median : 4.500   Median : 4.000  
+                                       Mean   : 6.112   Mean   : 9.375  
+                                       3rd Qu.: 9.000   3rd Qu.:12.000  
+                                       Max.   :22.000   Max.   :76.000  
+       pe              pp               gf            gc        
+ Min.   : 0.00   Min.   : 1.000   Min.   :  0   Min.   :  2.00  
+ 1st Qu.: 1.00   1st Qu.: 3.000   1st Qu.:  4   1st Qu.: 11.00  
+ Median : 3.00   Median : 7.500   Median : 15   Median : 24.50  
+ Mean   : 5.35   Mean   : 9.375   Mean   : 34   Mean   : 34.00  
+ 3rd Qu.: 8.00   3rd Qu.:14.250   3rd Qu.: 43   3rd Qu.: 49.25  
+ Max.   :22.00   Max.   :28.000   Max.   :237   Max.   :130.00  
+    titulos     
+ Min.   :0.000  
+ 1st Qu.:0.000  
+ Median :0.000  
+ Mean   :0.275  
+ 3rd Qu.:0.000  
+ Max.   :5.000  
+\end{verbatim}
+
+Un \emph{data.frame} puede ser indexado de la misma forma empleada con matrices, por ejemplo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Mostrar las filas 3 y 4, columnas 1 y 3}
+\NormalTok{datos[}\DecValTok{3}\SpecialCharTok{:}\DecValTok{4}\NormalTok{, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 2 x 2
+  seleccion participaciones
+  <chr>               <dbl>
+1 Argentina              18
+2 Italia                 18
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Mostrar las filas 3 y 4, columnas "seleccion" y "participaciones"}
+\NormalTok{datos[}\DecValTok{3}\SpecialCharTok{:}\DecValTok{4}\NormalTok{, }\FunctionTok{c}\NormalTok{(}\StringTok{"seleccion"}\NormalTok{, }\StringTok{"participaciones"}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 2 x 2
+  seleccion participaciones
+  <chr>               <dbl>
+1 Argentina              18
+2 Italia                 18
+\end{verbatim}
+
+Para hacer referencia exclusivamente a una variable dentro del \emph{data.frame}, usamos el nombre del conjunto de datos, seguido por el operador \texttt{\$} y el nombre de la variable, por ejemplo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos}\SpecialCharTok{$}\NormalTok{titulos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ [1] 5 4 3 4 2 1 1 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[39] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[77] 0 0 0 0
+\end{verbatim}
+
+Lo anterior resulta en un vector, con el que se pueden hacer operaciones como buscar el valor máximo si queremos saber cuál es la cantidad máxima de títulos alcanzada:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{max}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{titulos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 5
+\end{verbatim}
+
+Si bien en los ejemplos anteriores vemos que en muchos aspectos los \emph{data.frame}s son similares a las matrices, a partir de ahora vamos a ver cómo utilizar funciones que fueron especialmente pensadas para ayudarnos a transformar y explorar los conjuntos de datos que están guardados en objetos de tipo \emph{data.frame} y que simplifican muchas tareas relacionadas al análisis de datos.
+
+\hypertarget{manejo-de-datos}{%
+\section{Manejo de datos}\label{manejo-de-datos}}
+
+\hypertarget{editar-o-crear-nuevas-variables}{%
+\subsection{Editar o crear nuevas variables}\label{editar-o-crear-nuevas-variables}}
+
+Es muy común tener que modificar una variable existente o añadir una nueva, la cual puede depender de algún cálculo realizado a partir de otras columnas presentes en el dataset. Para cualquiera de estas actividades que implican \emph{modificar} o \emph{mutar} el dataset, emplearemos la función \texttt{mutate()}. Vamos a calcular la cantitad total que cada selección ha jugado en los mundiales a lo largo de toda la historia (\texttt{pj}), sumando la cantidad de partidos que ha ganado, empatado y perdido:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(datos, }\AttributeTok{pj =}\NormalTok{ pg }\SpecialCharTok{+}\NormalTok{ pe }\SpecialCharTok{+}\NormalTok{ pp)}
+\end{Highlighting}
+\end{Shaded}
+
+¿Qué sucedió al correr esa instrucción?:
+
+\begin{itemize}
+\tightlist
+\item
+  Como primer argumento de la función proveemos el dataset con el que vamos a operar, \texttt{datos}.
+\item
+  Elegimos en segundo lugar un nombre para una nueva variable, \texttt{pj} y la definimos como la suma de otras variables ya existentes.
+\item
+  El resultado es el dataset original con esta modificación y lo guardamos con el mismo nombre. Si hubiésemos elegido otro nombre, generaríamos una copia del dataset con la modificación, mientras conservamos el original sin cambios.
+\end{itemize}
+
+Al editar variables, podemos elegir entre sobrescribir o no una columna existente, así como también entre sobrescribir o no el conjunto de datos de partida. Para pensar\ldots{} sin ejecutarlas, responder: ¿cuál es la diferencia entre las siguientes instrucciones?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Sentencia (a)}
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(datos, }\AttributeTok{pj =}\NormalTok{ pg }\SpecialCharTok{+}\NormalTok{ pe }\SpecialCharTok{+}\NormalTok{ pp)}
+
+\CommentTok{\# Sentencia (b)}
+\NormalTok{datos\_modif }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(datos, }\AttributeTok{pj =}\NormalTok{ pg }\SpecialCharTok{+}\NormalTok{ pe }\SpecialCharTok{+}\NormalTok{ pp)}
+
+\CommentTok{\# Sentencia (c)}
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(datos, }\AttributeTok{pg =}\NormalTok{ pg }\SpecialCharTok{+}\NormalTok{ pe }\SpecialCharTok{+}\NormalTok{ pp)}
+\end{Highlighting}
+\end{Shaded}
+
+Otras situaciones requieren que en lugar de \emph{mutar} de la misma forma toda una columna, los cambios dependan de alguna condición que los registros verifiquen o no. Por ejemplo, agreguemos una nueva variable que indique si cada país es o no campeón del mundo, en función de los valores disponibles en la variable \texttt{titulos}. Vamos a crear una nueva columna que se llame \texttt{campeon} y tenga el valor \texttt{campeón} cuando \texttt{titulos\ \textgreater{}\ 0} y \texttt{no\ campeón} en caso contrario, ayudándonos con la función \texttt{ifelse()}, la cual nos permite establecer una evaluación lógica y dos cursos de acción, en base a que esta resulte verdadera (\texttt{TRUE}) o falsa (\texttt{FALSE}).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(datos, }\AttributeTok{campeon =} \FunctionTok{ifelse}\NormalTok{(titulos }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{, }\StringTok{"campeón"}\NormalTok{, }\StringTok{"no campeón"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Inspeccionamos la nueva columna, sumando una nueva función del \texttt{tidyverse}, \texttt{count()}. Sólo 8 países han ganado el mundial alguna vez (¡y Argentina es uno de ellos!):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{count}\NormalTok{(datos, campeon)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 2 x 2
+  campeon        n
+  <chr>      <int>
+1 campeón        8
+2 no campeón    72
+\end{verbatim}
+
+La función anterior es muy útil para chequear los valores guardados en atributos de tipo texto. Usémosla para inspeccionar la variable \texttt{continente}. ¿Hay algo que nos llame la atención?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{count}\NormalTok{(datos, continente)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 7 x 2
+  continente     n
+  <chr>      <int>
+1 América       20
+2 Asia           7
+3 Europa        19
+4 Europe        14
+5 Oceanía        2
+6 asia           5
+7 África        13
+\end{verbatim}
+
+Detectamos inconsistencias en la forma de registrar los nombres de los continentes: Europa aparece en inglés y en español, Asia aparece con mayúscula y con minúscula. Debemos homogeneizar la nomenclatura para poder hacer cualquier análisis válido. En este caso, en el cual la corrección implica sólo ``recodificar'' categorías, podemos usar la función \texttt{recode()} de forma muy sencilla. Aquellos registros con \texttt{"Europe"} en \texttt{continente} son reemplazados por \texttt{"Europa"}, y lo mismo ocurre con \texttt{"asia"}, que será reemplazado por \texttt{"Asia"}. Los otros valores quedan como estaban:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(datos, }\AttributeTok{continente =} \FunctionTok{recode}\NormalTok{(continente, }\StringTok{"Europe"} \OtherTok{=} \StringTok{"Europa"}\NormalTok{, }\StringTok{"asia"} \OtherTok{=} \StringTok{"Asia"}\NormalTok{))}
+\FunctionTok{count}\NormalTok{(datos, continente)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 5 x 2
+  continente     n
+  <chr>      <int>
+1 América       20
+2 Asia          12
+3 Europa        33
+4 Oceanía        2
+5 África        13
+\end{verbatim}
+
+Ediciones que requieran evaluaciones lógicas más complejas pueden realizarse con la función \texttt{case\_when()}, que para cada fila del dataset realiza una evaluación lógica. Si resulta \texttt{TRUE}, devuelve el valor mencionado al lado del \texttt{\textasciitilde{}}. Si resulta \texttt{FALSE}, continúa evaluando la siguiente operación lógica.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(}
+\NormalTok{    datos, }
+    \AttributeTok{continente =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{        continente }\SpecialCharTok{==} \StringTok{"Europe"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Europa"}\NormalTok{,}
+\NormalTok{        continente }\SpecialCharTok{==} \StringTok{"asia"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Asia"}\NormalTok{,}
+        \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ continente }\CommentTok{\# opción por defecto}
+\NormalTok{        )}
+\NormalTok{    )}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Ejercicio}: agregar nuevas columnas en las que se muestre:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  Crear una nueva variable llamada \texttt{puntos} que indique cuál es el puntaje total obtenido por cada selección a lo largo del tiempo, teniendo en cuenta que cada partido ganado aporta 3 puntos, cada partido empatado aporta 1 punto y cada partido perdido aporta 0 puntos.
+\item
+  Crear una nueva variable llamada \texttt{dg}, diferencia de goles, definida como la resta entre los goles a favor y los goles en contra.
+\end{enumerate}
+
+\emph{Tip}: en \texttt{mutate()} podemos poner muchas modificaciones juntas, separándolas con coma.
+
+\hypertarget{renombrar-atributos}{%
+\subsection{Renombrar atributos}\label{renombrar-atributos}}
+
+Para cambiar los nombres de una o más variables usamos la función \texttt{rename()}, listando los cambios con la estructura \texttt{nombre\_nuevo\ =\ nombre\_viejo}. Por ejemplo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 80 x 13
+   seleccion    continente participaciones    pg    pe    pp    gf    gc titulos
+   <chr>        <chr>                <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>   <dbl>
+ 1 Brasil       América                 22    76    19    19   237   108       5
+ 2 Alemania     Europa                  20    68    21    23   232   130       4
+ 3 Argentina    América                 18    47    17    24   152   101       3
+ 4 Italia       Europa                  18    45    21    17   128    77       4
+ 5 Francia      Europa                  16    39    14    20   136    85       2
+ 6 Inglaterra   Europa                  16    32    22    20   104    68       1
+ 7 España       Europa                  16    31    17    19   108    75       1
+ 8 Países Bajos Europa                  11    30    14    11    96    52       0
+ 9 Uruguay      América                 14    25    13    21    89    76       2
+10 Bélgica      Europa                  14    21    10    20    69    74       0
+# i 70 more rows
+# i 4 more variables: pj <dbl>, campeon <chr>, puntos <dbl>, dg <dbl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(datos, }\AttributeTok{goles\_favor =}\NormalTok{ gf, }\AttributeTok{goles\_contra =}\NormalTok{ gc)}
+\NormalTok{datos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 80 x 13
+   seleccion    continente participaciones    pg    pe    pp goles_favor
+   <chr>        <chr>                <dbl> <dbl> <dbl> <dbl>       <dbl>
+ 1 Brasil       América                 22    76    19    19         237
+ 2 Alemania     Europa                  20    68    21    23         232
+ 3 Argentina    América                 18    47    17    24         152
+ 4 Italia       Europa                  18    45    21    17         128
+ 5 Francia      Europa                  16    39    14    20         136
+ 6 Inglaterra   Europa                  16    32    22    20         104
+ 7 España       Europa                  16    31    17    19         108
+ 8 Países Bajos Europa                  11    30    14    11          96
+ 9 Uruguay      América                 14    25    13    21          89
+10 Bélgica      Europa                  14    21    10    20          69
+# i 70 more rows
+# i 6 more variables: goles_contra <dbl>, titulos <dbl>, pj <dbl>,
+#   campeon <chr>, puntos <dbl>, dg <dbl>
+\end{verbatim}
+
+\hypertarget{unir-o-separar-columnas}{%
+\subsection{Unir o separar columnas}\label{unir-o-separar-columnas}}
+
+En ocasiones puede ser necesario generar una nueva variable ``pegando'' o uniendo los datos presentes en otras. Imaginemos que tal vez necesitamos contar con una única variable textual que contenga tanto el nombre del país como el continente al que pertenece. Para esto recurrimos a la función \texttt{unite()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{unite}\NormalTok{(datos, }\AttributeTok{col =} \StringTok{"pais\_continente"}\NormalTok{, seleccion, continente, }\AttributeTok{sep =} \StringTok{" {-} "}\NormalTok{, }\AttributeTok{remove =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{datos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 80 x 14
+   pais_continente       seleccion  continente participaciones    pg    pe    pp
+   <chr>                 <chr>      <chr>                <dbl> <dbl> <dbl> <dbl>
+ 1 Brasil - América      Brasil     América                 22    76    19    19
+ 2 Alemania - Europa     Alemania   Europa                  20    68    21    23
+ 3 Argentina - América   Argentina  América                 18    47    17    24
+ 4 Italia - Europa       Italia     Europa                  18    45    21    17
+ 5 Francia - Europa      Francia    Europa                  16    39    14    20
+ 6 Inglaterra - Europa   Inglaterra Europa                  16    32    22    20
+ 7 España - Europa       España     Europa                  16    31    17    19
+ 8 Países Bajos - Europa Países Ba~ Europa                  11    30    14    11
+ 9 Uruguay - América     Uruguay    América                 14    25    13    21
+10 Bélgica - Europa      Bélgica    Europa                  14    21    10    20
+# i 70 more rows
+# i 7 more variables: goles_favor <dbl>, goles_contra <dbl>, titulos <dbl>,
+#   pj <dbl>, campeon <chr>, puntos <dbl>, dg <dbl>
+\end{verbatim}
+
+La opción \texttt{remove\ =\ FALSE} hace que las columnas que se usaron para unir permanezcan en el dataset luego de este cambio. El comportamiento por defecto es eliminarlas. Si lo que nos interesa es separar en dos columnas información que esté concatenada en una sola, usamos la contrapartida, \texttt{separate()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{separate}\NormalTok{(datos, }\AttributeTok{col =}\NormalTok{ pais\_continente, }\AttributeTok{into =} \FunctionTok{c}\NormalTok{(}\StringTok{"seleccion"}\NormalTok{, }\StringTok{"continente"}\NormalTok{), }\AttributeTok{sep =} \StringTok{" {-} "}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Por defecto estas funciones utilizan como separador cualquier carácter no alfanumérico que figure en ese campo, incluidos los espacios. El argumento \texttt{sep} se utiliza para indicar el separador adecuado cuando el establecido por defecto no es adecuado. La separación se podría hacer en más de dos columnas, de ser necesario, cuando el separador elegido aparece más de una vez.
+
+\hypertarget{filtrar-y-ordenar-registros}{%
+\subsection{Filtrar y ordenar registros}\label{filtrar-y-ordenar-registros}}
+
+Podemos quedarnos sólo con los registros que cumplan con ciertas condiciones utilizando la función \texttt{filter()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Una condición}
+\NormalTok{datos\_america }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(datos, continente }\SpecialCharTok{==} \StringTok{"América"}\NormalTok{)}
+\FunctionTok{nrow}\NormalTok{(datos\_america)}
+
+\CommentTok{\# Dos condiciones}
+\NormalTok{datos\_campeones\_america }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(datos, continente }\SpecialCharTok{==} \StringTok{"América"}\NormalTok{, campeon }\SpecialCharTok{==} \StringTok{"campeón"}\NormalTok{)}
+\FunctionTok{nrow}\NormalTok{(datos\_campeones\_america)}
+\CommentTok{\# Alternativa equivalente: filter(datos, continente == "América" \& campeon == "si")}
+
+\CommentTok{\# Al menos una de las primeras condiciones ("o") y la segunda}
+\NormalTok{datos\_filtro }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(datos, continente }\SpecialCharTok{==} \StringTok{"América"} \SpecialCharTok{|}\NormalTok{ campeon }\SpecialCharTok{==} \StringTok{"campeón"}\NormalTok{, participaciones }\SpecialCharTok{\textgreater{}} \DecValTok{10}\NormalTok{)}
+\FunctionTok{nrow}\NormalTok{(datos\_filtro)}
+\end{Highlighting}
+\end{Shaded}
+
+Para ordenar los registros según el orden creciente o decreciente en una columna, podemos usar la función \texttt{arrange()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Orden creciente:}
+\FunctionTok{arrange}\NormalTok{(datos, puntos)}
+
+\CommentTok{\# Orden decreciente:}
+\FunctionTok{arrange}\NormalTok{(datos, }\FunctionTok{desc}\NormalTok{(puntos))}
+
+\CommentTok{\# Ordenar según más de una variable:}
+\FunctionTok{arrange}\NormalTok{(datos, america, }\FunctionTok{desc}\NormalTok{(titulos))}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Ejercicio}: filtrar el conjunto de datos original para quedarse con los países que tengan una diferencia de goles positiva y guardar estos registros en un nuevo \emph{data.frame} llamado \texttt{datos\_dg\_positiva}.
+
+\hypertarget{seleccionar-y-reordenar-columnas}{%
+\subsection{Seleccionar y reordenar columnas}\label{seleccionar-y-reordenar-columnas}}
+
+Podemos elegir quedarnos sólo con algunas columnas del dataset con la función \textbf{select()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Elegir cuáles quedan}
+\FunctionTok{select}\NormalTok{(datos, seleccion, participaciones)}
+
+\CommentTok{\# Elegir cuáles se van}
+\FunctionTok{select}\NormalTok{(datos, }\SpecialCharTok{{-}}\NormalTok{goles\_favor, }\SpecialCharTok{{-}}\NormalTok{goles\_contra)}
+
+\CommentTok{\# Reordenar las columnas}
+\FunctionTok{select}\NormalTok{(datos, seleccion, campeon, puntos, }\FunctionTok{everything}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{tuberuxedas-o-pipes}{%
+\section{\texorpdfstring{Tuberías o \emph{pipes}}{Tuberías o pipes}}\label{tuberuxedas-o-pipes}}
+
+Hasta ahora, esto es parte de lo que hicimos con los datos de los mundiales:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Lectura del archivo}
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{read\_delim}\NormalTok{(}\StringTok{"mundiales.txt"}\NormalTok{)}
+
+\CommentTok{\# Calcular la cantidad total de partidos jugados en mundiales}
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(datos, }\AttributeTok{pj =}\NormalTok{ pg }\SpecialCharTok{+}\NormalTok{ pe }\SpecialCharTok{+}\NormalTok{ pp)}
+
+\CommentTok{\# Indicar si cada país es o no campeón del mundo}
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(datos, }\AttributeTok{campeon =} \FunctionTok{ifelse}\NormalTok{(titulos }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{, }\StringTok{"campeón"}\NormalTok{, }\StringTok{"no campeón"}\NormalTok{))}
+
+\CommentTok{\# Corregir los nombres de los continentes}
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(datos, }\AttributeTok{continente =} \FunctionTok{recode}\NormalTok{(continente, }\StringTok{"Europe"} \OtherTok{=} \StringTok{"Europa"}\NormalTok{, }\StringTok{"asia"} \OtherTok{=} \StringTok{"Asia"}\NormalTok{))}
+
+\CommentTok{\# Calcular los puntos ganados por cada país y la diferencia de goles}
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(datos, }\AttributeTok{puntos =} \DecValTok{3} \SpecialCharTok{*}\NormalTok{ pg }\SpecialCharTok{+}\NormalTok{ pe, }\AttributeTok{dg =}\NormalTok{ gf }\SpecialCharTok{{-}}\NormalTok{ gc)}
+
+\CommentTok{\# Cambiar los nombres de algunas columnas}
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(datos, }\AttributeTok{goles\_favor =}\NormalTok{ gf, }\AttributeTok{goles\_contra =}\NormalTok{ gc)}
+
+\CommentTok{\# Crear una nueva variable con el nombre del país y del continente}
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{unite}\NormalTok{(datos, }\AttributeTok{col =} \StringTok{"pais\_continente"}\NormalTok{, seleccion, continente, }\AttributeTok{sep =} \StringTok{" {-} "}\NormalTok{, }\AttributeTok{remove =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+En todas las instrucciones anteriores se repite la misma estructura: cada función toma el dataset, lo modifica y lo guarda, y esto se convierte en el input para la próxima función. Se puede escribir todo junto de manera más cómoda usando una \textbf{tubería} o \textbf{pipeline}. En una \textbf{tubería} el resultado de cada línea es el input para la línea siguiente (por eso eliminamos en cada función el primer argumento, el nombre del dataset). El símbolo \texttt{\%\textgreater{}\%}, conocido como \emph{pipe}, es la unión entre las partes de la tubería\footnote{También podemos usar el operador \texttt{\%\textgreater{}\%}.}. El atajo para escribir este operador de forma rápida con el teclado es \texttt{CTRL\ +\ Shift\ +\ M}. El \emph{data.frame} devuelto por la última función de la tubería es guardado en el objeto cuyo nombre se indica al comienzo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\OtherTok{\textless{}{-}} 
+    \FunctionTok{read\_delim}\NormalTok{(}\StringTok{"mundiales.txt"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{mutate}\NormalTok{(}
+        \AttributeTok{pj =}\NormalTok{ pg }\SpecialCharTok{+}\NormalTok{ pe }\SpecialCharTok{+}\NormalTok{ pp,}
+        \AttributeTok{campeon =} \FunctionTok{ifelse}\NormalTok{(titulos }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{, }\StringTok{"campeón"}\NormalTok{, }\StringTok{"no campeón"}\NormalTok{),}
+        \AttributeTok{continente =} \FunctionTok{recode}\NormalTok{(continente, }\StringTok{"Europe"} \OtherTok{=} \StringTok{"Europa"}\NormalTok{, }\StringTok{"asia"} \OtherTok{=} \StringTok{"Asia"}\NormalTok{),}
+        \AttributeTok{puntos =} \DecValTok{3} \SpecialCharTok{*}\NormalTok{ pg }\SpecialCharTok{+}\NormalTok{ pe, }
+        \AttributeTok{dg =}\NormalTok{ gf }\SpecialCharTok{{-}}\NormalTok{ gc}
+\NormalTok{    ) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{rename}\NormalTok{(}\AttributeTok{goles\_favor =}\NormalTok{ gf, }\AttributeTok{goles\_contra =}\NormalTok{ gc) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{unite}\NormalTok{(}\AttributeTok{col =} \StringTok{"pais\_continente"}\NormalTok{, seleccion, continente, }\AttributeTok{sep =} \StringTok{" {-} "}\NormalTok{, }\AttributeTok{remove =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{escritura-de-conjuntos-de-datos-en-archivos}{%
+\section{Escritura de conjuntos de datos en archivos}\label{escritura-de-conjuntos-de-datos-en-archivos}}
+
+Todas las modificaciones que hicimos del \emph{data.frame} con los ejemplos anteriores no modificaron el archivo original \texttt{mundiales.txt} que reside en el disco rígido de nuestra computadora, sino que sirvieron para modificar al objeto \texttt{datos} que reside en la memoria temporal durante la ejecución de la sesión de R. Si al terminar con el procesamiento de los datos queremos generar un nuevo archivo permanente con la nueva versión del dataset, tenemos que hacer algo específico para eso. R provee una gran variedad de funciones para guardar todo el contenido de un objeto de tipo \emph{data.frame} en un archivo, como se muestra en los ejemplos que siguen, en los que plasmamos la versión actual del \emph{data.frame} en un nuevo archivo llamado \texttt{mundiales\_procesado}. En cada ocasión, generamos un tipo de archivo distinto:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Guardarlo en un archivo de texto separado por tabulaciones}
+\FunctionTok{write.table}\NormalTok{(datos, }\StringTok{"mundiales\_procesado.txt"}\NormalTok{, }\AttributeTok{quote =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{)}
+
+\CommentTok{\# Guardarlo en un archivo de texto separado por comas}
+\FunctionTok{write.csv}\NormalTok{(datos, }\StringTok{"mundiales\_procesado.txt"}\NormalTok{, }\AttributeTok{quote =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# Guardarlo en un archivo de Excel}
+\CommentTok{\# install.packages("writexl")}
+\FunctionTok{library}\NormalTok{(writexl)}
+\FunctionTok{write\_xlsx}\NormalTok{(datos, }\StringTok{"mundiales\_procesado.xlsx"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{resumen-de-datos}{%
+\section{Resumen de datos}\label{resumen-de-datos}}
+
+Una vez que los datos han sido organizados y limpiados según corresponda, el siguiente paso de cualquier análisis es hacer un breve análisis exploratorio. En esta sección veremos cómo calcular algunas estadísticas y realizar tablas de distribuciones de frecuencias, ya sea para variables categóricas o cuantitativas.
+
+\hypertarget{cuxe1lculo-de-estaduxedsticas}{%
+\subsection{Cálculo de estadísticas}\label{cuxe1lculo-de-estaduxedsticas}}
+
+Imaginemos ahora que queremos saber cuántas veces en promedio han participado estas 80 selecciones del mundial. Esto se puede lograr de manera muy sencilla con \texttt{mean()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{participaciones)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 6.1125
+\end{verbatim}
+
+Otra alternativa es utilizar la función \texttt{summarise()} del \texttt{tidyverse}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summarise}\NormalTok{(datos, }\AttributeTok{total =} \FunctionTok{mean}\NormalTok{(participaciones))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 1 x 1
+  total
+  <dbl>
+1  6.11
+\end{verbatim}
+
+Si bien ésta última forma parece ser más compleja, tiene algunas ventajas:
+
+\begin{itemize}
+\tightlist
+\item
+  Devuelve el resultado como un objeto de tipo \emph{data.frame}, que puede ser usado como ``materia prima'' en otros análisis.
+\item
+  Permite resumir muchas variables a la vez, en general o por grupos, aplicando uno o varios cálculos de resumen.
+\end{itemize}
+
+Por ejemplo, si queremos obtener el puntaje promedio obtenido por las selecciones de cada continente utilizamos \texttt{summarise()} en conjunto con \texttt{group\_by()}, relacionando ambas funciones en una tubería:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{group\_by}\NormalTok{(continente) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{summarise}\NormalTok{(}\AttributeTok{prom\_puntos =} \FunctionTok{mean}\NormalTok{(puntos))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 5 x 2
+  continente prom_puntos
+  <chr>            <dbl>
+1 América          38.2 
+2 Asia              7.67
+3 Europa           50   
+4 Oceanía           9.5 
+5 África           11.7 
+\end{verbatim}
+
+Podemos seguir alargando la tubería, para pedir que el resultado anterior se presente de forma descendente, de modo que veamos rápidamente cuál es el continente con mayor promedio de puntos obtenidos:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{group\_by}\NormalTok{(continente) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{summarise}\NormalTok{(}\AttributeTok{prom\_puntos =} \FunctionTok{mean}\NormalTok{(puntos)) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(prom\_puntos))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 5 x 2
+  continente prom_puntos
+  <chr>            <dbl>
+1 Europa           50   
+2 América          38.2 
+3 África           11.7 
+4 Oceanía           9.5 
+5 Asia              7.67
+\end{verbatim}
+
+Dentro de \texttt{summarise()} podemos pedir más de un resumen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{group\_by}\NormalTok{(continente) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{summarise}\NormalTok{(}
+        \AttributeTok{prom\_puntos =} \FunctionTok{mean}\NormalTok{(puntos),      }\CommentTok{\# promedio de los puntos de los países}
+        \AttributeTok{min\_puntos =} \FunctionTok{min}\NormalTok{(puntos),        }\CommentTok{\# mínimo puntaje en ese continente}
+        \AttributeTok{max\_puntos =} \FunctionTok{max}\NormalTok{(puntos),        }\CommentTok{\# máximo puntaje en ese continente}
+        \AttributeTok{total\_titulos =} \FunctionTok{sum}\NormalTok{(titulos),    }\CommentTok{\# mundiales ganados por países del continente}
+        \AttributeTok{total\_pj =} \FunctionTok{sum}\NormalTok{(pj),              }\CommentTok{\# cantidad total de partidos jugados}
+        \AttributeTok{prom\_dg =} \FunctionTok{mean}\NormalTok{(dg),              }\CommentTok{\# promedio de la diferencia de goles}
+        \AttributeTok{n =} \FunctionTok{n}\NormalTok{()                          }\CommentTok{\# cantidad de registros en cada continente}
+\NormalTok{    ) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 5 x 8
+  continente prom_puntos min_puntos max_puntos total_titulos total_pj prom_dg
+  <chr>            <dbl>      <dbl>      <dbl>         <dbl>    <dbl>   <dbl>
+1 América          38.2           0        247            10      534   -0.75
+2 Asia              7.67          0         31             0      126  -12.4 
+3 Europa           50             1        225            12     1080    8.79
+4 Oceanía           9.5           3         16             0       26  -15   
+5 África           11.7           0         23             0      162   -7.38
+# i 1 more variable: n <int>
+\end{verbatim}
+
+\hypertarget{distribuciones-de-frecuencias-para-variables-categuxf3ricas}{%
+\subsection{Distribuciones de frecuencias para variables categóricas}\label{distribuciones-de-frecuencias-para-variables-categuxf3ricas}}
+
+Cuando en los archivos de datos existen campos de tipo carácter, que representan variables categóricas, es común resumirlos creando \textbf{tablas de frecuencias}. Ya vimos que la función \texttt{count()} nos permite obtener la \textbf{frecuencia absoluta} (bajo el nombre de \texttt{n}) de cada categoría:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{count}\NormalTok{(datos, continente)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 5 x 2
+  continente     n
+  <chr>      <int>
+1 América       20
+2 Asia          12
+3 Europa        33
+4 Oceanía        2
+5 África        13
+\end{verbatim}
+
+Sin embargo, utilizaremos un paquete que es muy útil para generar tablas de frecuencias, llamado \texttt{janitor}. No forma parte del \texttt{tidyverse} pero está creado con el mismo diseño. Lo instalamos y cargamos:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages("janitor")}
+\FunctionTok{library}\NormalTok{(janitor)}
+\end{Highlighting}
+\end{Shaded}
+
+Ahora usamos la función \texttt{tabyl} del paquete \texttt{janitor} para crear una tabla de frecuencias:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{frecuencias }\OtherTok{\textless{}{-}} \FunctionTok{tabyl}\NormalTok{(datos, continente)}
+\NormalTok{frecuencias}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ continente  n percent
+    América 20  0.2500
+       Asia 12  0.1500
+     Europa 33  0.4125
+    Oceanía  2  0.0250
+     África 13  0.1625
+\end{verbatim}
+
+Lo anterior es un nuevo \emph{data.frame} con tres variables, el continente, la frecuencia absoluta \texttt{n} y la frecuencia relativa, que si bien son proporciones que varían entre 0 y 1, el software las llama \texttt{percent}. En este caso, con pocas categorías, podemos apreciar rápidamente cuál es el continente con mayor y menor cantidad de países que participaron de mundiales, pero si queremos resaltar esta información podemos hacer algunos filtrados. A continuación, filtramos el \emph{data.frame} \texttt{frecuencias} para retener aquellas filas donde el valor de \texttt{n} sea igual a su mínimo o a su máximo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{minimo }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(frecuencias, n }\SpecialCharTok{==} \FunctionTok{min}\NormalTok{(n))}
+\NormalTok{minimo}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ continente n percent
+    Oceanía 2   0.025
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{maximo }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(frecuencias, n }\SpecialCharTok{==} \FunctionTok{max}\NormalTok{(n))}
+\NormalTok{maximo}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ continente  n percent
+     Europa 33  0.4125
+\end{verbatim}
+
+Notemos que los objetos \texttt{minimo} y \texttt{maximo} son nuevos \emph{data.frames}, con tan sólo una observación. Podríamos usarlos para emitir algún mensaje con los hallazgos. Por supuesto que si hubiesen empates en los valores máximos o mínimos tendríamos que pensar otra forma de comunicar el mensaje, pero con todos los conocimientos que tenemos de programación esa tarea es sencilla de resolver:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"El continente con la mayor cantidad de países que han participado de mundiales es"}\NormalTok{, }
+\NormalTok{        maximo}\SpecialCharTok{$}\NormalTok{continente, }\StringTok{"con"}\NormalTok{, maximo}\SpecialCharTok{$}\NormalTok{n, }\StringTok{"selecciones, mientras que el de menor participación es"}\NormalTok{, }
+\NormalTok{        minimo}\SpecialCharTok{$}\NormalTok{continente, }\StringTok{"con"}\NormalTok{, minimo}\SpecialCharTok{$}\NormalTok{n, }\StringTok{"selecciones."}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+El continente con la mayor cantidad de países que han participado de mundiales es Europa con 33 selecciones, mientras que el de menor participación es Oceanía con 2 selecciones.
+\end{verbatim}
+
+Un aspecto útil de la función \texttt{tabyl()} es que puede ser acompañada por funciones que comienzan con el nombre \texttt{adorn\_} y sirven para agregar algún tipo de ``adorno'' a la tabla, por ejemplo, los totales:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{frecuencias }\OtherTok{\textless{}{-}} 
+\NormalTok{    frecuencias }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{adorn\_totals}\NormalTok{()}
+\NormalTok{frecuencias}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ continente  n percent
+    América 20  0.2500
+       Asia 12  0.1500
+     Europa 33  0.4125
+    Oceanía  2  0.0250
+     África 13  0.1625
+      Total 80  1.0000
+\end{verbatim}
+
+Podríamos mejorar levemente la tabla de frecuencias cambiando los nombres de sus columnas, con la función \texttt{rename()}. Para poder usar nombres que contengan espacios, tenemos que encerrarlos en comillas invertidas (esto es poco práctico a la hora de escribir código, sólo sirve para mejorar la apariencia del resultado):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{frecuencias }\OtherTok{\textless{}{-}} 
+\NormalTok{    frecuencias }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{rename}\NormalTok{(}\AttributeTok{Continente =}\NormalTok{ continente, }\StringTok{\textasciigrave{}}\AttributeTok{Frec. Absoluta}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ n, }\StringTok{\textasciigrave{}}\AttributeTok{Frec. Relativa}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ percent)}
+\NormalTok{frecuencias}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ Continente Frec. Absoluta Frec. Relativa
+    América             20         0.2500
+       Asia             12         0.1500
+     Europa             33         0.4125
+    Oceanía              2         0.0250
+     África             13         0.1625
+      Total             80         1.0000
+\end{verbatim}
+
+Si escribimos todos los pasos que hicimos en una sola tubería, nos quedaría así:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{frecuencias }\OtherTok{\textless{}{-}} 
+\NormalTok{    datos }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{tabyl}\NormalTok{(continente) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{adorn\_totals}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{rename}\NormalTok{(}\AttributeTok{Continente =}\NormalTok{ continente, }\StringTok{\textasciigrave{}}\AttributeTok{Frec. Absoluta}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ n, }\StringTok{\textasciigrave{}}\AttributeTok{Frec. Relativa}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ percent)}
+\NormalTok{frecuencias}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ Continente Frec. Absoluta Frec. Relativa
+    América             20         0.2500
+       Asia             12         0.1500
+     Europa             33         0.4125
+    Oceanía              2         0.0250
+     África             13         0.1625
+      Total             80         1.0000
+\end{verbatim}
+
+Otro tipo de escenario se presenta cuando queremos analizar las frecuencias de dos variables categóricas. La función \texttt{count()} también permite obtener conteos asociados a cada combinación posible de las categorías de dos o más variables. El resultado, como siempre, es un \emph{data.frame} con una columna para cada una de las variables involucradas y otra para las frecuencias absolutas. Así, podemos ver que de todos los países americanos que jugaron algún mundial, 17 nunca fueron campeones y 3 sí.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{count}\NormalTok{(datos, continente, campeon, }\AttributeTok{sort =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 7 x 3
+  continente campeon        n
+  <chr>      <chr>      <int>
+1 Europa     no campeón    28
+2 América    no campeón    17
+3 África     no campeón    13
+4 Asia       no campeón    12
+5 Europa     campeón        5
+6 América    campeón        3
+7 Oceanía    no campeón     2
+\end{verbatim}
+
+Esta forma de presentar los resultados es útil cuando deseamos identificar combinaciones de categorías con los valores mínimos y máximos. Sin embargo, frecuencias como las anteriores suelen ser presentadas en \textbf{tablas de contingencia} o \textbf{tablas de doble entrada}, donde las filas se corresponden a las categorías de una variable y las columnas, a las de la otra. La función\texttt{tabyl()} presenta los conteos de esa forma:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tabla\_cont\_campeon }\OtherTok{\textless{}{-}} \FunctionTok{tabyl}\NormalTok{(datos, continente, campeon)}
+\NormalTok{tabla\_cont\_campeon}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ continente campeón no campeón
+     África       0         13
+    América       3         17
+       Asia       0         12
+     Europa       5         28
+    Oceanía       0          2
+\end{verbatim}
+
+Podemos destacar cuál es el continente con mayor cantidad de campeones filtrando al registro con máximo valor en la columna \texttt{campeón}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{filter}\NormalTok{(tabla\_cont\_campeon, campeón }\SpecialCharTok{==} \FunctionTok{max}\NormalTok{(campeón))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ continente campeón no campeón
+     Europa       5         28
+\end{verbatim}
+
+La función \texttt{adorn\_totals()} nos permite de manera muy sencilla agregar totales marginales, tanto para filas como columnas:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{tabyl}\NormalTok{(continente, campeon) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{adorn\_totals}\NormalTok{(}\AttributeTok{where =} \FunctionTok{c}\NormalTok{(}\StringTok{"row"}\NormalTok{, }\StringTok{"col"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ continente campeón no campeón Total
+     África       0         13    13
+    América       3         17    20
+       Asia       0         12    12
+     Europa       5         28    33
+    Oceanía       0          2     2
+      Total       8         72    80
+\end{verbatim}
+
+Además, podemos pedir frecuencias relativas en lugar de absolutas, ya sea de la distribución conjunta de las dos variables (\texttt{denominator\ =\ all}), condicionada a la fila (\texttt{denominator\ =\ row}) o a la columna (\texttt{denominator\ =\ col}).
+
+\begin{itemize}
+\item
+  \textbf{Distribución conjunta de las variables}: podemos ver, por ejemplo, que el 3.8\% de todos los países participantes son de América y han salido campeón alguna vez.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{tabyl}\NormalTok{(continente, campeon) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{adorn\_totals}\NormalTok{(}\AttributeTok{where =} \FunctionTok{c}\NormalTok{(}\StringTok{"row"}\NormalTok{, }\StringTok{"col"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{adorn\_percentages}\NormalTok{(}\AttributeTok{denominator =} \StringTok{"all"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}  \CommentTok{\# cálculo de proporciones}
+  \FunctionTok{adorn\_pct\_formatting}\NormalTok{(}\AttributeTok{digits =} \DecValTok{1}\NormalTok{)            }\CommentTok{\# mostrarlas como porcentaje (opcional)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ continente campeón no campeón  Total
+     África    0.0%      16.2%  16.2%
+    América    3.8%      21.2%  25.0%
+       Asia    0.0%      15.0%  15.0%
+     Europa    6.2%      35.0%  41.2%
+    Oceanía    0.0%       2.5%   2.5%
+      Total   10.0%      90.0% 100.0%
+\end{verbatim}
+\item
+  \textbf{Distribución condicional de campeon dado continente}: los porcentajes suman 1 en cada fila. De todos los países americanos que alguna vez participaron de un mundia, el 15\% logró ser campeón y el 85\%, no.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{tabyl}\NormalTok{(continente, campeon) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{adorn\_totals}\NormalTok{(}\AttributeTok{where =} \FunctionTok{c}\NormalTok{(}\StringTok{"row"}\NormalTok{, }\StringTok{"col"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{adorn\_percentages}\NormalTok{(}\AttributeTok{denominator =} \StringTok{"row"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{adorn\_pct\_formatting}\NormalTok{(}\AttributeTok{digits =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ continente campeón no campeón  Total
+     África    0.0%     100.0% 100.0%
+    América   15.0%      85.0% 100.0%
+       Asia    0.0%     100.0% 100.0%
+     Europa   15.2%      84.8% 100.0%
+    Oceanía    0.0%     100.0% 100.0%
+      Total   10.0%      90.0% 100.0%
+\end{verbatim}
+\item
+  \textbf{Distribución condicional de continente dado campeón}: los porcentajes suman 1 en cada columna. De todos los países que salieron campeones, el 62.5\% son europeos y el 37.5\% restante, americanos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{tabyl}\NormalTok{(continente, campeon) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{adorn\_totals}\NormalTok{(}\AttributeTok{where =} \StringTok{"row"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{adorn\_percentages}\NormalTok{(}\AttributeTok{denominator =} \StringTok{"col"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{adorn\_pct\_formatting}\NormalTok{(}\AttributeTok{digits =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ continente campeón no campeón
+     África    0.0%      18.1%
+    América   37.5%      23.6%
+       Asia    0.0%      16.7%
+     Europa   62.5%      38.9%
+    Oceanía    0.0%       2.8%
+      Total  100.0%     100.0%
+\end{verbatim}
+\end{itemize}
+
+También podemos mostrar frecuencias absolutas y relativas al mismo tiempo, así como editar los títulos. Ejemplificamos mostrando nuevamente la distribución conjunta:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{tabyl}\NormalTok{(continente, campeon) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{adorn\_totals}\NormalTok{(}\AttributeTok{where =} \FunctionTok{c}\NormalTok{(}\StringTok{"row"}\NormalTok{, }\StringTok{"col"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{adorn\_percentages}\NormalTok{(}\AttributeTok{denominator =} \StringTok{"all"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{adorn\_pct\_formatting}\NormalTok{(}\AttributeTok{digits =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{adorn\_ns}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{adorn\_title}\NormalTok{(}\AttributeTok{placement =} \StringTok{"top"}\NormalTok{, }\StringTok{"Continente"}\NormalTok{, }\StringTok{"Campeones del mundo"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+            Campeones del mundo                       
+ Continente             campeón no campeón       Total
+     África            0.0% (0) 16.2% (13)  16.2% (13)
+    América            3.8% (3) 21.2% (17)  25.0% (20)
+       Asia            0.0% (0) 15.0% (12)  15.0% (12)
+     Europa            6.2% (5) 35.0% (28)  41.2% (33)
+    Oceanía            0.0% (0)  2.5%  (2)   2.5%  (2)
+      Total           10.0% (8) 90.0% (72) 100.0% (80)
+\end{verbatim}
+
+\hypertarget{distribuciones-de-frecuencias-para-variables-cuantitativas}{%
+\subsection{Distribuciones de frecuencias para variables cuantitativas}\label{distribuciones-de-frecuencias-para-variables-cuantitativas}}
+
+Cuando se exploran datos de variables cuantitativas, es común realizar tablas de frecuencias agrupando los valores observados en intervalos. Usando la función \texttt{cut()} dentro de \texttt{mutate()} podemos especificar los puntos de corte y generar una nueva columna que informa a qué intervalo pertenece cada observación:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(datos, }\AttributeTok{intervalos =} \FunctionTok{cut}\NormalTok{(goles\_favor, }\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{250}\NormalTok{, }\DecValTok{50}\NormalTok{), }\AttributeTok{right =} \ConstantTok{FALSE}\NormalTok{))}
+
+\FunctionTok{select}\NormalTok{(datos, seleccion, goles\_favor, intervalos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 80 x 3
+   seleccion    goles_favor intervalos
+   <chr>              <dbl> <fct>     
+ 1 Brasil               237 [200,250) 
+ 2 Alemania             232 [200,250) 
+ 3 Argentina            152 [150,200) 
+ 4 Italia               128 [100,150) 
+ 5 Francia              136 [100,150) 
+ 6 Inglaterra           104 [100,150) 
+ 7 España               108 [100,150) 
+ 8 Países Bajos          96 [50,100)  
+ 9 Uruguay               89 [50,100)  
+10 Bélgica               69 [50,100)  
+# i 70 more rows
+\end{verbatim}
+
+Ahora podemos emplear la nueva columna \texttt{intervalos} para realizar tablas de frecuencias como vimos antes:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tabla\_gf }\OtherTok{\textless{}{-}} \FunctionTok{tabyl}\NormalTok{(datos, intervalos)}
+\NormalTok{tabla\_gf}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ intervalos  n percent
+     [0,50) 63  0.7875
+   [50,100) 10  0.1250
+  [100,150)  4  0.0500
+  [150,200)  1  0.0125
+  [200,250)  2  0.0250
+\end{verbatim}
+
+Aunque lo vemos a simple vista, podemos programar la búsqueda del intervalo de valores con la mayor frecuencia y emitir un mensaje:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{maximo }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(tabla\_gf, n }\SpecialCharTok{==} \FunctionTok{max}\NormalTok{(n))}
+\NormalTok{maximo}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ intervalos  n percent
+     [0,50) 63  0.7875
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones es"}\NormalTok{, }
+        \FunctionTok{as.character}\NormalTok{(maximo}\SpecialCharTok{$}\NormalTok{intervalos), }\StringTok{"con"}\NormalTok{, maximo}\SpecialCharTok{$}\NormalTok{n, }\StringTok{"países."}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones es [0,50) con 63 países.
+\end{verbatim}
+
+También podemos agregar columnas de frecuencias acumuladas, como suele ser común cuando se resumen variables cuantitativas o cualitativas ordinales. Para esto usamos la función \texttt{cumsum()}, que calcula una \emph{suma acumulada}, es decir, cada fila tiene la suma de los valores encontrados desde la primera hasta ella inclusive. Además, aprovechamos a elegir nombres y cambiar los anteriores para que se vean mejor la impresión de la tabla:
+
+\hypertarget{creaciuxf3n-de-archivos-y-escritura-de-resultados}{%
+\section{Creación de archivos y escritura de resultados}\label{creaciuxf3n-de-archivos-y-escritura-de-resultados}}
+
+Anteriormente hemos mencionado que cuando trabajamos con archivos podemos realizar acciones tanto de lectura como de escritura, aunque hasta el momento nos hemos limitado a leer registros de un archivo. En este apartado presentamos cómo crear un archivo de texto desde R, de manera que pueda utilizarse para escribir y guardar allí los resultados obtenidos.
+
+\hypertarget{crear-un-archivo-para-guardar-resultados}{%
+\subsection{Crear un archivo para guardar resultados}\label{crear-un-archivo-para-guardar-resultados}}
+
+Imaginemos que en el problema del hotel, en lugar de mostrar los resultados en la consola, queremos volcarlos en un archivo de texto llamado \texttt{resultados.txt}.
+
+En R, la función \texttt{sink()} permite escribir en un archivo de texto todos los resultados que habitualmente vemos en la consola. Sus argumentos son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{file}: nombre del archivo, si no existe será creado. Se guarda en el directorio de trabajo actual, a menos que indiquemos aquí la ruta completa hacia otra carpeta.
+\item
+  \texttt{append}: si el archivo ya existía, por default lo sobreescribe (borra lo anterior), a menos que indiquemos \texttt{append\ =\ TRUE} para que agregue nuevas línea sin borrar nada.
+\item
+  \texttt{split}: por default mientras la conexión al archivo está activa, los resultados que enviamos al mismo no se muestran en la consola de R, a menos que indiquemos \texttt{split\ =\ TRUE}, en cuyo caso sucederán ambas cosas: los resultados serán escritos en el archivo y se verán en la consola.
+\end{itemize}
+
+Cuando se desea cerrar la conexión al archivo, se debe correr \texttt{sink()} sin ningún argumento. Todo lo que \emph{imprimamos} con \texttt{cat()} entre ambos llamados a \texttt{sink()} se guardará en el archivo. La última parte del código en el problema anterior debe ser:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear conexión al archivo de resultados y poner un encabezado}
+\FunctionTok{sink}\NormalTok{(}\AttributeTok{file =} \StringTok{"salida.txt"}\NormalTok{, }\AttributeTok{append =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{split =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"            ARCHIVO DE RESULTADOS         }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+
+\CommentTok{\# a) Mostrar la tabla}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Número de reservas durante el 2021 según mes y tipo de habitación}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{cuadro}
+
+\CommentTok{\# b) Determinar el total de pernoctaciones en el hotel durante el 2021}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{El número total de pernoctaciones en el hotel durante el 2021 fue"}\NormalTok{, pernoc, }\StringTok{"}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+
+\CommentTok{\# c) Determinar cuál fue el mes de mayor cantidad de reservas}
+\NormalTok{res }\OtherTok{\textless{}{-}} \FunctionTok{maximo}\NormalTok{(total\_fila)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"El mes de mayor cantidad de reservas fue"}\NormalTok{, meses[res[}\DecValTok{2}\NormalTok{]], }\StringTok{"con"}\NormalTok{, }
+\NormalTok{    res[}\DecValTok{1}\NormalTok{], }\StringTok{"reservas.}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+
+\CommentTok{\# d) Determinar para cada tipo de habitación el mes con menor número de reservas}
+\ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{) \{}
+\NormalTok{    res }\OtherTok{\textless{}{-}} \FunctionTok{minimo\_matriz\_col}\NormalTok{(tabla, j)}
+    \FunctionTok{cat}\NormalTok{(}\StringTok{"Para las habitaciones de tipo"}\NormalTok{, tipos[j], }
+        \StringTok{"el mes con menor}\SpecialCharTok{\textbackslash{}n}\StringTok{     número de reservas fue"}\NormalTok{, }
+\NormalTok{        meses[res[}\DecValTok{2}\NormalTok{]], }\StringTok{"con"}\NormalTok{, res[}\DecValTok{1}\NormalTok{], }\StringTok{"reservas.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+
+\CommentTok{\# Cerrar conexión al archivo}
+\FunctionTok{sink}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{lectura-opcional}{%
+\section{Lectura opcional}\label{lectura-opcional}}
+
+\hypertarget{otros-ejemplos-para-obtener-resuxfamenes}{%
+\subsection{Otros ejemplos para obtener resúmenes}\label{otros-ejemplos-para-obtener-resuxfamenes}}
+
+Cuando aplicamos el mismo tipo de resumen a varias variables (en este caso, la media), podemos usar \texttt{across}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{group\_by}\NormalTok{(continente) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{summarise}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{c}\NormalTok{(goles\_favor, goles\_contra), mean))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 5 x 3
+  continente goles_favor goles_contra
+  <chr>            <dbl>        <dbl>
+1 América          37.9          38.6
+2 Asia              8.67         21.1
+3 Europa           50.9          42.1
+4 Oceanía          10.5          25.5
+5 África           12.1          19.5
+\end{verbatim}
+
+Podemos aplicar el mismo tipo de resumen para todas las variables que tengan alguna característica en particular, por ejemplo, ser numéricas:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{group\_by}\NormalTok{(continente) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{summarise}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.numeric), mean))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{tablas-de-frecuencia-con-r-base}{%
+\subsection{Tablas de frecuencia con R Base}\label{tablas-de-frecuencia-con-r-base}}
+
+Utilizar el paquete \texttt{janitor} no es la única forma de inspeccionar frecuencias. Se puede hacer de forma sencilla con funciones incorporadas en R Base, aunque la forma de presentar los resultados es menos vistosa:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Frecuencias absolutas}
+\NormalTok{tabla1 }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{continente)}
+\NormalTok{tabla1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+ África América    Asia  Europa Oceanía 
+     13      20      12      33       2 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Frencuencias relativas}
+\FunctionTok{prop.table}\NormalTok{(tabla1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+ África América    Asia  Europa Oceanía 
+ 0.1625  0.2500  0.1500  0.4125  0.0250 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Tabla de contingencia para dos variables}
+\NormalTok{tabla2 }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{continente, datos}\SpecialCharTok{$}\NormalTok{campeon)}
+\NormalTok{tabla2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+         
+          campeón no campeón
+  África        0         13
+  América       3         17
+  Asia          0         12
+  Europa        5         28
+  Oceanía       0          2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Distribución conjunta}
+\FunctionTok{prop.table}\NormalTok{(tabla2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+         
+          campeón no campeón
+  África   0.0000     0.1625
+  América  0.0375     0.2125
+  Asia     0.0000     0.1500
+  Europa   0.0625     0.3500
+  Oceanía  0.0000     0.0250
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Distribución condicional de campeon dado continente}
+\FunctionTok{prop.table}\NormalTok{(tabla2, }\AttributeTok{margin =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+         
+            campeón no campeón
+  África  0.0000000  1.0000000
+  América 0.1500000  0.8500000
+  Asia    0.0000000  1.0000000
+  Europa  0.1515152  0.8484848
+  Oceanía 0.0000000  1.0000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Distribución condicional de continente dado campeon}
+\FunctionTok{prop.table}\NormalTok{(tabla2, }\AttributeTok{margin =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+         
+             campeón no campeón
+  África  0.00000000 0.18055556
+  América 0.37500000 0.23611111
+  Asia    0.00000000 0.16666667
+  Europa  0.62500000 0.38888889
+  Oceanía 0.00000000 0.02777778
+\end{verbatim}
+
+\hypertarget{cambiar-el-formato-de-un-data.frame}{%
+\subsection{\texorpdfstring{Cambiar el formato de un \emph{data.frame}}{Cambiar el formato de un data.frame}}\label{cambiar-el-formato-de-un-data.frame}}
+
+Dependiendo de los requerimientos de los análisis que estemos realizando, es muy frecuente necesitar cambiar el formato que tienen los datos. Por ejemplo, puede ser necesario apilar columnas una debajo de otra, resultando en un dataset con más filas (más largo) y menos columnas (más angosto). La situación contraria también se puede presentar y consiste en desacoplar información concatenada en una sola columna para ubicarla en varias columnas adyacentes, resultando en una dataset con más columnas (más ancho) y menos filas (más corto). Por supuesto, estas transformaciones tienen que hacerse sin mezclar los registros:
+
+\textbf{Formato ancho a largo}
+
+Armemos un pequeño ejemplo de juguete para imaginar bien de qué se trata esto. Supongamos que tenemos datos con la cantidad vendida de 3 productos en distintos meses. De la siguiente forma se puede crear un \emph{data.frame} ``a mano'', sin leer los datos desde un archivo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ejemplo1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{producto =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{,}
+  \AttributeTok{septiembre =} \FunctionTok{c}\NormalTok{(}\DecValTok{234}\NormalTok{, }\DecValTok{657}\NormalTok{, }\DecValTok{989}\NormalTok{),}
+  \AttributeTok{octubre =} \FunctionTok{c}\NormalTok{(}\DecValTok{841}\NormalTok{, }\DecValTok{621}\NormalTok{, }\DecValTok{589}\NormalTok{),}
+  \AttributeTok{noviembre =} \FunctionTok{c}\NormalTok{(}\DecValTok{521}\NormalTok{, }\DecValTok{147}\NormalTok{, }\DecValTok{258}\NormalTok{)}
+\NormalTok{)}
+\NormalTok{ejemplo1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  producto septiembre octubre noviembre
+1        1        234     841       521
+2        2        657     621       147
+3        3        989     589       258
+\end{verbatim}
+
+A ese formato le decimos ``ancho'' porque una misma variable (cantidad de ventas) se ubica en muchas columnas, cuyos nombres se confunden con lo que en realidad debe ser otra variable, el mes. Queremos pasarlo a un formato largo para que se vea así:
+
+\begin{verbatim}
+# A tibble: 9 x 3
+  producto mes        ventas
+     <int> <chr>       <dbl>
+1        1 septiembre    234
+2        1 octubre       841
+3        1 noviembre     521
+4        2 septiembre    657
+5        2 octubre       621
+6        2 noviembre     147
+7        3 septiembre    989
+8        3 octubre       589
+9        3 noviembre     258
+\end{verbatim}
+
+Lo logramos con la función \texttt{pivot\_longer()}, cuyos argumentos son:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{data}: el dataset que vamos a modificar
+\item
+  \textbf{cols}: columnas que queremos apilar (o las que no queremos apilar, si es más fácil de indicar)
+\item
+  \textbf{names\_to}: cómo queremos que se llame la nueva columna que contendrá los nombres de las columnas apiladas.
+\item
+  \textbf{values\_to}: cómo queremos que se llame la nueva columna que contendrá los valores de las columnas apiladas.
+\end{itemize}
+
+\begin{center}\includegraphics[width=0.6\linewidth]{images/06_archivos/original-dfs-tidy} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ejemplo2 }\OtherTok{\textless{}{-}} \FunctionTok{pivot\_longer}\NormalTok{(}
+  \AttributeTok{data =}\NormalTok{ ejemplo1, }
+  \AttributeTok{cols =} \FunctionTok{c}\NormalTok{(septiembre, octubre, noviembre), }
+  \AttributeTok{names\_to =} \StringTok{"mes"}\NormalTok{, }
+  \AttributeTok{values\_to =} \StringTok{"ventas"}
+\NormalTok{)}
+\NormalTok{ejemplo2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 9 x 3
+  producto mes        ventas
+     <int> <chr>       <dbl>
+1        1 septiembre    234
+2        1 octubre       841
+3        1 noviembre     521
+4        2 septiembre    657
+5        2 octubre       621
+6        2 noviembre     147
+7        3 septiembre    989
+8        3 octubre       589
+9        3 noviembre     258
+\end{verbatim}
+
+\textbf{Formato largo a ancho}
+
+A su vez, la función \texttt{pivot\_wider()} permite pasar de \textbf{formatos largos} a \textbf{formatos anchos} (al revés de \texttt{pivot\_longer()}):
+
+\begin{center}\includegraphics[width=0.6\linewidth]{images/06_archivos/spread} \end{center}
+
+Podríamos usarlo si queremos volver a la versión original de la base. Para ello necesitamos usar estos argumentos:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{data}: el dataset
+\item
+  \textbf{names\_from}: columna que tiene los nombres de las nuevas columnas
+\item
+  \textbf{values\_from}: columna que tiene los valores que se distribuirán en las nuevas columnas
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pivot\_wider}\NormalTok{(}
+  \AttributeTok{data =}\NormalTok{ ejemplo2, }
+  \AttributeTok{names\_from =}\NormalTok{ mes, }
+  \AttributeTok{values\_from =}\NormalTok{ ventas}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 3 x 4
+  producto septiembre octubre noviembre
+     <int>      <dbl>   <dbl>     <dbl>
+1        1        234     841       521
+2        2        657     621       147
+3        3        989     589       258
+\end{verbatim}
+
+\hypertarget{fusionar-varios-data.frames}{%
+\subsection{\texorpdfstring{Fusionar varios \texttt{data.frames}}{Fusionar varios data.frames}}\label{fusionar-varios-data.frames}}
+
+Muchas veces, los análisis de datos involucran múltiples tablas o conjuntos de datos, los cuales deben combinarse para dar respuesta a las preguntas de interés.. En estos casos importan las \textbf{relaciones} que se establecen entre las bases, más allá de los datos individuales que contenga cada uno de ellas. \texttt{R} nos ofrece diversas alternativas, las cuales dependen del tipo de relación que deseemos establecer entre los conjuntos de datos. Para definir estas relaciones debemos establecer qué variable funcionará como \texttt{key} o clave identificadora de los casos. Esta \texttt{key} debe figurar en ambos conjuntos de datos y representar lo mismo para que tenga sentido la relación. Las fusiones pueden clasificarse en dos grupos: las que producen modificaciones en uno de los conjuntos (\emph{mutating joins}) y las que actúan como filtros (\emph{filtering joins}).
+
+\textbf{Mutating Joins}
+
+Son funciones que permiten unir conjuntos de datos, agregando en uno de ellos nuevas variables que provienen del otro, a partir las filas con \texttt{key} coincidente:
+
+\begin{verbatim}
+- `left_join()`
+- `right_join()`
+- `inner_join()`
+- `full_join()`
+\end{verbatim}
+
+Hacen una \emph{mutación} en el sentido de que añaden columnas a uno de los conjuntos. Consideremos los siguientes conjuntos de datos, donde \emph{X1} será la clave:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Datos1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{X1 =} \FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"C"}\NormalTok{), }\AttributeTok{X2 =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{))}
+\NormalTok{Datos2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{X1 =} \FunctionTok{c}\NormalTok{(}\StringTok{"D"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"A"}\NormalTok{), }\AttributeTok{X3 =} \FunctionTok{c}\NormalTok{(}\DecValTok{9}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.4\linewidth]{images/06_archivos/Tabla1} \end{center}
+
+Veamos los distintos tipos de \emph{mutating joins}:
+
+\begin{itemize}
+\item
+  \texttt{left\_join()}: esta opción devuelve un conjunto de datos que contiene todas las filas de la tabla de la izquierda, agregando las columnas de la tabla de la derecha.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DatosUnidos }\OtherTok{\textless{}{-}} \FunctionTok{left\_join}\NormalTok{(Datos1, Datos2, }\AttributeTok{by =} \StringTok{"X1"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/leftjoin} \end{center}
+\item
+  \texttt{right\_join()}: devuelve un conjunto de datos que contiene todas las filas de la tabla de la derecha y agrega columnas de la tabla izquierda.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DatosUnidos }\OtherTok{\textless{}{-}} \FunctionTok{right\_join}\NormalTok{(Datos1, Datos2, }\AttributeTok{by =} \StringTok{"X1"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/rightjoin} \end{center}
+\item
+  \texttt{inner\_join()}: devuelve un conjunto de datos con todas las columnas pero sólo para las observaciones (filas) cuyos identificadores se repiten en ambos conjuntos de datos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DatosUnidos }\OtherTok{\textless{}{-}} \FunctionTok{inner\_join}\NormalTok{(Datos1, Datos2, }\AttributeTok{by =} \StringTok{"X1"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/innerjoin} \end{center}
+\item
+  \texttt{full\_join()}: devuelve un conjunto de datos con todas las filas y columnas, fusionando a través de la \texttt{key} para las filas coincidentes entre ambos conjuntos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DatosUnidos }\OtherTok{\textless{}{-}} \FunctionTok{full\_join}\NormalTok{(Datos1, Datos2, }\AttributeTok{by =} \StringTok{"X1"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/fulljoin} \end{center}
+\end{itemize}
+
+\textbf{Filtering Joins}
+
+Son funciones que permiten unir las observaciones de dos datasets, pero sólo afectan a las filas sin alterar las columnas o variables. Funcionan como un \textbf{filtro} para las observaciones de una base de datos, de acuerdo a si \emph{están} o \emph{no están} (según el sentido que se elija) en otra base de datos:
+
+\begin{itemize}
+\item
+  \texttt{semi\_join()}: devuelve todas las observaciones que están en \texttt{Datos1} que también están en \texttt{Datos2}, manteniendo sólo las columnas de \texttt{Datos1}. La relación se piensa como en \texttt{inner\_join()}, pero el resultado es sólo la base \texttt{Datos1} filtrada.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DatosFiltrados }\OtherTok{\textless{}{-}} \FunctionTok{semi\_join}\NormalTok{(Datos1, Datos2, }\AttributeTok{by =} \StringTok{"X1"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/semijoin} \end{center}
+\item
+  \texttt{anti\_join()}: devuelve aquellas observaciones que están en \texttt{Datos1} pero \textbf{no están} en \texttt{Datos2}, manteniendo las columnas de \texttt{Datos1}. Es el filtro contrario a \texttt{semi\_join()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DatosFiltrados }\OtherTok{\textless{}{-}} \FunctionTok{anti\_join}\NormalTok{(Datos1, Datos2, }\AttributeTok{by =} \StringTok{"X1"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/antijoin} \end{center}
+\end{itemize}
+
+\textbf{Otros detalles sobre las keys}
+
+Hasta ahora hemos visto ejemplos donde las columnas que se usaron como claves identificadoras tenían valores únicos, sin repetir. Si la clave identificadora está duplicada en una de las bases de datos, la relación que \texttt{R} brindará con las funciones \texttt{*\_join()} será del tipo ``uno a varios'':
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{val\_x =} \FunctionTok{c}\NormalTok{(}\StringTok{"x1"}\NormalTok{, }\StringTok{"x2"}\NormalTok{, }\StringTok{"x3"}\NormalTok{, }\StringTok{"x4"}\NormalTok{), }
+  \AttributeTok{key =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{)}
+
+\NormalTok{d2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{key =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{), }
+  \AttributeTok{val\_y =} \FunctionTok{c}\NormalTok{(}\StringTok{"y1"}\NormalTok{, }\StringTok{"y2"}\NormalTok{)}
+\NormalTok{)}
+
+\FunctionTok{full\_join}\NormalTok{(d1, d2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.5\linewidth]{images/06_archivos/1dupkeys} \end{center}
+
+Si ambas bases de datos tienen claves duplicadas, las funciones \texttt{*\_join()} devuelven todas las combinaciones posibles:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{val\_x =} \FunctionTok{c}\NormalTok{(}\StringTok{"x1"}\NormalTok{, }\StringTok{"x2"}\NormalTok{, }\StringTok{"x3"}\NormalTok{, }\StringTok{"x4"}\NormalTok{),}
+  \AttributeTok{key =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\NormalTok{)}
+
+\NormalTok{d2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{key =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{),}
+  \AttributeTok{val\_y =} \FunctionTok{c}\NormalTok{(}\StringTok{"y1"}\NormalTok{, }\StringTok{"y2"}\NormalTok{, }\StringTok{"y3"}\NormalTok{, }\StringTok{"y4"}\NormalTok{)}
+\NormalTok{)}
+
+\FunctionTok{full\_join}\NormalTok{(d1, d2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.5\linewidth]{images/06_archivos/2dupkeys} \end{center}
+
+Muchas veces nos interesa que las observaciones de los conjuntos de datos se relacionen a través de más de una variable, es decir, queremos identificar a cada registro a través de más de una columna. En este caso tenemos 2 opciones:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Inventar una nueva variable identificadora (\texttt{key}) que de algún modo contenga la información de esas variables e identifique a cada observación de manera única (por ejemplo, pegar ambas columnas en una sola).
+\item
+  Indicarle directamente en \texttt{R} que la relación entre las bases de datos debe hacerse a través de varias variables. En el argumento \texttt{by} de las funciones \texttt{*\_join()} ponemos el vector de variables \texttt{by\ =\ c(Vble1,\ Vble2,\ Vble3)} mediante las cuales queremos que se relacionen las bases.
+\end{enumerate}
+
+Por defecto, los conjuntos de datos se unen a través de todas las variables que llevan el mismo nombre en ambos conjuntos, lo que suele denominarse \textbf{unión natural}. Si usamos \texttt{by} para indicar qué columnas vinculan ambas bases, y entre las columnas no mencionadas quedan variables con el mismo nombre en los dos conjuntos, entonces estas aparecerán repetidas en el dataset resultante, con una extensión en su nombre para identificar su origen (\emph{nombre\_columna.x, nombre\_columna.y}).
+
+Las variables usadas como \texttt{key} podrían no tener el mismo nombre en ambos conjuntos de datos. Por ejemplo, si en Datos1 tenemos \emph{DNI} y en Datos2 tenemos \emph{Documento}, no es necesario renombrar estas columnas: al indicar \textbf{\texttt{by\ =\ c("DNI"\ =\ "Documento")}}, R las reconoce como la misma variable, las utilizará como clave y conservará el primer nombre (\emph{DNI} en este ejemplo).
 
 \hypertarget{otros-tuxf3picos}{%
 \chapter{Otros tópicos}\label{otros-tuxf3picos}}
@@ -6951,7 +8701,7 @@ Para abrir una terminal en Linux se puede usar el atajo \texttt{ctrl\ +\ alt\ +\
 
 }
 
-\caption{Abrir la terminal en Windows. En computadoras con Windows en español, en lugar de Command Prompt dice Símbolo del sistema.}\label{fig:unnamed-chunk-196}
+\caption{Abrir la terminal en Windows. En computadoras con Windows en español, en lugar de Command Prompt dice Símbolo del sistema.}\label{fig:unnamed-chunk-279}
 \end{figure}
 
 Así luce la línea de comandos de Windows:
@@ -6962,7 +8712,7 @@ Así luce la línea de comandos de Windows:
 
 }
 
-\caption{Línea de comandos de Windows.}\label{fig:unnamed-chunk-197}
+\caption{Línea de comandos de Windows.}\label{fig:unnamed-chunk-280}
 \end{figure}
 
 Los comandos se escriben en la última línea a continuación del símbolo \texttt{\textgreater{}}, que a su vez está precedido por la ruta a la carpeta que es el directorio de trabajo actual de la terminal, en este caso, \texttt{C:\textbackslash{}Users\textbackslash{}Marcos} (carpeta \texttt{Marcos}, dentro de la carpeta \texttt{Users}, en el disco \texttt{C}).
@@ -6993,7 +8743,7 @@ Por ejemplo, podemos ver todos los archivos que existen en el directorio actual 
 
 }
 
-\caption{Contenido del directorio actual (Windows).}\label{fig:unnamed-chunk-198}
+\caption{Contenido del directorio actual (Windows).}\label{fig:unnamed-chunk-281}
 \end{figure}
 
 Para los siguientes ejemplos, trabajaremos en una carpeta llamada \texttt{Ejemplos}, cuyo \emph{path} es \texttt{C:\textbackslash{}Users\textbackslash{}Marcos\textbackslash{}Trabajo\textbackslash{}Ejemplos} que tiene la siguiente composición:
@@ -7004,7 +8754,7 @@ Para los siguientes ejemplos, trabajaremos en una carpeta llamada \texttt{Ejempl
 
 }
 
-\caption{Carpeta en la cual deseamos trabajar.}\label{fig:unnamed-chunk-199}
+\caption{Carpeta en la cual deseamos trabajar.}\label{fig:unnamed-chunk-282}
 \end{figure}
 
 Podemos convertir a dicha carpeta como nuestro nuevo directorio de trabajo con el comando \texttt{cd} (\emph{change directory}):
@@ -7015,7 +8765,7 @@ Podemos convertir a dicha carpeta como nuestro nuevo directorio de trabajo con e
 
 }
 
-\caption{Cambio de directorio de trabajo y listado de archivos en el mismo.}\label{fig:unnamed-chunk-200}
+\caption{Cambio de directorio de trabajo y listado de archivos en el mismo.}\label{fig:unnamed-chunk-283}
 \end{figure}
 
 En Windows hay una forma más directa de abrir la terminal y que ya tenga seteada como directorio de trabajo a una carpeta deseada. Antes de abrir la terminal, vamos con el \emph{Explorador de archivos} a la carpeta en cuestión, nos posicionamos en la barra del explorador, escribimos \texttt{cmd} y le damos \texttt{ENTER}. Automáticamente se abrirá la terminal, con esta carpeta como directorio de referencia.
@@ -7026,7 +8776,7 @@ En Windows hay una forma más directa de abrir la terminal y que ya tenga setead
 
 }
 
-\caption{Abrir la terminal desde una carpeta en particular en Windows.}\label{fig:unnamed-chunk-201}
+\caption{Abrir la terminal desde una carpeta en particular en Windows.}\label{fig:unnamed-chunk-284}
 \end{figure}
 
 Desde la terminal podemos correr nuestros programas de R. Hacer esto es necesario cuando tenemos que programar alguna tarea de gran escala que se ejecutará de manera remota en algún servidor o cuando necesitamos encapsular nuestro programa para que otros lo puedan correr sin siquiera saber nada de R.
@@ -7055,7 +8805,7 @@ Para ejecutar este programa desde la terminal, sin abrir RStudio o R, utilizo el
 
 }
 
-\caption{Correr el programa de R desde la consola en Windows.}\label{fig:unnamed-chunk-203}
+\caption{Correr el programa de R desde la consola en Windows.}\label{fig:unnamed-chunk-286}
 \end{figure}
 
 Todo lo que en el programa estaba encerrado en una llamada a la función \texttt{cat()} es lo que se muestra como mensajes en la terminal. Notar que la instrucción \texttt{RScript\ mi\_programa.R} funcione, debemos tener como directorio de trabajo aquella carpeta que aloja al archivo \texttt{mi\_programa.R}, en caso contrario el sistema nos alertará que el mismo no está disponible.
@@ -7085,7 +8835,7 @@ Veamos algunos ejemplos.
 
 \textbf{Práctica 2, Ejercicio 1: paridad de un número}
 
-La función \texttt{scan()} es la que permite \emph{escanear} o \emph{leer} valores que los usuarios ingresen por la terminal. Entre sus argumentos tenemos a \texttt{file}, que si lo seteamos como \texttt{file\ =\ "stdin"} indica que vamos a leer información desde la consola. Otros argumentos que son de utilidad incluyen a \texttt{n\ =\ 1}, que indica que sólo leeremos un valor y \texttt{quite\ =\ TRUE} que le pide a esta función que no emita ningún mensaje. Por ejemplo, si el siguiente código se guarda en el archivo \texttt{paridad.R} y es ejecutado desde la consola, le va a pedir a la persona que lo esté usando que indique cualquier número y luego le va a comunicar si es par o impar:
+La función \texttt{scan()} es la que permite \emph{escanear} o \emph{leer} valores que los usuarios ingresen por la terminal. Entre sus argumentos tenemos a \texttt{file}, que si lo seteamos como \texttt{file\ =\ "stdin"} indica que vamos a leer información desde la consola. Otros argumentos que son de utilidad incluyen a \texttt{n\ =\ 1}, que indica que sólo leeremos un valor y \texttt{quiet\ =\ TRUE} que le pide a esta función que no emita ningún mensaje. Por ejemplo, si el siguiente código se guarda en el archivo \texttt{paridad.R} y es ejecutado desde la consola, le va a pedir a la persona que lo esté usando que indique cualquier número y luego le va a comunicar si es par o impar:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7110,7 +8860,7 @@ Esto es lo que ocurre en la terminal:
 
 }
 
-\caption{Programa paridad.R.}\label{fig:unnamed-chunk-205}
+\caption{Programa paridad.R.}\label{fig:unnamed-chunk-288}
 \end{figure}
 
 \textbf{Práctica 2, Ejercicio 3: salario}
@@ -7146,7 +8896,7 @@ En este ejemplo, tenemos que leer tres valores, dos de lo cuales son de tipo car
 
 }
 
-\caption{Programa salario.R.}\label{fig:unnamed-chunk-207}
+\caption{Programa salario.R.}\label{fig:unnamed-chunk-290}
 \end{figure}
 
 \textbf{Práctica 4, Ejercicio 1: suma de elementos de un vector}\footnote{Si estás leyendo esto antes de que hayamos visto en clase la Unidad 5, podés omitir este último ejemplo y retomarlo más adelante en el cursado.}
@@ -7176,7 +8926,7 @@ En este ejercicio escribimos una función para sumar los elementos de un vector.
 
 }
 
-\caption{Programa suma.R.}\label{fig:unnamed-chunk-209}
+\caption{Programa suma.R.}\label{fig:unnamed-chunk-292}
 \end{figure}
 
 \hypertarget{uso-de-argumentos-en-la-luxednea-de-comandos-al-ejecutar-cuxf3digo-de-r}{%

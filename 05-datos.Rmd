@@ -488,7 +488,7 @@ En el caso de las matrices, se le puede asignar nombres a sus filas y columnas:
 	              14, 19, 24, 29), 
               nrow = 3, byrow = TRUE)
 	rownames(x) <- c("A", "B", "C")
-	colnames(x) <- c("Grupo 1", "Grupo 2", "Grupo 3", "Grupo 4")
+	colnames(x) <- c("grupo1", "grupo2", "grupo3", "grupo4")
 	x
 	```
 
@@ -500,7 +500,7 @@ x <- matrix(c( 8, 13, 18, 23,
               14, 19, 24, 29), 
             nrow = 3, byrow = TRUE,
             dimnames = list(Categorias = c("A", "B", "C"), 
-                            Grupos = c("Grupo 1", "Grupo 2", "Grupo 3", "Grupo 4")))
+                            Grupos = c("grupo1", "grupo2", "grupo3", "grupo4")))
 x
 ```
 	

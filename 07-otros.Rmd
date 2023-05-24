@@ -328,39 +328,3 @@ Rscript archivos/ejemplo4.R
 Si querés probar estos ejemplos, podés crear los archivos de código mencionados copiando y pegando las instrucciones o descargarlos de [este enlace](https://github.com/mpru/introprog/tree/master/archivos). 
 
 Además de la función `commandArgs()` existen paquetes de R para poder trabajar con argumentos y opciones de formas mucho más elaboradas, como los paquetes `argparse` y `optparse`, entre otros.
-
-## Generación de secuencias
-
-A continuación mostramos cómo generar algunos vectores numéricos en R:
-
-```{r}
-# Generar vectores con secuencias numéricas
-
-# Enteros de 1 a 5
-1:5
-
-# Números de 1 a 10 cada 2
-seq(1, 10, 2)
-
-# Números de 0 a -1 cada -0.1
-seq(0, -1, -0.1)
-
-# Siete números equiespaciados entre 0 y 1
-seq(0, 1, length.out = 7)
-
-# Repetir el 1 tres veces
-rep(1, 3)
-
-# Repetir (1, 2, 3) tres veces
-rep(1:3, 3)
-
-# Repetir cada número tres veces
-rep(1:3, each = 3)
-
-# Generar una matriz diagonal
-diag(c(3, 7, 1, 5))
-
-# Generar una matriz identidad
-diag(rep(1, 5))
-```
-
