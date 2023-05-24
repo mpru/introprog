@@ -140,8 +140,7 @@ resumen-de-datos
 cálculo-de-estadísticas
 distribuciones-de-frecuencias-para-variables-categóricas
 distribuciones-de-frecuencias-para-variables-cuantitativas
-creación-de-archivos-y-escritura-de-resultados
-crear-un-archivo-para-guardar-resultados
+escritura-de-resultados-en-archivos
 lectura-opcional
 otros-ejemplos-para-obtener-resúmenes
 tablas-de-frecuencia-con-r-base
@@ -150,4 +149,3 @@ fusionar-varios-data.frames
 otros-tópicos
 la-consola
 uso-de-argumentos-en-la-línea-de-comandos-al-ejecutar-código-de-r
-generación-de-secuencias

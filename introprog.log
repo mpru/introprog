@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.3.2)  24 MAY 2023 08:51
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.3.2)  24 MAY 2023 10:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1770,91 +1770,164 @@ LaTeX Info: Redefining \% on input line 7486.
 LaTeX Info: Redefining \. on input line 7546.
 LaTeX Info: Redefining \% on input line 7546.
 [112]
-LaTeX Info: Redefining \. on input line 7617.
-LaTeX Info: Redefining \% on input line 7617.
+LaTeX Info: Redefining \. on input line 7638.
+LaTeX Info: Redefining \% on input line 7638.
 [113]
-LaTeX Info: Redefining \. on input line 7678.
-LaTeX Info: Redefining \% on input line 7678.
+LaTeX Info: Redefining \. on input line 7686.
+LaTeX Info: Redefining \% on input line 7686.
 [114]
-Overfull \vbox (2.08226pt too high) detected at line 7755
- []
-
-LaTeX Info: Redefining \. on input line 7755.
-LaTeX Info: Redefining \% on input line 7755.
+LaTeX Info: Redefining \. on input line 7769.
+LaTeX Info: Redefining \% on input line 7769.
 [115]
-LaTeX Info: Redefining \. on input line 7831.
-LaTeX Info: Redefining \% on input line 7831.
+LaTeX Info: Redefining \. on input line 7843.
+LaTeX Info: Redefining \% on input line 7843.
 [116]
-Overfull \hbox (428.766pt too wide) in paragraph at lines 7885--7885
+Overfull \hbox (428.766pt too wide) in paragraph at lines 7906--7906
 []\TU/lmtt/m/n/10 El continente con la mayor cantidad de países que han participado de mundiales es Europa con 33 selecciones, mientras que el de menor participación es Oceanía con 2 selecciones.[] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 7917
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 7917.
-LaTeX Info: Redefining \% on input line 7917.
+LaTeX Info: Redefining \. on input line 7931.
+LaTeX Info: Redefining \% on input line 7931.
 [117]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 7989.
-LaTeX Info: Redefining \% on input line 7989.
+LaTeX Info: Redefining \. on input line 8010.
+LaTeX Info: Redefining \% on input line 8010.
 [118]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 8073.
-LaTeX Info: Redefining \% on input line 8073.
+LaTeX Info: Redefining \. on input line 8091.
+LaTeX Info: Redefining \% on input line 8091.
 [119]
-LaTeX Info: Redefining \. on input line 8148.
-LaTeX Info: Redefining \% on input line 8148.
+LaTeX Info: Redefining \. on input line 8169.
+LaTeX Info: Redefining \% on input line 8169.
 [120]
-Overfull \hbox (50.766pt too wide) in paragraph at lines 8191--8191
+Overfull \hbox (50.766pt too wide) in paragraph at lines 8212--8212
 []\TU/lmtt/m/n/10 El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones es [0,50) con 63 países.[] 
  []
 
 
-Underfull \vbox (badness 1642) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 8219.
-LaTeX Info: Redefining \% on input line 8219.
+LaTeX Info: Redefining \. on input line 8246.
+LaTeX Info: Redefining \% on input line 8246.
 [121]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 8294.
-LaTeX Info: Redefining \% on input line 8294.
+LaTeX Info: Redefining \. on input line 8368.
+LaTeX Info: Redefining \% on input line 8368.
 [122]
+Underfull \vbox (badness 10000) detected at line 8368
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 8368
+ []
+
+LaTeX Info: Redefining \. on input line 8368.
+LaTeX Info: Redefining \% on input line 8368.
+[123]
+Overfull \hbox (213.516pt too wide) in paragraph at lines 8445--8445
+[]  \TU/lmtt/m/n/10 continente `Países participantes` `Promedio de puntos` `Títulos obtenidos` `Total de partidos jugados` Promedio de diferencia de gol…¹[] 
+ []
+
+
+Overfull \hbox (213.516pt too wide) in paragraph at lines 8445--8445
+[]  \TU/lmtt/m/n/10 <chr>                       <int>                <dbl>               <dbl>                       <dbl>                           <dbl>[] 
+ []
+
+
+Overfull \hbox (213.516pt too wide) in paragraph at lines 8445--8445
+[]\TU/lmtt/m/n/10 1 América                        20                38.2                   10                         534                           -0.75[] 
+ []
+
+
+Overfull \hbox (208.266pt too wide) in paragraph at lines 8445--8445
+[]\TU/lmtt/m/n/10 2 Asia                           12                 7.67                   0                         126                          -12.4[] 
+ []
+
+
+Overfull \hbox (213.516pt too wide) in paragraph at lines 8445--8445
+[]\TU/lmtt/m/n/10 3 Europa                         33                50                     12                        1080                            8.79[] 
+ []
+
+
+Overfull \hbox (197.766pt too wide) in paragraph at lines 8445--8445
+[]\TU/lmtt/m/n/10 4 Oceanía                         2                 9.5                    0                          26                          -15[] 
+ []
+
+
+Overfull \hbox (213.516pt too wide) in paragraph at lines 8445--8445
+[]\TU/lmtt/m/n/10 5 África                         13                11.7                    0                         162                           -7.38[] 
+ []
+
+Missing character: There is no ℹ (U+2139) in font [lmmono10-regular]:!
+Missing character: There is no ​ (U+200B) in font [lmmono10-regular]:!
+
+Overfull \hbox (428.766pt too wide) in paragraph at lines 8445--8445
+[]\TU/lmtt/m/n/10 El continente con la mayor cantidad de países que han participado de mundiales es Europa con 33 selecciones, mientras que el de menor participación es Oceanía con 2 selecciones.[] 
+ []
+
+
+Overfull \hbox (14.016pt too wide) in paragraph at lines 8445--8445
+[]\TU/lmtt/m/n/10 ==================== DISTRIBUCIÓN CONDICIONAL DE CAMPEONES EN CADA CONTINENTE ====================[] 
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 8388.
-LaTeX Info: Redefining \% on input line 8388.
-[123]
+LaTeX Info: Redefining \. on input line 8445.
+LaTeX Info: Redefining \% on input line 8445.
+[124]
+Overfull \hbox (3.516pt too wide) in paragraph at lines 8445--8445
+[]\TU/lmtt/m/n/10 ==================== DISTRIBUCIÓN CONDICIONAL DE CONTINENTES DADO CAMPEONES ====================[] 
+ []
+
+
+Overfull \hbox (3.516pt too wide) in paragraph at lines 8445--8445
+[]\TU/lmtt/m/n/10 ==================== DISTRIBUCIÓN CONDICIONAL DE CONTINENTES DADO CAMPEONES ====================[] 
+ []
+
+
+Overfull \hbox (50.766pt too wide) in paragraph at lines 8445--8445
+[]\TU/lmtt/m/n/10 El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones es [0,50) con 63 países.[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 8489.
+LaTeX Info: Redefining \% on input line 8489.
+[125]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 8583.
+LaTeX Info: Redefining \% on input line 8583.
+[126]
 File: images/06_archivos/original-dfs-tidy.png Graphic file (type bmp)
 <images/06_archivos/original-dfs-tidy.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 8449.
-LaTeX Info: Redefining \% on input line 8449.
-[124]
+LaTeX Info: Redefining \. on input line 8644.
+LaTeX Info: Redefining \% on input line 8644.
+[127]
 File: images/06_archivos/spread.png Graphic file (type bmp)
 <images/06_archivos/spread.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 8496.
-LaTeX Info: Redefining \% on input line 8496.
-[125]
+LaTeX Info: Redefining \. on input line 8691.
+LaTeX Info: Redefining \% on input line 8691.
+[128]
 File: images/06_archivos/Tabla1.png Graphic file (type bmp)
 <images/06_archivos/Tabla1.png>
 File: images/06_archivos/leftjoin.png Graphic file (type bmp)
 <images/06_archivos/leftjoin.png>
-LaTeX Info: Redefining \. on input line 8558.
-LaTeX Info: Redefining \% on input line 8558.
-[126]
+LaTeX Info: Redefining \. on input line 8753.
+LaTeX Info: Redefining \% on input line 8753.
+[129]
 File: images/06_archivos/rightjoin.png Graphic file (type bmp)
 <images/06_archivos/rightjoin.png>
 File: images/06_archivos/innerjoin.png Graphic file (type bmp)
@@ -1868,9 +1941,9 @@ File: images/06_archivos/antijoin.png Graphic file (type bmp)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 8611.
-LaTeX Info: Redefining \% on input line 8611.
-[127]
+LaTeX Info: Redefining \. on input line 8806.
+LaTeX Info: Redefining \% on input line 8806.
+[130]
 File: images/06_archivos/1dupkeys.png Graphic file (type bmp)
 <images/06_archivos/1dupkeys.png>
 File: images/06_archivos/2dupkeys.png Graphic file (type bmp)
@@ -1878,24 +1951,19 @@ File: images/06_archivos/2dupkeys.png Graphic file (type bmp)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 8657.
-LaTeX Info: Redefining \% on input line 8657.
-[128]
-LaTeX Info: Redefining \. on input line 8671.
-LaTeX Info: Redefining \% on input line 8671.
-[129]
-LaTeX Info: Redefining \. on input line 8671.
-LaTeX Info: Redefining \% on input line 8671.
-[130
-
-]
+LaTeX Info: Redefining \. on input line 8852.
+LaTeX Info: Redefining \% on input line 8852.
+[131]
+LaTeX Info: Redefining \. on input line 8866.
+LaTeX Info: Redefining \% on input line 8866.
+[132]
 Unidad 7.
 File: images/07_otros/terminal.png Graphic file (type bmp)
 <images/07_otros/terminal.png>
 File: images/07_otros/terminal2.png Graphic file (type bmp)
 <images/07_otros/terminal2.png>
-LaTeX Info: Redefining \. on input line 8725.
-LaTeX Info: Redefining \% on input line 8725.
+LaTeX Info: Redefining \. on input line 8920.
+LaTeX Info: Redefining \% on input line 8920.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1903,9 +1971,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
-[131]
-LaTeX Info: Redefining \. on input line 8725.
-LaTeX Info: Redefining \% on input line 8725.
+[133
+
+]
+LaTeX Info: Redefining \. on input line 8920.
+LaTeX Info: Redefining \% on input line 8920.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1913,11 +1983,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
-[132]
+[134]
 File: images/07_otros/terminal3.png Graphic file (type bmp)
 <images/07_otros/terminal3.png>
 
-Overfull \hbox (52.90825pt too wide) in paragraph at lines 8749--8750
+Overfull \hbox (52.90825pt too wide) in paragraph at lines 8944--8945
 []\TU/lmr/m/n/10 Para los siguientes ejemplos, trabajaremos en una carpeta llamada \TU/lmtt/m/n/10 Ejemplos\TU/lmr/m/n/10 , cuyo \TU/lmr/m/it/10 path \TU/lmr/m/n/10 es \TU/lmtt/m/n/10 C:\Users\Marcos\Trabajo\Ejemplos
  []
 
@@ -1927,30 +1997,8 @@ File: images/07_otros/terminal5.png Graphic file (type bmp)
 <images/07_otros/terminal5.png>
 File: images/07_otros/terminal6.png Graphic file (type bmp)
 <images/07_otros/terminal6.png>
-LaTeX Info: Redefining \. on input line 8784.
-LaTeX Info: Redefining \% on input line 8784.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.69003pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.69003pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
-
-[133]
-LaTeX Info: Redefining \. on input line 8784.
-LaTeX Info: Redefining \% on input line 8784.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.69003pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.69003pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
-
-[134]
-File: images/07_otros/terminal7.png Graphic file (type bmp)
-<images/07_otros/terminal7.png>
-LaTeX Info: Redefining \. on input line 8827.
-LaTeX Info: Redefining \% on input line 8827.
+LaTeX Info: Redefining \. on input line 8979.
+LaTeX Info: Redefining \% on input line 8979.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1959,10 +2007,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [135]
-File: images/07_otros/terminal8.png Graphic file (type bmp)
-<images/07_otros/terminal8.png>
-LaTeX Info: Redefining \. on input line 8869.
-LaTeX Info: Redefining \% on input line 8869.
+LaTeX Info: Redefining \. on input line 8979.
+LaTeX Info: Redefining \% on input line 8979.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1971,10 +2017,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [136]
-File: images/07_otros/terminal9.png Graphic file (type bmp)
-<images/07_otros/terminal9.png>
-LaTeX Info: Redefining \. on input line 8906.
-LaTeX Info: Redefining \% on input line 8906.
+File: images/07_otros/terminal7.png Graphic file (type bmp)
+<images/07_otros/terminal7.png>
+LaTeX Info: Redefining \. on input line 9022.
+LaTeX Info: Redefining \% on input line 9022.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1983,10 +2029,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [137]
-File: images/07_otros/terminal10.png Graphic file (type bmp)
-<images/07_otros/terminal10.png>
-LaTeX Info: Redefining \. on input line 8951.
-LaTeX Info: Redefining \% on input line 8951.
+File: images/07_otros/terminal8.png Graphic file (type bmp)
+<images/07_otros/terminal8.png>
+LaTeX Info: Redefining \. on input line 9064.
+LaTeX Info: Redefining \% on input line 9064.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -1995,14 +2041,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [138]
-Underfull \vbox (badness 10000) detected at line 9029
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 9029.
-LaTeX Info: Redefining \% on input line 9029.
+File: images/07_otros/terminal9.png Graphic file (type bmp)
+<images/07_otros/terminal9.png>
+LaTeX Info: Redefining \. on input line 9101.
+LaTeX Info: Redefining \% on input line 9101.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2011,10 +2053,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [139]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 9116.
-LaTeX Info: Redefining \% on input line 9116.
+File: images/07_otros/terminal10.png Graphic file (type bmp)
+<images/07_otros/terminal10.png>
+LaTeX Info: Redefining \. on input line 9146.
+LaTeX Info: Redefining \% on input line 9146.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2023,10 +2065,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [140]
+Underfull \vbox (badness 10000) detected at line 9224
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 9188.
-LaTeX Info: Redefining \% on input line 9188.
+LaTeX Info: Redefining \. on input line 9224.
+LaTeX Info: Redefining \% on input line 9224.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2035,8 +2081,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [141]
-LaTeX Info: Redefining \. on input line 9289.
-LaTeX Info: Redefining \% on input line 9289.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 9311.
+LaTeX Info: Redefining \% on input line 9311.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2045,8 +2093,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [142]
-LaTeX Info: Redefining \. on input line 9354.
-LaTeX Info: Redefining \% on input line 9354.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 9383.
+LaTeX Info: Redefining \% on input line 9383.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2055,8 +2105,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
 [143]
-LaTeX Info: Redefining \. on input line 9354.
-LaTeX Info: Redefining \% on input line 9354.
+LaTeX Info: Redefining \. on input line 9434.
+LaTeX Info: Redefining \% on input line 9434.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2064,11 +2114,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
-[144
-
-]
-LaTeX Info: Redefining \. on input line 9415.
-LaTeX Info: Redefining \% on input line 9415.
+[144]
+LaTeX Info: Redefining \. on input line 9495.
+LaTeX Info: Redefining \% on input line 9495.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.69003pt, for example:
@@ -2076,15 +2124,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.69003pt}.
 
-[145] (./introprog.aux
+[145
+
+] (./introprog.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 ) ) 
 Here is how much of TeX's memory you used:
- 21390 strings out of 478669
- 402046 string characters out of 5848236
+ 21387 strings out of 478669
+ 401955 string characters out of 5848236
  1878018 words of memory out of 5000000
- 41145 multiletter control sequences out of 15000+600000
+ 41142 multiletter control sequences out of 15000+600000
  518850 words of font info for 99 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  86i,12n,121p,1538b,699s stack positions out of 10000i,1000n,20000p,200000b,200000s

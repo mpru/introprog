@@ -42,7 +42,7 @@
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
 </form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+      <nav aria-label="Tabla de contenidos"><h2>Tabla de contenidos</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Bienvenida</a></li>
 <li><a class="" href="introducci%C3%B3n-a-la-programaci%C3%B3n.html"><span class="header-section-number">1</span> Introducción a la Programación</a></li>
@@ -201,7 +201,7 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 </li>
 </ul>
 <p>La organización más sencilla y más comúnmente empleada es la <strong>secuencial</strong>, aunque en algunos casos puede no ser la más eficiente. Si bien no todos los lenguajes de programación permiten el trabajo con archivos indexados o de organización directa, todos pueden manejar archivos secuenciales.</p>
-<p>En este curso no profundizaremos en esta distinción y trabajaremos con archivos guardados como documentos de Excel (extensión <em>.xlsx</em>) o archivos de texto (extensión <em>.txt</em> o <em>.csv</em>), los cuales siguen una organización secuencial.</p>
+<p>En esta asignatura no profundizaremos en esta distinción y trabajaremos con archivos guardados como documentos de Excel (extensión <em>.xlsx</em>) o archivos de texto (extensión <em>.txt</em> o <em>.csv</em>), los cuales siguen una organización secuencial.</p>
 <p>Un <strong>archivo de texto</strong> (también conocido como <em>texto llano</em> o <em>texto simple</em>) es un archivo informático que contiene únicamente texto formado por una secuencia ordenada de caracteres. El texto almacenado en este tipo de archivo carece de cualquier tipo de formato tipográfico (negrita, cursiva, colores, subrayado, fuente, etc.), lo cual permite que una gran variedad de programas pueda leer y editar el contenido. Cada renglón en el archivo de texto es un registro y los distintos campos suelen estar señalizados con tabulaciones (archivos <em>.txt</em>, como el que usaremos de ejemplo, <em>mundiales.txt</em>) o separados por comas o punto y comas (archivos <em>.csv</em>).</p>
 <p>Los archivos de texto están compuestos por caracteres ordinarios, como las letras, números y signos de puntuación, y por caracteres especiales que indican, por ejemplo, saltos de línea (<code>\n</code>) y tabulaciones (<code>\t</code>). Pero como en realidad las computadoras solamente entienden números, cada carácter es codificado internamente con una representación numérica binaria, que nosotros nunca llegamos a ver. Distintas maneras de hacer esta representación dan lugar a diferentes formatos de codificación de caracteres (como <em>ASCII</em>, <em>ISO-8859-1</em> o <em>UTF-8</em>). Si en alguna oportunidad abrimos un archivo y nos percatamos que caracteres como la “ñ” o las tildes han sido reemplazadas por otros produciendo un aspecto “raro”, significa que el archivo ha sido abierto empleando una codificación diferente de la que se utilizó al crear el archivo. La solución para este problema es muy sencilla, sólo hay que cambiar la opción de codificación a la hora de guardar o de abrir el archivo.</p>
 </div>
@@ -236,7 +236,7 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 <h2>
 <span class="header-section-number">6.2</span> Lectura de los registros del archivo<a class="anchor" aria-label="anchor" href="#lectura-de-los-registros-del-archivo"><i class="fas fa-link"></i></a>
 </h2>
-<p>Ya hemos mencionado que R se organiza mediante un sistema de paquetes, algunos de los cuales vienen instalados con la distribución básica de R, mientras que otros deben ser instalados si tenés el particular interés de usarlos. R Base trae muchas funciones útiles para la importación de datos, así como para las subsiguientes tareas de manejo, transformación y resumen. Sin embargo, en este curso aprenderemos a emplear una familia de paquetes conocida como <a href="https://www.tidyverse.org"><strong>tidyverse</strong></a>, creados para la manipulación, exploración y visualización de datos con un diseño, estructuras y reglas de uso en común, que resultan muy amigables para programar.</p>
+<p>Ya hemos mencionado que R se organiza mediante un sistema de paquetes, algunos de los cuales vienen instalados con la distribución básica de R, mientras que otros deben ser instalados si tenés el particular interés de usarlos. R Base trae muchas funciones útiles para la importación de datos, así como para las subsiguientes tareas de manejo, transformación y resumen. Sin embargo, en esta asignatura aprenderemos a emplear una familia de paquetes conocida como <a href="https://www.tidyverse.org"><strong>tidyverse</strong></a>, creados para la manipulación, exploración y visualización de datos con un diseño, estructuras y reglas de uso en común, que resultan muy amigables para programar.</p>
 <div class="inline-figure"><img src="images/06_archivos/tidyverse.png" width="70%" style="display: block; margin: auto;"></div>
 <p>Instalamos esta colección de paquetes con:</p>
 <div class="sourceCode" id="cb633"><pre class="downlit sourceCode r">
@@ -390,7 +390,7 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 <p>¿Qué sucedió al correr esa instrucción?:</p>
 <ul>
 <li>Como primer argumento de la función proveemos el dataset con el que vamos a operar, <code>datos</code>.</li>
-<li>Elegimos en segundo lugar un nombre para una nueva variable, <code>pj</code> y la definimos como la suma de otras variables ya existentes.</li>
+<li>Elegimos en segundo lugar un nombre para una nueva variable, <code>pj</code>, y la definimos como la suma de otras variables ya existentes.</li>
 <li>El resultado es el dataset original con esta modificación y lo guardamos con el mismo nombre. Si hubiésemos elegido otro nombre, generaríamos una copia del dataset con la modificación, mientras conservamos el original sin cambios.</li>
 </ul>
 <p>Al editar variables, podemos elegir entre sobrescribir o no una columna existente, así como también entre sobrescribir o no el conjunto de datos de partida. Para pensar… sin ejecutarlas, responder: ¿cuál es la diferencia entre las siguientes instrucciones?</p>
@@ -403,10 +403,10 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 
 <span class="co"># Sentencia (c)</span>
 <span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">datos</span>, pg <span class="op">=</span> <span class="va">pg</span> <span class="op">+</span> <span class="va">pe</span> <span class="op">+</span> <span class="va">pp</span><span class="op">)</span></code></pre></div>
-<p>Otras situaciones requieren que en lugar de <em>mutar</em> de la misma forma toda una columna, los cambios dependan de alguna condición que los registros verifiquen o no. Por ejemplo, agreguemos una nueva variable que indique si cada país es o no campeón del mundo, en función de los valores disponibles en la variable <code>titulos</code>. Vamos a crear una nueva columna que se llame <code>campeon</code> y tenga el valor <code>campeón</code> cuando <code>titulos &gt; 0</code> y <code>no campeón</code> en caso contrario, ayudándonos con la función <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code>, la cual nos permite establecer una evaluación lógica y dos cursos de acción, en base a que esta resulte verdadera (<code>TRUE</code>) o falsa (<code>FALSE</code>).</p>
+<p>Otras situaciones requieren que en lugar de <em>mutar</em> de la misma forma toda una columna, los cambios dependan de alguna condición que los registros verifiquen o no. Por ejemplo, agreguemos una nueva variable que indique si cada país es o no campeón del mundo, en función de los valores disponibles en la variable <code>titulos</code>. Vamos a crear una nueva columna que se llame <code>campeon</code> y tenga el valor <code>"campeón"</code> cuando <code>titulos &gt; 0</code> y <code>"no campeón"</code> en caso contrario, ayudándonos con la función <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code>, la cual nos permite establecer una evaluación lógica y dos cursos de acción, en base a que esta resulte verdadera (<code>TRUE</code>) o falsa (<code>FALSE</code>).</p>
 <div class="sourceCode" id="cb664"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">datos</span>, campeon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">titulos</span> <span class="op">&gt;</span> <span class="fl">0</span>, <span class="st">"campeón"</span>, <span class="st">"no campeón"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>Inspeccionamos la nueva columna, sumando una nueva función del <code>tidyverse</code>, <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code>. Sólo 8 países han ganado el mundial alguna vez (¡y Argentina es uno de ellos!):</p>
+<p>Inspeccionamos la nueva columna, recurriendo a otra función del <code>tidyverse</code>, <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code>. Sólo 8 países han ganado el mundial alguna vez (¡y Argentina es uno de ellos!):</p>
 <div class="sourceCode" id="cb665"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">campeon</span><span class="op">)</span></code></pre></div>
 <pre><code># A tibble: 2 × 2
@@ -449,14 +449,12 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
         <span class="cn">TRUE</span> <span class="op">~</span> <span class="va">continente</span> <span class="co"># opción por defecto</span>
         <span class="op">)</span>
     <span class="op">)</span></code></pre></div>
-<div class="alert alert-warning">
-<p><strong>Ejercicio</strong>: agregar nuevas columnas en las que se muestre:</p>
+<p>Dejamos la siguiente propuesta para seguir practicando: agregar nuevas columnas en las que se muestre</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Crear una nueva variable llamada <code>puntos</code> que indique cuál es el puntaje total obtenido por cada selección a lo largo del tiempo, teniendo en cuenta que cada partido ganado aporta 3 puntos, cada partido empatado aporta 1 punto y cada partido perdido aporta 0 puntos.</p></li>
 <li><p>Crear una nueva variable llamada <code>dg</code>, diferencia de goles, definida como la resta entre los goles a favor y los goles en contra.</p></li>
 </ol>
-<p><em>Tip</em>: en <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> podemos poner muchas modificaciones juntas, separándolas con coma.</p>
-</div>
+<p><em>Sugerencia</em>: en <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> podemos poner muchas modificaciones juntas, separándolas con coma.</p>
 </div>
 <div id="renombrar-atributos" class="section level3" number="6.3.2">
 <h3>
@@ -537,18 +535,22 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 <div class="sourceCode" id="cb679"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Una condición</span>
 <span class="va">datos_america</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">continente</span> <span class="op">==</span> <span class="st">"América"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">datos_america</span><span class="op">)</span>
-
-<span class="co"># Dos condiciones</span>
+<span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">datos_america</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 20</code></pre>
+<div class="sourceCode" id="cb681"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Dos condiciones</span>
 <span class="va">datos_campeones_america</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">continente</span> <span class="op">==</span> <span class="st">"América"</span>, <span class="va">campeon</span> <span class="op">==</span> <span class="st">"campeón"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">datos_campeones_america</span><span class="op">)</span>
-<span class="co"># Alternativa equivalente: filter(datos, continente == "América" &amp; campeon == "si")</span>
+<span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">datos_campeones_america</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 3</code></pre>
+<div class="sourceCode" id="cb683"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Alternativa equivalente: filter(datos, continente == "América" &amp; campeon == "si")</span>
 
 <span class="co"># Al menos una de las primeras condiciones ("o") y la segunda</span>
 <span class="va">datos_filtro</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">continente</span> <span class="op">==</span> <span class="st">"América"</span> <span class="op">|</span> <span class="va">campeon</span> <span class="op">==</span> <span class="st">"campeón"</span>, <span class="va">participaciones</span> <span class="op">&gt;</span> <span class="fl">10</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">datos_filtro</span><span class="op">)</span></code></pre></div>
+<pre><code>[1] 10</code></pre>
 <p>Para ordenar los registros según el orden creciente o decreciente en una columna, podemos usar la función <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code>:</p>
-<div class="sourceCode" id="cb680"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb685"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Orden creciente:</span>
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">puntos</span><span class="op">)</span>
 
@@ -557,23 +559,21 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 
 <span class="co"># Ordenar según más de una variable:</span>
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">america</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">titulos</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="alert alert-warning">
-<p><strong>Ejercicio</strong>: filtrar el conjunto de datos original para quedarse con los países que tengan una diferencia de goles positiva y guardar estos registros en un nuevo <em>data.frame</em> llamado <code>datos_dg_positiva</code>.</p>
-</div>
+<p><strong>Actividad propuesta</strong>: filtrar el conjunto de datos original para quedarse con los países que tengan una diferencia de goles positiva y guardar estos registros en un nuevo <em>data.frame</em> llamado <code>datos_dg_positiva</code>.</p>
 </div>
 <div id="seleccionar-y-reordenar-columnas" class="section level3" number="6.3.5">
 <h3>
 <span class="header-section-number">6.3.5</span> Seleccionar y reordenar columnas<a class="anchor" aria-label="anchor" href="#seleccionar-y-reordenar-columnas"><i class="fas fa-link"></i></a>
 </h3>
 <p>Podemos elegir quedarnos sólo con algunas columnas del dataset con la función <strong>select()</strong>:</p>
-<div class="sourceCode" id="cb681"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb686"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Elegir cuáles quedan</span>
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">seleccion</span>, <span class="va">participaciones</span><span class="op">)</span>
 
 <span class="co"># Elegir cuáles se van</span>
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">datos</span>, <span class="op">-</span><span class="va">goles_favor</span>, <span class="op">-</span><span class="va">goles_contra</span><span class="op">)</span>
 
-<span class="co"># Reordenar las columnas</span>
+<span class="co"># Reordenar las columnas - everything() hace referencia al resto</span>
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">seleccion</span>, <span class="va">campeon</span>, <span class="va">puntos</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
@@ -582,7 +582,7 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 <span class="header-section-number">6.4</span> Tuberías o <em>pipes</em><a class="anchor" aria-label="anchor" href="#tuber%C3%ADas-o-pipes"><i class="fas fa-link"></i></a>
 </h2>
 <p>Hasta ahora, esto es parte de lo que hicimos con los datos de los mundiales:</p>
-<div class="sourceCode" id="cb682"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb687"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Lectura del archivo</span>
 <span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim</a></span><span class="op">(</span><span class="st">"mundiales.txt"</span><span class="op">)</span>
 
@@ -603,8 +603,8 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 
 <span class="co"># Crear una nueva variable con el nombre del país y del continente</span>
 <span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unite.html">unite</a></span><span class="op">(</span><span class="va">datos</span>, col <span class="op">=</span> <span class="st">"pais_continente"</span>, <span class="va">seleccion</span>, <span class="va">continente</span>, sep <span class="op">=</span> <span class="st">" - "</span>, remove <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
-<p>En todas las instrucciones anteriores se repite la misma estructura: cada función toma el dataset, lo modifica y lo guarda, y esto se convierte en el input para la próxima función. Se puede escribir todo junto de manera más cómoda usando una <strong>tubería</strong> o <strong>pipeline</strong>. En una <strong>tubería</strong> el resultado de cada línea es el input para la línea siguiente (por eso eliminamos en cada función el primer argumento, el nombre del dataset). El símbolo <code>%&gt;%</code>, conocido como <em>pipe</em>, es la unión entre las partes de la tubería<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;También podemos usar el operador &lt;code&gt;%&amp;gt;%&lt;/code&gt;.&lt;/p&gt;"><sup>27</sup></a>. El atajo para escribir este operador de forma rápida con el teclado es <code>CTRL + Shift + M</code>. El <em>data.frame</em> devuelto por la última función de la tubería es guardado en el objeto cuyo nombre se indica al comienzo.</p>
-<div class="sourceCode" id="cb683"><pre class="downlit sourceCode r">
+<p>En todas las instrucciones anteriores se repite la misma estructura: cada función toma al <em>data.frame</em>, lo modifica y lo guarda, y esto se convierte en el input para la próxima función. Se puede escribir todo junto de manera más cómoda usando una <strong>tubería</strong> o <strong>pipeline</strong>. En una <strong>tubería</strong> el resultado de cada línea es el input para la línea siguiente (por eso eliminamos en cada función el primer argumento, el nombre del dataset). El símbolo <code>%&gt;%</code>, conocido como <em>pipe</em>, es la unión entre las partes de la tubería<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;También podemos usar el operador &lt;code&gt;|&amp;gt;&lt;/code&gt;.&lt;/p&gt;"><sup>27</sup></a>. El atajo para escribir este operador de forma rápida con el teclado es <code>CTRL + Shift + M</code>. El <em>data.frame</em> devuelto por la última función de la tubería es guardado en el objeto cuyo nombre se indica al comienzo.</p>
+<div class="sourceCode" id="cb688"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">datos</span> <span class="op">&lt;-</span> 
     <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim</a></span><span class="op">(</span><span class="st">"mundiales.txt"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>
@@ -622,12 +622,12 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 <span class="header-section-number">6.5</span> Escritura de conjuntos de datos en archivos<a class="anchor" aria-label="anchor" href="#escritura-de-conjuntos-de-datos-en-archivos"><i class="fas fa-link"></i></a>
 </h2>
 <p>Todas las modificaciones que hicimos del <em>data.frame</em> con los ejemplos anteriores no modificaron el archivo original <code>mundiales.txt</code> que reside en el disco rígido de nuestra computadora, sino que sirvieron para modificar al objeto <code>datos</code> que reside en la memoria temporal durante la ejecución de la sesión de R. Si al terminar con el procesamiento de los datos queremos generar un nuevo archivo permanente con la nueva versión del dataset, tenemos que hacer algo específico para eso. R provee una gran variedad de funciones para guardar todo el contenido de un objeto de tipo <em>data.frame</em> en un archivo, como se muestra en los ejemplos que siguen, en los que plasmamos la versión actual del <em>data.frame</em> en un nuevo archivo llamado <code>mundiales_procesado</code>. En cada ocasión, generamos un tipo de archivo distinto:</p>
-<div class="sourceCode" id="cb684"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb689"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Guardarlo en un archivo de texto separado por tabulaciones</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">datos</span>, <span class="st">"mundiales_procesado.txt"</span>, quote <span class="op">=</span> <span class="cn">FALSE</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span>, sep <span class="op">=</span> <span class="st">"\t"</span><span class="op">)</span>
+<span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_delim</a></span><span class="op">(</span><span class="va">datos</span>, file <span class="op">=</span> <span class="st">"mundiales_procesados.txt"</span>, delim <span class="op">=</span> <span class="st">"\t"</span><span class="op">)</span>
 
 <span class="co"># Guardarlo en un archivo de texto separado por comas</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">datos</span>, <span class="st">"mundiales_procesado.txt"</span>, quote <span class="op">=</span> <span class="cn">FALSE</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">datos</span>, file <span class="op">=</span> <span class="st">"mundiales_procesados.csv"</span><span class="op">)</span>
 
 <span class="co"># Guardarlo en un archivo de Excel</span>
 <span class="co"># install.packages("writexl")</span>
@@ -644,23 +644,23 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 <span class="header-section-number">6.6.1</span> Cálculo de estadísticas<a class="anchor" aria-label="anchor" href="#c%C3%A1lculo-de-estad%C3%ADsticas"><i class="fas fa-link"></i></a>
 </h3>
 <p>Imaginemos ahora que queremos saber cuántas veces en promedio han participado estas 80 selecciones del mundial. Esto se puede lograr de manera muy sencilla con <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>:</p>
-<div class="sourceCode" id="cb685"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb690"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">participaciones</span><span class="op">)</span></code></pre></div>
 <pre><code>[1] 6.1125</code></pre>
 <p>Otra alternativa es utilizar la función <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> del <code>tidyverse</code>:</p>
-<div class="sourceCode" id="cb687"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="va">datos</span>, total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">participaciones</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb692"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="va">datos</span>, promedio <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">participaciones</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code># A tibble: 1 × 1
-  total
-  &lt;dbl&gt;
-1  6.11</code></pre>
-<p>Si bien ésta última forma parece ser más compleja, tiene algunas ventajas:</p>
+  promedio
+     &lt;dbl&gt;
+1     6.11</code></pre>
+<p>Si bien esta última forma parece ser más compleja, tiene algunas ventajas:</p>
 <ul>
 <li>Devuelve el resultado como un objeto de tipo <em>data.frame</em>, que puede ser usado como “materia prima” en otros análisis.</li>
 <li>Permite resumir muchas variables a la vez, en general o por grupos, aplicando uno o varios cálculos de resumen.</li>
 </ul>
 <p>Por ejemplo, si queremos obtener el puntaje promedio obtenido por las selecciones de cada continente utilizamos <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> en conjunto con <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code>, relacionando ambas funciones en una tubería:</p>
-<div class="sourceCode" id="cb689"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb694"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">datos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">continente</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>prom_puntos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">puntos</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -673,7 +673,7 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 4 Oceanía           9.5 
 5 África           11.7 </code></pre>
 <p>Podemos seguir alargando la tubería, para pedir que el resultado anterior se presente de forma descendente, de modo que veamos rápidamente cuál es el continente con mayor promedio de puntos obtenidos:</p>
-<div class="sourceCode" id="cb691"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb696"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">datos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">continente</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>prom_puntos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">puntos</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
@@ -687,7 +687,7 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 4 Oceanía           9.5 
 5 Asia              7.67</code></pre>
 <p>Dentro de <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> podemos pedir más de un resumen:</p>
-<div class="sourceCode" id="cb693"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb698"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">datos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">continente</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>
@@ -714,7 +714,7 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 <span class="header-section-number">6.6.2</span> Distribuciones de frecuencias para variables categóricas<a class="anchor" aria-label="anchor" href="#distribuciones-de-frecuencias-para-variables-categ%C3%B3ricas"><i class="fas fa-link"></i></a>
 </h3>
 <p>Cuando en los archivos de datos existen campos de tipo carácter, que representan variables categóricas, es común resumirlos creando <strong>tablas de frecuencias</strong>. Ya vimos que la función <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code> nos permite obtener la <strong>frecuencia absoluta</strong> (bajo el nombre de <code>n</code>) de cada categoría:</p>
-<div class="sourceCode" id="cb695"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb700"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">continente</span><span class="op">)</span></code></pre></div>
 <pre><code># A tibble: 5 × 2
   continente     n
@@ -725,11 +725,11 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 4 Oceanía        2
 5 África        13</code></pre>
 <p>Sin embargo, utilizaremos un paquete que es muy útil para generar tablas de frecuencias, llamado <code>janitor</code>. No forma parte del <code>tidyverse</code> pero está creado con el mismo diseño. Lo instalamos y cargamos:</p>
-<div class="sourceCode" id="cb697"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb702"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("janitor")</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span></code></pre></div>
 <p>Ahora usamos la función <code>tabyl</code> del paquete <code>janitor</code> para crear una tabla de frecuencias:</p>
-<div class="sourceCode" id="cb698"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb703"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">frecuencias</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">continente</span><span class="op">)</span>
 <span class="va">frecuencias</span></code></pre></div>
 <pre><code> continente  n percent
@@ -739,24 +739,24 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
     Oceanía  2  0.0250
      África 13  0.1625</code></pre>
 <p>Lo anterior es un nuevo <em>data.frame</em> con tres variables, el continente, la frecuencia absoluta <code>n</code> y la frecuencia relativa, que si bien son proporciones que varían entre 0 y 1, el software las llama <code>percent</code>. En este caso, con pocas categorías, podemos apreciar rápidamente cuál es el continente con mayor y menor cantidad de países que participaron de mundiales, pero si queremos resaltar esta información podemos hacer algunos filtrados. A continuación, filtramos el <em>data.frame</em> <code>frecuencias</code> para retener aquellas filas donde el valor de <code>n</code> sea igual a su mínimo o a su máximo:</p>
-<div class="sourceCode" id="cb700"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb705"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">minimo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">frecuencias</span>, <span class="va">n</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span>
 <span class="va">minimo</span></code></pre></div>
 <pre><code> continente n percent
     Oceanía 2   0.025</code></pre>
-<div class="sourceCode" id="cb702"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb707"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">maximo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">frecuencias</span>, <span class="va">n</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span>
 <span class="va">maximo</span></code></pre></div>
 <pre><code> continente  n percent
      Europa 33  0.4125</code></pre>
 <p>Notemos que los objetos <code>minimo</code> y <code>maximo</code> son nuevos <em>data.frames</em>, con tan sólo una observación. Podríamos usarlos para emitir algún mensaje con los hallazgos. Por supuesto que si hubiesen empates en los valores máximos o mínimos tendríamos que pensar otra forma de comunicar el mensaje, pero con todos los conocimientos que tenemos de programación esa tarea es sencilla de resolver:</p>
-<div class="sourceCode" id="cb704"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb709"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El continente con la mayor cantidad de países que han participado de mundiales es"</span>, 
         <span class="va">maximo</span><span class="op">$</span><span class="va">continente</span>, <span class="st">"con"</span>, <span class="va">maximo</span><span class="op">$</span><span class="va">n</span>, <span class="st">"selecciones, mientras que el de menor participación es"</span>, 
         <span class="va">minimo</span><span class="op">$</span><span class="va">continente</span>, <span class="st">"con"</span>, <span class="va">minimo</span><span class="op">$</span><span class="va">n</span>, <span class="st">"selecciones."</span><span class="op">)</span></code></pre></div>
 <pre><code>El continente con la mayor cantidad de países que han participado de mundiales es Europa con 33 selecciones, mientras que el de menor participación es Oceanía con 2 selecciones.</code></pre>
 <p>Un aspecto útil de la función <code><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl()</a></code> es que puede ser acompañada por funciones que comienzan con el nombre <code>adorn_</code> y sirven para agregar algún tipo de “adorno” a la tabla, por ejemplo, los totales:</p>
-<div class="sourceCode" id="cb706"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb711"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">frecuencias</span> <span class="op">&lt;-</span> 
     <span class="va">frecuencias</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
     <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span><span class="op">)</span>
@@ -769,7 +769,7 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
      África 13  0.1625
       Total 80  1.0000</code></pre>
 <p>Podríamos mejorar levemente la tabla de frecuencias cambiando los nombres de sus columnas, con la función <code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code>. Para poder usar nombres que contengan espacios, tenemos que encerrarlos en comillas invertidas (esto es poco práctico a la hora de escribir código, sólo sirve para mejorar la apariencia del resultado):</p>
-<div class="sourceCode" id="cb708"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb713"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">frecuencias</span> <span class="op">&lt;-</span> 
     <span class="va">frecuencias</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>Continente <span class="op">=</span> <span class="va">continente</span>, `Frec. Absoluta` <span class="op">=</span> <span class="va">n</span>, `Frec. Relativa` <span class="op">=</span> <span class="va">percent</span><span class="op">)</span>
@@ -782,7 +782,7 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
      África             13         0.1625
       Total             80         1.0000</code></pre>
 <p>Si escribimos todos los pasos que hicimos en una sola tubería, nos quedaría así:</p>
-<div class="sourceCode" id="cb710"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb715"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">frecuencias</span> <span class="op">&lt;-</span> 
     <span class="va">datos</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
     <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
@@ -797,7 +797,7 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
      África             13         0.1625
       Total             80         1.0000</code></pre>
 <p>Otro tipo de escenario se presenta cuando queremos analizar las frecuencias de dos variables categóricas. La función <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code> también permite obtener conteos asociados a cada combinación posible de las categorías de dos o más variables. El resultado, como siempre, es un <em>data.frame</em> con una columna para cada una de las variables involucradas y otra para las frecuencias absolutas. Así, podemos ver que de todos los países americanos que jugaron algún mundial, 17 nunca fueron campeones y 3 sí.</p>
-<div class="sourceCode" id="cb712"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb717"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">continente</span>, <span class="va">campeon</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <pre><code># A tibble: 7 × 3
   continente campeon        n
@@ -810,7 +810,7 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 6 América    campeón        3
 7 Oceanía    no campeón     2</code></pre>
 <p>Esta forma de presentar los resultados es útil cuando deseamos identificar combinaciones de categorías con los valores mínimos y máximos. Sin embargo, frecuencias como las anteriores suelen ser presentadas en <strong>tablas de contingencia</strong> o <strong>tablas de doble entrada</strong>, donde las filas se corresponden a las categorías de una variable y las columnas, a las de la otra. La función<code><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl()</a></code> presenta los conteos de esa forma:</p>
-<div class="sourceCode" id="cb714"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb719"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tabla_cont_campeon</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span>
 <span class="va">tabla_cont_campeon</span></code></pre></div>
 <pre><code> continente campeón no campeón
@@ -820,12 +820,12 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
      Europa       5         28
     Oceanía       0          2</code></pre>
 <p>Podemos destacar cuál es el continente con mayor cantidad de campeones filtrando al registro con máximo valor en la columna <code>campeón</code>:</p>
-<div class="sourceCode" id="cb716"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb721"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">tabla_cont_campeon</span>, <span class="va">campeón</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">campeón</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code> continente campeón no campeón
      Europa       5         28</code></pre>
 <p>La función <code><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals()</a></code> nos permite de manera muy sencilla agregar totales marginales, tanto para filas como columnas:</p>
-<div class="sourceCode" id="cb718"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb723"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">datos</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"col"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -840,11 +840,11 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 <ul>
 <li>
 <p><strong>Distribución conjunta de las variables</strong>: podemos ver, por ejemplo, que el 3.8% de todos los países participantes son de América y han salido campeón alguna vez.</p>
-<div class="sourceCode" id="cb720"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb725"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">datos</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"col"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
-    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>  <span class="co"># cálculo de proporciones</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>  <span class="co"># cálculo de proporciones</span>
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>            <span class="co"># mostrarlas como porcentaje (opcional)</span></code></pre></div>
 <pre><code> continente campeón no campeón  Total
      África    0.0%      16.2%  16.2%
@@ -855,12 +855,12 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
       Total   10.0%      90.0% 100.0%</code></pre>
 </li>
 <li>
-<p><strong>Distribución condicional de campeon dado continente</strong>: los porcentajes suman 1 en cada fila. De todos los países americanos que alguna vez participaron de un mundia, el 15% logró ser campeón y el 85%, no.</p>
-<div class="sourceCode" id="cb722"><pre class="downlit sourceCode r">
+<p><strong>Distribución condicional de “campeon” dado “continente”</strong>: los porcentajes suman 1 en cada fila. De todos los países americanos que alguna vez participaron de un mundial, el 15% logró ser campeón y el 85%, no.</p>
+<div class="sourceCode" id="cb727"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">datos</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"col"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
-    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"row"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"row"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
 <pre><code> continente campeón no campeón  Total
      África    0.0%     100.0% 100.0%
@@ -871,12 +871,12 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
       Total   10.0%      90.0% 100.0%</code></pre>
 </li>
 <li>
-<p><strong>Distribución condicional de continente dado campeón</strong>: los porcentajes suman 1 en cada columna. De todos los países que salieron campeones, el 62.5% son europeos y el 37.5% restante, americanos.</p>
-<div class="sourceCode" id="cb724"><pre class="downlit sourceCode r">
+<p><strong>Distribución condicional de “continente” dado “campeón”</strong>: los porcentajes suman 1 en cada columna. De todos los países que salieron campeones, el 62.5% son europeos y el 37.5% restante, americanos.</p>
+<div class="sourceCode" id="cb729"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">datos</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="st">"row"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
-    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"col"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"col"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
 <pre><code> continente campeón no campeón
      África    0.0%      18.1%
@@ -888,14 +888,14 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 </li>
 </ul>
 <p>También podemos mostrar frecuencias absolutas y relativas al mismo tiempo, así como editar los títulos. Ejemplificamos mostrando nuevamente la distribución conjunta:</p>
-<div class="sourceCode" id="cb726"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb731"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">datos</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"col"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
-    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
-    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_ns.html">adorn_ns</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
-    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_title.html">adorn_title</a></span><span class="op">(</span>placement <span class="op">=</span> <span class="st">"top"</span>, <span class="st">"Continente"</span>, <span class="st">"Campeones del mundo"</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_ns.html">adorn_ns</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_title.html">adorn_title</a></span><span class="op">(</span>placement <span class="op">=</span> <span class="st">"top"</span>, <span class="st">"Continente"</span>, <span class="st">"Campeones del mundo"</span><span class="op">)</span></code></pre></div>
 <pre><code>            Campeones del mundo                       
  Continente             campeón no campeón       Total
      África            0.0% (0) 16.2% (13)  16.2% (13)
@@ -909,8 +909,8 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 <h3>
 <span class="header-section-number">6.6.3</span> Distribuciones de frecuencias para variables cuantitativas<a class="anchor" aria-label="anchor" href="#distribuciones-de-frecuencias-para-variables-cuantitativas"><i class="fas fa-link"></i></a>
 </h3>
-<p>Cuando se exploran datos de variables cuantitativas, es común realizar tablas de frecuencias agrupando los valores observados en intervalos. Usando la función <code><a href="https://rdrr.io/r/base/cut.html">cut()</a></code> dentro de <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> podemos especificar los puntos de corte y generar una nueva columna que informa a qué intervalo pertenece cada observación:</p>
-<div class="sourceCode" id="cb728"><pre class="downlit sourceCode r">
+<p>Cuando se exploran datos de variables cuantitativas, es común realizar tablas de frecuencias agrupando los valores observados en intervalos. Usando la función <code><a href="https://rdrr.io/r/base/cut.html">cut()</a></code> dentro de <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> podemos especificar los puntos de corte y generar una nueva columna que informa a qué intervalo pertenece cada observación. El argumento <code>right</code> en <code><a href="https://rdrr.io/r/base/cut.html">cut()</a></code> sirve para establecer si queremos que los intervalos sean cerrados por derecha (<code>TRUE</code>) o por izquierda (<code>FALSE</code>):</p>
+<div class="sourceCode" id="cb733"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">datos</span>, intervalos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">goles_favor</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">250</span>, <span class="fl">50</span><span class="op">)</span>, right <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span>
 
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">seleccion</span>, <span class="va">goles_favor</span>, <span class="va">intervalos</span><span class="op">)</span></code></pre></div>
@@ -929,7 +929,7 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 10 Bélgica               69 [50,100)  
 # ℹ 70 more rows</code></pre>
 <p>Ahora podemos emplear la nueva columna <code>intervalos</code> para realizar tablas de frecuencias como vimos antes:</p>
-<div class="sourceCode" id="cb730"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb735"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tabla_gf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">intervalos</span><span class="op">)</span>
 <span class="va">tabla_gf</span></code></pre></div>
 <pre><code> intervalos  n percent
@@ -939,71 +939,233 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
   [150,200)  1  0.0125
   [200,250)  2  0.0250</code></pre>
 <p>Aunque lo vemos a simple vista, podemos programar la búsqueda del intervalo de valores con la mayor frecuencia y emitir un mensaje:</p>
-<div class="sourceCode" id="cb732"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb737"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">maximo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">tabla_gf</span>, <span class="va">n</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span>
 <span class="va">maximo</span></code></pre></div>
 <pre><code> intervalos  n percent
      [0,50) 63  0.7875</code></pre>
-<div class="sourceCode" id="cb734"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones es"</span>, 
-        <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">maximo</span><span class="op">$</span><span class="va">intervalos</span><span class="op">)</span>, <span class="st">"con"</span>, <span class="va">maximo</span><span class="op">$</span><span class="va">n</span>, <span class="st">"países."</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb739"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones es"</span>,
+    <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">maximo</span><span class="op">$</span><span class="va">intervalos</span><span class="op">)</span>, <span class="st">"con"</span>, <span class="va">maximo</span><span class="op">$</span><span class="va">n</span>, <span class="st">"países."</span><span class="op">)</span></code></pre></div>
 <pre><code>El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones es [0,50) con 63 países.</code></pre>
 <p>También podemos agregar columnas de frecuencias acumuladas, como suele ser común cuando se resumen variables cuantitativas o cualitativas ordinales. Para esto usamos la función <code><a href="https://rdrr.io/r/base/cumsum.html">cumsum()</a></code>, que calcula una <em>suma acumulada</em>, es decir, cada fila tiene la suma de los valores encontrados desde la primera hasta ella inclusive. Además, aprovechamos a elegir nombres y cambiar los anteriores para que se vean mejor la impresión de la tabla:</p>
+<div class="sourceCode" id="cb741"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">tabla_gf</span> <span class="op">&lt;-</span> 
+    <span class="va">tabla_gf</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>
+        `Frec. Abs. Acumulada` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span>,
+        `Frec. Rel. Acumulada` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">percent</span><span class="op">)</span>
+    <span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>
+        `Goles a favor` <span class="op">=</span> <span class="va">intervalos</span>,
+        `Frec. Absoluta` <span class="op">=</span> <span class="va">n</span>, 
+        `Frec. Relativa` <span class="op">=</span> <span class="va">percent</span>
+    <span class="op">)</span>
+<span class="va">tabla_gf</span></code></pre></div>
+<pre><code> Goles a favor Frec. Absoluta Frec. Relativa Frec. Abs. Acumulada
+        [0,50)             63         0.7875                   63
+      [50,100)             10         0.1250                   73
+     [100,150)              4         0.0500                   77
+     [150,200)              1         0.0125                   78
+     [200,250)              2         0.0250                   80
+ Frec. Rel. Acumulada
+               0.7875
+               0.9125
+               0.9625
+               0.9750
+               1.0000</code></pre>
 <!-- 
 IDEA EJERCICIO
 https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidyverse/ -->
 </div>
 </div>
-<div id="creación-de-archivos-y-escritura-de-resultados" class="section level2" number="6.7">
+<div id="escritura-de-resultados-en-archivos" class="section level2" number="6.7">
 <h2>
-<span class="header-section-number">6.7</span> Creación de archivos y escritura de resultados<a class="anchor" aria-label="anchor" href="#creaci%C3%B3n-de-archivos-y-escritura-de-resultados"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.7</span> Escritura de resultados en archivos<a class="anchor" aria-label="anchor" href="#escritura-de-resultados-en-archivos"><i class="fas fa-link"></i></a>
 </h2>
-<p>Anteriormente hemos mencionado que cuando trabajamos con archivos podemos realizar acciones tanto de lectura como de escritura, aunque hasta el momento nos hemos limitado a leer registros de un archivo. En este apartado presentamos cómo crear un archivo de texto desde R, de manera que pueda utilizarse para escribir y guardar allí los resultados obtenidos.</p>
-<div id="crear-un-archivo-para-guardar-resultados" class="section level3" number="6.7.1">
-<h3>
-<span class="header-section-number">6.7.1</span> Crear un archivo para guardar resultados<a class="anchor" aria-label="anchor" href="#crear-un-archivo-para-guardar-resultados"><i class="fas fa-link"></i></a>
-</h3>
-<p>Imaginemos que en el problema del hotel, en lugar de mostrar los resultados en la consola, queremos volcarlos en un archivo de texto llamado <code>resultados.txt</code>.</p>
-<p>En R, la función <code><a href="https://rdrr.io/r/base/sink.html">sink()</a></code> permite escribir en un archivo de texto todos los resultados que habitualmente vemos en la consola. Sus argumentos son:</p>
+<p>Anteriormente hemos mencionado que cuando trabajamos con archivos podemos realizar acciones tanto de lectura como de escritura y hasta el momento hemos visto cómo leer registros de un archivo y guardar los datos de un <em>data.frame</em> en uno nuevo. En este apartado presentamos cómo crear un archivo de texto desde R, de manera que pueda utilizarse para escribir y guardar allí los resultados obtenidos en tareas básicas de exploración.</p>
+<p>Vamos a volcar los hallazgos sobre los mundiales en un archivo de texto llamado <code>salida.txt</code>. En R, la función <code><a href="https://rdrr.io/r/base/sink.html">sink()</a></code> permite escribir en un archivo de texto todos los resultados que habitualmente vemos en la consola. Sus argumentos son:</p>
 <ul>
 <li>
 <code>file</code>: nombre del archivo, si no existe será creado. Se guarda en el directorio de trabajo actual, a menos que indiquemos aquí la ruta completa hacia otra carpeta.</li>
 <li>
-<code>append</code>: si el archivo ya existía, por default lo sobreescribe (borra lo anterior), a menos que indiquemos <code>append = TRUE</code> para que agregue nuevas línea sin borrar nada.</li>
+<code>append</code>: si el archivo ya existía, por default lo sobreescribe (borra lo anterior), a menos que indiquemos <code>append = TRUE</code> para que agregue nuevas líneas sin borrar las anteriores.</li>
 <li>
-<code>split</code>: por default mientras la conexión al archivo está activa, los resultados que enviamos al mismo no se muestran en la consola de R, a menos que indiquemos <code>split = TRUE</code>, en cuyo caso sucederán ambas cosas: los resultados serán escritos en el archivo y se verán en la consola.</li>
+<code>split</code>: mientras la conexión al archivo está activa, por defecto los resultados que enviamos al mismo no se muestran en la consola de R, a menos que indiquemos <code>split = TRUE</code>, en cuyo caso sucederán ambas cosas: los resultados serán escritos en el archivo y se verán en la consola.</li>
 </ul>
 <p>Cuando se desea cerrar la conexión al archivo, se debe correr <code><a href="https://rdrr.io/r/base/sink.html">sink()</a></code> sin ningún argumento. Todo lo que <em>imprimamos</em> con <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> entre ambos llamados a <code><a href="https://rdrr.io/r/base/sink.html">sink()</a></code> se guardará en el archivo. La última parte del código en el problema anterior debe ser:</p>
-<div class="sourceCode" id="cb736"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Crear conexión al archivo de resultados y poner un encabezado</span>
+<div class="sourceCode" id="cb743"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Crear conexión al archivo de salida y poner un encabezado</span>
 <span class="fu"><a href="https://rdrr.io/r/base/sink.html">sink</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"salida.txt"</span>, append <span class="op">=</span> <span class="cn">TRUE</span>, split <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"            ARCHIVO DE RESULTADOS         \n"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==========================================\n\n"</span><span class="op">)</span>
 
-<span class="co"># a) Mostrar la tabla</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Número de reservas durante el 2021 según mes y tipo de habitación\n"</span><span class="op">)</span>
-<span class="va">cuadro</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"==================== ESTADÍSTICAS ====================\n\n"</span><span class="op">)</span>
 
-<span class="co"># b) Determinar el total de pernoctaciones en el hotel durante el 2021</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nEl número total de pernoctaciones en el hotel durante el 2021 fue"</span>, <span class="va">pernoc</span>, <span class="st">"\n\n"</span><span class="op">)</span>
+<span class="va">datos</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">continente</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>
+        `Países participantes` <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>,
+        `Promedio de puntos` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">puntos</span><span class="op">)</span>,
+        `Títulos obtenidos` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">titulos</span><span class="op">)</span>,
+        `Total de partidos jugados` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">pj</span><span class="op">)</span>,
+        `Promedio de diferencia de goles` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">dg</span><span class="op">)</span>
+    <span class="op">)</span>
 
-<span class="co"># c) Determinar cuál fue el mes de mayor cantidad de reservas</span>
-<span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">maximo</span><span class="op">(</span><span class="va">total_fila</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El mes de mayor cantidad de reservas fue"</span>, <span class="va">meses</span><span class="op">[</span><span class="va">res</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, <span class="st">"con"</span>, 
-    <span class="va">res</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="st">"reservas.\n\n"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\n==================== DISTRIBUCIÓN DE SELECCIONES SEGÚN CONTINENTE ====================\n\n"</span><span class="op">)</span>
 
-<span class="co"># d) Determinar para cada tipo de habitación el mes con menor número de reservas</span>
-<span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span> <span class="op">{</span>
-    <span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">minimo_matriz_col</span><span class="op">(</span><span class="va">tabla</span>, <span class="va">j</span><span class="op">)</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Para las habitaciones de tipo"</span>, <span class="va">tipos</span><span class="op">[</span><span class="va">j</span><span class="op">]</span>, 
-        <span class="st">"el mes con menor\n     número de reservas fue"</span>, 
-        <span class="va">meses</span><span class="op">[</span><span class="va">res</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, <span class="st">"con"</span>, <span class="va">res</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="st">"reservas.\n"</span><span class="op">)</span>
-<span class="op">}</span>
+<span class="co"># Tabla básica</span>
+<span class="va">frecuencias</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">continente</span><span class="op">)</span>
+
+<span class="co"># Detectar máximo y mínimo</span>
+<span class="va">maximo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">frecuencias</span>, <span class="va">n</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span>
+<span class="va">minimo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">frecuencias</span>, <span class="va">n</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># Completar la tabla con totales y cambiar nombres</span>
+<span class="va">frecuencias</span> <span class="op">&lt;-</span> 
+  <span class="va">frecuencias</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>Continente <span class="op">=</span> <span class="va">continente</span>, `Frec. Absoluta` <span class="op">=</span> <span class="va">n</span>, `Frec. Relativa` <span class="op">=</span> <span class="va">percent</span><span class="op">)</span>
+<span class="va">frecuencias</span>
+
+<span class="co"># Emitir mensaje</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nEl continente con la mayor cantidad de países que han participado de mundiales es"</span>, 
+    <span class="va">maximo</span><span class="op">$</span><span class="va">continente</span>, <span class="st">"con"</span>, <span class="va">maximo</span><span class="op">$</span><span class="va">n</span>, <span class="st">"selecciones, mientras que el de menor participación es"</span>, 
+    <span class="va">minimo</span><span class="op">$</span><span class="va">continente</span>, <span class="st">"con"</span>, <span class="va">minimo</span><span class="op">$</span><span class="va">n</span>, <span class="st">"selecciones.\n"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\n==================== DISTRIBUCIÓN CONJUNTA DE CONTINENTES Y CAMPEONES ====================\n\n"</span><span class="op">)</span>
+
+<span class="va">datos</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"col"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_ns.html">adorn_ns</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_title.html">adorn_title</a></span><span class="op">(</span>placement <span class="op">=</span> <span class="st">"top"</span>, <span class="st">"Continente"</span>, <span class="st">"Campeones del mundo"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\n==================== DISTRIBUCIÓN CONDICIONAL DE CAMPEONES EN CADA CONTINENTE ====================\n\n"</span><span class="op">)</span>
+
+<span class="va">datos</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"col"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"row"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_ns.html">adorn_ns</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_title.html">adorn_title</a></span><span class="op">(</span>placement <span class="op">=</span> <span class="st">"top"</span>, <span class="st">"Continente"</span>, <span class="st">"Campeones del mundo"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\n==================== DISTRIBUCIÓN CONDICIONAL DE CONTINENTES DADO CAMPEONES ====================\n\n"</span><span class="op">)</span>
+
+<span class="va">datos</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="st">"row"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"col"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_ns.html">adorn_ns</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_title.html">adorn_title</a></span><span class="op">(</span>placement <span class="op">=</span> <span class="st">"top"</span>, <span class="st">"Continente"</span>, <span class="st">"Campeones del mundo"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\n==================== DISTRIBUCIÓN CONDICIONAL DE CONTINENTES DADO CAMPEONES ====================\n\n"</span><span class="op">)</span>
+
+<span class="co"># Crear intervalos y tabla</span>
+<span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">datos</span>, intervalos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">goles_favor</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">250</span>, <span class="fl">50</span><span class="op">)</span>, right <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span>
+<span class="va">tabla_gf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">intervalos</span><span class="op">)</span>
+
+<span class="co"># Detectar el inervalo con la mayor frecuencia</span>
+<span class="va">maximo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">tabla_gf</span>, <span class="va">n</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># Agregar columnas acumuladas, mejorar la apariencia y calcular totales</span>
+<span class="va">tabla_gf</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>
+        `Frec. Abs. Acumulada` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span>,
+        `Frec. Rel. Acumulada` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">percent</span><span class="op">)</span>
+    <span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>
+        `Goles a favor` <span class="op">=</span> <span class="va">intervalos</span>,
+        `Frec. Absoluta` <span class="op">=</span> <span class="va">n</span>, 
+        `Frec. Relativa` <span class="op">=</span> <span class="va">percent</span>
+    <span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+    <span class="co"># Agregar totales sólo para Frec Absoluta y Frec Rel (sí o sí hay que escribir todos los argumentos de la función) </span>
+    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="st">"row"</span>, fill <span class="op">=</span> <span class="st">"-"</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, name <span class="op">=</span> <span class="st">"Total"</span>, <span class="va">`Frec. Absoluta`</span>, <span class="va">`Frec. Relativa`</span><span class="op">)</span>
+
+<span class="co"># Emitir mensaje</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nEl intervalo de cantidad de goles a favor con la mayor cantidad de observaciones es"</span>, 
+    <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">maximo</span><span class="op">$</span><span class="va">intervalos</span><span class="op">)</span>, <span class="st">"con"</span>, <span class="va">maximo</span><span class="op">$</span><span class="va">n</span>, <span class="st">"países.\n"</span><span class="op">)</span>
 
 <span class="co"># Cerrar conexión al archivo</span>
 <span class="fu"><a href="https://rdrr.io/r/base/sink.html">sink</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-</div>
+<p>El archivo <code>salida.txt</code> queda así:</p>
+<pre><code>==========================================
+            ARCHIVO DE RESULTADOS         
+==========================================
+
+==================== ESTADÍSTICAS ====================
+
+# A tibble: 5 × 6
+  continente `Países participantes` `Promedio de puntos` `Títulos obtenidos` `Total de partidos jugados` Promedio de diferencia de gol…¹
+  &lt;chr&gt;                       &lt;int&gt;                &lt;dbl&gt;               &lt;dbl&gt;                       &lt;dbl&gt;                           &lt;dbl&gt;
+1 América                        20                38.2                   10                         534                           -0.75
+2 Asia                           12                 7.67                   0                         126                          -12.4 
+3 Europa                         33                50                     12                        1080                            8.79
+4 Oceanía                         2                 9.5                    0                          26                          -15   
+5 África                         13                11.7                    0                         162                           -7.38
+# ℹ abbreviated name: ¹​`Promedio de diferencia de goles`
+
+==================== DISTRIBUCIÓN DE SELECCIONES SEGÚN CONTINENTE ====================
+
+ Continente Frec. Absoluta Frec. Relativa
+    América             20         0.2500
+       Asia             12         0.1500
+     Europa             33         0.4125
+    Oceanía              2         0.0250
+     África             13         0.1625
+      Total             80         1.0000
+
+El continente con la mayor cantidad de países que han participado de mundiales es Europa con 33 selecciones, mientras que el de menor participación es Oceanía con 2 selecciones.
+
+==================== DISTRIBUCIÓN CONJUNTA DE CONTINENTES Y CAMPEONES ====================
+
+            Campeones del mundo                       
+ Continente             campeón no campeón       Total
+     África            0.0% (0) 16.2% (13)  16.2% (13)
+    América            3.8% (3) 21.2% (17)  25.0% (20)
+       Asia            0.0% (0) 15.0% (12)  15.0% (12)
+     Europa            6.2% (5) 35.0% (28)  41.2% (33)
+    Oceanía            0.0% (0)  2.5%  (2)   2.5%  (2)
+      Total           10.0% (8) 90.0% (72) 100.0% (80)
+
+==================== DISTRIBUCIÓN CONDICIONAL DE CAMPEONES EN CADA CONTINENTE ====================
+
+            Campeones del mundo                        
+ Continente             campeón  no campeón       Total
+     África            0.0% (0) 100.0% (13) 100.0% (13)
+    América           15.0% (3)  85.0% (17) 100.0% (20)
+       Asia            0.0% (0) 100.0% (12) 100.0% (12)
+     Europa           15.2% (5)  84.8% (28) 100.0% (33)
+    Oceanía            0.0% (0) 100.0%  (2) 100.0%  (2)
+      Total           10.0% (8)  90.0% (72) 100.0% (80)
+
+==================== DISTRIBUCIÓN CONDICIONAL DE CONTINENTES DADO CAMPEONES ====================
+
+            Campeones del mundo            
+ Continente             campeón  no campeón
+     África            0.0% (0)  18.1% (13)
+    América           37.5% (3)  23.6% (17)
+       Asia            0.0% (0)  16.7% (12)
+     Europa           62.5% (5)  38.9% (28)
+    Oceanía            0.0% (0)   2.8%  (2)
+      Total          100.0% (8) 100.0% (72)
+
+==================== DISTRIBUCIÓN CONDICIONAL DE CONTINENTES DADO CAMPEONES ====================
+
+ Goles a favor Frec. Absoluta Frec. Relativa Frec. Abs. Acumulada Frec. Rel. Acumulada
+        [0,50)             63         0.7875                   63               0.7875
+      [50,100)             10         0.1250                   73               0.9125
+     [100,150)              4         0.0500                   77               0.9625
+     [150,200)              1         0.0125                   78                0.975
+     [200,250)              2         0.0250                   80                    1
+         Total             80         1.0000                    -                    -
+
+El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones es [0,50) con 63 países.</code></pre>
 </div>
 <div id="lectura-opcional" class="section level2" number="6.8">
 <h2>
@@ -1014,7 +1176,7 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
 <span class="header-section-number">6.8.1</span> Otros ejemplos para obtener resúmenes<a class="anchor" aria-label="anchor" href="#otros-ejemplos-para-obtener-res%C3%BAmenes"><i class="fas fa-link"></i></a>
 </h3>
 <p>Cuando aplicamos el mismo tipo de resumen a varias variables (en este caso, la media), podemos usar <code>across</code>:</p>
-<div class="sourceCode" id="cb737"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb745"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">datos</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">continente</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">goles_favor</span>, <span class="va">goles_contra</span><span class="op">)</span>, <span class="va">mean</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -1027,7 +1189,7 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
 4 Oceanía          10.5          25.5
 5 África           12.1          19.5</code></pre>
 <p>Podemos aplicar el mismo tipo de resumen para todas las variables que tengan alguna característica en particular, por ejemplo, ser numéricas:</p>
-<div class="sourceCode" id="cb739"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb747"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">datos</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">continente</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="va">mean</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -1037,20 +1199,20 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
 <span class="header-section-number">6.8.2</span> Tablas de frecuencia con R Base<a class="anchor" aria-label="anchor" href="#tablas-de-frecuencia-con-r-base"><i class="fas fa-link"></i></a>
 </h3>
 <p>Utilizar el paquete <code>janitor</code> no es la única forma de inspeccionar frecuencias. Se puede hacer de forma sencilla con funciones incorporadas en R Base, aunque la forma de presentar los resultados es menos vistosa:</p>
-<div class="sourceCode" id="cb740"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb748"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Frecuencias absolutas</span>
 <span class="va">tabla1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">continente</span><span class="op">)</span>
 <span class="va">tabla1</span></code></pre></div>
 <pre><code>
  África América    Asia  Europa Oceanía 
      13      20      12      33       2 </code></pre>
-<div class="sourceCode" id="cb742"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb750"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Frencuencias relativas</span>
 <span class="fu"><a href="https://rdrr.io/r/base/proportions.html">prop.table</a></span><span class="op">(</span><span class="va">tabla1</span><span class="op">)</span></code></pre></div>
 <pre><code>
  África América    Asia  Europa Oceanía 
  0.1625  0.2500  0.1500  0.4125  0.0250 </code></pre>
-<div class="sourceCode" id="cb744"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb752"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Tabla de contingencia para dos variables</span>
 <span class="va">tabla2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">continente</span>, <span class="va">datos</span><span class="op">$</span><span class="va">campeon</span><span class="op">)</span>
 <span class="va">tabla2</span></code></pre></div>
@@ -1061,7 +1223,7 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
   Asia          0         12
   Europa        5         28
   Oceanía       0          2</code></pre>
-<div class="sourceCode" id="cb746"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb754"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Distribución conjunta</span>
 <span class="fu"><a href="https://rdrr.io/r/base/proportions.html">prop.table</a></span><span class="op">(</span><span class="va">tabla2</span><span class="op">)</span></code></pre></div>
 <pre><code>         
@@ -1071,7 +1233,7 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
   Asia     0.0000     0.1500
   Europa   0.0625     0.3500
   Oceanía  0.0000     0.0250</code></pre>
-<div class="sourceCode" id="cb748"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb756"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Distribución condicional de campeon dado continente</span>
 <span class="fu"><a href="https://rdrr.io/r/base/proportions.html">prop.table</a></span><span class="op">(</span><span class="va">tabla2</span>, margin <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
 <pre><code>         
@@ -1081,7 +1243,7 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
   Asia    0.0000000  1.0000000
   Europa  0.1515152  0.8484848
   Oceanía 0.0000000  1.0000000</code></pre>
-<div class="sourceCode" id="cb750"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb758"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Distribución condicional de continente dado campeon</span>
 <span class="fu"><a href="https://rdrr.io/r/base/proportions.html">prop.table</a></span><span class="op">(</span><span class="va">tabla2</span>, margin <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <pre><code>         
@@ -1099,7 +1261,7 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
 <p>Dependiendo de los requerimientos de los análisis que estemos realizando, es muy frecuente necesitar cambiar el formato que tienen los datos. Por ejemplo, puede ser necesario apilar columnas una debajo de otra, resultando en un dataset con más filas (más largo) y menos columnas (más angosto). La situación contraria también se puede presentar y consiste en desacoplar información concatenada en una sola columna para ubicarla en varias columnas adyacentes, resultando en una dataset con más columnas (más ancho) y menos filas (más corto). Por supuesto, estas transformaciones tienen que hacerse sin mezclar los registros:</p>
 <p><strong>Formato ancho a largo</strong></p>
 <p>Armemos un pequeño ejemplo de juguete para imaginar bien de qué se trata esto. Supongamos que tenemos datos con la cantidad vendida de 3 productos en distintos meses. De la siguiente forma se puede crear un <em>data.frame</em> “a mano”, sin leer los datos desde un archivo:</p>
-<div class="sourceCode" id="cb752"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb760"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ejemplo1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
   producto <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,
   septiembre <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">234</span>, <span class="fl">657</span>, <span class="fl">989</span><span class="op">)</span>,
@@ -1136,7 +1298,7 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
 <strong>values_to</strong>: cómo queremos que se llame la nueva columna que contendrá los valores de las columnas apiladas.</li>
 </ul>
 <div class="inline-figure"><img src="images/06_archivos/original-dfs-tidy.png" width="60%" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb755"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb763"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ejemplo2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>
   data <span class="op">=</span> <span class="va">ejemplo1</span>, 
   cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">septiembre</span>, <span class="va">octubre</span>, <span class="va">noviembre</span><span class="op">)</span>, 
@@ -1168,7 +1330,7 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
 <li>
 <strong>values_from</strong>: columna que tiene los valores que se distribuirán en las nuevas columnas</li>
 </ul>
-<div class="sourceCode" id="cb757"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb765"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>
   data <span class="op">=</span> <span class="va">ejemplo2</span>, 
   names_from <span class="op">=</span> <span class="va">mes</span>, 
@@ -1193,7 +1355,7 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
 - `inner_join()`
 - `full_join()`</code></pre>
 <p>Hacen una <em>mutación</em> en el sentido de que añaden columnas a uno de los conjuntos. Consideremos los siguientes conjuntos de datos, donde <em>X1</em> será la clave:</p>
-<div class="sourceCode" id="cb760"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb768"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">Datos1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>X1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>, X2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>
 <span class="va">Datos2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>X1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"D"</span>, <span class="st">"B"</span>, <span class="st">"A"</span><span class="op">)</span>, X3 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">9</span>, <span class="fl">7</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="images/06_archivos/Tabla1.png" width="40%" style="display: block; margin: auto;"></div>
@@ -1201,25 +1363,25 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
 <ul>
 <li>
 <p><code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code>: esta opción devuelve un conjunto de datos que contiene todas las filas de la tabla de la izquierda, agregando las columnas de la tabla de la derecha.</p>
-<div class="sourceCode" id="cb761"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb769"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">DatosUnidos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">Datos1</span>, <span class="va">Datos2</span>, by <span class="op">=</span> <span class="st">"X1"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="images/06_archivos/leftjoin.PNG" width="70%" style="display: block; margin: auto;"></div>
 </li>
 <li>
 <p><code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join()</a></code>: devuelve un conjunto de datos que contiene todas las filas de la tabla de la derecha y agrega columnas de la tabla izquierda.</p>
-<div class="sourceCode" id="cb762"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb770"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">DatosUnidos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join</a></span><span class="op">(</span><span class="va">Datos1</span>, <span class="va">Datos2</span>, by <span class="op">=</span> <span class="st">"X1"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="images/06_archivos/rightjoin.PNG" width="70%" style="display: block; margin: auto;"></div>
 </li>
 <li>
 <p><code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>: devuelve un conjunto de datos con todas las columnas pero sólo para las observaciones (filas) cuyos identificadores se repiten en ambos conjuntos de datos.</p>
-<div class="sourceCode" id="cb763"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb771"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">DatosUnidos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">Datos1</span>, <span class="va">Datos2</span>, by <span class="op">=</span> <span class="st">"X1"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="images/06_archivos/innerjoin.PNG" width="70%" style="display: block; margin: auto;"></div>
 </li>
 <li>
 <p><code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join()</a></code>: devuelve un conjunto de datos con todas las filas y columnas, fusionando a través de la <code>key</code> para las filas coincidentes entre ambos conjuntos.</p>
-<div class="sourceCode" id="cb764"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb772"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">DatosUnidos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">Datos1</span>, <span class="va">Datos2</span>, by <span class="op">=</span> <span class="st">"X1"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="images/06_archivos/fulljoin.PNG" width="70%" style="display: block; margin: auto;"></div>
 </li>
@@ -1229,20 +1391,20 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
 <ul>
 <li>
 <p><code><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">semi_join()</a></code>: devuelve todas las observaciones que están en <code>Datos1</code> que también están en <code>Datos2</code>, manteniendo sólo las columnas de <code>Datos1</code>. La relación se piensa como en <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>, pero el resultado es sólo la base <code>Datos1</code> filtrada.</p>
-<div class="sourceCode" id="cb765"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb773"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">DatosFiltrados</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">semi_join</a></span><span class="op">(</span><span class="va">Datos1</span>, <span class="va">Datos2</span>, by <span class="op">=</span> <span class="st">"X1"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="images/06_archivos/semijoin.PNG" width="70%" style="display: block; margin: auto;"></div>
 </li>
 <li>
 <p><code><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">anti_join()</a></code>: devuelve aquellas observaciones que están en <code>Datos1</code> pero <strong>no están</strong> en <code>Datos2</code>, manteniendo las columnas de <code>Datos1</code>. Es el filtro contrario a <code><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">semi_join()</a></code>.</p>
-<div class="sourceCode" id="cb766"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb774"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">DatosFiltrados</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">anti_join</a></span><span class="op">(</span><span class="va">Datos1</span>, <span class="va">Datos2</span>, by <span class="op">=</span> <span class="st">"X1"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="images/06_archivos/antijoin.PNG" width="70%" style="display: block; margin: auto;"></div>
 </li>
 </ul>
 <p><strong>Otros detalles sobre las keys</strong></p>
 <p>Hasta ahora hemos visto ejemplos donde las columnas que se usaron como claves identificadoras tenían valores únicos, sin repetir. Si la clave identificadora está duplicada en una de las bases de datos, la relación que <code>R</code> brindará con las funciones <code>*_join()</code> será del tipo “uno a varios”:</p>
-<div class="sourceCode" id="cb767"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb775"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">d1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
   val_x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"x1"</span>, <span class="st">"x2"</span>, <span class="st">"x3"</span>, <span class="st">"x4"</span><span class="op">)</span>, 
   key <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>
@@ -1256,7 +1418,7 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">d1</span>, <span class="va">d2</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="images/06_archivos/1dupkeys.PNG" width="50%" style="display: block; margin: auto;"></div>
 <p>Si ambas bases de datos tienen claves duplicadas, las funciones <code>*_join()</code> devuelven todas las combinaciones posibles:</p>
-<div class="sourceCode" id="cb768"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb776"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">d1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
   val_x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"x1"</span>, <span class="st">"x2"</span>, <span class="st">"x3"</span>, <span class="st">"x4"</span><span class="op">)</span>,
   key <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>
@@ -1286,7 +1448,7 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
 <div class="prev"><a href="estructuras-de-datos.html"><span class="header-section-number">5</span> Estructuras de datos</a></div>
 <div class="next"><a href="otros-t%C3%B3picos.html"><span class="header-section-number">7</span> Otros tópicos</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+    <nav id="toc" data-toggle="toc" aria-label="En esta página"><h2>En esta página</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#uso-de-archivos-de-datos"><span class="header-section-number">6</span> Uso de archivos de datos</a></li>
 <li>
@@ -1315,9 +1477,7 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
 <li><a class="nav-link" href="#distribuciones-de-frecuencias-para-variables-cuantitativas"><span class="header-section-number">6.6.3</span> Distribuciones de frecuencias para variables cuantitativas</a></li>
 </ul>
 </li>
-<li>
-<a class="nav-link" href="#creaci%C3%B3n-de-archivos-y-escritura-de-resultados"><span class="header-section-number">6.7</span> Creación de archivos y escritura de resultados</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#crear-un-archivo-para-guardar-resultados"><span class="header-section-number">6.7.1</span> Crear un archivo para guardar resultados</a></li></ul>
-</li>
+<li><a class="nav-link" href="#escritura-de-resultados-en-archivos"><span class="header-section-number">6.7</span> Escritura de resultados en archivos</a></li>
 <li>
 <a class="nav-link" href="#lectura-opcional"><span class="header-section-number">6.8</span> Lectura opcional</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#otros-ejemplos-para-obtener-res%C3%BAmenes"><span class="header-section-number">6.8.1</span> Otros ejemplos para obtener resúmenes</a></li>

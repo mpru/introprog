@@ -201,127 +201,127 @@ Para que esto funcione, el programa que está guardado en `resumen.R` debe ser c
 
 La función que se encarga de capturar los argumentos adicionales que enviamos desde la terminal es `commandArgs()`. Toma todos los elementos que escribamos y los reúne en un vector de tipo carácter. Por ejemplo, el archivo `ejemplo1.R` tiene el siguiente contenido:
 
-```{r, file='archivos/ejemplo1.R', eval=FALSE}
+```{r, file='archivos/ejemplo1.R', eval=FALSE, warning = FALSE}
 ```
 
 Al ejecutarlo desde la línea de comandos con los argumentos "hola", "chau" y "4" obtenemos:
 
-```{bash, eval=FALSE}
+```{bash, eval=FALSE, warning = FALSE}
 Rscript ejemplo1.R hola chau 4
 ```
 
-```{bash, echo=FALSE}
+```{bash, echo=FALSE, warning = FALSE}
 Rscript archivos/ejemplo1.R hola chau 4
 ```
 
 Si lo ejecutamos sin argumentos:
 
-```{bash, eval=FALSE}
+```{bash, eval=FALSE, warning = FALSE}
 Rscript ejemplo1.R
 ```
 
-```{bash, echo=FALSE}
+```{bash, echo=FALSE, warning = FALSE}
 Rscript archivos/ejemplo1.R
 ```
 
 Ahora vamos a suponer que el programa `ejemplo2.R` tiene como objetivo contar un chiste o decir un refrán, según lo que se le pida en el único argumento que se le pasa al correrlo desde la terminal. Si el argumento es igual "chiste", se cuenta el chiste; si es igual a "refran" se cuenta el refrán; y en otro caso no se hace nada. El contenido del archivo es:
 
-```{r, file='archivos/ejemplo2.R', eval=FALSE}
+```{r, file='archivos/ejemplo2.R', eval=FALSE, warning = FALSE}
 ```
 
 Ejecutamos este archivo pasando distintos valores para su argumento:
 
-```{bash, error=TRUE, eval=FALSE}
+```{bash, error=TRUE, eval=FALSE, warning = FALSE}
 Rscript ejemplo2.R refran
 ```
 
-```{bash, echo=FALSE, error=TRUE}
+```{bash, echo=FALSE, error=TRUE, warning = FALSE}
 Rscript archivos/ejemplo2.R refran
 ```
 
-```{bash, error=TRUE, eval=FALSE}
+```{bash, error=TRUE, eval=FALSE, warning = FALSE}
 Rscript ejemplo2.R chiste
 ```
 
-```{bash, echo=FALSE, error=TRUE}
+```{bash, echo=FALSE, error=TRUE, warning = FALSE}
 Rscript archivos/ejemplo2.R chiste
 ```
 
-```{bash, error=TRUE, eval=FALSE}
+```{bash, error=TRUE, eval=FALSE, warning = FALSE}
 Rscript ejemplo2.R hola
 ```
 
-```{bash, echo=FALSE, error=TRUE}
+```{bash, echo=FALSE, error=TRUE, warning = FALSE}
 Rscript archivos/ejemplo2.R hola
 ```
 
 Podemos controlar la cantidad de argumentos admitidos generando errores en el código para aquellas situaciones donde el usuario envíe menos o más que la cantidad deseada. Por ejemplo, en el caso anterior, es obligatorio enviar uno y sólo un argumento:
 
-```{r, file='archivos/ejemplo3.R', eval=FALSE}
+```{r, file='archivos/ejemplo3.R', eval=FALSE, warning = FALSE}
 ```
 
 Veamos lo que pasa si cumplimos o no con la cantidad exacta de argumentos que hay que pasarle al código de R:
 
-```{bash, error=TRUE, eval=FALSE}
+```{bash, error=TRUE, eval=FALSE, warning = FALSE}
 Rscript ejemplo3.R
 ```
 
-```{bash, echo=FALSE, error=TRUE}
+```{bash, echo=FALSE, error=TRUE, warning = FALSE}
 Rscript archivos/ejemplo3.R
 ```
 
-```{bash, error=TRUE, eval=FALSE}
+```{bash, error=TRUE, eval=FALSE, warning = FALSE}
 Rscript ejemplo3.R chiste refran
 ```
 
-```{bash, echo=FALSE, error=TRUE}
+```{bash, echo=FALSE, error=TRUE, warning = FALSE}
 Rscript archivos/ejemplo3.R chiste refran
 ```
 
-```{bash, error=TRUE, eval=FALSE}
+```{bash, error=TRUE, eval=FALSE, warning = FALSE}
 Rscript ejemplo3.R chiste
 ```
 
-```{bash, echo=FALSE, error=TRUE}
+```{bash, echo=FALSE, error=TRUE, warning = FALSE}
 Rscript archivos/ejemplo3.R chiste
 ```
 
 Imaginemos por último que es obligatorio pasar un primer argumento ("chiste" o "refran") y que opcionalmente se puede pasar un segundo argumento, que se va a tratar de un número para indicar cuántas veces queremos que el chiste o el refrán se repita. Como todos los argumentos se pasan como datos de tipo carácter, para poder usar el número tendremos que convertirlo a dato de tipo numérico.
 
-```{r, file='archivos/ejemplo4.R', eval=FALSE}
+```{r, file='archivos/ejemplo4.R', eval=FALSE, warning = FALSE}
 ```
 
 Veamos ahora cómo funciona:
 
-```{bash, error=TRUE, eval=FALSE}
+```{bash, error=TRUE, eval=FALSE, warning = FALSE}
 Rscript ejemplo4.R refran 5
 ```
 
-```{bash, echo=FALSE, error=TRUE}
+```{bash, echo=FALSE, error=TRUE, warning = FALSE}
 Rscript archivos/ejemplo4.R refran 5
 ```
 
-```{bash, error=TRUE, eval=FALSE}
+```{bash, error=TRUE, eval=FALSE, warning = FALSE}
 Rscript ejemplo4.R chiste 3
 ```
 
-```{bash, echo=FALSE, error=TRUE}
+```{bash, echo=FALSE, error=TRUE, warning = FALSE}
 Rscript archivos/ejemplo4.R chiste 3
 ```
 
-```{bash, error=TRUE, eval=FALSE}
+```{bash, error=TRUE, eval=FALSE, warning = FALSE}
 Rscript ejemplo4.R refran
 ```
 
-```{bash, echo=FALSE, error=TRUE}
+```{bash, echo=FALSE, error=TRUE, warning = FALSE}
 Rscript archivos/ejemplo4.R refran
 ```
 
-```{bash, error=TRUE, eval=FALSE}
+```{bash, error=TRUE, eval=FALSE, warning = FALSE}
 Rscript ejemplo4.R
 ```
 
-```{bash, echo=FALSE, error=TRUE}
+```{bash, echo=FALSE, error=TRUE, warning = FALSE}
 Rscript archivos/ejemplo4.R
 ```
 
