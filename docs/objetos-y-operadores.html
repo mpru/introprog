@@ -143,43 +143,43 @@ peso_nacimiento &lt;- 3.423</code></pre>
 <p>En este caso, <code>lugar_nacimiento</code> es un objeto de tipo carácter, ya que la información que contiene es <code>"Bombal"</code>, y <code>peso_nacimiento</code> es un objeto numérico. Vale aclarar que en R el punto decimal se representa con el punto <code>.</code> y no con la coma <code>,</code> como solemos escribir habitualmente, por lo que el número indicado se lee “tres coma cuatrocientos veintitrés” y no “tres mil cuatrocientos veintitrés”. Asimismo, no se usan separadores de miles al escribir los números.</p>
 <p>Por otro lado, R provee algunas funciones para poder averiguar en cualquier momento qué tipo de dato está almacenado en alguna variable. Todavía no hemos definido formalmente a las <em>funciones</em>, pero por ahora nos alcanza con saber que son otro tipo de objetos que cuando las usamos se encargan de cumplir con alguna tarea específica. Las funciones también tienen un nombre (<em>identificador</em>) y están seguidas por un par de paréntesis, dentro de los cuales se escriben opciones para que ellas operen. La función <code><a href="https://rdrr.io/r/base/class.html">class()</a></code> es la que nos dice qué tipo de dato hay en una variable:</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">var1</span> <span class="op">&lt;-</span> <span class="fl">2</span>
-<span class="va">var2</span> <span class="op">&lt;-</span> <span class="st">"Hola Mundo"</span>
-<span class="va">var3</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span>
-<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">var1</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">var1</span> <span class="op">&lt;-</span> <span class="fl">2</span></span>
+<span><span class="va">var2</span> <span class="op">&lt;-</span> <span class="st">"Hola Mundo"</span></span>
+<span><span class="va">var3</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">var1</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] "numeric"</code></pre>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">var2</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">var2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] "character"</code></pre>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">var3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">var3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] "logical"</code></pre>
 <p>También hay algunas funciones que devuelven <code>TRUE</code> o <code>FALSE</code> a modo de respuesta cuando le preguntamos a R si una variable tiene un dato de tipo numérico, caracter o lógico:</p>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">var1</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">var1</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">var2</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">var2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/character.html">is.character</a></span><span class="op">(</span><span class="va">var3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/character.html">is.character</a></span><span class="op">(</span><span class="va">var3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/logical.html">is.logical</a></span><span class="op">(</span><span class="va">var3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/logical.html">is.logical</a></span><span class="op">(</span><span class="va">var3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <p>Todos los objetos que vamos definiendo en nuestro algoritmo y, posteriormente, en nuestro programa, forman parte del <em>ambiente</em>. En Rstudio podemos ver listados todos los objetos presentes en el ambiente en la pestaña <em>Environment</em> del panel superior derecho. También podemos ver en la consola un listado de todos los nombres de los objetos que existen en el ambiente con la función <code><a href="https://rdrr.io/r/base/ls.html">ls()</a></code>, por ejemplo:</p>
 <div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] "var1" "var2" "var3"</code></pre>
 <p>Es probable que mientras estamos escribiendo el código, necesitemos probar si algunas partes funcionan y para eso corremos algunas líneas de código, creando objetos en el ambiente. Entre intento e intento, probablemnte necesitemos borrar alguno o todos esos objetos que se crearon, para poder comenzar con un ambiente libre. Si deseamos borrar todos los objetos del ambiente podemos correr la sentencia <code>rm(list = ls())</code> o hacer clic en el ícono de la escoba en el panel <em>Environment</em>. Si queremos eliminar sólo un objeto debemos ejecutar la función <code><a href="https://rdrr.io/r/base/rm.html">rm()</a></code>, indicando entre paréntesis el identificador del objeto que deseamos borrar, por ejemplo:</p>
 <div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">var1</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">var1</span><span class="op">)</span></span></code></pre></div>
 <p>Todos los objetos generados viven temporalmente en la memoria de la computadora mientras dure la sesión de R en la que estamos trabajando. Si cerramos R, toda esa información desaparecerá. Muchas veces eso es algo deseable: una vez finalizado el programa, guardamos algún resultado que nos interese (por ejemplo, un conjunto de datos en un archivo de Excel) y todos los objetos del ambiente que fuimos necesitando en el camino son descartados. Sin embargo, en otras oportunidades nos interesa guardar de forma permanente en la computadora una copia de todo lo que se encuentra en el ambiente en un archivo dentro de alguna carpeta. Los archivos que contienen los objetos creados en R tienen extensión <code>.RData</code>. Estos archivos se generan con el ícono de guardar en la pestaña <em>Environment</em> o usando la función <code><a href="https://rdrr.io/r/base/save.html">save.image()</a></code>, que necesita que escribamos entre los paréntesis la carpeta donde guardaremos el archivo y el nombre elegido para el mismo, por ejemplo:</p>
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/save.html">save.image</a></span><span class="op">(</span><span class="st">"C:/Users/Marcos/Documentos/Facultad/objetos.RData"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html">save.image</a></span><span class="op">(</span><span class="st">"C:/Users/Marcos/Documentos/Facultad/objetos.RData"</span><span class="op">)</span></span></code></pre></div>
 <p>Si por el contrario necesitamos <em>importar</em> al ambiente objetos que estén guardados en algún lugar de nuestra compu en un archivo <code>.RData</code>, podemos usar el ícono de abrir en la pestaña <em>Environment</em> o la función <code><a href="https://rdrr.io/r/base/load.html">load()</a></code>, por ejemplo:</p>
 <div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"C:/Users/Marcos/Documentos/Facultad/objetos.RData"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"C:/Users/Marcos/Documentos/Facultad/objetos.RData"</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div id="operadores" class="section level2" number="2.2">
@@ -388,22 +388,22 @@ EN R
 </table></div>
 <p>Otros ejemplos:</p>
 <div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">3</span>
-<span class="va">b</span> <span class="op">&lt;-</span> <span class="fl">4</span>
-<span class="va">d</span> <span class="op">&lt;-</span> <span class="fl">2</span>
-<span class="va">e</span> <span class="op">&lt;-</span> <span class="fl">10</span>
-<span class="va">f</span> <span class="op">&lt;-</span> <span class="fl">15</span>
-<span class="op">(</span><span class="va">a</span> <span class="op">*</span> <span class="va">b</span><span class="op">)</span> <span class="op">==</span> <span class="op">(</span><span class="va">d</span> <span class="op">+</span> <span class="va">e</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">3</span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fl">4</span></span>
+<span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fl">2</span></span>
+<span><span class="va">e</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
+<span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fl">15</span></span>
+<span><span class="op">(</span><span class="va">a</span> <span class="op">*</span> <span class="va">b</span><span class="op">)</span> <span class="op">==</span> <span class="op">(</span><span class="va">d</span> <span class="op">+</span> <span class="va">e</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="op">(</span><span class="va">a</span> <span class="op">*</span> <span class="va">b</span><span class="op">)</span> <span class="op">!=</span> <span class="op">(</span><span class="va">f</span> <span class="op">-</span> <span class="va">b</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">a</span> <span class="op">*</span> <span class="va">b</span><span class="op">)</span> <span class="op">!=</span> <span class="op">(</span><span class="va">f</span> <span class="op">-</span> <span class="va">b</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <p>Es interesante notar que primero se evalúan las operaciones a cada lado de los operadores relacionales y luego se hace la comparación. Es decir, <strong>los operadores aritméticos preceden a los relacionales en el orden de prioridad</strong>. Por eso, en los ejemplos anteriores no eran necesarios los paréntesis y podríamos poner directamente:</p>
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">*</span> <span class="va">b</span> <span class="op">==</span> <span class="va">d</span> <span class="op">+</span> <span class="va">e</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">*</span> <span class="va">b</span> <span class="op">==</span> <span class="va">d</span> <span class="op">+</span> <span class="va">e</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">*</span> <span class="va">b</span> <span class="op">!=</span> <span class="va">f</span> <span class="op">-</span> <span class="va">b</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">*</span> <span class="va">b</span> <span class="op">!=</span> <span class="va">f</span> <span class="op">-</span> <span class="va">b</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <p>Si bien en pseudocódigo podemos usar tanto <code>=</code> o <code>==</code> para probar la igualdad entre dos elementos, <strong>en R no debemos usar</strong> <code>=</code> para este fin, puesto que <code>=</code> no es un operador de comparación sino de asignación, parecido al <code>&lt;-</code>.</p>
 </div>
@@ -537,22 +537,22 @@ EN R
 <li>
 <p>Evaluar si el valor de <code>ancho</code> está entre 5 y 7: <code>(ancho &gt; 5) Y (ancho &lt; 7)</code>.</p>
 <div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ancho</span> <span class="op">&lt;-</span> <span class="fl">6.4</span>
-<span class="op">(</span><span class="va">ancho</span> <span class="op">&gt;</span> <span class="fl">5</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">ancho</span> <span class="op">&lt;</span> <span class="fl">7</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">ancho</span> <span class="op">&lt;-</span> <span class="fl">6.4</span></span>
+<span><span class="op">(</span><span class="va">ancho</span> <span class="op">&gt;</span> <span class="fl">5</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">ancho</span> <span class="op">&lt;</span> <span class="fl">7</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 </li>
 <li>
 <p>Establecer si una persona estudia Estadística o Economía: <code>(carrera == "Estadística") O (carrera == "Economía")</code>.</p>
 <div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">carrera</span> <span class="op">&lt;-</span> <span class="st">"Administración"</span>
-<span class="op">(</span><span class="va">carrera</span> <span class="op">==</span> <span class="st">"Estadística"</span><span class="op">)</span> <span class="op">||</span> <span class="op">(</span><span class="va">carrera</span> <span class="op">==</span> <span class="st">"Economía"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">carrera</span> <span class="op">&lt;-</span> <span class="st">"Administración"</span></span>
+<span><span class="op">(</span><span class="va">carrera</span> <span class="op">==</span> <span class="st">"Estadística"</span><span class="op">)</span> <span class="op">||</span> <span class="op">(</span><span class="va">carrera</span> <span class="op">==</span> <span class="st">"Economía"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
 </li>
 <li>
 <p>Determinar si una persona no estudia Estadística: <code>NO (carrera == "Estadística")</code>.</p>
 <div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">carrera</span> <span class="op">&lt;-</span> <span class="st">"Administración"</span>
-<span class="op">!</span><span class="op">(</span><span class="va">carrera</span> <span class="op">==</span> <span class="st">"Estadística"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">carrera</span> <span class="op">&lt;-</span> <span class="st">"Administración"</span></span>
+<span><span class="op">!</span><span class="op">(</span><span class="va">carrera</span> <span class="op">==</span> <span class="st">"Estadística"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 </li>
 <li>
@@ -562,38 +562,38 @@ EN R
 </li>
 </ul>
 <div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Da verdadero porque x no es ni 2 ni 3</span>
-<span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">10</span>
-<span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Da verdadero porque x no es ni 2 ni 3</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
+<span><span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Da falso porque x es igual a 3</span>
-<span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">3</span>
-<span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Da falso porque x es igual a 3</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">3</span></span>
+<span><span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
 <ul>
 <li>Opción correcta 2: <code>NO ((x == 2) O (x == 3))</code>
 </li>
 </ul>
 <div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Da verdadero porque x no es ni 2 ni 3</span>
-<span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">10</span>
-<span class="op">!</span><span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="fl">2</span> <span class="op">||</span> <span class="va">x</span> <span class="op">==</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Da verdadero porque x no es ni 2 ni 3</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
+<span><span class="op">!</span><span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="fl">2</span> <span class="op">||</span> <span class="va">x</span> <span class="op">==</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Da falso porque x es igual a 3</span>
-<span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">3</span>
-<span class="op">!</span><span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="fl">2</span> <span class="op">||</span> <span class="va">x</span> <span class="op">==</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Da falso porque x es igual a 3</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">3</span></span>
+<span><span class="op">!</span><span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="fl">2</span> <span class="op">||</span> <span class="va">x</span> <span class="op">==</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
 <ul>
 <li>Opción incorrecta: <code>(x != 2) O (x != 3)</code>
 </li>
 </ul>
 <div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Da verdadero, porque al ser x igual a 3, es distinto de 2,</span>
-<span class="co"># haciendo que la primera parte sea verdadera </span>
-<span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">3</span>
-<span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">||</span> <span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Da verdadero, porque al ser x igual a 3, es distinto de 2,</span></span>
+<span><span class="co"># haciendo que la primera parte sea verdadera </span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">3</span></span>
+<span><span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">||</span> <span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 </li>
 </ol>
@@ -606,19 +606,19 @@ EN R
 </ul>
 <p>Es importante notar que todos los paréntesis usados en el código de R del ejemplo 4 son innecesarios, puesto que <strong>los operadores relacionales preceden a los lógicos en el orden de prioridad</strong>. Sin embargo, a veces preferimos usar paréntesis para que la lectura sea más sencilla. En el siguiente ejemplo, ambas expresiones son equivalentes:</p>
 <div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ancho</span> <span class="op">&lt;-</span> <span class="fl">6.4</span>
-<span class="op">(</span><span class="va">ancho</span> <span class="op">&gt;</span> <span class="fl">5</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">ancho</span> <span class="op">&lt;</span> <span class="fl">7</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">ancho</span> <span class="op">&lt;-</span> <span class="fl">6.4</span></span>
+<span><span class="op">(</span><span class="va">ancho</span> <span class="op">&gt;</span> <span class="fl">5</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">ancho</span> <span class="op">&lt;</span> <span class="fl">7</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ancho</span> <span class="op">&gt;</span> <span class="fl">5</span> <span class="op">&amp;&amp;</span> <span class="va">ancho</span> <span class="op">&lt;</span> <span class="fl">7</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">ancho</span> <span class="op">&gt;</span> <span class="fl">5</span> <span class="op">&amp;&amp;</span> <span class="va">ancho</span> <span class="op">&lt;</span> <span class="fl">7</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <p>Para pensar: predecir el resultado de las siguientes operaciones y luego verificar:</p>
 <div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">2</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="fl">2</span>
-<span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0</span> <span class="op">&amp;&amp;</span> <span class="va">y</span> <span class="op">&lt;</span> <span class="fl">0</span>
-<span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0</span> <span class="op">||</span> <span class="va">y</span> <span class="op">&lt;</span> <span class="fl">0</span>
-<span class="op">!</span><span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0</span> <span class="op">&amp;&amp;</span> <span class="va">y</span> <span class="op">&lt;</span> <span class="fl">0</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">2</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="fl">2</span></span>
+<span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0</span> <span class="op">&amp;&amp;</span> <span class="va">y</span> <span class="op">&lt;</span> <span class="fl">0</span></span>
+<span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0</span> <span class="op">||</span> <span class="va">y</span> <span class="op">&lt;</span> <span class="fl">0</span></span>
+<span><span class="op">!</span><span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0</span> <span class="op">&amp;&amp;</span> <span class="va">y</span> <span class="op">&lt;</span> <span class="fl">0</span><span class="op">)</span></span></code></pre></div>
 <div id="evaluación-en-cortocircuito" class="section level4" number="2.2.3.1">
 <h4>
 <span class="header-section-number">2.2.3.1</span> Evaluación en cortocircuito<a class="anchor" aria-label="anchor" href="#evaluaci%C3%B3n-en-cortocircuito"><i class="fas fa-link"></i></a>
@@ -626,29 +626,29 @@ EN R
 <p>Para evaluar la operación de conjunción <code>x &amp;&amp; y</code>, en R se comienza por evaluar la expresión del primer operando <code>x</code> y si su resultado es <code>FALSE</code> ya no se evalúa la expresión <code>y</code> del segundo operando. Esto es porque si <code>x</code> es <code>FALSE</code>, el resultado de <code>x &amp;&amp; y</code> ya no depende de <code>y</code>, será siempre <code>FALSE</code>. Por este motivo se dice que el operador <code>&amp;&amp;</code> se evalúa en <em>cortocircuito</em>. La evaluación en cortocircuito evita realizar operaciones innecesarias<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;El otro operador de conjunción, &amp;amp;, no evalúa en cortocircuito, además de poseer otras diferencias.&lt;/p&gt;"><sup>7</sup></a>.</p>
 <p>Por ejemplo:</p>
 <div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">2</span>
-
-<span class="co"># La primera parte da TRUE, se continúa con la segunda, pero da error porque no</span>
-<span class="co"># existe un objeto llamado z</span>
-<span class="op">(</span><span class="va">y</span> <span class="op">&gt;</span> <span class="va">x</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">z</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">2</span></span>
+<span></span>
+<span><span class="co"># La primera parte da TRUE, se continúa con la segunda, pero da error porque no</span></span>
+<span><span class="co"># existe un objeto llamado z</span></span>
+<span><span class="op">(</span><span class="va">y</span> <span class="op">&gt;</span> <span class="va">x</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">z</span><span class="op">)</span></span></code></pre></div>
 <pre><code>Error in eval(expr, envir, enclos): object 'z' not found</code></pre>
 <div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># La primera parte da FALSE, entonces toda la operación será FALSE, no se</span>
-<span class="co"># continúa con la segunda parte, con lo cual no se intenta usar el objeto</span>
-<span class="co"># inexistente z y no hay error</span>
-<span class="op">(</span><span class="va">y</span> <span class="op">&lt;</span> <span class="va">x</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">z</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># La primera parte da FALSE, entonces toda la operación será FALSE, no se</span></span>
+<span><span class="co"># continúa con la segunda parte, con lo cual no se intenta usar el objeto</span></span>
+<span><span class="co"># inexistente z y no hay error</span></span>
+<span><span class="op">(</span><span class="va">y</span> <span class="op">&lt;</span> <span class="va">x</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">z</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
 <p>La operación de disyunción también se evalúa en cortocircuito, es decir, si se encuentra que uno de los operandos es <code>TRUE</code>, no hace falta evaluar los restantes, puesto que el resultado general será <code>TRUE</code>:</p>
 <div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Es TRUE porque la primera parte es TRUE, sin evaluar la segunda, que daría</span>
-<span class="co"># error</span>
-<span class="op">(</span><span class="va">y</span> <span class="op">&gt;</span> <span class="va">x</span><span class="op">)</span> <span class="op">||</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">z</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Es TRUE porque la primera parte es TRUE, sin evaluar la segunda, que daría</span></span>
+<span><span class="co"># error</span></span>
+<span><span class="op">(</span><span class="va">y</span> <span class="op">&gt;</span> <span class="va">x</span><span class="op">)</span> <span class="op">||</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">z</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Como la primera parte es FALSE, debe evaluar la segunda, no encuentra a z y da</span>
-<span class="co"># error</span>
-<span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">y</span><span class="op">)</span> <span class="op">||</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">z</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Como la primera parte es FALSE, debe evaluar la segunda, no encuentra a z y da</span></span>
+<span><span class="co"># error</span></span>
+<span><span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">y</span><span class="op">)</span> <span class="op">||</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">z</span><span class="op">)</span></span></code></pre></div>
 <pre><code>Error in eval(expr, envir, enclos): object 'z' not found</code></pre>
 </div>
 <div id="orden-de-precedencia-completo-en-r" class="section level4" number="2.2.3.2">
@@ -740,12 +740,12 @@ COMENZAR
 FIN</code></pre>
 <p><strong>En R</strong>:</p>
 <div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># PROGRAMA: "Calcular área de un círculo" ---------------------------</span>
-
-<span class="va">pi</span> <span class="op">&lt;-</span> <span class="fl">3.14159265358979</span>
-<span class="va">radio</span> <span class="op">&lt;-</span> <span class="fl">5</span>
-<span class="va">area</span> <span class="op">&lt;-</span> <span class="va">pi</span> <span class="op">*</span> <span class="va">radio</span><span class="op">^</span><span class="fl">2</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El área del círculo es"</span>, <span class="va">area</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># PROGRAMA: "Calcular área de un círculo" ---------------------------</span></span>
+<span></span>
+<span><span class="va">pi</span> <span class="op">&lt;-</span> <span class="fl">3.14159265358979</span></span>
+<span><span class="va">radio</span> <span class="op">&lt;-</span> <span class="fl">5</span></span>
+<span><span class="va">area</span> <span class="op">&lt;-</span> <span class="va">pi</span> <span class="op">*</span> <span class="va">radio</span><span class="op">^</span><span class="fl">2</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El área del círculo es"</span>, <span class="va">area</span><span class="op">)</span></span></code></pre></div>
 <pre><code>El área del círculo es 78.53982</code></pre>
 <p><em>Nota</em>: <code>pi</code> ya es una constante incorporada en R Base, en realidad no es necesario crear esta constante y asignarle valor.</p>
 </div>
@@ -756,42 +756,42 @@ FIN</code></pre>
 <p>Antes de terminar este capítulo vamos a presentar un concepto fundamental acerca de cómo se relaciona R con el sistema opertaivo de nuestra computadora para poder tener acceso a nuestros archivos o para generar otros nuevos.</p>
 <p>Al finalizar la sección <a href="objetos-y-operadores.html#objetosenR">2.1.3</a> vimos ejemplos en los que se utilizó R para, en primer lugar, generar un archivo llamado <code>objetos.RData</code> con todos los objetos existentes en nuestro ambiente de trabajo y, en segundo lugar, cargar la información que dicho archivo contiene:</p>
 <div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/save.html">save.image</a></span><span class="op">(</span><span class="st">"C:/Users/Marcos/Documentos/Facultad/objetos.RData"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"C:/Users/Marcos/Documentos/Facultad/objetos.RData"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html">save.image</a></span><span class="op">(</span><span class="st">"C:/Users/Marcos/Documentos/Facultad/objetos.RData"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"C:/Users/Marcos/Documentos/Facultad/objetos.RData"</span><span class="op">)</span></span></code></pre></div>
 <p>En ambos casos, dentro de las funciones <code><a href="https://rdrr.io/r/base/save.html">save.image()</a></code> y <code><a href="https://rdrr.io/r/base/load.html">load()</a></code> se tuvo que escribir la dirección completa que representa cuál es la ubicación exacta de dicho archivo en la computadora: <code>C:/Users/Marcos/Documentos/Facultad/objetos.RData</code>. Esto significa que el archivo se encuentra en la carpeta <code>Facultad</code>, que a su vez está dentro de la carpeta <code>Documentos</code>, dentro de <code>Marcos</code> y dentro de <code>Users</code>, en el disco C de la computadora.</p>
 <p>Expresiones como <code>C:/Users/Marcos/Documentos/Facultad/objetos.RData</code> reciben el nombre de <strong>ruta informática</strong> o <em>path</em> y sirven para referenciar de manera exacta la localización ya sea de una carpeta o de un archivo en particular dentro del sistema de archivos que maneja el sistema operativo de la computadora. Un <em>path</em> está compuesto por todos los nombres de los directorios que ordenadamente nos permiten llegar hasta la carpeta o archivo de interés, separados por un carácter que dependiendo del sistema operativo puede ser una barra diagonal <code>/</code> o una barra inversa <code>\</code>.</p>
 <p>R siempre está mirando a alguna carpeta en particular dentro de la computadora, la cual recibe el nombre <strong>directorio de trabajo</strong> (o <em>working directory</em>, <em>wd</em>). Por ejemplo, en este momento y en mi computadora, R está posando su atención en una carpeta que se llama <code>introprog</code> y cuya ruta puedo descubrir con la función <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code>, que significa “obtener (get) el directorio de trabajo (wd)”:</p>
 <div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] "/home/marcos/GitProjects/introprog"</code></pre>
 <p>Esto quiere decir que R puede ver y acceder de manera directa a todos los archivos que hay allí, sin necesidad de escribir la ruta completa. Por ejemplo, si en lugar de ejecutar:</p>
 <div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/save.html">save.image</a></span><span class="op">(</span><span class="st">"C:/Users/Marcos/Documentos/Facultad/objetos.RData"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html">save.image</a></span><span class="op">(</span><span class="st">"C:/Users/Marcos/Documentos/Facultad/objetos.RData"</span><span class="op">)</span></span></code></pre></div>
 <p>ejecuto sencillamente:</p>
 <div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/save.html">save.image</a></span><span class="op">(</span><span class="st">"objetos.RData"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html">save.image</a></span><span class="op">(</span><span class="st">"objetos.RData"</span><span class="op">)</span></span></code></pre></div>
 <p>lo que ocurre es que el nuevo archivo se generará en mi directorio de trabajo (carpeta <code>introprog</code>) y no en la carpeta <code>Facultad</code>. Del mismo modo, si ejecuto:</p>
 <div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"objetos.RData"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"objetos.RData"</span><span class="op">)</span></span></code></pre></div>
 <p>el software va a buscar el archivo <code>objetos.RData</code> en mi directorio de trabajo (carpeta <code>introprog</code>) y va a cargar su contenido al ambiente de trabajo. Si en dicha carpeta no existe un archivo con ese nombre, obtendremos un mensaje de error muy famoso:</p>
 <pre><code>cannot find file 'objetos.RData', probable reason 'No such file or directory'</code></pre>
 <p>El directorio de trabajo por default suele ser la carpeta <em>Documentos</em> o alguna equivalente y es la que vemos en el panel <code>Files</code> de RStudio. Podemos cambiar el directorio de trabajo por cualquier otra carpeta en la que queramos estar trabajando con la función <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> (“setear el working directory”):</p>
 <div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"/home/marcos/documents/introprog/tp1"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span>
-<span class="st">"/home/marcos/documents/introprog/tp1"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"/home/marcos/documents/introprog/tp1"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="st">"/home/marcos/documents/introprog/tp1"</span></span></code></pre></div>
 <p>Por ejemplo, si estamos resolviendo un trabajo práctico para el cual tenemos varios archivos necesarios guardados en la carpeta <code>tp1</code>, tenemos dos opciones:</p>
 <ol style="list-style-type: decimal">
 <li>
 <p>Sin importar cuál es nuestro directorio de trabajo, hacer referencia a dichos archivos con <em>paths</em> completos, por ejemplo:</p>
 <div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"/home/marcos/documents/introprog/tp1/objetos.RData"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"/home/marcos/documents/introprog/tp1/objetos.RData"</span><span class="op">)</span></span></code></pre></div>
 </li>
 <li>
 <p>Setear como directorio de trabajo a la carpeta del trabajo práctico y hacer un uso directo de los archivos que se encuentren allí:</p>
 <div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"/home/marcos/documents/introprog/tp1"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"objetos.RData"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"/home/marcos/documents/introprog/tp1"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"objetos.RData"</span><span class="op">)</span></span></code></pre></div>
 </li>
 </ol>
 <p>Es importante recordar lo siguiente: al escribir <em>paths</em>, R sólo reconoce como caracteres delimitadores entre los nombres de carpetas a la barra diagonal <code>/</code> o a dos barras invertidas <code>\\</code>. Quienes usan el sistema operativo Windows notarán que en el explorador de archivos, las rutas están delimitadas con una sola barra invertida <code>\</code>. En el contexto de R, debe ser reemplazada por dos barras invertidas o por una sola barra diagonal.</p>
@@ -838,7 +838,7 @@ FIN</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2023-05-24.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2023-05-30.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

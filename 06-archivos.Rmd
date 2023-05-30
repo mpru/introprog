@@ -4,13 +4,13 @@
 
 Como hemos visto, los programas usan variables para guardar información: datos de entrada, resultados calculados, valores intermedios, etc. Sin embargo, la información guardada en las variables es efímera. Cuando los programas paran de correr, el valor almacenado en las variables se pierde. En muchas ocasiones, es necesario guardar información de una forma más permanente.
 
-En estos casos, el enfoque usual es recolectar la información en un todo lógicamente cohesivo y guardarlo en un medio permanente que generalmente se graba en el disco rígido de la máquina, es decir, en un archivo. Un **archivo** o **fichero** es un conjunto de información sobre un mismo tema tratado como una unidad de almacenamiento y organizado de forma estructurada para la búsqueda de un dato individual. Los archivos pueden contener instrucciones de programas o información creada o usada por un programa. Todos los objetos de datos permanentes que guardamos en nuestra computadora (documentos, juegos, programas ejecutables, código, etc.) son guardados en la forma de archivos.
+En estos casos, el enfoque usual es recolectar la información en un todo lógicamente cohesivo y guardarlo en un medio permanente que generalmente se graba en el disco rígido de la máquina, es decir, en un archivo. Un **archivo** o **fichero** es un conjunto de datos sobre un mismo tema tratado como una unidad de almacenamiento y organizado de forma estructurada para la búsqueda de un dato individual. Los archivos pueden contener instrucciones de programas o información creada o usada por un programa. Todos los objetos de datos permanentes que guardamos en nuestra computadora (documentos, juegos, programas ejecutables, código, etc.) son guardados en la forma de archivos.
 
 Un archivo se identifica con un **nombre**, seguido por un *punto* y una **extensión**, la cual es un sufijo empleado para indicar características de su contenido, el uso pretendido o el software con el cual puede ser empleado. Por ejemplo, un archivo que se llama *planilla.xlsx* es una hoja de cálculo de Excel o un archivo llamado *codigo.R* es un script de código de R.
 
 ### Registros, campos, claves y bases de datos
 
-En esta asignatura nos limitaremos a trabajar con archivos que guardan información de forma tabular, en los que la unidad elemental que los compone es un **registro**, es decir, una colección de información relativa a una misma entidad. En general, cada registro de un mismo archivo tiene la misma estructura que los demás. Los datos individuales sobre dicha entidad se organizan en **campos**. Un **campo** es la mínima unidad de información de un registro. 
+En esta asignatura nos limitaremos a trabajar con archivos que guardan datos de forma tabular, en los que la unidad elemental que los compone es un **registro**, es decir, una colección de datos relativa a una misma entidad. En general, cada registro de un mismo archivo tiene la misma estructura que los demás. Los datos individuales sobre dicha entidad se organizan en **campos**. Un **campo** es la mínima unidad de información de un registro. 
 
 Para ejemplificar, trabajaremos con un archivo llamado *mundiales.txt* que tiene datos sobre todos los mundiales de fútbol de la FIFA, incluyendo el del año 2022, en el cual nuestra selección argentina conquistó su tercer título. Cada fila del conjunto de datos corresponde a un país y cada columna hace referencia a las siguientes variables^[Los partidos definidos en tiempo complementario se cuentan como victorias y derrotas, mientras que los partidos definidos por tandas de penales se cuentan como empates.]: 
 
@@ -23,7 +23,7 @@ Campo 4 - pg: cantidad de partidos ganados, tipo numérico
 Campo 5 - pe: cantidad de partidos empatados, tipo numérico
 Campo 6 - pp: cantidad de partidos perdidos, tipo numérico
 Campo 7 - gf: cantidad de goles a favor, tipo numérico
-Campo 8 - gf: cantidad de goles en contra, tipo numérico
+Campo 8 - gc: cantidad de goles en contra, tipo numérico
 Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico
 ```
 
@@ -97,7 +97,7 @@ El uso de archivos en programación es muy importante ya que nos permite leer da
 
 - **Cierre de un archivo**: cuando un programa no vaya a acceder más a un archivo, es necesario indicarlo a través del **cierre** del mismo, para que se interrumpa la conexión establecida por el sistema operativo. Esto hace que se liberen memoria y recursos del sistema, se prevenga la corrupción de los datos y se exprese explícitamente que ya no se hará más uso del mismo. En algunos lenguajes o para determinadas tareas, esto puede no ser necesario.
 
-- **Otras operaciones**: ptras operaciones que se pueden realizar sobre los archivos, en base a combinaciones de las anteriores, incluyen a las acciones de:
+- **Otras operaciones**: otras operaciones que se pueden realizar sobre los archivos, en base a combinaciones de las anteriores, incluyen a las acciones de:
 
 	- *Actualización*: añadir (dar de alta), modificar o eliminar (dar de baja) algún registro.
 	- *Clasificación*: reubicar los registros de tal forma que queden ordenados por algún campo determinado.
@@ -197,13 +197,13 @@ Lo anterior resulta en un vector, con el que se pueden hacer operaciones como bu
 max(datos$titulos)
 ```
 
-Si bien en los ejemplos anteriores vemos que en muchos aspectos los *data.frame*s son similares a las matrices, a partir de ahora vamos a ver cómo utilizar funciones que fueron especialmente pensadas para ayudarnos a transformar y explorar los conjuntos de datos que están guardados en objetos de tipo *data.frame* y que simplifican muchas tareas relacionadas al análisis de datos.
+Si bien en los ejemplos anteriores vemos que en muchos aspectos los *data.frames* son similares a las matrices, a partir de ahora vamos a ver cómo utilizar funciones que fueron especialmente pensadas para ayudarnos a transformar y explorar los conjuntos de datos que están guardados en objetos de tipo *data.frame* y que simplifican muchas tareas relacionadas al análisis de datos.
 
 ## Manejo de datos
 
 ### Editar o crear nuevas variables
 
-Es muy común tener que modificar una variable existente o añadir una nueva, la cual puede depender de algún cálculo realizado a partir de otras columnas presentes en el dataset. Para cualquiera de estas actividades que implican *modificar* o *mutar* el dataset, emplearemos la función `mutate()`. Vamos a calcular la cantitad total que cada selección ha jugado en los mundiales a lo largo de toda la historia (`pj`), sumando la cantidad de partidos que ha ganado, empatado y perdido:
+Es muy común tener que modificar una variable existente o añadir una nueva, la cual puede depender de algún cálculo realizado a partir de otras columnas presentes en el dataset. Para cualquiera de estas actividades que implican *modificar* o *mutar* el dataset, emplearemos la función `mutate()`. Vamos a calcular la cantitad total de partidos que cada selección ha jugado en los mundiales a lo largo de toda la historia (`pj`), sumando la cantidad de partidos que ha ganado, empatado y perdido:
 
 ```{r}
 datos <- mutate(datos, pj = pg + pe + pp)
@@ -228,7 +228,7 @@ datos_modif <- mutate(datos, pj = pg + pe + pp)
 datos <- mutate(datos, pg = pg + pe + pp)
 ```
 
-Otras situaciones requieren que en lugar de *mutar* de la misma forma toda una columna, los cambios dependan de alguna condición que los registros verifiquen o no. Por ejemplo, agreguemos una nueva variable que indique si cada país es o no campeón del mundo, en función de los valores disponibles en la variable `titulos`. Vamos a crear una nueva columna que se llame `campeon` y tenga el valor `"campeón"` cuando `titulos > 0` y `"no campeón"` en caso contrario, ayudándonos con la función `ifelse()`, la cual nos permite establecer una evaluación lógica y dos cursos de acción, en base a que esta resulte verdadera (`TRUE`) o falsa (`FALSE`).
+Otras situaciones requieren que en lugar de *mutar* de la misma forma toda una columna, los cambios dependan de alguna condición que los registros verifiquen o no. Por ejemplo, agreguemos una nueva variable que indique si cada país es o no campeón del mundo, en función de los valores disponibles en la variable `titulos`. Vamos a crear una nueva columna que se llame `campeon` y tenga el valor "campeón" cuando `titulos > 0` y "no campeón" en caso contrario, ayudándonos con la función `ifelse()`, la cual nos permite establecer una evaluación lógica y dos cursos de acción, en base a que esta resulte verdadera (`TRUE`) o falsa (`FALSE`).
 
 ```{r}
 datos <- mutate(datos, campeon = ifelse(titulos > 0, "campeón", "no campeón"))
@@ -246,7 +246,7 @@ La función anterior es muy útil para chequear los valores guardados en atribut
 count(datos, continente)
 ```
 
-Detectamos inconsistencias en la forma de registrar los nombres de los continentes: Europa aparece en inglés y en español, Asia aparece con mayúscula y con minúscula. Debemos homogeneizar la nomenclatura para poder hacer cualquier análisis válido. En este caso, en el cual la corrección implica sólo "recodificar" categorías, podemos usar la función `recode()` de forma muy sencilla. Aquellos registros con `"Europe"` en `continente` son reemplazados por `"Europa"`, y lo mismo ocurre con `"asia"`, que será reemplazado por `"Asia"`. Los otros valores quedan como estaban:
+Detectamos inconsistencias en la forma de registrar los nombres de los continentes: Europa aparece en inglés y en español, Asia aparece con mayúscula y con minúscula. Debemos homogeneizar la nomenclatura para poder hacer cualquier análisis válido. En este caso, en el cual la corrección implica sólo "recodificar" categorías, podemos usar la función `recode()` de forma muy sencilla. Aquellos registros con "Europe" en `continente` son reemplazados por "Europa", y lo mismo ocurre con "asia", que será reemplazado por "Asia". Los otros valores quedan como estaban:
   
 ```{r}
 datos <- mutate(datos, continente = recode(continente, "Europe" = "Europa", "asia" = "Asia"))
@@ -294,7 +294,7 @@ datos
 
 ### Unir o separar columnas
 
-En ocasiones puede ser necesario generar una nueva variable "pegando" o uniendo los datos presentes en otras. Imaginemos que tal vez necesitamos contar con una única variable textual que contenga tanto el nombre del país como el continente al que pertenece. Para esto recurrimos a la función `unite()`:
+En ocasiones puede ser necesario generar una nueva variable "pegando" o uniendo los datos presentes en otras. Imaginemos que tal vez necesitamos contar con una única variable textual que contenga tanto el nombre de la selección como el continente al que pertenece. Para esto recurrimos a la función `unite()`:
     
 ```{r}
 datos <- unite(datos, col = "pais_continente", seleccion, continente, sep = " - ", remove = FALSE)
@@ -440,7 +440,7 @@ write_xlsx(datos, "mundiales_procesado.xlsx")
 
 ## Resumen de datos
 
-Una vez que los datos han sido organizados y limpiados según corresponda, el siguiente paso de cualquier análisis es hacer un breve análisis exploratorio. En esta sección veremos cómo calcular algunas estadísticas y realizar tablas de distribuciones de frecuencias, ya sea para variables categóricas o cuantitativas.
+Una vez que los datos han sido organizados y depurados según corresponda, el siguiente paso de cualquier análisis es hacer un breve análisis exploratorio. En esta sección veremos cómo calcular algunas estadísticas y realizar tablas de distribuciones de frecuencias, ya sea para variables categóricas o cuantitativas.
 
 ### Cálculo de estadísticas
 
@@ -568,7 +568,7 @@ Otro tipo de escenario se presenta cuando queremos analizar las frecuencias de d
 count(datos, continente, campeon, sort = TRUE)
 ```
 
-Esta forma de presentar los resultados es útil cuando deseamos identificar combinaciones de categorías con los valores mínimos y máximos. Sin embargo, frecuencias como las anteriores suelen ser presentadas en **tablas de contingencia** o **tablas de doble entrada**, donde las filas se corresponden a las categorías de una variable y las columnas, a las de la otra. La función`tabyl()` presenta los conteos de esa forma:
+Esta forma de presentar los resultados es útil cuando deseamos identificar combinaciones de categorías con los valores mínimos y máximos. Sin embargo, frecuencias como las anteriores suelen ser presentadas en **tablas de contingencia** o **tablas de doble entrada**, donde las filas se corresponden a las categorías de una variable y las columnas, a las de la otra. La función `tabyl()` presenta los conteos de esa forma:
 
 ```{r}
 tabla_cont_campeon <- tabyl(datos, continente, campeon)
@@ -701,7 +701,7 @@ cat("==========================================\n")
 cat("            ARCHIVO DE RESULTADOS         \n")
 cat("==========================================\n\n")
 
-cat("==================== ESTADÍSTICAS ====================\n\n")
+cat("=============== ESTADÍSTICAS ===============\n\n")
 
 datos %>% 
 	group_by(continente) %>% 
@@ -713,7 +713,7 @@ datos %>%
 		`Promedio de diferencia de goles` = mean(dg)
 	)
 
-cat("\n==================== DISTRIBUCIÓN DE SELECCIONES SEGÚN CONTINENTE ====================\n\n")
+cat("\n=============== DISTRIBUCIÓN DE SELECCIONES SEGÚN CONTINENTE ===============\n\n")
 
 # Tabla básica
 frecuencias <- tabyl(datos, continente)
@@ -734,7 +734,7 @@ cat("\nEl continente con la mayor cantidad de países que han participado de mun
     maximo$continente, "con", maximo$n, "selecciones, mientras que el de menor participación es", 
     minimo$continente, "con", minimo$n, "selecciones.\n")
 
-cat("\n==================== DISTRIBUCIÓN CONJUNTA DE CONTINENTES Y CAMPEONES ====================\n\n")
+cat("\n=============== DISTRIBUCIÓN CONJUNTA DE CONTINENTES Y CAMPEONES ===============\n\n")
 
 datos %>% 
 	tabyl(continente, campeon) %>% 
@@ -744,7 +744,7 @@ datos %>%
 	adorn_ns() %>% 
 	adorn_title(placement = "top", "Continente", "Campeones del mundo")
 
-cat("\n==================== DISTRIBUCIÓN CONDICIONAL DE CAMPEONES EN CADA CONTINENTE ====================\n\n")
+cat("\n=============== DISTRIBUCIÓN CONDICIONAL DE CAMPEONES EN CADA CONTINENTE ===============\n\n")
 
 datos %>% 
 	tabyl(continente, campeon) %>% 
@@ -754,7 +754,7 @@ datos %>%
 	adorn_ns() %>% 
 	adorn_title(placement = "top", "Continente", "Campeones del mundo")
 
-cat("\n==================== DISTRIBUCIÓN CONDICIONAL DE CONTINENTES DADO CAMPEONES ====================\n\n")
+cat("\n=============== DISTRIBUCIÓN CONDICIONAL DE CONTINENTES DADO CAMPEONES ===============\n\n")
 
 datos %>% 
 	tabyl(continente, campeon) %>% 

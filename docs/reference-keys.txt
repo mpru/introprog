@@ -145,7 +145,7 @@ lectura-opcional
 otros-ejemplos-para-obtener-resúmenes
 tablas-de-frecuencia-con-r-base
 cambiar-el-formato-de-un-data.frame
-fusionar-varios-data.frames
+fusionar-dos-data.frames
 otros-tópicos
 la-consola
 uso-de-argumentos-en-la-línea-de-comandos-al-ejecutar-código-de-r

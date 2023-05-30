@@ -243,7 +243,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2023-05-24}
+\date{2023-05-30}
 
 \begin{document}
 \maketitle
@@ -5483,7 +5483,7 @@ También podemos resumir la información contenida en una matriz:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 93
+[1] 100
 \end{verbatim}
 
 \begin{Shaded}
@@ -5495,7 +5495,7 @@ También podemos resumir la información contenida en una matriz:
 
 \begin{verbatim}
      row col
-[1,]   2   2
+[1,]   4   2
 \end{verbatim}
 
 \begin{Shaded}
@@ -5506,7 +5506,7 @@ También podemos resumir la información contenida en una matriz:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 2
+[1] 6
 \end{verbatim}
 
 \begin{Shaded}
@@ -5518,7 +5518,7 @@ También podemos resumir la información contenida en una matriz:
 
 \begin{verbatim}
      row col
-[1,]   3   3
+[1,]   5   3
 \end{verbatim}
 \end{itemize}
 
@@ -5617,7 +5617,7 @@ Como aprenderán en Álgebra, las matrices numéricas son muy útiles en diverso
 \end{Shaded}
 
 \begin{verbatim}
-[1] 86 93  2 20
+[1] 89 78 52 27
 \end{verbatim}
 \end{itemize}
 
@@ -6920,14 +6920,14 @@ Para situaciones como la anterior, resulta más útil guardar los valores en otr
 
 Como hemos visto, los programas usan variables para guardar información: datos de entrada, resultados calculados, valores intermedios, etc. Sin embargo, la información guardada en las variables es efímera. Cuando los programas paran de correr, el valor almacenado en las variables se pierde. En muchas ocasiones, es necesario guardar información de una forma más permanente.
 
-En estos casos, el enfoque usual es recolectar la información en un todo lógicamente cohesivo y guardarlo en un medio permanente que generalmente se graba en el disco rígido de la máquina, es decir, en un archivo. Un \textbf{archivo} o \textbf{fichero} es un conjunto de información sobre un mismo tema tratado como una unidad de almacenamiento y organizado de forma estructurada para la búsqueda de un dato individual. Los archivos pueden contener instrucciones de programas o información creada o usada por un programa. Todos los objetos de datos permanentes que guardamos en nuestra computadora (documentos, juegos, programas ejecutables, código, etc.) son guardados en la forma de archivos.
+En estos casos, el enfoque usual es recolectar la información en un todo lógicamente cohesivo y guardarlo en un medio permanente que generalmente se graba en el disco rígido de la máquina, es decir, en un archivo. Un \textbf{archivo} o \textbf{fichero} es un conjunto de datos sobre un mismo tema tratado como una unidad de almacenamiento y organizado de forma estructurada para la búsqueda de un dato individual. Los archivos pueden contener instrucciones de programas o información creada o usada por un programa. Todos los objetos de datos permanentes que guardamos en nuestra computadora (documentos, juegos, programas ejecutables, código, etc.) son guardados en la forma de archivos.
 
 Un archivo se identifica con un \textbf{nombre}, seguido por un \emph{punto} y una \textbf{extensión}, la cual es un sufijo empleado para indicar características de su contenido, el uso pretendido o el software con el cual puede ser empleado. Por ejemplo, un archivo que se llama \emph{planilla.xlsx} es una hoja de cálculo de Excel o un archivo llamado \emph{codigo.R} es un script de código de R.
 
 \hypertarget{registros-campos-claves-y-bases-de-datos}{%
 \subsection{Registros, campos, claves y bases de datos}\label{registros-campos-claves-y-bases-de-datos}}
 
-En esta asignatura nos limitaremos a trabajar con archivos que guardan información de forma tabular, en los que la unidad elemental que los compone es un \textbf{registro}, es decir, una colección de información relativa a una misma entidad. En general, cada registro de un mismo archivo tiene la misma estructura que los demás. Los datos individuales sobre dicha entidad se organizan en \textbf{campos}. Un \textbf{campo} es la mínima unidad de información de un registro.
+En esta asignatura nos limitaremos a trabajar con archivos que guardan datos de forma tabular, en los que la unidad elemental que los compone es un \textbf{registro}, es decir, una colección de datos relativa a una misma entidad. En general, cada registro de un mismo archivo tiene la misma estructura que los demás. Los datos individuales sobre dicha entidad se organizan en \textbf{campos}. Un \textbf{campo} es la mínima unidad de información de un registro.
 
 Para ejemplificar, trabajaremos con un archivo llamado \emph{mundiales.txt} que tiene datos sobre todos los mundiales de fútbol de la FIFA, incluyendo el del año 2022, en el cual nuestra selección argentina conquistó su tercer título. Cada fila del conjunto de datos corresponde a un país y cada columna hace referencia a las siguientes variables\footnote{Los partidos definidos en tiempo complementario se cuentan como victorias y derrotas, mientras que los partidos definidos por tandas de penales se cuentan como empates.}:
 
@@ -6940,7 +6940,7 @@ Campo 4 - pg: cantidad de partidos ganados, tipo numérico
 Campo 5 - pe: cantidad de partidos empatados, tipo numérico
 Campo 6 - pp: cantidad de partidos perdidos, tipo numérico
 Campo 7 - gf: cantidad de goles a favor, tipo numérico
-Campo 8 - gf: cantidad de goles en contra, tipo numérico
+Campo 8 - gc: cantidad de goles en contra, tipo numérico
 Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico
 \end{verbatim}
 
@@ -7049,7 +7049,7 @@ El uso de archivos en programación es muy importante ya que nos permite leer da
 \item
   \textbf{Cierre de un archivo}: cuando un programa no vaya a acceder más a un archivo, es necesario indicarlo a través del \textbf{cierre} del mismo, para que se interrumpa la conexión establecida por el sistema operativo. Esto hace que se liberen memoria y recursos del sistema, se prevenga la corrupción de los datos y se exprese explícitamente que ya no se hará más uso del mismo. En algunos lenguajes o para determinadas tareas, esto puede no ser necesario.
 \item
-  \textbf{Otras operaciones}: ptras operaciones que se pueden realizar sobre los archivos, en base a combinaciones de las anteriores, incluyen a las acciones de:
+  \textbf{Otras operaciones}: otras operaciones que se pueden realizar sobre los archivos, en base a combinaciones de las anteriores, incluyen a las acciones de:
 
   \begin{itemize}
   \tightlist
@@ -7321,7 +7321,7 @@ Lo anterior resulta en un vector, con el que se pueden hacer operaciones como bu
 [1] 5
 \end{verbatim}
 
-Si bien en los ejemplos anteriores vemos que en muchos aspectos los \emph{data.frame}s son similares a las matrices, a partir de ahora vamos a ver cómo utilizar funciones que fueron especialmente pensadas para ayudarnos a transformar y explorar los conjuntos de datos que están guardados en objetos de tipo \emph{data.frame} y que simplifican muchas tareas relacionadas al análisis de datos.
+Si bien en los ejemplos anteriores vemos que en muchos aspectos los \emph{data.frames} son similares a las matrices, a partir de ahora vamos a ver cómo utilizar funciones que fueron especialmente pensadas para ayudarnos a transformar y explorar los conjuntos de datos que están guardados en objetos de tipo \emph{data.frame} y que simplifican muchas tareas relacionadas al análisis de datos.
 
 \hypertarget{manejo-de-datos}{%
 \section{Manejo de datos}\label{manejo-de-datos}}
@@ -7329,7 +7329,7 @@ Si bien en los ejemplos anteriores vemos que en muchos aspectos los \emph{data.f
 \hypertarget{editar-o-crear-nuevas-variables}{%
 \subsection{Editar o crear nuevas variables}\label{editar-o-crear-nuevas-variables}}
 
-Es muy común tener que modificar una variable existente o añadir una nueva, la cual puede depender de algún cálculo realizado a partir de otras columnas presentes en el dataset. Para cualquiera de estas actividades que implican \emph{modificar} o \emph{mutar} el dataset, emplearemos la función \texttt{mutate()}. Vamos a calcular la cantitad total que cada selección ha jugado en los mundiales a lo largo de toda la historia (\texttt{pj}), sumando la cantidad de partidos que ha ganado, empatado y perdido:
+Es muy común tener que modificar una variable existente o añadir una nueva, la cual puede depender de algún cálculo realizado a partir de otras columnas presentes en el dataset. Para cualquiera de estas actividades que implican \emph{modificar} o \emph{mutar} el dataset, emplearemos la función \texttt{mutate()}. Vamos a calcular la cantitad total de partidos que cada selección ha jugado en los mundiales a lo largo de toda la historia (\texttt{pj}), sumando la cantidad de partidos que ha ganado, empatado y perdido:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7364,7 +7364,7 @@ Al editar variables, podemos elegir entre sobrescribir o no una columna existent
 \end{Highlighting}
 \end{Shaded}
 
-Otras situaciones requieren que en lugar de \emph{mutar} de la misma forma toda una columna, los cambios dependan de alguna condición que los registros verifiquen o no. Por ejemplo, agreguemos una nueva variable que indique si cada país es o no campeón del mundo, en función de los valores disponibles en la variable \texttt{titulos}. Vamos a crear una nueva columna que se llame \texttt{campeon} y tenga el valor \texttt{"campeón"} cuando \texttt{titulos\ \textgreater{}\ 0} y \texttt{"no\ campeón"} en caso contrario, ayudándonos con la función \texttt{ifelse()}, la cual nos permite establecer una evaluación lógica y dos cursos de acción, en base a que esta resulte verdadera (\texttt{TRUE}) o falsa (\texttt{FALSE}).
+Otras situaciones requieren que en lugar de \emph{mutar} de la misma forma toda una columna, los cambios dependan de alguna condición que los registros verifiquen o no. Por ejemplo, agreguemos una nueva variable que indique si cada país es o no campeón del mundo, en función de los valores disponibles en la variable \texttt{titulos}. Vamos a crear una nueva columna que se llame \texttt{campeon} y tenga el valor ``campeón'' cuando \texttt{titulos\ \textgreater{}\ 0} y ``no campeón'' en caso contrario, ayudándonos con la función \texttt{ifelse()}, la cual nos permite establecer una evaluación lógica y dos cursos de acción, en base a que esta resulte verdadera (\texttt{TRUE}) o falsa (\texttt{FALSE}).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7409,7 +7409,7 @@ La función anterior es muy útil para chequear los valores guardados en atribut
 7 África        13
 \end{verbatim}
 
-Detectamos inconsistencias en la forma de registrar los nombres de los continentes: Europa aparece en inglés y en español, Asia aparece con mayúscula y con minúscula. Debemos homogeneizar la nomenclatura para poder hacer cualquier análisis válido. En este caso, en el cual la corrección implica sólo ``recodificar'' categorías, podemos usar la función \texttt{recode()} de forma muy sencilla. Aquellos registros con \texttt{"Europe"} en \texttt{continente} son reemplazados por \texttt{"Europa"}, y lo mismo ocurre con \texttt{"asia"}, que será reemplazado por \texttt{"Asia"}. Los otros valores quedan como estaban:
+Detectamos inconsistencias en la forma de registrar los nombres de los continentes: Europa aparece en inglés y en español, Asia aparece con mayúscula y con minúscula. Debemos homogeneizar la nomenclatura para poder hacer cualquier análisis válido. En este caso, en el cual la corrección implica sólo ``recodificar'' categorías, podemos usar la función \texttt{recode()} de forma muy sencilla. Aquellos registros con ``Europe'' en \texttt{continente} son reemplazados por ``Europa'', y lo mismo ocurre con ``asia'', que será reemplazado por ``Asia''. Los otros valores quedan como estaban:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7514,7 +7514,7 @@ Para cambiar los nombres de una o más variables usamos la función \texttt{rena
 \hypertarget{unir-o-separar-columnas}{%
 \subsection{Unir o separar columnas}\label{unir-o-separar-columnas}}
 
-En ocasiones puede ser necesario generar una nueva variable ``pegando'' o uniendo los datos presentes en otras. Imaginemos que tal vez necesitamos contar con una única variable textual que contenga tanto el nombre del país como el continente al que pertenece. Para esto recurrimos a la función \texttt{unite()}:
+En ocasiones puede ser necesario generar una nueva variable ``pegando'' o uniendo los datos presentes en otras. Imaginemos que tal vez necesitamos contar con una única variable textual que contenga tanto el nombre de la selección como el continente al que pertenece. Para esto recurrimos a la función \texttt{unite()}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7701,7 +7701,7 @@ Todas las modificaciones que hicimos del \emph{data.frame} con los ejemplos ante
 \hypertarget{resumen-de-datos}{%
 \section{Resumen de datos}\label{resumen-de-datos}}
 
-Una vez que los datos han sido organizados y limpiados según corresponda, el siguiente paso de cualquier análisis es hacer un breve análisis exploratorio. En esta sección veremos cómo calcular algunas estadísticas y realizar tablas de distribuciones de frecuencias, ya sea para variables categóricas o cuantitativas.
+Una vez que los datos han sido organizados y depurados según corresponda, el siguiente paso de cualquier análisis es hacer un breve análisis exploratorio. En esta sección veremos cómo calcular algunas estadísticas y realizar tablas de distribuciones de frecuencias, ya sea para variables categóricas o cuantitativas.
 
 \hypertarget{cuxe1lculo-de-estaduxedsticas}{%
 \subsection{Cálculo de estadísticas}\label{cuxe1lculo-de-estaduxedsticas}}
@@ -7991,7 +7991,7 @@ Otro tipo de escenario se presenta cuando queremos analizar las frecuencias de d
 7 Oceanía    no campeón     2
 \end{verbatim}
 
-Esta forma de presentar los resultados es útil cuando deseamos identificar combinaciones de categorías con los valores mínimos y máximos. Sin embargo, frecuencias como las anteriores suelen ser presentadas en \textbf{tablas de contingencia} o \textbf{tablas de doble entrada}, donde las filas se corresponden a las categorías de una variable y las columnas, a las de la otra. La función\texttt{tabyl()} presenta los conteos de esa forma:
+Esta forma de presentar los resultados es útil cuando deseamos identificar combinaciones de categorías con los valores mínimos y máximos. Sin embargo, frecuencias como las anteriores suelen ser presentadas en \textbf{tablas de contingencia} o \textbf{tablas de doble entrada}, donde las filas se corresponden a las categorías de una variable y las columnas, a las de la otra. La función \texttt{tabyl()} presenta los conteos de esa forma:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8257,7 +8257,7 @@ Vamos a volcar los hallazgos sobre los mundiales en un archivo de texto llamado 
 \item
   \texttt{file}: nombre del archivo, si no existe será creado. Se guarda en el directorio de trabajo actual, a menos que indiquemos aquí la ruta completa hacia otra carpeta.
 \item
-  \texttt{append}: si el archivo ya existía, por default lo sobreescribe (borra lo anterior), a menos que indiquemos \texttt{append\ =\ TRUE} para que agregue nuevas líneas sin borrar las anteriores.
+  \texttt{append}: si el archivo ya existía, por default lo sobrescribe (borra lo anterior), a menos que indiquemos \texttt{append\ =\ TRUE} para que agregue nuevas líneas sin borrar las anteriores.
 \item
   \texttt{split}: mientras la conexión al archivo está activa, por defecto los resultados que enviamos al mismo no se muestran en la consola de R, a menos que indiquemos \texttt{split\ =\ TRUE}, en cuyo caso sucederán ambas cosas: los resultados serán escritos en el archivo y se verán en la consola.
 \end{itemize}
@@ -8272,7 +8272,7 @@ Cuando se desea cerrar la conexión al archivo, se debe correr \texttt{sink()} s
 \FunctionTok{cat}\NormalTok{(}\StringTok{"            ARCHIVO DE RESULTADOS         }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
 \FunctionTok{cat}\NormalTok{(}\StringTok{"==========================================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
 
-\FunctionTok{cat}\NormalTok{(}\StringTok{"==================== ESTADÍSTICAS ====================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"=============== ESTADÍSTICAS ===============}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
 
 \NormalTok{datos }\SpecialCharTok{\%\textgreater{}\%} 
     \FunctionTok{group\_by}\NormalTok{(continente) }\SpecialCharTok{\%\textgreater{}\%} 
@@ -8284,7 +8284,7 @@ Cuando se desea cerrar la conexión al archivo, se debe correr \texttt{sink()} s
         \StringTok{\textasciigrave{}}\AttributeTok{Promedio de diferencia de goles}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{mean}\NormalTok{(dg)}
 \NormalTok{    )}
 
-\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{==================== DISTRIBUCIÓN DE SELECCIONES SEGÚN CONTINENTE ====================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{=============== DISTRIBUCIÓN DE SELECCIONES SEGÚN CONTINENTE ===============}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
 
 \CommentTok{\# Tabla básica}
 \NormalTok{frecuencias }\OtherTok{\textless{}{-}} \FunctionTok{tabyl}\NormalTok{(datos, continente)}
@@ -8305,7 +8305,7 @@ Cuando se desea cerrar la conexión al archivo, se debe correr \texttt{sink()} s
 \NormalTok{    maximo}\SpecialCharTok{$}\NormalTok{continente, }\StringTok{"con"}\NormalTok{, maximo}\SpecialCharTok{$}\NormalTok{n, }\StringTok{"selecciones, mientras que el de menor participación es"}\NormalTok{, }
 \NormalTok{    minimo}\SpecialCharTok{$}\NormalTok{continente, }\StringTok{"con"}\NormalTok{, minimo}\SpecialCharTok{$}\NormalTok{n, }\StringTok{"selecciones.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
 
-\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{==================== DISTRIBUCIÓN CONJUNTA DE CONTINENTES Y CAMPEONES ====================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{=============== DISTRIBUCIÓN CONJUNTA DE CONTINENTES Y CAMPEONES ===============}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
 
 \NormalTok{datos }\SpecialCharTok{\%\textgreater{}\%} 
     \FunctionTok{tabyl}\NormalTok{(continente, campeon) }\SpecialCharTok{\%\textgreater{}\%} 
@@ -8315,7 +8315,7 @@ Cuando se desea cerrar la conexión al archivo, se debe correr \texttt{sink()} s
     \FunctionTok{adorn\_ns}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
     \FunctionTok{adorn\_title}\NormalTok{(}\AttributeTok{placement =} \StringTok{"top"}\NormalTok{, }\StringTok{"Continente"}\NormalTok{, }\StringTok{"Campeones del mundo"}\NormalTok{)}
 
-\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{==================== DISTRIBUCIÓN CONDICIONAL DE CAMPEONES EN CADA CONTINENTE ====================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{=============== DISTRIBUCIÓN CONDICIONAL DE CAMPEONES EN CADA CONTINENTE ===============}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
 
 \NormalTok{datos }\SpecialCharTok{\%\textgreater{}\%} 
     \FunctionTok{tabyl}\NormalTok{(continente, campeon) }\SpecialCharTok{\%\textgreater{}\%} 
@@ -8325,7 +8325,7 @@ Cuando se desea cerrar la conexión al archivo, se debe correr \texttt{sink()} s
     \FunctionTok{adorn\_ns}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
     \FunctionTok{adorn\_title}\NormalTok{(}\AttributeTok{placement =} \StringTok{"top"}\NormalTok{, }\StringTok{"Continente"}\NormalTok{, }\StringTok{"Campeones del mundo"}\NormalTok{)}
 
-\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{==================== DISTRIBUCIÓN CONDICIONAL DE CONTINENTES DADO CAMPEONES ====================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{=============== DISTRIBUCIÓN CONDICIONAL DE CONTINENTES DADO CAMPEONES ===============}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
 
 \NormalTok{datos }\SpecialCharTok{\%\textgreater{}\%} 
     \FunctionTok{tabyl}\NormalTok{(continente, campeon) }\SpecialCharTok{\%\textgreater{}\%} 
@@ -8335,13 +8335,13 @@ Cuando se desea cerrar la conexión al archivo, se debe correr \texttt{sink()} s
     \FunctionTok{adorn\_ns}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
     \FunctionTok{adorn\_title}\NormalTok{(}\AttributeTok{placement =} \StringTok{"top"}\NormalTok{, }\StringTok{"Continente"}\NormalTok{, }\StringTok{"Campeones del mundo"}\NormalTok{)}
 
-\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{==================== DISTRIBUCIÓN CONDICIONAL DE CONTINENTES DADO CAMPEONES ====================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{==================== DISTRIBUCIÓN DE LA CANTIDAD DE GOLES A FAVOR ====================}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
 
 \CommentTok{\# Crear intervalos y tabla}
 \NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(datos, }\AttributeTok{intervalos =} \FunctionTok{cut}\NormalTok{(goles\_favor, }\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{250}\NormalTok{, }\DecValTok{50}\NormalTok{), }\AttributeTok{right =} \ConstantTok{FALSE}\NormalTok{))}
 \NormalTok{tabla\_gf }\OtherTok{\textless{}{-}} \FunctionTok{tabyl}\NormalTok{(datos, intervalos)}
 
-\CommentTok{\# Detectar el inervalo con la mayor frecuencia}
+\CommentTok{\# Detectar el intervalo con la mayor frecuencia}
 \NormalTok{maximo }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(tabla\_gf, n }\SpecialCharTok{==} \FunctionTok{max}\NormalTok{(n))}
 
 \CommentTok{\# Agregar columnas acumuladas, mejorar la apariencia y calcular totales}
@@ -8707,8 +8707,8 @@ Podríamos usarlo si queremos volver a la versión original de la base. Para ell
 3        3        989     589       258
 \end{verbatim}
 
-\hypertarget{fusionar-varios-data.frames}{%
-\subsection{\texorpdfstring{Fusionar varios \texttt{data.frames}}{Fusionar varios data.frames}}\label{fusionar-varios-data.frames}}
+\hypertarget{fusionar-dos-data.frames}{%
+\subsection{\texorpdfstring{Fusionar dos \texttt{data.frames}}{Fusionar dos data.frames}}\label{fusionar-dos-data.frames}}
 
 Muchas veces, los análisis de datos involucran múltiples tablas o conjuntos de datos, los cuales deben combinarse para dar respuesta a las preguntas de interés.. En estos casos importan las \textbf{relaciones} que se establecen entre las bases, más allá de los datos individuales que contenga cada uno de ellas. \texttt{R} nos ofrece diversas alternativas, las cuales dependen del tipo de relación que deseemos establecer entre los conjuntos de datos. Para definir estas relaciones debemos establecer qué variable funcionará como \texttt{key} o clave identificadora de los casos. Esta \texttt{key} debe figurar en ambos conjuntos de datos y representar lo mismo para que tenga sentido la relación. Las fusiones pueden clasificarse en dos grupos: las que producen modificaciones en uno de los conjuntos (\emph{mutating joins}) y las que actúan como filtros (\emph{filtering joins}).
 
@@ -9176,7 +9176,6 @@ Al ejecutarlo desde la línea de comandos con los argumentos ``hola'', ``chau'' 
 \end{Shaded}
 
 \begin{verbatim}
-WARNING: ignoring environment value of R_HOME
 Nos pasaron 3 argumentos.
 
 Los argumentos que nos pasaron son:
@@ -9195,7 +9194,6 @@ Si lo ejecutamos sin argumentos:
 \end{Shaded}
 
 \begin{verbatim}
-WARNING: ignoring environment value of R_HOME
 Nos pasaron 0 argumentos.
 
 Los argumentos que nos pasaron son:
@@ -9232,7 +9230,6 @@ Ejecutamos este archivo pasando distintos valores para su argumento:
 \end{Shaded}
 
 \begin{verbatim}
-WARNING: ignoring environment value of R_HOME
 No por mucho madrugar amanece más temprano.
 \end{verbatim}
 
@@ -9243,7 +9240,6 @@ No por mucho madrugar amanece más temprano.
 \end{Shaded}
 
 \begin{verbatim}
-WARNING: ignoring environment value of R_HOME
 - Juan, cómo has cambiado.
 - Yo no soy Juan.
 - Más a mi favor.
@@ -9256,7 +9252,6 @@ WARNING: ignoring environment value of R_HOME
 \end{Shaded}
 
 \begin{verbatim}
-WARNING: ignoring environment value of R_HOME
 Error: El argumento provisto debe ser igual a chiste o refran.
 Execution halted
 \end{verbatim}
@@ -9293,7 +9288,6 @@ Veamos lo que pasa si cumplimos o no con la cantidad exacta de argumentos que ha
 \end{Shaded}
 
 \begin{verbatim}
-WARNING: ignoring environment value of R_HOME
 Error: Debe proveer exactamente un argumento, que debe ser igual a chiste o refran.
 Execution halted
 \end{verbatim}
@@ -9305,7 +9299,6 @@ Execution halted
 \end{Shaded}
 
 \begin{verbatim}
-WARNING: ignoring environment value of R_HOME
 Error: Debe proveer exactamente un argumento, que debe ser igual a chiste o refran.
 Execution halted
 \end{verbatim}
@@ -9317,7 +9310,6 @@ Execution halted
 \end{Shaded}
 
 \begin{verbatim}
-WARNING: ignoring environment value of R_HOME
 - Juan, cómo has cambiado.
 - Yo no soy Juan.
 - Más a mi favor.
@@ -9370,7 +9362,6 @@ Veamos ahora cómo funciona:
 \end{Shaded}
 
 \begin{verbatim}
-WARNING: ignoring environment value of R_HOME
 No por mucho madrugar amanece más temprano.
 
 No por mucho madrugar amanece más temprano.
@@ -9389,7 +9380,6 @@ No por mucho madrugar amanece más temprano.
 \end{Shaded}
 
 \begin{verbatim}
-WARNING: ignoring environment value of R_HOME
 - Juan, cómo has cambiado.
 - Yo no soy Juan.
 - Más a mi favor.
@@ -9410,7 +9400,6 @@ WARNING: ignoring environment value of R_HOME
 \end{Shaded}
 
 \begin{verbatim}
-WARNING: ignoring environment value of R_HOME
 No por mucho madrugar amanece más temprano.
 \end{verbatim}
 
@@ -9421,7 +9410,6 @@ No por mucho madrugar amanece más temprano.
 \end{Shaded}
 
 \begin{verbatim}
-WARNING: ignoring environment value of R_HOME
 Error: Debe proveer al menos un argumento (chiste o refran).
 Execution halted
 \end{verbatim}

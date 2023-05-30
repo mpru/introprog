@@ -113,9 +113,9 @@ x[5] &lt;- 25</code></pre>
 <p>Si bien la declaración de un vector sólo tiene como objetivo permitirle a la computadora que reserve internamente el espacio necesario en memoria para el mismo, para escribir pseudocódigo de una manera sencilla estableceremos la siguiente <strong>convención</strong>. Cuando declaramos un vector de tipo numérico con la expresión <code>VARIABLE numérica x(5)</code> asumiremos que, además de reservar espacio en memoria para el vector, se le asigna un 0 (cero) en cada posición. Es decir, el vector <code>x</code> es iniciado con ceros, que más tarde pueden ser reemplazados por otros valores. Del mismo modo, asumiremos que cuando declaramos vectores de tipo carácter, todos sus elementos son iniciados con valores <code>""</code> (una cadena de texto vacía) y cuando declaramos vectores de tipo lógico, con el valor <code>FALSO</code>.</p>
 <p>En R, los vectores se construyen de forma dinámica por lo cual no es necesario declararlos antes de comenzar a utilizarlos. La función <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> (de <em>combinar</em>) permite crear vectores, por ejemplo, los mencionados anteriormente:</p>
 <div class="sourceCode" id="cb279"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4.5</span>, <span class="fl">12</span>, <span class="fl">2.71</span>, <span class="op">-</span><span class="fl">6</span>, <span class="fl">25</span><span class="op">)</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ARG"</span>, <span class="st">"correo@gmail.com"</span>, <span class="st">"Ok"</span>, <span class="st">"chau"</span><span class="op">)</span>
-<span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4.5</span>, <span class="fl">12</span>, <span class="fl">2.71</span>, <span class="op">-</span><span class="fl">6</span>, <span class="fl">25</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ARG"</span>, <span class="st">"correo@gmail.com"</span>, <span class="st">"Ok"</span>, <span class="st">"chau"</span><span class="op">)</span></span>
+<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-110"></span>
 <img src="images/05_estructuras/estr04.png" alt="Creación de vectores en R" width="80%"><p class="caption">
@@ -129,9 +129,9 @@ Figura 5.4: Creación de vectores en R
     ESCRIBIR "La posición " i "de x está ocupada por el valor " x[i]
 FIN PARA</code></pre>
 <div class="sourceCode" id="cb281"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"La posición"</span>, <span class="va">i</span>, <span class="st">"de x está ocupada por el valor"</span>, <span class="va">x</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="st">"\n"</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"La posición"</span>, <span class="va">i</span>, <span class="st">"de x está ocupada por el valor"</span>, <span class="va">x</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="st">"\n"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <pre><code>La posición 1 de x está ocupada por el valor -4.5 
 La posición 2 de x está ocupada por el valor 12 
 La posición 3 de x está ocupada por el valor 2.71 
@@ -142,13 +142,13 @@ La posición 5 de x está ocupada por el valor 25 </code></pre>
 ESCRIBIR "El vector y tiene " LARGO(y) " elementos."
 ESCRIBIR "El vector z tiene " LARGO(z) " elementos."</code></pre>
 <div class="sourceCode" id="cb284"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El vector x tiene"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="st">"elementos."</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El vector x tiene"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="st">"elementos."</span><span class="op">)</span></span></code></pre></div>
 <pre><code>El vector x tiene 5 elementos.</code></pre>
 <div class="sourceCode" id="cb286"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El vector y tiene"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, <span class="st">"elementos."</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El vector y tiene"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, <span class="st">"elementos."</span><span class="op">)</span></span></code></pre></div>
 <pre><code>El vector y tiene 4 elementos.</code></pre>
 <div class="sourceCode" id="cb288"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El vector z tiene"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span>, <span class="st">"elementos."</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"El vector z tiene"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span>, <span class="st">"elementos."</span><span class="op">)</span></span></code></pre></div>
 <pre><code>El vector z tiene 3 elementos.</code></pre>
 <p>Entonces, para recorrer todos los elementos del vector podemos hacer también:</p>
 <pre><code>PARA i DESDE 1 HASTA LARGO(x) HACER
@@ -161,17 +161,17 @@ PARA i DESDE 1 HASTA tam HACER
 FIN PARA</code></pre>
 <p>Antes comentamos que en R los vectores se crean con expresiones como <code>x &lt;- c(-4.5, 12, 2.71, -6, 25)</code>, donde sus elementos están listados de forma literal. También podemos crear vectores de un largo determinado dejando que cada posición quede ocupada por algún valor asignado por defecto. Por ejemplo, el siguiente código crea un vector tipo numérico con 10 posiciones, uno carácter con 7 y otro lógico con 2. En cada caso, R rellena todas las posiciones con el mismo valor: ceros en el vector numérico, caracteres vacíos <code>""</code> en el vector de tipo carácter y valores <code>FALSE</code> en el vector lógico:</p>
 <div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>
-<span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="fl">7</span><span class="op">)</span>
-<span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/logical.html">logical</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>
-
-<span class="va">a</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="fl">7</span><span class="op">)</span></span>
+<span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/logical.html">logical</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">a</span></span></code></pre></div>
 <pre><code> [1] 0 0 0 0 0 0 0 0 0 0</code></pre>
 <div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">b</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">b</span></span></code></pre></div>
 <pre><code>[1] "" "" "" "" "" "" ""</code></pre>
 <div class="sourceCode" id="cb296"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">d</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">d</span></span></code></pre></div>
 <pre><code>[1] FALSE FALSE</code></pre>
 <p>Se pueden asignar valores a una, varias o todas las posiciones de un vector en cualquier parte del algoritmo. Además, en pseudocódigo emplearemos la palabra clave <code>MOSTRAR</code> cuando deseamos que se escriba en pantalla todo el contenido de un vector. Por ejemplo:</p>
 <pre><code>VARIABLE numérica a(10)
@@ -183,13 +183,13 @@ PARA i DESDE 1 HASTA LARGO(a) HACER
 FIN PARA
 MOSTRAR a</code></pre>
 <div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>
-<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-    <span class="kw">if</span> <span class="op">(</span><span class="va">i</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">3</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span>
-        <span class="va">a</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">i</span> <span class="op">*</span> <span class="fl">100</span>
-    <span class="op">}</span>
-<span class="op">}</span>
-<span class="va">a</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">i</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">3</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="va">a</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">i</span> <span class="op">*</span> <span class="fl">100</span></span>
+<span>    <span class="op">}</span></span>
+<span><span class="op">}</span></span>
+<span><span class="va">a</span></span></code></pre></div>
 <pre><code> [1]   0   0 300   0   0 600   0   0 900   0</code></pre>
 <p>En los ejemplos anteriores, declaramos los vectores explicitando su tamaño con un número: <code>VARIABLE numérica x(5)</code> o <code>VARIABLE numérica a(10)</code>. Sin embargo, el tamaño del vector podría estar guardado en otra variable, cuyo valor se determina en cada ejecución del programa mediante información externa o como resultado de algún cálculo anterior. En el siguiente ejemplo se deja que el usuario determine la dimensión del vector y que provea cada uno de los valores para el mismo. Antes de poder declarar la existencia del nuevo vector llamado <code>mi_vector</code>, se “lee” su tamaño:</p>
 <pre><code>VARIABLE numérica tam
@@ -201,11 +201,11 @@ FIN PARA</code></pre>
 <p>Por ahora, toda instrucción de <em>leer</em> en el pseudocódigo será traducida en R mediante la asignación directa de valores. Por ejemplo, <code>LEER tam</code> se reemplaza por <code>tam &lt;- 5</code> (o el número que necesitemos).</p>
 <p>Antes de terminar esta sección haremos una última observación. En R todos los objetos que hemos considerado como “variable” y que guardan un único valor (como <code>tam</code> en el ejemplo anterior), son también considerados como vectores, cuyo largo es 1, como podemos verificar en el siguiente ejemplo:</p>
 <div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">25</span>
-<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">25</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 1</code></pre>
 <div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/vector.html">is.vector</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="co"># Esta función lógica le pregunta a R si el objeto x es un vector</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/vector.html">is.vector</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="co"># Esta función lógica le pregunta a R si el objeto x es un vector</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <p><strong>Ejemplo: invertir los elementos de un vector</strong></p>
 <p>Nos planteamos el problema de dar vuelta los elementos pertenecientes a un vector, de manera que el primer elemento pase a ser el último, el segundo pase al penúltimo lugar, etcétera. Por ejemplo, dado el vector de tipo carácter <code>v</code>:</p>
@@ -257,14 +257,14 @@ COMENZAR
 FIN</code></pre>
 <p>En el ejemplo anterior hemos incorporado el uso de comentarios en el pseudocódigo para describir el objetivo de cada parte. Imitando lo que hacemos en R, señalamos la presencia de comentarios con el carácter <code>#</code> (podríamos usar otra cosa, pero adheriremos a esta convención). Se usó el operador <code>DIV</code> para obtener la división entera entre <code>n</code> y <code>2</code> (por ejemplo, <code>5 DIV 2 = 2</code>). En R reemplazamos todas las instrucciones <code>LEER</code> por una asignación directa de valores y empleamos el operador de división entera <code>%/%</code>:</p>
 <div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Estadística"</span>, <span class="st">"en"</span>, <span class="st">"Licenciatura"</span>, <span class="st">"la"</span>, <span class="st">"Aguante"</span><span class="op">)</span>
-<span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span>
-<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="op">(</span><span class="va">n</span><span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%/%</a></span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-    <span class="va">tmp</span> <span class="op">&lt;-</span> <span class="va">v</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>
-    <span class="va">v</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">v</span><span class="op">[</span><span class="va">n</span> <span class="op">-</span> <span class="va">i</span> <span class="op">+</span> <span class="fl">1</span><span class="op">]</span>
-    <span class="va">v</span><span class="op">[</span><span class="va">n</span> <span class="op">-</span> <span class="va">i</span> <span class="op">+</span> <span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">tmp</span>
-<span class="op">}</span>
-<span class="va">v</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Estadística"</span>, <span class="st">"en"</span>, <span class="st">"Licenciatura"</span>, <span class="st">"la"</span>, <span class="st">"Aguante"</span><span class="op">)</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="op">(</span><span class="va">n</span><span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%/%</a></span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">tmp</span> <span class="op">&lt;-</span> <span class="va">v</span><span class="op">[</span><span class="va">i</span><span class="op">]</span></span>
+<span>    <span class="va">v</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">v</span><span class="op">[</span><span class="va">n</span> <span class="op">-</span> <span class="va">i</span> <span class="op">+</span> <span class="fl">1</span><span class="op">]</span></span>
+<span>    <span class="va">v</span><span class="op">[</span><span class="va">n</span> <span class="op">-</span> <span class="va">i</span> <span class="op">+</span> <span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">tmp</span></span>
+<span><span class="op">}</span></span>
+<span><span class="va">v</span></span></code></pre></div>
 <pre><code>[1] "Aguante"      "la"           "Licenciatura" "en"           "Estadística" </code></pre>
 </div>
 <div id="arreglos-bidimensionales-o-matrices" class="section level3" number="5.1.2">
@@ -302,49 +302,49 @@ x[3, 3] &lt;- 24
 x[3, 4] &lt;- 29</code></pre>
 <p>En R, no es necesario declarar las matrices con anterioridad y las mismas pueden ser creadas de manera literal con la función <code><a href="https://rdrr.io/r/base/matrix.html">matrix()</a></code>. Su primer argumento, <code>data</code>, es un vector con todos los elementos que queremos guardar en la matriz. Luego, se indica la cantidad de filas para la misma con <code>nrow</code> y la cantidad de columnas con <code>ncol</code>:</p>
 <div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">11</span>, <span class="fl">14</span>, <span class="fl">13</span>, <span class="fl">16</span>, <span class="fl">19</span>, <span class="fl">18</span>, <span class="fl">21</span>, <span class="fl">24</span>, <span class="fl">23</span>, <span class="fl">26</span>, <span class="fl">29</span><span class="op">)</span>,
-            nrow <span class="op">=</span> <span class="fl">3</span>, ncol <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
-<span class="va">x</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">11</span>, <span class="fl">14</span>, <span class="fl">13</span>, <span class="fl">16</span>, <span class="fl">19</span>, <span class="fl">18</span>, <span class="fl">21</span>, <span class="fl">24</span>, <span class="fl">23</span>, <span class="fl">26</span>, <span class="fl">29</span><span class="op">)</span>,</span>
+<span>            nrow <span class="op">=</span> <span class="fl">3</span>, ncol <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+<span><span class="va">x</span></span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4]
 [1,]    8   13   18   23
 [2,]   11   16   21   26
 [3,]   14   19   24   29</code></pre>
 <p>Notar que R ubicó a los valores provistos llenando primero la columna 1, luego la 2, etc. Ese comportamiento puede ser modificado con el argumento <code>byrow</code>, que por default es <code>FALSE</code>. Si lo cambiamos a <code>TRUE</code> los elementos son ubicados por fila. Además, podemos usar saltos de líneas (<em>enter</em>) para visualizar las diferentes filas de la matriz. Esto no tiene ningún impacto en R, sólo sirve para que el código sea más fácil de leer. Dado que hemos provisto 12 valores e indicamos que queremos 3 filas, el argumento <code>ncol</code> no es necesario (es obvio que quedarán 4 columnas). Por eso, las siguientes sentencias son equivalentes a la anterior:</p>
 <div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">18</span>, <span class="fl">23</span>, 
-              <span class="fl">11</span>, <span class="fl">16</span>, <span class="fl">21</span>, <span class="fl">26</span>, 
-              <span class="fl">14</span>, <span class="fl">19</span>, <span class="fl">24</span>, <span class="fl">29</span><span class="op">)</span>, 
-            nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-
-<span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">18</span>, <span class="fl">23</span>, 
-              <span class="fl">11</span>, <span class="fl">16</span>, <span class="fl">21</span>, <span class="fl">26</span>, 
-              <span class="fl">14</span>, <span class="fl">19</span>, <span class="fl">24</span>, <span class="fl">29</span><span class="op">)</span>, 
-            ncol <span class="op">=</span> <span class="fl">4</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">18</span>, <span class="fl">23</span>, </span>
+<span>              <span class="fl">11</span>, <span class="fl">16</span>, <span class="fl">21</span>, <span class="fl">26</span>, </span>
+<span>              <span class="fl">14</span>, <span class="fl">19</span>, <span class="fl">24</span>, <span class="fl">29</span><span class="op">)</span>, </span>
+<span>            nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">18</span>, <span class="fl">23</span>, </span>
+<span>              <span class="fl">11</span>, <span class="fl">16</span>, <span class="fl">21</span>, <span class="fl">26</span>, </span>
+<span>              <span class="fl">14</span>, <span class="fl">19</span>, <span class="fl">24</span>, <span class="fl">29</span><span class="op">)</span>, </span>
+<span>            ncol <span class="op">=</span> <span class="fl">4</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>Si colocamos un único valor como primer argumento en la función <code><a href="https://rdrr.io/r/base/matrix.html">matrix()</a></code>, el mismo se repetirá en todas las posiciones. En este caso sí o sí tenemos que indicar cuántas filas y columnas deseamos:</p>
 <div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">0</span>, nrow <span class="op">=</span> <span class="fl">2</span>, ncol <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
-<span class="va">y</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">0</span>, nrow <span class="op">=</span> <span class="fl">2</span>, ncol <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="va">y</span></span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    0    0    0    0    0
 [2,]    0    0    0    0    0</code></pre>
 <p>Una vez que la matriz ya existe, en el pseudocódigo haremos referencia al número de filas y columnas de la misma con las expresiones <code>NFILA(x)</code> y <code>NCOL(x)</code>. En R tenemos las siguientes funciones para analizar el tamaño de las matrices:</p>
 <div class="sourceCode" id="cb315"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 3 4</code></pre>
 <div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 3</code></pre>
 <div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 4</code></pre>
 <div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 2 5</code></pre>
 <div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 2</code></pre>
 <div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 5</code></pre>
 <p>Podemos recorrer todas las posiciones de una matriz con una estructura iterativa doble: nos situamos en la primera fila y recorremos cada columna, luego en la segunda fila y recorremos todas las columnas y así sucesivamente:</p>
 <div class="figure" style="text-align: center">
@@ -370,13 +370,13 @@ PARA i DESDE 1 HASTA NFILA(x) HACER
 FIN PARA
 MOSTRAR x</code></pre>
 <div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">0</span>, nrow <span class="op">=</span> <span class="fl">3</span>, ncol <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
-<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-    <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-        <span class="va">x</span><span class="op">[</span><span class="va">i</span>, <span class="va">j</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">3</span> <span class="op">*</span> <span class="va">i</span> <span class="op">+</span> <span class="fl">5</span> <span class="op">*</span> <span class="va">j</span>
-    <span class="op">}</span>
-<span class="op">}</span>
-<span class="va">x</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">0</span>, nrow <span class="op">=</span> <span class="fl">3</span>, ncol <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="va">x</span><span class="op">[</span><span class="va">i</span>, <span class="va">j</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">3</span> <span class="op">*</span> <span class="va">i</span> <span class="op">+</span> <span class="fl">5</span> <span class="op">*</span> <span class="va">j</span></span>
+<span>    <span class="op">}</span></span>
+<span><span class="op">}</span></span>
+<span><span class="va">x</span></span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4]
 [1,]    8   13   18   23
 [2,]   11   16   21   26
@@ -428,22 +428,22 @@ COMENZAR
 FIN</code></pre>
 <p>Dado que en R vamos a asignar valores en la matriz de manera literal, primero la creamos y luego usamos <code><a href="https://rdrr.io/r/base/nrow.html">nrow()</a></code> y <code><a href="https://rdrr.io/r/base/nrow.html">ncol()</a></code> para obtener los correspondientes valores de <code>nf</code> y <code>nc</code>. En el siguiente ejemplo, además, todas las posiciones de la matriz traspuesta son iniciadas con el valor <code>NA</code>.</p>
 <div class="sourceCode" id="cb332"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">18</span>, <span class="fl">23</span>, 
-              <span class="fl">11</span>, <span class="fl">16</span>, <span class="fl">21</span>, <span class="fl">26</span>, 
-              <span class="fl">14</span>, <span class="fl">19</span>, <span class="fl">24</span>, <span class="fl">29</span><span class="op">)</span>, 
-            nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="va">nf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-<span class="va">nc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-<span class="va">traspuesta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="va">nc</span>, <span class="va">nf</span><span class="op">)</span>
-<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">nf</span><span class="op">)</span> <span class="op">{</span>
-    <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">nc</span><span class="op">)</span> <span class="op">{</span>
-        <span class="va">traspuesta</span><span class="op">[</span><span class="va">j</span>, <span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">[</span><span class="va">i</span>, <span class="va">j</span><span class="op">]</span>
-    <span class="op">}</span>
-<span class="op">}</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Matriz original\n"</span><span class="op">)</span>
-<span class="va">x</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Matriz traspuesta\n"</span><span class="op">)</span>
-<span class="va">traspuesta</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">18</span>, <span class="fl">23</span>, </span>
+<span>              <span class="fl">11</span>, <span class="fl">16</span>, <span class="fl">21</span>, <span class="fl">26</span>, </span>
+<span>              <span class="fl">14</span>, <span class="fl">19</span>, <span class="fl">24</span>, <span class="fl">29</span><span class="op">)</span>, </span>
+<span>            nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">nf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="va">nc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="va">traspuesta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="va">nc</span>, <span class="va">nf</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">nf</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">nc</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="va">traspuesta</span><span class="op">[</span><span class="va">j</span>, <span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">[</span><span class="va">i</span>, <span class="va">j</span><span class="op">]</span></span>
+<span>    <span class="op">}</span></span>
+<span><span class="op">}</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Matriz original\n"</span><span class="op">)</span></span>
+<span><span class="va">x</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Matriz traspuesta\n"</span><span class="op">)</span></span>
+<span><span class="va">traspuesta</span></span></code></pre></div>
 <pre><code>Matriz original
      [,1] [,2] [,3] [,4]
 [1,]    8   13   18   23
@@ -474,47 +474,47 @@ Matriz traspuesta
 <li>
 <p>Opción 1: después de crear el vector</p>
 <div class="sourceCode" id="cb334"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># El vector se llama "frutas" y tiene 4 elementos</span>
-<span class="va">frutas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">7</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>
-<span class="va">frutas</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># El vector se llama "frutas" y tiene 4 elementos</span></span>
+<span><span class="va">frutas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">7</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">frutas</span></span></code></pre></div>
 <pre><code>[1] 3 7 2 1</code></pre>
 <div class="sourceCode" id="cb336"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Cada uno de estos elementos no tienen nombres</span>
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">frutas</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Cada uno de estos elementos no tienen nombres</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">frutas</span><span class="op">)</span></span></code></pre></div>
 <pre><code>NULL</code></pre>
 <div class="sourceCode" id="cb338"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Le doy un nombre a cada elemento</span>
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">frutas</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"manzanas"</span>, <span class="st">"naranjas"</span>, <span class="st">"bananas"</span>, <span class="st">"peras"</span><span class="op">)</span>
-<span class="va">frutas</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Le doy un nombre a cada elemento</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">frutas</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"manzanas"</span>, <span class="st">"naranjas"</span>, <span class="st">"bananas"</span>, <span class="st">"peras"</span><span class="op">)</span></span>
+<span><span class="va">frutas</span></span></code></pre></div>
 <pre><code>manzanas naranjas  bananas    peras 
        3        7        2        1 </code></pre>
 </li>
 <li>
 <p>Opción 2: en el momento de crear el vector</p>
 <div class="sourceCode" id="cb340"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">frutas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>manzanas <span class="op">=</span> <span class="fl">3</span>, naranjas <span class="op">=</span> <span class="fl">7</span>, bananas <span class="op">=</span> <span class="fl">2</span>, peras <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
-<span class="va">frutas</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">frutas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>manzanas <span class="op">=</span> <span class="fl">3</span>, naranjas <span class="op">=</span> <span class="fl">7</span>, bananas <span class="op">=</span> <span class="fl">2</span>, peras <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">frutas</span></span></code></pre></div>
 <pre><code>manzanas naranjas  bananas    peras 
        3        7        2        1 </code></pre>
 </li>
 </ul>
 <p>Los nombres son útiles porque permiten indexar al vector, sin necesidad de usar como índice la posición del elemento:</p>
 <div class="sourceCode" id="cb342"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">frutas</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">frutas</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></code></pre></div>
 <pre><code>naranjas 
        7 </code></pre>
 <div class="sourceCode" id="cb344"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">frutas</span><span class="op">[</span><span class="st">"naranjas"</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">frutas</span><span class="op">[</span><span class="st">"naranjas"</span><span class="op">]</span></span></code></pre></div>
 <pre><code>naranjas 
        7 </code></pre>
 <p>No todos los elementos de un vector deben tener nombre:</p>
 <div class="sourceCode" id="cb346"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">frutas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>manzanas <span class="op">=</span> <span class="fl">3</span>, <span class="fl">7</span>, bananas <span class="op">=</span> <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>
-<span class="va">frutas</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">frutas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>manzanas <span class="op">=</span> <span class="fl">3</span>, <span class="fl">7</span>, bananas <span class="op">=</span> <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">frutas</span></span></code></pre></div>
 <pre><code>manzanas           bananas          
        3        7        2        1 </code></pre>
 <div class="sourceCode" id="cb348"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">frutas</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">frutas</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] "manzanas" ""         "bananas"  ""        </code></pre>
 <p><strong>Matrices</strong></p>
 <p>En el caso de las matrices, se le puede asignar nombres a sus filas y columnas:</p>
@@ -522,13 +522,13 @@ Matriz traspuesta
 <li>
 <p>Opción 1: después de crear la matriz</p>
 <div class="sourceCode" id="cb350"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">18</span>, <span class="fl">23</span>, 
-              <span class="fl">11</span>, <span class="fl">16</span>, <span class="fl">21</span>, <span class="fl">26</span>, 
-              <span class="fl">14</span>, <span class="fl">19</span>, <span class="fl">24</span>, <span class="fl">29</span><span class="op">)</span>, 
-              nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"grupo1"</span>, <span class="st">"grupo2"</span>, <span class="st">"grupo3"</span>, <span class="st">"grupo4"</span><span class="op">)</span>
-<span class="va">x</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">18</span>, <span class="fl">23</span>, </span>
+<span>              <span class="fl">11</span>, <span class="fl">16</span>, <span class="fl">21</span>, <span class="fl">26</span>, </span>
+<span>              <span class="fl">14</span>, <span class="fl">19</span>, <span class="fl">24</span>, <span class="fl">29</span><span class="op">)</span>, </span>
+<span>              nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"grupo1"</span>, <span class="st">"grupo2"</span>, <span class="st">"grupo3"</span>, <span class="st">"grupo4"</span><span class="op">)</span></span>
+<span><span class="va">x</span></span></code></pre></div>
 <pre><code>  grupo1 grupo2 grupo3 grupo4
 A      8     13     18     23
 B     11     16     21     26
@@ -537,13 +537,13 @@ C     14     19     24     29</code></pre>
 <li><p>Opción 2: al crear la matriz</p></li>
 </ul>
 <div class="sourceCode" id="cb352"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">18</span>, <span class="fl">23</span>, 
-              <span class="fl">11</span>, <span class="fl">16</span>, <span class="fl">21</span>, <span class="fl">26</span>, 
-              <span class="fl">14</span>, <span class="fl">19</span>, <span class="fl">24</span>, <span class="fl">29</span><span class="op">)</span>, 
-            nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span>,
-            dimnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>Categorias <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>, 
-                            Grupos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"grupo1"</span>, <span class="st">"grupo2"</span>, <span class="st">"grupo3"</span>, <span class="st">"grupo4"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-<span class="va">x</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">18</span>, <span class="fl">23</span>, </span>
+<span>              <span class="fl">11</span>, <span class="fl">16</span>, <span class="fl">21</span>, <span class="fl">26</span>, </span>
+<span>              <span class="fl">14</span>, <span class="fl">19</span>, <span class="fl">24</span>, <span class="fl">29</span><span class="op">)</span>, </span>
+<span>            nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>            dimnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>Categorias <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>, </span>
+<span>                            Grupos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"grupo1"</span>, <span class="st">"grupo2"</span>, <span class="st">"grupo3"</span>, <span class="st">"grupo4"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">x</span></span></code></pre></div>
 <pre><code>          Grupos
 Categorias grupo1 grupo2 grupo3 grupo4
          A      8     13     18     23
@@ -552,7 +552,7 @@ Categorias grupo1 grupo2 grupo3 grupo4
 <p>En este último ejemplo, se han elegido arbitrariamente los nombres <code>Categorias</code> y <code>Grupos</code> para llamar al conjunto completo de las filas y de las columnas, respectivamente. Esos nombres pueden ser cambiados por otros. Además, los nombres fueron encerrados en una <em>lista</em>, una estructura de datos que estudiaremos en breve.</p>
 <p>Al igual que con los vectores, podemos usar los nombres de filas y columnas para indexar:</p>
 <div class="sourceCode" id="cb354"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span><span class="op">[</span><span class="st">"B"</span>, <span class="st">"grupo2"</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span><span class="op">[</span><span class="st">"B"</span>, <span class="st">"grupo2"</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] 16</code></pre>
 </div>
 <div id="operaciones-vectorizadas" class="section level3" number="5.2.2">
@@ -564,201 +564,201 @@ Categorias grupo1 grupo2 grupo3 grupo4
 <p><strong>Vectores</strong></p>
 <p>Por ejemplo, supongamos que queremos sumar dos vectores, como en el *<strong>ejercicio 2 de la práctica 4</strong>. Gracias a que la suma en R está vectorizada, esto se logra haciendo sencillamente:</p>
 <div class="sourceCode" id="cb356"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">u</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">2</span><span class="op">)</span>
-<span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span>
-<span class="va">suma</span> <span class="op">&lt;-</span> <span class="va">u</span> <span class="op">+</span> <span class="va">v</span>
-<span class="va">suma</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">u</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">suma</span> <span class="op">&lt;-</span> <span class="va">u</span> <span class="op">+</span> <span class="va">v</span></span>
+<span><span class="va">suma</span></span></code></pre></div>
 <pre><code>[1]  7 11  1</code></pre>
 <p>Sin vectorización, deberíamos diseñar y programar un algoritmo como el siguiente:</p>
 <div class="sourceCode" id="cb358"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">suma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">u</span><span class="op">)</span><span class="op">)</span>
-<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">u</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span> 
-    <span class="va">suma</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">u</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">+</span> <span class="va">v</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>
-<span class="op">}</span>
-<span class="va">suma</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">suma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">u</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">u</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span> </span>
+<span>    <span class="va">suma</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">u</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">+</span> <span class="va">v</span><span class="op">[</span><span class="va">i</span><span class="op">]</span></span>
+<span><span class="op">}</span></span>
+<span><span class="va">suma</span></span></code></pre></div>
 <pre><code>[1]  7 11  1</code></pre>
 <p>Como podemos notar, al ejecutar <code>u + v</code> R realiza la suma elemento a elemento entre los dos vectores. Esto también sucede con los otros operadores aritméticos:</p>
 <div class="sourceCode" id="cb360"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">u</span> <span class="op">-</span> <span class="va">v</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">u</span> <span class="op">-</span> <span class="va">v</span></span></code></pre></div>
 <pre><code>[1] 3 5 3</code></pre>
 <div class="sourceCode" id="cb362"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">u</span> <span class="op">*</span> <span class="va">v</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">u</span> <span class="op">*</span> <span class="va">v</span></span></code></pre></div>
 <pre><code>[1] 10 24 -2</code></pre>
 <div class="sourceCode" id="cb364"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">u</span> <span class="op">/</span> <span class="va">v</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">u</span> <span class="op">/</span> <span class="va">v</span></span></code></pre></div>
 <pre><code>[1]  2.500000  2.666667 -2.000000</code></pre>
 <div class="sourceCode" id="cb366"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">u</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="va">v</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">u</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="va">v</span></span></code></pre></div>
 <pre><code>[1] 1 2 0</code></pre>
 <p>Estas operaciones también funcionan con vectores de distinto largo. En este caso, R aplica la <strong>regla del reciclaje</strong>: el vector más corto se recicla (se repiten sus elementos) hasta alcanzar la longitud del más largo y luego se opera elemento a elemento. Como es raro que queramos operar con dos vectores de distinto largo, R por las dudas nos tira una advertencia:</p>
 <div class="sourceCode" id="cb368"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>
-<span class="va">u</span> <span class="op">+</span> <span class="va">z</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">u</span> <span class="op">+</span> <span class="va">z</span></span></code></pre></div>
 <pre><code>Warning in u + z: longer object length is not a multiple of shorter object
 length</code></pre>
 <pre><code>[1]  6 10  3</code></pre>
 <p>Si hacemos operaciones que involucran a una constante y a un vector, R repetirá tal operación con cada elemento del vector:</p>
 <div class="sourceCode" id="cb371"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">u</span> <span class="op">+</span> <span class="fl">5</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">u</span> <span class="op">+</span> <span class="fl">5</span></span></code></pre></div>
 <pre><code>[1] 10 13  7</code></pre>
 <div class="sourceCode" id="cb373"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fl">1</span> <span class="op">/</span> <span class="va">v</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fl">1</span> <span class="op">/</span> <span class="va">v</span></span></code></pre></div>
 <pre><code>[1]  0.5000000  0.3333333 -1.0000000</code></pre>
 <div class="sourceCode" id="cb375"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fl">10</span> <span class="op">*</span> <span class="va">z</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fl">10</span> <span class="op">*</span> <span class="va">z</span></span></code></pre></div>
 <pre><code>[1] 10 20</code></pre>
 <div class="sourceCode" id="cb377"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="op">(</span><span class="va">u</span> <span class="op">+</span> <span class="va">v</span><span class="op">)</span> <span class="op">/</span> <span class="fl">100</span></code></pre></div>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">u</span> <span class="op">+</span> <span class="va">v</span><span class="op">)</span> <span class="op">/</span> <span class="fl">100</span></span></code></pre></div>
 <pre><code>[1] 0.07 0.11 0.01</code></pre>
 <p>Si le aplicamos funciones matemáticas como <code><a href="https://rdrr.io/r/base/Log.html">log()</a></code> o <code><a href="https://rdrr.io/r/base/MathFun.html">sqrt()</a></code> a un vector, obtendremos como resultado el valor de dicha función en cada uno de los elementos del vector:</p>
 <div class="sourceCode" id="cb379"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">u</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">u</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 1.6094379 2.0794415 0.6931472</code></pre>
 <div class="sourceCode" id="cb381"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 1.000000 1.414214</code></pre>
 <p>Hay funciones que cuando se aplican a un vector, logran resumirlo siguiendo algún criterio:</p>
 <ul>
 <li>
 <p>Sumar todos los elementos de un vector:</p>
 <div class="sourceCode" id="cb383"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">u</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">u</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 15</code></pre>
 </li>
 <li>
 <p>Multiplicar todos los elementos de un vector:</p>
 <div class="sourceCode" id="cb385"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/prod.html">prod</a></span><span class="op">(</span><span class="va">u</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/prod.html">prod</a></span><span class="op">(</span><span class="va">u</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 80</code></pre>
 </li>
 <li>
 <p>Calcular el promedio de los elementos de un vector:</p>
 <div class="sourceCode" id="cb387"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">u</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">u</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 5</code></pre>
 </li>
 <li>
 <p>Encontrar el valor mínimo y su ubicación en el vector (como en el <strong>ejercicio 4 de la práctica 4</strong>):</p>
 <div class="sourceCode" id="cb389"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">70</span>, <span class="fl">20</span>, <span class="fl">90</span>, <span class="fl">20</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">70</span>, <span class="fl">20</span>, <span class="fl">90</span>, <span class="fl">20</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 20</code></pre>
 <div class="sourceCode" id="cb391"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="co"># si el mínimo se repite, esta es la posición del primero</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="co"># si el mínimo se repite, esta es la posición del primero</span></span></code></pre></div>
 <pre><code>[1] 3</code></pre>
 <div class="sourceCode" id="cb393"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="co"># si el mínimo se repite, esto muestra todas sus posiciones</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="co"># si el mínimo se repite, esto muestra todas sus posiciones</span></span></code></pre></div>
 <pre><code>[1] 3 5</code></pre>
 </li>
 <li>
 <p>Encontrar el valor máximo y su ubicación en el vector:</p>
 <div class="sourceCode" id="cb395"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 90</code></pre>
 <div class="sourceCode" id="cb397"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="co"># si el mínimo se repite, esta es la posición del primero</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="co"># si el mínimo se repite, esta es la posición del primero</span></span></code></pre></div>
 <pre><code>[1] 4</code></pre>
 <div class="sourceCode" id="cb399"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="co"># si el mínimo se repite, esto muestra todas sus posiciones</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="co"># si el mínimo se repite, esto muestra todas sus posiciones</span></span></code></pre></div>
 <pre><code>[1] 4</code></pre>
 </li>
 </ul>
 <p>Combinando las ideas anteriores, podemos resolver de forma muy rápida ciertos problemas, como el de calcular el producto escalar entre dos vectores (<strong>ejercicio 5 de la práctica 4</strong>):</p>
 <div class="sourceCode" id="cb401"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">u</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">u</span></span></code></pre></div>
 <pre><code>[1] 5 8 2</code></pre>
 <div class="sourceCode" id="cb403"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">v</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">v</span></span></code></pre></div>
 <pre><code>[1]  2  3 -1</code></pre>
 <div class="sourceCode" id="cb405"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">u</span> <span class="op">*</span> <span class="va">v</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">u</span> <span class="op">*</span> <span class="va">v</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 32</code></pre>
 <p>En lo anterior, <code>u * v</code> hace la multiplicación elemento a elemento entre los vectores <code>u</code> y <code>v</code> y luego sumamos esos valores con <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code>. Sin las operaciones vectorizadas, deberíamos hacer algo como lo siguiente:</p>
 <div class="sourceCode" id="cb407"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">rtdo</span> <span class="op">&lt;-</span> <span class="fl">0</span>
-<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">u</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span> 
-    <span class="va">rtdo</span> <span class="op">&lt;-</span> <span class="va">rtdo</span> <span class="op">+</span> <span class="va">u</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">*</span> <span class="va">v</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>
-<span class="op">}</span>
-<span class="va">rtdo</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">rtdo</span> <span class="op">&lt;-</span> <span class="fl">0</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">u</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span> </span>
+<span>    <span class="va">rtdo</span> <span class="op">&lt;-</span> <span class="va">rtdo</span> <span class="op">+</span> <span class="va">u</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">*</span> <span class="va">v</span><span class="op">[</span><span class="va">i</span><span class="op">]</span></span>
+<span><span class="op">}</span></span>
+<span><span class="va">rtdo</span></span></code></pre></div>
 <pre><code>[1] 32</code></pre>
 <p>En el <strong>ejercicio 3</strong> de la <strong>Práctica 4</strong> creamos las funciones <code>ordenar_asc()</code> y <code>ordenar_des()</code> para ordenar los elementos de un vector. Con las funciones disponibles en R, esto se puede hacer así:</p>
 <div class="sourceCode" id="cb409"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span></span></code></pre></div>
 <pre><code>[1] 40 70 20 90 20</code></pre>
 <div class="sourceCode" id="cb411"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 20 20 40 70 90</code></pre>
 <div class="sourceCode" id="cb413"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">x</span>, decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">x</span>, decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 90 70 40 20 20</code></pre>
 <p><strong>Matrices</strong></p>
 <p>Los casos anteriores tienen sus equivalentes cuando operamos con matrices. Por ejemplo, en el <strong>ejercicio 7 de la práctica 4</strong> programamos una función para hacer la suma entre dos matrices. Sin vectorización, esto involucra pasos como los siguientes:</p>
 <div class="sourceCode" id="cb415"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-<span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-<span class="va">a</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">a</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    5    2
 [2,]    8    3
 [3,]    2    1</code></pre>
 <div class="sourceCode" id="cb417"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">b</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">b</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    0    1
 [2,]   -1    2
 [3,]    3    4</code></pre>
 <div class="sourceCode" id="cb419"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">suma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span>
-<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-    <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-        <span class="va">suma</span><span class="op">[</span><span class="va">i</span>, <span class="va">j</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">a</span><span class="op">[</span><span class="va">i</span>, <span class="va">j</span><span class="op">]</span> <span class="op">+</span> <span class="va">b</span><span class="op">[</span><span class="va">i</span>, <span class="va">j</span><span class="op">]</span>
-    <span class="op">}</span>
-<span class="op">}</span>
-<span class="va">suma</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">suma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="va">suma</span><span class="op">[</span><span class="va">i</span>, <span class="va">j</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">a</span><span class="op">[</span><span class="va">i</span>, <span class="va">j</span><span class="op">]</span> <span class="op">+</span> <span class="va">b</span><span class="op">[</span><span class="va">i</span>, <span class="va">j</span><span class="op">]</span></span>
+<span>    <span class="op">}</span></span>
+<span><span class="op">}</span></span>
+<span><span class="va">suma</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    5    3
 [2,]    7    5
 [3,]    5    5</code></pre>
 <p>Gracias a las operaciones vectorizadas de R, esto se puede resumir en:</p>
 <div class="sourceCode" id="cb421"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">+</span> <span class="va">b</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">+</span> <span class="va">b</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    5    3
 [2,]    7    5
 [3,]    5    5</code></pre>
 <p>A continuación, otros ejemplos de operaciones realizadas elemento a elemento con matrices:</p>
 <div class="sourceCode" id="cb423"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">+</span> <span class="va">b</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">+</span> <span class="va">b</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    5    3
 [2,]    7    5
 [3,]    5    5</code></pre>
 <div class="sourceCode" id="cb425"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">-</span> <span class="va">b</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">-</span> <span class="va">b</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    5    1
 [2,]    9    1
 [3,]   -1   -3</code></pre>
 <div class="sourceCode" id="cb427"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">*</span> <span class="va">b</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">*</span> <span class="va">b</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    0    2
 [2,]   -8    6
 [3,]    6    4</code></pre>
 <div class="sourceCode" id="cb429"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">/</span> <span class="va">b</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">/</span> <span class="va">b</span></span></code></pre></div>
 <pre><code>           [,1] [,2]
 [1,]        Inf 2.00
 [2,] -8.0000000 1.50
 [3,]  0.6666667 0.25</code></pre>
 <div class="sourceCode" id="cb431"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span><span class="op">^</span><span class="fl">2</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span><span class="op">^</span><span class="fl">2</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]   25    4
 [2,]   64    9
 [3,]    4    1</code></pre>
 <div class="sourceCode" id="cb433"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
 <pre><code>         [,1]     [,2]
 [1,] 2.236068 1.414214
 [2,] 2.828427 1.732051
@@ -768,67 +768,67 @@ length</code></pre>
 <li>
 <p>Suma de todos los elementos:</p>
 <div class="sourceCode" id="cb435"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    5    2
 [2,]    8    3
 [3,]    2    1</code></pre>
 <div class="sourceCode" id="cb437"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 21</code></pre>
 </li>
 <li>
 <p>Promedio de todos los elementos:</p>
 <div class="sourceCode" id="cb439"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 3.5</code></pre>
 </li>
 <li>
 <p>Suma de los elementos por fila:</p>
 <div class="sourceCode" id="cb441"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1]  7 11  3</code></pre>
 </li>
 <li>
 <p>Suma de los elementos por columna:</p>
 <div class="sourceCode" id="cb443"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 15  6</code></pre>
 </li>
 <li>
 <p>Promedio de los elementos por fila:</p>
 <div class="sourceCode" id="cb445"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowMeans</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowMeans</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 3.5 5.5 1.5</code></pre>
 </li>
 <li>
 <p>Promedio de los elementos por columna:</p>
 <div class="sourceCode" id="cb447"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colMeans</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colMeans</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 5 2</code></pre>
 </li>
 <li>
 <p>Búsqueda de mínimos y máximos en una matriz:</p>
 <div class="sourceCode" id="cb449"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">20</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
-
-<span class="co"># Valor máximo</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">20</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Valor máximo</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 100</code></pre>
 <div class="sourceCode" id="cb451"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Posición (arr.ind = TRUE para que nos indique fila y columna)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">d</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span>, arr.ind <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Posición (arr.ind = TRUE para que nos indique fila y columna)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">d</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span>, arr.ind <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>     row col
-[1,]   5   4</code></pre>
+[1,]   1   3</code></pre>
 <div class="sourceCode" id="cb453"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Valor mínimo</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 6</code></pre>
+<code class="sourceCode R"><span><span class="co"># Valor mínimo</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span></span></code></pre></div>
+<pre><code>[1] 1</code></pre>
 <div class="sourceCode" id="cb455"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Posición</span>
-<span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">d</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span>, arr.ind <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Posición</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">d</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span>, arr.ind <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>     row col
-[1,]   2   4</code></pre>
+[1,]   5   2</code></pre>
 </li>
 </ul>
 <p>Como aprenderán en Álgebra, las matrices numéricas son muy útiles en diversos campos y por eso existen distintas operaciones que se pueden realizar con las mismas. Veamos algunos ejemplos de la aplicación del álgebra matricial en R:</p>
@@ -836,13 +836,13 @@ length</code></pre>
 <li>
 <p>Transpuesta de una matriz:</p>
 <div class="sourceCode" id="cb457"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    5    2
 [2,]    8    3
 [3,]    2    1</code></pre>
 <div class="sourceCode" id="cb459"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    5    8    2
 [2,]    2    3    1</code></pre>
@@ -850,19 +850,19 @@ length</code></pre>
 <li>
 <p>Producto entre dos matrices:</p>
 <div class="sourceCode" id="cb461"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">e</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-<span class="va">a</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">e</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">a</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    5    2
 [2,]    8    3
 [3,]    2    1</code></pre>
 <div class="sourceCode" id="cb463"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">e</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">e</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    1    3
 [2,]    2    4</code></pre>
 <div class="sourceCode" id="cb465"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">e</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">e</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    9   23
 [2,]   14   36
@@ -871,7 +871,7 @@ length</code></pre>
 <li>
 <p>Inversa de la matriz:</p>
 <div class="sourceCode" id="cb467"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/solve.html">solve</a></span><span class="op">(</span><span class="va">e</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/solve.html">solve</a></span><span class="op">(</span><span class="va">e</span><span class="op">)</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]   -2  1.5
 [2,]    1 -0.5</code></pre>
@@ -879,8 +879,8 @@ length</code></pre>
 <li>
 <p>Obtener los elementos de la diagonal principal:</p>
 <div class="sourceCode" id="cb469"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 72 87 83 21</code></pre>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span></span></code></pre></div>
+<pre><code>[1] 72 64 70 58</code></pre>
 </li>
 </ul>
 </div>
@@ -890,80 +890,80 @@ length</code></pre>
 </h3>
 <p>Cuando dos vectores o matrices se vinculan a través de una comparación, se opera elemento a elemento obteniendo un vector o matriz de valores lógicos:</p>
 <div class="sourceCode" id="cb471"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">70</span>, <span class="fl">20</span>, <span class="fl">90</span>, <span class="fl">20</span><span class="op">)</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">70</span>, <span class="fl">30</span>, <span class="fl">15</span>, <span class="fl">21</span><span class="op">)</span>
-<span class="va">x</span> <span class="op">&gt;</span> <span class="va">y</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">70</span>, <span class="fl">20</span>, <span class="fl">90</span>, <span class="fl">20</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">70</span>, <span class="fl">30</span>, <span class="fl">15</span>, <span class="fl">21</span><span class="op">)</span></span>
+<span><span class="va">x</span> <span class="op">&gt;</span> <span class="va">y</span></span></code></pre></div>
 <pre><code>[1]  TRUE FALSE FALSE  TRUE FALSE</code></pre>
 <div class="sourceCode" id="cb473"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;</span> <span class="va">y</span> <span class="op">*</span> <span class="fl">5</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;</span> <span class="va">y</span> <span class="op">*</span> <span class="fl">5</span></span></code></pre></div>
 <pre><code>[1]  TRUE  TRUE  TRUE FALSE  TRUE</code></pre>
 <div class="sourceCode" id="cb475"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-<span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-<span class="va">a</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">a</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    5    2
 [2,]    8    3
 [3,]    2    1</code></pre>
 <div class="sourceCode" id="cb477"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">b</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">b</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    0    1
 [2,]   -1    2
 [3,]    3    4</code></pre>
 <div class="sourceCode" id="cb479"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">!=</span> <span class="va">b</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">!=</span> <span class="va">b</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,] TRUE TRUE
 [2,] TRUE TRUE
 [3,] TRUE TRUE</code></pre>
 <div class="sourceCode" id="cb481"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">&gt;</span> <span class="va">b</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&gt;</span> <span class="va">b</span></span></code></pre></div>
 <pre><code>      [,1]  [,2]
 [1,]  TRUE  TRUE
 [2,]  TRUE  TRUE
 [3,] FALSE FALSE</code></pre>
 <p>Si un vector o matriz de valores lógicos y queremos saber si todos o al menos uno de los elementos es igual a <code>TRUE</code>, podemos usar las funciones <code><a href="https://rdrr.io/r/base/all.html">all()</a></code> y <code><a href="https://rdrr.io/r/base/any.html">any()</a></code>, respectivamente:</p>
 <div class="sourceCode" id="cb483"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/all.html">all</a></span><span class="op">(</span><span class="va">a</span> <span class="op">!=</span> <span class="va">b</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/all.html">all</a></span><span class="op">(</span><span class="va">a</span> <span class="op">!=</span> <span class="va">b</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <div class="sourceCode" id="cb485"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/any.html">any</a></span><span class="op">(</span><span class="va">a</span> <span class="op">!=</span> <span class="va">b</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/any.html">any</a></span><span class="op">(</span><span class="va">a</span> <span class="op">!=</span> <span class="va">b</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <div class="sourceCode" id="cb487"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/all.html">all</a></span><span class="op">(</span><span class="va">a</span> <span class="op">&gt;</span> <span class="va">b</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/all.html">all</a></span><span class="op">(</span><span class="va">a</span> <span class="op">&gt;</span> <span class="va">b</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
 <div class="sourceCode" id="cb489"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/any.html">any</a></span><span class="op">(</span><span class="va">a</span> <span class="op">&gt;</span> <span class="va">b</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/any.html">any</a></span><span class="op">(</span><span class="va">a</span> <span class="op">&gt;</span> <span class="va">b</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <p>Las operaciones de comparación pueden hacerse entre cada elemento de un vector o matriz y un único valor:</p>
 <div class="sourceCode" id="cb491"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;</span> <span class="fl">50</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;</span> <span class="fl">50</span></span></code></pre></div>
 <pre><code>[1]  TRUE FALSE  TRUE FALSE  TRUE</code></pre>
 <div class="sourceCode" id="cb493"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">==</span> <span class="fl">3</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">==</span> <span class="fl">3</span></span></code></pre></div>
 <pre><code>      [,1]  [,2]
 [1,] FALSE FALSE
 [2,] FALSE  TRUE
 [3,] FALSE FALSE</code></pre>
 <div class="sourceCode" id="cb495"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">b</span> <span class="op">&gt;</span> <span class="fl">0</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">b</span> <span class="op">&gt;</span> <span class="fl">0</span></span></code></pre></div>
 <pre><code>      [,1] [,2]
 [1,] FALSE TRUE
 [2,] FALSE TRUE
 [3,]  TRUE TRUE</code></pre>
 <p>Los operadores lógicos que se utilizan para realizar cálculos elemento a elemento con vectores y matrices son <code>&amp;</code>, <code>\</code> y <code>!</code>. Ellos nos permiten crear expresiones aún más complejas:</p>
 <div class="sourceCode" id="cb497"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;</span> <span class="fl">50</span> <span class="op">&amp;</span> <span class="va">y</span> <span class="op">&gt;</span> <span class="fl">50</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;</span> <span class="fl">50</span> <span class="op">&amp;</span> <span class="va">y</span> <span class="op">&gt;</span> <span class="fl">50</span></span></code></pre></div>
 <pre><code>[1] FALSE FALSE FALSE FALSE FALSE</code></pre>
 <div class="sourceCode" id="cb499"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;</span> <span class="fl">0</span> <span class="op">|</span> <span class="va">b</span> <span class="op">&gt;</span> <span class="fl">0</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;</span> <span class="fl">0</span> <span class="op">|</span> <span class="va">b</span> <span class="op">&gt;</span> <span class="fl">0</span></span></code></pre></div>
 <pre><code>      [,1] [,2]
 [1,] FALSE TRUE
 [2,] FALSE TRUE
 [3,]  TRUE TRUE</code></pre>
 <div class="sourceCode" id="cb501"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="op">!</span><span class="op">(</span><span class="va">x</span> <span class="op">&lt;=</span> <span class="fl">50</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="op">!</span><span class="op">(</span><span class="va">x</span> <span class="op">&lt;=</span> <span class="fl">50</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] FALSE  TRUE FALSE  TRUE FALSE</code></pre>
 </div>
 <div id="uso-de-vectores-para-indexar-vectores-y-matrices" class="section level3" number="5.2.4">
@@ -972,77 +972,77 @@ length</code></pre>
 </h3>
 <p>Como ya sabemos, indexar es hacer referencia a uno o más elementos particulares dentro de una estructura de datos. Vimos que para indexar a un vector, hace falta sólo un índice:</p>
 <div class="sourceCode" id="cb503"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10.4</span>, <span class="fl">5.6</span>, <span class="fl">3.1</span>, <span class="fl">6.4</span>, <span class="fl">21.7</span><span class="op">)</span>
-<span class="va">x</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10.4</span>, <span class="fl">5.6</span>, <span class="fl">3.1</span>, <span class="fl">6.4</span>, <span class="fl">21.7</span><span class="op">)</span></span>
+<span><span class="va">x</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] 3.1</code></pre>
 <p>Y que para indexar matrices, son necesarios dos índices:</p>
 <div class="sourceCode" id="cb505"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="op">-</span><span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">20</span>, <span class="op">-</span><span class="fl">7</span>, <span class="fl">12</span>, <span class="op">-</span><span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">17</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-<span class="va">a</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="op">-</span><span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">20</span>, <span class="op">-</span><span class="fl">7</span>, <span class="fl">12</span>, <span class="op">-</span><span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">17</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">a</span></span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    4   20   -8
 [2,]   -2   -7   13
 [3,]    1   12   17</code></pre>
 <div class="sourceCode" id="cb507"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span><span class="op">[</span><span class="fl">2</span>, <span class="fl">3</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span><span class="op">[</span><span class="fl">2</span>, <span class="fl">3</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] 13</code></pre>
 <p>Pero también podemos indexar a múltiples elementos de un vector o una matriz a la vez:</p>
 <p><strong>Vectores</strong></p>
 <div class="sourceCode" id="cb509"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Mostrar los primeros tres elementos del vector x</span>
-<span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Mostrar los primeros tres elementos del vector x</span></span>
+<span><span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] 10.4  5.6  3.1</code></pre>
 <div class="sourceCode" id="cb511"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Mostrar los elementos en las posiciones 2 y 4</span>
-<span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Mostrar los elementos en las posiciones 2 y 4</span></span>
+<span><span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] 5.6 6.4</code></pre>
 <div class="sourceCode" id="cb513"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Mostrar el último elemento</span>
-<span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Mostrar el último elemento</span></span>
+<span><span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] 21.7</code></pre>
 <div class="sourceCode" id="cb515"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Indexar con valores lógicos. Obtenemos sólo las posiciones indicadas con TRUE:</span>
-<span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">F</span>, <span class="cn">F</span>, <span class="cn">T</span>, <span class="cn">T</span>, <span class="cn">F</span><span class="op">)</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Indexar con valores lógicos. Obtenemos sólo las posiciones indicadas con TRUE:</span></span>
+<span><span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">F</span>, <span class="cn">F</span>, <span class="cn">T</span>, <span class="cn">T</span>, <span class="cn">F</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] 3.1 6.4</code></pre>
 <div class="sourceCode" id="cb517"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Sabiendo que la siguiente operación devuelve TRUE o FALSE para cada posición de x:</span>
-<span class="va">x</span> <span class="op">&gt;</span> <span class="fl">10</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Sabiendo que la siguiente operación devuelve TRUE o FALSE para cada posición de x:</span></span>
+<span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">10</span></span></code></pre></div>
 <pre><code>[1]  TRUE FALSE FALSE FALSE  TRUE</code></pre>
 <div class="sourceCode" id="cb519"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># ...la podemos usar para quedarnos con aquellos elementos de x mayores a 10:</span>
-<span class="va">x</span><span class="op">[</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">10</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># ...la podemos usar para quedarnos con aquellos elementos de x mayores a 10:</span></span>
+<span><span class="va">x</span><span class="op">[</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">10</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] 10.4 21.7</code></pre>
 <div class="sourceCode" id="cb521"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#Mostrar todos los elementos menos el cuarto</span>
-<span class="va">x</span><span class="op">[</span><span class="op">-</span><span class="fl">4</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#Mostrar todos los elementos menos el cuarto</span></span>
+<span><span class="va">x</span><span class="op">[</span><span class="op">-</span><span class="fl">4</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] 10.4  5.6  3.1 21.7</code></pre>
 <p><strong>Matrices</strong></p>
 <div class="sourceCode" id="cb523"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Toda la fila 3</span>
-<span class="va">a</span><span class="op">[</span><span class="fl">3</span>, <span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Toda la fila 3</span></span>
+<span><span class="va">a</span><span class="op">[</span><span class="fl">3</span>, <span class="op">]</span></span></code></pre></div>
 <pre><code>[1]  1 12 17</code></pre>
 <div class="sourceCode" id="cb525"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Toda la columna 2</span>
-<span class="va">a</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Toda la columna 2</span></span>
+<span><span class="va">a</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] 20 -7 12</code></pre>
 <div class="sourceCode" id="cb527"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Submatriz con las columnas 1 y 2</span>
-<span class="va">a</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Submatriz con las columnas 1 y 2</span></span>
+<span><span class="va">a</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    4   20
 [2,]   -2   -7
 [3,]    1   12</code></pre>
 <div class="sourceCode" id="cb529"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Submatriz con las columnas 1 y 3</span>
-<span class="va">a</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Submatriz con las columnas 1 y 3</span></span>
+<span><span class="va">a</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    4   -8
 [2,]   -2   13
 [3,]    1   17</code></pre>
 <div class="sourceCode" id="cb531"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Asignar el mismo valor en toda la fila 3</span>
-<span class="va">a</span><span class="op">[</span><span class="fl">3</span>, <span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">10</span>
-<span class="va">a</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Asignar el mismo valor en toda la fila 3</span></span>
+<span><span class="va">a</span><span class="op">[</span><span class="fl">3</span>, <span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
+<span><span class="va">a</span></span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    4   20   -8
 [2,]   -2   -7   13
@@ -1054,21 +1054,21 @@ length</code></pre>
 </h3>
 <p>Supongamos que queremos encontrar el máximo valor en cada fila de una matriz. Podemos lograrlo de la siguiente forma. Creamos un vector <code>maximos</code> con lugar para guardar el máximo de cada fila. Luego, iteramos para recorrer cada fila de la matriz, buscar el mínimo y guardarlo en el vector <code>maximos</code>:</p>
 <div class="sourceCode" id="cb533"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span></span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    4   20   -8
 [2,]   -2   -7   13
 [3,]   10   10   10</code></pre>
 <div class="sourceCode" id="cb535"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">maximos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span>
-<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-    <span class="va">maximos</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">a</span><span class="op">[</span><span class="va">i</span>, <span class="op">]</span><span class="op">)</span>
-<span class="op">}</span>
-<span class="va">maximos</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">maximos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">maximos</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">a</span><span class="op">[</span><span class="va">i</span>, <span class="op">]</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="va">maximos</span></span></code></pre></div>
 <pre><code>[1] 20 13 10</code></pre>
 <p>En R existe una forma más práctica y eficiente de conseguir el mismo resultado:</p>
 <div class="sourceCode" id="cb537"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">a</span>, <span class="fl">1</span>, <span class="va">max</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">a</span>, <span class="fl">1</span>, <span class="va">max</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 20 13 10</code></pre>
 <p>La función <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code> sirve para aplicar una misma operación a cada fila o columna de una matriz. En el ejemplo anterior:</p>
 <ul>
@@ -1078,7 +1078,7 @@ length</code></pre>
 </ul>
 <p>De manera similar, podemos encontrar el mínimo valor de cada columna:</p>
 <div class="sourceCode" id="cb539"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">a</span>, <span class="fl">2</span>, <span class="va">min</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">a</span>, <span class="fl">2</span>, <span class="va">min</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] -2 -7 -8</code></pre>
 </div>
 <div id="generación-de-vectores-con-secuencias-numéricas" class="section level3" number="5.2.6">
@@ -1087,44 +1087,44 @@ length</code></pre>
 </h3>
 <p>A continuación mostramos cómo generar algunos vectores numéricos en R:</p>
 <div class="sourceCode" id="cb541"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Enteros de 1 a 5</span>
-<span class="fl">1</span><span class="op">:</span><span class="fl">5</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Enteros de 1 a 5</span></span>
+<span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span></span></code></pre></div>
 <pre><code>[1] 1 2 3 4 5</code></pre>
 <div class="sourceCode" id="cb543"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Números de 1 a 10 cada 2</span>
-<span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">10</span>, <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Números de 1 a 10 cada 2</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">10</span>, <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 1 3 5 7 9</code></pre>
 <div class="sourceCode" id="cb545"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Números de 0 a -1 cada -0.1</span>
-<span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">0.1</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Números de 0 a -1 cada -0.1</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">0.1</span><span class="op">)</span></span></code></pre></div>
 <pre><code> [1]  0.0 -0.1 -0.2 -0.3 -0.4 -0.5 -0.6 -0.7 -0.8 -0.9 -1.0</code></pre>
 <div class="sourceCode" id="cb547"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Siete números equiespaciados entre 0 y 1</span>
-<span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, length.out <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Siete números equiespaciados entre 0 y 1</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, length.out <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 0.0000000 0.1666667 0.3333333 0.5000000 0.6666667 0.8333333 1.0000000</code></pre>
 <div class="sourceCode" id="cb549"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Repetir el 1 tres veces</span>
-<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Repetir el 1 tres veces</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 1 1 1</code></pre>
 <div class="sourceCode" id="cb551"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Repetir (1, 2, 3) tres veces</span>
-<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Repetir (1, 2, 3) tres veces</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 1 2 3 1 2 3 1 2 3</code></pre>
 <div class="sourceCode" id="cb553"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Repetir cada número tres veces</span>
-<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, each <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Repetir cada número tres veces</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, each <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 1 1 1 2 2 2 3 3 3</code></pre>
 <div class="sourceCode" id="cb555"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Generar una matriz diagonal</span>
-<span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">7</span>, <span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Generar una matriz diagonal</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">7</span>, <span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4]
 [1,]    3    0    0    0
 [2,]    0    7    0    0
 [3,]    0    0    1    0
 [4,]    0    0    0    5</code></pre>
 <div class="sourceCode" id="cb557"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Generar una matriz identidad</span>
-<span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Generar una matriz identidad</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    1    0    0    0    0
 [2,]    0    1    0    0    0
@@ -1138,37 +1138,37 @@ length</code></pre>
 </h3>
 <p>Los vectores pueden combinarse entre sí para crear nuevos vectores con <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>:</p>
 <div class="sourceCode" id="cb559"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">90</span>, <span class="fl">87</span><span class="op">)</span>
-<span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">x</span><span class="op">)</span>
-<span class="va">z</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">90</span>, <span class="fl">87</span><span class="op">)</span></span>
+<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">x</span><span class="op">)</span></span>
+<span><span class="va">z</span></span></code></pre></div>
 <pre><code> [1]  1  2  3  4  5 10 90 87  1  2  3  4  5</code></pre>
 <p>Matrices que tienen la misma cantidad de filas pueden concatenarse una al lado de la otra con <code><a href="https://rdrr.io/r/base/cbind.html">cbind()</a></code>:</p>
 <div class="sourceCode" id="cb561"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-<span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-<span class="va">a</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">a</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    5    2
 [2,]    8    3
 [3,]    2    1</code></pre>
 <div class="sourceCode" id="cb563"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">b</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">b</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    0    1
 [2,]   -1    2
 [3,]    3    4</code></pre>
 <div class="sourceCode" id="cb565"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span>
-<span class="va">d</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span></span>
+<span><span class="va">d</span></span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4]
 [1,]    5    2    0    1
 [2,]    8    3   -1    2
 [3,]    2    1    3    4</code></pre>
 <p>Matrices que tienen la misma cantidad de columnas pueden concatenarse una debajo de la otra con <code><a href="https://rdrr.io/r/base/cbind.html">cbind()</a></code>:</p>
 <div class="sourceCode" id="cb567"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">e</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span>
-<span class="va">e</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">e</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span></span>
+<span><span class="va">e</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    5    2
 [2,]    8    3
@@ -1178,8 +1178,8 @@ length</code></pre>
 [6,]    3    4</code></pre>
 <p>Estas funciones también permiten unir matrices con vectores:</p>
 <div class="sourceCode" id="cb569"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">e</span>, <span class="va">x</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">e</span>, <span class="va">x</span><span class="op">)</span></span></code></pre></div>
 <pre><code>          x
 [1,]  5 2 1
 [2,]  8 3 2
@@ -1207,13 +1207,13 @@ Figura 5.13: Ejemplo de una lista
 </div>
 <p>La creación de esta lista se realiza mediante la función <code><a href="https://rdrr.io/r/base/list.html">list()</a></code>, cuyos argumentos son los elementos que queremos guardar en la lista, separados por comas:</p>
 <div class="sourceCode" id="cb571"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mi_lista</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4.5</span>, <span class="fl">12</span>, <span class="fl">2.71</span><span class="op">)</span>,
-    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"hola"</span>, <span class="st">"chau"</span><span class="op">)</span>,
-    <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">11</span>, <span class="fl">13</span>, <span class="fl">16</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,
-    <span class="cn">TRUE</span>
-<span class="op">)</span>
-<span class="va">mi_lista</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mi_lista</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4.5</span>, <span class="fl">12</span>, <span class="fl">2.71</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"hola"</span>, <span class="st">"chau"</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">11</span>, <span class="fl">13</span>, <span class="fl">16</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>    <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">mi_lista</span></span></code></pre></div>
 <pre><code>[[1]]
 [1] -4.50 12.00  2.71
 
@@ -1242,35 +1242,35 @@ Figura 5.15: Ejemplo de una lista
 </p>
 </div>
 <div class="sourceCode" id="cb573"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] -4.50 12.00  2.71</code></pre>
 <div class="sourceCode" id="cb575"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] 2.71</code></pre>
 <div class="sourceCode" id="cb577"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] "hola" "chau"</code></pre>
 <div class="sourceCode" id="cb579"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] "chau"</code></pre>
 <div class="sourceCode" id="cb581"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    8   13
 [2,]   11   16</code></pre>
 <div class="sourceCode" id="cb583"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] 11</code></pre>
 <div class="sourceCode" id="cb585"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">4</span><span class="op">]</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">4</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <div class="sourceCode" id="cb587"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">4</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">4</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <p>Podemos asignar valor a algún elemento usando los índices de esa misma forma:</p>
 <div class="sourceCode" id="cb589"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0</span>
-<span class="va">mi_lista</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0</span></span>
+<span><span class="va">mi_lista</span></span></code></pre></div>
 <pre><code>[[1]]
 [1] -4.5 12.0  0.0
 
@@ -1303,13 +1303,13 @@ Figura 5.15: Ejemplo de una lista
 <!-- ``` -->
 <p>Cada uno de los elementos de una lista puede tener un nombre propio. Podemos asignarle un nombre a uno, algunos o todos los integrantes en una lista:</p>
 <div class="sourceCode" id="cb591"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mi_lista</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
-    w <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4.5</span>, <span class="fl">12</span>, <span class="fl">2.71</span><span class="op">)</span>,
-    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"hola"</span>, <span class="st">"chau"</span><span class="op">)</span>,
-    y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">11</span>, <span class="fl">13</span>, <span class="fl">16</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,
-    z <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span>
-<span class="va">mi_lista</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mi_lista</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>    w <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4.5</span>, <span class="fl">12</span>, <span class="fl">2.71</span><span class="op">)</span>,</span>
+<span>    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"hola"</span>, <span class="st">"chau"</span><span class="op">)</span>,</span>
+<span>    y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">11</span>, <span class="fl">13</span>, <span class="fl">16</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>    z <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">mi_lista</span></span></code></pre></div>
 <pre><code>$w
 [1] -4.50 12.00  2.71
 
@@ -1325,24 +1325,24 @@ $z
 [1] TRUE</code></pre>
 <p>Esto amplía las opciones para hacer referencia a cada objeto y elemento allí contenido. Las siguientes sentencias son todas equivalentes y sirven para acceder al tercer elemento de la lista, cuyo nombre es <code>y</code>:</p>
 <div class="sourceCode" id="cb593"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mi_lista</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    8   13
 [2,]   11   16</code></pre>
 <div class="sourceCode" id="cb595"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mi_lista</span><span class="op">[[</span><span class="st">"y"</span><span class="op">]</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mi_lista</span><span class="op">[[</span><span class="st">"y"</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    8   13
 [2,]   11   16</code></pre>
 <div class="sourceCode" id="cb597"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mi_lista</span><span class="op">$</span><span class="va">y</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mi_lista</span><span class="op">$</span><span class="va">y</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    8   13
 [2,]   11   16</code></pre>
 <p>Finalmente, consideremos la situación en la cual queremos aplicarle la misma función a cada uno de los elementos que integran una lista. Para esto podemos usar <code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code> o <code><a href="https://rdrr.io/r/base/lapply.html">sapply()</a></code>, parientes de la función <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code> que vimos antes. Por ejemplo, tenemos una lista con varios vectores y queremos saber el largo de cada uno de ellos:</p>
 <div class="sourceCode" id="cb599"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mi_lista</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">8</span>, <span class="fl">9</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"uno"</span>, <span class="st">"dos"</span>, <span class="st">"tres"</span><span class="op">)</span>, z <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
-<span class="va">mi_lista</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mi_lista</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">8</span>, <span class="fl">9</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"uno"</span>, <span class="st">"dos"</span>, <span class="st">"tres"</span><span class="op">)</span>, z <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">mi_lista</span></span></code></pre></div>
 <pre><code>$x
 [1]  1  8  9 -1
 
@@ -1353,17 +1353,17 @@ $z
 [1] 3 2</code></pre>
 <p>Podemos ver el largo de cada elemento de la lista, uno por uno:</p>
 <div class="sourceCode" id="cb601"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">mi_lista</span><span class="op">$</span><span class="va">x</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">mi_lista</span><span class="op">$</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 4</code></pre>
 <div class="sourceCode" id="cb603"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">mi_lista</span><span class="op">$</span><span class="va">y</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">mi_lista</span><span class="op">$</span><span class="va">y</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 3</code></pre>
 <div class="sourceCode" id="cb605"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">mi_lista</span><span class="op">$</span><span class="va">z</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">mi_lista</span><span class="op">$</span><span class="va">z</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 2</code></pre>
 <p>O podemos hacerlo así:</p>
 <div class="sourceCode" id="cb607"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">mi_lista</span>, <span class="va">length</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">mi_lista</span>, <span class="va">length</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$x
 [1] 4
 
@@ -1373,7 +1373,7 @@ $y
 $z
 [1] 2</code></pre>
 <div class="sourceCode" id="cb609"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">mi_lista</span>, <span class="va">length</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">mi_lista</span>, <span class="va">length</span><span class="op">)</span></span></code></pre></div>
 <pre><code>x y z 
 4 3 2 </code></pre>
 <p>Ambas funciones le aplican la función elegida como segundo argumento (<code><a href="https://rdrr.io/r/base/length.html">length()</a></code>) a cada elemento de la lista indicada en el primer argumento (<code>mi_lista</code>). La diferencia entre ellas es que <code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code> devuelve una nueva lista con los resultados, mientras que <code><a href="https://rdrr.io/r/base/lapply.html">sapply()</a></code> los devuelve acomodados en un vector<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Los ejemplos presentado aquí son muy generales. Dependiendo del tipo de estructura de datos a considerar y de la función a aplicar, la forma en que se presentan los resultados al aplicar alguna de estas funciones puede variar, pero por ahora eso no importa.&lt;/p&gt;"><sup>23</sup></a>.</p>
@@ -1419,64 +1419,64 @@ La solución consiste en devolver una lista que englobe a todos los objetos que 
 <!-- ``` -->
 <!-- Código en R: -->
 <div class="sourceCode" id="cb611"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#-----------------------------------------------------</span>
-<span class="co"># Función triangulos</span>
-<span class="co"># Clasifica un triángulo según la longitud de sus lados</span>
-<span class="co"># Entrada:</span>
-<span class="co">#       - a, b, d, números reales positivos</span>
-<span class="co"># Salida:</span>
-<span class="co">#       - una lista cuyo primer elemento es un carácter que indica el tipo de</span>
-<span class="co">#       triángulo y cuyo segundo elemento es el perímetro del triángulo o el valor 0</span>
-<span class="co">#       si los lados provistos no corresponden a un triángulo</span>
-<span class="co">#-----------------------------------------------------</span>
-<span class="va">triangulos</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span>, <span class="va">d</span><span class="op">)</span> <span class="op">{</span>
-    <span class="va">perimetro</span> <span class="op">&lt;-</span> <span class="va">a</span> <span class="op">+</span> <span class="va">b</span> <span class="op">+</span> <span class="va">d</span>
-    <span class="kw">if</span> <span class="op">(</span><span class="va">a</span> <span class="op">&gt;</span> <span class="va">b</span> <span class="op">+</span> <span class="va">d</span> <span class="op">||</span> <span class="va">b</span> <span class="op">&gt;</span> <span class="va">a</span> <span class="op">+</span> <span class="va">d</span> <span class="op">||</span> <span class="va">d</span> <span class="op">&gt;</span> <span class="va">a</span> <span class="op">+</span> <span class="va">b</span><span class="op">)</span> <span class="op">{</span>
-        <span class="va">tipo</span> <span class="op">&lt;-</span> <span class="st">"no es triángulo"</span>
-        <span class="va">perimetro</span> <span class="op">&lt;-</span> <span class="fl">0</span>
-    <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">a</span> <span class="op">==</span> <span class="va">b</span> <span class="op">&amp;</span> <span class="va">a</span> <span class="op">==</span> <span class="va">d</span><span class="op">)</span> <span class="op">{</span>
-        <span class="va">tipo</span> <span class="op">&lt;-</span> <span class="st">"equilátero"</span>
-    <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">a</span> <span class="op">==</span> <span class="va">b</span> <span class="op">||</span> <span class="va">a</span> <span class="op">==</span> <span class="va">d</span> <span class="op">||</span> <span class="va">b</span> <span class="op">==</span> <span class="va">d</span><span class="op">)</span> <span class="op">{</span>
-        <span class="va">tipo</span> <span class="op">&lt;-</span> <span class="st">"isósceles"</span>
-    <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
-        <span class="va">tipo</span> <span class="op">&lt;-</span> <span class="st">"escaleno"</span>
-    <span class="op">}</span>
-    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>tipo <span class="op">=</span> <span class="va">tipo</span>, perimetro <span class="op">=</span> <span class="va">perimetro</span><span class="op">)</span><span class="op">)</span>
-    <span class="co"># atención con tipo = tipo: la primera vez es el nombre que le estamos dando</span>
-    <span class="co"># al elemento de la lista, la segunda vez es la variable que guardamos en la lista</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#-----------------------------------------------------</span></span>
+<span><span class="co"># Función triangulos</span></span>
+<span><span class="co"># Clasifica un triángulo según la longitud de sus lados</span></span>
+<span><span class="co"># Entrada:</span></span>
+<span><span class="co">#       - a, b, d, números reales positivos</span></span>
+<span><span class="co"># Salida:</span></span>
+<span><span class="co">#       - una lista cuyo primer elemento es un carácter que indica el tipo de</span></span>
+<span><span class="co">#       triángulo y cuyo segundo elemento es el perímetro del triángulo o el valor 0</span></span>
+<span><span class="co">#       si los lados provistos no corresponden a un triángulo</span></span>
+<span><span class="co">#-----------------------------------------------------</span></span>
+<span><span class="va">triangulos</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span>, <span class="va">d</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">perimetro</span> <span class="op">&lt;-</span> <span class="va">a</span> <span class="op">+</span> <span class="va">b</span> <span class="op">+</span> <span class="va">d</span></span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">a</span> <span class="op">&gt;</span> <span class="va">b</span> <span class="op">+</span> <span class="va">d</span> <span class="op">||</span> <span class="va">b</span> <span class="op">&gt;</span> <span class="va">a</span> <span class="op">+</span> <span class="va">d</span> <span class="op">||</span> <span class="va">d</span> <span class="op">&gt;</span> <span class="va">a</span> <span class="op">+</span> <span class="va">b</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="va">tipo</span> <span class="op">&lt;-</span> <span class="st">"no es triángulo"</span></span>
+<span>        <span class="va">perimetro</span> <span class="op">&lt;-</span> <span class="fl">0</span></span>
+<span>    <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">a</span> <span class="op">==</span> <span class="va">b</span> <span class="op">&amp;</span> <span class="va">a</span> <span class="op">==</span> <span class="va">d</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="va">tipo</span> <span class="op">&lt;-</span> <span class="st">"equilátero"</span></span>
+<span>    <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">a</span> <span class="op">==</span> <span class="va">b</span> <span class="op">||</span> <span class="va">a</span> <span class="op">==</span> <span class="va">d</span> <span class="op">||</span> <span class="va">b</span> <span class="op">==</span> <span class="va">d</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="va">tipo</span> <span class="op">&lt;-</span> <span class="st">"isósceles"</span></span>
+<span>    <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>        <span class="va">tipo</span> <span class="op">&lt;-</span> <span class="st">"escaleno"</span></span>
+<span>    <span class="op">}</span></span>
+<span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>tipo <span class="op">=</span> <span class="va">tipo</span>, perimetro <span class="op">=</span> <span class="va">perimetro</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="co"># atención con tipo = tipo: la primera vez es el nombre que le estamos dando</span></span>
+<span>    <span class="co"># al elemento de la lista, la segunda vez es la variable que guardamos en la lista</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <p>Ejemplos del uso de esta función:</p>
 <div class="sourceCode" id="cb612"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Guardamos el resultado devuelto (una lista) en el objeto resultado</span>
-<span class="va">resultado</span> <span class="op">&lt;-</span> <span class="fu">triangulos</span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>
-<span class="co"># Miramos el primer elemento de la lista (carácter que indica el tipo)</span>
-<span class="va">resultado</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Guardamos el resultado devuelto (una lista) en el objeto resultado</span></span>
+<span><span class="va">resultado</span> <span class="op">&lt;-</span> <span class="fu">triangulos</span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span></span>
+<span><span class="co"># Miramos el primer elemento de la lista (carácter que indica el tipo)</span></span>
+<span><span class="va">resultado</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] "escaleno"</code></pre>
 <div class="sourceCode" id="cb614"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">resultado</span><span class="op">$</span><span class="va">tipo</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">resultado</span><span class="op">$</span><span class="va">tipo</span></span></code></pre></div>
 <pre><code>[1] "escaleno"</code></pre>
 <div class="sourceCode" id="cb616"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Miramos el primer elemento de la lista (perímetro)</span>
-<span class="va">resultado</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Miramos el primer elemento de la lista (perímetro)</span></span>
+<span><span class="va">resultado</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] 9</code></pre>
 <div class="sourceCode" id="cb618"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">resultado</span><span class="op">$</span><span class="va">perimetro</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">resultado</span><span class="op">$</span><span class="va">perimetro</span></span></code></pre></div>
 <pre><code>[1] 9</code></pre>
 <div class="sourceCode" id="cb620"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Miramos todo junto</span>
-<span class="va">resultado</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Miramos todo junto</span></span>
+<span><span class="va">resultado</span></span></code></pre></div>
 <pre><code>$tipo
 [1] "escaleno"
 
 $perimetro
 [1] 9</code></pre>
 <div class="sourceCode" id="cb622"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Otro ejemplo:</span>
-<span class="va">resultado2</span> <span class="op">&lt;-</span> <span class="fu">triangulos</span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">10</span><span class="op">)</span>
-<span class="va">resultado2</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Otro ejemplo:</span></span>
+<span><span class="va">resultado2</span> <span class="op">&lt;-</span> <span class="fu">triangulos</span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">resultado2</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] "no es triángulo"</code></pre>
 <div class="sourceCode" id="cb624"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">resultado2</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">resultado2</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code>[1] 0</code></pre>
 </div>
 </div>
@@ -1501,8 +1501,8 @@ $perimetro
 <!-- ``` -->
 <!-- Y en R: -->
 <div class="sourceCode" id="cb626"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">clientes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html">array</a></span><span class="op">(</span><span class="fl">0</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span>
-<span class="va">clientes</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">clientes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html">array</a></span><span class="op">(</span><span class="fl">0</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">clientes</span></span></code></pre></div>
 <pre><code>, , 1
 
      [,1] [,2]
@@ -1539,8 +1539,8 @@ $perimetro
 [3,]    0    0</code></pre>
 <p>Luego, si queremos registrar que la caja 1 en el turno tarde del día jueves atendió 12 clientes, hacemos:</p>
 <div class="sourceCode" id="cb628"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">clientes</span><span class="op">[</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">12</span>
-<span class="va">clientes</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">clientes</span><span class="op">[</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">12</span></span>
+<span><span class="va">clientes</span></span></code></pre></div>
 <pre><code>, , 1
 
      [,1] [,2]
@@ -1577,10 +1577,10 @@ $perimetro
 [3,]    0    0</code></pre>
 <p>En R, podemos ponerle un nombre a cada una de las dimensiones del arreglo (“caja”, “turno”, “dia”), para poder identificar mejor a qué aspecto hace referencia y, a su vez, un nombre a cada una de sus modalidades (por ejemplo, “caja 1”, “caja 2” o “caja 3”). Esto se logra de la siguiente forma:</p>
 <div class="sourceCode" id="cb630"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/dimnames.html">dimnames</a></span><span class="op">(</span><span class="va">clientes</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>caja <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"caja 1"</span>, <span class="st">"caja 2"</span>, <span class="st">"caja 3"</span><span class="op">)</span>,
-                           turno <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mañana"</span>, <span class="st">"tarde"</span><span class="op">)</span>,
-                           dia <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lun"</span>, <span class="st">"mar"</span>, <span class="st">"mie"</span>, <span class="st">"jue"</span>, <span class="st">"vie"</span><span class="op">)</span><span class="op">)</span>
-<span class="va">clientes</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dimnames.html">dimnames</a></span><span class="op">(</span><span class="va">clientes</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>caja <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"caja 1"</span>, <span class="st">"caja 2"</span>, <span class="st">"caja 3"</span><span class="op">)</span>,</span>
+<span>                           turno <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mañana"</span>, <span class="st">"tarde"</span><span class="op">)</span>,</span>
+<span>                           dia <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lun"</span>, <span class="st">"mar"</span>, <span class="st">"mie"</span>, <span class="st">"jue"</span>, <span class="st">"vie"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">clientes</span></span></code></pre></div>
 <pre><code>, , dia = lun
 
         turno
@@ -1668,7 +1668,7 @@ caja     mañana tarde
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2023-05-24.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2023-05-30.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
