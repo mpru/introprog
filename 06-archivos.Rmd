@@ -689,7 +689,7 @@ Anteriormente hemos mencionado que cuando trabajamos con archivos podemos realiz
 Vamos a volcar los hallazgos sobre los mundiales en un archivo de texto llamado `salida.txt`. En R, la función `sink()` permite escribir en un archivo de texto todos los resultados que habitualmente vemos en la consola. Sus argumentos son:
 
 - `file`: nombre del archivo, si no existe será creado. Se guarda en el directorio de trabajo actual, a menos que indiquemos aquí la ruta completa hacia otra carpeta.
-- `append`: si el archivo ya existía, por default lo sobreescribe (borra lo anterior), a menos que indiquemos `append = TRUE` para que agregue nuevas líneas sin borrar las anteriores.
+- `append`: si el archivo ya existía, por default lo sobrescribe (borra lo anterior), a menos que indiquemos `append = TRUE` para que agregue nuevas líneas sin borrar las anteriores.
 - `split`: mientras la conexión al archivo está activa, por defecto los resultados que enviamos al mismo no se muestran en la consola de R, a menos que indiquemos `split = TRUE`, en cuyo caso sucederán ambas cosas: los resultados serán escritos en el archivo y se verán en la consola.
 
 Cuando se desea cerrar la conexión al archivo, se debe correr `sink()` sin ningún argumento. Todo lo que *imprimamos* con `cat()` entre ambos llamados a `sink()` se guardará en el archivo. La última parte del código en el problema anterior debe ser:
@@ -764,13 +764,13 @@ datos %>%
 	adorn_ns() %>% 
 	adorn_title(placement = "top", "Continente", "Campeones del mundo")
 
-cat("\n==================== DISTRIBUCIÓN CONDICIONAL DE CONTINENTES DADO CAMPEONES ====================\n\n")
+cat("\n==================== DISTRIBUCIÓN DE LA CANTIDAD DE GOLES A FAVOR ====================\n\n")
 
 # Crear intervalos y tabla
 datos <- mutate(datos, intervalos = cut(goles_favor, breaks = seq(0, 250, 50), right = FALSE))
 tabla_gf <- tabyl(datos, intervalos)
 
-# Detectar el inervalo con la mayor frecuencia
+# Detectar el intervalo con la mayor frecuencia
 maximo <- filter(tabla_gf, n == max(n))
 
 # Agregar columnas acumuladas, mejorar la apariencia y calcular totales
@@ -981,7 +981,7 @@ pivot_wider(
 )
 ```
 
-### Fusionar varios `data.frames`
+### Fusionar dos `data.frames`
 
 Muchas veces, los análisis de datos involucran múltiples tablas o conjuntos de datos, los cuales deben combinarse para dar respuesta a las preguntas de interés.. En estos casos importan las **relaciones** que se establecen entre las bases, más allá de los datos individuales que contenga cada uno de ellas. `R` nos ofrece diversas alternativas, las cuales dependen del tipo de relación que deseemos establecer entre los conjuntos de datos. Para definir estas relaciones debemos establecer qué variable funcionará como `key` o clave identificadora de los casos. Esta `key` debe figurar en ambos conjuntos de datos y representar lo mismo para que tenga sentido la relación. Las fusiones pueden clasificarse en dos grupos: las que producen modificaciones en uno de los conjuntos (*mutating joins*) y las que actúan como filtros (*filtering joins*).
 
