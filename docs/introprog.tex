@@ -243,7 +243,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2023-05-30}
+\date{2023-06-13}
 
 \begin{document}
 \maketitle
@@ -5495,7 +5495,7 @@ También podemos resumir la información contenida en una matriz:
 
 \begin{verbatim}
      row col
-[1,]   4   2
+[1,]   3   4
 \end{verbatim}
 
 \begin{Shaded}
@@ -5506,7 +5506,7 @@ También podemos resumir la información contenida en una matriz:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 6
+[1] 4
 \end{verbatim}
 
 \begin{Shaded}
@@ -5518,7 +5518,7 @@ También podemos resumir la información contenida en una matriz:
 
 \begin{verbatim}
      row col
-[1,]   5   3
+[1,]   5   4
 \end{verbatim}
 \end{itemize}
 
@@ -5617,7 +5617,7 @@ Como aprenderán en Álgebra, las matrices numéricas son muy útiles en diverso
 \end{Shaded}
 
 \begin{verbatim}
-[1] 89 78 52 27
+[1] 35 15 64 95
 \end{verbatim}
 \end{itemize}
 
@@ -8444,6 +8444,161 @@ El continente con la mayor cantidad de países que han participado de mundiales 
 El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones es [0,50) con 63 países.
 \end{verbatim}
 
+\hypertarget{fusionar-dos-data.frames}{%
+\section{\texorpdfstring{Fusionar dos \texttt{data.frames}}{Fusionar dos data.frames}}\label{fusionar-dos-data.frames}}
+
+Muchas veces, los análisis de datos involucran múltiples tablas o conjuntos de datos, los cuales deben combinarse para dar respuesta a las preguntas de interés.. En estos casos importan las \textbf{relaciones} que se establecen entre las bases, más allá de los datos individuales que contenga cada uno de ellas. \texttt{R} nos ofrece diversas alternativas, las cuales dependen del tipo de relación que deseemos establecer entre los conjuntos de datos. Para definir estas relaciones debemos establecer qué variable funcionará como \texttt{key} o clave identificadora de los casos. Esta \texttt{key} debe figurar en ambos conjuntos de datos y representar lo mismo para que tenga sentido la relación. Las fusiones pueden clasificarse en dos grupos: las que producen modificaciones en uno de los conjuntos (\emph{mutating joins}) y las que actúan como filtros (\emph{filtering joins}).
+
+\textbf{Mutating Joins}
+
+Son funciones que permiten unir conjuntos de datos, agregando en uno de ellos nuevas variables que provienen del otro, a partir las filas con \texttt{key} coincidente:
+
+\begin{verbatim}
+- `left_join()`
+- `right_join()`
+- `inner_join()`
+- `full_join()`
+\end{verbatim}
+
+Hacen una \emph{mutación} en el sentido de que añaden columnas a uno de los conjuntos. Consideremos los siguientes conjuntos de datos, donde \emph{X1} será la clave:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Datos1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{X1 =} \FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"C"}\NormalTok{), }\AttributeTok{X2 =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{))}
+\NormalTok{Datos2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{X1 =} \FunctionTok{c}\NormalTok{(}\StringTok{"D"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"A"}\NormalTok{), }\AttributeTok{X3 =} \FunctionTok{c}\NormalTok{(}\DecValTok{9}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.4\linewidth]{images/06_archivos/Tabla1} \end{center}
+
+Veamos los distintos tipos de \emph{mutating joins}:
+
+\begin{itemize}
+\item
+  \texttt{left\_join()}: esta opción devuelve un conjunto de datos que contiene todas las filas de la tabla de la izquierda, agregando las columnas de la tabla de la derecha.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DatosUnidos }\OtherTok{\textless{}{-}} \FunctionTok{left\_join}\NormalTok{(Datos1, Datos2, }\AttributeTok{by =} \StringTok{"X1"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/leftjoin} \end{center}
+\item
+  \texttt{right\_join()}: devuelve un conjunto de datos que contiene todas las filas de la tabla de la derecha y agrega columnas de la tabla izquierda.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DatosUnidos }\OtherTok{\textless{}{-}} \FunctionTok{right\_join}\NormalTok{(Datos1, Datos2, }\AttributeTok{by =} \StringTok{"X1"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/rightjoin} \end{center}
+\item
+  \texttt{inner\_join()}: devuelve un conjunto de datos con todas las columnas pero sólo para las observaciones (filas) cuyos identificadores se repiten en ambos conjuntos de datos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DatosUnidos }\OtherTok{\textless{}{-}} \FunctionTok{inner\_join}\NormalTok{(Datos1, Datos2, }\AttributeTok{by =} \StringTok{"X1"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/innerjoin} \end{center}
+\item
+  \texttt{full\_join()}: devuelve un conjunto de datos con todas las filas y columnas, fusionando a través de la \texttt{key} para las filas coincidentes entre ambos conjuntos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DatosUnidos }\OtherTok{\textless{}{-}} \FunctionTok{full\_join}\NormalTok{(Datos1, Datos2, }\AttributeTok{by =} \StringTok{"X1"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/fulljoin} \end{center}
+\end{itemize}
+
+\textbf{Filtering Joins}
+
+Son funciones que permiten unir las observaciones de dos datasets, pero sólo afectan a las filas sin alterar las columnas o variables. Funcionan como un \textbf{filtro} para las observaciones de una base de datos, de acuerdo a si \emph{están} o \emph{no están} (según el sentido que se elija) en otra base de datos:
+
+\begin{itemize}
+\item
+  \texttt{semi\_join()}: devuelve todas las observaciones que están en \texttt{Datos1} que también están en \texttt{Datos2}, manteniendo sólo las columnas de \texttt{Datos1}. La relación se piensa como en \texttt{inner\_join()}, pero el resultado es sólo la base \texttt{Datos1} filtrada.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DatosFiltrados }\OtherTok{\textless{}{-}} \FunctionTok{semi\_join}\NormalTok{(Datos1, Datos2, }\AttributeTok{by =} \StringTok{"X1"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/semijoin} \end{center}
+\item
+  \texttt{anti\_join()}: devuelve aquellas observaciones que están en \texttt{Datos1} pero \textbf{no están} en \texttt{Datos2}, manteniendo las columnas de \texttt{Datos1}. Es el filtro contrario a \texttt{semi\_join()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DatosFiltrados }\OtherTok{\textless{}{-}} \FunctionTok{anti\_join}\NormalTok{(Datos1, Datos2, }\AttributeTok{by =} \StringTok{"X1"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/antijoin} \end{center}
+\end{itemize}
+
+\textbf{Otros detalles sobre las keys}
+
+Hasta ahora hemos visto ejemplos donde las columnas que se usaron como claves identificadoras tenían valores únicos, sin repetir. Si la clave identificadora está duplicada en una de las bases de datos, la relación que \texttt{R} brindará con las funciones \texttt{*\_join()} será del tipo ``uno a varios'':
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{val\_x =} \FunctionTok{c}\NormalTok{(}\StringTok{"x1"}\NormalTok{, }\StringTok{"x2"}\NormalTok{, }\StringTok{"x3"}\NormalTok{, }\StringTok{"x4"}\NormalTok{), }
+  \AttributeTok{key =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{)}
+
+\NormalTok{d2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{key =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{), }
+  \AttributeTok{val\_y =} \FunctionTok{c}\NormalTok{(}\StringTok{"y1"}\NormalTok{, }\StringTok{"y2"}\NormalTok{)}
+\NormalTok{)}
+
+\FunctionTok{full\_join}\NormalTok{(d1, d2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.5\linewidth]{images/06_archivos/1dupkeys} \end{center}
+
+Si ambas bases de datos tienen claves duplicadas, las funciones \texttt{*\_join()} devuelven todas las combinaciones posibles:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{val\_x =} \FunctionTok{c}\NormalTok{(}\StringTok{"x1"}\NormalTok{, }\StringTok{"x2"}\NormalTok{, }\StringTok{"x3"}\NormalTok{, }\StringTok{"x4"}\NormalTok{),}
+  \AttributeTok{key =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\NormalTok{)}
+
+\NormalTok{d2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{key =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{),}
+  \AttributeTok{val\_y =} \FunctionTok{c}\NormalTok{(}\StringTok{"y1"}\NormalTok{, }\StringTok{"y2"}\NormalTok{, }\StringTok{"y3"}\NormalTok{, }\StringTok{"y4"}\NormalTok{)}
+\NormalTok{)}
+
+\FunctionTok{full\_join}\NormalTok{(d1, d2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.5\linewidth]{images/06_archivos/2dupkeys} \end{center}
+
+Muchas veces nos interesa que las observaciones de los conjuntos de datos se relacionen a través de más de una variable, es decir, queremos identificar a cada registro a través de más de una columna. En este caso tenemos 2 opciones:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Inventar una nueva variable identificadora (\texttt{key}) que de algún modo contenga la información de esas variables e identifique a cada observación de manera única (por ejemplo, pegar ambas columnas en una sola).
+\item
+  Indicarle directamente en \texttt{R} que la relación entre las bases de datos debe hacerse a través de varias variables. En el argumento \texttt{by} de las funciones \texttt{*\_join()} ponemos el vector de variables \texttt{by\ =\ c(Vble1,\ Vble2,\ Vble3)} mediante las cuales queremos que se relacionen las bases.
+\end{enumerate}
+
+Por defecto, los conjuntos de datos se unen a través de todas las variables que llevan el mismo nombre en ambos conjuntos, lo que suele denominarse \textbf{unión natural}. Si usamos \texttt{by} para indicar qué columnas vinculan ambas bases, y entre las columnas no mencionadas quedan variables con el mismo nombre en los dos conjuntos, entonces estas aparecerán repetidas en el dataset resultante, con una extensión en su nombre para identificar su origen (\emph{nombre\_columna.x, nombre\_columna.y}).
+
+Las variables usadas como \texttt{key} podrían no tener el mismo nombre en ambos conjuntos de datos. Por ejemplo, si en Datos1 tenemos \emph{DNI} y en Datos2 tenemos \emph{Documento}, no es necesario renombrar estas columnas: al indicar \textbf{\texttt{by\ =\ c("DNI"\ =\ "Documento")}}, R las reconoce como la misma variable, las utilizará como clave y conservará el primer nombre (\emph{DNI} en este ejemplo).
+
 \hypertarget{lectura-opcional}{%
 \section{Lectura opcional}\label{lectura-opcional}}
 
@@ -8706,161 +8861,6 @@ Podríamos usarlo si queremos volver a la versión original de la base. Para ell
 2        2        657     621       147
 3        3        989     589       258
 \end{verbatim}
-
-\hypertarget{fusionar-dos-data.frames}{%
-\subsection{\texorpdfstring{Fusionar dos \texttt{data.frames}}{Fusionar dos data.frames}}\label{fusionar-dos-data.frames}}
-
-Muchas veces, los análisis de datos involucran múltiples tablas o conjuntos de datos, los cuales deben combinarse para dar respuesta a las preguntas de interés.. En estos casos importan las \textbf{relaciones} que se establecen entre las bases, más allá de los datos individuales que contenga cada uno de ellas. \texttt{R} nos ofrece diversas alternativas, las cuales dependen del tipo de relación que deseemos establecer entre los conjuntos de datos. Para definir estas relaciones debemos establecer qué variable funcionará como \texttt{key} o clave identificadora de los casos. Esta \texttt{key} debe figurar en ambos conjuntos de datos y representar lo mismo para que tenga sentido la relación. Las fusiones pueden clasificarse en dos grupos: las que producen modificaciones en uno de los conjuntos (\emph{mutating joins}) y las que actúan como filtros (\emph{filtering joins}).
-
-\textbf{Mutating Joins}
-
-Son funciones que permiten unir conjuntos de datos, agregando en uno de ellos nuevas variables que provienen del otro, a partir las filas con \texttt{key} coincidente:
-
-\begin{verbatim}
-- `left_join()`
-- `right_join()`
-- `inner_join()`
-- `full_join()`
-\end{verbatim}
-
-Hacen una \emph{mutación} en el sentido de que añaden columnas a uno de los conjuntos. Consideremos los siguientes conjuntos de datos, donde \emph{X1} será la clave:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{Datos1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{X1 =} \FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"C"}\NormalTok{), }\AttributeTok{X2 =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{))}
-\NormalTok{Datos2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{X1 =} \FunctionTok{c}\NormalTok{(}\StringTok{"D"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"A"}\NormalTok{), }\AttributeTok{X3 =} \FunctionTok{c}\NormalTok{(}\DecValTok{9}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{5}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{center}\includegraphics[width=0.4\linewidth]{images/06_archivos/Tabla1} \end{center}
-
-Veamos los distintos tipos de \emph{mutating joins}:
-
-\begin{itemize}
-\item
-  \texttt{left\_join()}: esta opción devuelve un conjunto de datos que contiene todas las filas de la tabla de la izquierda, agregando las columnas de la tabla de la derecha.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{DatosUnidos }\OtherTok{\textless{}{-}} \FunctionTok{left\_join}\NormalTok{(Datos1, Datos2, }\AttributeTok{by =} \StringTok{"X1"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-  \begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/leftjoin} \end{center}
-\item
-  \texttt{right\_join()}: devuelve un conjunto de datos que contiene todas las filas de la tabla de la derecha y agrega columnas de la tabla izquierda.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{DatosUnidos }\OtherTok{\textless{}{-}} \FunctionTok{right\_join}\NormalTok{(Datos1, Datos2, }\AttributeTok{by =} \StringTok{"X1"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-  \begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/rightjoin} \end{center}
-\item
-  \texttt{inner\_join()}: devuelve un conjunto de datos con todas las columnas pero sólo para las observaciones (filas) cuyos identificadores se repiten en ambos conjuntos de datos.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{DatosUnidos }\OtherTok{\textless{}{-}} \FunctionTok{inner\_join}\NormalTok{(Datos1, Datos2, }\AttributeTok{by =} \StringTok{"X1"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-  \begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/innerjoin} \end{center}
-\item
-  \texttt{full\_join()}: devuelve un conjunto de datos con todas las filas y columnas, fusionando a través de la \texttt{key} para las filas coincidentes entre ambos conjuntos.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{DatosUnidos }\OtherTok{\textless{}{-}} \FunctionTok{full\_join}\NormalTok{(Datos1, Datos2, }\AttributeTok{by =} \StringTok{"X1"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-  \begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/fulljoin} \end{center}
-\end{itemize}
-
-\textbf{Filtering Joins}
-
-Son funciones que permiten unir las observaciones de dos datasets, pero sólo afectan a las filas sin alterar las columnas o variables. Funcionan como un \textbf{filtro} para las observaciones de una base de datos, de acuerdo a si \emph{están} o \emph{no están} (según el sentido que se elija) en otra base de datos:
-
-\begin{itemize}
-\item
-  \texttt{semi\_join()}: devuelve todas las observaciones que están en \texttt{Datos1} que también están en \texttt{Datos2}, manteniendo sólo las columnas de \texttt{Datos1}. La relación se piensa como en \texttt{inner\_join()}, pero el resultado es sólo la base \texttt{Datos1} filtrada.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{DatosFiltrados }\OtherTok{\textless{}{-}} \FunctionTok{semi\_join}\NormalTok{(Datos1, Datos2, }\AttributeTok{by =} \StringTok{"X1"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-  \begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/semijoin} \end{center}
-\item
-  \texttt{anti\_join()}: devuelve aquellas observaciones que están en \texttt{Datos1} pero \textbf{no están} en \texttt{Datos2}, manteniendo las columnas de \texttt{Datos1}. Es el filtro contrario a \texttt{semi\_join()}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{DatosFiltrados }\OtherTok{\textless{}{-}} \FunctionTok{anti\_join}\NormalTok{(Datos1, Datos2, }\AttributeTok{by =} \StringTok{"X1"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-  \begin{center}\includegraphics[width=0.7\linewidth]{images/06_archivos/antijoin} \end{center}
-\end{itemize}
-
-\textbf{Otros detalles sobre las keys}
-
-Hasta ahora hemos visto ejemplos donde las columnas que se usaron como claves identificadoras tenían valores únicos, sin repetir. Si la clave identificadora está duplicada en una de las bases de datos, la relación que \texttt{R} brindará con las funciones \texttt{*\_join()} será del tipo ``uno a varios'':
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{d1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
-  \AttributeTok{val\_x =} \FunctionTok{c}\NormalTok{(}\StringTok{"x1"}\NormalTok{, }\StringTok{"x2"}\NormalTok{, }\StringTok{"x3"}\NormalTok{, }\StringTok{"x4"}\NormalTok{), }
-  \AttributeTok{key =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{)}
-\NormalTok{)}
-
-\NormalTok{d2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
-  \AttributeTok{key =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{), }
-  \AttributeTok{val\_y =} \FunctionTok{c}\NormalTok{(}\StringTok{"y1"}\NormalTok{, }\StringTok{"y2"}\NormalTok{)}
-\NormalTok{)}
-
-\FunctionTok{full\_join}\NormalTok{(d1, d2)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{center}\includegraphics[width=0.5\linewidth]{images/06_archivos/1dupkeys} \end{center}
-
-Si ambas bases de datos tienen claves duplicadas, las funciones \texttt{*\_join()} devuelven todas las combinaciones posibles:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{d1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
-  \AttributeTok{val\_x =} \FunctionTok{c}\NormalTok{(}\StringTok{"x1"}\NormalTok{, }\StringTok{"x2"}\NormalTok{, }\StringTok{"x3"}\NormalTok{, }\StringTok{"x4"}\NormalTok{),}
-  \AttributeTok{key =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
-\NormalTok{)}
-
-\NormalTok{d2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
-  \AttributeTok{key =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{),}
-  \AttributeTok{val\_y =} \FunctionTok{c}\NormalTok{(}\StringTok{"y1"}\NormalTok{, }\StringTok{"y2"}\NormalTok{, }\StringTok{"y3"}\NormalTok{, }\StringTok{"y4"}\NormalTok{)}
-\NormalTok{)}
-
-\FunctionTok{full\_join}\NormalTok{(d1, d2)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{center}\includegraphics[width=0.5\linewidth]{images/06_archivos/2dupkeys} \end{center}
-
-Muchas veces nos interesa que las observaciones de los conjuntos de datos se relacionen a través de más de una variable, es decir, queremos identificar a cada registro a través de más de una columna. En este caso tenemos 2 opciones:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Inventar una nueva variable identificadora (\texttt{key}) que de algún modo contenga la información de esas variables e identifique a cada observación de manera única (por ejemplo, pegar ambas columnas en una sola).
-\item
-  Indicarle directamente en \texttt{R} que la relación entre las bases de datos debe hacerse a través de varias variables. En el argumento \texttt{by} de las funciones \texttt{*\_join()} ponemos el vector de variables \texttt{by\ =\ c(Vble1,\ Vble2,\ Vble3)} mediante las cuales queremos que se relacionen las bases.
-\end{enumerate}
-
-Por defecto, los conjuntos de datos se unen a través de todas las variables que llevan el mismo nombre en ambos conjuntos, lo que suele denominarse \textbf{unión natural}. Si usamos \texttt{by} para indicar qué columnas vinculan ambas bases, y entre las columnas no mencionadas quedan variables con el mismo nombre en los dos conjuntos, entonces estas aparecerán repetidas en el dataset resultante, con una extensión en su nombre para identificar su origen (\emph{nombre\_columna.x, nombre\_columna.y}).
-
-Las variables usadas como \texttt{key} podrían no tener el mismo nombre en ambos conjuntos de datos. Por ejemplo, si en Datos1 tenemos \emph{DNI} y en Datos2 tenemos \emph{Documento}, no es necesario renombrar estas columnas: al indicar \textbf{\texttt{by\ =\ c("DNI"\ =\ "Documento")}}, R las reconoce como la misma variable, las utilizará como clave y conservará el primer nombre (\emph{DNI} en este ejemplo).
 
 \hypertarget{otros-tuxf3picos}{%
 \chapter{Otros tópicos}\label{otros-tuxf3picos}}

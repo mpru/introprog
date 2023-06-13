@@ -730,7 +730,7 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span></span></code></pre></div>
 <p>Ahora usamos la función <code>tabyl</code> del paquete <code>janitor</code> para crear una tabla de frecuencias:</p>
 <div class="sourceCode" id="cb703"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">frecuencias</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">continente</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">frecuencias</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://sfirke.github.io/janitor/reference/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">continente</span><span class="op">)</span></span>
 <span><span class="va">frecuencias</span></span></code></pre></div>
 <pre><code> continente  n percent
     América 20  0.2500
@@ -755,11 +755,11 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 <span>        <span class="va">maximo</span><span class="op">$</span><span class="va">continente</span>, <span class="st">"con"</span>, <span class="va">maximo</span><span class="op">$</span><span class="va">n</span>, <span class="st">"selecciones, mientras que el de menor participación es"</span>, </span>
 <span>        <span class="va">minimo</span><span class="op">$</span><span class="va">continente</span>, <span class="st">"con"</span>, <span class="va">minimo</span><span class="op">$</span><span class="va">n</span>, <span class="st">"selecciones."</span><span class="op">)</span></span></code></pre></div>
 <pre><code>El continente con la mayor cantidad de países que han participado de mundiales es Europa con 33 selecciones, mientras que el de menor participación es Oceanía con 2 selecciones.</code></pre>
-<p>Un aspecto útil de la función <code><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl()</a></code> es que puede ser acompañada por funciones que comienzan con el nombre <code>adorn_</code> y sirven para agregar algún tipo de “adorno” a la tabla, por ejemplo, los totales:</p>
+<p>Un aspecto útil de la función <code><a href="https://sfirke.github.io/janitor/reference/tabyl.html">tabyl()</a></code> es que puede ser acompañada por funciones que comienzan con el nombre <code>adorn_</code> y sirven para agregar algún tipo de “adorno” a la tabla, por ejemplo, los totales:</p>
 <div class="sourceCode" id="cb711"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">frecuencias</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="va">frecuencias</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_totals.html">adorn_totals</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">frecuencias</span></span></code></pre></div>
 <pre><code> continente  n percent
     América 20  0.2500
@@ -785,8 +785,8 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 <div class="sourceCode" id="cb715"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">frecuencias</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="va">datos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_totals.html">adorn_totals</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>Continente <span class="op">=</span> <span class="va">continente</span>, `Frec. Absoluta` <span class="op">=</span> <span class="va">n</span>, `Frec. Relativa` <span class="op">=</span> <span class="va">percent</span><span class="op">)</span></span>
 <span><span class="va">frecuencias</span></span></code></pre></div>
 <pre><code> Continente Frec. Absoluta Frec. Relativa
@@ -809,9 +809,9 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 5 Europa     campeón        5
 6 América    campeón        3
 7 Oceanía    no campeón     2</code></pre>
-<p>Esta forma de presentar los resultados es útil cuando deseamos identificar combinaciones de categorías con los valores mínimos y máximos. Sin embargo, frecuencias como las anteriores suelen ser presentadas en <strong>tablas de contingencia</strong> o <strong>tablas de doble entrada</strong>, donde las filas se corresponden a las categorías de una variable y las columnas, a las de la otra. La función <code><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl()</a></code> presenta los conteos de esa forma:</p>
+<p>Esta forma de presentar los resultados es útil cuando deseamos identificar combinaciones de categorías con los valores mínimos y máximos. Sin embargo, frecuencias como las anteriores suelen ser presentadas en <strong>tablas de contingencia</strong> o <strong>tablas de doble entrada</strong>, donde las filas se corresponden a las categorías de una variable y las columnas, a las de la otra. La función <code><a href="https://sfirke.github.io/janitor/reference/tabyl.html">tabyl()</a></code> presenta los conteos de esa forma:</p>
 <div class="sourceCode" id="cb719"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">tabla_cont_campeon</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">tabla_cont_campeon</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://sfirke.github.io/janitor/reference/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span></span>
 <span><span class="va">tabla_cont_campeon</span></span></code></pre></div>
 <pre><code> continente campeón no campeón
      África       0         13
@@ -824,11 +824,11 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">tabla_cont_campeon</span>, <span class="va">campeón</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">campeón</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code> continente campeón no campeón
      Europa       5         28</code></pre>
-<p>La función <code><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals()</a></code> nos permite de manera muy sencilla agregar totales marginales, tanto para filas como columnas:</p>
+<p>La función <code><a href="https://sfirke.github.io/janitor/reference/adorn_totals.html">adorn_totals()</a></code> nos permite de manera muy sencilla agregar totales marginales, tanto para filas como columnas:</p>
 <div class="sourceCode" id="cb723"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"col"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"col"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code> continente campeón no campeón Total
      África       0         13    13
     América       3         17    20
@@ -842,10 +842,10 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 <p><strong>Distribución conjunta de las variables</strong>: podemos ver, por ejemplo, que el 3.8% de todos los países participantes son de América y han salido campeón alguna vez.</p>
 <div class="sourceCode" id="cb725"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"col"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  <span class="co"># cálculo de proporciones</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>            <span class="co"># mostrarlas como porcentaje (opcional)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"col"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  <span class="co"># cálculo de proporciones</span></span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>            <span class="co"># mostrarlas como porcentaje (opcional)</span></span></code></pre></div>
 <pre><code> continente campeón no campeón  Total
      África    0.0%      16.2%  16.2%
     América    3.8%      21.2%  25.0%
@@ -858,10 +858,10 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 <p><strong>Distribución condicional de “campeon” dado “continente”</strong>: los porcentajes suman 1 en cada fila. De todos los países americanos que alguna vez participaron de un mundial, el 15% logró ser campeón y el 85%, no.</p>
 <div class="sourceCode" id="cb727"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"col"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"row"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"col"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"row"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <pre><code> continente campeón no campeón  Total
      África    0.0%     100.0% 100.0%
     América   15.0%      85.0% 100.0%
@@ -874,10 +874,10 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 <p><strong>Distribución condicional de “continente” dado “campeón”</strong>: los porcentajes suman 1 en cada columna. De todos los países que salieron campeones, el 62.5% son europeos y el 37.5% restante, americanos.</p>
 <div class="sourceCode" id="cb729"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="st">"row"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"col"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="st">"row"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"col"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <pre><code> continente campeón no campeón
      África    0.0%      18.1%
     América   37.5%      23.6%
@@ -890,12 +890,12 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 <p>También podemos mostrar frecuencias absolutas y relativas al mismo tiempo, así como editar los títulos. Ejemplificamos mostrando nuevamente la distribución conjunta:</p>
 <div class="sourceCode" id="cb731"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"col"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_ns.html">adorn_ns</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_title.html">adorn_title</a></span><span class="op">(</span>placement <span class="op">=</span> <span class="st">"top"</span>, <span class="st">"Continente"</span>, <span class="st">"Campeones del mundo"</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"col"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_ns.html">adorn_ns</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_title.html">adorn_title</a></span><span class="op">(</span>placement <span class="op">=</span> <span class="st">"top"</span>, <span class="st">"Continente"</span>, <span class="st">"Campeones del mundo"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>            Campeones del mundo                       
  Continente             campeón no campeón       Total
      África            0.0% (0) 16.2% (13)  16.2% (13)
@@ -930,7 +930,7 @@ Campo 9 - titulo: cantidad de mundiales ganados, tipo numérico</code></pre>
 # ℹ 70 more rows</code></pre>
 <p>Ahora podemos emplear la nueva columna <code>intervalos</code> para realizar tablas de frecuencias como vimos antes:</p>
 <div class="sourceCode" id="cb735"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">tabla_gf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">intervalos</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">tabla_gf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://sfirke.github.io/janitor/reference/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">intervalos</span><span class="op">)</span></span>
 <span><span class="va">tabla_gf</span></span></code></pre></div>
 <pre><code> intervalos  n percent
      [0,50) 63  0.7875
@@ -1016,7 +1016,7 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\n=============== DISTRIBUCIÓN DE SELECCIONES SEGÚN CONTINENTE ===============\n\n"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Tabla básica</span></span>
-<span><span class="va">frecuencias</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">continente</span><span class="op">)</span></span>
+<span><span class="va">frecuencias</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://sfirke.github.io/janitor/reference/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">continente</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Detectar máximo y mínimo</span></span>
 <span><span class="va">maximo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">frecuencias</span>, <span class="va">n</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span>
@@ -1025,7 +1025,7 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
 <span><span class="co"># Completar la tabla con totales y cambiar nombres</span></span>
 <span><span class="va">frecuencias</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="va">frecuencias</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_totals.html">adorn_totals</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>Continente <span class="op">=</span> <span class="va">continente</span>, `Frec. Absoluta` <span class="op">=</span> <span class="va">n</span>, `Frec. Relativa` <span class="op">=</span> <span class="va">percent</span><span class="op">)</span></span>
 <span><span class="va">frecuencias</span></span>
 <span></span>
@@ -1037,38 +1037,38 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\n=============== DISTRIBUCIÓN CONJUNTA DE CONTINENTES Y CAMPEONES ===============\n\n"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">datos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"col"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_ns.html">adorn_ns</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_title.html">adorn_title</a></span><span class="op">(</span>placement <span class="op">=</span> <span class="st">"top"</span>, <span class="st">"Continente"</span>, <span class="st">"Campeones del mundo"</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"col"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_ns.html">adorn_ns</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_title.html">adorn_title</a></span><span class="op">(</span>placement <span class="op">=</span> <span class="st">"top"</span>, <span class="st">"Continente"</span>, <span class="st">"Campeones del mundo"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\n=============== DISTRIBUCIÓN CONDICIONAL DE CAMPEONES EN CADA CONTINENTE ===============\n\n"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">datos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"col"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"row"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_ns.html">adorn_ns</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_title.html">adorn_title</a></span><span class="op">(</span>placement <span class="op">=</span> <span class="st">"top"</span>, <span class="st">"Continente"</span>, <span class="st">"Campeones del mundo"</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"col"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"row"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_ns.html">adorn_ns</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_title.html">adorn_title</a></span><span class="op">(</span>placement <span class="op">=</span> <span class="st">"top"</span>, <span class="st">"Continente"</span>, <span class="st">"Campeones del mundo"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\n=============== DISTRIBUCIÓN CONDICIONAL DE CONTINENTES DADO CAMPEONES ===============\n\n"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">datos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="st">"row"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"col"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_ns.html">adorn_ns</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_title.html">adorn_title</a></span><span class="op">(</span>placement <span class="op">=</span> <span class="st">"top"</span>, <span class="st">"Continente"</span>, <span class="st">"Campeones del mundo"</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">continente</span>, <span class="va">campeon</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="st">"row"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span>denominator <span class="op">=</span> <span class="st">"col"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_ns.html">adorn_ns</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_title.html">adorn_title</a></span><span class="op">(</span>placement <span class="op">=</span> <span class="st">"top"</span>, <span class="st">"Continente"</span>, <span class="st">"Campeones del mundo"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\n==================== DISTRIBUCIÓN DE LA CANTIDAD DE GOLES A FAVOR ====================\n\n"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Crear intervalos y tabla</span></span>
 <span><span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">datos</span>, intervalos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">goles_favor</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">250</span>, <span class="fl">50</span><span class="op">)</span>, right <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">tabla_gf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">intervalos</span><span class="op">)</span></span>
+<span><span class="va">tabla_gf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://sfirke.github.io/janitor/reference/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">datos</span>, <span class="va">intervalos</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Detectar el intervalo con la mayor frecuencia</span></span>
 <span><span class="va">maximo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">tabla_gf</span>, <span class="va">n</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span>
@@ -1085,7 +1085,7 @@ https://data-se.netlify.app/2021/02/24/exercises-to-data-wrangling-with-the-tidy
 <span>        `Frec. Relativa` <span class="op">=</span> <span class="va">percent</span></span>
 <span>    <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>    <span class="co"># Agregar totales sólo para Frec Absoluta y Frec Rel (sí o sí hay que escribir todos los argumentos de la función) </span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="st">"row"</span>, fill <span class="op">=</span> <span class="st">"-"</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, name <span class="op">=</span> <span class="st">"Total"</span>, <span class="va">`Frec. Absoluta`</span>, <span class="va">`Frec. Relativa`</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://sfirke.github.io/janitor/reference/adorn_totals.html">adorn_totals</a></span><span class="op">(</span>where <span class="op">=</span> <span class="st">"row"</span>, fill <span class="op">=</span> <span class="st">"-"</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, name <span class="op">=</span> <span class="st">"Total"</span>, <span class="va">`Frec. Absoluta`</span>, <span class="va">`Frec. Relativa`</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Emitir mensaje</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nEl intervalo de cantidad de goles a favor con la mayor cantidad de observaciones es"</span>, </span>
@@ -1167,16 +1167,113 @@ El continente con la mayor cantidad de países que han participado de mundiales 
 
 El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones es [0,50) con 63 países.</code></pre>
 </div>
-<div id="lectura-opcional" class="section level2" number="6.8">
+<div id="fusionar-dos-data.frames" class="section level2" number="6.8">
 <h2>
-<span class="header-section-number">6.8</span> Lectura opcional<a class="anchor" aria-label="anchor" href="#lectura-opcional"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.8</span> Fusionar dos <code>data.frames</code><a class="anchor" aria-label="anchor" href="#fusionar-dos-data.frames"><i class="fas fa-link"></i></a>
 </h2>
-<div id="otros-ejemplos-para-obtener-resúmenes" class="section level3" number="6.8.1">
+<p>Muchas veces, los análisis de datos involucran múltiples tablas o conjuntos de datos, los cuales deben combinarse para dar respuesta a las preguntas de interés.. En estos casos importan las <strong>relaciones</strong> que se establecen entre las bases, más allá de los datos individuales que contenga cada uno de ellas. <code>R</code> nos ofrece diversas alternativas, las cuales dependen del tipo de relación que deseemos establecer entre los conjuntos de datos. Para definir estas relaciones debemos establecer qué variable funcionará como <code>key</code> o clave identificadora de los casos. Esta <code>key</code> debe figurar en ambos conjuntos de datos y representar lo mismo para que tenga sentido la relación. Las fusiones pueden clasificarse en dos grupos: las que producen modificaciones en uno de los conjuntos (<em>mutating joins</em>) y las que actúan como filtros (<em>filtering joins</em>).</p>
+<p><strong>Mutating Joins</strong></p>
+<p>Son funciones que permiten unir conjuntos de datos, agregando en uno de ellos nuevas variables que provienen del otro, a partir las filas con <code>key</code> coincidente:</p>
+<pre><code>- `left_join()`
+- `right_join()`
+- `inner_join()`
+- `full_join()`</code></pre>
+<p>Hacen una <em>mutación</em> en el sentido de que añaden columnas a uno de los conjuntos. Consideremos los siguientes conjuntos de datos, donde <em>X1</em> será la clave:</p>
+<div class="sourceCode" id="cb746"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Datos1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>X1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>, X2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">Datos2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>X1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"D"</span>, <span class="st">"B"</span>, <span class="st">"A"</span><span class="op">)</span>, X3 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">9</span>, <span class="fl">7</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="images/06_archivos/Tabla1.png" width="40%" style="display: block; margin: auto;"></div>
+<p>Veamos los distintos tipos de <em>mutating joins</em>:</p>
+<ul>
+<li>
+<p><code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code>: esta opción devuelve un conjunto de datos que contiene todas las filas de la tabla de la izquierda, agregando las columnas de la tabla de la derecha.</p>
+<div class="sourceCode" id="cb747"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">DatosUnidos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">Datos1</span>, <span class="va">Datos2</span>, by <span class="op">=</span> <span class="st">"X1"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="images/06_archivos/leftjoin.PNG" width="70%" style="display: block; margin: auto;"></div>
+</li>
+<li>
+<p><code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join()</a></code>: devuelve un conjunto de datos que contiene todas las filas de la tabla de la derecha y agrega columnas de la tabla izquierda.</p>
+<div class="sourceCode" id="cb748"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">DatosUnidos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join</a></span><span class="op">(</span><span class="va">Datos1</span>, <span class="va">Datos2</span>, by <span class="op">=</span> <span class="st">"X1"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="images/06_archivos/rightjoin.PNG" width="70%" style="display: block; margin: auto;"></div>
+</li>
+<li>
+<p><code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>: devuelve un conjunto de datos con todas las columnas pero sólo para las observaciones (filas) cuyos identificadores se repiten en ambos conjuntos de datos.</p>
+<div class="sourceCode" id="cb749"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">DatosUnidos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">Datos1</span>, <span class="va">Datos2</span>, by <span class="op">=</span> <span class="st">"X1"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="images/06_archivos/innerjoin.PNG" width="70%" style="display: block; margin: auto;"></div>
+</li>
+<li>
+<p><code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join()</a></code>: devuelve un conjunto de datos con todas las filas y columnas, fusionando a través de la <code>key</code> para las filas coincidentes entre ambos conjuntos.</p>
+<div class="sourceCode" id="cb750"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">DatosUnidos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">Datos1</span>, <span class="va">Datos2</span>, by <span class="op">=</span> <span class="st">"X1"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="images/06_archivos/fulljoin.PNG" width="70%" style="display: block; margin: auto;"></div>
+</li>
+</ul>
+<p><strong>Filtering Joins</strong></p>
+<p>Son funciones que permiten unir las observaciones de dos datasets, pero sólo afectan a las filas sin alterar las columnas o variables. Funcionan como un <strong>filtro</strong> para las observaciones de una base de datos, de acuerdo a si <em>están</em> o <em>no están</em> (según el sentido que se elija) en otra base de datos:</p>
+<ul>
+<li>
+<p><code><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">semi_join()</a></code>: devuelve todas las observaciones que están en <code>Datos1</code> que también están en <code>Datos2</code>, manteniendo sólo las columnas de <code>Datos1</code>. La relación se piensa como en <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>, pero el resultado es sólo la base <code>Datos1</code> filtrada.</p>
+<div class="sourceCode" id="cb751"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">DatosFiltrados</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">semi_join</a></span><span class="op">(</span><span class="va">Datos1</span>, <span class="va">Datos2</span>, by <span class="op">=</span> <span class="st">"X1"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="images/06_archivos/semijoin.PNG" width="70%" style="display: block; margin: auto;"></div>
+</li>
+<li>
+<p><code><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">anti_join()</a></code>: devuelve aquellas observaciones que están en <code>Datos1</code> pero <strong>no están</strong> en <code>Datos2</code>, manteniendo las columnas de <code>Datos1</code>. Es el filtro contrario a <code><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">semi_join()</a></code>.</p>
+<div class="sourceCode" id="cb752"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">DatosFiltrados</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">anti_join</a></span><span class="op">(</span><span class="va">Datos1</span>, <span class="va">Datos2</span>, by <span class="op">=</span> <span class="st">"X1"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="images/06_archivos/antijoin.PNG" width="70%" style="display: block; margin: auto;"></div>
+</li>
+</ul>
+<p><strong>Otros detalles sobre las keys</strong></p>
+<p>Hasta ahora hemos visto ejemplos donde las columnas que se usaron como claves identificadoras tenían valores únicos, sin repetir. Si la clave identificadora está duplicada en una de las bases de datos, la relación que <code>R</code> brindará con las funciones <code>*_join()</code> será del tipo “uno a varios”:</p>
+<div class="sourceCode" id="cb753"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">d1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  val_x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"x1"</span>, <span class="st">"x2"</span>, <span class="st">"x3"</span>, <span class="st">"x4"</span><span class="op">)</span>, </span>
+<span>  key <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">d2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  key <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, </span>
+<span>  val_y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"y1"</span>, <span class="st">"y2"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">d1</span>, <span class="va">d2</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="images/06_archivos/1dupkeys.PNG" width="50%" style="display: block; margin: auto;"></div>
+<p>Si ambas bases de datos tienen claves duplicadas, las funciones <code>*_join()</code> devuelven todas las combinaciones posibles:</p>
+<div class="sourceCode" id="cb754"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">d1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  val_x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"x1"</span>, <span class="st">"x2"</span>, <span class="st">"x3"</span>, <span class="st">"x4"</span><span class="op">)</span>,</span>
+<span>  key <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">d2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  key <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>  val_y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"y1"</span>, <span class="st">"y2"</span>, <span class="st">"y3"</span>, <span class="st">"y4"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">d1</span>, <span class="va">d2</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="images/06_archivos/2dupkeys.PNG" width="50%" style="display: block; margin: auto;"></div>
+<p>Muchas veces nos interesa que las observaciones de los conjuntos de datos se relacionen a través de más de una variable, es decir, queremos identificar a cada registro a través de más de una columna. En este caso tenemos 2 opciones:</p>
+<ol style="list-style-type: decimal">
+<li><p>Inventar una nueva variable identificadora (<code>key</code>) que de algún modo contenga la información de esas variables e identifique a cada observación de manera única (por ejemplo, pegar ambas columnas en una sola).</p></li>
+<li><p>Indicarle directamente en <code>R</code> que la relación entre las bases de datos debe hacerse a través de varias variables. En el argumento <code>by</code> de las funciones <code>*_join()</code> ponemos el vector de variables <code>by = c(Vble1, Vble2, Vble3)</code> mediante las cuales queremos que se relacionen las bases.</p></li>
+</ol>
+<p>Por defecto, los conjuntos de datos se unen a través de todas las variables que llevan el mismo nombre en ambos conjuntos, lo que suele denominarse <strong>unión natural</strong>. Si usamos <code>by</code> para indicar qué columnas vinculan ambas bases, y entre las columnas no mencionadas quedan variables con el mismo nombre en los dos conjuntos, entonces estas aparecerán repetidas en el dataset resultante, con una extensión en su nombre para identificar su origen (<em>nombre_columna.x, nombre_columna.y</em>).</p>
+<p>Las variables usadas como <code>key</code> podrían no tener el mismo nombre en ambos conjuntos de datos. Por ejemplo, si en Datos1 tenemos <em>DNI</em> y en Datos2 tenemos <em>Documento</em>, no es necesario renombrar estas columnas: al indicar <strong><code>by = c("DNI" = "Documento")</code></strong>, R las reconoce como la misma variable, las utilizará como clave y conservará el primer nombre (<em>DNI</em> en este ejemplo).</p>
+<!-- PENDIENTE: para ejemplificar fusiones, podria preparar un archivo que tenga un lsitado de todos los paises que fueron sede del mundial, dos columnas, seleccion y cantidad de veces que fue sede, y hacer la fusion con el conjunto original -->
+</div>
+<div id="lectura-opcional" class="section level2" number="6.9">
+<h2>
+<span class="header-section-number">6.9</span> Lectura opcional<a class="anchor" aria-label="anchor" href="#lectura-opcional"><i class="fas fa-link"></i></a>
+</h2>
+<div id="otros-ejemplos-para-obtener-resúmenes" class="section level3" number="6.9.1">
 <h3>
-<span class="header-section-number">6.8.1</span> Otros ejemplos para obtener resúmenes<a class="anchor" aria-label="anchor" href="#otros-ejemplos-para-obtener-res%C3%BAmenes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.9.1</span> Otros ejemplos para obtener resúmenes<a class="anchor" aria-label="anchor" href="#otros-ejemplos-para-obtener-res%C3%BAmenes"><i class="fas fa-link"></i></a>
 </h3>
 <p>Cuando aplicamos el mismo tipo de resumen a varias variables (en este caso, la media), podemos usar <code>across</code>:</p>
-<div class="sourceCode" id="cb745"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb755"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">continente</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">goles_favor</span>, <span class="va">goles_contra</span><span class="op">)</span>, <span class="va">mean</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -1189,30 +1286,30 @@ El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones
 4 Oceanía          10.5          25.5
 5 África           12.1          19.5</code></pre>
 <p>Podemos aplicar el mismo tipo de resumen para todas las variables que tengan alguna característica en particular, por ejemplo, ser numéricas:</p>
-<div class="sourceCode" id="cb747"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb757"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">continente</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="va">mean</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="tablas-de-frecuencia-con-r-base" class="section level3" number="6.8.2">
+<div id="tablas-de-frecuencia-con-r-base" class="section level3" number="6.9.2">
 <h3>
-<span class="header-section-number">6.8.2</span> Tablas de frecuencia con R Base<a class="anchor" aria-label="anchor" href="#tablas-de-frecuencia-con-r-base"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.9.2</span> Tablas de frecuencia con R Base<a class="anchor" aria-label="anchor" href="#tablas-de-frecuencia-con-r-base"><i class="fas fa-link"></i></a>
 </h3>
 <p>Utilizar el paquete <code>janitor</code> no es la única forma de inspeccionar frecuencias. Se puede hacer de forma sencilla con funciones incorporadas en R Base, aunque la forma de presentar los resultados es menos vistosa:</p>
-<div class="sourceCode" id="cb748"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb758"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Frecuencias absolutas</span></span>
 <span><span class="va">tabla1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">continente</span><span class="op">)</span></span>
 <span><span class="va">tabla1</span></span></code></pre></div>
 <pre><code>
  África América    Asia  Europa Oceanía 
      13      20      12      33       2 </code></pre>
-<div class="sourceCode" id="cb750"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb760"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Frencuencias relativas</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/proportions.html">prop.table</a></span><span class="op">(</span><span class="va">tabla1</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
  África América    Asia  Europa Oceanía 
  0.1625  0.2500  0.1500  0.4125  0.0250 </code></pre>
-<div class="sourceCode" id="cb752"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb762"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Tabla de contingencia para dos variables</span></span>
 <span><span class="va">tabla2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">continente</span>, <span class="va">datos</span><span class="op">$</span><span class="va">campeon</span><span class="op">)</span></span>
 <span><span class="va">tabla2</span></span></code></pre></div>
@@ -1223,7 +1320,7 @@ El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones
   Asia          0         12
   Europa        5         28
   Oceanía       0          2</code></pre>
-<div class="sourceCode" id="cb754"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb764"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Distribución conjunta</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/proportions.html">prop.table</a></span><span class="op">(</span><span class="va">tabla2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>         
@@ -1233,7 +1330,7 @@ El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones
   Asia     0.0000     0.1500
   Europa   0.0625     0.3500
   Oceanía  0.0000     0.0250</code></pre>
-<div class="sourceCode" id="cb756"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb766"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Distribución condicional de campeon dado continente</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/proportions.html">prop.table</a></span><span class="op">(</span><span class="va">tabla2</span>, margin <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <pre><code>         
@@ -1243,7 +1340,7 @@ El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones
   Asia    0.0000000  1.0000000
   Europa  0.1515152  0.8484848
   Oceanía 0.0000000  1.0000000</code></pre>
-<div class="sourceCode" id="cb758"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb768"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Distribución condicional de continente dado campeon</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/proportions.html">prop.table</a></span><span class="op">(</span><span class="va">tabla2</span>, margin <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>         
@@ -1254,14 +1351,14 @@ El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones
   Europa  0.62500000 0.38888889
   Oceanía 0.00000000 0.02777778</code></pre>
 </div>
-<div id="cambiar-el-formato-de-un-data.frame" class="section level3" number="6.8.3">
+<div id="cambiar-el-formato-de-un-data.frame" class="section level3" number="6.9.3">
 <h3>
-<span class="header-section-number">6.8.3</span> Cambiar el formato de un <em>data.frame</em><a class="anchor" aria-label="anchor" href="#cambiar-el-formato-de-un-data.frame"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.9.3</span> Cambiar el formato de un <em>data.frame</em><a class="anchor" aria-label="anchor" href="#cambiar-el-formato-de-un-data.frame"><i class="fas fa-link"></i></a>
 </h3>
 <p>Dependiendo de los requerimientos de los análisis que estemos realizando, es muy frecuente necesitar cambiar el formato que tienen los datos. Por ejemplo, puede ser necesario apilar columnas una debajo de otra, resultando en un dataset con más filas (más largo) y menos columnas (más angosto). La situación contraria también se puede presentar y consiste en desacoplar información concatenada en una sola columna para ubicarla en varias columnas adyacentes, resultando en una dataset con más columnas (más ancho) y menos filas (más corto). Por supuesto, estas transformaciones tienen que hacerse sin mezclar los registros:</p>
 <p><strong>Formato ancho a largo</strong></p>
 <p>Armemos un pequeño ejemplo de juguete para imaginar bien de qué se trata esto. Supongamos que tenemos datos con la cantidad vendida de 3 productos en distintos meses. De la siguiente forma se puede crear un <em>data.frame</em> “a mano”, sin leer los datos desde un archivo:</p>
-<div class="sourceCode" id="cb760"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb770"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ejemplo1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  producto <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,</span>
 <span>  septiembre <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">234</span>, <span class="fl">657</span>, <span class="fl">989</span><span class="op">)</span>,</span>
@@ -1298,7 +1395,7 @@ El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones
 <strong>values_to</strong>: cómo queremos que se llame la nueva columna que contendrá los valores de las columnas apiladas.</li>
 </ul>
 <div class="inline-figure"><img src="images/06_archivos/original-dfs-tidy.png" width="60%" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb763"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb773"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ejemplo2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">ejemplo1</span>, </span>
 <span>  cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">septiembre</span>, <span class="va">octubre</span>, <span class="va">noviembre</span><span class="op">)</span>, </span>
@@ -1330,7 +1427,7 @@ El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones
 <li>
 <strong>values_from</strong>: columna que tiene los valores que se distribuirán en las nuevas columnas</li>
 </ul>
-<div class="sourceCode" id="cb765"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb775"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">ejemplo2</span>, </span>
 <span>  names_from <span class="op">=</span> <span class="va">mes</span>, </span>
@@ -1342,103 +1439,6 @@ El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones
 1        1        234     841       521
 2        2        657     621       147
 3        3        989     589       258</code></pre>
-</div>
-<div id="fusionar-dos-data.frames" class="section level3" number="6.8.4">
-<h3>
-<span class="header-section-number">6.8.4</span> Fusionar dos <code>data.frames</code><a class="anchor" aria-label="anchor" href="#fusionar-dos-data.frames"><i class="fas fa-link"></i></a>
-</h3>
-<p>Muchas veces, los análisis de datos involucran múltiples tablas o conjuntos de datos, los cuales deben combinarse para dar respuesta a las preguntas de interés.. En estos casos importan las <strong>relaciones</strong> que se establecen entre las bases, más allá de los datos individuales que contenga cada uno de ellas. <code>R</code> nos ofrece diversas alternativas, las cuales dependen del tipo de relación que deseemos establecer entre los conjuntos de datos. Para definir estas relaciones debemos establecer qué variable funcionará como <code>key</code> o clave identificadora de los casos. Esta <code>key</code> debe figurar en ambos conjuntos de datos y representar lo mismo para que tenga sentido la relación. Las fusiones pueden clasificarse en dos grupos: las que producen modificaciones en uno de los conjuntos (<em>mutating joins</em>) y las que actúan como filtros (<em>filtering joins</em>).</p>
-<p><strong>Mutating Joins</strong></p>
-<p>Son funciones que permiten unir conjuntos de datos, agregando en uno de ellos nuevas variables que provienen del otro, a partir las filas con <code>key</code> coincidente:</p>
-<pre><code>- `left_join()`
-- `right_join()`
-- `inner_join()`
-- `full_join()`</code></pre>
-<p>Hacen una <em>mutación</em> en el sentido de que añaden columnas a uno de los conjuntos. Consideremos los siguientes conjuntos de datos, donde <em>X1</em> será la clave:</p>
-<div class="sourceCode" id="cb768"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">Datos1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>X1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>, X2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">Datos2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>X1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"D"</span>, <span class="st">"B"</span>, <span class="st">"A"</span><span class="op">)</span>, X3 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">9</span>, <span class="fl">7</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="images/06_archivos/Tabla1.png" width="40%" style="display: block; margin: auto;"></div>
-<p>Veamos los distintos tipos de <em>mutating joins</em>:</p>
-<ul>
-<li>
-<p><code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code>: esta opción devuelve un conjunto de datos que contiene todas las filas de la tabla de la izquierda, agregando las columnas de la tabla de la derecha.</p>
-<div class="sourceCode" id="cb769"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">DatosUnidos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">Datos1</span>, <span class="va">Datos2</span>, by <span class="op">=</span> <span class="st">"X1"</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="images/06_archivos/leftjoin.PNG" width="70%" style="display: block; margin: auto;"></div>
-</li>
-<li>
-<p><code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join()</a></code>: devuelve un conjunto de datos que contiene todas las filas de la tabla de la derecha y agrega columnas de la tabla izquierda.</p>
-<div class="sourceCode" id="cb770"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">DatosUnidos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join</a></span><span class="op">(</span><span class="va">Datos1</span>, <span class="va">Datos2</span>, by <span class="op">=</span> <span class="st">"X1"</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="images/06_archivos/rightjoin.PNG" width="70%" style="display: block; margin: auto;"></div>
-</li>
-<li>
-<p><code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>: devuelve un conjunto de datos con todas las columnas pero sólo para las observaciones (filas) cuyos identificadores se repiten en ambos conjuntos de datos.</p>
-<div class="sourceCode" id="cb771"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">DatosUnidos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">Datos1</span>, <span class="va">Datos2</span>, by <span class="op">=</span> <span class="st">"X1"</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="images/06_archivos/innerjoin.PNG" width="70%" style="display: block; margin: auto;"></div>
-</li>
-<li>
-<p><code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join()</a></code>: devuelve un conjunto de datos con todas las filas y columnas, fusionando a través de la <code>key</code> para las filas coincidentes entre ambos conjuntos.</p>
-<div class="sourceCode" id="cb772"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">DatosUnidos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">Datos1</span>, <span class="va">Datos2</span>, by <span class="op">=</span> <span class="st">"X1"</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="images/06_archivos/fulljoin.PNG" width="70%" style="display: block; margin: auto;"></div>
-</li>
-</ul>
-<p><strong>Filtering Joins</strong></p>
-<p>Son funciones que permiten unir las observaciones de dos datasets, pero sólo afectan a las filas sin alterar las columnas o variables. Funcionan como un <strong>filtro</strong> para las observaciones de una base de datos, de acuerdo a si <em>están</em> o <em>no están</em> (según el sentido que se elija) en otra base de datos:</p>
-<ul>
-<li>
-<p><code><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">semi_join()</a></code>: devuelve todas las observaciones que están en <code>Datos1</code> que también están en <code>Datos2</code>, manteniendo sólo las columnas de <code>Datos1</code>. La relación se piensa como en <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>, pero el resultado es sólo la base <code>Datos1</code> filtrada.</p>
-<div class="sourceCode" id="cb773"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">DatosFiltrados</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">semi_join</a></span><span class="op">(</span><span class="va">Datos1</span>, <span class="va">Datos2</span>, by <span class="op">=</span> <span class="st">"X1"</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="images/06_archivos/semijoin.PNG" width="70%" style="display: block; margin: auto;"></div>
-</li>
-<li>
-<p><code><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">anti_join()</a></code>: devuelve aquellas observaciones que están en <code>Datos1</code> pero <strong>no están</strong> en <code>Datos2</code>, manteniendo las columnas de <code>Datos1</code>. Es el filtro contrario a <code><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">semi_join()</a></code>.</p>
-<div class="sourceCode" id="cb774"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">DatosFiltrados</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">anti_join</a></span><span class="op">(</span><span class="va">Datos1</span>, <span class="va">Datos2</span>, by <span class="op">=</span> <span class="st">"X1"</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="images/06_archivos/antijoin.PNG" width="70%" style="display: block; margin: auto;"></div>
-</li>
-</ul>
-<p><strong>Otros detalles sobre las keys</strong></p>
-<p>Hasta ahora hemos visto ejemplos donde las columnas que se usaron como claves identificadoras tenían valores únicos, sin repetir. Si la clave identificadora está duplicada en una de las bases de datos, la relación que <code>R</code> brindará con las funciones <code>*_join()</code> será del tipo “uno a varios”:</p>
-<div class="sourceCode" id="cb775"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">d1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
-<span>  val_x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"x1"</span>, <span class="st">"x2"</span>, <span class="st">"x3"</span>, <span class="st">"x4"</span><span class="op">)</span>, </span>
-<span>  key <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">d2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
-<span>  key <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, </span>
-<span>  val_y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"y1"</span>, <span class="st">"y2"</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">d1</span>, <span class="va">d2</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="images/06_archivos/1dupkeys.PNG" width="50%" style="display: block; margin: auto;"></div>
-<p>Si ambas bases de datos tienen claves duplicadas, las funciones <code>*_join()</code> devuelven todas las combinaciones posibles:</p>
-<div class="sourceCode" id="cb776"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">d1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
-<span>  val_x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"x1"</span>, <span class="st">"x2"</span>, <span class="st">"x3"</span>, <span class="st">"x4"</span><span class="op">)</span>,</span>
-<span>  key <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">d2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
-<span>  key <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>,</span>
-<span>  val_y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"y1"</span>, <span class="st">"y2"</span>, <span class="st">"y3"</span>, <span class="st">"y4"</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">d1</span>, <span class="va">d2</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="images/06_archivos/2dupkeys.PNG" width="50%" style="display: block; margin: auto;"></div>
-<p>Muchas veces nos interesa que las observaciones de los conjuntos de datos se relacionen a través de más de una variable, es decir, queremos identificar a cada registro a través de más de una columna. En este caso tenemos 2 opciones:</p>
-<ol style="list-style-type: decimal">
-<li><p>Inventar una nueva variable identificadora (<code>key</code>) que de algún modo contenga la información de esas variables e identifique a cada observación de manera única (por ejemplo, pegar ambas columnas en una sola).</p></li>
-<li><p>Indicarle directamente en <code>R</code> que la relación entre las bases de datos debe hacerse a través de varias variables. En el argumento <code>by</code> de las funciones <code>*_join()</code> ponemos el vector de variables <code>by = c(Vble1, Vble2, Vble3)</code> mediante las cuales queremos que se relacionen las bases.</p></li>
-</ol>
-<p>Por defecto, los conjuntos de datos se unen a través de todas las variables que llevan el mismo nombre en ambos conjuntos, lo que suele denominarse <strong>unión natural</strong>. Si usamos <code>by</code> para indicar qué columnas vinculan ambas bases, y entre las columnas no mencionadas quedan variables con el mismo nombre en los dos conjuntos, entonces estas aparecerán repetidas en el dataset resultante, con una extensión en su nombre para identificar su origen (<em>nombre_columna.x, nombre_columna.y</em>).</p>
-<p>Las variables usadas como <code>key</code> podrían no tener el mismo nombre en ambos conjuntos de datos. Por ejemplo, si en Datos1 tenemos <em>DNI</em> y en Datos2 tenemos <em>Documento</em>, no es necesario renombrar estas columnas: al indicar <strong><code>by = c("DNI" = "Documento")</code></strong>, R las reconoce como la misma variable, las utilizará como clave y conservará el primer nombre (<em>DNI</em> en este ejemplo).</p>
-<!-- PENDIENTE: para ejemplificar fusiones, podria preparar un archivo que tenga un lsitado de todos los paises que fueron sede del mundial, dos columnas, seleccion y cantidad de veces que fue sede, y hacer la fusion con el conjunto original -->
 
 </div>
 </div>
@@ -1478,12 +1478,12 @@ El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones
 </ul>
 </li>
 <li><a class="nav-link" href="#escritura-de-resultados-en-archivos"><span class="header-section-number">6.7</span> Escritura de resultados en archivos</a></li>
+<li><a class="nav-link" href="#fusionar-dos-data.frames"><span class="header-section-number">6.8</span> Fusionar dos data.frames</a></li>
 <li>
-<a class="nav-link" href="#lectura-opcional"><span class="header-section-number">6.8</span> Lectura opcional</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#otros-ejemplos-para-obtener-res%C3%BAmenes"><span class="header-section-number">6.8.1</span> Otros ejemplos para obtener resúmenes</a></li>
-<li><a class="nav-link" href="#tablas-de-frecuencia-con-r-base"><span class="header-section-number">6.8.2</span> Tablas de frecuencia con R Base</a></li>
-<li><a class="nav-link" href="#cambiar-el-formato-de-un-data.frame"><span class="header-section-number">6.8.3</span> Cambiar el formato de un data.frame</a></li>
-<li><a class="nav-link" href="#fusionar-dos-data.frames"><span class="header-section-number">6.8.4</span> Fusionar dos data.frames</a></li>
+<a class="nav-link" href="#lectura-opcional"><span class="header-section-number">6.9</span> Lectura opcional</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#otros-ejemplos-para-obtener-res%C3%BAmenes"><span class="header-section-number">6.9.1</span> Otros ejemplos para obtener resúmenes</a></li>
+<li><a class="nav-link" href="#tablas-de-frecuencia-con-r-base"><span class="header-section-number">6.9.2</span> Tablas de frecuencia con R Base</a></li>
+<li><a class="nav-link" href="#cambiar-el-formato-de-un-data.frame"><span class="header-section-number">6.9.3</span> Cambiar el formato de un data.frame</a></li>
 </ul>
 </li>
 </ul>
@@ -1502,7 +1502,7 @@ El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2023-05-30.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2023-06-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

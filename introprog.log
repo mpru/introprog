@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2023.5.30)  30 MAY 2023 16:03
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2023.5.30)  13 JUN 2023 14:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2035,65 +2035,69 @@ Overfull \hbox (50.766pt too wide) in paragraph at lines 8445--8445
 ad de observaciones es [0,50) con 63 países.[] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 8489.
-LaTeX Info: Redefining \% on input line 8489.
-[125]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 8583.
-LaTeX Info: Redefining \% on input line 8583.
-[126]
-File: images/06_archivos/original-dfs-tidy.png Graphic file (type bmp)
-<images/06_archivos/original-dfs-tidy.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 8644.
-LaTeX Info: Redefining \% on input line 8644.
-[127]
-File: images/06_archivos/spread.png Graphic file (type bmp)
-<images/06_archivos/spread.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 8691.
-LaTeX Info: Redefining \% on input line 8691.
-[128]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 8448.
 File: images/06_archivos/Tabla1.png Graphic file (type bmp)
 <images/06_archivos/Tabla1.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 8472.
+LaTeX Info: Redefining \% on input line 8472.
+[125]
 File: images/06_archivos/leftjoin.png Graphic file (type bmp)
 <images/06_archivos/leftjoin.png>
-LaTeX Info: Redefining \. on input line 8753.
-LaTeX Info: Redefining \% on input line 8753.
-[129]
 File: images/06_archivos/rightjoin.png Graphic file (type bmp)
 <images/06_archivos/rightjoin.png>
 File: images/06_archivos/innerjoin.png Graphic file (type bmp)
 <images/06_archivos/innerjoin.png>
 File: images/06_archivos/fulljoin.png Graphic file (type bmp)
 <images/06_archivos/fulljoin.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 8522.
+LaTeX Info: Redefining \% on input line 8522.
+[126]
 File: images/06_archivos/semijoin.png Graphic file (type bmp)
 <images/06_archivos/semijoin.png>
 File: images/06_archivos/antijoin.png Graphic file (type bmp)
 <images/06_archivos/antijoin.png>
+File: images/06_archivos/1dupkeys.png Graphic file (type bmp)
+<images/06_archivos/1dupkeys.png>
+
+Underfull \vbox (badness 10000) detected at line 8584
+ []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 8806.
-LaTeX Info: Redefining \% on input line 8806.
-[130]
-File: images/06_archivos/1dupkeys.png Graphic file (type bmp)
-<images/06_archivos/1dupkeys.png>
+LaTeX Info: Redefining \. on input line 8584.
+LaTeX Info: Redefining \% on input line 8584.
+[127]
 File: images/06_archivos/2dupkeys.png Graphic file (type bmp)
 <images/06_archivos/2dupkeys.png>
 
+Underfull \vbox (badness 1400) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 8630.
+LaTeX Info: Redefining \% on input line 8630.
+[128]
+LaTeX Info: Redefining \. on input line 8723.
+LaTeX Info: Redefining \% on input line 8723.
+[129]
+LaTeX Info: Redefining \. on input line 8796.
+LaTeX Info: Redefining \% on input line 8796.
+[130]
+File: images/06_archivos/original-dfs-tidy.png Graphic file (type bmp)
+<images/06_archivos/original-dfs-tidy.png>
+File: images/06_archivos/spread.png Graphic file (type bmp)
+<images/06_archivos/spread.png>
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 8852.
-LaTeX Info: Redefining \% on input line 8852.
+LaTeX Info: Redefining \. on input line 8841.
+LaTeX Info: Redefining \% on input line 8841.
 [131]
 LaTeX Info: Redefining \. on input line 8866.
 LaTeX Info: Redefining \% on input line 8866.
@@ -2287,11 +2291,11 @@ LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
 ) ) 
 Here is how much of TeX's memory you used:
- 22896 strings out of 476191
- 431185 string characters out of 5812072
- 921508 words of memory out of 5000000
- 43229 multiletter control sequences out of 15000+600000
- 475814 words of font info for 94 fonts, out of 8000000 for 9000
+ 22901 strings out of 476191
+ 431268 string characters out of 5812072
+ 921501 words of memory out of 5000000
+ 43233 multiletter control sequences out of 15000+600000
+ 475822 words of font info for 95 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  86i,12n,121p,1543b,724s stack positions out of 5000i,500n,10000p,200000b,80000s
 

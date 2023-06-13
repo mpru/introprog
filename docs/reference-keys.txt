@@ -141,11 +141,11 @@ cálculo-de-estadísticas
 distribuciones-de-frecuencias-para-variables-categóricas
 distribuciones-de-frecuencias-para-variables-cuantitativas
 escritura-de-resultados-en-archivos
+fusionar-dos-data.frames
 lectura-opcional
 otros-ejemplos-para-obtener-resúmenes
 tablas-de-frecuencia-con-r-base
 cambiar-el-formato-de-un-data.frame
-fusionar-dos-data.frames
 otros-tópicos
 la-consola
 uso-de-argumentos-en-la-línea-de-comandos-al-ejecutar-código-de-r

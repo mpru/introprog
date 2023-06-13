@@ -872,116 +872,7 @@ El continente con la mayor cantidad de países que han participado de mundiales 
 El intervalo de cantidad de goles a favor con la mayor cantidad de observaciones es [0,50) con 63 países.
 ```
 
-
-## Lectura opcional
-
-### Otros ejemplos para obtener resúmenes
-
-Cuando aplicamos el mismo tipo de resumen a varias variables (en este caso, la media), podemos usar `across`:
-
-```{r}
-datos %>% 
-	group_by(continente) %>% 
-	summarise(across(c(goles_favor, goles_contra), mean))
-```
-
-Podemos aplicar el mismo tipo de resumen para todas las variables que tengan alguna característica en particular, por ejemplo, ser numéricas:
-
-```{r, eval=FALSE}
-datos %>% 
-	group_by(continente) %>% 
-	summarise(across(where(is.numeric), mean))
-```
-
-### Tablas de frecuencia con R Base
-
-Utilizar el paquete `janitor` no es la única forma de inspeccionar frecuencias. Se puede hacer de forma sencilla con funciones incorporadas en R Base, aunque la forma de presentar los resultados es menos vistosa:
-
-```{r}
-# Frecuencias absolutas
-tabla1 <- table(datos$continente)
-tabla1
-# Frencuencias relativas
-prop.table(tabla1)
-# Tabla de contingencia para dos variables
-tabla2 <- table(datos$continente, datos$campeon)
-tabla2
-# Distribución conjunta
-prop.table(tabla2)
-# Distribución condicional de campeon dado continente
-prop.table(tabla2, margin = 1)
-# Distribución condicional de continente dado campeon
-prop.table(tabla2, margin = 2)
-```
-
-### Cambiar el formato de un *data.frame*
-
-Dependiendo de los requerimientos de los análisis que estemos realizando, es muy frecuente necesitar cambiar el formato que tienen los datos. Por ejemplo, puede ser necesario apilar columnas una debajo de otra, resultando en un dataset con más filas (más largo) y menos columnas (más angosto). La situación contraria también se puede presentar y consiste en desacoplar información concatenada en una sola columna para ubicarla en varias columnas adyacentes, resultando en una dataset con más columnas (más ancho) y menos filas (más corto). Por supuesto, estas transformaciones tienen que hacerse sin mezclar los registros:
-
-**Formato ancho a largo**
-
-Armemos un pequeño ejemplo de juguete para imaginar bien de qué se trata esto. Supongamos que tenemos datos con la cantidad vendida de 3 productos en distintos meses. De la siguiente forma se puede crear un *data.frame* "a mano", sin leer los datos desde un archivo:
-
-```{r}
-ejemplo1 <- data.frame(
-  producto = 1:3,
-  septiembre = c(234, 657, 989),
-  octubre = c(841, 621, 589),
-  noviembre = c(521, 147, 258)
-)
-ejemplo1
-```
-
-A ese formato le decimos "ancho" porque una misma variable (cantidad de ventas) se ubica en muchas columnas, cuyos nombres se confunden con lo que en realidad debe ser otra variable, el mes. Queremos pasarlo a un formato largo para que se vea así:
-
-```{r, echo=FALSE}
-pivot_longer(data = ejemplo1, cols = c(septiembre, octubre, noviembre), names_to = "mes", values_to = "ventas")
-```
-
-Lo logramos con la función `pivot_longer()`, cuyos argumentos son:
-
-  - **data**: el dataset que vamos a modificar
-  - **cols**: columnas que queremos apilar (o las que no queremos apilar, si es más fácil de indicar)
-  - **names_to**: cómo queremos que se llame la nueva columna que contendrá los nombres de las columnas apiladas.
-  - **values_to**: cómo queremos que se llame la nueva columna que contendrá los valores de las columnas apiladas.
-
-```{r, fig.show='hold', echo=FALSE, fig.align="center", out.width="60%"}
-knitr::include_graphics('images/06_archivos/original-dfs-tidy.png')
-```
-
-```{r}
-ejemplo2 <- pivot_longer(
-  data = ejemplo1, 
-  cols = c(septiembre, octubre, noviembre), 
-  names_to = "mes", 
-  values_to = "ventas"
-)
-ejemplo2
-```
-
-**Formato largo a ancho**
-
-A su vez, la función `pivot_wider()` permite pasar de **formatos largos** a **formatos anchos** (al revés de `pivot_longer()`):
-
-```{r, out.width="60%", echo=F}
-knitr::include_graphics('images/06_archivos/spread.png')
-```
-  
-Podríamos usarlo si queremos volver a la versión original de la base. Para ello necesitamos usar estos argumentos:
-
-  - **data**: el dataset
-  - **names_from**: columna que tiene los nombres de las nuevas columnas
-  - **values_from**: columna que tiene los valores que se distribuirán en las nuevas columnas
-
-```{r}
-pivot_wider(
-  data = ejemplo2, 
-  names_from = mes, 
-  values_from = ventas
-)
-```
-
-### Fusionar dos `data.frames`
+## Fusionar dos `data.frames`
 
 Muchas veces, los análisis de datos involucran múltiples tablas o conjuntos de datos, los cuales deben combinarse para dar respuesta a las preguntas de interés.. En estos casos importan las **relaciones** que se establecen entre las bases, más allá de los datos individuales que contenga cada uno de ellas. `R` nos ofrece diversas alternativas, las cuales dependen del tipo de relación que deseemos establecer entre los conjuntos de datos. Para definir estas relaciones debemos establecer qué variable funcionará como `key` o clave identificadora de los casos. Esta `key` debe figurar en ambos conjuntos de datos y representar lo mismo para que tenga sentido la relación. Las fusiones pueden clasificarse en dos grupos: las que producen modificaciones en uno de los conjuntos (*mutating joins*) y las que actúan como filtros (*filtering joins*).
 
@@ -1124,3 +1015,112 @@ Por defecto, los conjuntos de datos se unen a través de todas las variables que
 Las variables usadas como `key` podrían no tener el mismo nombre en ambos conjuntos de datos. Por ejemplo, si en Datos1 tenemos *DNI* y en Datos2 tenemos *Documento*, no es necesario renombrar estas columnas: al indicar **`by = c("DNI" = "Documento")`**, R las reconoce como la misma variable, las utilizará como clave y conservará el primer nombre (*DNI* en este ejemplo). 
 
 <!-- PENDIENTE: para ejemplificar fusiones, podria preparar un archivo que tenga un lsitado de todos los paises que fueron sede del mundial, dos columnas, seleccion y cantidad de veces que fue sede, y hacer la fusion con el conjunto original -->
+
+
+## Lectura opcional
+
+### Otros ejemplos para obtener resúmenes
+
+Cuando aplicamos el mismo tipo de resumen a varias variables (en este caso, la media), podemos usar `across`:
+
+```{r}
+datos %>% 
+	group_by(continente) %>% 
+	summarise(across(c(goles_favor, goles_contra), mean))
+```
+
+Podemos aplicar el mismo tipo de resumen para todas las variables que tengan alguna característica en particular, por ejemplo, ser numéricas:
+
+```{r, eval=FALSE}
+datos %>% 
+	group_by(continente) %>% 
+	summarise(across(where(is.numeric), mean))
+```
+
+### Tablas de frecuencia con R Base
+
+Utilizar el paquete `janitor` no es la única forma de inspeccionar frecuencias. Se puede hacer de forma sencilla con funciones incorporadas en R Base, aunque la forma de presentar los resultados es menos vistosa:
+
+```{r}
+# Frecuencias absolutas
+tabla1 <- table(datos$continente)
+tabla1
+# Frencuencias relativas
+prop.table(tabla1)
+# Tabla de contingencia para dos variables
+tabla2 <- table(datos$continente, datos$campeon)
+tabla2
+# Distribución conjunta
+prop.table(tabla2)
+# Distribución condicional de campeon dado continente
+prop.table(tabla2, margin = 1)
+# Distribución condicional de continente dado campeon
+prop.table(tabla2, margin = 2)
+```
+
+### Cambiar el formato de un *data.frame*
+
+Dependiendo de los requerimientos de los análisis que estemos realizando, es muy frecuente necesitar cambiar el formato que tienen los datos. Por ejemplo, puede ser necesario apilar columnas una debajo de otra, resultando en un dataset con más filas (más largo) y menos columnas (más angosto). La situación contraria también se puede presentar y consiste en desacoplar información concatenada en una sola columna para ubicarla en varias columnas adyacentes, resultando en una dataset con más columnas (más ancho) y menos filas (más corto). Por supuesto, estas transformaciones tienen que hacerse sin mezclar los registros:
+
+**Formato ancho a largo**
+
+Armemos un pequeño ejemplo de juguete para imaginar bien de qué se trata esto. Supongamos que tenemos datos con la cantidad vendida de 3 productos en distintos meses. De la siguiente forma se puede crear un *data.frame* "a mano", sin leer los datos desde un archivo:
+
+```{r}
+ejemplo1 <- data.frame(
+  producto = 1:3,
+  septiembre = c(234, 657, 989),
+  octubre = c(841, 621, 589),
+  noviembre = c(521, 147, 258)
+)
+ejemplo1
+```
+
+A ese formato le decimos "ancho" porque una misma variable (cantidad de ventas) se ubica en muchas columnas, cuyos nombres se confunden con lo que en realidad debe ser otra variable, el mes. Queremos pasarlo a un formato largo para que se vea así:
+
+```{r, echo=FALSE}
+pivot_longer(data = ejemplo1, cols = c(septiembre, octubre, noviembre), names_to = "mes", values_to = "ventas")
+```
+
+Lo logramos con la función `pivot_longer()`, cuyos argumentos son:
+
+  - **data**: el dataset que vamos a modificar
+  - **cols**: columnas que queremos apilar (o las que no queremos apilar, si es más fácil de indicar)
+  - **names_to**: cómo queremos que se llame la nueva columna que contendrá los nombres de las columnas apiladas.
+  - **values_to**: cómo queremos que se llame la nueva columna que contendrá los valores de las columnas apiladas.
+
+```{r, fig.show='hold', echo=FALSE, fig.align="center", out.width="60%"}
+knitr::include_graphics('images/06_archivos/original-dfs-tidy.png')
+```
+
+```{r}
+ejemplo2 <- pivot_longer(
+  data = ejemplo1, 
+  cols = c(septiembre, octubre, noviembre), 
+  names_to = "mes", 
+  values_to = "ventas"
+)
+ejemplo2
+```
+
+**Formato largo a ancho**
+
+A su vez, la función `pivot_wider()` permite pasar de **formatos largos** a **formatos anchos** (al revés de `pivot_longer()`):
+
+```{r, out.width="60%", echo=F}
+knitr::include_graphics('images/06_archivos/spread.png')
+```
+  
+Podríamos usarlo si queremos volver a la versión original de la base. Para ello necesitamos usar estos argumentos:
+
+  - **data**: el dataset
+  - **names_from**: columna que tiene los nombres de las nuevas columnas
+  - **values_from**: columna que tiene los valores que se distribuirán en las nuevas columnas
+
+```{r}
+pivot_wider(
+  data = ejemplo2, 
+  names_from = mes, 
+  values_from = ventas
+)
+```
