@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2023.5.30)  13 JUN 2023 14:25
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2023.8.10)  9 FEB 2024 21:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -333,7 +333,7 @@ Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 Package: babel 2022/01/26 3.70 The Babel package
 \babel@savecnt=\count308
 \U@D=\dimen178
-\l@unhyphenated=\language87
+\l@unhyphenated=\language6
 (/usr/share/texlive/texmf-dist/tex/generic/babel/xebabel.def (/usr/share/texliv
 e/texmf-dist/tex/generic/babel/txtbabel.def))
 \bbl@readstream=\read3
@@ -2291,12 +2291,12 @@ LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
 ) ) 
 Here is how much of TeX's memory you used:
- 22901 strings out of 476191
- 431268 string characters out of 5812072
- 921501 words of memory out of 5000000
- 43233 multiletter control sequences out of 15000+600000
+ 22901 strings out of 478136
+ 431268 string characters out of 5853445
+ 916357 words of memory out of 5000000
+ 43108 multiletter control sequences out of 15000+600000
  475822 words of font info for 95 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
+ 40 hyphenation exceptions out of 8191
  86i,12n,121p,1543b,724s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on introprog.pdf (145 pages).
