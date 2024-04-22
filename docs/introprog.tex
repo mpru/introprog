@@ -5,16 +5,19 @@
 \documentclass[
 ]{book}
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -44,13 +47,13 @@
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
 \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
 \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
 \newcommand{\BuiltInTok}[1]{#1}
 \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
@@ -58,7 +61,7 @@
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
 \newcommand{\ExtensionTok}[1]{#1}
 \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\ImportTok}[1]{#1}
 \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
@@ -67,7 +70,7 @@
 \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
 \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
@@ -227,7 +230,7 @@
 \bibliographystyle{plainnat}
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 \hypersetup{
   pdftitle={Introducción a la Programación},
   pdfauthor={Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)},
@@ -243,7 +246,7 @@
 \makeatother
 \subtitle{Guía de estudio - Lic. en Estadística - FCEyE - UNR}
 \author{Mgs. Lic. Marcos Prunello (Prof.~Tit. Ord.)}
-\date{2024-02-09}
+\date{2024-04-22}
 
 \begin{document}
 \maketitle
@@ -1147,7 +1150,7 @@ Los operadores aritméticos permiten realizar operaciones matemáticas con datos
   >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.0769}}
   >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2222}}@{}}
 \caption{\label{tab:op-mat} Operadores aritméticos.}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\centering
 Operación
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -1159,9 +1162,9 @@ Ejemplo
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Rtdo para x \textless- 7, y \textless- 3
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\centering
 Operación
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -1173,8 +1176,10 @@ Ejemplo
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Rtdo para x \textless- 7, y \textless- 3
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Suma & + & + & x + y & 10 \\
 Resta & - & - & x - y & 4 \\
 Multiplicación & * & * & x * y & 21 \\
@@ -1182,7 +1187,6 @@ División & / & / & x / y & 2.33 \\
 Potenciación & \^{} & \^{} & x \^{} y & 343 \\
 División entera & DIV & \%/\% & x \%/\% y & 2 \\
 División módular (resto de la división) & MOD & \%\% & x \%\% y & 1 \\
-\bottomrule()
 \end{longtable}
 
 Los operadores aritméticos actúan con un orden de prioridad establecido, también conocido como \emph{orden de evaluación} u \emph{orden de precedencia}, tal como estamos acostumbrados en matemática. Las expresiones entre paréntesis se evalúan primero. Si hay paréntesis anidados se evalúan desde adentro hacia afuera. Dentro de una misma expresión, \textbf{en R} los operadores se evalúan en este orden:
@@ -1204,14 +1208,16 @@ Si la expresión presenta operadores con igual nivel de prioridad, se evalúan d
 
 \begin{longtable}[]{@{}cc@{}}
 \caption{\label{tab:ej-op-mat} Ejemplos de operaciones aritméticas según el orden de precedencia de R.}\tabularnewline
-\toprule()
+\toprule\noalign{}
 Operación & Resultado \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 Operación & Resultado \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 4 + 2 * 4 & 12 \\
 23 * 2 / 5 & 9.2 \\
 3 + 5 * (10 - (2 + 4)) & 23 \\
@@ -1219,7 +1225,6 @@ Operación & Resultado \\
 2.1 * (1.5 + 12.3) & 28.98 \\
 1 \%\% 4 & 1 \\
 8 * (7 - 6 + 5) \%\% (1 + 8 / 2) - 1 & 7 \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{operadores-relacionales-o-de-comparaciuxf3n}{%
@@ -1234,7 +1239,7 @@ Los operadores relacionales sirven para comparar dos valores de cualquier tipo y
   >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.0947}}
   >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2737}}@{}}
 \caption{\label{tab:op-rel} Operadores relacionales o de comparación.}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\centering
 Comparación
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -1246,9 +1251,9 @@ Ejemplo
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Rtdo para x \textless- 7, y \textless- 3
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\centering
 Comparación
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -1260,15 +1265,16 @@ Ejemplo
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Rtdo para x \textless- 7, y \textless- 3
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Mayor que & \textgreater{} & \textgreater{} & x \textgreater{} y & TRUE \\
 Menor que & \textless{} & \textless{} & x \textless{} y & FALSE \\
 Mayor o igual que & \textgreater= & \textgreater= & x \textgreater= y & TRUE \\
 Menor o igual que & \textless= & \textless= & x \textless= y & FALSE \\
 Igual a & = o == & == & x == y & FALSE \\
 Distinto a & ¬= o != & != & x != y & TRUE \\
-\bottomrule()
 \end{longtable}
 
 Otros ejemplos:
@@ -1334,7 +1340,7 @@ Mientras que los operadores relacionales comparan cualquier tipo de valores, los
   >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1023}}
   >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2955}}@{}}
 \caption{\label{tab:op-log} Operadores lógicos.}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\centering
 Operación
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -1346,9 +1352,9 @@ Ejemplo
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Rtdo para x \textless- T, y \textless- F
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\centering
 Operación
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -1360,12 +1366,13 @@ Ejemplo
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Rtdo para x \textless- T, y \textless- F
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Conjunción & Y & \&\& & x \&\& y & FALSE \\
 Disyunción & O & \textbar\textbar{} & x \textbar\textbar{} y & TRUE \\
 Negación & NO o ¬ & ! & !x & FALSE \\
-\bottomrule()
 \end{longtable}
 
 \begin{itemize}
@@ -1384,14 +1391,16 @@ La \textbf{tabla de verdad} o \textbf{tabla de valores de verdad} se utiliza par
 
 \begin{longtable}[]{@{}cccc@{}}
 \caption{\label{tab:verdad} Operadores relacionales o de comparación.}\tabularnewline
-\toprule()
+\toprule\noalign{}
 Valor 1 & Operador & Valor 2 & Resultado \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 Valor 1 & Operador & Valor 2 & Resultado \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 F & Y & F & F \\
 F & Y & V & F \\
 V & Y & F & F \\
@@ -1402,7 +1411,6 @@ V & O & F & V \\
 V & O & V & V \\
 & NO & F & V \\
 & NO & V & F \\
-\bottomrule()
 \end{longtable}
 
 Con estos operadores es posible construir evaluaciones lógicas más elaboradas como los siguientes ejemplos:
@@ -1644,14 +1652,16 @@ Resumiendo la información anterior, a continuación se presenta el orden comple
 
 \begin{longtable}[]{@{}ccc@{}}
 \caption{\label{tab:orden} Orden de precedencia de los operadores en R.}\tabularnewline
-\toprule()
+\toprule\noalign{}
 Orden & Operaciones & Operadores \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 Orden & Operaciones & Operadores \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 1 & Potenciación & \^{} \\
 2 & Signo de un número (ej: -3) & + - \\
 3 & División entera y resto & \%/\% \%\% \\
@@ -1662,7 +1672,6 @@ Orden & Operaciones & Operadores \\
 8 & Conjunción & \&\& \& \\
 9 & Disyunción & \textbar\textbar{} \textbar{} \\
 10 & Asignación (izquierda a derecha) & \textless- \\
-\bottomrule()
 \end{longtable}
 
 Dentro de una misma expresión, operadores con igual prioridad se evalúan de izquierda a derecha.
@@ -1738,7 +1747,7 @@ R siempre está mirando a alguna carpeta en particular dentro de la computadora,
 \end{Shaded}
 
 \begin{verbatim}
-[1] "/home/marcos/GitProjects/introprog"
+[1] "/home/marcos/git_repos/introprog"
 \end{verbatim}
 
 Esto quiere decir que R puede ver y acceder de manera directa a todos los archivos que hay allí, sin necesidad de escribir la ruta completa. Por ejemplo, si en lugar de ejecutar:
@@ -4060,7 +4069,7 @@ Un \textbf{arreglo} se define como una colección de valores individuales con do
 
 Los arreglos son muy útiles para almacenar información en la memoria de la computadora, organizando valores que estén relacionados entre sí de alguna manera, por ejemplo, una conjunto de precios, los meses del año, el listado de calificaciones de estudiantes en distintos parciales, etc.
 
-Los componentes individuales del conjunto se llaman \textbf{elementos}. Para indicar qué posición ocupa cada elemento en el arreglo se emplean uno o más \textbf{índices}. Dependiendo de cuántos índices se deban utilizar para acceder a cada elemento dentro de los arreglos, estos se clasifican en \textbf{unidmensionales} (\emph{vectores}) o \textbf{bidimensionales} (\emph{matrices}). También existen los arreglos \textbf{multidimensionales} y están presentados al final de este capítulo, pero como no trabajaremos la lectura de esa sección es opcional.
+Los componentes individuales del conjunto se llaman \textbf{elementos}. Para indicar qué posición ocupa cada elemento en el arreglo se emplean uno o más \textbf{índices}. Dependiendo de cuántos índices se deban utilizar para acceder a cada elemento dentro de los arreglos, estos se clasifican en \textbf{unidimensionales} (\emph{vectores}) o \textbf{bidimensionales} (\emph{matrices}). También existen los arreglos \textbf{multidimensionales} y están presentados al final de este capítulo, pero como no trabajaremos la lectura de esa sección es opcional.
 
 \hypertarget{arreglos-unidimensionales-o-vectores}{%
 \subsection{Arreglos unidimensionales o vectores}\label{arreglos-unidimensionales-o-vectores}}
@@ -4253,7 +4262,6 @@ Se pueden asignar valores a una, varias o todas las posiciones de un vector en c
 
 \begin{verbatim}
 VARIABLE numérica a(10)
-...algunas acciones...
 PARA i DESDE 1 HASTA LARGO(a) HACER
     SI i MOD 3 == 0 ENTONCES  
         a[i] <- i * 100
@@ -5483,7 +5491,7 @@ También podemos resumir la información contenida en una matriz:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 99
+[1] 94
 \end{verbatim}
 
 \begin{Shaded}
@@ -5495,7 +5503,7 @@ También podemos resumir la información contenida en una matriz:
 
 \begin{verbatim}
      row col
-[1,]   5   1
+[1,]   3   2
 \end{verbatim}
 
 \begin{Shaded}
@@ -5506,7 +5514,7 @@ También podemos resumir la información contenida en una matriz:
 \end{Shaded}
 
 \begin{verbatim}
-[1] 2
+[1] 1
 \end{verbatim}
 
 \begin{Shaded}
@@ -5518,7 +5526,7 @@ También podemos resumir la información contenida en una matriz:
 
 \begin{verbatim}
      row col
-[1,]   3   1
+[1,]   2   1
 \end{verbatim}
 \end{itemize}
 
@@ -5617,7 +5625,7 @@ Como aprenderán en Álgebra, las matrices numéricas son muy útiles en diverso
 \end{Shaded}
 
 \begin{verbatim}
-[1] 94 97 36 39
+[1] 59 44 73 64
 \end{verbatim}
 \end{itemize}
 
@@ -6956,7 +6964,7 @@ Este archivo tiene 80 registros, ya que son 80 países los que han disputado alg
   >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0704}}
   >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0704}}
   >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1268}}@{}}
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\centering
 seleccion
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -6976,14 +6984,15 @@ gc
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 titulos
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Brasil & América & 22 & 76 & 19 & 19 & 237 & 108 & 5 \\
 Alemania & Europa & 20 & 68 & 21 & 23 & 232 & 130 & 4 \\
 Argentina & América & 18 & 47 & 17 & 24 & 152 & 101 & 3 \\
 Italia & Europa & 18 & 45 & 21 & 17 & 128 & 77 & 4 \\
 Francia & Europe & 16 & 39 & 14 & 20 & 136 & 85 & 2 \\
-\bottomrule()
 \end{longtable}
 
 Un campo está caracterizado por el tipo de datos que almacena (carácter, numérico, lógico) y en algunos contextos es necesario precisar su longitud (por ejemplo, cantidad de caracteres admitidos como máximo en los datos del campo). Algunos lenguajes, como R, admiten trabajar con campos de longitud variable (sin necesidad de que sea especificada con anticipación).

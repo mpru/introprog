@@ -7,7 +7,7 @@
 <title>7 Otros tópicos | Introducción a la Programación</title>
 <meta name="author" content="Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.)">
 <meta name="description" content="Las reglas que aprendimos para escribir el pseudocódigo nos permiten traducir nuestros algoritmos a cualquier lenguaje de computación de manera muy general y sencilla. Sin embargo, cada lenguaje...">
-<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta name="generator" content="bookdown 0.39 with bs4_book()">
 <meta property="og:title" content="7 Otros tópicos | Introducción a la Programación">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Las reglas que aprendimos para escribir el pseudocódigo nos permiten traducir nuestros algoritmos a cualquier lenguaje de computación de manera muy general y sencilla. Sin embargo, cada lenguaje...">
@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="Las reglas que aprendimos para escribir el pseudocódigo nos permiten traducir nuestros algoritmos a cualquier lenguaje de computación de manera muy general y sencilla. Sin embargo, cada lenguaje...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.7.0/transition.js"></script><script src="libs/bs3compat-0.7.0/tabs.js"></script><script src="libs/bs3compat-0.7.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -265,7 +265,7 @@ Rscript resumen.R 05_05_22.txt</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nLos argumentos se toman como valores de tipo:\n"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">args</span><span class="op">)</span></span></code></pre></div>
 <p>Al ejecutarlo desde la línea de comandos con los argumentos “hola”, “chau” y “4” obtenemos:</p>
-<div class="sourceCode" id="cb784"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb784-1"><a href="otros-t%C3%B3picos.html#cb784-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo1.R hola chau 4</span></code></pre></div>
+<div class="sourceCode" id="cb784"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb784-1"><a href="otros-t%C3%B3picos.html#cb784-1" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo1.R hola chau 4</span></code></pre></div>
 <pre><code>Nos pasaron 3 argumentos.
 
 Los argumentos que nos pasaron son:
@@ -274,7 +274,7 @@ hola chau 4
 Los argumentos se toman como valores de tipo:
 [1] "character"</code></pre>
 <p>Si lo ejecutamos sin argumentos:</p>
-<div class="sourceCode" id="cb786"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb786-1"><a href="otros-t%C3%B3picos.html#cb786-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo1.R</span></code></pre></div>
+<div class="sourceCode" id="cb786"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb786-1"><a href="otros-t%C3%B3picos.html#cb786-1" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo1.R</span></code></pre></div>
 <pre><code>Nos pasaron 0 argumentos.
 
 Los argumentos que nos pasaron son:
@@ -296,13 +296,13 @@ Los argumentos se toman como valores de tipo:
 <span>    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"El argumento provisto debe ser igual a chiste o refran.\n"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p>Ejecutamos este archivo pasando distintos valores para su argumento:</p>
-<div class="sourceCode" id="cb789"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb789-1"><a href="otros-t%C3%B3picos.html#cb789-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo2.R refran</span></code></pre></div>
+<div class="sourceCode" id="cb789"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb789-1"><a href="otros-t%C3%B3picos.html#cb789-1" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo2.R refran</span></code></pre></div>
 <pre><code>No por mucho madrugar amanece más temprano.</code></pre>
-<div class="sourceCode" id="cb791"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb791-1"><a href="otros-t%C3%B3picos.html#cb791-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo2.R chiste</span></code></pre></div>
+<div class="sourceCode" id="cb791"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb791-1"><a href="otros-t%C3%B3picos.html#cb791-1" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo2.R chiste</span></code></pre></div>
 <pre><code>- Juan, cómo has cambiado.
 - Yo no soy Juan.
 - Más a mi favor.</code></pre>
-<div class="sourceCode" id="cb793"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb793-1"><a href="otros-t%C3%B3picos.html#cb793-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo2.R hola</span></code></pre></div>
+<div class="sourceCode" id="cb793"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb793-1"><a href="otros-t%C3%B3picos.html#cb793-1" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo2.R hola</span></code></pre></div>
 <pre><code>Error: El argumento provisto debe ser igual a chiste o refran.
 Execution halted</code></pre>
 <p>Podemos controlar la cantidad de argumentos admitidos generando errores en el código para aquellas situaciones donde el usuario envíe menos o más que la cantidad deseada. Por ejemplo, en el caso anterior, es obligatorio enviar uno y sólo un argumento:</p>
@@ -324,13 +324,13 @@ Execution halted</code></pre>
 <span>    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"El argumento provisto debe ser igual a chiste o refran.\n"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p>Veamos lo que pasa si cumplimos o no con la cantidad exacta de argumentos que hay que pasarle al código de R:</p>
-<div class="sourceCode" id="cb796"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb796-1"><a href="otros-t%C3%B3picos.html#cb796-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo3.R</span></code></pre></div>
+<div class="sourceCode" id="cb796"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb796-1"><a href="otros-t%C3%B3picos.html#cb796-1" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo3.R</span></code></pre></div>
 <pre><code>Error: Debe proveer exactamente un argumento, que debe ser igual a chiste o refran.
 Execution halted</code></pre>
-<div class="sourceCode" id="cb798"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb798-1"><a href="otros-t%C3%B3picos.html#cb798-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo3.R chiste refran</span></code></pre></div>
+<div class="sourceCode" id="cb798"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb798-1"><a href="otros-t%C3%B3picos.html#cb798-1" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo3.R chiste refran</span></code></pre></div>
 <pre><code>Error: Debe proveer exactamente un argumento, que debe ser igual a chiste o refran.
 Execution halted</code></pre>
-<div class="sourceCode" id="cb800"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb800-1"><a href="otros-t%C3%B3picos.html#cb800-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo3.R chiste</span></code></pre></div>
+<div class="sourceCode" id="cb800"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb800-1"><a href="otros-t%C3%B3picos.html#cb800-1" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo3.R chiste</span></code></pre></div>
 <pre><code>- Juan, cómo has cambiado.
 - Yo no soy Juan.
 - Más a mi favor.</code></pre>
@@ -368,7 +368,7 @@ Execution halted</code></pre>
 <span>    <span class="op">}</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p>Veamos ahora cómo funciona:</p>
-<div class="sourceCode" id="cb803"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb803-1"><a href="otros-t%C3%B3picos.html#cb803-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R refran 5</span></code></pre></div>
+<div class="sourceCode" id="cb803"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb803-1"><a href="otros-t%C3%B3picos.html#cb803-1" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R refran 5</span></code></pre></div>
 <pre><code>No por mucho madrugar amanece más temprano.
 
 No por mucho madrugar amanece más temprano.
@@ -378,7 +378,7 @@ No por mucho madrugar amanece más temprano.
 No por mucho madrugar amanece más temprano.
 
 No por mucho madrugar amanece más temprano.</code></pre>
-<div class="sourceCode" id="cb805"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb805-1"><a href="otros-t%C3%B3picos.html#cb805-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R chiste 3</span></code></pre></div>
+<div class="sourceCode" id="cb805"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb805-1"><a href="otros-t%C3%B3picos.html#cb805-1" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R chiste 3</span></code></pre></div>
 <pre><code>- Juan, cómo has cambiado.
 - Yo no soy Juan.
 - Más a mi favor.
@@ -390,9 +390,9 @@ No por mucho madrugar amanece más temprano.</code></pre>
 - Juan, cómo has cambiado.
 - Yo no soy Juan.
 - Más a mi favor.</code></pre>
-<div class="sourceCode" id="cb807"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb807-1"><a href="otros-t%C3%B3picos.html#cb807-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R refran</span></code></pre></div>
+<div class="sourceCode" id="cb807"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb807-1"><a href="otros-t%C3%B3picos.html#cb807-1" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R refran</span></code></pre></div>
 <pre><code>No por mucho madrugar amanece más temprano.</code></pre>
-<div class="sourceCode" id="cb809"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb809-1"><a href="otros-t%C3%B3picos.html#cb809-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R</span></code></pre></div>
+<div class="sourceCode" id="cb809"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb809-1"><a href="otros-t%C3%B3picos.html#cb809-1" tabindex="-1"></a><span class="ex">Rscript</span> ejemplo4.R</span></code></pre></div>
 <pre><code>Error: Debe proveer al menos un argumento (chiste o refran).
 Execution halted</code></pre>
 <p>Si querés probar estos ejemplos, podés crear los archivos de código mencionados copiando y pegando las instrucciones o descargarlos de <a href="https://github.com/mpru/introprog/tree/master/archivos">este enlace</a>.</p>
@@ -426,7 +426,7 @@ Execution halted</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2024-02-09.</p>
+    <p>"<strong>Introducción a la Programación</strong>: Guía de estudio - Lic. en Estadística - FCEyE - UNR" was written by Mgs. Lic. Marcos Prunello (Prof. Tit. Ord.). It was last built on 2024-04-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

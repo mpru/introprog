@@ -11,7 +11,7 @@ Un **arreglo** se define como una colección de valores individuales con dos car
 
 Los arreglos son muy útiles para almacenar información en la memoria de la computadora, organizando valores que estén relacionados entre sí de alguna manera, por ejemplo, una conjunto de precios, los meses del año, el listado de calificaciones de estudiantes en distintos parciales, etc.
 
-Los componentes individuales del conjunto se llaman **elementos**. Para indicar qué posición ocupa cada elemento en el arreglo se emplean uno o más **índices**. Dependiendo de cuántos índices se deban utilizar para acceder a cada elemento dentro de los arreglos, estos se clasifican en **unidmensionales** (*vectores*) o **bidimensionales** (*matrices*). También existen los arreglos **multidimensionales** y están presentados al final de este capítulo, pero como no trabajaremos la lectura de esa sección es opcional.
+Los componentes individuales del conjunto se llaman **elementos**. Para indicar qué posición ocupa cada elemento en el arreglo se emplean uno o más **índices**. Dependiendo de cuántos índices se deban utilizar para acceder a cada elemento dentro de los arreglos, estos se clasifican en **unidimensionales** (*vectores*) o **bidimensionales** (*matrices*). También existen los arreglos **multidimensionales** y están presentados al final de este capítulo, pero como no trabajaremos la lectura de esa sección es opcional.
 
 ### Arreglos unidimensionales o vectores
 
@@ -123,7 +123,6 @@ Se pueden asignar valores a una, varias o todas las posiciones de un vector en c
 
 ```
 VARIABLE numérica a(10)
-...algunas acciones...
 PARA i DESDE 1 HASTA LARGO(a) HACER
 	SI i MOD 3 == 0 ENTONCES  
 		a[i] <- i * 100
